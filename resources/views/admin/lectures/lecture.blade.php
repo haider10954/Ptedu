@@ -25,6 +25,7 @@
         border-radius: 2px;
         height: 28px;
         padding: 5px 15px 5px 15px;
+        color: black;
     }
 
     .hr-color {
