@@ -1,3 +1,14 @@
+<style>
+    .menu {
+        display: none;
+    }
+
+    @media screen and (max-width: 480px) {
+        .menu {
+            display: block;
+        }
+    }
+</style>
 <header id="page-topbar">
     <div class="navbar-header" id="header">
         <div class="d-flex">
@@ -13,7 +24,7 @@
                 </a>
             </div>
 
-            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect" id="vertical-menu-btn">
+            <button type="button" class="btn btn-sm px-3 font-size-16 header-item waves-effect menu" id="vertical-menu-btn">
                 <i class="bi bi-list" style="font-size: 1.75rem !important; font-weight: bold !important; color: black;"></i>
             </button>
         </div>
