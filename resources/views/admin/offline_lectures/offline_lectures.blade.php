@@ -107,30 +107,99 @@
                 <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">Waiting No</td>
-                            <td class="align-middle t_header">Name </td>
-                            <td class="align-middle t_header">Email</th>
-                            <td class="align-middle t_header">Phone Number</td>
-                            <td class="align-middle t_header">Course List</th>
-                            <td class="align-middle t_header">Confirm/Delete</td>
+                            <td class="align-middle t_header">번호</td>
+                            <td class="align-middle t_header">강좌 제목 </td>
+                            <td class="align-middle t_header">카테고리</th>
+                            <td class="align-middle t_header">레슨/구분</td>
+                            <td class="align-middle t_header">신청자 수</th>
+                            <td class="align-middle t_header">대기자</td>
+                            <td class="align-middle t_header">관리</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>
-                                <span class="course_name">홍길동</span> <br />
-                            </td>
-                            <td><span class="course_name">ash123@naver.com</span></td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td><span class="course_name">보행 A에서 Z까지</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('waiting_list') }}" class="btn btn-sm btn-primary">예약관리</a>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <span class="course_name">보행 A에서 Z까지</span> <br />
+                            <span class="tutor_name">조규행</span>
+                        </td>
+                        <td><span class="course_name">Physical Teraphy</span></td>
+                        <td><span class="course_name">오프라인</span></td>
+                        <td><span class="course_name">20</span></td>
+                        <td><span class="course_name">4</span></td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <a href="{{ route('waiting_list')}}" class="btn btn-sm btn-primary">예약관리</a>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <span class="course_name">보행 A에서 Z까지</span> <br />
+                            <span class="tutor_name">조규행</span>
+                        </td>
+                        <td><span class="course_name">Physical Teraphy</span></td>
+                        <td><span class="course_name">오프라인</span></td>
+                        <td><span class="course_name">20</span></td>
+                        <td><span class="course_name">4</span></td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-primary">예약관리</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <span class="course_name">보행 A에서 Z까지</span> <br />
+                            <span class="tutor_name">조규행</span>
+                        </td>
+                        <td><span class="course_name">Physical Teraphy</span></td>
+                        <td><span class="course_name">오프라인</span></td>
+                        <td><span class="course_name">20</span></td>
+                        <td><span class="course_name">4</span></td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-primary">예약관리</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <span class="course_name">보행 A에서 Z까지</span> <br />
+                            <span class="tutor_name">조규행</span>
+                        </td>
+                        <td><span class="course_name">Physical Teraphy</span></td>
+                        <td><span class="course_name">오프라인</span></td>
+                        <td><span class="course_name">20</span></td>
+                        <td><span class="course_name">4</span></td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-primary">예약관리</button>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <span class="course_name">보행 A에서 Z까지</span> <br />
+                            <span class="tutor_name">조규행</span>
+                        </td>
+                        <td><span class="course_name">Physical Teraphy</span></td>
+                        <td><span class="course_name">오프라인</span></td>
+                        <td><span class="course_name">20</span></td>
+                        <td><span class="course_name">4</span></td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <button class="btn btn-sm btn-primary">예약관리</button>
+                            </div>
+                        </td>
+                    </tr>
                 </table>
 
                 <div class="paginate mt-4 mb-3">
