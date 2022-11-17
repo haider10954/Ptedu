@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{ route('offline_lectures')}}" class="waves-effect">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon2.png')}}">
                         </i>

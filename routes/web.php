@@ -19,4 +19,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/lectures', function () {
         return view('admin.lectures.lecture');
     })->name('lectures');
+
+    Route::get('/offline-lectures', function () {
+        return view('admin.offline_lectures.offline_lectures');
+    })->name('offline_lectures');
 });
