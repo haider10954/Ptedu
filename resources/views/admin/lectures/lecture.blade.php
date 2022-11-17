@@ -100,8 +100,8 @@
                 </div>
                 <hr class="hr-color" />
             </div>
-            <div class="col-lg-12">
-                <table class="table align-middle table-nowrap mb-0 table-responsive  border-white" id="myTable">
+            <div class="col-lg-12 table-responsive">
+                <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
                     <thead>
                         <tr>
                             <td class="align-middle t_header">No</td>
