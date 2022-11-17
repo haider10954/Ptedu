@@ -57,6 +57,8 @@
         background: #E8F9DF;
         border-radius: 2px;
         color: #64C330;
+        height: 19px;
+        width: 62px;
     }
 
     .paginate {
@@ -86,6 +88,10 @@
     .page_navigate_btn {
         color: #000000 !important;
     }
+
+    tbody>tr:nth-child(odd) {
+        background-color: rgba(242, 243, 250, 0.8);
+    }
 </style>
 @endsection
 
@@ -102,7 +108,7 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-lg-12 table-responsive">
-                <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
+                <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
                     <thead>
                         <tr>
                             <td class="align-middle t_header">No</td>
