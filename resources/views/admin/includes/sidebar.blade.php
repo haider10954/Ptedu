@@ -49,7 +49,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="">
+                    <a href="{{ route('student')}}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon4.png')}}">
                         </i>

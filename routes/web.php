@@ -35,4 +35,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/review-management', function () {
         return view('admin.review_management.review_management');
     })->name('reviews');
+
+    Route::get('/student-list', function () {
+        return view('admin.student.student_list');
+    })->name('student');
 });
