@@ -11,6 +11,15 @@
 <!-- dashboard init -->
 <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
 
+<!-- CK_EDITOR -->
+<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
+
+<script>
+    CKEDITOR.replace('description', {
+
+    });
+</script>
+
 <!-- App js -->
 <script src="{{ asset('assets/js/app.js') }}"></script>
 

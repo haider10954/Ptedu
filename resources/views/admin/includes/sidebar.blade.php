@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="{{ route('reviews')}}" class="waves-effect">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon3.png')}}">
                         </i>

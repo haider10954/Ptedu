@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Lecture list')
+@section('title' , 'Review Management')
 
 @section('custom-style')
 <style>
@@ -9,23 +9,6 @@
         font-weight: 500 !important;
         color: black;
         text-transform: capitalize !important;
-    }
-
-    .btn-add-lecture {
-        background: #FFFFFF;
-        border: 0.8px solid rgba(161, 172, 184, 0.5);
-        border-radius: 2px;
-        height: 28px;
-        padding: 5px 15px 5px 15px;
-    }
-
-    .btn-add-lecture:hover {
-        background: #FFFFFF;
-        border: 0.8px solid rgba(161, 172, 184, 0.5);
-        border-radius: 2px;
-        height: 28px;
-        padding: 5px 15px 5px 15px;
-        color: black;
     }
 
     .hr-color {
@@ -51,14 +34,6 @@
         font-size: 13px;
         line-height: 15px;
         color: #9E9E9E;
-    }
-
-    .status-badge {
-        background: #E8F9DF;
-        border-radius: 2px;
-        color: #64C330;
-        height: 19px;
-        width: 62px;
     }
 
     .paginate {
@@ -102,8 +77,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Lecture List (80)</h4>
-                    <a class="btn btn-add-lecture" href="{{ route('add_lectures')}}">Add Lecture</a>
+                    <h4 class="mb-sm-0  Card_title">Review Management (80)</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -112,11 +86,11 @@
                     <thead>
                         <tr>
                             <td class="align-middle t_header">No</td>
-                            <td class="align-middle t_header">Course Name</td>
-                            <td class="align-middle t_header">Category</th>
-                            <td class="align-middle t_header">Number of Student</td>
-                            <td class="align-middle t_header">Open Status</th>
-                            <td class="align-middle t_header">Price</td>
+                            <td class="align-middle t_header">Date</td>
+                            <td class="align-middle t_header">Course Name</th>
+                            <td class="align-middle t_header">Score</td>
+                            <td class="align-middle t_header">Writer</th>
+                            <td class="align-middle t_header">Contents</td>
                             <td class="align-middle t_header">Action</td>
                         </tr>
                     </thead>
@@ -124,13 +98,16 @@
                         <tr>
                             <td>1</td>
                             <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
+                                <span class="course_name">2022 - 10 - 13</span>
                             </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
+                            <td>
+                                <span class="course_name">보행 A에서 Z까지</span>
+                                <br />
+                                <span class="tutor_name">조규행</span>
+                            </td>
+                            <td><span class="course_name">5.0</span></td>
+                            <td><span class="course_name">홍길동</span></td>
+                            <td><span class="course_name">믿고 들을 수 있는 강의라 생각되어...</span></td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
@@ -142,13 +119,16 @@
                         <tr>
                             <td>2</td>
                             <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
+                                <span class="course_name">2022 - 10 - 13</span>
                             </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
+                            <td>
+                                <span class="course_name">보행 A에서 Z까지</span>
+                                <br />
+                                <span class="tutor_name">조규행</span>
+                            </td>
+                            <td><span class="course_name">5.0</span></td>
+                            <td><span class="course_name">홍길동</span></td>
+                            <td><span class="course_name">믿고 들을 수 있는 강의라 생각되어...</span></td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
@@ -160,13 +140,16 @@
                         <tr>
                             <td>3</td>
                             <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
+                                <span class="course_name">2022 - 10 - 13</span>
                             </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
+                            <td>
+                                <span class="course_name">보행 A에서 Z까지</span>
+                                <br />
+                                <span class="tutor_name">조규행</span>
+                            </td>
+                            <td><span class="course_name">5.0</span></td>
+                            <td><span class="course_name">홍길동</span></td>
+                            <td><span class="course_name">믿고 들을 수 있는 강의라 생각되어...</span></td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
@@ -178,13 +161,16 @@
                         <tr>
                             <td>4</td>
                             <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
+                                <span class="course_name">2022 - 10 - 13</span>
                             </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
+                            <td>
+                                <span class="course_name">보행 A에서 Z까지</span>
+                                <br />
+                                <span class="tutor_name">조규행</span>
+                            </td>
+                            <td><span class="course_name">5.0</span></td>
+                            <td><span class="course_name">홍길동</span></td>
+                            <td><span class="course_name">믿고 들을 수 있는 강의라 생각되어...</span></td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
@@ -196,13 +182,16 @@
                         <tr>
                             <td>5</td>
                             <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
+                                <span class="course_name">2022 - 10 - 13</span>
                             </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
+                            <td>
+                                <span class="course_name">보행 A에서 Z까지</span>
+                                <br />
+                                <span class="tutor_name">조규행</span>
+                            </td>
+                            <td><span class="course_name">5.0</span></td>
+                            <td><span class="course_name">홍길동</span></td>
+                            <td><span class="course_name">믿고 들을 수 있는 강의라 생각되어...</span></td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
@@ -214,13 +203,16 @@
                         <tr>
                             <td>6</td>
                             <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
+                                <span class="course_name">2022 - 10 - 13</span>
                             </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
+                            <td>
+                                <span class="course_name">보행 A에서 Z까지</span>
+                                <br />
+                                <span class="tutor_name">조규행</span>
+                            </td>
+                            <td><span class="course_name">5.0</span></td>
+                            <td><span class="course_name">홍길동</span></td>
+                            <td><span class="course_name">믿고 들을 수 있는 강의라 생각되어...</span></td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>

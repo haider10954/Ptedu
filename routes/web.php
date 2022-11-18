@@ -20,6 +20,10 @@ Route::prefix('admin')->group(function () {
         return view('admin.lectures.lecture');
     })->name('lectures');
 
+    Route::get('/lectures/add', function () {
+        return view('admin.lectures.add_lecture');
+    })->name('add_lectures');
+
     Route::get('/offline-lectures', function () {
         return view('admin.offline_lectures.offline_lectures');
     })->name('offline_lectures');
@@ -28,5 +32,7 @@ Route::prefix('admin')->group(function () {
         return view('admin.offline_lectures.waiting_listing');
     })->name('waiting_list');
 
-
+    Route::get('/review-management', function () {
+        return view('admin.review_management.review_management');
+    })->name('reviews');
 });
