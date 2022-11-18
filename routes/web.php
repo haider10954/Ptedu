@@ -40,15 +40,43 @@ Route::prefix('admin')->group(function () {
         return view('admin.student.student_list');
     })->name('student');
 
-    Route::get('/student--info' , function() {
+    Route::get('/student--info', function () {
         return view('admin.student.student_info');
     })->name('student_info');
 
-    Route::get('/tutor', function(){
-        return view ('admin.tutor.tutor');
+    Route::get('/tutor', function () {
+        return view('admin.tutor.tutor');
     })->name('tutor');
 
-    Route::get('/tutor/add', function(){
-        return view ('admin.tutor.add_tutor');
+    Route::get('/tutor/add', function () {
+        return view('admin.tutor.add_tutor');
     })->name('add_tutor');
+
+    Route::get('/payment', function () {
+        return view('admin.payment.payment');
+    })->name('payment');
+
+    Route::get('/payment/view_payment', function () {
+        return view('admin.payment.view_payment');
+    })->name('view_payment');
+
+    Route::get('/inquiry', function () {
+        return view('admin.inquiry.inquiry');
+    })->name('inquiry');
+
+    Route::get('/inquiry/answer', function () {
+        return view('admin.inquiry.answer');
+    })->name('inquiry_answer');
+
+    Route::get('/certificate', function () {
+        return view('admin.certificate.completed_student');
+    })->name('certificate');
+
+    Route::get('/certificate/add', function () {
+        return view('admin.certificate.add_certificate');
+    })->name('add_certificate');
+
+    Route::get('/certificate/generate' , function(){
+        return view('admin.certificate.certificate');
+    })->name('generate_certificate');
 });

@@ -71,7 +71,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="">
+                    <a href="{{ route('payment') }}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon6.png')}}">
                         </i>
@@ -82,7 +82,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="">
+                    <a href="{{ route('inquiry') }}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon7.png')}}">
                         </i>
@@ -93,7 +93,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="">
+                    <a href="{{ route('certificate') }}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon8.png')}}">
                         </i>
