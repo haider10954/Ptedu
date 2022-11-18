@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Student Information')
+@section('title' , 'Tutor Information')
 
 @section('custom-style')
 <style>
@@ -104,45 +104,45 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-firstname-input" name="name">
+                            <input type="text" class="form-control" id="horizontal-firstname-input" name="name" placeholder="Enter Name">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">English Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-email-input" name="en_name">
+                            <input type="text" class="form-control" id="horizontal-email-input" name="en_name" placeholder="Enter English name">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">ID(Email)</label>
+                        <label class="col-sm-2 col-form-label lecture-form">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="horizontal-password-input" name="email">
+                            <input type="email" class="form-control" id="horizontal-password-input" name="email" placeholder="Enter email">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Phone Number</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-email-input" name="phone_numberx">
+                            <input type="text" class="form-control" id="horizontal-email-input" name="phone_number" placeholder="Enter Mobile Number">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Job</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="job"></input>
+                            <input type="text" class="form-control" name="job" placeholder="Enter Job"></input>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Course Title</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="course_title" placeholder="Enter course title"></input>
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Address</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="address"></input>
-                        </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Affiliation</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="affiliation"></input>
+                            <input type="text" class="form-control" name="address" placeholder="Enter Address"></input>
                         </div>
                     </div>
 

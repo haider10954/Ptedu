@@ -43,4 +43,12 @@ Route::prefix('admin')->group(function () {
     Route::get('/student--info' , function() {
         return view('admin.student.student_info');
     })->name('student_info');
+
+    Route::get('/tutor', function(){
+        return view ('admin.tutor.tutor');
+    })->name('tutor');
+
+    Route::get('/tutor/add', function(){
+        return view ('admin.tutor.add_tutor');
+    })->name('add_tutor');
 });

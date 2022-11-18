@@ -60,7 +60,7 @@
 
 
                 <li>
-                    <a href="javascript: void(0);" class="">
+                    <a href="{{ route('tutor') }}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon5.png')}}">
                         </i>
