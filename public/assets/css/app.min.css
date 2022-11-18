@@ -859,11 +859,11 @@ body[data-sidebar=dark] .vertical-menu {
 }
 
 body[data-sidebar=dark] #sidebar-menu ul li a {
-    color: #000000
+    color: #6F6F6F
 }
 
 body[data-sidebar=dark] #sidebar-menu ul li a i {
-    color: #000000
+    color: #6F6F6F
 }
 
 body[data-sidebar=dark] #sidebar-menu ul li a:hover {

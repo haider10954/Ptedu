@@ -18,7 +18,7 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li>
-                    <a href="{{ route('lectures') }}" class="waves-effect">
+                    <a href="{{ route('lectures') }}" class="">
                         <div></div>
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon1.png')}}">
@@ -29,7 +29,7 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('offline_lectures')}}" class="waves-effect">
+                    <a href="{{ route('offline_lectures')}}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon2.png')}}">
                         </i>
@@ -38,7 +38,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('reviews')}}" class="waves-effect">
+                    <a href="{{ route('reviews')}}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon3.png')}}">
                         </i>
@@ -49,7 +49,7 @@
                 </li>
 
                 <li>
-                    <a href="#" class="waves-effect">
+                    <a href="#" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon4.png')}}">
                         </i>
@@ -60,7 +60,7 @@
 
 
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="javascript: void(0);" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon5.png')}}">
                         </i>
@@ -71,7 +71,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="javascript: void(0);" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon6.png')}}">
                         </i>
@@ -82,7 +82,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="javascript: void(0);" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon7.png')}}">
                         </i>
@@ -93,7 +93,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="javascript: void(0);" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon8.png')}}">
                         </i>
@@ -103,7 +103,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="javascript: void(0);" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon9.png')}}">
                         </i>
@@ -114,7 +114,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="waves-effect">
+                    <a href="javascript: void(0);" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon10.png')}}">
                         </i>
