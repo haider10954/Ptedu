@@ -39,4 +39,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/student-list', function () {
         return view('admin.student.student_list');
     })->name('student');
+
+    Route::get('/student--info' , function() {
+        return view('admin.student.student_info');
+    })->name('student_info');
 });

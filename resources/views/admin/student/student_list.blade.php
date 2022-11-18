@@ -118,10 +118,9 @@
                                     </ul>
                                 </span>
                             </td>
-                            <td><span class="course_name">홍길동</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
                                     <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
@@ -145,10 +144,9 @@
                                     </ul>
                                 </span>
                             </td>
-                            <td><span class="course_name">홍길동</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
                                     <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
@@ -172,10 +170,9 @@
                                     </ul>
                                 </span>
                             </td>
-                            <td><span class="course_name">홍길동</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
                                     <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
@@ -199,10 +196,9 @@
                                     </ul>
                                 </span>
                             </td>
-                            <td><span class="course_name">홍길동</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
                                     <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
@@ -226,10 +222,9 @@
                                     </ul>
                                 </span>
                             </td>
-                            <td><span class="course_name">홍길동</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
                                     <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
@@ -253,10 +248,9 @@
                                     </ul>
                                 </span>
                             </td>
-                            <td><span class="course_name">홍길동</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
                                     <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
