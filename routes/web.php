@@ -76,7 +76,15 @@ Route::prefix('admin')->group(function () {
         return view('admin.certificate.add_certificate');
     })->name('add_certificate');
 
-    Route::get('/certificate/generate' , function(){
+    Route::get('/certificate/generate', function () {
         return view('admin.certificate.certificate');
     })->name('generate_certificate');
+
+    Route::get('/notice', function () {
+        return view('admin.notice.notice');
+    })->name('notice');
+
+    Route::get('/notice/add', function () {
+        return view('admin.notice.add_notice');
+    })->name('add_notice');
 });
