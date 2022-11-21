@@ -87,4 +87,13 @@ Route::prefix('admin')->group(function () {
     Route::get('/notice/add', function () {
         return view('admin.notice.add_notice');
     })->name('add_notice');
+
+
+    Route::get('/faqs', function () {
+        return view('admin.faqs.faqs');
+    })->name('faqs');
+
+    Route::get('/faqs/add', function () {
+        return view('admin.faqs.add_faqs');
+    })->name('add_faqs');
 });

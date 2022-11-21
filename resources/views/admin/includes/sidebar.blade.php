@@ -114,7 +114,7 @@
                 </li>
 
                 <li>
-                    <a href="javascript: void(0);" class="">
+                    <a href="{{ route('faqs') }}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon10.png')}}">
                         </i>

@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'FAQS')
+@section('title' , 'Notice')
 
 @section('custom-style')
 <style>
@@ -127,7 +127,7 @@
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('add_notice')  }}"><i class="bi bi-pencil"></i></a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('add_faqs')  }}"><i class="bi bi-pencil"></i></a>
                                     <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
