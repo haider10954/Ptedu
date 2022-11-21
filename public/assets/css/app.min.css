@@ -920,11 +920,11 @@ body[data-sidebar=dark] .mm-active {
 }
 
 body[data-sidebar=dark] .mm-active>a {
-    color: #fff !important
+    color: black !important
 }
 
 body[data-sidebar=dark] .mm-active>a i {
-    color: #fff !important
+    color: black !important
 }
 
 body[data-sidebar=dark] .mm-active>i {
