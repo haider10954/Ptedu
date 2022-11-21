@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Notice')
+@section('title' , 'Faqs')
 
 @section('custom-style')
 <style>
