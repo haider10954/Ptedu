@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\AuthController;
+use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,14 +31,14 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
 
-        Route::get('/category', function () {
-            return view('admin.category.category');
-        })->name('category');
-
+        Route::get('/category', [CategoryController::class, 'category_listing'])->name('category');
 
         Route::get('/category/add', function () {
             return view('admin.category.add_category');
         })->name('add_category');
+
+        Route::post('/add-category', [CategoryController::class, 'add_category'])->name('add-category');
+
 
         Route::get('/lectures', function () {
             return view('admin.lectures.lecture');

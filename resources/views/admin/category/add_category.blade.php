@@ -23,11 +23,18 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form>
+                <form method="POST" action="{{ route('add-category') }}">
+                    @csrf
+                    @if (Session::has('msg'))
+                    <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
+                    @endif
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Category Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="Enter Category name" name="category_name">
+                            <input type="text" class="form-control" placeholder="Enter Category name" name="category_name">
+                            @error('category_name')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">

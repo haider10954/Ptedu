@@ -117,10 +117,11 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach ($category as $cat)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $loop-> index + 1 }}</td>
                             <td>
-                                <span class="course_name">Course Name </span> <br />
+                                <span class="course_name">{{ $cat->name }}</span> <br />
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
@@ -129,6 +130,7 @@
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
                     </tbody>
                 </table>
 
