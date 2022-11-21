@@ -96,4 +96,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/faqs/add', function () {
         return view('admin.faqs.add_faqs');
     })->name('add_faqs');
+
+    Route::get('/settings', function () {
+        return view('admin.settings.settings');
+    })->name('settings');
 });
