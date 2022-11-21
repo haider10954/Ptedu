@@ -28,5 +28,17 @@
                 <i class="bi bi-list" style="font-size: 1.75rem !important; font-weight: bold !important; color: black;"></i>
             </button>
         </div>
+
+        <div class="d-flex">
+            <div class="dropdown d-inline-block">
+                <button type="button" class="btn header-item waves-effect position-relative" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
+                    <div class="status"></div>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item text-danger" href="{{ route('admin_auth_logout') }}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                </div>
+            </div>
+        </div>
     </div>
 </header>
