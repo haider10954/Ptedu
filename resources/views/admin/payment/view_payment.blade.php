@@ -47,6 +47,20 @@
     .payment_info_border {
         border-bottom: 1px solid #DFE0EB;
     }
+
+    tbody tr {
+        border-bottom: 1px solid #DFE0EB;
+    }
+
+    .td-left {
+        background-color: rgba(242, 243, 250, 0.8) !important;
+        line-height: 23px;
+        width: 15%;
+    }
+
+    .table-border-c {
+        border-bottom: 2px solid #000000;
+    }
 </style>
 
 @endsection
@@ -123,6 +137,38 @@
                     <h4 class="mb-sm-0  Card_title">Payment Information</h4>
                 </div>
                 <hr class="divider" />
+                <table class="table table-border-c">
+                    <tbody>
+                        <tr>
+                            <td class="td-left">Payment No</td>
+                            <td>A54312388 </td>
+                        </tr>
+                        <tr>
+                            <td class="td-left">Payment Date</td>
+                            <td>2022 - 10 - 13</td>
+                        </tr>
+                        <tr>
+                            <td class="td-left">Method Payment</td>
+                            <td>a deposit without a bankbook</td>
+                        </tr>
+                        <tr>
+                            <td class="td-left">Payment Price</td>
+                            <td>300,000 원</td>
+                        </tr>
+                        <tr>
+                            <td class="td-left">Payment Status</td>
+                            <td>Payment success</td>
+                        </tr>
+                        <tr>
+                            <td class="td-left">Virtual Account number</td>
+                            <td> Hana Bank 801100-00-000000</td>
+                        </tr>
+                        <tr>
+                            <td class="td-left">Cash receipt number</td>
+                            <td>개인 010-0000-0000 </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
