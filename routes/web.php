@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->group(function () {
 
+    Route::get('/login', function () {
+        return view('admin.login.login');
+    })->name('admin_login');
+
     Route::get('/lectures', function () {
         return view('admin.lectures.lecture');
     })->name('lectures');
