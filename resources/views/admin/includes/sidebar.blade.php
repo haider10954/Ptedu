@@ -17,6 +17,17 @@
         <div id="sidebar-menu">
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
+
+                <li>
+                    <a href="{{ route('category') }}" class="">
+                        <div></div>
+                        <i>
+                            <img class="bx me-2" src="{{ asset('assets/images/icons/icon1.png')}}">
+                        </i>
+                        <span key="t-dashboards">Category</span>
+                        <i class="bi bi-chevron-right right-icon"></i>
+                    </a>
+                </li>
                 <li>
                     <a href="{{ route('lectures') }}" class="">
                         <div></div>

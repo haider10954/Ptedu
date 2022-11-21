@@ -30,6 +30,15 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
 
+        Route::get('/category', function () {
+            return view('admin.category.category');
+        })->name('category');
+
+
+        Route::get('/category/add', function () {
+            return view('admin.category.add_category');
+        })->name('add_category');
+
         Route::get('/lectures', function () {
             return view('admin.lectures.lecture');
         })->name('lectures');
