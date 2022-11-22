@@ -121,16 +121,18 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if($course->count() > 0)
+                        @foreach ($course as $c)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $loop-> index + 1 }}</td>
                             <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
+                                <span class="course_name">{{ $c->course_title }}</span> <br />
+                                <span class="tutor_name"> {{ $c->getTutorName->name }}</span>
                             </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
+                            <td><span class="course_name">{{ $c->getCategoryName->name}}</span></td>
                             <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
+                            <td><span class="badge status-badge p-1">Fail</span></td>
+                            <td><span class="course_name">{{ $c->price }} 원</span></td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
@@ -138,96 +140,12 @@
                                 </div>
                             </td>
                         </tr>
-
+                        @endforeach
+                        @else
                         <tr>
-                            <td>2</td>
-                            <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
-                            </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
+                            <td colspan="8" class="text-center">No Record Found</td>
                         </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
-                            </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
-                            </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
-                            </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>6</td>
-                            <td>
-                                <span class="course_name">Course Name </span> <br />
-                                <span class="tutor_name">Tutor Name </span>
-                            </td>
-                            <td><span class="course_name">Physical Teraphy</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Open</span></td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        @endif
                     </tbody>
                 </table>
 
