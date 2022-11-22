@@ -29,12 +29,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('lectures') }}" class="">
+                    <a href="{{ route('course') }}" class="">
                         <div></div>
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon1.png')}}">
                         </i>
-                        <span key="t-dashboards">Lecture List</span>
+                        <span key="t-dashboards">Course List</span>
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
                 </li>

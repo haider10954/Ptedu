@@ -42,12 +42,12 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit_category', [CategoryController::class, 'edit_category'])->name('edit-category');
         //End Category
 
-        Route::get('/lectures', function () {
-            return view('admin.lectures.lecture');
-        })->name('lectures');
+        Route::get('/courses', function () {
+            return view('admin.courses.course');
+        })->name('course');
 
-        Route::get('/lectures/add', function () {
-            return view('admin.lectures.add_lecture');
+        Route::get('/course/add', function () {
+            return view('admin.courses.add_course');
         })->name('add_lectures');
 
         Route::get('/offline-lectures', function () {
