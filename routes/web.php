@@ -31,14 +31,16 @@ Route::prefix('admin')->group(function () {
 
     Route::middleware('auth:admin')->group(function () {
 
+        //Categories
         Route::get('/category', [CategoryController::class, 'category_listing'])->name('category');
-
         Route::get('/category/add', function () {
             return view('admin.category.add_category');
         })->name('add_category');
-
         Route::post('/add-category', [CategoryController::class, 'add_category'])->name('add-category');
-
+        Route::post('/delete-category', [CategoryController::class, 'delete_category'])->name('delete-category');
+        Route::get('/edit-category/{id}', [CategoryController::class, 'edit_category_view'])->name('edit_category');
+        Route::post('/edit_category', [CategoryController::class, 'edit_category'])->name('edit-category');
+        //End Category
 
         Route::get('/lectures', function () {
             return view('admin.lectures.lecture');
