@@ -4,6 +4,9 @@ use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\user\IndexController;
+use App\Http\Controllers\user\LectureController;
+use App\Http\Controllers\user\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +18,16 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Main site routes start
+
+Route::get('/',[IndexController::class,'index'])->name('home');
+Route::get('/offline-lectures',[LectureController::class,'offline_lectures'])->name('offline_lectures');
+Route::get('/lecture-detail',[LectureController::class,'lecture_detail'])->name('lecture_detail');
+Route::get('/review',[ReviewController::class,'review'])->name('review');
+Route::get('/notice',[IndexController::class,'notice'])->name('notice');
+
+// Main site routes end
 
 Route::get('/admin-logout', [AuthController::class, 'logout'])->name('admin_auth_logout');
 
