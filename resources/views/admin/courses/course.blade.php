@@ -99,10 +99,18 @@
 
 <div class="card">
     <div class="card-body">
+        <div>
+            @if (Session::has('msg'))
+            <p class="alert alert-info" id="responseMessage">{{ Session::get('msg') }}</p>
+            @endif
+            @if (Session::has('error'))
+            <p class="alert alert-danger" id="responseMessage">{{ Session::get('error') }}</p>
+            @endif
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Course List (80)</h4>
+                    <h4 class="mb-sm-0  Card_title">Course List ({{ $course->count() }})</h4>
                     <a class="btn btn-add-lecture" href="{{ route('add_lectures')}}">Add Course</a>
                 </div>
                 <hr class="hr-color" />
@@ -136,7 +144,7 @@
                             <td>
                                 <div class="d-flex gap-1">
                                     <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                    <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $c->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -163,4 +171,47 @@
     </div>
 </div>
 
+<!-- Delete Record -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="{{ route('delete-course')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <p>Are you sure to delete ?</p>
+                        <input id="del_id" type="hidden" name="id">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+@section('custom-script')
+<script>
+    var delModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+
+    function delete_record(id) {
+        $('#del_id').val(id);
+        delModal.show();
+    }
+
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+</script>
 @endsection

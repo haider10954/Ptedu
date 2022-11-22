@@ -12,7 +12,7 @@ class CourseController extends Controller
 {
     public function course_listing()
     {
-        $course = Course::get();
+        $course = Course::paginate(3);
         return view('admin.courses.course', compact('course'));
     }
 
@@ -96,6 +96,16 @@ class CourseController extends Controller
                 'success' => false,
                 'message' => 'Something went wrong Please try again.'
             ]);
+        }
+    }
+
+    public function delete_course(Request $request)
+    {
+        $course = Course::where('id', $request['id'])->delete();
+        if ($course) {
+            return redirect()->back()->with('msg', 'Course has been deleted Successfully');
+        } else {
+            return redirect()->back()->with('error', 'Something went wrong Please try again.');
         }
     }
 }

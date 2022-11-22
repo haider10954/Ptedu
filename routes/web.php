@@ -48,6 +48,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/courses', [CourseController::class, 'course_listing'])->name('course');
         Route::get('/course/add', [CourseController::class, 'add_course_view'])->name('add_lectures');
         Route::post('/add-course', [CourseController::class, 'add_course'])->name('add-course');
+        Route::post('/delete-course', [CourseController::class, 'delete_course'])->name('delete-course');
 
         Route::get('/online-courses', function () {
             return view('admin.online_lectures.online_lecture');
