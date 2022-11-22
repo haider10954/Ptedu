@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Tutor Information')
+@section('title' , 'Edit Tutor Information')
 
 @section('custom-style')
 <style>
@@ -95,20 +95,21 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Tutors Info Detail</h4>
+                    <h4 class="mb-sm-0  Card_title">Edit Tutor Detail</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form method="POST" action="{{ route('add-tutor') }}">
+                <form method="POST" action="{{ route('edit-tutor') }}">
                     @csrf
                     @if (Session::has('msg'))
                     <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
                     @endif
+                    <input type="hidden" name="id" value="{{ $tutor->id }}" />
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                            <input type="text" class="form-control" name="name" placeholder="Enter Name" value="{{ $tutor->name }}">
                             @error('name')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -117,7 +118,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">English Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="en_name" placeholder="Enter English name">
+                            <input type="text" class="form-control" name="en_name" placeholder="Enter English name" value="{{ $tutor->english_name }}">
                             @error('en_name')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -126,7 +127,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Email</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" name="email" placeholder="Enter email">
+                            <input type="email" class="form-control" name="email" placeholder="Enter email" value="{{ $tutor->email }}">
                             @error('email')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -135,7 +136,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Phone Number</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="phone_number" placeholder="Enter Mobile Number">
+                            <input type="text" class="form-control" name="phone_number" placeholder="Enter Mobile Number" value="{{ $tutor->mobile_number }}">
                             @error('phone_number')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -144,7 +145,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Job</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="job" placeholder="Enter Job"></input>
+                            <input type="text" class="form-control" name="job" placeholder="Enter Job" value="{{ $tutor->job }}" />
                             @error('job')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -154,7 +155,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Address</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="address" placeholder="Enter Address"></input>
+                            <input type="text" class="form-control" name="address" placeholder="Enter Address" value="{{ $tutor->address }}"></input>
                             @error('address')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
