@@ -50,6 +50,10 @@ Route::prefix('admin')->group(function () {
             return view('admin.courses.add_course');
         })->name('add_lectures');
 
+        Route::get('/online-courses' , function(){
+            return view('admin.online_lectures.online_lecture');
+        })->name('online_courses');
+
         Route::get('/offline-lectures', function () {
             return view('admin.offline_lectures.offline_lectures');
         })->name('offline_lectures');

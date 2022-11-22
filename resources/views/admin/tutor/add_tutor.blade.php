@@ -133,13 +133,6 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Course Title</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="course_title" placeholder="Enter course title"></input>
-                        </div>
-                    </div>
-
-                    <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Address</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="address" placeholder="Enter Address"></input>

@@ -110,7 +110,10 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Tutor Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-email-input" placeholder="Enter Tutor Name" name="tutor_name">
+                            <select class="form-control" name="tutor_name">
+                                <option>Select Option</option>
+                                <option>Tutor Name</option>
+                            </select>
                         </div>
                     </div>
                     <div class="row mb-4">
