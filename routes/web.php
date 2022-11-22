@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\TutorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -56,13 +57,11 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit_category', [CategoryController::class, 'edit_category'])->name('edit-category');
         //End Category
 
-        Route::get('/courses', function () {
-            return view('admin.courses.course');
-        })->name('course');
-
-        Route::get('/course/add', function () {
-            return view('admin.courses.add_course');
-        })->name('add_lectures');
+        //Courses
+        Route::get('/courses', [CourseController::class, 'course_listing'])->name('course');
+        Route::get('/course/add', [CourseController::class, 'add_course_view'])->name('add_lectures');
+        Route::post('/add-course', [CourseController::class, 'add_course'])->name('add-course');
+        Route::post('/delete-course', [CourseController::class, 'delete_course'])->name('delete-course');
 
         Route::get('/online-courses', function () {
             return view('admin.online_lectures.online_lecture');
@@ -93,7 +92,7 @@ Route::prefix('admin')->group(function () {
         Route::post('add-tutor', [TutorController::class, 'add_tutor'])->name('add-tutor');
         Route::post('/delete-tutor', [TutorController::class, 'delete_tutor'])->name('delete-tutor');
         Route::get('/edit-tutor/{id}', [TutorController::class, 'edit_tutor_view'])->name('edit_tutor');
-        Route::post('/edit-tutor' , [TutorController::class , 'edit_tutor'])->name('edit-tutor');
+        Route::post('/edit-tutor', [TutorController::class, 'edit_tutor'])->name('edit-tutor');
 
         Route::get('/tutor/add', function () {
             return view('admin.tutor.add_tutor');
