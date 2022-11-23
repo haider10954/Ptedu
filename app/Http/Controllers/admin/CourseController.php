@@ -124,11 +124,11 @@ class CourseController extends Controller
         ]);
 
         if ($request->hasFile('course_img')) {
-            $data['course_img'] = $this->upload_files($request['course_img']);
+            $data['course_thumbnail'] = $this->upload_files($request['course_img']);
         }
 
         if ($request->hasFile('banner_img')) {
-            $data['banner_img'] = $this->upload_files_banner($request['banner_img']);
+            $data['course_banner'] = $this->upload_files_banner($request['banner_img']);
         }
 
         $data['tutor_id'] = $request['tutor_name'];
