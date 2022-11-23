@@ -192,7 +192,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Upload Video Type(Youtube , Vimeo)</label>
                         <div class="col-sm-10">
-                            <input type="file" class="form-control" placeholder="Enter Upload Video Type(Youtube , Vimeo)" name="video"></input>
+                            <input type="text" class="form-control" placeholder="Enter Upload Video Type(Youtube , Vimeo)" name="video"></input>
                             <div class="error-video"></div>
                         </div>
                     </div>
