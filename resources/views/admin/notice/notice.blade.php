@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'FAQS')
+@section('title' , 'Notice')
 
 @section('custom-style')
 <style>
@@ -92,6 +92,22 @@
     tbody>tr:nth-child(odd) {
         background-color: rgba(242, 243, 250, 0.8);
     }
+
+    .btn-add-lecture {
+        background: #FFFFFF;
+        border: 0.8px solid rgba(161, 172, 184, 0.5);
+        border-radius: 2px;
+        height: 28px;
+        padding: 5px 15px 5px 15px;
+    }
+
+    .btn-add-lecture:hover {
+        background: #FFFFFF;
+        border: 0.8px solid rgba(161, 172, 184, 0.5);
+        border-radius: 2px;
+        height: 28px;
+        padding: 5px 15px 5px 15px;
+    }
 </style>
 @endsection
 
@@ -100,9 +116,18 @@
 <div class="card">
     <div class="card-body">
         <div class="row">
+            <div>
+                @if (Session::has('msg'))
+                <p class="alert alert-info" id="responseMessage">{{ Session::get('msg') }}</p>
+                @endif
+                @if (Session::has('error'))
+                <p class="alert alert-danger" id="responseMessage">{{ Session::get('error') }}</p>
+                @endif
+            </div>
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0  Card_title">Notice / F&Q</h4>
+                    <a class="btn btn-add-lecture" href="{{ route('add_notice')}}">Add Notice</a>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -117,87 +142,34 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if ($notice->count() > 0)
+                        @foreach ($notice as $n)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $loop -> index + 1 }}</td>
                             <td>
-                                <span class="course_name">22 - 10 - 13</span>
+                                <span class="course_name">{{ Carbon\Carbon::parse($n->created_at)->format('d M, Y')}}</span>
                             </td>
                             <td>
-                                <span class="course_name">공지사항 내용 입력</span>
+                                <span class="course_name">{{ $n->title }}</span>
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('add_notice')  }}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('edit_notice_view' , $n->id)}}"><i class="bi bi-pencil"></i></a>
+                                    <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $n->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
+                        @endforeach
+                        @else
                         <tr>
-                            <td>2</td>
-                            <td>
-                                <span class="course_name">22 - 10 - 13</span>
-                            </td>
-                            <td>
-                                <span class="course_name">공지사항 내용 입력</span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
+                            <td colspan="7" class="text-center">No Record Found</td>
                         </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                <span class="course_name">22 - 10 - 13</span>
-                            </td>
-                            <td>
-                                <span class="course_name">공지사항 내용 입력</span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <span class="course_name">22 - 10 - 13</span>
-                            </td>
-                            <td>
-                                <span class="course_name">공지사항 내용 입력</span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                <span class="course_name">22 - 10 - 13</span>
-                            </td>
-                            <td>
-                                <span class="course_name">공지사항 내용 입력</span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        @endif
                     </tbody>
                 </table>
 
                 <div class="paginate mt-4 mb-3">
                     <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-
                     <a href="javascript:void(0)" class="active">1</a>
                     <a href="javascript:void(0)">2</a>
                     <a href="javascript:void(0)">3</a>
@@ -209,4 +181,48 @@
     </div>
 </div>
 
+<!-- Delete Record -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="{{ route('delete-notice')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <p>Are you sure to delete ?</p>
+                        <input id="del_id" type="hidden" name="id">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@endsection
+
+@section('custom-script')
+<script>
+    var delModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+
+    function delete_record(id) {
+        $('#del_id').val(id);
+        delModal.show();
+    }
+
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+</script>
 @endsection
