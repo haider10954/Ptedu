@@ -143,7 +143,7 @@
                             <td><span class="course_name">{{ $c->price }} 원</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-primary"><i class="bi bi-pencil"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('edit_course_view' , $c->id )}}"><i class="bi bi-pencil"></i></a>
                                     <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $c->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>
                             </td>
