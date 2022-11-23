@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Add Course')
+@section('title' , 'Edit Course')
 
 @section('custom-style')
 <style>
@@ -34,8 +34,9 @@
     }
 
     .course-image-preview img {
-        width: 20px;
-        height: 20px;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
     }
 
     .btn-upload {
@@ -95,18 +96,19 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Course List > Add Course</h4>
+                    <h4 class="mb-sm-0  Card_title">Course List > Edit Course</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
                 <div class="prompt"></div>
-                <form id="courseForm">
+                <form id="editCourseForm">
                     @csrf
+                    <input type="hidden" name="id" value="{{ $course->id }}" />
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Course Title</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="Enter Course Title" name="course_title">
+                            <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="Enter Course Title" name="course_title" value="{{ $course->course_title }}">
                             <div class="error-course-title"></div>
                         </div>
                     </div>
@@ -116,7 +118,7 @@
                             <select class="form-control" name="tutor_name">
                                 <option>Select Option</option>
                                 @foreach ($tutor as $t)
-                                <option value="{{ $t->id }}">{{ $t->name }}</option>
+                                <option value="{{ $t->id }}" {{ $course->tutor_id == $t->id ? 'selected' : ' ' }}>{{ $t->name }}</option>
                                 @endforeach
                             </select>
                             <div class="error-tutor-name"></div>
@@ -125,21 +127,21 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Short Description</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Enter Short Description" name="short_description">
+                            <input type="text" class="form-control" placeholder="Enter Short Description" name="short_description" value="{{ $course->short_description }}">
                             <div class="error-short-description"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Description</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="description" rows="2" placeholder="Enter Description" name="description"></textarea>
+                            <textarea class="form-control" id="description" rows="2" placeholder="Enter Description" name="description">{{ $course->description }}</textarea>
                             <div class="error-description"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Total number of Lectures</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter total number of lectures" name="no_of_lectures"></input>
+                            <input type="number" class="form-control" placeholder="Enter total number of lectures" name="no_of_lectures" value="{{ $course->no_of_lectures }}"></input>
                             <div class="error-no-of-lectures"></div>
                         </div>
                     </div>
@@ -147,7 +149,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Duration of the Course</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Duration of the Course" name="course_duration"></input>
+                            <input type="text" class="form-control" placeholder="Duration of the Course" name="course_duration" value="{{ $course->duration_of_course }}"></input>
                             <div class="error-course-duration"></div>
                         </div>
                     </div>
@@ -155,7 +157,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter price" name="price"></input>
+                            <input type="number" class="form-control" placeholder="Enter price" name="price" value="{{ $course->price }}"></input>
                             <div class="error-prize"></div>
                         </div>
                     </div>
@@ -163,7 +165,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Discounted Price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter discounted Price" name="discounted_Price"></input>
+                            <input type="number" class="form-control" placeholder="Enter discounted Price" name="discounted_Price" value="{{ $course->discounted_prize }}"></input>
                             <div class="error-discounted-prize"></div>
                         </div>
                     </div>
@@ -174,7 +176,7 @@
                             <select class="form-control" name="category">
                                 <option>Select Option</option>
                                 @foreach ($category as $cat)
-                                <option value="{{ $cat->id}}">{{ $cat->name }}</option>
+                                <option value="{{ $cat->id }}" {{ $course->category_id == $cat->id ? 'selected' : ' ' }}>{{ $cat->name }}</option>
                                 @endforeach
                             </select>
                             <div class="error-category"></div>
@@ -184,7 +186,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Upload Video URL</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Enter video URL" name="video_url"></input>
+                            <input type="text" class="form-control" placeholder="Enter video URL" name="video_url" value="{{ $course->video_url }}"></input>
                             <div class="error-video-url"></div>
                         </div>
                     </div>
@@ -192,7 +194,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Upload Video Type(Youtube , Vimeo)</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Enter Upload Video Type(Youtube , Vimeo)" name="video"></input>
+                            <input type="text" class="form-control" placeholder="Enter Upload Video Type(Youtube , Vimeo)" name="video" value="{{ $course->video }}"></input>
                             <div class="error-video"></div>
                         </div>
                     </div>
@@ -200,10 +202,10 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Upload course Thumbnail image</label>
                         <div class="col-sm-10">
-                            <input type="file" name="course_img" id="course_img" class="d-none">
+                            <input type="file" name="course_img" id="course_img" class="d-none" value="{{ $course->getCourseThumbnail() }}">
                             <div class="d-flex align-items-end">
                                 <div class="course-image-preview" id="thumbnail_image_view">
-                                    <img src="{{ asset('assets/images/icons/image.png') }}" />
+                                    <img src="{{ $course->getCourseThumbnail() }}" />
                                 </div>
                                 <button type="button" class="btn btn-upload ms-2" onclick="courseImg('#course_img')">upload</button>
                             </div>
@@ -214,10 +216,10 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Upload banner image</label>
                         <div class="col-sm-10">
-                            <input type="file" name="banner_img" id="banner_img" class="d-none">
+                            <input type="file" name="banner_img" id="banner_img" class="d-none" value="{{ $course->getCourseBanner() }}">
                             <div class="d-flex align-items-end">
                                 <div class="course-image-preview" id="banner_image_view">
-                                    <img src="{{ asset('assets/images/icons/image.png') }}" />
+                                    <img src="{{ $course->getCourseBanner() }}" />
                                 </div>
                                 <button type="button" class="btn btn-upload ms-2" onclick="courseImg('#banner_img')">upload</button>
                             </div>
@@ -248,13 +250,12 @@
         $(id).click();
     }
 
-    $("#courseForm").on('submit', function(e) {
+    $("#editCourseForm").on('submit', function(e) {
         e.preventDefault();
-        var formData = new FormData($("#courseForm")[0]);
-        formData = new FormData($("#courseForm")[0]);
+        var formData = new FormData($("#editCourseForm")[0]);
         $.ajax({
             type: "POST",
-            url: "{{ route('add-course') }}",
+            url: "{{ route('edit-course') }}",
             dataType: 'json',
             contentType: false,
             processData: false,
@@ -348,5 +349,4 @@
         reader.readAsDataURL(f);
     })
 </script>
-
 @endsection

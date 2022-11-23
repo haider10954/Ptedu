@@ -20,4 +20,14 @@ class Course extends Model
     {
         return $this->hasOne(Tutor::class, 'id', 'tutor_id');
     }
+
+    public function getCourseThumbnail()
+    {
+        return asset('storage/course/thumbnail/' . $this->course_thumbnail);
+    }
+
+    public function getCourseBanner()
+    {
+        return asset('storage/course/banner/' . $this->course_banner);
+    }
 }

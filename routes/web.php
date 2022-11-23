@@ -23,11 +23,11 @@ use App\Http\Controllers\user\ReviewController;
 
 // Main site routes start
 
-Route::get('/',[IndexController::class,'index'])->name('home');
-Route::get('/offline-lectures',[LectureController::class,'offline_lectures'])->name('offline_lectures');
-Route::get('/lecture-detail',[LectureController::class,'lecture_detail'])->name('lecture_detail');
-Route::get('/review',[ReviewController::class,'review'])->name('review');
-Route::get('/notice',[IndexController::class,'notice'])->name('notice');
+Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
+Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
+Route::get('/review', [ReviewController::class, 'review'])->name('review');
+Route::get('/notice', [IndexController::class, 'notice'])->name('notice');
 
 // Main site routes end
 
@@ -62,6 +62,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/course/add', [CourseController::class, 'add_course_view'])->name('add_lectures');
         Route::post('/add-course', [CourseController::class, 'add_course'])->name('add-course');
         Route::post('/delete-course', [CourseController::class, 'delete_course'])->name('delete-course');
+        Route::get('/edit-course/{id}', [CourseController::class, 'edit_course_view'])->name('edit_course_view');
+        Route::post('/edit-course', [CourseController::class, 'edit_course'])->name('edit-course');
 
         Route::get('/online-courses', function () {
             return view('admin.online_lectures.online_lecture');

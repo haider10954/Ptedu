@@ -11,19 +11,12 @@
 <!-- dashboard init -->
 <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
 
-<!-- CK_EDITOR -->
-<script src="https://cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
-
-<script>
-    $(document).ready(function() {
-
-        CKEDITOR.replace('testing', {});
-    });
-    CKEDITOR.replace('description', {});
-</script>
-
 <!-- App js -->
 <script src="{{ asset('assets/js/app.js') }}"></script>
+
+
+<!-- include summer_note css/js -->
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
 <script>
     // When the user scrolls down 20px from the top of the document, slide down the navbar
