@@ -107,7 +107,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">오프라인 강좌 ({{ $offline_course->count() }} )</h4>
+                    <h4 class="mb-sm-0  Card_title">Course List > Offline Course List ({{ $offline_course->count() }} )</h4>
                     <a class="btn btn-add-lecture" href="{{ route('add_offline_course_view')}}">Add Course</a>
                 </div>
                 <hr class="hr-color" />
