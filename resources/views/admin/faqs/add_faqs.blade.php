@@ -99,11 +99,18 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form>
+                <form method="POST" action="{{ route('add-faq') }}">
+                    @csrf
+                    @if (Session::has('msg'))
+                    <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
+                    @endif
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Title</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="title" placeholder="Enter title">
+                            @error('title')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -111,16 +118,23 @@
                         <div class="col-sm-10">
                             <select type="text" class="form-control" name="category">
                                 <option>Select Category</option>
-                                <option>Category 1</option>
-                                <option>Category 2</option>
+                                @foreach ($category as $cat)
+                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                @endforeach
                             </select>
+                            @error('category')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Contents</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="testing" placeholder="Enter content"></textarea>
+                            <textarea class="form-control" id="testing" placeholder="Enter content" name="content"></textarea>
+                            @error('content')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
 

@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Create Post')
+@section('title' , 'Edit Notice')
 
 @section('custom-style')
 <style>
@@ -99,15 +99,16 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form method="POST" action="{{ route('add-notice') }}">
+                <form method="POST" action="{{ route('edit-notice') }}">
                     @csrf
                     @if (Session::has('msg'))
                     <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
                     @endif
+                    <input type="hidden" name="id" value="{{ $notice->id}}" />
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Title</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="title" placeholder="Enter title">
+                            <input type="text" class="form-control" name="title" placeholder="Enter title" value="{{ $notice->title}}">
                             @error('title')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -119,7 +120,7 @@
                             <select type="text" class="form-control" name="category">
                                 <option>Select Category</option>
                                 @foreach ($category as $cat)
-                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                <option value="{{ $cat->id }}" {{ $notice->category_id == $cat->id ? 'selected' : ' ' }}>{{ $cat->name }}</option>
                                 @endforeach
                             </select>
                             @error('category')
@@ -131,7 +132,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Contents</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="testing" placeholder="Enter content" name="content"></textarea>
+                            <textarea class="form-control" id="testing" placeholder="Enter content" name="content">{{ $notice->content}}</textarea>
                             @error('content')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror

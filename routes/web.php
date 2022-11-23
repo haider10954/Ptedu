@@ -3,6 +3,8 @@
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CourseController;
+use App\Http\Controllers\admin\FaqController;
+use App\Http\Controllers\admin\NoticeController;
 use App\Http\Controllers\admin\OfflineCourseController;
 use App\Http\Controllers\admin\TutorController;
 use Illuminate\Support\Facades\Auth;
@@ -72,10 +74,10 @@ Route::prefix('admin')->group(function () {
         //End Online Course
         Route::get('/offline-lectures', [OfflineCourseController::class, 'offline_course_listing'])->name('offline_lectures_admin');
         Route::get('/offline-course/add', [OfflineCourseController::class, 'add_offline_course_view'])->name('add_offline_course_view');
-        Route::post('/add-offline-course', [OfflineCourseController::class , 'add_offline_course'])->name('add-offline-course');
-        Route::post('/delete-offline-course' , [OfflineCourseController::class , 'delete_offline_course'])->name('delete-offline-course');
-        Route::get('/edit-offline-course/{id}', [OfflineCourseController::class , 'edit_offline_course_view'])->name('edit_offline_course_view');
-        Route::post('/edit-offline-course' , [OfflineCourseController::class , 'edit_offline_course'])->name('edit-offline-course');
+        Route::post('/add-offline-course', [OfflineCourseController::class, 'add_offline_course'])->name('add-offline-course');
+        Route::post('/delete-offline-course', [OfflineCourseController::class, 'delete_offline_course'])->name('delete-offline-course');
+        Route::get('/edit-offline-course/{id}', [OfflineCourseController::class, 'edit_offline_course_view'])->name('edit_offline_course_view');
+        Route::post('/edit-offline-course', [OfflineCourseController::class, 'edit_offline_course'])->name('edit-offline-course');
         //Offline Course
 
         Route::get('/offline-lectures/waiting-list', function () {
@@ -133,22 +135,25 @@ Route::prefix('admin')->group(function () {
             return view('admin.certificate.certificate');
         })->name('generate_certificate');
 
-        Route::get('/notice', function () {
-            return view('admin.notice.notice');
-        })->name('notice');
+        //Notice
+        Route::get('/notice', [NoticeController::class, 'notice_listing'])->name('notice');
+        Route::get('/notice/add', [NoticeController::class, 'add_notice_view'])->name('add_notice');
+        Route::post('/add-notice', [NoticeController::class, 'add_notice'])->name('add-notice');
+        Route::post('/delete-notice', [NoticeController::class, 'delete_notice'])->name('delete-notice');
+        Route::get('/edit_notice/{id}', [NoticeController::class, 'edit_notice_view'])->name('edit_notice_view');
+        Route::post('/edit-notice', [NoticeController::class, 'edit_notice'])->name('edit-notice');
 
-        Route::get('/notice/add', function () {
-            return view('admin.notice.add_notice');
-        })->name('add_notice');
+        //End Notice
 
+        //Faqs
+        Route::get('/faqs', [FaqController::class, 'faq_listing'])->name('faqs');
+        Route::get('/faqs/add', [FaqController::class, 'add_faqs_view'])->name('add_faqs');
+        Route::post('/add-faq', [FaqController::class, 'add_faq'])->name('add-faq');
+        Route::post('/delete-faq', [FaqController::class, 'delete_faq'])->name('delete-faq');
+        Route::get('/edit_faq/{id}', [FaqController::class, 'edit_faqs_view'])->name('edit_faq_view');
+        Route::post('/edit-faq', [FaqController::class, 'edit_faq'])->name('edit-faq');
 
-        Route::get('/faqs', function () {
-            return view('admin.faqs.faqs');
-        })->name('faqs');
-
-        Route::get('/faqs/add', function () {
-            return view('admin.faqs.add_faqs');
-        })->name('add_faqs');
+        //End Faq
 
         Route::get('/settings', function () {
             return view('admin.settings.settings');
