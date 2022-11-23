@@ -89,6 +89,15 @@ class CourseController extends Controller
 
     public function delete_course(Request $request)
     {
+        $course = Course::where('id', $request->id)->first();
+        $filePath = storage_path('app/public/course/thumbnail/' . $course->course_thumbnail);
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
+        $filePath2 = storage_path('app/public/course/banner/' . $course->course_banner);
+        if (file_exists($filePath2)) {
+            unlink($filePath2);
+        }
         $course = Course::where('id', $request['id'])->delete();
         if ($course) {
             return redirect()->back()->with('msg', 'Course has been deleted Successfully');
