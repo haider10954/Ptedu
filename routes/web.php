@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\CourseController;
+use App\Http\Controllers\admin\OfflineCourseController;
 use App\Http\Controllers\admin\TutorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -24,12 +25,12 @@ use App\Http\Controllers\user\CourseController as UserCourseController;
 
 // Main site routes start
 
-Route::get('/',[IndexController::class,'index'])->name('home');
-Route::get('/offline-lectures',[LectureController::class,'offline_lectures'])->name('offline_lectures');
-Route::get('/lecture-detail',[LectureController::class,'lecture_detail'])->name('lecture_detail');
-Route::get('/review',[ReviewController::class,'review'])->name('review');
-Route::get('/notice',[IndexController::class,'notice'])->name('notice');
-Route::get('/online-course',[UserCourseController::class,'online_course'])->name('online_course');
+Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
+Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
+Route::get('/review', [ReviewController::class, 'review'])->name('review');
+Route::get('/notice', [IndexController::class, 'notice'])->name('notice');
+Route::get('/online-course', [UserCourseController::class, 'online_course'])->name('online_course');
 
 
 // Main site routes end
@@ -60,7 +61,7 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit_category', [CategoryController::class, 'edit_category'])->name('edit-category');
         //End Category
 
-        //Courses
+        //Online Courses
         Route::get('/courses', [CourseController::class, 'course_listing'])->name('course');
         Route::get('/course/add', [CourseController::class, 'add_course_view'])->name('add_lectures');
         Route::post('/add-course', [CourseController::class, 'add_course'])->name('add-course');
@@ -68,13 +69,14 @@ Route::prefix('admin')->group(function () {
         Route::get('/edit-course/{id}', [CourseController::class, 'edit_course_view'])->name('edit_course_view');
         Route::post('/edit-course', [CourseController::class, 'edit_course'])->name('edit-course');
 
-        Route::get('/online-courses', function () {
-            return view('admin.online_lectures.online_lecture');
-        })->name('online_courses');
-
-        Route::get('/offline-lectures', function () {
-            return view('admin.offline_lectures.offline_lectures');
-        })->name('offline_lectures');
+        //End Online Course
+        Route::get('/offline-lectures', [OfflineCourseController::class, 'offline_course_listing'])->name('offline_lectures_admin');
+        Route::get('/offline-course/add', [OfflineCourseController::class, 'add_offline_course_view'])->name('add_offline_course_view');
+        Route::post('/add-offline-course', [OfflineCourseController::class , 'add_offline_course'])->name('add-offline-course');
+        Route::post('/delete-offline-course' , [OfflineCourseController::class , 'delete_offline_course'])->name('delete-offline-course');
+        Route::get('/edit-offline-course/{id}', [OfflineCourseController::class , 'edit_offline_course_view'])->name('edit_offline_course_view');
+        Route::post('/edit-offline-course' , [OfflineCourseController::class , 'edit_offline_course'])->name('edit-offline-course');
+        //Offline Course
 
         Route::get('/offline-lectures/waiting-list', function () {
             return view('admin.offline_lectures.waiting_listing');
