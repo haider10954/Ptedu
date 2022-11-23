@@ -89,6 +89,24 @@
     tbody>tr:nth-child(odd) {
         background-color: rgba(242, 243, 250, 0.8);
     }
+
+    .btn-reserve {
+        background: #696CFF;
+        border-radius: 3px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #FFFFFF;
+    }
+
+    .btn-reserve:hover {
+        background: #696CFF;
+        border-radius: 3px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #FFFFFF;
+    }
 </style>
 @endsection
 
@@ -116,13 +134,14 @@
                 <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">번호</td>
-                            <td class="align-middle t_header">강좌 제목 </td>
-                            <td class="align-middle t_header">카테고리</th>
-                            <td class="align-middle t_header">레슨/구분</td>
-                            <td class="align-middle t_header">신청자 수</th>
-                            <td class="align-middle t_header">대기자</td>
-                            <td class="align-middle t_header">관리</td>
+                            <td class="align-middle t_header">Number</td>
+                            <td class="align-middle t_header">Lecture title</td>
+                            <td class="align-middle t_header">Category</th>
+                            <td class="align-middle t_header">Offline</td>
+                            <td class="align-middle t_header">Participants</th>
+                            <td class="align-middle t_header">Waiting </td>
+                            <td class="align-middle t_header">Management</td>
+                            <td class="align-middle t_header">Action</td>
                         </tr>
                     </thead>
                     @if($offline_course->count() > 0)
@@ -134,9 +153,10 @@
                             <span class="tutor_name"> {{ $offline_c->getTutorName->name }}</span>
                         </td>
                         <td><span class="course_name">{{ $offline_c->getCategoryName->name}}</span></td>
-                        <td><span class="course_name">120</span></td>
-                        <td><span class="badge status-badge p-1">Fail</span></td>
-                        <td><span class="course_name">{{ $offline_c->price }} 원</span></td>
+                        <td><span class="course_name">오프라인</span></td>
+                        <td><span class="course_name">20</span></td>
+                        <td><span class="course_name">4</span></td>
+                        <td><a class="btn btn-sm btn-reserve" href="{{ route('waiting_list') }}">예약관리</a></td>
                         <td>
                             <div class="d-flex gap-1">
                                 <a class="btn btn-sm btn-primary" href="{{ route('edit_offline_course_view' , $offline_c->id )}}"><i class="bi bi-pencil"></i></a>
