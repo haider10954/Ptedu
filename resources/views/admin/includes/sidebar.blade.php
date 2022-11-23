@@ -34,27 +34,17 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon1.png')}}">
                         </i>
-                        <span key="t-dashboards">Course List</span>
+                        <span key="t-dashboards">Online Course List</span>
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
                 </li>
 
                 <li>
-                    <a href="{{ route('online_courses')}}" class="">
+                    <a href="{{ route('offline_lectures_admin')}}" class="">
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon2.png')}}">
                         </i>
-                        <span key="t-layouts">Online Course List</span>
-                        <i class="bi bi-chevron-right right-icon"></i>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ route('offline_lectures')}}" class="">
-                        <i>
-                            <img class="bx me-2" src="{{ asset('assets/images/icons/icon2.png')}}">
-                        </i>
-                        <span key="t-layouts">Offline Lecture List</span>
+                        <span key="t-layouts">Offline Course List</span>
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
                 </li>
