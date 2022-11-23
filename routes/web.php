@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user\IndexController;
 use App\Http\Controllers\user\LectureController;
 use App\Http\Controllers\user\ReviewController;
+use App\Http\Controllers\user\CourseController as UserCourseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,7 @@ Route::get('/offline-lectures',[LectureController::class,'offline_lectures'])->n
 Route::get('/lecture-detail',[LectureController::class,'lecture_detail'])->name('lecture_detail');
 Route::get('/review',[ReviewController::class,'review'])->name('review');
 Route::get('/notice',[IndexController::class,'notice'])->name('notice');
+Route::get('/online-course',[UserCourseController::class,'online_course'])->name('online_course');
 
 // Main site routes end
 
