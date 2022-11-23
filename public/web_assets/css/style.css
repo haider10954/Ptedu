@@ -32,7 +32,7 @@ header{
     position: relative;
 }
 .logo-container{
-    flex: 1;
+    /* flex: 1; */
     display: flex;
     align-items: center;
 }
@@ -861,4 +861,26 @@ header .btn.transparent, .btn.solid:hover{
 .search_box{
     width: 200px;
     margin-right: 10px;
+}
+.review-filters{
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.review-filters li{
+    list-style: none;
+    margin-left: 20px;
+    display: inline-block;
+    font-size: 12px;
+}
+.review-filters li a.active{
+    color: #000000 !important;
+    text-decoration: underline;
+}
+.review-box-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #D3D3D3;
 }
