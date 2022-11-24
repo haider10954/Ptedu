@@ -50,6 +50,8 @@ Route::middleware('guest:admin')->group(function () {
 
 Route::prefix('admin')->group(function () {
 
+
+    Route::post('/update-admin-password', [AuthController::class, 'update_password'])->name('update-password');
     Route::middleware('auth:admin')->group(function () {
 
         //Categories
@@ -152,12 +154,11 @@ Route::prefix('admin')->group(function () {
         Route::post('/delete-faq', [FaqController::class, 'delete_faq'])->name('delete-faq');
         Route::get('/edit_faq/{id}', [FaqController::class, 'edit_faqs_view'])->name('edit_faq_view');
         Route::post('/edit-faq', [FaqController::class, 'edit_faq'])->name('edit-faq');
-
         //End Faq
 
-        Route::get('/settings', function () {
-            return view('admin.settings.settings');
-        })->name('settings');
+        //Settings
+        Route::get('/settings', [AuthController::class, 'admin_profile'])->name('settings');
+        Route::post('/update-admin-profile' , [AuthController::class , 'update_admin_profile'])->name('update-admin-profile');
     });
 });
 

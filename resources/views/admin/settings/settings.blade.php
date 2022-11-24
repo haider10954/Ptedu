@@ -7,6 +7,7 @@
     .user_avatar {
         width: 94px;
         height: 94px;
+        border-radius: 50%;
     }
 
     .name {
@@ -58,18 +59,25 @@
 @endsection
 
 @section('content')
-
+{{ auth('admin')->user()->profile_image}}
 <div class="row">
     <div class="col-lg-4">
         <div class="card">
             <div class="card-body">
                 <div class="d-flex align-items-center">
+
+                    @if(auth('admin')->user()->profile_img == null)
                     <div>
-                        <img src="{{ asset('assets/images/icons/user_avatar.png') }}" class="user_avatar">
+                        <img src="{{asset('assets/images/icons/user_avatar.png')}}" class="user_avatar">
                     </div>
+                    @else
+                    <div>
+                        <img src="{{ auth('admin')->user()->getAdminProfileImage() }}" class="user_avatar">
+                    </div>
+                    @endif
                     <div class="ms-3">
-                        <div class="mb-1"><span class="name">홍길동</span></div>
-                        <div><span class="email"> sadh123@naver.com </span></div>
+                        <div class="mb-1"><span class="name">{{ auth('admin')->user()->name }}</span></div>
+                        <div><span class="email"> {{ auth('admin')->user()->email }} </span></div>
                     </div>
                 </div>
                 <div class="mt-4">
@@ -77,10 +85,10 @@
                         Phone number : 010-000-000
                     </div>
                     <div class="mb-3 user_info">
-                        Email : sadh123@naver.com:
+                        Email : {{ auth('admin')->user()->email }}
                     </div>
                     <div class="mb-3 user_info">
-                        Account Created : 2022.10.13 11:36
+                        Account Created : {{ \Carbon\Carbon::parse( auth('admin')->user()->expired_at)->format('d M, Y') }}
                     </div>
                 </div>
             </div>
@@ -88,25 +96,44 @@
 
         <div class="card">
             <div class="card-body">
+                <div>
+                    @if(Session::has('profile_false'))
+                    <div class="alert alert-danger mb-3" id="responseMessage">{{ Session::get('profile_false') }}</div>
+                    @endif
+
+                    @if(Session::has('profile_true'))
+                    <div class="alert alert-success mb-3" id="responseMessage">{{ Session::get('profile_true') }}</div>
+                    @endif
+                </div>
                 <div class="mb-3">
                     <h4 class="card-title">Password Settings</h4>
                 </div>
-                <form>
+                <form method="POST" action="{{ route('update-password') }}">
+                    @csrf
                     <div class="mb-3">
                         <label class="form-label">Current Password</label>
-                        <input class="form-control" type="password" placeholder="Enter Current Password">
+                        <input class="form-control" type="password" placeholder="Enter Current Password" name="old_password">
+                        @error('old_password')
+                        <small style="color:#d02525;">{{$message}}</small>
+                        @enderror
                     </div>
 
 
                     <div class="mb-3">
                         <label class="form-label">New Password</label>
-                        <input class="form-control" type="password" placeholder="Enter New Password">
+                        <input class="form-control" type="password" placeholder="Enter New Password" name="new_password">
+                        @error('new_password')
+                        <small style="color:#d02525;">{{$message}}</small>
+                        @enderror
                     </div>
 
 
                     <div class="mb-3">
                         <label class="form-label">Confirm New Password</label>
-                        <input class="form-control" type="password" placeholder="Enter New Password">
+                        <input class="form-control" type="password" placeholder="Enter New Password" name="confirm_password">
+                        @error('confirm_password')
+                        <small style="color:#d02525;">{{$message}}</small>
+                        @enderror
                     </div>
                     <div class="mb-3">
                         <button type="submit" class="btn btn-lg btn-register">Change</button>
@@ -119,53 +146,88 @@
     <div class="col-lg-8">
         <div class="card">
             <div class="card-body">
+                <div>
+                    @if(Session::has('msg'))
+                    <div class="alert alert-success mb-3" id="responseMessage">{{ Session::get('msg') }}</div>
+                    @endif
+
+                    @if(Session::has('error'))
+                    <div class="alert alert-danger mb-3" id="responseMessage">{{ Session::get('error') }}</div>
+                    @endif
+                </div>
                 <div class="mb-3">
                     <h4 class="card-title">Edit Profile</h4>
                 </div>
-                <form>
+                <form method="POST" action="{{ route('update-admin-profile') }}" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Name</label>
-                                <input class="form-control" type="text" placeholder="Enter Name" name="name">
+                                <input class="form-control" type="text" placeholder="Enter Name" name="name" value="{{ auth('admin')->user()->name }}">
+                                @error('name')
+                                <small style="color:#d02525;">{{$message}}</small>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Email</label>
-                                <input class="form-control" type="email" placeholder="Enter Email" name="email">
+                                <input class="form-control" type="email" placeholder="Enter Email" name="email" value="{{ auth('admin')->user()->email }}">
+                                @error('email')
+                                <small style="color:#d02525;">{{$message}}</small>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Job</label>
-                                <input class="form-control" type="text" placeholder="Enter Job" name="job">
+                                <input class="form-control" type="text" placeholder="Enter Job" name="job" value="{{ auth('admin')->user()->job }}">
+                                @error('job')
+                                <small style="color:#d02525;">{{$message}}</small>
+                                @enderror
                             </div>
                         </div>
 
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">English Name</label>
-                                <input class="form-control" type="text" placeholder="Enter English Name" name="en_name">
+                                <input class="form-control" type="text" placeholder="Enter English Name" name="en_name" value="{{ auth('admin')->user()->english_name }}">
+                                @error('en_name')
+                                <small style="color:#d02525;">{{$message}}</small>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Phone Number</label>
-                                <input class="form-control" type="email" placeholder="Enter phone number" name="phone_number">
+                                <input class="form-control" type="text" placeholder="Enter phone number" name="phone_number" value="{{ auth('admin')->user()->phone_number }}">
+                                @error('phone_number')
+                                <small style="color:#d02525;">{{$message}}</small>
+                                @enderror
                             </div>
+
 
                             <div class="mb-3">
                                 <label class="form-label">Profile Image</label>
-                                <input class="form-control" type="file" placeholder="Enter Job" name="image">
+                                <input class="form-control" type="file" name="image">
+                                @error('image')
+                                <small style="color:#d02525;">{{$message}}</small>
+                                @enderror
                             </div>
                         </div>
                         <div class="col-lg-12">
                             <div class="mb-3">
                                 <label class="form-label">Address</label>
-                                <input class="form-control" type="text" placeholder="Enter address" name="address">
+                                <input class="form-control" type="text" placeholder="Enter address" name="address" value="{{ auth('admin')->user()->address }}">
+                                @error('address')
+                                <small style="color:#d02525;">{{$message}}</small>
+                                @enderror
                             </div>
 
                             <div class="mb-3">
                                 <label class="form-label">Introduction</label>
-                                <textarea class="form-control" type="file" rows="7" placeholder="Enter address" name="introduction"></textarea>
+                                <textarea class="form-control" type="file" rows="7" placeholder="Enter introduction" name="introduction">{{ auth('admin')->user()->introduction }}</textarea>
+                                @error('introduction')
+                                <small style="color:#d02525;">{{$message}}</small>
+                                @enderror
                             </div>
                         </div>
 
@@ -179,4 +241,14 @@
     </div>
 </div>
 
+@endsection
+
+@section('custom-script')
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+</script>
 @endsection
