@@ -10,7 +10,7 @@ use App\Http\Controllers\admin\TutorController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user\IndexController;
-use App\Http\Controllers\user\LectureController;
+use App\Http\Controllers\admin\CourseSectionController;
 use App\Http\Controllers\user\ReviewController;
 use App\Http\Controllers\user\CourseController as UserCourseController;
 
@@ -72,15 +72,16 @@ Route::prefix('admin')->group(function () {
         Route::post('/delete-course', [CourseController::class, 'delete_course'])->name('delete-course');
         Route::get('/edit-course/{id}', [CourseController::class, 'edit_course_view'])->name('edit_course_view');
         Route::post('/edit-course', [CourseController::class, 'edit_course'])->name('edit-course');
-
         //End Online Course
+
+        //Offline Course
         Route::get('/offline-lectures', [OfflineCourseController::class, 'offline_course_listing'])->name('offline_lectures_admin');
         Route::get('/offline-course/add', [OfflineCourseController::class, 'add_offline_course_view'])->name('add_offline_course_view');
         Route::post('/add-offline-course', [OfflineCourseController::class, 'add_offline_course'])->name('add-offline-course');
         Route::post('/delete-offline-course', [OfflineCourseController::class, 'delete_offline_course'])->name('delete-offline-course');
         Route::get('/edit-offline-course/{id}', [OfflineCourseController::class, 'edit_offline_course_view'])->name('edit_offline_course_view');
         Route::post('/edit-offline-course', [OfflineCourseController::class, 'edit_offline_course'])->name('edit-offline-course');
-        //Offline Course
+        //End Offline Course
 
         Route::get('/offline-lectures/waiting-list', function () {
             return view('admin.offline_lectures.waiting_listing');
@@ -108,7 +109,24 @@ Route::prefix('admin')->group(function () {
         Route::get('/tutor/add', function () {
             return view('admin.tutor.add_tutor');
         })->name('add_tutor');
+        //End Tutor
 
+        //Section
+        Route::get('/courses/sections', [CourseSectionController::class, 'section_listing'])->name('sections');
+        Route::get('/course/sections/add', [CourseSectionController::class, 'add_section_view'])->name('add_sections');
+        Route::get('/course/edit_sections', [CourseSectionController::class, 'edit_section_view'])->name('edit-section-view');
+
+        //End Section
+
+        //Course Lectures
+        Route::get('/course/section/lectures' , function(){
+            return view('admin.course_lectures.lecture');
+        })->name('lectures');
+
+        Route::get('/course/section/lecture/add' , function(){
+            return view('admin.course_lectures.add_lecture');
+        })->name('add_lecture');
+        //End Course Lecture
         Route::get('/payment', function () {
             return view('admin.payment.payment');
         })->name('payment');
@@ -158,7 +176,7 @@ Route::prefix('admin')->group(function () {
 
         //Settings
         Route::get('/settings', [AuthController::class, 'admin_profile'])->name('settings');
-        Route::post('/update-admin-profile' , [AuthController::class , 'update_admin_profile'])->name('update-admin-profile');
+        Route::post('/update-admin-profile', [AuthController::class, 'update_admin_profile'])->name('update-admin-profile');
     });
 });
 
