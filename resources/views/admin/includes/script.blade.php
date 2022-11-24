@@ -11,6 +11,11 @@
 <!-- dashboard init -->
 <script src="{{ asset('assets/js/pages/dashboard.init.js') }}"></script>
 
+<!-- form repeater js -->
+<script src="{{ asset('assets/libs/jquery.repeater/jquery.repeater.min.js') }}"></script>
+
+<script src="{{ asset('assets/js/pages/form-repeater.int.js') }}"></script>
+
 <!-- App js -->
 <script src="{{ asset('assets/js/app.js') }}"></script>
 

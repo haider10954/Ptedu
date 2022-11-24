@@ -45,7 +45,7 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form method="POST">
+                <!-- <form method="POST">
                     @csrf
                     @if (Session::has('msg'))
                     <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
@@ -75,6 +75,30 @@
                             <button type="submit" class="btn btn-lg btn-register">Submit</button>
                         </div>
                     </div>
+                </form> -->
+
+                <form class="repeater" enctype="multipart/form-data">
+                    <div data-repeater-list="group-a">
+                        <div data-repeater-item class="row">
+                            <div class="mb-3 col-lg-4">
+                                <label for="name">Lecture Video</label>
+                                <input type="file" name="untyped-input" class="form-control" />
+                            </div>
+
+                            <div class="mb-3 col-lg-4">
+                                <label for="email">Lecture Title</label>
+                                <input type="text" class="form-control" placeholder="Enter lecture title" />
+                            </div>
+
+                            <div class="col-lg-2 align-self-center">
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <input data-repeater-delete type="button" class="btn btn-primary" value="Delete" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <input data-repeater-create type="button" class="btn btn-success mt-3 mt-lg-0" value="Add" />
                 </form>
             </div>
         </div>
