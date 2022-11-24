@@ -79,20 +79,20 @@
 
                 <form class="repeater" enctype="multipart/form-data">
                     <div data-repeater-list="group-a">
-                        <div data-repeater-item class="row">
-                            <div class="mb-3 col-lg-4">
+                        <div data-repeater-item class="row mb-3 align-items-end">
+                            <div class="col-lg-4">
                                 <label for="name">Lecture Video</label>
                                 <input type="file" name="untyped-input" class="form-control" />
                             </div>
 
-                            <div class="mb-3 col-lg-4">
+                            <div class="col-lg-4">
                                 <label for="email">Lecture Title</label>
                                 <input type="text" class="form-control" placeholder="Enter lecture title" />
                             </div>
 
-                            <div class="col-lg-2 align-self-center">
+                            <div class="col-lg-2">
                                 <div class="d-flex align-items-center justify-content-start">
-                                    <input data-repeater-delete type="button" class="btn btn-primary" value="Delete" />
+                                    <button data-repeater-delete type="button" class="btn btn-primary" value="Delete">Delete</button>
                                 </div>
                             </div>
                         </div>
