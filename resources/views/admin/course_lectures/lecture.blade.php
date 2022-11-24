@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Course list')
+@section('title' , 'Course Section')
 
 @section('custom-style')
 <style>
@@ -23,7 +23,6 @@
         border: 0.8px solid rgba(161, 172, 184, 0.5);
         border-radius: 2px;
         padding: 5px 15px 5px 15px;
-        color: black;
     }
 
     .hr-color {
@@ -55,8 +54,6 @@
         background: #E8F9DF;
         border-radius: 2px;
         color: #64C330;
-        height: 19px;
-        width: 62px;
     }
 
     .paginate {
@@ -90,6 +87,24 @@
     tbody>tr:nth-child(odd) {
         background-color: rgba(242, 243, 250, 0.8);
     }
+
+    .btn-reserve {
+        background: #696CFF;
+        border-radius: 3px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #FFFFFF;
+    }
+
+    .btn-reserve:hover {
+        background: #696CFF;
+        border-radius: 3px;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #FFFFFF;
+    }
 </style>
 @endsection
 
@@ -108,57 +123,38 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Course List > Online Course List ({{ $course->count() }})</h4>
-                    <a class="btn btn-sm btn-add-lecture" href="{{ route('add_lectures')}}">Add Course</a>
+                    <h4 class="mb-sm-0  Card_title">Courses > Section > lectures </h4>
+                    <a class="btn btn-sm btn-add-lecture" href="{{ route('add_lecture')}}">Add Lecture</a>
                 </div>
                 <hr class="hr-color" />
             </div>
             <div class="col-lg-12 table-responsive">
-                <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
+                <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">No</td>
-                            <td class="align-middle t_header">Course Name</td>
-                            <td class="align-middle t_header">Category</th>
-                            <td class="align-middle t_header">Number of Student</td>
-                            <td class="align-middle t_header">Open Status</th>
-                            <td class="align-middle t_header">Price</td>
-                            <td class="align-middle t_header">Sections</td>
+                            <td class="align-middle t_header">Number</td>
+                            <td class="align-middle t_header">Lecture title</td>
+                            <td class="align-middle t_header">Lecture Description</td>
                             <td class="align-middle t_header">Action</td>
                         </tr>
                     </thead>
-                    <tbody>
-                        @if($course->count() > 0)
-                        @foreach ($course as $c)
-                        <tr>
-                            <td>{{ $loop-> index + 1 }}</td>
-                            <td>
-                                <span class="course_name">{{ $c->course_title }}</span> <br />
-                                <span class="tutor_name"> {{ $c->getTutorName->name }}</span>
-                            </td>
-                            <td><span class="course_name">{{ $c->getCategoryName->name}}</span></td>
-                            <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Fail</span></td>
-                            <td><span class="course_name">{{ $c->price }} 원</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('sections') }}">Sections</a>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('edit_course_view' , $c->id )}}"><i class="bi bi-pencil"></i></a>
-                                    <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $c->id }}')"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-                        @endforeach
-                        @else
-                        <tr>
-                            <td colspan="7" class="text-center">No Record Found</td>
-                        </tr>
-                        @endif
-                    </tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <span class="course_name">hello</span> <br />
+                        </td>
+                        <td><span class="course_name">Also</span></td>
+                        <td>
+                            <div class="d-flex gap-1">
+                                <a class="btn btn-sm btn-primary" href="{{ route('edit-section-view') }}"><i class="bi bi-pencil"></i></a>
+                                <a class="btn btn-sm btn-danger" onclick="delete_record()"><i class="bi bi-trash"></i></a>
+                            </div>
+                        </td>
+                    </tr>
+                    <!-- <tr>
+                        <td colspan="7" class="text-center">No Record Found</td>
+                    </tr> -->
+
                 </table>
 
                 <div class="paginate mt-4 mb-3">
@@ -184,7 +180,7 @@
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" action="{{ route('delete-course')}}">
+                <form method="post" action="{{ route('delete-offline-course')}}">
                     @csrf
                     <div class="modal-body">
                         <p>Are you sure to delete ?</p>
