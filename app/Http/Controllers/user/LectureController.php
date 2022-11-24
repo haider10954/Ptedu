@@ -14,4 +14,8 @@ class LectureController extends Controller
     public function lecture_detail(){
         return view('user.lecture-detail');
     }
+
+    public function my_classroom(){
+        return view('user.my-classroom');
+    }
 }

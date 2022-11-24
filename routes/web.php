@@ -33,6 +33,7 @@ Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->nam
 Route::get('/review', [ReviewController::class, 'review'])->name('review');
 Route::get('/notice', [IndexController::class, 'notice'])->name('notice');
 Route::get('/online-course', [UserCourseController::class, 'online_course'])->name('online_course');
+Route::get('/my-classroom', [LectureController::class, 'my_classroom'])->name('my_classroom');
 
 
 // Main site routes end

@@ -884,3 +884,112 @@ header .btn.transparent, .btn.solid:hover{
     padding-bottom: 30px;
     border-bottom: 1px solid #D3D3D3;
 }
+.page-side-menu .menu{
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.page-side-menu .menu li{
+    list-style: none;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.page-side-menu .menu li a{
+    color: #000000;
+    font-size: 15px;
+}
+.page-side-menu .menu li a:hover{
+    transition: all 0.5s;
+    color: #303030;
+}
+.pt-125{
+    padding-top: 125px;
+}
+.custom-tabs li{
+    width: 25%;
+}
+.custom-tabs li button{
+    width: 100%;
+    border: none !important;
+    background-color: #efefef;
+}
+.custom-tabs .nav-link.active, .custom-tabs .show>.nav-link{
+    color: #ffffff;
+    background-color: #000000;
+}
+.custom-tab-content{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.custom-tab-content .content-heading{
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+.lecture-box{
+    border: 1px solid #D9D9D9;
+    border-radius: 2px;
+    margin-bottom: 20px;
+}
+.lecture-box .lecture_box_content{
+    padding: 10px 8px;
+}
+.lecture-box .lecture_box_content .lecture_title{
+    font-size: 15px;
+}
+.lecture-box .lecture_box_content .lecture_info{
+    font-size: 11px;
+}
+.lecture-box .lecture_box_content .lecture-duration{
+    font-size: 11px;
+}
+.btn-custom-sm{
+    font-size: 12px;
+    padding: 3px 12px;
+    border-radius: 0;
+}
+.btn-theme-blue{
+    background: #4315FD;
+    border-color: #4315FD;
+}
+.btn-theme-black{
+    background: #000000;
+    border-color: #000000;
+}
+.btn-theme-black:hover{
+    transition: all 0.5s;
+    background: #222222;
+    border-color: #222222;
+}
+.page-sidemenu-heading{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.page-side-menu-toggle{
+    display: none;
+}
+.w-48{
+    width: 48%;
+}
+.btn-theme-light{
+    color: #808080;
+    border-color: #808080;
+    background-color: #ffffff;
+}
+.btn-theme-light:hover{
+    transition: all 0.5s;
+    color: #ffffff;
+    border-color: #ffffff;
+    background-color: #808080;
+}
+@media only screen and (max-width:991px){
+    .page-side-menu-toggle{
+        display: block;
+    }
+    .page-side-menu{
+        display: none;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #000000;
+    }
+}

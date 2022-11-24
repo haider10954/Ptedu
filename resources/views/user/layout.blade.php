@@ -22,6 +22,7 @@
     @include('user.includes.footer')
     <!-- footer end -->
 
+    @yield('modals')
     <!-- js links -->
     @include('user.includes.script')
     @yield('custom-script')
