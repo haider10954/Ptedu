@@ -142,7 +142,7 @@
                             <td><span class="course_name">{{ $c->price }} 원</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('sections') }}">Sections</a>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('sections' , $c->id) }}">Sections</a>
                                 </div>
                             </td>
                             <td>

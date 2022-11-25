@@ -113,18 +113,21 @@ Route::prefix('admin')->group(function () {
         //End Tutor
 
         //Section
-        Route::get('/courses/sections', [CourseSectionController::class, 'section_listing'])->name('sections');
-        Route::get('/course/sections/add', [CourseSectionController::class, 'add_section_view'])->name('add_sections');
-        Route::get('/course/edit_sections', [CourseSectionController::class, 'edit_section_view'])->name('edit-section-view');
+        Route::get('/courses/sections/{id}', [CourseSectionController::class, 'section_listing'])->name('sections');
+        Route::post('add-course-section', [CourseSectionController::class, 'add_section'])->name('add-section');
+        Route::get('/course/sections/add/{id}', [CourseSectionController::class, 'add_section_view'])->name('add_sections');
+        Route::post('/delete-course-section', [CourseSectionController::class, 'delete_course_section'])->name('delete-course-section');
+        Route::get('/course/edit_sections/{id}', [CourseSectionController::class, 'edit_section_view'])->name('edit-section-view');
+        Route::post('/edit-course-section' , [CourseSectionController::class , 'edit_course_section'])->name('edit-course-section');
 
         //End Section
 
         //Course Lectures
-        Route::get('/course/section/lectures' , function(){
+        Route::get('/course/section/lectures', function () {
             return view('admin.course_lectures.lecture');
         })->name('lectures');
 
-        Route::get('/course/section/lecture/add' , function(){
+        Route::get('/course/section/lecture/add', function () {
             return view('admin.course_lectures.add_lecture');
         })->name('add_lecture');
         //End Course Lecture

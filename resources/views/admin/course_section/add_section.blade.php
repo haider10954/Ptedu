@@ -45,11 +45,15 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form method="POST">
+                <form method="POST" action="{{ route('add-section') }}">
                     @csrf
                     @if (Session::has('msg'))
-                    <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
+                    <p class="alert alert-info mb-2" id="responseMessage">{{ Session::get('msg') }}</p>
                     @endif
+                    @if (Session::has('error'))
+                    <p class="alert alert-danger mb-2" id="responseMessage">{{ Session::get('error') }}</p>
+                    @endif
+                    <input type="hidden" name="id" value="{{ request()->segment(5) }}" />
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Section Title</label>
                         <div class="col-sm-10">
@@ -80,4 +84,14 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+</script>
 @endsection
