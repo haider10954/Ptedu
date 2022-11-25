@@ -13,6 +13,7 @@ use App\Http\Controllers\user\IndexController;
 use App\Http\Controllers\admin\CourseSectionController;
 use App\Http\Controllers\user\ReviewController;
 use App\Http\Controllers\user\CourseController as UserCourseController;
+use App\Http\Controllers\user\LectureController;
 
 /*
 |--------------------------------------------------------------------------
