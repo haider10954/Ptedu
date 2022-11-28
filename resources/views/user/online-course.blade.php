@@ -5,7 +5,11 @@
 @section('content')
 <div class="section lecture_banner_section">
     <div class="banner_text">
-        <h5 class="mb-0">강의 영상 소개</h5>
+        {{-- <h5 class="mb-0">강의 영상 소개</h5> --}}
+        <iframe style="width: 100%;height: 100%;" class="mb-3" src="https://www.youtube.com/embed/8SiRTLIXSzE"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
     </div>
 </div>
 
