@@ -12,7 +12,7 @@
             <div class="col-lg-3">
                 <div class="course-box mb-3">
                     <div class="course-img">
-                        <img src="{{ asset('web_assets/images/course-img.png') }}" class="img-fluid" alt="img">
+                        <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1">2022.10.11</small>
@@ -23,7 +23,7 @@
             <div class="col-lg-3">
                 <div class="course-box mb-3">
                     <div class="course-img">
-                        <img src="{{ asset('web_assets/images/course-img.png') }}" class="img-fluid" alt="img">
+                        <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1">2022.10.11</small>
@@ -34,7 +34,7 @@
             <div class="col-lg-3">
                 <div class="course-box mb-3">
                     <div class="course-img">
-                        <img src="{{ asset('web_assets/images/course-img.png') }}" class="img-fluid" alt="img">
+                        <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1">2022.10.11</small>
@@ -45,7 +45,7 @@
             <div class="col-lg-3">
                 <div class="course-box mb-3">
                     <div class="course-img">
-                        <img src="{{ asset('web_assets/images/course-img.png') }}" class="img-fluid" alt="img">
+                        <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1">2022.10.11</small>
@@ -56,7 +56,7 @@
             <div class="col-lg-3">
                 <div class="course-box mb-3">
                     <div class="course-img">
-                        <img src="{{ asset('web_assets/images/course-img.png') }}" class="img-fluid" alt="img">
+                        <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1">2022.10.11</small>
@@ -67,7 +67,7 @@
             <div class="col-lg-3">
                 <div class="course-box mb-3">
                     <div class="course-img">
-                        <img src="{{ asset('web_assets/images/course-img.png') }}" class="img-fluid" alt="img">
+                        <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1">2022.10.11</small>
@@ -78,7 +78,7 @@
             <div class="col-lg-3">
                 <div class="course-box mb-3">
                     <div class="course-img">
-                        <img src="{{ asset('web_assets/images/course-img.png') }}" class="img-fluid" alt="img">
+                        <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1">2022.10.11</small>
@@ -89,7 +89,7 @@
             <div class="col-lg-3">
                 <div class="course-box mb-3">
                     <div class="course-img">
-                        <img src="{{ asset('web_assets/images/course-img.png') }}" class="img-fluid" alt="img">
+                        <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1">2022.10.11</small>

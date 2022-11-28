@@ -21,7 +21,7 @@ p{
 header{
     position: absolute;
     top: 0px;
-    background-color: #CDCECF;
+    background-color: #efefef;
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid #BBBCBD;
@@ -711,6 +711,10 @@ header .btn.transparent, .btn.solid:hover{
     font-size: 18px;
     font-weight: 600;
 }
+.course-box{
+    border: 1px solid #c3c3c3;
+    box-shadow: 0px 0px 5px #bbbbbb;
+}
 .course-box .course-info{
     padding: 10px;
     background-color: #ffffff;
@@ -719,7 +723,7 @@ header .btn.transparent, .btn.solid:hover{
     font-size: 13px;
 }
 .bg-grey{
-    background-color: #cdcecf;
+    background-color: #efefef;
 }
 .custom-pagination{
     display: flex;
@@ -811,7 +815,7 @@ header .btn.transparent, .btn.solid:hover{
     width: 65%;
 }
 .background-light{
-    background: #F9F9F9;
+    background: #efefef;
 }
 .courses_reviews_carousel .swiper-button-next,.courses_reviews_carousel .swiper-rtl .swiper-button-prev{
     right: -4.5%;
@@ -992,4 +996,26 @@ header .btn.transparent, .btn.solid:hover{
         padding-bottom: 20px;
         border-bottom: 1px solid #000000;
     }
+}
+.modal-custom .modal-content{
+    border-radius: 0;
+}
+.modal-custom .modal-title{
+    font-size: 19px;
+    font-weight: 600;
+}
+.modal-custom .modal-header{
+    padding: 1rem 2rem;
+}
+.review_modal .modal-header i{
+    margin-right: 10px;
+}
+.text-theme-yellow{
+    color: #FFD233;
+}
+.modal-custom .modal-body{
+    padding: 1rem 2rem;
+}
+.rounded-0{
+    border-radius: 0 !important;
 }
