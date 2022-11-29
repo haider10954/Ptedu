@@ -10,7 +10,7 @@
 
     .certificate_header {
         font-weight: 700;
-        font-size: 40px;
+        font-size: 35px;
         line-height: 54px;
         text-align: center;
         color: #7D5741;
@@ -18,7 +18,7 @@
 
     .certificate_sub_title {
         font-weight: 400;
-        font-size: 20px;
+        font-size: 18px;
         line-height: 27px;
         text-align: center;
         color: #7D5741;
@@ -38,7 +38,7 @@
 
     .certificate_description {
         font-weight: 400;
-        font-size: 13px;
+        font-size: 11px;
         line-height: 25px;
         text-align: center;
         color: #7D5741;
@@ -46,7 +46,7 @@
 
     .certificate_date {
         font-weight: 400;
-        font-size: 13px;
+        font-size: 11px;
         line-height: 16px;
         color: #7D5741;
     }
@@ -103,7 +103,7 @@
                 </div>
                 <hr class="hr-color" />
             </div>
-            <div class="col-12">
+            <div class="col-12" id="certificate">
                 <div class="position-relative">
                     <img src="{{ asset('assets/images/icons/frame.png')}}" class="w-100">
                     <div class="position-absolute text-center w-100" style="padding: 10px 100px 10px 100px; top:50px;">
@@ -140,10 +140,35 @@
                 </div>
             </div>
             <div class="col-12 mt-3">
-                <a class="btn btn-sm btn-download"><span class="me-2"><i class="bi bi-download"></i></span>Download</a>
+                <button class="btn btn-sm btn-download" id="download"><span class="me-2"><i class="bi bi-download"></i></span>Download</button>
             </div>
-
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<script>
+    window.onload = function() {
+        document.getElementById("download").addEventListener("click", () => {
+            const certificate = this.document.getElementById("certificate");
+            var opt = {
+
+                margin: 1.25,
+                marginTop: 0.25,
+                filename: 'certificate.pdf',
+                image: {
+                    type: 'jpeg',
+                },
+                jsPDF: {
+                    unit: 'in',
+                    orientation: 'landscape'
+                }
+            };
+            html2pdf().set(opt).from(certificate).save();
+        })
+    }
+</script>
+
 @endsection

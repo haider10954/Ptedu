@@ -124,7 +124,7 @@
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0  Card_title">Courses > Section </h4>
-                    <a class="btn btn-sm btn-add-lecture" href="{{ route('add_sections')}}">Add Section</a>
+                    <a class="btn btn-sm btn-add-lecture" href="{{ route('add_sections' , $course->id)}}">Add Section</a>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -140,29 +140,33 @@
                             <td class="align-middle t_header">Action</td>
                         </tr>
                     </thead>
+                    @if($section->count() > 0)
+                    @foreach ($section as $s)
                     <tr>
-                        <td>1</td>
+                        <td>{{ $loop->index + 1 }}</td>
                         <td>
-                            <span class="course_name">hello</span> <br />
+                            <span class="course_name">{{ $s->section_title }}</span> <br />
                         </td>
-                        <td><span class="course_name">Also</span></td>
+                        <td><span class="course_name">{{ $s->section_description }}</span></td>
                         <td><span class="course_name">오프라인</span></td>
                         <td>
                             <div class="d-flex gap-1">
-                                <a class="btn btn-sm btn-primary" href="{{ route('lectures') }}">Lectures</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('lectures' , $s->id) }}">Lectures</a>
                             </div>
                         </td>
                         <td>
                             <div class="d-flex gap-1">
-                                <a class="btn btn-sm btn-primary" href="{{ route('edit-section-view') }}"><i class="bi bi-pencil"></i></a>
-                                <a class="btn btn-sm btn-danger" onclick="delete_record()"><i class="bi bi-trash"></i></a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('edit-section-view' , $s->id) }}"><i class="bi bi-pencil"></i></a>
+                                <a class="btn btn-sm btn-danger" onclick="delete_record('{{ $s->id }}')"><i class="bi bi-trash"></i></a>
                             </div>
                         </td>
                     </tr>
-                    <!-- <tr>
+                    @endforeach
+                    @else
+                    <tr>
                         <td colspan="7" class="text-center">No Record Found</td>
-                    </tr> -->
-
+                    </tr>
+                    @endif
                 </table>
 
                 <div class="paginate mt-4 mb-3">
@@ -188,7 +192,7 @@
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" action="{{ route('delete-offline-course')}}">
+                <form method="post" action="{{ route('delete-course-section')}}">
                     @csrf
                     <div class="modal-body">
                         <p>Are you sure to delete ?</p>

@@ -45,15 +45,19 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form method="POST">
+                <form method="POST" action="{{ route('edit-course-section') }}">
                     @csrf
                     @if (Session::has('msg'))
-                    <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
+                    <p class="alert alert-info mb-2" id="responseMessage">{{ Session::get('msg') }}</p>
                     @endif
+                    @if (Session::has('error'))
+                    <p class="alert alert-danger mb-2" id="responseMessage">{{ Session::get('erro') }}</p>
+                    @endif
+                    <input type="hidden" name="id" value="{{ $section->id }}" />
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Section Title</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="section_title" placeholder="Enter Section Title">
+                            <input type="text" class="form-control" name="section_title" placeholder="Enter Section Title" value="{{ $section->section_title }}">
                             @error('section_title')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -62,7 +66,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Section Description</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="section_description" placeholder="Enter Section description">
+                            <input type="text" class="form-control" name="section_description" placeholder="Enter Section description" value="{{ $section->section_description }}">
                             @error('section_description')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -80,4 +84,14 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+</script>
 @endsection
