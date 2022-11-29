@@ -151,7 +151,7 @@
                         <td><span class="course_name">오프라인</span></td>
                         <td>
                             <div class="d-flex gap-1">
-                                <a class="btn btn-sm btn-primary" href="{{ route('lectures') }}">Lectures</a>
+                                <a class="btn btn-sm btn-primary" href="{{ route('lectures' , $s->id) }}">Lectures</a>
                             </div>
                         </td>
                         <td>
