@@ -8,3 +8,4 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('web_assets/css/all.min.css') }}">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
 <link rel="stylesheet" type="text/css" href="{{ asset('web_assets/css/style.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('web_assets/css/site-style.css') }}">
