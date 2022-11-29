@@ -1,0 +1,287 @@
+.certificate_icon {
+    width: 30.33px;
+    Height: 40.95px;
+    margin-right: 10px;
+}
+
+.certificate_modal_header {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    color: #000000;
+}
+
+.certificate_modal_body {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    color: #000000;
+}
+
+.certificate_header {
+    font-weight: 700;
+    font-size: 35px;
+    line-height: 54px;
+    text-align: center;
+    color: #7D5741;
+}
+
+.certificate_sub_title {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #7D5741;
+}
+
+.divider {
+    border: 1px solid #7D5741;
+}
+
+.certificate_name {
+    font-weight: 400;
+    font-size: 35px;
+    line-height: 42px;
+    text-align: center;
+    color: #7D5741;
+}
+
+.certificate_description {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 25px;
+    text-align: center;
+    color: #7D5741;
+}
+
+.certificate_date {
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    color: #7D5741;
+}
+
+.certificate_logo {
+    width: 138.67px;
+    height: 39px;
+    display: block;
+    padding-bottom: 15px;
+}
+
+.footer_logo {
+    width: 92.95px;
+    height: 22.22px;
+}
+
+.certificate_footer {
+    width: 104.41px;
+    height: 104.41px;
+}
+
+.btn-theme-delete {
+    background: #FFFFFF;
+    border: 2px solid #D9D9D9;
+}
+
+.shopping-table tr td {
+    vertical-align: middle;
+}
+
+.shopping-bag-info {
+    background: #191B1D;
+    height: 50px;
+}
+
+.shopping-bag-text {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    color: #FFFFFF;
+    padding: 15px;
+}
+
+.table thead tr {
+    background: #EFEFEF;
+}
+
+.checkbox {
+    background: #FFFFFF;
+    border: 1px solid #AAAAAA;
+    border-radius: 4px;
+}
+
+.discounted_Price {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    color: #ADADAD;
+    text-decoration: line-through;
+}
+
+.cart-total {
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    display: block;
+}
+
+.cart-total-price {
+    padding: 20px 60px 20px 60px;
+}
+
+.border_right {
+    border-right: 1px solid #CCCCCC;
+}
+
+.total-price {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 35px;
+    color: #000000;
+}
+
+.icons {
+    position: absolute;
+    top: 40%;
+    right: -4.5%;
+    border: 1px solid;
+    border-radius: 50%;
+    background-color: white;
+    font-size: 12px;
+    padding: 2px 5px;
+}
+
+.border_bottom {
+    border-bottom: 1px solid #000;
+}
+
+.confirm_payment {
+
+    background: #EFEFEF;
+}
+
+.radio_select {
+    display: flex;
+}
+
+.total_payment {
+    padding-right: 3rem !important;
+}
+
+.shopping-table {
+    width: 100%;
+    display: table;
+}
+
+.position {
+    position: relative;
+}
+
+.mobi-icons {
+    position: absolute;
+    top: 92.1%;
+    left: 46%;
+    border: 1px solid;
+    border-radius: 50px;
+    height: 25px;
+    width: 25px;
+    text-align: center;
+}
+
+.mobile-icons {
+    display: none;
+}
+
+.user-info {
+    background: #EFEFEF;
+}
+
+.user_avatar {
+    width: 115px;
+    height: 115px;
+    background-color: #ADADAD;
+    border-radius: 50%;
+}
+
+.user_profile {
+    padding: 1rem;
+}
+
+.bottom-border {
+    border-bottom: 1px solid #BBBCBD;
+}
+
+.top-border {
+    border-top: 1px solid #000000;
+}
+
+.verify_mobile {
+    display: none;
+}
+
+.verify_btn {
+    display: block;
+}
+
+.user_jobs {
+    height: 50px;
+}
+
+.input_jobs {
+    padding-left: 10px;
+    height: 51px;
+}
+
+.custom_width {
+    width: 100%;
+}
+
+@media only screen and (max-width: 767px) {
+    .radio_select {
+        flex-direction: column;
+        text-align: left !important;
+        margin-left: 10px;
+        padding-bottom: 5px;
+    }
+
+    .total_payment {
+        padding-right: 0.5rem !important;
+    }
+
+    .shopping-table {
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+
+    .mobile-icons {
+        display: block;
+    }
+
+    .cart-total {
+        display: none;
+    }
+
+    .verify_mobile {
+        display: block;
+        text-align: center;
+    }
+
+    .verify_btn {
+        display: none;
+    }
+
+    .user_jobs {
+        height: 169px;
+    }
+
+    .input_jobs {
+        height: 170px;
+        flex-direction: column;
+        align-items: flex-start !important;
+        padding-bottom: 5px;
+    }
+
+    .custom_width {
+        width: 75%;
+    }
+}

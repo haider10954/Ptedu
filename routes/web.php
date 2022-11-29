@@ -36,6 +36,17 @@ Route::get('/review', [ReviewController::class, 'review'])->name('review');
 Route::get('/notice', [IndexController::class, 'notice'])->name('notice');
 Route::get('/online-course', [UserCourseController::class, 'online_course'])->name('online_course');
 Route::get('/my-classroom', [LectureController::class, 'my_classroom'])->name('my_classroom');
+Route::get('/shopping-bag', function () {
+    return view('user.shopping_bag');
+})->name('shopping_bag');
+
+Route::get('/order', function () {
+    return view('user.order');
+})->name('order');
+
+Route::get('/user-information', function () {
+    return view('user.user_info');
+})->name('user_info');
 
 
 // Main site routes end
