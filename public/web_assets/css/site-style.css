@@ -79,8 +79,15 @@
 }
 
 .btn-theme-delete {
-    background: #FFFFFF;
+    background: #D9D9D9;
     border: 2px solid #D9D9D9;
+    color: #808080;
+}
+
+.btn-theme-white {
+    background: #fff;
+    border: 1px solid #191B1D;
+    color: black;
 }
 
 .shopping-table tr td {
@@ -111,7 +118,7 @@
 }
 
 .discounted_Price {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 18px;
     line-height: 21px;
     color: #ADADAD;
@@ -203,7 +210,10 @@
 }
 
 .user_profile {
-    padding: 1rem;
+    padding: 1.5rem;
+    font-weight: 500;
+    font-size: 15px;
+    color: #808080;
 }
 
 .bottom-border {
@@ -233,6 +243,42 @@
 
 .custom_width {
     width: 100%;
+}
+
+.margin {
+    margin-right: 4.25rem;
+}
+
+.paginate {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.paginate a {
+    font-size: 15px;
+    color: #9f9f9f;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.paginate a.active {
+    color: black;
+}
+
+.paginate a.paginate-btn {
+    background: transparent;
+    padding: 2px 10px;
+    color: #000000;
+    border-radius: 50%;
+}
+
+.custom_height {
+    height: 118px;
+}
+
+.btn-padding {
+    padding: 6px 30px 5px 30px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -283,5 +329,17 @@
 
     .custom_width {
         width: 75%;
+    }
+
+    .margin {
+        margin-right: 0;
+    }
+
+    .user_profile {
+        padding: 0.5rem;
+    }
+
+    .custom_height {
+        height: 166px;
     }
 }

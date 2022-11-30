@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-md-3 pr-0">
                         <div class="user-info bottom-border">
-                            <div class="user-details d-flex align-items-center justify-content-center" style="height: 155px;">
+                            <div class="user-details d-flex align-items-center justify-content-start" style="height: 155px;">
                                 <p class="mb-0 user_profile">Profile Image</p>
                             </div>
                         </div>
@@ -52,8 +52,8 @@
                 <div class="row">
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
-                            <div class="d-flex align-items-center justify-content-center" style="height:50px;">
-                                <p class="mb-0">Name</p>
+                            <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                <p class="mb-0 user_profile">Name</p>
                             </div>
                         </div>
                     </div>
@@ -69,8 +69,8 @@
                 <div class="row">
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
-                            <div class="d-flex align-items-center justify-content-center" style="height:50px;">
-                                <p class="mb-0">English Name</p>
+                            <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                <p class="mb-0 user_profile">English Name</p>
                             </div>
                         </div>
                     </div>
@@ -87,8 +87,8 @@
                 <div class="row">
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
-                            <div class="d-flex align-items-center justify-content-center" style="height:50px;">
-                                <p class="mb-0">ID</p>
+                            <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                <p class="mb-0 user_profile">ID</p>
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                                 <input type="text" class="form-control" name="ID" placeholder="Enter ID" value="{{ old('ID') }}">
                             </div>
                             <div class="verify_btn">
-                                <button class="btn rounded-0 btn-theme-delete ml-2">Duplicate Verification</button>
+                                <button class="btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
                             </div>
                         </div>
                     </div>
@@ -115,8 +115,8 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-center" style="height:50px;">
-                                    <p class="mb-0">Current Password</p>
+                                <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                    <p class="mb-0 user_profile">Current Password</p>
                                 </div>
                             </div>
                         </div>
@@ -132,8 +132,8 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-center" style="height:50px;">
-                                    <p class="mb-0">Change Password</p>
+                                <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                    <p class="mb-0 user_profile">Change Password</p>
                                 </div>
                             </div>
                         </div>
@@ -149,8 +149,8 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-center" style="height:50px;">
-                                    <p class="mb-0">Confirm Password</p>
+                                <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                    <p class="mb-0 user_profile">Confirm Password</p>
                                 </div>
                             </div>
                         </div>
@@ -166,8 +166,8 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-center user_jobs">
-                                    <p class="mb-0">Job</p>
+                                <div class="d-flex align-items-center justify-content-start user_jobs">
+                                    <p class="mb-0 user_profile">Job</p>
                                 </div>
                             </div>
                         </div>
@@ -201,8 +201,8 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-center" style="height:50px;">
-                                    <p class="mb-0">Phone number</p>
+                                <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                    <p class="mb-0 user_profile">Phone number</p>
                                 </div>
                             </div>
                         </div>
@@ -224,8 +224,8 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-center" style="height:50px;">
-                                    <p class="mb-0">Email</p>
+                                <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                    <p class="mb-0 user_profile">Email</p>
                                 </div>
                             </div>
                         </div>
@@ -247,8 +247,8 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-center" style="height:99px;">
-                                    <p class="mb-0">Address</p>
+                                <div class="d-flex align-items-center justify-content-start" style="height:99px;">
+                                    <p class="mb-0 user_profile">Address</p>
                                 </div>
                             </div>
                         </div>
@@ -268,7 +268,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="d-flex align-items-center justify-content-center mt-2">
-                                <button class="btn rounded-0 btn-theme-black text-white">Ok</button>
+                                <button class="btn rounded-0 btn-theme-black text-white" style="padding: 5px 30px 5px 30px">Ok</button>
                             </div>
                         </div>
                     </div>

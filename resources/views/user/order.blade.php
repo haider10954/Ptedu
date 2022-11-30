@@ -111,16 +111,16 @@
                                     <p>Payment Method</p>
                                 </div>
                                 <div class="align-items-center radio_select mb-3">
-                                    <div class="mr-3" style="width: 100%;">
-                                        <input type="radio" name="payment_method" class="payment-method-radio"> Card
+                                    <div class="mr-3 w-50">
+                                        <input type="radio" name="payment_method" class="payment-method-radio"> <span>Card</span>
                                     </div>
-                                    <div class="mr-3" style="width: 100%;">
+                                    <div class="mr-3 w-100">
                                         <input type="radio" name="payment_method" class="payment-method-radio"> Real-time account transfer
                                     </div>
-                                    <div class="mr-3" style="width: 100%;">
+                                    <div class="mr-3" style="width: 60%;">
                                         <input type="radio" name="payment_method" class="payment-method-radio"> Make a deposit
                                     </div>
-                                    <div class="mr-3" style="width: 100%;">
+                                    <div class="mr-3" style="width: 90%;">
                                         <input type="radio" name="payment_method" class="payment-method-radio" value="cashondelivery"> Mobile phone transfer
                                     </div>
                                 </div>
@@ -186,7 +186,7 @@
                             <div class="d-flex  align-content-center justify-content-center mt-3">
                                 <a href="{{ route('shopping_bag') }}" class="btn btn-theme-delete mx-2"><span class="mr-2">Back/Cancel</span> <i class="fa fa-angle-right"></i> </a>
 
-                                <a href="{{ route('order') }}" class="btn btn-theme-black text-white mx-2"><span class="mr-2">Pay</span> <i class="fa fa-angle-right"></i> </a>
+                                <a href="{{ route('order') }}" class="btn btn-theme-black text-white mx-2 btn-padding"><span class="mr-2">Pay</span> <i class="fa fa-angle-right"></i> </a>
                             </div>
                         </div>
                     </div>
