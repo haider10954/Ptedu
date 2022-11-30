@@ -702,6 +702,11 @@ header .btn.transparent, .btn.solid:hover{
     font-weight: 700;
     margin-bottom: 20px !important;
 }
+
+.megamenu a:hover {
+    text-decoration: none;
+}
+
 .megamenu-menu-link{
     color: #191B1D;
     font-size: 15px;
