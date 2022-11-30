@@ -698,11 +698,28 @@
     });
 
     var distance = $('.interactive-section-1').offset().top;
+    var distance2 = $('.interactive-section-2').offset().top;
+    var distance3 = $('.courses-detail').offset().top;
+    var verticalHeight = $(window).height() * 2;
+    var verticalHeight2 = $(window).height() * 5;
     $(window).scroll(function() {
+        console.log(distance2);
         if ($(this).scrollTop() >= distance) {
             $('.interactive-section-1').addClass('fixed-section');
-        } else {
+        }else{
             $('.interactive-section-1').removeClass('fixed-section');
+        }
+
+        if($(this).scrollTop() >= distance2 - verticalHeight){
+            $('.interactive-section-2').addClass('fixed-section-2');
+        }else{
+            $('.interactive-section-2').removeClass('fixed-section-2');
+        }
+
+        if($(this).scrollTop() >= distance3 - verticalHeight2){
+            $('.courses-detail').addClass('fixed-section-3');
+        }else{
+            $('.courses-detail').removeClass('fixed-section-3');
         }
     });
 </script>
