@@ -249,7 +249,7 @@
                         <a href="{{ route('review')}}">Review</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="{{ route('notice')}}">Notice</a>
+                        <a href="{{ route('web-notice')}}">Notice</a>
                     </li>
                 </ul>
             </div>
