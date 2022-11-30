@@ -44,7 +44,7 @@
                                     <td>문의합니다</td>
                                     <td>이**</td>
                                     <td>2022.10.13</td>
-                                    <td><button class="btn btn-sm btn-theme-delete">답변준비중</button></td>
+                                    <td><button class="btn btn-sm btn-theme-delete" href="{{ route('inquiry_not_answered') }}">답변준비중</button></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
