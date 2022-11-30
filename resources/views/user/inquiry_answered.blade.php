@@ -87,7 +87,7 @@
                         </div>
                         <div class="col-9 pl-0">
                             <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
-                                <div class="ml-2 mt-4">
+                                <div class="ml-2 mt-2 mt-md-4">
                                     <p class="mb-0">Content </p>
                                 </div>
                             </div>
