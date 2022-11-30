@@ -88,7 +88,7 @@
             <div class="nav-links navigation-desktop">
                 <ul>
                     <li class="nav-link has-megamenu" style="--i: 1.1s">
-                        <a href="#">Expert course<i class="fas fa-angle-down"></i></a>
+                        <a href="#" class="text-decoration-none">Expert course<i class="fas fa-angle-down"></i></a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
@@ -165,7 +165,7 @@
                         </div>
                     </li>
                     <li class="nav-link has-megamenu" style="--i: .85s">
-                        <a href="javascript:void(0)">Public course<i class="fas fa-angle-down"></i></a>
+                        <a href="javascript:void(0)" class="text-decoration-none">Public course<i class="fas fa-angle-down"></i></a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
