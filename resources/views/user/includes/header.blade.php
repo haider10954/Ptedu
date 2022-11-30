@@ -243,13 +243,13 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="javascript:void(0)">PTEdu</a>
+                        <a href="{{ route('home'}}">PTEdu</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="javascript:void(0)">Review</a>
+                        <a href="{{ route('review'}}">Review</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="javascript:void(0)">Notice</a>
+                        <a href="{{ route('notice'}}">Notice</a>
                     </li>
                 </ul>
             </div>
