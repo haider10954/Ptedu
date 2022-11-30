@@ -35,8 +35,8 @@
                     </div>
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
-                            <div>
-                                <input type="text" class="form-control" name="name" placeholder="Name" value="{{ old('name') }}">
+                            <div class="ml-2">
+                                Name
                             </div>
                         </div>
                     </div>
@@ -52,8 +52,8 @@
                     </div>
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
-                            <div>
-                                <input type="text" class="form-control" name="phone_number" placeholder="Enter Mobile Number" value="{{ old('phone_number') }}">
+                            <div class="ml-2">
+                                Phone Number
                             </div>
                         </div>
                     </div>
@@ -70,8 +70,8 @@
                         </div>
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
-                                <div class="w-100">
-                                    <input type="text" class="form-control" name="title" placeholder="Enter Title" value="{{ old('title') }}">
+                                <div class="ml-2">
+                                    Title
                                 </div>
                             </div>
                         </div>
@@ -86,9 +86,9 @@
                             </div>
                         </div>
                         <div class="col-9 pl-0">
-                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; min-height:201px; width:100%">
-                                <div class="w-100">
-                                    <textarea type="text" class="form-control" name="content" rows="6" placeholder="Enter Title" value="{{ old('content') }}"></textarea>
+                            <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
+                                <div class="ml-2 mt-3">
+                                    Content
                                 </div>
                             </div>
                         </div>
@@ -108,9 +108,9 @@
                             </div>
                         </div>
                         <div class="col-9 pl-0">
-                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; min-height:201px; width:100%">
-                                <div class="w-100">
-                                    <textarea type="text" class="form-control" name="content" rows="6" placeholder="Enter Title" value="{{ old('content') }}">알려드립니다. 이렇게 하시면 됩니다.</textarea>
+                            <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
+                                <div class="ml-2 mt-3">
+                                    알려드립니다. 이렇게 하시면 됩니다.
                                 </div>
                             </div>
                         </div>
