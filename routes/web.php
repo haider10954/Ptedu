@@ -48,7 +48,21 @@ Route::get('/user-information', function () {
     return view('user.user_info');
 })->name('user_info');
 
+Route::get('/inquiry', function () {
+    return view('user.inquiry');
+})->name('user_inquiry');
 
+Route::get('/inquiry/add', function () {
+    return view('user.add_inquiry');
+})->name('add_inquiry');
+
+Route::get('/inquiry-not-answered', function () {
+    return view('user.inquiry_not_answered');
+})->name('inquiry_not_answered');
+
+Route::get('/inquiry-answered', function () {
+    return view('user.inquiry_answered');
+})->name('inquiry_answered');
 // Main site routes end
 
 Route::get('/admin-logout', [AuthController::class, 'logout'])->name('admin_auth_logout');
