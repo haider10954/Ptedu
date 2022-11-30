@@ -348,7 +348,7 @@ header .btn.transparent, .btn.solid:hover{
         background-color: #3183ac;
         display: none;
     }
-    
+
     /* .nav-link:hover > .dropdown,
     .dropdown-link:hover > .dropdown{
         display: block;
@@ -553,7 +553,7 @@ header .btn.transparent, .btn.solid:hover{
 }
 
 .swiper-button-next:after, .swiper-button-prev:after{
-    font-size: 24px;    
+    font-size: 24px;
 }
 .courses-type .section-part .swiper-button-next:after , .courses-type .section-part .swiper-button-prev:after{
     color: #ffffff;
@@ -624,7 +624,7 @@ header .btn.transparent, .btn.solid:hover{
         margin-bottom: 20px;
     }
     .banner-content-inner img{
-        height: 50vh;   
+        height: 50vh;
     }
     .banner-content-inner{
         padding-top: 0;
@@ -648,7 +648,14 @@ header .btn.transparent, .btn.solid:hover{
     .course-detail-author-content{
         display: block !important;
     }
-} 
+    .review_tabs{
+        width: 100% !important;
+    }
+
+    .w-65{
+        width:100% !important;
+    }
+}
 @media only screen and (max-width:428px){
     .courses-type .section-part .swiper-button-prev, .courses-type .section-part .swiper-rtl .swiper-button-next{
         left: -32px;
@@ -1103,5 +1110,5 @@ header .btn.transparent, .btn.solid:hover{
     object-fit: cover;
 }
 .tutor-image-container:hover .box-overlay{
-    opacity: 1;    
+    opacity: 1;
 }
