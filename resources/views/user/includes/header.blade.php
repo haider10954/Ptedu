@@ -243,7 +243,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="{{ route('home')}}">PTEdu</a>
+                        <a href="{{ route('web-home')}}">PTEdu</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ route('review')}}">Review</a>

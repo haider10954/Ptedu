@@ -29,7 +29,7 @@ use App\Http\Controllers\user\LectureController;
 
 // Main site routes start
 
-Route::get('/', [IndexController::class, 'index'])->name('home');
+Route::get('/', [IndexController::class, 'index'])->name('web-home');
 Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
 Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
 Route::get('/review', [ReviewController::class, 'review'])->name('review');
