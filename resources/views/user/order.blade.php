@@ -111,16 +111,16 @@
                                     <p>Payment Method</p>
                                 </div>
                                 <div class="align-items-center radio_select mb-3">
-                                    <div class="mr-3 w-50">
+                                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
                                         <input type="radio" name="payment_method" class="payment-method-radio"> <span>Card</span>
                                     </div>
-                                    <div class="mr-3 w-100">
+                                    <div class="mr-3 w-100 mb-1 mb-md-0">
                                         <input type="radio" name="payment_method" class="payment-method-radio"> Real-time account transfer
                                     </div>
-                                    <div class="mr-3" style="width: 60%;">
+                                    <div class="mr-3 payment_method_deposit mb-1 mb-md-0">
                                         <input type="radio" name="payment_method" class="payment-method-radio"> Make a deposit
                                     </div>
-                                    <div class="mr-3" style="width: 90%;">
+                                    <div class="mr-3 payment_method_mobile mb-1 mb-md-0">
                                         <input type="radio" name="payment_method" class="payment-method-radio" value="cashondelivery"> Mobile phone transfer
                                     </div>
                                 </div>
