@@ -13,10 +13,10 @@
                 </div>
                 <div class="page-side-menu">
                     <ul class="menu">
-                        <li><a href="javascript:void(0)">My Classroom</a></li>
-                        <li><a href="javascript:void(0)">Shopping Bag</a></li>
-                        <li><a href="javascript:void(0)">Modifying Member Info</a></li>
-                        <li><a href="javascript:void(0)">1:1 Inquiry</a></li>
+                    <li><a href="{{ route('my_classroom') }}">My Classroom</a></li>
+                        <li><a href="{{ route('shopping_bag') }}">Shopping Bag</a></li>
+                        <li><a href="{{ route('user_info') }}">Modifying Member Info</a></li>
+                        <li><a href="{{ route('user_inquiry')  }}">1:1 Inquiry</a></li>
                     </ul>
                 </div>
             </div>
