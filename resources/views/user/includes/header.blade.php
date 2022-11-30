@@ -101,8 +101,7 @@
                                                         name)</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">(Tutor name)</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">(Tutor name)</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -113,8 +112,7 @@
                                                         1-2</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">조규행</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -125,8 +123,7 @@
                                                         Advance)</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">조규행</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -136,8 +133,7 @@
                                                     <a href="javascript:void(0)" class="megamenu-menu-link">운동조절</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">조규행</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -147,8 +143,7 @@
                                                     <a href="javascript:void(0)" class="megamenu-menu-link">측만증 물리치료</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">조규행</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -183,8 +178,7 @@
                                                         name)</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">(Tutor name)</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">(Tutor name)</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -195,8 +189,7 @@
                                                         1-2</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">조규행</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -207,8 +200,7 @@
                                                         Advance)</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">조규행</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -218,8 +210,7 @@
                                                     <a href="javascript:void(0)" class="megamenu-menu-link">운동조절</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">조규행</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -230,8 +221,7 @@
                                                         물리치료</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link text-muted">조규행</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
                                                 </div>
                                             </div>
                                         </li>
@@ -264,7 +254,7 @@
                 </ul>
             </div>
             <div class="log-sign" style="--i: 1.8s">
-                <a href="javascript:void(0)" class="btn solid">Login</a>
+                <a href="{{ route('user_login') }}" class="btn solid">Login</a>
             </div>
         </div>
 

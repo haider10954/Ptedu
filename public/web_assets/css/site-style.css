@@ -281,6 +281,63 @@
     padding: 6px 30px 5px 30px;
 }
 
+.form-wrapper {
+    width: 30%;
+}
+
+.btn-login {
+
+    background: #191B1D;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 21px;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 13px 0px 13px 0px;
+}
+
+.btn-login:hover {
+    background: #191B1D;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 21px;
+    color: #FFFFFF;
+    width: 100%;
+    padding: 13px 0px 13px 0px;
+}
+
+.btn-register {
+
+    background: #191B1D;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 21px;
+    color: #FFFFFF;
+    padding: 13px 0px 13px 0px;
+}
+
+.btn-register:hover {
+    background: #191B1D;
+    border-radius: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 21px;
+    color: #FFFFFF;
+    padding: 13px 0px 13px 0px;
+}
+
+.form-register-wrapper {
+    width: 100%;
+}
+
+.bottom-border-register {
+    border-bottom: 2px solid #191B1D;
+    border-top: 2px solid #191B1D;
+}
+
 @media only screen and (max-width: 767px) {
     .radio_select {
         flex-direction: column;
@@ -341,5 +398,9 @@
 
     .custom_height {
         height: 166px;
+    }
+
+    .form-wrapper {
+        width: 100%;
     }
 }

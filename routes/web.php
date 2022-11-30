@@ -63,6 +63,14 @@ Route::get('/inquiry-not-answered', function () {
 Route::get('/inquiry-answered', function () {
     return view('user.inquiry_answered');
 })->name('inquiry_answered');
+
+Route::get('/user/login', function () {
+    return view('user.login_user');
+})->name('user_login');
+
+Route::get('/user/register', function () {
+    return view('user.register');
+})->name('user_register');
 // Main site routes end
 
 Route::get('/admin-logout', [AuthController::class, 'logout'])->name('admin_auth_logout');
