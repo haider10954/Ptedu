@@ -473,7 +473,7 @@ header .btn.transparent, .btn.solid:hover{
 	background-size: cover;
 }
 .interactive-section-content{
-	width: 80%;
+	width: 100%;
 	margin: auto;
 }
 .text-theme-light{
@@ -521,8 +521,14 @@ header .btn.transparent, .btn.solid:hover{
     background-color: #CDCECF;
 }
 .course-detail-img{
-    height: 290px;
+    height: 298px;
     width: 419px;
+    object-fit: cover;
+    background-color: #f2f2f2;
+}
+.course-review-img{
+    height: 228px;
+    width: 100%;
     object-fit: cover;
     background-color: #f2f2f2;
 }
@@ -606,6 +612,9 @@ header .btn.transparent, .btn.solid:hover{
     padding-top: 20px;
 }
 @media only screen and (max-width: 767px){
+    .interactive-section-content{
+        width: 80%;
+    }
     .interactive-section-2 .interactive-section-content{
         display: block;
         text-align: center;
@@ -1018,4 +1027,81 @@ header .btn.transparent, .btn.solid:hover{
 }
 .rounded-0{
     border-radius: 0 !important;
+}
+
+/* index page interections */
+.banner_area{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: -99999;
+}
+.interactive-section-1{
+    margin-top: 100vh;
+}
+.fixed-section{
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    z-index: -999;
+}
+.interactive-section-2{
+    margin-top: 200vh;
+    border-bottom: 2px solid #f2f2f2;
+    border-top: 2px solid #f2f2f2;
+}
+.box-overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: rgba(25, 27, 29, 0.9);
+    z-index: 9999999;
+    opacity: 0;
+    padding: 25px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.swiper-slide:hover .box-overlay{
+    opacity: 1;
+}
+.box-overlay-description{
+    height: 190px;
+    overflow: auto;
+}
+.review_video_box_overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background-color: rgba(25, 27, 29, 0.4);
+    z-index: 9999999;
+    opacity: 1;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.interaction_img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.interactive-section-content .heading-h3{
+    font-size: 35px;
+    margin-bottom: 50px !important;
+}
+.interactive-section-content small{
+    display: block;
+}
+.tutor-image-container{
+    position: relative;
+}
+.tutor-image-container img{
+    height: 310px;
+    width: 100%;
+    object-fit: cover;
+}
+.tutor-image-container:hover .box-overlay{
+    opacity: 1;    
 }
