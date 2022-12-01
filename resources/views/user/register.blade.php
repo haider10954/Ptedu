@@ -138,7 +138,7 @@
                             </div>
                         </div>
                         <div class="col-9 pl-0">
-                            <div class="d-flex align-items-center select_job bottom-border input_jobs">
+                            <div class="d-flex align-items-center  bottom-border input_jobs">
                                 <div class=" mr-2">
                                     <input type="radio"> physical therapist
                                 </div>
