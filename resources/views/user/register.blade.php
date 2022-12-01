@@ -276,7 +276,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="d-flex align-items-center justify-content-center mt-2">
+                            <div class="d-flex align-items-center justify-content-center mt-5">
                                 <button class="btn rounded-0 btn-register" style="padding: 5px 30px 5px 30px">Register</button>
                             </div>
                         </div>
