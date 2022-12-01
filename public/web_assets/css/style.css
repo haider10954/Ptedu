@@ -15,6 +15,9 @@ ul{
 a{
     text-decoration: none;
 }
+a:hover{
+    text-decoration: none;
+}
 p{
     font-size: 14px;
 }
