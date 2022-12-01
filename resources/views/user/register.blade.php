@@ -8,7 +8,7 @@
         <div class="m-auto form-register-wrapper">
             <form>
                 <div class="section-heading">
-                    <h5 class="mb-0">Register</h5>
+                    <h5 class="mb-4">Register</h5>
                     <div class="mt-2 mb-3">
                         <p class="mb-1">It is a professional lecture led by physical therapy & Pilates experts.</p>
                         <p class="mb-0">We will promote your growth as an expert through close knowledge in the field.</p>
