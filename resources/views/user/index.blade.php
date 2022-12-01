@@ -39,7 +39,7 @@
                             </div>
                             <div class="col-md-8 p-4">
                                 <div class="d-flex align-items-end course-detail-author-content justify-content-between mb-4">
-                                    <h3 class="heading-h3">GAIT : Walk A to Z</h3>
+                                    <h3 class="heading-h3 font-30">GAIT : Walk A to Z</h3>
                                     <small>Jo Gyu-haeng Teacher</small>
                                 </div>
                                 <p class="text-left">An essential gait for returning to society from everyday life.How
@@ -706,19 +706,19 @@
         console.log(distance2);
         if ($(this).scrollTop() >= distance) {
             $('.interactive-section-1').addClass('fixed-section');
-        }else{
+        } else {
             $('.interactive-section-1').removeClass('fixed-section');
         }
 
-        if($(this).scrollTop() >= distance2 - verticalHeight){
+        if ($(this).scrollTop() >= distance2 - verticalHeight) {
             $('.interactive-section-2').addClass('fixed-section-2');
-        }else{
+        } else {
             $('.interactive-section-2').removeClass('fixed-section-2');
         }
 
-        if($(this).scrollTop() >= distance3 - verticalHeight2){
+        if ($(this).scrollTop() >= distance3 - verticalHeight2) {
             $('.courses-detail').addClass('fixed-section-3');
-        }else{
+        } else {
             $('.courses-detail').removeClass('fixed-section-3');
         }
     });

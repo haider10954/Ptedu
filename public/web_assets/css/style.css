@@ -763,6 +763,10 @@ header .btn.transparent, .btn.solid:hover {
     background: #ffffff;
 }
 
+.font-30 {
+    font-size: 30px !important;
+}
+
 .megamenu h4 {
     font-size: 15px;
     font-weight: 700;
@@ -1287,7 +1291,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .interactive-section-content .heading-h3 {
-    font-size: 34px;
+    font-size: 25px;
     margin-bottom: 50px !important;
 }
 
