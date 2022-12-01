@@ -3,7 +3,9 @@
         <input type="checkbox" name="" id="check">
 
         <div class="logo-container">
-            <h3 class="logo">PTEdu<sub>®</sub></h3>
+            <h3 class="logo">
+                <a class="text-decoration-none text-dark" href="{{ route('web-home') }}">PTEdu<sub>®</sub> </a>
+            </h3>
         </div>
 
         <div class="nav-btn">
