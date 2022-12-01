@@ -297,13 +297,14 @@ header .btn.transparent, .btn.solid:hover {
     #check {
         display: block;
     }
+
     .nav-btn {
         position: fixed;
         height: calc(100vh - 3rem);
         top: 3rem;
         left: 0;
         width: 100%;
-        background-color: #69bde7;
+        background-color: #b6b9bd;
         flex-direction: column;
         align-items: center;
         justify-content: space-between;
@@ -669,6 +670,7 @@ header .btn.transparent, .btn.solid:hover {
     .lecture_banner_section .banner_text {
         width: 80%;
     }
+
     .interactive-section-2 .interactive-section-content img {
         margin-top: 20px;
         margin-bottom: 20px;
@@ -1153,6 +1155,7 @@ header .btn.transparent, .btn.solid:hover {
     .lecture_banner_section .banner_text {
         width: 80%;
     }
+
     .page-side-menu {
         display: none;
         margin-bottom: 30px;
