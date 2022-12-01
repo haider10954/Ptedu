@@ -213,7 +213,7 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start" style="height:99px;">
+                                <div class="d-flex  justify-content-start" style="height:99px;">
                                     <p class="mb-0 user_profile">Address<span class="text-danger">*</span></p>
                                 </div>
                             </div>
