@@ -366,7 +366,7 @@
                     <h3 class="heading-h3 text-white mb-0">Tutor Introduction</h3>
                 </div>
                 <div class="row align-items-center justify-content-left">
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
                             <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
@@ -378,7 +378,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
                             <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
@@ -390,7 +390,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
                             <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
@@ -402,7 +402,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
                             <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
@@ -414,7 +414,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
                             <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
@@ -426,7 +426,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
                             <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
@@ -438,7 +438,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
                             <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
@@ -450,7 +450,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-6 mb-4">
+                    <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
                             <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
                             <div class="box-overlay">

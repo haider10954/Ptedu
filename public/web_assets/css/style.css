@@ -644,9 +644,11 @@ header .btn.transparent, .btn.solid:hover{
     .review_tabs{
         width: 100% !important;
     }
-
     .w-65{
         width:100% !important;
+    }
+    .courses-detail{
+        height: auto !important;
     }
 }
 @media only screen and (max-width:428px){
@@ -1069,7 +1071,7 @@ header .btn.transparent, .btn.solid:hover{
 }
 .courses-detail{
     margin-top: 300vh;
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
