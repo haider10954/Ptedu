@@ -10,27 +10,27 @@
             <div class="nav-links navigation-mobile">
                 <ul>
                     <li class="nav-link" style="--i: 1.1s">
-                        <a href="#">Expert course<i class="fas fa-angle-down"></i></a>
+                        <a href="{{ route('web-home') }}" class="text-decoration-none">Expert course<i class="fas fa-angle-down"></i></a>
                         <div class="dropdown">
                             <ul>
                                 <li class="dropdown-link">
-                                    <a href="#">Physical Teraphy<i class="fas fa-angle-down"></i></a>
+                                    <a href="#" class="text-decoration-none">Physical Teraphy<i class="fas fa-angle-down"></i></a>
                                     <div class="dropdown second">
                                         <ul>
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)">(Course name)</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">(Course name)</a>
                                             </li>
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)">pnf level 1-2</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">pnf level 1-2</a>
                                             </li>
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)">운동학(basic, Advance)</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">운동학(basic, Advance)</a>
                                             </li>
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)">운동조절</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">운동조절</a>
                                             </li>
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)">측만증 물리치료</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">측만증 물리치료</a>
                                             </li>
                                             <div class="arrow"></div>
                                         </ul>
@@ -41,47 +41,47 @@
                                     <div class="dropdown second">
                                         <ul>
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)">필라테스 ON line</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">필라테스 ON line</a>
                                             </li>
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)">필라테스 강사과정</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">필라테스 강사과정</a>
                                             </li>
                                             <div class="arrow"></div>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="javascript:void(0)">Offline</a>
+                                    <a href="javascript:void(0)" class="text-decoration-none">Offline</a>
                                 </li>
                                 <div class="arrow"></div>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-link" style="--i: .85s">
-                        <a href="javascript:void(0)">Public course<i class="fas fa-angle-down"></i></a>
+                        <a href="{{ route('web-home') }}" class="text-decoration-none">Public course<i class="fas fa-angle-down"></i></a>
                         <div class="dropdown">
                             <ul>
                                 <li class="dropdown-link">
-                                    <a href="javascript:void(0)">Link 1</a>
+                                    <a href="javascript:void(0)" class="text-decoration-none">Link 1</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="javascript:void(0)">Link 2</a>
+                                    <a href="javascript:void(0)" class="text-decoration-none">Link 2</a>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="javascript:void(0)">Link 4</a>
+                                    <a href="javascript:void(0)" class="text-decoration-none">Link 4</a>
                                 </li>
                                 <div class="arrow"></div>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="javascript:void(0)">PTEdu</a>
+                        <a href="{{ route('web-home') }}" class="text-decoration-none">PTEdu</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="javascript:void(0)">Review</a>
+                        <a href="{{ route('review') }}" class="text-decoration-none">Review</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="javascript:void(0)">Notice</a>
+                        <a href="{{ route('web-notice') }}" class="text-decoration-none">Notice</a>
                     </li>
                 </ul>
             </div>
