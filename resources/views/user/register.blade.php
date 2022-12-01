@@ -233,7 +233,7 @@
                     <div class="mt-5">
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
+                            <label class="form-check-label ml-2 font-weight-600" for="defaultCheck1">
                                 To agree all
                             </label>
                         </div>
@@ -241,35 +241,35 @@
                     <div class="bottom-border-register">
                         <div class="form-check mb-2 ml-2 mt-2">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
+                            <label class="form-check-label ml-2" for="defaultCheck1">
                                 Agree to the Terms and Conditions (required)
                             </label>
                         </div>
 
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
+                            <label class="form-check-label ml-2" for="defaultCheck1">
                                 Consent to the personal information processing policy (required)
                             </label>
                         </div>
 
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
+                            <label class="form-check-label ml-2" for="defaultCheck1">
                                 I’m 14 years of age or older (required)
                             </label>
                         </div>
 
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
+                            <label class="form-check-label ml-2" for="defaultCheck1">
                                 Agree to receive marketing and event information (optional)
                             </label>
                         </div>
 
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                            <label class="form-check-label" for="defaultCheck1">
+                            <label class="form-check-label ml-2" for="defaultCheck1">
                                 If you agree to receive marketing, you can receive various benefits and event news from Ipamaster.
                             </label>
                         </div>

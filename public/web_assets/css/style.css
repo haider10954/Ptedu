@@ -809,6 +809,13 @@ header .btn.transparent, .btn.solid:hover {
     font-weight: 600;
 }
 
+.section-heading p {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 160%;
+    color: #000000;
+}
+
 .course-box {
     border: 1px solid #c3c3c3;
     box-shadow: 0px 0px 5px #bbbbbb;
