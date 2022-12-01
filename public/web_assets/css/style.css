@@ -24,7 +24,7 @@ a:hover {
 }
 
 p {
-    font-size: 14px;
+    font-size: 13px;
 }
 
 header {
@@ -82,7 +82,7 @@ header {
 header .btn {
     display: inline-block;
     padding: .5rem 1.3rem;
-    font-size: .8rem;
+    font-size: .7rem;
     border: 2px solid #000000;
     border-radius: 2rem;
     line-height: 1;
@@ -115,7 +115,7 @@ header .btn.transparent, .btn.solid:hover {
     line-height: 2rem;
     color: #000000;
     padding: 0 .8rem;
-    font-size: 15px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -148,7 +148,7 @@ header .btn.transparent, .btn.solid:hover {
     background-color: #dddddd;
     color: #000000;
     padding: .5rem 1rem;
-    font-size: .9rem;
+    font-size: .8rem;
     align-items: center;
     justify-content: space-between;
     transition: .3s;
@@ -415,13 +415,13 @@ header .btn.transparent, .btn.solid:hover {
     }
 
     .nav-link>a>i {
-        font-size: 1.1rem;
+        font-size: 1rem;
         transform: rotate(-90deg);
         transition: .7s;
     }
 
     .dropdown i {
-        font-size: 1rem;
+        font-size: 0.9rem;
         transition: .7s;
     }
 
@@ -466,14 +466,14 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .heading-h3 {
-    font-size: 26px;
+    font-size: 25px;
     font-weight: 600;
     line-height: 28px;
     margin-bottom: 0;
 }
 
 .heading-h2 {
-    font-size: 46px;
+    font-size: 45px;
     font-weight: 600;
     line-height: 55px;
     margin-bottom: 0;
@@ -521,7 +521,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .interactive-section-2 .interactive-section-text .heading-h3 {
-    font-size: 36px;
+    font-size: 35px;
     line-height: 42px;
     margin-top: -29px;
 }
@@ -531,13 +531,13 @@ header .btn.transparent, .btn.solid:hover {
     background-color: #ffffff;
     color: #CDCECF;
     font-weight: 500;
-    font-size: 22px;
+    font-size: 20px;
     color: #191b1d;
 }
 
 .interactive-section-2 h3 {
     line-height: 34px;
-    font-size: 28px;
+    font-size: 27px;
 }
 
 .section {
@@ -586,7 +586,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .swiper-button-next:after, .swiper-button-prev:after {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 .courses-type .section-part .swiper-button-next:after, .courses-type .section-part .swiper-button-prev:after {
@@ -764,7 +764,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .megamenu h4 {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
     margin-bottom: 20px !important;
 }
@@ -775,7 +775,7 @@ header .btn.transparent, .btn.solid:hover {
 
 .megamenu-menu-link {
     color: #191B1D;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .megamenu-list {
@@ -801,7 +801,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .section-heading h5 {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
 }
 
@@ -816,7 +816,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .course-box .course-info p {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .bg-grey {
@@ -841,7 +841,7 @@ header .btn.transparent, .btn.solid:hover {
 
 .custom-pagination ul li a {
     text-decoration: none;
-    font-size: 15px;
+    font-size: 14px;
     color: #000000;
     padding: 5px 15px;
 }
@@ -879,7 +879,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .text {
-    font-size: 14px;
+    font-size: 13px;
     line-height: 25px;
 }
 
@@ -902,7 +902,7 @@ header .btn.transparent, .btn.solid:hover {
 .nav-pills .nav-link {
     color: #000000;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     border-radius: 0;
     opacity: 1;
 }
@@ -981,7 +981,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .review_box p {
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .text-beige {
@@ -1038,7 +1038,7 @@ header .btn.transparent, .btn.solid:hover {
 
 .page-side-menu .menu li a {
     color: #000000;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .page-side-menu .menu li a:hover {
@@ -1071,7 +1071,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .custom-tab-content .content-heading {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 600;
     margin-bottom: 30px;
 }
@@ -1087,15 +1087,15 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .lecture-box .lecture_box_content .lecture_title {
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .lecture-box .lecture_box_content .lecture_info {
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .lecture-box .lecture_box_content .lecture-duration {
-    font-size: 11px;
+    font-size: 10px;
 }
 
 .btn-custom-sm {
@@ -1169,7 +1169,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .modal-custom .modal-title {
-    font-size: 19px;
+    font-size: 18px;
     font-weight: 600;
 }
 
@@ -1287,7 +1287,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .interactive-section-content .heading-h3 {
-    font-size: 35px;
+    font-size: 34px;
     margin-bottom: 50px !important;
 }
 
