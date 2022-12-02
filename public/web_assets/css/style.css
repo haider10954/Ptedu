@@ -574,7 +574,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .swiper-pagination-bullet-active {
-    background: #000000;
+    background: #ffffff;
 }
 
 .courses-type {
@@ -626,7 +626,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .courses-review .section-part .swiper-button-next:after, .courses-review .section-part .swiper-button-prev:after {
-    color: #000000;
+    color: #ffffff;
 }
 
 .social-icons {
@@ -1319,6 +1319,8 @@ header .btn.transparent, .btn.solid:hover {
 
 .tutor-image-container {
     position: relative;
+    width: 85%;
+    margin: auto;
 }
 
 .tutor-image-container img {
