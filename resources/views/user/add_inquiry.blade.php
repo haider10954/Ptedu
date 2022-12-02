@@ -69,7 +69,7 @@
                             </div>
                         </div>
                         <div class="col-9 pl-0">
-                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
+                            <div class="d-flex  bottom-border" style="padding-left:10px; height:51px;">
                                 <div class="w-100">
                                     <input type="text" class="form-control" name="title" placeholder="Enter Title" value="{{ old('title') }}">
                                 </div>
@@ -80,7 +80,7 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start" style="height:200px;">
+                                <div class="d-flex  justify-content-start" style="height:200px;">
                                     <p class="mb-0 user_profile">Content<span class="text-danger">*</span></p>
                                 </div>
                             </div>
