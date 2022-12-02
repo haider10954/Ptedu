@@ -33,7 +33,7 @@ p {
     font-size: 13px;
 }
 
-.font-20{
+.font-20 {
     font-size: 20px;
 }
 
@@ -838,10 +838,11 @@ header .btn.transparent, .btn.solid:hover {
 
 .course-box .course-info p {
     font-size: 12px;
+    font-weight: 500;
 }
 
 .bg-grey {
-    background-color: #efefef;
+    background-color: rgb(205, 206, 207);
 }
 
 .custom-pagination {
@@ -1329,6 +1330,7 @@ header .btn.transparent, .btn.solid:hover {
 .tutor-image-container:hover .box-overlay {
     opacity: 1;
 }
-.mb-50{
+
+.mb-50 {
     margin-bottom: 50px;
 }

@@ -15,7 +15,7 @@
                         <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
-                        <small class="d-block text-muted mb-1">2022.10.11</small>
+                        <small class="d-block text-muted mb-1 font-weight-600">2022.10.11</small>
                         <p class="mb-0">2022 PTedu pelvic healthe Integration - Melissa Devidson(10 월 29/30일)</p>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
                         <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
-                        <small class="d-block text-muted mb-1">2022.10.11</small>
+                        <small class="d-block text-muted mb-1 font-weight-600">2022.10.11</small>
                         <p class="mb-0">2022 PTedu pelvic healthe Integration - Melissa Devidson(10 월 29/30일)</p>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                         <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
-                        <small class="d-block text-muted mb-1">2022.10.11</small>
+                        <small class="d-block text-muted mb-1 font-weight-600">2022.10.11</small>
                         <p class="mb-0">2022 PTedu pelvic healthe Integration - Melissa Devidson(10 월 29/30일)</p>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                         <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
-                        <small class="d-block text-muted mb-1">2022.10.11</small>
+                        <small class="d-block text-muted mb-1 font-weight-600">2022.10.11</small>
                         <p class="mb-0">2022 PTedu pelvic healthe Integration - Melissa Devidson(10 월 29/30일)</p>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
-                        <small class="d-block text-muted mb-1">2022.10.11</small>
+                        <small class="d-block text-muted mb-1 font-weight-600">2022.10.11</small>
                         <p class="mb-0">2022 PTedu pelvic healthe Integration - Melissa Devidson(10 월 29/30일)</p>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
                         <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
-                        <small class="d-block text-muted mb-1">2022.10.11</small>
+                        <small class="d-block text-muted mb-1 font-weight-600">2022.10.11</small>
                         <p class="mb-0">2022 PTedu pelvic healthe Integration - Melissa Devidson(10 월 29/30일)</p>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
-                        <small class="d-block text-muted mb-1">2022.10.11</small>
+                        <small class="d-block text-muted mb-1 font-weight-600">2022.10.11</small>
                         <p class="mb-0">2022 PTedu pelvic healthe Integration - Melissa Devidson(10 월 29/30일)</p>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                         <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="img-fluid" alt="img">
                     </div>
                     <div class="course-info">
-                        <small class="d-block text-muted mb-1">2022.10.11</small>
+                        <small class="d-block text-muted mb-1 font-weight-600">2022.10.11</small>
                         <p class="mb-0">2022 PTedu pelvic healthe Integration - Melissa Devidson(10 월 29/30일)</p>
                     </div>
                 </div>
