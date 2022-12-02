@@ -94,7 +94,7 @@
                                     <td colspan="5">
                                         <div class="text-right total_payment">
                                             <p class="mb-0 text-muted">Total payment</p>
-                                            <span>58,5000원</span>
+                                            <span class="font-20 font-weight-700">58,5000원</span>
                                         </div>
                                     </td>
                                 </tr>

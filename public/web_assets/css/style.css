@@ -33,6 +33,10 @@ p {
     font-size: 13px;
 }
 
+.font-20{
+    font-size: 20px;
+}
+
 header {
     position: absolute;
     top: 0px;
