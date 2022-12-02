@@ -131,7 +131,7 @@
                                 <div class="shopping-bag-info">
                                     <h6 class="shopping-bag-text">Confirmation of final payment</h6>
                                 </div>
-                                <div class="row p-3">
+                                <div class="row p-3 align-items-center">
                                     <div class="col-6 pr-0">
                                         <p>Total</p>
                                         <div class="confirm_payment">
@@ -154,7 +154,7 @@
 
                                     </div>
                                     <div class="col-6 text-right pl-0">
-                                        <p>
+                                        <p class="font-20 font-weight-700">
                                             6000000
                                         </p>
                                         <div class="confirm_payment">
@@ -170,7 +170,7 @@
                                         </div>
                                         <p class="text-danger">-15,000 원</p>
 
-                                        <p class="text-danger fw-bold">58,5000 원</p>
+                                        <p class="text-danger font-20 font-weight-700">58,5000 원</p>
                                     </div>
                                 </div>
                             </div>
