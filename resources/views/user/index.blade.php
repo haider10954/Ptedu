@@ -59,7 +59,7 @@
                             </div>
                             <div class="col-md-8 p-4">
                                 <div class="d-flex align-items-end course-detail-author-content justify-content-between mb-4">
-                                    <h3 class="heading-h3">GAIT : Walk A to Z</h3>
+                                    <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">GAIT : Walk A to Z</h3>
                                     <small>Jo Gyu-haeng Teacher</small>
                                 </div>
                                 <p class="text-left">An essential gait for returning to society from everyday life.How
@@ -79,7 +79,7 @@
                             </div>
                             <div class="col-md-8 p-4">
                                 <div class="d-flex align-items-end course-detail-author-content justify-content-between mb-4">
-                                    <h3 class="heading-h3">GAIT : Walk A to Z</h3>
+                                    <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">GAIT : Walk A to Z</h3>
                                     <small>Jo Gyu-haeng Teacher</small>
                                 </div>
                                 <p class="text-left">An essential gait for returning to society from everyday life.How
@@ -99,7 +99,7 @@
                             </div>
                             <div class="col-md-8 p-4">
                                 <div class="d-flex align-items-end course-detail-author-content justify-content-between mb-4">
-                                    <h3 class="heading-h3">GAIT : Walk A to Z</h3>
+                                    <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">GAIT : Walk A to Z</h3>
                                     <small>Jo Gyu-haeng Teacher</small>
                                 </div>
                                 <p class="text-left">An essential gait for returning to society from everyday life.How
@@ -119,7 +119,7 @@
                             </div>
                             <div class="col-md-8 p-4">
                                 <div class="d-flex align-items-end course-detail-author-content justify-content-between mb-4">
-                                    <h3 class="heading-h3">GAIT : Walk A to Z</h3>
+                                    <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">GAIT : Walk A to Z</h3>
                                     <small>Jo Gyu-haeng Teacher</small>
                                 </div>
                                 <p class="text-left">An essential gait for returning to society from everyday life.How
