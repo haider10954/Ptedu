@@ -1329,3 +1329,6 @@ header .btn.transparent, .btn.solid:hover {
 .tutor-image-container:hover .box-overlay {
     opacity: 1;
 }
+.mb-50{
+    margin-bottom: 50px;
+}
