@@ -88,6 +88,13 @@
 }
 
 .btn-theme-white {
+    background: transparent;
+    border: 2px solid #D9D9D9;
+    color: black;
+    opacity: 0.7;
+}
+
+.btn-theme-white {
     background: #fff;
     border: 1px solid #191B1D;
     color: black;

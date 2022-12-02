@@ -29,7 +29,7 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                <p class="mb-0 user_profile">Name<span class="text-danger">*</span></p>
+                                <p class="mb-0 user_profile">Name</p>
                             </div>
                         </div>
                     </div>
@@ -46,14 +46,14 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                <p class="mb-0 user_profile">Phone Number<span class="text-danger">*</span></p>
+                                <p class="mb-0 user_profile">Date</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
                             <div class="ml-2">
-                                <p class="mb-0">Phone Number</p>
+                                <p class="mb-0">2022/10/18</p>
                             </div>
                         </div>
                     </div>

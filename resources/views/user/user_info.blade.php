@@ -174,7 +174,7 @@
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center select_job bottom-border input_jobs">
                                 <div class=" mr-2">
-                                    <input type="radio"> physical therapist
+                                    <input type="radio" checked> physical therapist
                                 </div>
                                 <div class=" mr-2">
                                     <input type="radio"> occupational therapist
@@ -267,8 +267,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <div class="d-flex align-items-center justify-content-center mt-2">
-                                <button class="btn rounded-0 btn-theme-black text-white" style="padding: 5px 30px 5px 30px">Ok</button>
+                            <div class="d-flex align-items-center justify-content-center mt-4">
+                                <button class="btn rounded-0 btn-theme-black text-white" style="padding: 5px 70px 5px 70px;">Ok</button>
                             </div>
                         </div>
                     </div>

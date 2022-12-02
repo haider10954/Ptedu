@@ -111,28 +111,28 @@
                         <div class="cart-total">
                             <div class="row">
                                 <div class="col-md-3 flex-column cart-total-price border_right text-center position-relative">
-                                    <h5>Total</h5>
+                                    <h5 class="font-weight-700">Total</h5>
                                     <p class="price mb-0">600,000원</p>
                                     <div class="icons">
                                         <i class="fa fa-minus"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-3 flex-column cart-total-price border_right text-center position-relative">
-                                    <h5>Discount</h5>
+                                    <h5 class="font-weight-700">Discount</h5>
                                     <p class="price mb-0 text-danger">600,000원</p>
                                     <div class="icons">
                                         <i class="fa fa-plus"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-3 flex-column cart-total-price border_right text-center position-relative">
-                                    <h5>Delivery Fee</h5>
+                                    <h5 class="font-weight-700">Delivery Fee</h5>
                                     <p class="price mb-0">0</p>
                                     <div class="icons">
                                         <i class="fa fa-equals"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-3 flex-column cart-total-price  text-center">
-                                    <h5>Total estimated payment amount</h5>
+                                    <h5 class="font-weight-700">Total estimated payment amount</h5>
                                     <p class="total-price mb-0">58,5000원</p>
 
                                 </div>
@@ -143,7 +143,7 @@
                                 <div class="col-12">
                                     <div class="position">
                                         <div class="p-5 text-center" style="border-bottom: 1px black solid;">
-                                            <h5>Total</h5>
+                                            <h5 class="font-weight-700">Total</h5>
                                             <p class="price mb-0">600,000원</p>
                                         </div>
                                         <div class="mobi-icons">
@@ -154,7 +154,7 @@
                                 <div class="col-12">
                                     <div class="position">
                                         <div class="p-5 text-center" style="border-bottom: 1px black solid;">
-                                            <h5>Discount</h5>
+                                            <h5 class="font-weight-700">Discount</h5>
                                             <p class="price mb-0">600,000원</p>
                                         </div>
                                         <div class="mobi-icons">
@@ -166,7 +166,7 @@
                                 <div class="col-12">
                                     <div class="position">
                                         <div class="p-5 text-center" style="border-bottom: 1px black solid;">
-                                            <h5>Delivery Fee</h5>
+                                            <h5 class="font-weight-700">Delivery Fee</h5>
                                             <p class="price mb-0">0</p>
                                         </div>
                                         <div class="mobi-icons">
@@ -177,7 +177,7 @@
                                 <div class="col-12">
                                     <div class="position">
                                         <div class="p-5 text-center" style="border-bottom: 1px black solid;">
-                                            <h5>Total estimated payment amount</h5>
+                                            <h5 class="font-weight-700">Total estimated payment amount</h5>
                                             <p class="price mb-0">58,5000원</p>
                                         </div>
                                     </div>

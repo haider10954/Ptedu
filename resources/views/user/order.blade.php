@@ -45,7 +45,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td> <input type="checkbox" class="checkbox" /> </td>
+                                    <td> <input type="checkbox" class="checkbox" checked /> </td>
                                     <td>
                                         <span>[전문가 강좌] 보행 A에서 Z까지 </span> <br />
                                         <span>Physical Teraphy l 조규행</span>
@@ -60,7 +60,7 @@
                                 </tr>
 
                                 <tr>
-                                    <td> <input type="checkbox" class="checkbox" /> </td>
+                                    <td> <input type="checkbox" class="checkbox" checked /> </td>
                                     <td>
                                         <span>[전문가 강좌] 보행 A에서 Z까지 </span> <br />
                                         <span>Physical Teraphy l 조규행</span>
@@ -76,7 +76,7 @@
 
 
                                 <tr>
-                                    <td> <input type="checkbox" class="checkbox" /> </td>
+                                    <td> <input type="checkbox" class="checkbox" checked /> </td>
                                     <td>
                                         <span>[전문가 강좌] 보행 A에서 Z까지 </span> <br />
                                         <span>Physical Teraphy l 조규행</span>
@@ -112,7 +112,7 @@
                                 </div>
                                 <div class="align-items-center radio_select mb-3">
                                     <div class="mr-3 payment_method_card mb-1 mb-md-0">
-                                        <input type="radio" name="payment_method" class="payment-method-radio"> <span>Card</span>
+                                        <input type="radio" name="payment_method" class="payment-method-radio" checked> <span>Card</span>
                                     </div>
                                     <div class="mr-3 w-100 mb-1 mb-md-0">
                                         <input type="radio" name="payment_method" class="payment-method-radio"> Real-time account transfer

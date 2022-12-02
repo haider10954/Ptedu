@@ -40,7 +40,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>1</td>
+                                    <td>3</td>
                                     <td>문의합니다</td>
                                     <td>이**</td>
                                     <td>2022.10.13</td>
@@ -54,7 +54,7 @@
                                     <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered') }}">답변준비중</a></td>
                                 </tr>
                                 <tr>
-                                    <td>3</td>
+                                    <td>1</td>
                                     <td>문의합니다</td>
                                     <td>이**</td>
                                     <td>2022.10.13</td>
@@ -63,7 +63,7 @@
                                 <tr>
                                     <td colspan="5">
                                         <div class="text-right margin">
-                                            <a class="btn btn-theme-delete text-dark rounded-0" href="{{ route('add_inquiry') }}">1:1 문의하기</a>
+                                            <a class="btn btn-theme-white" href="{{ route('add_inquiry') }}">1:1 문의하기</a>
                                         </div>
                                     </td>
                                 </tr>
