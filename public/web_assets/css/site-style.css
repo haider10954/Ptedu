@@ -65,7 +65,6 @@
 }
 
 .certificate_logo {
-    width: 138.67px;
     height: 39px;
     display: block;
     padding-bottom: 15px;
@@ -77,7 +76,7 @@
 }
 
 .certificate_footer {
-    width: 104.41px;
+    margin-left: -10px;
     height: 104.41px;
 }
 
