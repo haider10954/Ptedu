@@ -13,7 +13,7 @@
                 </div>
                 <div class="page-side-menu">
                     <ul class="menu">
-                    <li><a href="{{ route('my_classroom') }}">My Classroom</a></li>
+                        <li><a href="{{ route('my_classroom') }}">My Classroom</a></li>
                         <li><a href="{{ route('shopping_bag') }}">Shopping Bag</a></li>
                         <li><a href="{{ route('user_info') }}">Modifying Member Info</a></li>
                         <li><a href="{{ route('user_inquiry')  }}">1:1 Inquiry</a></li>
@@ -345,26 +345,26 @@
                 </div>
                 <div class="row align-items-center justify-content-center mb-3">
                     <div class="col-lg-12">
-                        <div class="position-relative">
+                        <div class="position-relative w-75 m-auto">
                             <img src="{{ asset('assets/images/icons/frame.png')}}" class="w-100">
-                            <div class="position-absolute text-center w-100" style="padding: 10px 100px 10px 100px; top:15px;">
+                            <div class="position-absolute text-center w-100" style="padding: 10px 100px 10px 100px; top:10px;">
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_header.png')}}" class="w-100">
-                                    <hr class="divider" />
+                                    <div class="divider mt-1"></div>
                                 </div>
                                 <div class="certificate_header mb-1">CERTIFICATE</div>
-                                <div class="certificate_sub_title mb-1">OF COMPLETION</div>
+                                <div class="certificate_sub_title">OF COMPLETION</div>
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}" class="w-100">
-                                    <hr class="divider" />
+                                    <div class="divider mt-1"></div>
                                 </div>
-                                <div class="certificate_name mb-1">
+                                <div class="certificate_name">
                                     Hong Gil Dong
                                 </div>
                                 <div class="certificate_description mb-1">
                                     Is hereby cetified as an 2022 PTEdu Pelvic health Physiotherapy – <br /> Melissa Davidson with Full Certification for the half-year period <br /> starting on 2022/05/01 and ending on 2022/10/31
                                 </div>
-                                <div class="d-flex justify-content-around align-items-center">
+                                <div class="d-flex justify-content-between align-items-center">
                                     <div>
                                         <img src="{{ asset('assets/images/icons/certificate_logo.png') }}" class="certificate_logo">
                                         <img src="{{ asset('assets/images/index.png') }}" class="footer_logo" />
