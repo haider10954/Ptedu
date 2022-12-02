@@ -16,6 +16,16 @@ body {
 
 }
 
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+    border-color: black;
+    accent-color: black !important;
+}
+
+input[type='checkbox']:after {
+    box-shadow: none !important;
+}
+
 ul {
     list-style: none;
     margin-bottom: 0;
