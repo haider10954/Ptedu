@@ -362,6 +362,10 @@
     font-size: 13px;
 }
 
+.font-weight-700{
+    font-weight: 700;
+}
+
 @media only screen and (max-width: 991px) {
     .form-wrapper {
         width: 70%;
@@ -429,7 +433,7 @@
     }
 
     .custom_width {
-        width: 75%;
+        width: 100%;
     }
 
     .margin {

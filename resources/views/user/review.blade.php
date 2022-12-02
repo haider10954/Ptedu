@@ -97,7 +97,7 @@
 </div>
 <div class="section">
     <div class="container">
-        <p class="text-beige font-weight-600 text-center mb-2">There are 25,000 reviews!</p>
+        <p class="text-beige font-weight-700 text-center mb-2">There are 25,000 reviews!</p>
         <h5 class="heading mb-0 text-center">PTEdu Course Review</h5>
         <div class="w-50 review_tabs m-auto py-5">
             <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">

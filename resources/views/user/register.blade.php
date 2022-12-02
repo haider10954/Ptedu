@@ -19,7 +19,7 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                <p class="mb-0 user_profile">Name<span class="text-danger">*</span></p>
+                                <p class="mb-0 user_profile">Name<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                <p class="mb-0 user_profile">English Name<span class="text-danger">*</span></p>
+                                <p class="mb-0 user_profile">English Name<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
@@ -54,7 +54,7 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                <p class="mb-0 user_profile">ID<span class="text-danger">*</span></p>
+                                <p class="mb-0 user_profile">ID<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                    <p class="mb-0 user_profile">Password<span class="text-danger">*</span></p>
+                                    <p class="mb-0 user_profile">Password<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +99,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                    <p class="mb-0 user_profile">Change Password<span class="text-danger">*</span></p>
+                                    <p class="mb-0 user_profile">Change Password<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -116,7 +116,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                    <p class="mb-0 user_profile">Confirm Password<span class="text-danger">*</span></p>
+                                    <p class="mb-0 user_profile">Confirm Password<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start user_jobs">
-                                    <p class="mb-0 user_profile">Job<span class="text-danger">*</span></p>
+                                    <p class="mb-0 user_profile">Job<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -168,19 +168,19 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                    <p class="mb-0 user_profile">Phone number<span class="text-danger">*</span></p>
+                                    <p class="mb-0 user_profile">Phone number<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
-                                <div>
-                                    <input type="text" class="form-control custom_width mr-2" name="mobile" placeholder="010" value="{{ old('en_name') }}">
+                                <div class="mr-2">
+                                    <input type="text" class="form-control custom_width" name="mobile" placeholder="010" value="{{ old('en_name') }}">
                                 </div>
-                                <div>
-                                    <input type="text" class="form-control custom_width mr-2" name="mobile" placeholder="010" value="{{ old('en_name') }}">
+                                <div class="mr-2">
+                                    <input type="text" class="form-control custom_width " name="mobile" placeholder="010" value="{{ old('en_name') }}">
                                 </div>
-                                <div>
+                                <div class="mr-2">
                                     <input type="text" class="form-control custom_width" name="mobile" placeholder="010" value="{{ old('en_name') }}">
                                 </div>
                             </div>
@@ -191,7 +191,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                    <p class="mb-0 user_profile">Email<span class="text-danger">*</span></p>
+                                    <p class="mb-0 user_profile">Email<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -214,7 +214,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start" style="height:99px;">
-                                    <p class="mb-0 user_profile">Address<span class="text-danger">*</span></p>
+                                    <p class="mb-0 user_profile">Address<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
