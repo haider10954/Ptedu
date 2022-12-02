@@ -97,15 +97,20 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start custom_height">
+                                <div class="d-flex justify-content-start custom_height">
                                     <p class="mb-0 user_profile">Attach File</p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 pl-0">
                             <div class="align-items-center bottom-border" style="padding-left:10px; min-height:51px;">
-                                <div class="mt-2 mb-2">
-                                    <input type="file" class="form-control">
+                                <div class="mt-2 mb-2 d-flex align-items-center">
+                                    <div>
+                                        <input class="form-control">
+                                    </div>
+                                    <div class="ml-2">
+                                        <button class="btn btn-sm btn-theme-delete rounded-0 text-dark p-0 p-md-2">Upload files</button>
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <small>* Maximum of 3 files to be attached, total capacity cannot exceed 10M.</small>
