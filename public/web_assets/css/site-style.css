@@ -114,6 +114,10 @@
     background: #EFEFEF;
 }
 
+.notice-table-header tr {
+    background: #FFFFFF !important;
+}
+
 .checkbox {
     background: #FFFFFF;
     border: 1px solid #AAAAAA;

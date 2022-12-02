@@ -17,7 +17,7 @@
                 </div>
             </div>
             <table class="table w-100">
-                <thead>
+                <thead class="notice-table-header">
                     <tr>
                         <th>Number</th>
                         <th>Title</th>
