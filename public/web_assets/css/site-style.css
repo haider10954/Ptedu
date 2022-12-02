@@ -357,6 +357,10 @@
     width: 90%;
 }
 
+.font-14px {
+    font-size: 14px;
+}
+
 @media only screen and (max-width: 991px) {
     .form-wrapper {
         width: 70%;

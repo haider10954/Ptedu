@@ -9,11 +9,11 @@
             <div class="table-header mb-3">
                 <div class="left-content d-flex align-items-center">
                     <h5 class="heading mb-0 mr-5">Notice</h5>
-                    <p class="text-muted mb-0">FAQ</p>
+                    <h5 class="heading text-muted mb-0">FAQ</h5>
                 </div>
                 <div class="right-content d-flex align-items-center">
                     <input type="text" placeholder="Enter Search Items" class="form-control search_box">
-                    <button class="btn btn-dark">Search</button>
+                    <button class="btn btn-theme-black text-white font-size-12">Search</button>
                 </div>
             </div>
             <table class="table w-100">
@@ -24,7 +24,7 @@
                         <th>Date</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="font-14px">
                     <tr>
                         <td>10</td>
                         <td>더미더미더미더미더미더미더미더미 더미더미더미</td>
