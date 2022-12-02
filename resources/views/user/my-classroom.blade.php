@@ -347,7 +347,7 @@
                     <div class="col-lg-12">
                         <div class="position-relative w-75 m-auto">
                             <img src="{{ asset('assets/images/icons/frame.png')}}" class="w-100">
-                            <div class="position-absolute text-center w-100" style="padding: 10px 100px 10px 100px; top:10px;">
+                            <div class="position-absolute text-center w-100" style="padding: 10px 100px 10px 100px; top:15px;">
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_header.png')}}" class="w-100">
                                     <div class="divider mt-1"></div>
