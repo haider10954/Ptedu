@@ -132,29 +132,29 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start user_jobs">
+                                <div class="d-flex  justify-content-start user_jobs">
                                     <p class="mb-0 user_profile">Job<span class="text-danger">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center  bottom-border input_jobs">
-                                <div class=" mr-2">
+                                <div class=" mr-2 mb-1 mb-md-0">
                                     <input type="radio"> physical therapist
                                 </div>
-                                <div class=" mr-2">
+                                <div class=" mr-2 mb-1 mb-md-0">
                                     <input type="radio"> occupational therapist
                                 </div>
-                                <div class=" mr-2">
+                                <div class=" mr-2 mb-1 mb-md-0">
                                     <input type="radio"> trainer
                                 </div>
-                                <div class=" mr-2">
+                                <div class=" mr-2 mb-1 mb-md-0">
                                     <input type="radio"> pilates instructor
                                 </div>
-                                <div class="mr-2">
+                                <div class="mr-2 mb-1 mb-md-0">
                                     <input type="radio"> Student
                                 </div>
-                                <div class=" mr-2">
+                                <div class=" mr-2 mb-1 mb-md-0">
                                     <input type="radio"> office worker
                                 </div>
                                 <div class=" mr-2">
