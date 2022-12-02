@@ -22,7 +22,7 @@
             </div>
             <div class="col-lg-10">
                 <div class="section-heading">
-                    <h5 class="mb-0">Modifying Member Info</h5>
+                    <h5 class="mb-4">Modifying Member Info</h5>
                     <div class="mt-2 mb-3">
                         <p class="mb-0">To protect your personal information, please change your password, email, mobile phone number periodically.</p>
                     </div>
