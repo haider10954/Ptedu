@@ -38,8 +38,8 @@
                                 <img src="{{ asset('web_assets/images/gait_img.png') }}" class="img-fluid course-detail-img">
                             </div>
                             <div class="col-md-8 p-4">
-                                <div class="d-flex align-items-end course-detail-author-content justify-content-between mb-4">
-                                    <h3 class="heading-h3 font-30">GAIT : Walk A to Z</h3>
+                                <div class="d-flex align-items-center course-detail-author-content justify-content-between mb-50">
+                                    <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">GAIT : Walk A to Z</h3>
                                     <small>Jo Gyu-haeng Teacher</small>
                                 </div>
                                 <p class="text-left">An essential gait for returning to society from everyday life.How
