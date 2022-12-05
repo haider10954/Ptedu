@@ -58,7 +58,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex flex-column">
-                                            <button class="btn rounded-0 btn-theme-white mb-2">Delete</button>
+                                            <button class="btn rounded-0 btn-theme-delete mb-2">Delete</button>
                                             <button class="btn rounded-0 btn-theme-black text-white">Buy</button>
                                         </div>
                                     </td>
@@ -78,7 +78,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex flex-column">
-                                            <button class="btn rounded-0 btn-theme-white mb-2">Delete</button>
+                                            <button class="btn rounded-0 btn-theme-delete mb-2">Delete</button>
                                             <button class="btn rounded-0 btn-theme-black text-white">Buy</button>
                                         </div>
                                     </td>
@@ -99,7 +99,7 @@
                                     </td>
                                     <td>
                                         <div class="d-flex flex-column">
-                                            <button class="btn rounded-0 btn-theme-white mb-2">Delete</button>
+                                            <button class="btn rounded-0 btn-theme-delete mb-2">Delete</button>
                                             <button class="btn rounded-0 btn-theme-black text-white">Buy</button>
                                         </div>
                                     </td>
@@ -109,39 +109,32 @@
                     </div>
                     <div class="mt-3">
                         <div class="cart-total">
-                            <div class="row align-items-center">
-                                <div class="col-md-3  h-110 border_right">
-                                    <div class="cart-total-price  text-center position-relative">
-                                        <h5 class="font-weight-700">Total</h5>
-                                        <p class="price mb-0">600,000원</p>
-                                        <div class="icons">
-                                            <i class="fa fa-minus"></i>
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-3 flex-column cart-total-price border_right text-center position-relative">
+                                    <h5 class="font-weight-700">Total</h5>
+                                    <p class="price mb-0">600,000원</p>
+                                    <div class="icons">
+                                        <i class="fa fa-minus"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-3 h-110 border_right">
-                                    <div class="cart-total-price  text-center position-relative">
-                                        <h5 class="font-weight-700">Discount</h5>
-                                        <p class="price mb-0 text-danger">600,000원</p>
-                                        <div class="icons">
-                                            <i class="fa fa-plus"></i>
-                                        </div>
+                                <div class="col-md-3 flex-column cart-total-price border_right text-center position-relative">
+                                    <h5 class="font-weight-700">Discount</h5>
+                                    <p class="price mb-0 text-danger">600,000원</p>
+                                    <div class="icons">
+                                        <i class="fa fa-plus"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-3 h-110 border_right">
-                                    <div class="cart-total-price  text-center position-relative  ">
-                                        <h5 class="font-weight-700">Delivery Fee</h5>
-                                        <p class="price mb-0 text-danger">600,000원</p>
-                                        <div class="icons">
-                                            <i class="fa fa-equals"></i>
-                                        </div>
+                                <div class="col-md-3 flex-column cart-total-price border_right text-center position-relative">
+                                    <h5 class="font-weight-700">Delivery Fee</h5>
+                                    <p class="price mb-0">0</p>
+                                    <div class="icons">
+                                        <i class="fa fa-equals"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="cart-total-price  text-center">
-                                        <h5 class="font-weight-700">Total estimated payment amount</h5>
-                                        <p class="total-price mb-0">58,5000원</p>
-                                    </div>
+                                <div class="col-md-3 flex-column cart-total-price  text-center">
+                                    <h5 class="font-weight-700">Total estimated payment amount</h5>
+                                    <p class="total-price mb-0">58,5000원</p>
+
                                 </div>
                             </div>
                         </div>

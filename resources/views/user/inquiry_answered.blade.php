@@ -20,20 +20,20 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-10 custom_padding">
+            <div class="col-lg-10">
                 <div class="section-heading">
                     <h5 class="mb-2">1:1 문의</h5>
                     <p class="mb-0">Questions & Answers in PTEdu</p>
                 </div>
                 <div class="row">
-                    <div class="col-md-2 col-3 pr-0">
+                    <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:50px;">
                                 <p class="mb-0 user_profile">Name<span class="text-danger">*</span></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 col-9 pl-0">
+                    <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
                             <div class="ml-2">
                                 <p class="mb-0">Name</p>
@@ -43,14 +43,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-md-2 col-3 pr-0">
+                    <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:50px;">
                                 <p class="mb-0 user_profile">Phone Number<span class="text-danger">*</span></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 col-9 pl-0">
+                    <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
                             <div class="ml-2">
                                 <p class="mb-0">Phone Number</p>
@@ -61,14 +61,14 @@
 
                 <div class="mt-5 top-border">
                     <div class="row">
-                        <div class="col-md-2 col-3 pr-0">
+                        <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:50px;">
                                     <p class="mb-0 user_profile">Title<span class="text-danger">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-10 col-9 pl-0">
+                        <div class="col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
                                 <div class="ml-2">
                                     <p class="mb-0">Title</p>
@@ -78,14 +78,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-2 col-3 pr-0">
+                        <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start" style="height:200px;">
                                     <p class="mb-0 user_profile">Content<span class="text-danger">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-10 col-9 pl-0">
+                        <div class="col-9 pl-0">
                             <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
                                 <div class="ml-2 mt-2 mt-md-4">
                                     <p class="mb-0">Content </p>
@@ -100,14 +100,14 @@
                 </div>
                 <div class="mt-2 top-border">
                     <div class="row">
-                        <div class="col-md-2 col-3 pr-0">
+                        <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start" style="height:200px;">
                                     <p class="mb-0 user_profile">Content<span class="text-danger">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-10 col-9 pl-0">
+                        <div class="col-9 pl-0">
                             <div class="d-flex justify-content-startx bottom-border" style="padding-left:10px; min-height:201px; width:100%">
                                 <div class="ml-2 mt-4">
                                     <p class="mb-0">알려드립니다. 이렇게 하시면 됩니다. </p>
