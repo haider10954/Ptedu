@@ -4,6 +4,8 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Notice;
+use App\Models\Faq;
 
 class IndexController extends Controller
 {
@@ -13,6 +15,12 @@ class IndexController extends Controller
     }
     
     public function notice(){
-        return view('user.notice');
+        $notices = Notice::paginate(10);
+        return view('user.notice',compact('notices'));
+    }
+
+    public function faq(){
+        $faqs = Faq::paginate(10);
+        return view('user.faq',compact('faqs'));
     }
 }

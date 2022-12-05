@@ -34,6 +34,7 @@ Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])-
 Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
 Route::get('/review', [ReviewController::class, 'review'])->name('review');
 Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');
+Route::get('/faq', [IndexController::class, 'faq'])->name('web-faq');
 Route::get('/online-course', [UserCourseController::class, 'online_course'])->name('online_course');
 Route::get('/my-classroom', [LectureController::class, 'my_classroom'])->name('my_classroom');
 Route::get('/shopping-bag', function () {

@@ -1346,3 +1346,11 @@ header .btn.transparent, .btn.solid:hover {
 .mb-50 {
     margin-bottom: 50px;
 }
+
+.notice_tabs .active{
+    color: #000000 !important;
+}
+
+.min-height-90{
+    min-height: 90vh;
+}
