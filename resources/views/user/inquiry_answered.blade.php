@@ -20,111 +20,111 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-lg-10 custom_padding">
-                <div class="section-heading">
-                    <h5 class="mb-2">1:1 문의</h5>
-                    <p class="mb-0">Questions & Answers in PTEdu</p>
-                </div>
-                <div class="row">
-                    <div class="col-md-2 col-3 pr-0">
-                        <div class="user-info bottom-border">
-                            <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                <p class="mb-0 user_profile">Name<span class="text-danger">*</span></p>
-                            </div>
-                        </div>
+            <div class="col-lg-10">
+                <div class="custom_padding">
+                    <div class="section-heading">
+                        <h5 class="mb-2">1:1 문의</h5>
+                        <p class="mb-0">Questions & Answers in PTEdu</p>
                     </div>
-                    <div class="col-md-10 col-9 pl-0">
-                        <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
-                            <div class="ml-2">
-                                <p class="mb-0">Name</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-2 col-3 pr-0">
-                        <div class="user-info bottom-border">
-                            <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                <p class="mb-0 user_profile">Phone Number<span class="text-danger">*</span></p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-10 col-9 pl-0">
-                        <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
-                            <div class="ml-2">
-                                <p class="mb-0">Phone Number</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-5 top-border">
                     <div class="row">
                         <div class="col-md-2 col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                    <p class="mb-0 user_profile">Title<span class="text-danger">*</span></p>
+                                    <p class="mb-0 user_profile">Name</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10 col-9  pl-0">
+                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
+                                <div class="ml-2">
+                                    <p class="mb-0">Name</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2 col-3 pr-0">
+                            <div class="user-info bottom-border">
+                                <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                    <p class="mb-0 user_profile">Phone Number<span class="text-danger">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-10 col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
                                 <div class="ml-2">
-                                    <p class="mb-0">Title</p>
+                                    <p class="mb-0">Phone Number</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                    <div class="mt-5 top-border">
+                        <div class="row">
+                            <div class="col-md-2 col-3 pr-0">
+                                <div class="user-info bottom-border">
+                                    <div class="d-flex align-items-center justify-content-start" style="height:50px;">
+                                        <p class="mb-0 user_profile">Title<span class="text-danger">*</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-9 pl-0">
+                                <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
+                                    <div class="ml-2">
+                                        <p class="mb-0">Title</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2 col-3 pr-0">
+                                <div class="user-info bottom-border">
+                                    <div class="d-flex  justify-content-start" style="height:200px;">
+                                        <p class="mb-0 user_profile">Content<span class="text-danger">*</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-9 pl-0">
+                                <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
+                                    <div class="ml-2 mt-2 mt-md-4">
+                                        <p class="mb-0">Content </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <h5 class="mb-0">Answers</h5>
+                    </div>
+                    <div class="mt-2 top-border">
+                        <div class="row">
+                            <div class="col-md-2 col-3 pr-0">
+                                <div class="user-info bottom-border">
+                                    <div class="d-flex  justify-content-start" style="height:200px;">
+                                        <p class="mb-0 user_profile">Content<span class="text-danger">*</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-10 col-9 pl-0">
+                                <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
+                                    <div class="ml-2 mt-2 mt-md-4">
+                                        <p class="mb-0">Content </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="row">
-                        <div class="col-md-2 col-3 pr-0">
-                            <div class="user-info bottom-border">
-                                <div class="d-flex  justify-content-start" style="height:200px;">
-                                    <p class="mb-0 user_profile">Content<span class="text-danger">*</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10 col-9 pl-0">
-                            <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
-                                <div class="ml-2 mt-2 mt-md-4">
-                                    <p class="mb-0">Content </p>
-                                </div>
+                        <div class="col-lg-12">
+                            <div class="d-flex align-items-center justify-content-center mt-4">
+                                <a class="btn rounded-0 btn-theme-white" style="padding: 5px 30px 5px 30px" href="{{ route('user_inquiry') }}">Go to List </a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="mt-5">
-                    <h5 class="mb-0">Answers</h5>
-                </div>
-                <div class="mt-2 top-border">
-                    <div class="row">
-                        <div class="col-md-2 col-3 pr-0">
-                            <div class="user-info bottom-border">
-                                <div class="d-flex  justify-content-start" style="height:200px;">
-                                    <p class="mb-0 user_profile">Content<span class="text-danger">*</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10 col-9 pl-0">
-                            <div class="d-flex justify-content-startx bottom-border" style="padding-left:10px; min-height:201px; width:100%">
-                                <div class="ml-2 mt-4">
-                                    <p class="mb-0">알려드립니다. 이렇게 하시면 됩니다. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="d-flex align-items-center justify-content-center mt-4">
-                            <a class="btn rounded-0 btn-theme-white" style="padding: 5px 30px 5px 30px" href="{{ route('user_inquiry') }}">Go to List </a>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
