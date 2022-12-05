@@ -1363,3 +1363,7 @@ header .btn.transparent, .btn.solid:hover {
 .min-height-90{
     min-height: 90vh;
 }
+
+.font-17{
+    font-size: 17px;
+}

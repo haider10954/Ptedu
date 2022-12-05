@@ -25,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody class="font-14px">
-                    @if (!empty($notices))
+                    @if($faqs->count() > 0)
                         @foreach ($faqs as $item)
                             <tr data-toggle="modal" data-target="#faqModal" class="click_record" data-title="{{ $item->title }}" data-content="{{ $item->content }}" style="cursor: pointer">
                                 <td>{{ $loop->index + 1 }}</td>
@@ -35,7 +35,9 @@
                         @endforeach
                     @else
                         <tr>
-                            <td colspan="3" class="text-center">No Record Found</td>
+                            <td colspan="3" class="text-center">
+                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                            </td>
                         </tr>
                     @endif
                 </tbody>
