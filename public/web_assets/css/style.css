@@ -50,7 +50,7 @@ p {
 header {
     position: absolute;
     top: 0px;
-    background-color: #efefef;
+    /* background-color: #efefef; */
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid #BBBCBD;

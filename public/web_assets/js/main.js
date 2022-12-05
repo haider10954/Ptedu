@@ -20,6 +20,7 @@ $(".has-megamenu").hover(
     },
 
     function () {
-        $("header").css({ "background-color": "#cdcecf" });
+        // $("header").css({ "background-color": "#cdcecf" });
+        $("header").css({ "background-color": "transparent" });
     }
 );
