@@ -1141,15 +1141,24 @@ header .btn.transparent, .btn.solid:hover {
     border-color: #4315FD;
 }
 
+.btn-theme-black-inquiry {
+    background: #000000;
+    border-color: #000000;
+}
+
 .btn-theme-black {
     background: #000000;
     border-color: #000000;
+    font-size: 0.7rem;
+    padding: 9px;
 }
 
 .btn-theme-black:hover {
     transition: all 0.5s;
     background: #222222;
     border-color: #222222;
+    font-size: 0.7rem;
+    padding: 9px;
 }
 
 .page-sidemenu-heading {

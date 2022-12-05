@@ -40,25 +40,74 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>3</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><button class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered') }}">답변준비중</button></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
+                                    <td>10</td>
                                     <td>문의합니다</td>
                                     <td>이**</td>
                                     <td>2022.10.13</td>
                                     <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered') }}">답변준비중</a></td>
                                 </tr>
                                 <tr>
+                                    <td>9</td>
+                                    <td>문의합니다</td>
+                                    <td>이**</td>
+                                    <td>2022.10.13</td>
+                                    <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered') }}">답변준비중</a></td>
+                                </tr>
+                                <tr>
+                                    <td>8</td>
+                                    <td>문의합니다</td>
+                                    <td>이**</td>
+                                    <td>2022.10.13</td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>문의합니다</td>
+                                    <td>이**</td>
+                                    <td>2022.10.13</td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>문의합니다</td>
+                                    <td>이**</td>
+                                    <td>2022.10.13</td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
+                                </tr>
+                                <tr>
+                                    <td>5</td>
+                                    <td>문의합니다</td>
+                                    <td>이**</td>
+                                    <td>2022.10.13</td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>문의합니다</td>
+                                    <td>이**</td>
+                                    <td>2022.10.13</td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>문의합니다</td>
+                                    <td>이**</td>
+                                    <td>2022.10.13</td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>문의합니다</td>
+                                    <td>이**</td>
+                                    <td>2022.10.13</td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
+                                </tr>
+                                <tr>
                                     <td>1</td>
                                     <td>문의합니다</td>
                                     <td>이**</td>
                                     <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
                                 </tr>
                                 <tr>
                                     <td colspan="5">
