@@ -6,9 +6,9 @@
 <div class="section pt-125">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-2">
+            <div class="col-lg-2 padding-left">
                 <div class="page-sidemenu-heading mb-3">
-                    <h5 class="mb-0 font-weight-600">My Classroom</h5>
+                    <h5 class="mb-0 font-weight-600">User Info</h5>
                     <a href="javscript:void(0)" class="btn btn-dark btn-custom-sm btn-theme-black page-side-menu-toggle">menu</a>
                 </div>
                 <div class="page-side-menu">

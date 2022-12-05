@@ -300,6 +300,10 @@
     width: 30%;
 }
 
+.padding-left{
+    padding-left: 25px;
+}
+
 .btn-login {
 
     background: #191B1D;
