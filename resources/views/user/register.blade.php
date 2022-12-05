@@ -99,23 +99,6 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:50px;">
-                                    <p class="mb-0 user_profile">Change Password<span class="text-danger ml-1">*</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-9 pl-0">
-                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
-                                <div>
-                                    <input type="password" class="form-control" name="change_password" placeholder="Enter New Password" value="{{ old('change_password') }}">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-3 pr-0">
-                            <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start" style="height:50px;">
                                     <p class="mb-0 user_profile">Confirm Password<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
