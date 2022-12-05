@@ -33,18 +33,6 @@
                         <a class="text-dark text-decoration-none">Find PW</a>
                     </div>
                 </div>
-
-                <div class="mb-2">
-                    <button type="submit" class="btn btn-login">Log in to your Naver account</button>
-                </div>
-
-                <div class="mb-2">
-                    <button type="submit" class="btn btn-login">Log in to your Kakao account</button>
-                </div>
-
-                <div class="mb-2">
-                    <button type="submit" class="btn btn-login">Log in to your Google Account</button>
-                </div>
             </form>
         </div>
     </div>
