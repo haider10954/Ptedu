@@ -31,15 +31,15 @@ class FaqController extends Controller
     public function add_faq(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
+            'question' => 'required',
             'category' => 'required',
-            'content' => 'required'
+            'answer' => 'required'
         ]);
 
         $faq = Faq::create([
-            'title' => $request['title'],
+            'title' => $request['question'],
             'category_id' => $request['category'],
-            'content' => $request['content']
+            'content' => $request['answer']
         ]);
 
         if ($faq) {
@@ -62,15 +62,15 @@ class FaqController extends Controller
     public function edit_faq(Request $request)
     {
         $this->validate($request, [
-            'title' => 'required',
+            'question' => 'required',
             'category' => 'required',
-            'content' => 'required'
+            'answer' => 'required'
         ]);
 
         $faq = Faq::where('id', $request['id'])->update([
-            'title' => $request['title'],
+            'title' => $request['question'],
             'category_id' => $request['category'],
-            'content' => $request['content']
+            'content' => $request['answer']
         ]);
 
         if ($faq) {

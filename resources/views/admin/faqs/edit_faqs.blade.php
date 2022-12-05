@@ -106,9 +106,9 @@
                     @endif
                     <input type="hidden" name="id" value="{{ $faq->id}}" />
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Title</label>
+                        <label class="col-sm-2 col-form-label lecture-form">Question</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="title" placeholder="Enter title" value="{{ $faq->title}}">
+                            <input type="text" class="form-control" name="question" placeholder="Enter title" value="{{ $faq->title}}">
                             @error('title')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -130,9 +130,9 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Contents</label>
+                        <label class="col-sm-2 col-form-label lecture-form">Answer</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="testing" placeholder="Enter content" name="content">{{ $faq->content}}</textarea>
+                            <textarea class="form-control" id="testing" placeholder="Enter content" name="answer">{{ $faq->content}}</textarea>
                             @error('content')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
