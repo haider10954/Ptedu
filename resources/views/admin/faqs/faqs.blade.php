@@ -150,7 +150,7 @@
                                 <span class="course_name">{{ Carbon\Carbon::parse($f->created_at)->format('d M, Y')}}</span>
                             </td>
                             <td>
-                                <span class="course_name">{{ $f->title }}</span>
+                                <span class="course_name">{{ Str::limit($f->title, 50) }}</span>
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
