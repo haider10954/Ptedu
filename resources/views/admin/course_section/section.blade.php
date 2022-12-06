@@ -169,14 +169,7 @@
                     @endif
                 </table>
 
-                <div class="paginate mt-4 mb-3">
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-
-                    <a href="javascript:void(0)" class="active">1</a>
-                    <a href="javascript:void(0)">2</a>
-                    <a href="javascript:void(0)">3</a>
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-right"></i></a>
-                </div>
+                {{ $section->links('vendor.pagination.custom-pagination-admin') }}
 
             </div>
         </div>

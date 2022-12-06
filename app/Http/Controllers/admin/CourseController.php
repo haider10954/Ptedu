@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Section;
 use App\Models\Tutor;
 use Illuminate\Http\Request;
 
@@ -75,6 +76,13 @@ class CourseController extends Controller
         ]);
 
         if ($course) {
+            foreach ($request->course_sections as  $value) {
+                Section::create([
+                    'course_id' => $course->id,
+                    'section_title'=>$value['section_title'],
+                    'section_description'=>$value['section_description']
+                ]);
+            }
             return json_encode([
                 'success' => true,
                 'message' => 'Course has been added successfully.'
@@ -111,7 +119,8 @@ class CourseController extends Controller
         $course = Course::where('id', $id)->first();
         $tutor = Tutor::get();
         $category = Category::get();
-        return view('admin.courses.edit_course', compact('course', 'tutor', 'category'));
+        $section = Section::where('course_id', $id)->get();
+        return view('admin.courses.edit_course', compact('course', 'tutor', 'category' , 'section'));
     }
 
     public function edit_course(Request $request)

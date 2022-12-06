@@ -227,6 +227,23 @@
                         </div>
                     </div>
 
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Course Sections</label>
+                        <div class="col-sm-10">
+                            @foreach ($section as $s)
+                            <div class="d-flex justify-content-between">
+                                <div class="section-title">
+                                    <h6>{{ $s->section_title }}</h6>
+                                </div>
+                                <div class="mb-3">
+                                    <button type="button" class="btn btn-sm bg-danger text-white" onclick="delete_record( '{{ $s->id }}')"><i class="bi bi-trash"></i></button>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
+                    </div>
+
                     <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
@@ -239,9 +256,46 @@
         </div>
     </div>
 </div>
+
+
+<!-- Delete Record -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="{{ route('delete-course-section')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <p>Are you sure to delete ?</p>
+                        <input id="del_id" type="hidden" name="id">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 @endsection
 @section('custom-script')
 <script>
+    var delModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+
+    function delete_record(id) {
+        $('#del_id').val(id);
+        delModal.show();
+    }
+
     $(document).ready(function() {
         $('#description').summernote();
     });
