@@ -226,12 +226,43 @@
                     </div>
 
                     <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Course Section</label>
+                        <div class="col-sm-10">
+                            <div class="repeater">
+                                <div data-repeater-list="course_sections">
+                                    <div data-repeater-item class="row mb-3 align-items-end">
+                                        <div class="col-lg-4">
+                                            <label for="name">Section Title</label>
+                                            <input type="text" class="form-control" name="section_title" placeholder="Enter Section Title" />
+                                        </div>
+
+                                        <div class="col-lg-4">
+                                            <label>Section Description</label>
+                                            <input type="text" class="form-control" placeholder="Enter Section description" name="section_description" />
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            <div class="d-flex align-items-center justify-content-start">
+                                                <button data-repeater-delete type="button" class="btn btn-lg btn-register" value="Delete">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex gap-2">
+                                    <div class="mt-1 mb-2">
+                                        <input data-repeater-create type="button" class="btn btn-lg btn-register" value="Add" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
                             <button type="submit" id="submitForm" class="btn btn-lg btn-register">Register</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>

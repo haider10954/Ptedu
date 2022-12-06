@@ -12,7 +12,7 @@ class CourseSectionController extends Controller
     public function section_listing($id)
     {
         $course = Course::where('id', $id)->first();
-        $section = Section::where('course_id', $id)->get();
+        $section = Section::where('course_id', $id)->paginate(10);
         return view('admin.course_section.section', compact('course', 'section'));
     }
 
