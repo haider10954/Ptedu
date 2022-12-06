@@ -10,7 +10,7 @@ class TutorController extends Controller
 {
     public function tutor_listing()
     {
-        $tutor = Tutor::get();
+        $tutor = Tutor::paginate(10);
         return view('admin.tutor.tutor', compact('tutor'));
     }
 
