@@ -11,7 +11,7 @@ class NoticeController extends Controller
 {
     public function notice_listing()
     {
-        $notice = Notice::paginate(3);
+        $notice = Notice::paginate(10);
         return view('admin.notice.notice', compact('notice'));
     }
 

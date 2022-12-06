@@ -12,7 +12,7 @@ class OfflineCourseController extends Controller
 {
     public function offline_course_listing()
     {
-        $offline_course = Offline_course::paginate(3);
+        $offline_course = Offline_course::paginate(10);
         return view('admin.offline_lectures.offline_courses', compact('offline_course'));
     }
 

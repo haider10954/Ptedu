@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('course_id')->constrained('courses');
+            $table->foreignId('course_id')->constrained('courses')->cascadeOnDelete();
             $table->string('section_title');
             $table->string('section_description');
             $table->timestamps();

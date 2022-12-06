@@ -5465,4 +5465,31 @@ div.dataTables_wrapper div.dataTables_filter input {
     color: #556ee6
 }
 
+.custom-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-pagination ul {
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.custom-pagination ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+.custom-pagination ul li a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #000000;
+    padding: 5px 15px;
+}
+
+.custom-pagination ul li a.active {
+    font-weight: 600;
+}
+
 /*# sourceMappingURL=app.min.css.map */

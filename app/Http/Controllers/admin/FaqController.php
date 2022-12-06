@@ -11,7 +11,7 @@ class FaqController extends Controller
 {
     public function faq_listing()
     {
-        $faq = Faq::paginate(3);
+        $faq = Faq::paginate(10);
         return view('admin.faqs.faqs', compact('faq'));
     }
 
