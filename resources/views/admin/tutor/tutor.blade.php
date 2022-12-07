@@ -140,19 +140,11 @@
                             </td>
                             <td><span class="course_name">{{ $t->mobile_number}}</span></td>
                             <td>
+                                @foreach ($t->getCourseName as $course )
                                 <span class="course_name">
-                                    <ul style="list-style: none; padding-left:0px !important;">
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                    </ul>
+                                    {{$course->course_title}} <br />
                                 </span>
+                                @endforeach
                             </td>
                             <td>
                                 <div class="d-flex gap-1">

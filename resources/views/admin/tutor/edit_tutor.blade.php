@@ -86,6 +86,18 @@
         line-height: 23px !important;
         color: #6F6F6F !important;
     }
+
+    .display_img {
+        height: 200px;
+        width: 200px;
+        border: 1px solid black;
+    }
+
+    .display_img img {
+        object-fit: contain;
+        height: 100%;
+        width: 100%;
+    }
 </style>
 @endsection
 
@@ -100,7 +112,7 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form method="POST" action="{{ route('edit-tutor') }}">
+                <form method="POST" enctype="multipart/form-data" action="{{ route('edit-tutor') }}">
                     @csrf
                     @if (Session::has('msg'))
                     <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
@@ -163,6 +175,32 @@
                     </div>
 
                     <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Description</label>
+                        <div class="col-sm-10">
+                            <textarea rows="8" class="form-control" name="description" placeholder="Enter description" style="resize: none;">{{ $tutor->description }}</textarea>
+                            @error('description')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Profile Image</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="image" id="tutor_img" class="d-none" value="{{ $tutor->getTutorImage() }}">
+                            <div class="d-flex align-items-end">
+                                <div class="display_img" id="tutor_image_view">
+                                    <img src="{{ $tutor->getTutorImage() }}" />
+                                </div>
+                                <button type="button" class="btn btn-upload ms-2" onclick="tutorImg('#tutor_img')">upload</button>
+                            </div>
+                            @error('description')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">
                             <button type="submit" class="btn btn-lg btn-register">Ok</button>
                         </div>
@@ -172,4 +210,23 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    function tutorImg(id) {
+        $(id).click();
+    }
+
+    $("#tutor_img").on("change", function(e) {
+
+        f = Array.prototype.slice.call(e.target.files)[0]
+        let reader = new FileReader();
+        reader.onload = function(e) {
+
+            $("#tutor_image_view").html(`<img style="height: 100%; object-fit: contain;"  id="main_image_preview"  src="${e.target.result}" class="main_image_preview img-block- img-fluid w-100">`);
+        }
+        reader.readAsDataURL(f);
+    })
+</script>
 @endsection
