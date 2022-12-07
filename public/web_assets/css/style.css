@@ -817,7 +817,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .pt-150 {
-    padding-top: 150px;
+    padding-top: 60px;
 }
 
 .section-heading {
@@ -896,7 +896,7 @@ header .btn.transparent, .btn.solid:hover {
     position: relative;
 }
 
-.lecture_banner_img{
+.lecture_banner_img {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -1369,66 +1369,67 @@ header .btn.transparent, .btn.solid:hover {
     margin-bottom: 50px;
 }
 
-.notice_tabs .active{
+.notice_tabs .active {
     color: #000000 !important;
 }
 
-.min-height-90{
+.min-height-90 {
     min-height: 90vh;
 }
 
-.font-17{
+.font-17 {
     font-size: 17px;
 }
 
-.border-bottom-2{
+.border-bottom-2 {
     border-bottom: 2px solid #dfdfdf;
 }
 
-.faq_tabs .accordion-item{
+.faq_tabs .accordion-item {
     border: 0;
-    border-bottom: 1px solid rgba(0,0,0,.125);
+    border-bottom: 1px solid rgba(0, 0, 0, .125);
 }
 
-.faq_tabs .accordion-button{
+.faq_tabs .accordion-button {
     padding: 1.5rem 0rem;
     font-weight: 500;
     font-size: 15px;
 }
 
-.faq_tabs .accordion-body{
+.faq_tabs .accordion-body {
     padding: 1.5rem 0rem;
     font-size: 13px;
 }
 
-.faq_tabs .accordion-button:not(.collapsed){
+.faq_tabs .accordion-button:not(.collapsed) {
     color: #000000;
     background-color: #ffffff;
     font-weight: 600;
 }
 
-.faq_tabs .accordion-button:focus{
+.faq_tabs .accordion-button:focus {
     border: none;
     box-shadow: none;
 }
-.faq_tabs .accordion-button::after{
+
+.faq_tabs .accordion-button::after {
     width: 0.9rem;
     height: 0.9rem;
     background-size: 0.9rem;
 }
 
-.pb-100{
+.pb-100 {
     padding-bottom: 100px;
 }
 
-.mb-40{
+.mb-40 {
     margin-bottom: 40px;
 }
 
-.pt-40{
+.pt-40 {
     padding-top: 40px;
 }
 
-.pb-40{
+.pb-40 {
     padding-bottom: 40px;
 }
