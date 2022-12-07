@@ -30,4 +30,9 @@ class Course extends Model
     {
         return asset('storage/course/banner/' . $this->course_banner);
     }
+
+    public function getCourseStatus()
+    {
+        return $this->hasMany(Section::class, 'course_id', 'id');
+    }
 }

@@ -59,6 +59,14 @@
         width: 62px;
     }
 
+    .status-badge-danger {
+        background: #F9DFDF;
+        border-radius: 2px;
+        color: #791919;
+        height: 19px;
+        width: 62px;
+    }
+
     .paginate {
         display: flex;
         align-items: center;
@@ -138,7 +146,11 @@
                             </td>
                             <td><span class="course_name">{{ $c->getCategoryName->name}}</span></td>
                             <td><span class="course_name">120</span></td>
-                            <td><span class="badge status-badge p-1">Fail</span></td>
+                            @if ( $c->getCourseStatus()->count() == 0)
+                            <td><span class="badge status-badge-danger p-1">Fail</span></td>
+                            @else
+                            <td><span class="badge status-badge  p-1">Pass</span></td>
+                            @endif
                             <td><span class="course_name">{{ $c->price }} 원</span></td>
                             <td>
                                 <div class="d-flex gap-1">
