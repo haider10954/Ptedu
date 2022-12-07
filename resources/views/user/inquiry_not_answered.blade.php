@@ -22,7 +22,7 @@
                     </div>
                 </div>
                 <div class="col-lg-10">
-                    <div class="custom-padding">
+                    <div class="custom_padding">
                         <div class="section-heading">
                             <h5 class="mb-2">1:1 문의</h5>
                             <p class="mb-0">Questions & Answers in PTEdu</p>
