@@ -100,7 +100,7 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form method="POST" action="{{ route('add-tutor') }}">
+                <form method="POST" enctype="multipart/form-data" action="{{ route('add-tutor') }}">
                     @csrf
                     @if (Session::has('msg'))
                     <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
@@ -160,6 +160,29 @@
                             @enderror
                         </div>
                     </div>
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Description</label>
+                        <div class="col-sm-10">
+                            <textarea rows="8" class="form-control" name="description" placeholder="Enter description" style="resize: none;"></textarea>
+                            @error('description')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Profile Image</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" name="image">
+                            @error('image')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+
 
                     <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">

@@ -20,6 +20,14 @@ class TutorController extends Controller
         return view('admin.tutor.edit_tutor', compact('tutor'));
     }
 
+    function upload_files($file)
+    {
+        $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('public/tutor', $fileName);
+        $loadPath = storage_path('app/public/') . '/' . $fileName;
+        return $fileName;
+    }
+
     public function add_tutor(Request $request)
     {
         $this->validate($request, [
@@ -28,16 +36,20 @@ class TutorController extends Controller
             'email' => 'required|email',
             'phone_number' => 'required|min:8',
             'job' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'description' => 'required',
+            'image' => 'required|mimes:jpeg,png,jpg',
         ]);
-
+        $tutor_img = $this->upload_files($request['image']);
         $tutor = Tutor::create([
             'name' => $request['name'],
             'english_name' => $request['en_name'],
             'email' => $request['email'],
             'mobile_number' => $request['phone_number'],
             'job' => $request['job'],
-            'address' => $request['address']
+            'address' => $request['address'],
+            'description' => $request['description'],
+            'tutor_img' => $tutor_img,
         ]);
 
         if ($tutor) {
@@ -49,6 +61,11 @@ class TutorController extends Controller
 
     public function delete_tutor(Request $request)
     {
+        $tutor = Tutor::where('id', $request->id)->first();
+        $filePath = storage_path('app/public/tutor/' . $tutor->tutor_img);
+        if (file_exists($filePath)) {
+            unlink($filePath);
+        }
         $tutor = Tutor::where('id', $request['id'])->delete();
         if ($tutor) {
             return redirect()->back()->with('msg', 'Tutor has been deleted Successfully');
@@ -65,17 +82,27 @@ class TutorController extends Controller
             'email' => 'required|email',
             'phone_number' => 'required|min:8',
             'job' => 'required',
-            'address' => 'required'
+            'address' => 'required',
+            'description' => 'required',
+            'image' => 'mimes:jpeg,png,jpg',
         ]);
 
-        $tutor = Tutor::where('id', $request['id'])->update([
+
+        $data = [
             'name' => $request['name'],
             'english_name' => $request['en_name'],
             'email' => $request['email'],
             'mobile_number' => $request['phone_number'],
             'job' => $request['job'],
             'address' => $request['address'],
-        ]);
+            'description' => $request['description'],
+        ];
+
+        if ($request->hasFile('image')) {
+            $data['tutor_img'] = $this->upload_files($request['image']);
+        }
+
+        $tutor = Tutor::where('id', $request['id'])->update($data);
         if ($tutor) {
             return redirect()->route('tutor');
         } else {
