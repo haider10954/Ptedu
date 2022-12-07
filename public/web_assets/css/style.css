@@ -791,6 +791,7 @@ header .btn.transparent, .btn.solid:hover {
     font-size: 15px;
     font-weight: 700;
     margin-bottom: 20px !important;
+    color: #000000;
 }
 
 .megamenu a:hover {
@@ -1366,4 +1367,44 @@ header .btn.transparent, .btn.solid:hover {
 
 .font-17{
     font-size: 17px;
+}
+
+.border-bottom-2{
+    border-bottom: 2px solid #dfdfdf;
+}
+
+.faq_tabs .accordion-item{
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+
+.faq_tabs .accordion-button{
+    padding: 1.5rem 0rem;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.faq_tabs .accordion-body{
+    padding: 1.5rem 0rem;
+    font-size: 13px;
+}
+
+.faq_tabs .accordion-button:not(.collapsed){
+    color: #000000;
+    background-color: #ffffff;
+    font-weight: 600;
+}
+
+.faq_tabs .accordion-button:focus{
+    border: none;
+    box-shadow: none;
+}
+.faq_tabs .accordion-button::after{
+    width: 0.9rem;
+    height: 0.9rem;
+    background-size: 0.9rem;
+}
+
+.pb-100{
+    padding-bottom: 100px;
 }
