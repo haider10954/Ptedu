@@ -105,6 +105,19 @@
                 <form id="editCourseForm">
                     @csrf
                     <input type="hidden" name="id" value="{{ $course->id }}" />
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Course Type</label>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="course_type">
+                                <option>Select Option</option>
+                                <option value="expert" {{ $course->course_type == 'expert' ? 'selected' : '' }}>Expert Course</option>
+                                <option value="public" {{ $course->course_type == 'public' ? 'selected' : '' }}>Public Course</option>
+                            </select>
+                            <div class="error-course_type"></div>
+                        </div>
+                    </div>
+
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Course Title</label>
                         <div class="col-sm-10">
@@ -335,6 +348,9 @@
             },
             error: function(e) {
                 $("#submitForm").html('<class="btn btn-lg btn-register">Register</>');
+                if (e.responseJSON.errors['course_type']) {
+                    $('.error-course_type').html('<span class=" error-message text-danger">' + e.responseJSON.errors['course_type'][0] + '</span>');
+                }
                 if (e.responseJSON.errors['course_title']) {
                     $('.error-course-title').html('<span class=" error-message text-danger">' + e.responseJSON.errors['course_title'][0] + '</span>');
                 }

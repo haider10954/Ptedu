@@ -43,6 +43,7 @@ class CourseController extends Controller
     public function add_course(Request $request)
     {
         $request->validate([
+            'course_type' => 'required',
             'course_title' => 'required',
             'tutor_name' => 'required',
             'short_description' => 'required',
@@ -72,15 +73,16 @@ class CourseController extends Controller
             'video_url' => $request['video_url'],
             'video' => $request['video'],
             'course_thumbnail' => $course_thumbnail,
-            'course_banner' => $course_banner
+            'course_banner' => $course_banner,
+            'course_type' => $request['course_type'],
         ]);
 
         if ($course) {
             foreach ($request->course_sections as  $value) {
                 Section::create([
                     'course_id' => $course->id,
-                    'section_title'=>$value['section_title'],
-                    'section_description'=>$value['section_description']
+                    'section_title' => $value['section_title'],
+                    'section_description' => $value['section_description']
                 ]);
             }
             return json_encode([
@@ -120,12 +122,13 @@ class CourseController extends Controller
         $tutor = Tutor::get();
         $category = Category::get();
         $section = Section::where('course_id', $id)->get();
-        return view('admin.courses.edit_course', compact('course', 'tutor', 'category' , 'section'));
+        return view('admin.courses.edit_course', compact('course', 'tutor', 'category', 'section'));
     }
 
     public function edit_course(Request $request)
     {
         $request->validate([
+            'course_type' => 'required',
             'course_title' => 'required',
             'tutor_name' => 'required',
             'short_description' => 'required',
@@ -149,6 +152,7 @@ class CourseController extends Controller
             $data['course_banner'] = $this->upload_files_banner($request['banner_img']);
         }
 
+        $data['course_type'] = $request['course_type'];
         $data['tutor_id'] = $request['tutor_name'];
         $data['category_id'] = $request['category'];
         $data['course_title'] = $request['course_title'];
