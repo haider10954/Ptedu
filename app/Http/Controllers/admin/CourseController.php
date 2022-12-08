@@ -24,6 +24,13 @@ class CourseController extends Controller
         return view('admin.courses.add_course', compact('tutor', 'category'));
     }
 
+    public function add_courses_view()
+    {
+        $tutor = Tutor::get();
+        $category = Category::get();
+        return view('admin.courses.add_courses', compact('tutor', 'category'));
+    }
+
     function upload_files($file)
     {
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
