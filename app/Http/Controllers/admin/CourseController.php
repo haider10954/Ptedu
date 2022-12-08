@@ -62,6 +62,8 @@ class CourseController extends Controller
             'category' => 'required',
             'video_url' => 'required',
             'video' => 'required',
+            'category' => 'required',
+            'course_type' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',
             'banner_img' => 'required|mimes:jpeg,png,jpg',
         ]);
@@ -85,13 +87,6 @@ class CourseController extends Controller
         ]);
 
         if ($course) {
-            foreach ($request->course_sections as  $value) {
-                Section::create([
-                    'course_id' => $course->id,
-                    'section_title' => $value['section_title'],
-                    'section_description' => $value['section_description']
-                ]);
-            }
             return json_encode([
                 'success' => true,
                 'message' => 'Course has been added successfully.'
