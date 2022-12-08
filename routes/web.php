@@ -70,6 +70,19 @@ Route::get('/user/login', function () {
     return view('user.login_user');
 })->name('user_login');
 
+Route::get('/find-ID', function () {
+    return view('user.find_ID');
+})->name('find_id');
+
+Route::get('/find-PW', function () {
+    return view('user.find_password');
+})->name('find_password');
+
+Route::get('/reset-password', function () {
+    return view('user.reset_password');
+})->name('reset_password');
+
+
 Route::get('/user/register', function () {
     return view('user.register');
 })->name('user_register');

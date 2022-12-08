@@ -26,11 +26,11 @@
                     </div>
 
                     <div>
-                        <a class="text-dark text-decoration-none">Find ID</a>
+                        <a href="{{ route('find_id') }}" class="text-dark text-decoration-none">Find ID</a>
                     </div>
 
                     <div>
-                        <a class="text-dark text-decoration-none">Find PW</a>
+                        <a href="{{ route('find_password') }}" class="text-dark text-decoration-none">Find PW</a>
                     </div>
                 </div>
             </form>
