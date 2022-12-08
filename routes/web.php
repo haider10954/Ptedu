@@ -71,7 +71,7 @@ Route::get('/user/login', function () {
 })->name('user_login');
 
 Route::get('/find-ID', function () {
-    return view('user.find_ID');
+    return view('user.find_id');
 })->name('find_id');
 
 Route::get('/find-PW', function () {
