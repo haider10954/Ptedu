@@ -125,6 +125,10 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit-course', [CourseController::class, 'edit_course'])->name('edit-course');
         //End Online Course
 
+        // Course - Sections - Lectures Upload start
+        Route::get('/courses/add', [CourseController::class, 'add_courses_view'])->name('add_course');
+        // Course - Sections - Lectures Upload end
+
         //Offline Course
         Route::get('/offline-lectures', [OfflineCourseController::class, 'offline_course_listing'])->name('offline_lectures_admin');
         Route::get('/offline-course/add', [OfflineCourseController::class, 'add_offline_course_view'])->name('add_offline_course_view');

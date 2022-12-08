@@ -8,3 +8,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+
+<link href="{{ asset('assets/css/style.css') }}" id="app-style" rel="stylesheet" type="text/css" />
