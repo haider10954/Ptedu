@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
-use App\Models\Student;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,7 +26,7 @@ class StudentController extends Controller
             'house_no' => 'required',
             'street_no' => 'required',
         ]);
-        $student = Student::create([
+        $student = User::create([
             'name' => $request['name'],
             'english_name' => $request['en_name'],
             'user_id' => $request['user_id'],
