@@ -14,7 +14,7 @@ class StudentController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'en_name' => 'required',
-            'user_id' => 'required|unique:students',
+            'user_id' => 'required|unique:users',
             'password' => 'required|min:6|same:confirm_password',
             'job' => 'required',
             'country_code' => 'required',
