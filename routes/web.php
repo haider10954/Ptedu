@@ -15,6 +15,7 @@ use App\Http\Controllers\admin\CourseSectionController;
 use App\Http\Controllers\user\ReviewController;
 use App\Http\Controllers\user\CourseController as UserCourseController;
 use App\Http\Controllers\user\LectureController;
+use App\Http\Controllers\user\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,7 @@ use App\Http\Controllers\user\LectureController;
 
 // Main site routes start
 
+Route::post('/student-register' , [StudentController::class , 'student_register'])->name('student_register');
 Route::get('/', [IndexController::class, 'index'])->name('web-home');
 Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
 Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
