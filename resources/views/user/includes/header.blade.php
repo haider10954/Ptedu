@@ -261,6 +261,10 @@
                 @else
                 <a href="{{ route('user_login') }}" class="btn solid">Login</a>
                 @endif
+                @if(auth()->check())
+                <a href="javascript:void(0)" class="btn solid">My Classroom</a>
+                <a href="javascript:void(0)" class="btn solid"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                @endif
             </div>
         </div>
 
