@@ -72,13 +72,15 @@
                                 <div class="error-user-id"></div>
                             </div>
                             <div class="verify_btn">
-                                <button type="button" id="checkUserID" class="btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
+                                <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
+                                <div class="error-duplicate"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="verify_mobile mt-2">
-                            <button type="button" id="checkUserID" class="btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
+                            <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
+                            <div class="error-duplicate"></div>
                         </div>
                     </div>
                 </div>
@@ -305,7 +307,7 @@
         }
     });
 
-    $('#checkUserID').on('click', function() {
+    $('.checkUserID').on('click', function() {
 
         $.ajax({
             type: "POST",
