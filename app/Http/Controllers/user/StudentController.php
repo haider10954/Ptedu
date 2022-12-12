@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
@@ -52,6 +53,44 @@ class StudentController extends Controller
                 ]
             );
         }
-        dd($request->all());
+    }
+
+    public function student_login(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            return json_encode([
+                'success' => 'true',
+                'message' => 'Welcome to Student Portal'
+            ]);
+        } else {
+            return json_encode([
+                'success' => 'false',
+                'message' => 'Something Went wrong'
+            ]);
+        }
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('user_login');
+    }
+
+    public function checkUserId(Request $request)
+    {
+        $this->validate($request, [
+            'user_id' => 'required|unique:users',
+        ]);
+        return json_encode(
+            [
+                'success' => true,
+                'message' => 'The value is not duplicated'
+            ]
+        );
     }
 }

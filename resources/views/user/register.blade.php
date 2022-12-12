@@ -68,17 +68,17 @@
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
-                                <input type="text" class="form-control" name="user_id" placeholder="Enter ID" value="{{ old('ID') }}">
+                                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Enter ID" value="{{ old('ID') }}">
                                 <div class="error-user-id"></div>
                             </div>
                             <div class="verify_btn">
-                                <button class="btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
+                                <button type="button" id="checkUserID" class="btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="verify_mobile mt-2">
-                            <button class="btn rounded-0 btn-theme-delete ml-2">Duplicate Verification</button>
+                            <button type="button" id="checkUserID" class="btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
                         </div>
                     </div>
                 </div>
@@ -160,28 +160,28 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start" style="height:69px;">
+                                <div class="d-flex align-items-center justify-content-start custom_label_height">
                                     <p class="mb-0 user_profile">Phone number<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 pl-0">
-                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
-                                <div class="mr-2">
+                            <div class="d-flex align-items-center  bottom-border custom_height_phone" style="padding-left:10px;">
+                                <div class="mr-2 mb-1 mb-md-0 mt-2 mt-md-0">
                                     <div>
-                                        <input type="text" class="form-control custom_width" name="country_code" placeholder="010" value="{{ old('mobile') }}">
+                                        <input type="text" class="form-control custom_width" name="country_code" placeholder="Country Code" value="{{ old('mobile') }}">
                                         <div class="error-mobile-number d-block"></div>
                                     </div>
                                 </div>
-                                <div class="mr-2">
+                                <div class="mr-2 mb-1 mb-md-0">
                                     <div>
-                                        <input type="text" class="form-control custom_width " name="sim_code" placeholder="010" value="{{ old('mobile') }}">
+                                        <input type="text" class="form-control custom_width " name="sim_code" placeholder="mobile number" value="{{ old('mobile') }}">
                                         <div class="error-mobile-number d-block"></div>
                                     </div>
                                 </div>
-                                <div class="mr-2">
+                                <div class="mr-2 mb-1 mb-md-0">
                                     <div>
-                                        <input type="text" class="form-control custom_width" name="mobile" placeholder="010" value="{{ old('mobile') }}">
+                                        <input type="text" class="form-control custom_width" name="mobile" placeholder="mobile number" value="{{ old('mobile') }}">
                                         <div class="error-mobile-number d-block"></div>
                                     </div>
                                 </div>
@@ -193,13 +193,13 @@
                     <div class="row">
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start" style="height:69px;">
+                                <div class="d-flex align-items-center justify-content-start custom_height_email">
                                     <p class="mb-0 user_profile">Email<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 pl-0">
-                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
+                            <div class="d-flex align-items-center bottom-border custom_height_email_input" style="padding-left:10px;">
                                 <div>
                                     <input type="text" class="form-control" name="email_name" value="{{ old('email') }}">
                                     <div class="error-email"></div>
@@ -305,6 +305,35 @@
         }
     });
 
+    $('#checkUserID').on('click', function() {
+
+        $.ajax({
+            type: "POST",
+            url: "{{ route('check_user_id') }}",
+            dataType: 'json',
+
+            data: {
+                "_token": "{{ csrf_token() }}",
+
+                user_id: $('#user_id').val(),
+            },
+
+            beforeSend: function() {},
+            success: function(res) {
+                if (res.success) {
+                    $('.error-duplicate').html('<small class=" error-message text-success mb-3">' + res.message + '</small>');
+                } else {
+
+                }
+            },
+            error: function(e) {
+                if (e.responseJSON.errors['user_id']) {
+                    $('.error-duplicate').html('<small class=" error-message text-danger">' + e.responseJSON.errors['user_id'][0] + '</small>');
+                }
+            }
+
+        });
+    });
 
     $("#registerForm").on('submit', function(e) {
         e.preventDefault();

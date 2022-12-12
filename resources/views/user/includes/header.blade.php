@@ -254,8 +254,9 @@
                         <a href="{{ route('web-notice')}}" class="text-decoration-none">Notice</a>
                     </li>
                 </ul>
-            </div>
+            </div>  
             <div class="log-sign" style="--i: 1.8s">
+                <a href="{{ route('student_logout') }}" class="btn solid">Logout</a>
                 <a href="{{ route('user_login') }}" class="btn solid">Login</a>
             </div>
         </div>
