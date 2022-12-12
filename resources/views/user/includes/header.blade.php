@@ -254,10 +254,13 @@
                         <a href="{{ route('web-notice')}}" class="text-decoration-none">Notice</a>
                     </li>
                 </ul>
-            </div>  
+            </div>
             <div class="log-sign" style="--i: 1.8s">
+                @if(auth()->check())
                 <a href="{{ route('student_logout') }}" class="btn solid">Logout</a>
+                @else
                 <a href="{{ route('user_login') }}" class="btn solid">Login</a>
+                @endif
             </div>
         </div>
 
