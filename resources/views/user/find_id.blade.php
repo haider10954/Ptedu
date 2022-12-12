@@ -69,7 +69,7 @@
                     setTimeout(function() {
                         $('.prompt').hide()
                     }, 2000);
-                    
+                    $("#submitForm").html('Find my ID');
                     $("#submitForm").prop('disabled', false);
                 }
             },
