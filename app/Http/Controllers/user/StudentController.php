@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -33,7 +34,7 @@ class StudentController extends Controller
             'user_id' => $request['user_id'],
             'password' => Hash::make($request->password),
             'job' => $request['job'],
-            'mobile_number' => $request['country_code'] . '-' . $request['sim_code'] . $request['mobile'],
+            'mobile_number' => $request['country_code'] . $request['sim_code'] . $request['mobile'],
             'email' => $request['email_name'] . '@' . $request['email_extension'],
             'address' => $request['address'] . ' ' . $request['house_no'] . ' ' . $request['street_no'],
         ]);
@@ -92,5 +93,54 @@ class StudentController extends Controller
                 'message' => 'The value is not duplicated'
             ]
         );
+    }
+
+    public function Password_reset(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'mobile_number' => 'required',
+            'user_id' => 'required',
+        ]);
+
+        $find_password = User::where('name', $request->name)->where('mobile_number', $request->mobile_number)->where('user_id', $request->user_id)->first();
+        if ($find_password) {
+            session()->put('forget_id', $find_password->id);
+            session()->save();
+            return json_encode([
+                'success' => true,
+                'message' => 'Your Entered Credentails are Valid',
+            ]);
+        } else {
+            return json_encode([
+                'success' => false,
+                'message' => 'Credentails are Invalid',
+            ]);
+        }
+    }
+
+    public function reset_password(Request $request)
+    {
+        $id = session()->get('forget_id');
+        $request->validate([
+            'password' => 'required|min:6|same:confirm_password',
+        ]);
+
+        $reset_password = User::where('id', $id)->update([
+            'password' => Hash::make($request->password),
+        ]);
+        if ($reset_password) {
+            session()->forget('forget_id');
+            session()->save();
+            return json_encode([
+                'success' => true,
+                'message' => 'Your Password has been changed Successfully'
+            ]);
+        } else {
+            return json_encode([
+                'success' => false,
+                'message' => 'Something went wrong',
+            ]);
+        }
     }
 }

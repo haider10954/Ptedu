@@ -83,7 +83,8 @@ Route::get('/find-ID', function () {
 Route::get('/find-PW', function () {
     return view('user.find_password');
 })->name('find_password');
-
+Route::post('/find-password', [StudentController::class, 'Password_reset'])->name('find-password');
+Route::post('/update-password', [StudentController::class, 'reset_password'])->name('reset-password');
 Route::get('/reset-password', function () {
     return view('user.reset_password');
 })->name('reset_password');
