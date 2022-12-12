@@ -122,6 +122,13 @@ class StudentController extends Controller
     public function reset_password(Request $request)
     {
         $id = session()->get('forget_id');
+
+        if ($id == null) {
+            return json_encode([
+                'success' => false,
+                'message' => 'Something went wrong',
+            ]);
+        }
         $request->validate([
             'password' => 'required|min:6|same:confirm_password',
         ]);

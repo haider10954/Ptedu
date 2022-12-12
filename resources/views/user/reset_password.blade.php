@@ -62,7 +62,11 @@
 
                     setTimeout(function() {
                         $('.prompt').hide()
+                        window.location.href = "{{ route('find_password') }}"
                     }, 2000);
+
+
+
 
                 }
             },
