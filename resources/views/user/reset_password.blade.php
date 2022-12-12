@@ -8,8 +8,8 @@
         <div class="m-auto form-wrapper">
             <h3 class=" heading-h3 mb-3 text-center">Reset my PW</h3>
             <p class="text-center">Please reset your Password</p>
+            <div class="prompt"></div>
             <form type="POST" id="resetPassword">
-                <div class="prompt"></div>
                 @csrf
                 <div class="form-group">
                     <label class="form-label">New Password</label>
