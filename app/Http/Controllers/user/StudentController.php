@@ -64,12 +64,12 @@ class StudentController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return json_encode([
-                'success' => 'true',
+                'success' => true,
                 'message' => 'Welcome to Student Portal'
             ]);
         } else {
             return json_encode([
-                'success' => 'false',
+                'success' => false,
                 'message' => 'Something Went wrong'
             ]);
         }

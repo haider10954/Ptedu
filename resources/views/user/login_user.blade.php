@@ -71,7 +71,14 @@
                         window.location.href = "{{ route('my_classroom') }}";
                     }, 2000);
 
-                } else {}
+                } else {
+                    $('.prompt').html('<div class="alert alert-danger mb-3">' + res.message + '</div>');
+
+                    setTimeout(function() {
+                        $('.prompt').hide()
+                    }, 2000);
+
+                }
             },
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
