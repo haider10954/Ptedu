@@ -69,7 +69,8 @@
                     setTimeout(function() {
                         $('.prompt').hide()
                     }, 2000);
-
+                    
+                    $("#submitForm").prop('disabled', false);
                 }
             },
             error: function(e) {
