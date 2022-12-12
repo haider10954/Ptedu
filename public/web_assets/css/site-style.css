@@ -502,3 +502,9 @@
         padding-left: 15px;
     }
 }
+.password-icon
+{
+    position:absolute;
+    top: 32%;
+    right: 4%;
+}

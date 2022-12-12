@@ -15,8 +15,9 @@
                     <div class="error-email"></div>
                 </div>
 
-                <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Enter Password" name="password" />
+                <div class="form-group position-relative">
+                    <input type="password" class="form-control" placeholder="Enter Password" name="password" id="password" />
+                    <i class="fa fa-eye password-icon" id="togglePassword"></i>
                     <div class="error-password"></div>
                 </div>
 
@@ -84,6 +85,25 @@
             }
 
         });
+    });
+
+    const togglePassword = document.querySelector('#togglePassword');
+    const password = document.querySelector('#password');
+
+    togglePassword.addEventListener('click', function(e) {
+        // toggle the type attribute
+        let type;
+        if (password.getAttribute('type') === 'password') {
+            type = 'text';
+            password.setAttribute('type', type);
+            this.classList.add('fa-eye-slash');
+            this.classList.remove("fa-eye");
+        } else {
+            type = 'password';
+            password.setAttribute('type', type);
+            this.classList.add("fa-eye");
+            this.classList.remove('fa-eye-slash');
+        }
     });
 </script>
 @endsection
