@@ -79,6 +79,7 @@ Route::get('/user/login', function () {
 Route::get('/find-ID', function () {
     return view('user.find_id');
 })->name('find_id');
+Route::post('/find-id', [StudentController::class , 'find_id'])->name('find-id');
 
 Route::get('/find-PW', function () {
     return view('user.find_password');

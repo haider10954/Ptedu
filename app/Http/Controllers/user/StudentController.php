@@ -150,4 +150,26 @@ class StudentController extends Controller
             ]);
         }
     }
+
+    public function find_id(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'phone_number' => 'required',
+        ]);
+
+        $find_id = User::where('name', $request->name)->where('mobile_number', $request->phone_number)->first();
+        if ($find_id) {
+            return json_encode([
+                'success' => true,
+                'message' => 'Your Entered Credentails are Valid',
+                'user_id' => $find_id->user_id
+            ]);
+        } else {
+            return json_encode([
+                'success' => false,
+                'message' => 'Credentails are Invalid',
+            ]);
+        }
+    }
 }

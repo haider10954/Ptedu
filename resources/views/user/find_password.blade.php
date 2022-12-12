@@ -29,7 +29,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-login">Find my PW</button>
+                    <button type="submit" id="submitForm" class="btn btn-login">Find my PW</button>
                 </div>
             </form>
         </div>
