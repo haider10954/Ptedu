@@ -289,7 +289,12 @@
 }
 
 .custom_height {
-    height: 121px;
+    height: 145px;
+}
+
+.custom_min_height
+{
+    min-height: 138px;
 }
 
 .btn-padding {
@@ -433,6 +438,9 @@
         overflow-x: auto;
     }
 
+    .custom_min_height{
+        min-height: 185px;
+    }
     .mobile-icons {
         display: block;
     }

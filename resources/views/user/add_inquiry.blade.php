@@ -75,9 +75,7 @@
                                 <div class="d-flex  bottom-border" style="padding-left:10px; height:70px;">
                                     <div class="w-100 mt-2">
                                         <input type="text" class="form-control" name="title" placeholder="Enter Title" value="{{ old('title') }}">
-                                        @error('title')
-                                        <small style="color:#d02525;">{{$message}}</small>
-                                        @enderror
+                                        <div class="error-title"></div>
                                     </div>
                                 </div>
                             </div>
@@ -95,9 +93,7 @@
                                 <div class="d-flex align-items-center bottom-border" style="padding-left:10px; min-height:210px; width:100%">
                                     <div class="w-100">
                                         <textarea type="text" class="form-control" name="content" rows="6" placeholder="Enter Title" value="{{ old('content') }}"></textarea>
-                                        @error('content')
-                                        <small style="color:#d02525;">{{$message}}</small>
-                                        @enderror
+                                        <div class="error-content"></div>
                                     </div>
                                 </div>
                             </div>
@@ -112,7 +108,7 @@
                                 </div>
                             </div>
                             <div class="col-9 pl-0">
-                                <div class="align-items-center bottom-border" style="padding-left:10px; min-height:51px;">
+                                <div class="align-items-center bottom-border custom_min_height" style="padding-left:10px;">
                                     <div class="mt-2 mb-2 d-flex align-items-center">
                                         <div>
                                             <input class="form-control" type="file" name="files[]" multiple>
@@ -126,6 +122,7 @@
                                         <br>
                                         <small>* Attached files can be registered as jpg, gif, png, ppt, xls, doc, hwp, pdf files.</small>
                                     </div>
+                                    <div class="error-image"></div>
                                 </div>
                             </div>
                         </div>
@@ -134,8 +131,8 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="d-flex align-items-center justify-content-center mt-4">
-                                    <button class="btn rounded-0 btn-theme-white mr-2" style="padding: 5px 30px">Cancel</button>
-                                    <button type="submit" id="submitForm" class="btn rounded-0 btn-theme-black text-white" style="padding: 5px 30px">Register</a>
+                                    <a type="button" class="btn rounded-0 btn-theme-black text-white mr-2" style="padding: 5px 30px" href="{{ route('user_inquiry') }}">Back</a>
+                                    <button type="submit" id="submitForm" class="btn rounded-0 btn-theme-black text-white " style="padding: 5px 30px">Register</button>
                                 </div>
                             </div>
                         </div>
@@ -194,7 +191,19 @@
 
                 }
             },
-            error: function(e) {}
+            error: function(e) {
+                $("#submitForm").prop('disabled', false);
+                $("#submitForm").html('Register');
+                if (e.responseJSON.errors['title']) {
+                    $('.error-title').html('<small class=" error-message text-danger">' + e.responseJSON.errors['title'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['content']) {
+                    $('.error-content').html('<small class=" error-message text-danger">' + e.responseJSON.errors['content'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['files']) {
+                    $('.error-image').html('<small class=" error-message text-danger">' + e.responseJSON.errors['files'][0] + '</small>');
+                }
+            }
         });
     });
 </script>
