@@ -85,7 +85,7 @@ class StudentController extends Controller
     public function checkUserId(Request $request)
     {
         $this->validate($request, [
-            'user_id' => 'required|unique:users',
+            'user_id' => 'unique:users,user_id,' . auth()->id(),
         ]);
         return json_encode(
             [
@@ -183,6 +183,20 @@ class StudentController extends Controller
 
     public function update_student_profile(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'en_name' => 'required',
+            'user_id' => 'required|unique:users,user_id,' . auth()->id(),
+            'job' => 'required',
+            'country_code' => 'required',
+            'mobile' => 'required',
+            'email_name' => 'required',
+            'email_extension' => 'required',
+            'address' => 'required',
+            'house_no' => 'required',
+            'street_no' => 'required',
+            'user_profile' => 'max:2000'
+        ]);
 
         $request['user_profile'] = auth()->user()->profile_img;
         if ($request->hasFile('user_profile')) {
