@@ -121,7 +121,7 @@
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                                 <div>
-                                    <input type="text" class="form-control" name="user_id" placeholder="Enter ID" value="{{ auth()->user()->user_id }}">
+                                    <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Enter ID" value="{{ auth()->user()->user_id }}">
                                     @error('user_id')
                                     <small style="color:#d02525;">{{$message}}</small>
                                     @enderror
@@ -351,24 +351,29 @@
 
             data: {
                 "_token": "{{ csrf_token() }}",
-
                 user_id: $('#user_id').val(),
             },
 
             beforeSend: function() {},
             success: function(res) {
                 if (res.success) {
-                    $('.error-duplicate').html('<p class="alert alert-success mb-3">' + res.message + '</p>');
+                    $('.error-duplicate').html('');
+                    $('.error-duplicate').html('<p class="alert alert-success mb-3 text-success">' + res.message + '</p>');
+                    $('.error-duplicate').show()
                     setTimeout(function() {
                         $('.error-duplicate').hide()
                     }, 3000);
                 } else {
+                    $('.error-duplicate').html('<p class="alert alert-danger mb-3">' + res.message + '</p>');
 
                 }
             },
             error: function(e) {
+
                 if (e.responseJSON.errors['user_id']) {
-                    $('.error-duplicate').html('<p class="alert alert-danger">' + e.responseJSON.errors['user_id'][0] + '</p>');
+                    $('.error-duplicate').html('');
+                    $('.error-duplicate').html('<p class="alert alert-danger text-danger">' + e.responseJSON.errors['user_id'][0] + '</p>');
+                    $('.error-duplicate').show()
                     setTimeout(function() {
                         $('.error-duplicate').hide()
                     }, 3000);

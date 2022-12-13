@@ -85,7 +85,7 @@ class StudentController extends Controller
     public function checkUserId(Request $request)
     {
         $this->validate($request, [
-            'user_id' => 'unique:users,user_id,' . auth()->id(),
+            'user_id' => 'required|unique:users,user_id,' . auth()->id(),
         ]);
         return json_encode(
             [
