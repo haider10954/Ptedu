@@ -257,7 +257,14 @@
             </div>
             <div class="log-sign" style="--i: 1.8s">
                 @if(auth()->check())
-                <a href="{{ route('student_logout') }}" class="btn solid">Logout</a>
+                <div class="dropdown_header">
+                    <button onclick="myFunction()" class="btn solid"><i class="fa fa-user" aria-hidden="true"></i></button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="{{ route('user_info') }}">Profile</a>
+                        <a href="{{ route('change-user-password') }}">Change password</a>
+                        <a href="{{ route('student_logout') }}" class="text-danger">Logout</a>
+                    </div>
+                </div>
                 @else
                 <a href="{{ route('user_login') }}" class="btn solid">Login</a>
                 @endif
@@ -275,3 +282,22 @@
         </div>
     </div>
 </header>
+
+<script>
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+
+    window.onclick = function(event) {
+        if (!event.target.matches('.solid')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>

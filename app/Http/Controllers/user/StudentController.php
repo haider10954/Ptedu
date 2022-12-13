@@ -71,7 +71,7 @@ class StudentController extends Controller
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something Went wrong'
+                'message' => 'Email or Password is Incorrect'
             ]);
         }
     }
@@ -204,7 +204,7 @@ class StudentController extends Controller
         if ($user) {
             return redirect()->back()->with('msg', 'Student Profile has been updated Successfully');
         } else {
-            return redirect()->back()->with('msg', 'Something went Wrong. Please try again later');
+            return redirect()->back()->with('error', 'Something went Wrong. Please try again later');
         }
     }
     public function delete_profile_image()
@@ -215,7 +215,29 @@ class StudentController extends Controller
         if ($delete_profile_img) {
             return redirect()->back()->with('msg', 'Your Profile image has been deleted successfully');
         } else {
-            return redirect()->back()->with('msg', 'Something Went Wrong.Please try again.');
+            return redirect()->back()->with('error', 'Something Went Wrong.Please try again.');
+        }
+    }
+
+    public function change_password(Request $request)
+    {
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6|same:confirm_password',
+        ]);
+
+        if (Hash::check($request['current_password'], auth()->user()->password)) {
+            $change_password = User::where('id', auth()->id())->update([
+                'password' => Hash::make($request['new_password'])
+            ]);
+        } else {
+            return redirect()->back()->with('error', 'Password you entered is incorrect');
+        }
+
+        if ($change_password) {
+            return redirect()->back()->with('msg', 'Your Password has been Updated Successfully');
+        } else {
+            return redirect()->back()->with('error', 'Something went Wrong. Please try again.');
         }
     }
 }

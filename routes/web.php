@@ -74,6 +74,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/inquiry-answered', function () {
         return view('user.inquiry_answered');
     })->name('inquiry_answered');
+
+    Route::get('/change-user-password', function () {
+        return view('user.change_password');
+    })->name('change-user-password');
+    Route::post('/update-user-password', [StudentController::class, 'change_password'])->name('user-password');
 });
 
 Route::get('/user/login', function () {
