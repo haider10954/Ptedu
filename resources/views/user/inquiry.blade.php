@@ -39,76 +39,33 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @if ($inquiry->count() > 0)
+                                @php
+                                $count = 1;
+                                @endphp
+                                @foreach($inquiry as $inq)
                                 <tr>
-                                    <td>10</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered') }}">답변준비중</a></td>
+                                    <td>{{ $count == 1 ? $inq->count() : $inq->count() + 1 - $count }}</td>
+                                    <td>{{ Str::limit($inq->title, 70) }}</td>
+                                    <td>{{ $inq->getStudentName->name }}</td>
+                                    <td>{{ Carbon\Carbon::parse($inq->expired_at)->format('d M, Y')}}</td>
+                                    @if($inq->answer == null)
+                                    <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered',$inq->id) }}">답변준비중</a></td>
+                                    @else
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered',$inq->id) }}">답변준비중</a></td>
+                                    @endif
                                 </tr>
+                                @php
+                                $count++;
+                                @endphp
+                                @endforeach
+                                @else
                                 <tr>
-                                    <td>9</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered') }}">답변준비중</a></td>
+                                    <td colspan="5" class="text-center">
+                                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
-                                </tr>
-                                <tr>
-                                    <td>1</td>
-                                    <td>문의합니다</td>
-                                    <td>이**</td>
-                                    <td>2022.10.13</td>
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered') }}">답변준비중</a></td>
-                                </tr>
+                                @endif
                                 <tr>
                                     <td colspan="5">
                                         <div class="text-right margin">
@@ -121,21 +78,7 @@
                     </div>
                 </div>
 
-                <div class="custom-pagination mb-3">
-                    <div class="paginate">
-                        <a class="paginate-btn">
-                            <i class="fa fa-angle-left"></i>
-                        </a>
-                        <a href="javascript:void(0)" class="active">1</a>
-                        <a href="javascript:void(0)">2</a>
-                        <a href="javascript:void(0)">3</a>
-                        <a href="javascript:void(0)">4</a>
-                        <a href="javascript:void(0)">5</a>
-                        <a class="paginate-btn">
-                            <i class="fa fa-angle-right"></i>
-                        </a>
-                    </div>
-                </div>
+                {{ $inquiry->links('vendor.pagination.custom-pagination') }}
             </div>
         </div>
     </div>

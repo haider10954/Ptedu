@@ -14,6 +14,7 @@ use App\Http\Controllers\user\IndexController;
 use App\Http\Controllers\admin\CourseSectionController;
 use App\Http\Controllers\user\ReviewController;
 use App\Http\Controllers\user\CourseController as UserCourseController;
+use App\Http\Controllers\user\InquiryController;
 use App\Http\Controllers\user\LectureController;
 use App\Http\Controllers\user\StudentController;
 
@@ -59,21 +60,15 @@ Route::middleware('auth')->group(function () {
     })->name('user_info');
     Route::post('/update/info', [StudentController::class, 'update_student_profile'])->name('update_user_info');
     Route::post('/delete-image', [StudentController::class, 'delete_profile_image'])->name('delete-image');
-    Route::get('/inquiry', function () {
-        return view('user.inquiry');
-    })->name('user_inquiry');
+    Route::get('/inquiry', [InquiryController::class, 'inquiry_listing'])->name('user_inquiry');
 
     Route::get('/inquiry/add', function () {
         return view('user.add_inquiry');
     })->name('add_inquiry');
+    Route::post('/add-inquiry', [InquiryController::class, 'add_inquiry'])->name('add-inquiry');
 
-    Route::get('/inquiry-not-answered', function () {
-        return view('user.inquiry_not_answered');
-    })->name('inquiry_not_answered');
-
-    Route::get('/inquiry-answered', function () {
-        return view('user.inquiry_answered');
-    })->name('inquiry_answered');
+    Route::get('/inquiry-not-answered/{id}', [InquiryController::class, 'not_answer_inquiry'])->name('inquiry_not_answered');
+    Route::get('/inquiry-answered/{id}', [InquiryController::class, 'answered_inquiry'])->name('inquiry_answered');
 
     Route::get('/change-user-password', function () {
         return view('user.change_password');
@@ -206,14 +201,10 @@ Route::prefix('admin')->group(function () {
             return view('admin.payment.view_payment');
         })->name('view_payment');
 
-        Route::get('/inquiry', function () {
-            return view('admin.inquiry.inquiry');
-        })->name('inquiry');
-
-        Route::get('/inquiry/answer', function () {
-            return view('admin.inquiry.answer');
-        })->name('inquiry_answer');
-
+        //Inquiry
+        Route::get('/inquiry', [InquiryController::class, 'inquiry_listing_admin'])->name('inquiry');
+        Route::get('/inquiry/answer/{id}', [InquiryController::class, 'answer_inquiry_admin'])->name('inquiry_answer');
+        Route::post('/add-answer', [InquiryController::class, 'add_answer'])->name('add-answer');
         Route::get('/certificate', function () {
             return view('admin.certificate.completed_student');
         })->name('certificate');
