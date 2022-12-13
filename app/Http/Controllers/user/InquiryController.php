@@ -55,7 +55,7 @@ class InquiryController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'content' => 'required',
-            'files' => 'required|mimes:jpeg,png,jpg,xls,ppt,doc',
+            'files*' => 'required|mimes:jpeg,png,jpg,xls,ppt,doc',
         ]);
         $filesList = [];
         if ($request->hasFile('files')) {
