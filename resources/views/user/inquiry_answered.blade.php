@@ -37,7 +37,7 @@
                         <div class="col-md-10 col-9  pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
                                 <div class="ml-2">
-                                    <p class="mb-0">Name</p>
+                                    <p class="mb-0">{{ $inquiry->name }}</p>
                                 </div>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="col-md-10 col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
                                 <div class="ml-2">
-                                    <p class="mb-0">Phone Number</p>
+                                    <p class="mb-0">{{$inquiry->mobile_number}}</p>
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                             <div class="col-md-10 col-9 pl-0">
                                 <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:51px;">
                                     <div class="ml-2">
-                                        <p class="mb-0">Title</p>
+                                        <p class="mb-0">{{ $inquiry->title }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -89,7 +89,7 @@
                             <div class="col-md-10 col-9 pl-0">
                                 <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
                                     <div class="ml-2 mt-2 mt-md-4">
-                                        <p class="mb-0">Content </p>
+                                        <p class="mb-0">{{ $inquiry->content}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -104,14 +104,14 @@
                             <div class="col-md-2 col-3 pr-0">
                                 <div class="user-info bottom-border">
                                     <div class="d-flex  justify-content-start" style="height:200px;">
-                                        <p class="mb-0 user_profile">Content<span class="text-danger">*</span></p>
+                                        <p class="mb-0 user_profile">Answer<span class="text-danger">*</span></p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-10 col-9 pl-0">
                                 <div class="d-flex justify-content-start bottom-border" style="padding-left:10px; min-height:201px; width:100%">
                                     <div class="ml-2 mt-2 mt-md-4">
-                                        <p class="mb-0">Content </p>
+                                        <p class="mb-0">{{ $inquiry->answer }}</p>
                                     </div>
                                 </div>
                             </div>

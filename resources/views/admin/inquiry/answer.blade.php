@@ -64,6 +64,9 @@
 <div class="card">
     <div class="card-body">
         <div class="row">
+            @if (Session::has('error'))
+            <div class="alert alert-danger" id="responseMessage">{{ Session::get('error') }}</div>
+            @endif
             <div class="col-12 mb-5">
                 <div class="row mx-0">
                     <hr class="course_info_border" />
@@ -77,10 +80,10 @@
                     </div>
                     <div class="col-9">
                         <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">이**</h4>
+                            <h4 class="mb-sm-0  course_details">{{ $inquiry->name }}</h4>
                         </div>
                         <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">2022/10/18</h4>
+                            <h4 class="mb-sm-0  course_details">{{ Carbon\Carbon::parse($inquiry->expired_at)->format('d M, Y')}}</h4>
                         </div>
                     </div>
                 </div>
@@ -98,32 +101,58 @@
                     </div>
                     <div class="col-9">
                         <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">문의합니다</h4>
+                            <h4 class="mb-sm-0  course_details">{{ $inquiry->title }}</h4>
                         </div>
                         <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">수업 신청은 어떻게 하나요? <br> 알려주세요.</h4>
+                            <h4 class="mb-sm-0  course_details">{{ $inquiry->content }}</h4>
                         </div>
                     </div>
                 </div>
                 <hr class="payment_info_border" />
 
                 <h4 class="answer mb-2">Answer</h4>
-                <div class="row mx-0">
-                    <hr class="course_info_border" />
-                    <div class="col-3 col-bg">
-                        <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">Contents</h4>
+                <form method="POST" action="{{ route('add-answer') }}">
+                    @csrf
+                    <input type="hidden" value="{{ $inquiry->id}}" name="id">
+                    <div class="row mx-0">
+                        <hr class="course_info_border" />
+                        <div class="col-3 col-bg">
+                            <div class="d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_info">Contents</h4>
+                            </div>
+                        </div>
+                        <div class="col-9">
+                            <div class="d-flex align-items-center mb-3">
+                                <textarea class="form-control" rows="6" style="resize: none;" placeholder="Enter Answer" name="answer">{{ $inquiry->answer }}</textarea>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-9">
-                        <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">알려드립니다.<br> 이렇게 하시면 됩니다.<br>ㅣ</h4>
+                    <hr class="payment_info_border" />
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="d-flex align-items-center justify-content-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <hr class="payment_info_border" />
+                </form>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $(document).ready(function() {
+        $('html, body').animate({
+            scrollTop: $("html, body").offset().top
+        }, 1000);
+
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 3000);
+    });
+</script>
+
 @endsection

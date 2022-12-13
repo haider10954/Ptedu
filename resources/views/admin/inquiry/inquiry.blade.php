@@ -118,44 +118,30 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @if ($inquiry->count() > 0)
+                            @foreach($inquiry as $inq)
                             <tr>
-                                <td>1</td>
-                                <td>문의합니다</td>
-                                <td>이**</td>
-                                <td>2022.10.13</td>
-                                <td><a href="{{ route('inquiry_answer') }}" class="btn status_btn">Waiting for response</a></td>
+                                <td>{{ $loop->index+1 }}</td>
+                                <td>{{ Str::limit($inq->title, 70) }}</td>
+                                <td>{{ $inq->getStudentName->name }}</td>
+                                <td>{{ Carbon\Carbon::parse($inq->expired_at)->format('d M, Y')}}</td>
+                                @if($inq->answer == null)
+                                <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn">Waiting for response</a></td>
+                                @else
+                                <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn_complete">Answer Complete</a></td>
+                                @endif
                             </tr>
+                            @endforeach
+                            @else
                             <tr>
-                                <td>2</td>
-                                <td>문의합니다</td>
-                                <td>이**</td>
-                                <td>2022.10.13</td>
-                                <td><a href="{{ route('inquiry_answer') }}" class="btn status_btn">Waiting for response</a></td>
+                                <td colspan="5" class="text-center">
+                                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                                </td>
                             </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>문의합니다</td>
-                                <td>이**</td>
-                                <td>2022.10.13</td>
-                                <td><a href="{{ route('inquiry_answer') }}" class="btn status_btn">Waiting for response</a></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>문의합니다</td>
-                                <td>이**</td>
-                                <td>2022.10.13</td>
-                                <td><a href="{{ route('inquiry_answer') }}" class="btn status_btn_complete">Answer Complete</a></td>
-                            </tr>
+                            @endif
                         </tbody>
                     </table>
-                    <div class="paginate mt-4 mb-3">
-                        <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-
-                        <a href="javascript:void(0)" class="active">1</a>
-                        <a href="javascript:void(0)">2</a>
-                        <a href="javascript:void(0)">3</a>
-                        <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-right"></i></a>
-                    </div>
+                    {{ $inquiry->links('vendor.pagination.custom-pagination-admin') }}
                 </div>
             </div>
         </div>
