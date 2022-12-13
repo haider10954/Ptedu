@@ -36,7 +36,7 @@ class StudentController extends Controller
             'job' => $request['job'],
             'mobile_number' => $request['country_code'] . $request['sim_code'] . $request['mobile'],
             'email' => $request['email_name'] . '@' . $request['email_extension'],
-            'address' => $request['address'] . ' ' . $request['house_no'] . ' ' . $request['street_no'],
+            'address' => $request['address'] . '|' . $request['house_no'] . '|' . $request['street_no'],
         ]);
 
         if ($student) {
@@ -170,6 +170,52 @@ class StudentController extends Controller
                 'success' => false,
                 'message' => 'Credentails are Invalid',
             ]);
+        }
+    }
+
+    function upload_files($file)
+    {
+        $fileName = time() . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('public/student', $fileName);
+        $loadPath = storage_path('app/public/') . '/' . $fileName;
+        return $fileName;
+    }
+
+    public function update_student_profile(Request $request)
+    {
+
+        $request['user_profile'] = auth()->user()->profile_img;
+        if ($request->hasFile('user_profile')) {
+            $profile_img = $this->upload_files($request['user_profile']);
+        } else {
+            $profile_img = $request['old_image'];
+        }
+
+        $user = User::where('id', auth()->id())->update([
+            'name' => $request['name'],
+            'english_name' => $request['en_name'],
+            'user_id' => $request['user_id'],
+            'job' => $request['job'],
+            'mobile_number' => $request['country_code'] . $request['mobile'],
+            'address' => $request['address'] . '|' . $request['house_no'] . '|' . $request['street_no'],
+            'profile_img' => $profile_img,
+            'email' => $request['email_name'] . '@' . $request['email_extension'],
+        ]);
+        if ($user) {
+            return redirect()->back()->with('msg', 'Student Profile has been updated Successfully');
+        } else {
+            return redirect()->back()->with('msg', 'Something went Wrong. Please try again later');
+        }
+    }
+    public function delete_profile_image()
+    {
+        $delete_profile_img = User::where('id', auth()->id())->update([
+            'profile_img' => null,
+        ]);
+        if ($delete_profile_img) {
+            return redirect()->back()->with('msg', 'Your Profile image has been deleted successfully');
+        } else {
+            return redirect()->back()->with('msg', 'Something Went Wrong.Please try again.');
         }
     }
 }

@@ -29,48 +29,52 @@ use App\Http\Controllers\user\StudentController;
 */
 
 // Main site routes start
-
 Route::post('/student-register', [StudentController::class, 'student_register'])->name('student_register');
 Route::post('/student-login', [StudentController::class, 'student_login'])->name('student_login');
 Route::get('/student/logout', [StudentController::class, 'logout'])->name('student_logout');
 Route::post('/check-user-id', [StudentController::class, 'checkUserId'])->name('check_user_id');
 
 Route::get('/', [IndexController::class, 'index'])->name('web-home');
-Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
-Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
-Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
-Route::get('/review', [ReviewController::class, 'review'])->name('review');
-Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');
-Route::get('/faq', [IndexController::class, 'faq'])->name('web-faq');
-Route::get('/online-course', [UserCourseController::class, 'online_course'])->name('online_course');
-Route::get('/my-classroom', [LectureController::class, 'my_classroom'])->name('my_classroom');
-Route::get('/shopping-bag', function () {
-    return view('user.shopping_bag');
-})->name('shopping_bag');
 
-Route::get('/order', function () {
-    return view('user.order');
-})->name('order');
+Route::middleware('auth')->group(function () {
 
-Route::get('/user-information', function () {
-    return view('user.user_info');
-})->name('user_info');
+    Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
+    Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
+    Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
+    Route::get('/review', [ReviewController::class, 'review'])->name('review');
+    Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');
+    Route::get('/faq', [IndexController::class, 'faq'])->name('web-faq');
+    Route::get('/online-course', [UserCourseController::class, 'online_course'])->name('online_course');
+    Route::get('/my-classroom', [LectureController::class, 'my_classroom'])->name('my_classroom');
+    Route::get('/shopping-bag', function () {
+        return view('user.shopping_bag');
+    })->name('shopping_bag');
 
-Route::get('/inquiry', function () {
-    return view('user.inquiry');
-})->name('user_inquiry');
+    Route::get('/order', function () {
+        return view('user.order');
+    })->name('order');
 
-Route::get('/inquiry/add', function () {
-    return view('user.add_inquiry');
-})->name('add_inquiry');
+    Route::get('/user-information', function () {
+        return view('user.user_info');
+    })->name('user_info');
+    Route::post('/update/info', [StudentController::class, 'update_student_profile'])->name('update_user_info');
+    Route::post('/delete-image', [StudentController::class, 'delete_profile_image'])->name('delete-image');
+    Route::get('/inquiry', function () {
+        return view('user.inquiry');
+    })->name('user_inquiry');
 
-Route::get('/inquiry-not-answered', function () {
-    return view('user.inquiry_not_answered');
-})->name('inquiry_not_answered');
+    Route::get('/inquiry/add', function () {
+        return view('user.add_inquiry');
+    })->name('add_inquiry');
 
-Route::get('/inquiry-answered', function () {
-    return view('user.inquiry_answered');
-})->name('inquiry_answered');
+    Route::get('/inquiry-not-answered', function () {
+        return view('user.inquiry_not_answered');
+    })->name('inquiry_not_answered');
+
+    Route::get('/inquiry-answered', function () {
+        return view('user.inquiry_answered');
+    })->name('inquiry_answered');
+});
 
 Route::get('/user/login', function () {
     return view('user.login_user');
@@ -79,7 +83,7 @@ Route::get('/user/login', function () {
 Route::get('/find-ID', function () {
     return view('user.find_id');
 })->name('find_id');
-Route::post('/find-id', [StudentController::class , 'find_id'])->name('find-id');
+Route::post('/find-id', [StudentController::class, 'find_id'])->name('find-id');
 
 Route::get('/find-PW', function () {
     return view('user.find_password');
