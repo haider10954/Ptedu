@@ -121,7 +121,6 @@ Route::prefix('admin')->group(function () {
         //Online Courses
         Route::get('/courses', [CourseController::class, 'course_listing'])->name('course');
         Route::get('/course/add', [CourseController::class, 'add_course_view'])->name('add_lectures');
-        Route::post('/add-course', [CourseController::class, 'add_course'])->name('add-course');
         Route::post('/delete-course', [CourseController::class, 'delete_course'])->name('delete-course');
         Route::get('/edit-course/{id}', [CourseController::class, 'edit_course_view'])->name('edit_course_view');
         Route::post('/edit-course', [CourseController::class, 'edit_course'])->name('edit-course');
@@ -129,6 +128,11 @@ Route::prefix('admin')->group(function () {
 
         // Course - Sections - Lectures Upload start
         Route::get('/courses/add', [CourseController::class, 'add_courses_view'])->name('add_course');
+        Route::post('/add-course', [CourseController::class, 'add_course'])->name('add-course');
+
+        Route::post('/add-sections', [CourseController::class, 'add_sections'])->name('add-sections');
+
+        Route::post('/add-lectures-action', [CourseController::class, 'add_lectures'])->name('add-lectures-submit');
         // Course - Sections - Lectures Upload end
 
         //Offline Course

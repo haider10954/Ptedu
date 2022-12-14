@@ -19,6 +19,8 @@
 <!-- App js -->
 <script src="{{ asset('assets/js/app.js') }}"></script>
 
+<script src="{{ asset('assets/js/main.js') }}"></script>
+
 
 <!-- include summer_note css/js -->
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
@@ -36,4 +38,9 @@
             $("#header").css("background-color", "transparent");
         }
     }
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
 </script>

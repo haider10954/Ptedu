@@ -7,7 +7,9 @@ use App\Models\Category;
 use App\Models\Course;
 use App\Models\Section;
 use App\Models\Tutor;
+use App\Models\Lecture;
 use Illuminate\Http\Request;
+use Owenoj\LaravelGetId3\GetId3;
 
 class CourseController extends Controller
 {
@@ -43,6 +45,14 @@ class CourseController extends Controller
     {
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/banner', $fileName);
+        $loadPath = storage_path('app/public/') . '/' . $fileName;
+        return $fileName;
+    }
+
+    function upload_lecture_video($file)
+    {
+        $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('public/lectures', $fileName);
         $loadPath = storage_path('app/public/') . '/' . $fileName;
         return $fileName;
     }
@@ -89,12 +99,69 @@ class CourseController extends Controller
         if ($course) {
             return json_encode([
                 'success' => true,
-                'message' => 'Course has been added successfully.'
+                'message' => 'Course has been added successfully.',
+                'course_id' => $course->id
             ]);
         } else {
             return json_encode([
                 'success' => false,
                 'message' => 'Something went wrong Please try again.'
+            ]);
+        }
+    }
+    
+    public function add_sections(Request $request){
+        $validate = \Validator::make($request->all(),[
+            'course_sections.*.section_title' => 'required',
+            'course_sections.*.section_description' => 'required'
+        ]);
+
+        if($validate->fails())
+        {
+            return response()->json(['error' => true , 'errors' => $validate->errors()->first()]);
+        }
+
+        $sections = collect($request->course_sections)->map(function($item) use ($request){
+            $item['course_id'] = $request->course_id; 
+            return $item;
+        });
+        $sectionQuery = Section::insert($sections->toArray());
+        if ($sectionQuery){
+            $getSections = Section::where('course_id', $request->course_id)->get();
+            return json_encode([
+                'success' => true,
+                'sections' => $getSections
+            ]);
+        }
+    }
+
+    public function add_lectures(Request $request){
+        $validate = \Validator::make($request->all(),[
+            'section_lectures.*.lecture_title' => 'required',
+            'section_lectures.*.lecture_video' => 'required'
+        ]);
+
+        if($validate->fails())
+        {
+            return response()->json(['error' => true , 'errors' => $validate->errors()->first()]);
+        }
+
+        $lectures = $request->section_lectures;
+
+        for ($i=0; $i < count($lectures); $i++) {
+            $track = new GetId3($lectures[$i]['lecture_video']); 
+            $video_uploaded = $this->upload_lecture_video($lectures[$i]['lecture_video']);
+            $lectures[$i]['duration'] = $track->getPlaytime();
+            $lectures[$i]['section_id'] = $request->section_id;
+            $lectures[$i]['lecture_video'] = $video_uploaded;
+        }   
+
+        $lectureQuery = Lecture::insert($lectures);
+        if ($lectureQuery){
+            $getLectures = Lecture::where('section_id', $request->section_id)->get();
+            return json_encode([
+                'success' => true,
+                'lectures' => $getLectures
             ]);
         }
     }

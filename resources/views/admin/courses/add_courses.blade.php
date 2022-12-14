@@ -88,6 +88,7 @@
 @endsection
 
 @section('content')
+    <div class="loading-bar" style="width: 0;"></div>
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -290,13 +291,15 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="prompt"></div>
+                                    <div class="section_prompt"></div>
                                     <div class="row mb-4">
                                         <div class="col-12 mb-3">
                                             <h5 class="fw-bold">Add Sections</h5>
                                         </div>
                                         <div class="col-12">
                                             <form id="add_section_form">
+                                                @csrf
+                                                <input type="hidden" id="course_id" name="course_id">
                                                 <div class="repeater">
                                                     <div data-repeater-list="course_sections">
                                                         <div data-repeater-item class="row mb-3 align-items-end">
@@ -305,6 +308,7 @@
                                                                 <input type="text" class="form-control"
                                                                     name="section_title"
                                                                     placeholder="Enter Section Title" />
+                                                                    <div class="error-section-title"></div>
                                                             </div>
 
                                                             <div class="col-lg-7">
@@ -312,6 +316,7 @@
                                                                 <input type="text" class="form-control"
                                                                     placeholder="Enter Section description"
                                                                     name="section_description" />
+                                                                    <div class="error-section-description"></div>
                                                             </div>
 
                                                             <div class="col-lg-1">
@@ -334,7 +339,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="text-center">
-                                                    <button class="btn btn-primary w-25 m-auto">Submit Sections</button>
+                                                    <button class="btn btn-primary w-25 m-auto" id="submitSections">Submit Sections</button>
                                                 </div>
                                             </form>
                                         </div>
@@ -347,115 +352,117 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
-                                    <div class="section-box">
-                                        <div class="d-flex justify-content-between section-box-header align-items-center">
-                                            <h3 class="mb-0 section-box-heading">Section-1. <span
-                                                    class="section-title">Welcome</span></h3>
-                                        </div>
-                                        <div class="section-box-content">
-                                            <h5 class="section-description mb-4">안녕하세요 바디 밸런스 & 바른 자세 전문가 000 입니다</h5>
-                                            <div class="row">
-                                                <div class="col-12 mb-3">
-                                                    <small class="d-block text-left fw-bold">Add Lectures</small>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="repeater">
-                                                        <div data-repeater-list="course_sections">
-                                                            <div data-repeater-item="" class="row mb-3 align-items-end">
-                                                                <div class="col-lg-6">
-                                                                    <input type="text" class="form-control"
-                                                                        name="course_sections[0][lecture_title]"
-                                                                        placeholder="Enter Lecture Title">
-                                                                </div>
-
-                                                                <div class="col-lg-5">
-                                                                    <input type="file" class="form-control"
-                                                                        placeholder="Upload Lecture Video"
-                                                                        name="course_sections[0][lecture_description]">
-                                                                </div>
-
-                                                                <div class="col-lg-1">
-                                                                    <div
-                                                                        class="d-flex align-items-center justify-content-start">
-                                                                        <button data-repeater-delete="" type="button"
-                                                                            class="btn btn-danger" value="Delete"><i
-                                                                                class="bi bi-trash"></i></button>
+                                    <div class="section-boxes">
+                                        {{-- <div class="section-box">
+                                            <div class="d-flex justify-content-between section-box-header align-items-center">
+                                                <h3 class="mb-0 section-box-heading">Section-1. <span
+                                                        class="section-title">Welcome</span></h3>
+                                            </div>
+                                            <div class="section-box-content">
+                                                <h5 class="section-description mb-4">안녕하세요 바디 밸런스 & 바른 자세 전문가 000 입니다</h5>
+                                                <div class="row">
+                                                    <div class="col-12 mb-3">
+                                                        <small class="d-block text-left fw-bold">Add Lectures</small>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="repeater">
+                                                            <div data-repeater-list="course_sections">
+                                                                <div data-repeater-item="" class="row mb-3 align-items-end">
+                                                                    <div class="col-lg-6">
+                                                                        <input type="text" class="form-control"
+                                                                            name="course_sections[0][lecture_title]"
+                                                                            placeholder="Enter Lecture Title">
+                                                                    </div>
+    
+                                                                    <div class="col-lg-5">
+                                                                        <input type="file" class="form-control"
+                                                                            placeholder="Upload Lecture Video"
+                                                                            name="course_sections[0][lecture_description]">
+                                                                    </div>
+    
+                                                                    <div class="col-lg-1">
+                                                                        <div
+                                                                            class="d-flex align-items-center justify-content-start">
+                                                                            <button data-repeater-delete="" type="button"
+                                                                                class="btn btn-danger" value="Delete"><i
+                                                                                    class="bi bi-trash"></i></button>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="d-flex gap-2">
-                                                            <div class="mt-1 mb-2">
-
-                                                                <button type="button" data-repeater-create=""
-                                                                    class="btn btn-success"><i class="bi bi-plus"></i> Add
-                                                                    More</button>
+                                                            <div class="d-flex gap-2">
+                                                                <div class="mt-1 mb-2">
+    
+                                                                    <button type="button" data-repeater-create=""
+                                                                        class="btn btn-success"><i class="bi bi-plus"></i> Add
+                                                                        More</button>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="text-center">
-                                                        <button class="btn btn-primary w-25 m-auto">Add Lectures</button>
+                                                        <div class="text-center">
+                                                            <button class="btn btn-primary w-25 m-auto">Add Lectures</button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="section-box">
-                                        <div class="d-flex justify-content-between section-box-header align-items-center">
-                                            <h3 class="mb-0 section-box-heading">Section-2. <span
-                                                    class="section-title">Welcome</span></h3>
+                                        <div class="section-box">
+                                            <div class="d-flex justify-content-between section-box-header align-items-center">
+                                                <h3 class="mb-0 section-box-heading">Section-2. <span
+                                                        class="section-title">Welcome</span></h3>
+                                            </div>
+                                            <div class="section-box-content">
+                                                <h5 class="section-description">안녕하세요 바디 밸런스 & 바른 자세 전문가 000 입니다</h5>
+                                            </div>
                                         </div>
-                                        <div class="section-box-content">
-                                            <h5 class="section-description">안녕하세요 바디 밸런스 & 바른 자세 전문가 000 입니다</h5>
+                                        <div class="section-box">
+                                            <div class="d-flex justify-content-between section-box-header align-items-center">
+                                                <h3 class="mb-0 section-box-heading">Section-3. <span
+                                                        class="section-title">Welcome</span></h3>
+                                            </div>
+                                            <div class="section-box-content">
+                                                <h5 class="section-description mb-4">안녕하세요 바디 밸런스 & 바른 자세 전문가 000 입니다</h5>
+                                                <ul class="section-lectures">
+                                                    <li class="section-lecture-record">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="bi bi-play-circle-fill me-2"></i>
+                                                            <p class="mb-0">1강. 바디 밸런스&바른 자세 100일 솔루션 키트 설명서</p>
+                                                        </div>
+                                                        <div class="duration">
+                                                            <p class="mb-0">30:00</p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="section-lecture-record">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="bi bi-play-circle-fill me-2"></i>
+                                                            <p class="mb-0">1강. 바디 밸런스&바른 자세 100일 솔루션 키트 설명서</p>
+                                                        </div>
+                                                        <div class="duration">
+                                                            <p class="mb-0">30:00</p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="section-lecture-record">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="bi bi-play-circle-fill me-2"></i>
+                                                            <p class="mb-0">1강. 바디 밸런스&바른 자세 100일 솔루션 키트 설명서</p>
+                                                        </div>
+                                                        <div class="duration">
+                                                            <p class="mb-0">30:00</p>
+                                                        </div>
+                                                    </li>
+                                                    <li class="section-lecture-record">
+                                                        <div class="d-flex align-items-center">
+                                                            <i class="bi bi-play-circle-fill me-2"></i>
+                                                            <p class="mb-0">1강. 바디 밸런스&바른 자세 100일 솔루션 키트 설명서</p>
+                                                        </div>
+                                                        <div class="duration">
+                                                            <p class="mb-0">30:00</p>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="section-box">
-                                        <div class="d-flex justify-content-between section-box-header align-items-center">
-                                            <h3 class="mb-0 section-box-heading">Section-3. <span
-                                                    class="section-title">Welcome</span></h3>
-                                        </div>
-                                        <div class="section-box-content">
-                                            <h5 class="section-description mb-4">안녕하세요 바디 밸런스 & 바른 자세 전문가 000 입니다</h5>
-                                            <ul class="section-lectures">
-                                                <li class="section-lecture-record">
-                                                    <div class="d-flex align-items-center">
-                                                        <i class="bi bi-play-circle-fill me-2"></i>
-                                                        <p class="mb-0">1강. 바디 밸런스&바른 자세 100일 솔루션 키트 설명서</p>
-                                                    </div>
-                                                    <div class="duration">
-                                                        <p class="mb-0">30:00</p>
-                                                    </div>
-                                                </li>
-                                                <li class="section-lecture-record">
-                                                    <div class="d-flex align-items-center">
-                                                        <i class="bi bi-play-circle-fill me-2"></i>
-                                                        <p class="mb-0">1강. 바디 밸런스&바른 자세 100일 솔루션 키트 설명서</p>
-                                                    </div>
-                                                    <div class="duration">
-                                                        <p class="mb-0">30:00</p>
-                                                    </div>
-                                                </li>
-                                                <li class="section-lecture-record">
-                                                    <div class="d-flex align-items-center">
-                                                        <i class="bi bi-play-circle-fill me-2"></i>
-                                                        <p class="mb-0">1강. 바디 밸런스&바른 자세 100일 솔루션 키트 설명서</p>
-                                                    </div>
-                                                    <div class="duration">
-                                                        <p class="mb-0">30:00</p>
-                                                    </div>
-                                                </li>
-                                                <li class="section-lecture-record">
-                                                    <div class="d-flex align-items-center">
-                                                        <i class="bi bi-play-circle-fill me-2"></i>
-                                                        <p class="mb-0">1강. 바디 밸런스&바른 자세 100일 솔루션 키트 설명서</p>
-                                                    </div>
-                                                    <div class="duration">
-                                                        <p class="mb-0">30:00</p>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -527,6 +534,7 @@
                     $("#submitForm").attr('class','btn btn-success');
                     $("#submitForm").html('<i class="fa fa-check me-1"></i>  Course Uploaded</>');
                     if (res.success) {
+                        $('#course_id').val(res.course_id);
                         setTimeout(function() {
                             $('html, body').animate({
                                 scrollTop: $("html, body").offset().top
@@ -606,6 +614,284 @@
                 }
             });
         });
+
+        // sections form submit
+        $("#add_section_form").on('submit', function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: "{{ route('add-sections') }}",
+                dataType: 'json',
+                data: $('#add_section_form').serialize(),
+                beforeSend: function() {
+                    $("#submitSections").prop('disabled', true);
+                    $("#submitSections").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    $(".error-message").hide();
+                },
+                success: function(res) {
+                    if (res.success == true) {
+                        let sections = res.sections;
+                        $('.section_prompt').html('');
+                        for (var i = 0; i < sections.length; i++) 
+                        {
+                            if(i == 0){
+                                $('.section-boxes').append(`
+                                <div class="section-box" data-section-id="${sections[i].id}" data-position="${(i+1 < sections.length) ? 'initialState' : 'finalState'}">
+                                    <div class="d-flex justify-content-between section-box-header align-items-center">
+                                        <h3 class="mb-0 section-box-heading">Section-${i+1}. <span
+                                                class="section-title">${sections[i].section_title}</span></h3>
+                                    </div>
+                                    <div class="section-box-content">
+                                        <h5 class="section-description">${sections[i].section_description}</h5>
+                                        <div class="row section-add-lectures-form mt-2">
+                                            <div class="col-12 mb-3">
+                                                <small class="d-block text-left fw-bold">Add Lectures</small>
+                                            </div>
+                                            <div class="col-12">
+                                                <form id="add_lectures_form" onsubmit="lectures_submit(event,$(this))">
+                                                    <div class="add_lecture_prompt"></div>
+                                                    @csrf
+                                                    <input type="hidden" name="section_id" value="${sections[i].id}" />
+                                                    <div class="repeater">
+                                                        <div data-repeater-list="section_lectures">
+                                                            <div data-repeater-item class="row mb-3 align-items-end">
+                                                                <div class="col-lg-7">
+                                                                    <label for="name">Lecture Title</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="lecture_title"
+                                                                        placeholder="Enter Lecture Title" />
+                                                                </div>
+
+                                                                <div class="col-lg-4">
+                                                                    <label>Lecture Video</label>
+                                                                    <input type="file" class="form-control"
+                                                                        placeholder="Select Lecture Video"
+                                                                        name="lecture_video" />
+                                                                </div>
+
+                                                                <div class="col-lg-1">
+                                                                    <div
+                                                                        class="d-flex align-items-center justify-content-start">
+                                                                        <button data-repeater-delete type="button"
+                                                                            class="btn btn-danger" value="Delete"><i
+                                                                                class="bi bi-trash"></i></button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="d-flex gap-2">
+                                                            <div class="mt-1 mb-2">
+                                                                {{-- <input data-repeater-create type="button" class="btn btn-success" value="" /> --}}
+                                                                <button type="button" data-repeater-create
+                                                                    class="btn btn-success"><i class="bi bi-plus"></i> Add
+                                                                    More</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button id="submitLectures" type="button" onclick="$(this).parent().parent().submit()" class="btn btn-primary w-25 m-auto">Add Lectures</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                `);
+                                repeater_initialize();
+                            } else{
+                                $('.section-boxes').append(`
+                                <div class="section-box" data-section-id="${sections[i].id}" data-position="${(i+1 < sections.length) ? 'initialState' : 'finalState'}">
+                                    <div class="d-flex justify-content-between section-box-header align-items-center">
+                                        <h3 class="mb-0 section-box-heading">Section-${i+1}. <span
+                                                class="section-title">${sections[i].section_title}</span></h3>
+                                    </div>
+                                    <div class="section-box-content">
+                                        <h5 class="section-description">${sections[i].section_description}</h5>
+                                    </div>
+                                </div>
+                                `);
+                            }
+                        }
+                        $("#submitSections").attr('class','btn btn-success');
+                        $("#submitSections").html('<i class="fa fa-check me-1"></i>  Sections Uploaded</>');
+                        setTimeout(function() {
+                            $('html, body').animate({
+                                scrollTop: $("html, body").offset().top
+                            }, 2000); 
+                        }, 1500);
+                        setTimeout(function() {
+                            $('.section-tab').removeClass('active');
+                            $('#sections').removeClass('active');
+                            $('.lecture-tab').addClass('active');
+                            $('#lectures').addClass('active'); 
+                        }, 3500);
+                    } else if(res.error == true) {
+                        $("#submitSections").prop('disabled', false);
+                        $("#submitSections").html('Submit Sections');
+                        $('html, body').animate({
+                                scrollTop: $("html, body").offset().top
+                            }, 2000);
+                        $('.section_prompt').html('<div class="alert alert-warning mb-3">Please make sure to fill all fields with valid values</div>');
+                    }
+                },
+                error: function(e) {}
+            });
+        });
+
+        // lectures form submit
+        function lectures_submit(e,form){
+            e.preventDefault();
+            var currentForm = form;
+            var formData = new FormData(form[0]);
+            $.ajax({
+                type: "POST",
+                url: "{{ route('add-lectures-submit') }}",
+                dataType: 'json',
+                cache: false,
+                data: formData,
+                contentType: false,
+                processData: false,
+                beforeSend: function() {
+                    $("#submitLectures").prop('disabled', true);
+                    $("#submitLectures").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                },
+                success: function(res) {
+                    if (res.success == true) {
+                        setTimeout(function() {
+                            $('.loading-bar').css('transition','none');
+                            $('.loading-bar').css('width',0); 
+                        }, 1500);
+                        var lectures = res.lectures;
+                        $("#submitLectures").attr('class','btn btn-success');
+                        $("#submitLectures").html('<i class="fa fa-check me-1"></i>  Lectures Uploaded</>');
+                        if(currentForm.parents('.section-box').attr('data-position') == 'finalState'){
+                            $('.section-boxes').append(`
+                            <div class="mt-3 text-center"><a href="{{ route('course') }}" class="btn btn-primary w-25 m-auto">Go to Listing</a></div>
+                            `);
+                        }
+                        setTimeout(function() {
+                            $('html, body').animate({
+                                scrollTop: form.parents('.section-box').offset().top - 100
+                            }, 2000); 
+                        }, 1500);
+                        setTimeout(function() {
+                            var currentSectionBox = currentForm.parents('.section-box');
+                            currentForm.parents('.section-add-lectures-form').remove();
+                            currentSectionBox.find('.section-box-content').append(`<ul class="section-lectures mt-4"></ul>`);
+                            for (var i = 0; i < lectures.length; i++) 
+                            {
+                                currentSectionBox.find('.section-lectures').append(`
+                                <li class="section-lecture-record">
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-play-circle-fill me-2" data-video="${lectures[i].lecture_video}"></i>
+                                        <p class="mb-0">${i+1}강. ${lectures[i].lecture_title}</p>
+                                    </div>
+                                    <div class="duration">
+                                        <p class="mb-0">${lectures[i].duration}</p>
+                                    </div>
+                                </li>
+                                `);
+                            }
+                            currentSectionBox.next('.section-box').find('.section-box-content').append(`
+                            <div class="row section-add-lectures-form mt-4">
+                                <div class="col-12 mb-3">
+                                    <small class="d-block text-left fw-bold">Add Lectures</small>
+                                </div>
+                                <div class="col-12">
+                                    <form id="add_lectures_form" onsubmit="lectures_submit(event,$(this))">
+                                        <div class="add_lecture_prompt"></div>
+                                        @csrf
+                                        <input type="hidden" name="section_id" value="${currentSectionBox.next('.section-box').attr('data-section-id')}" />
+                                        <div class="repeater">
+                                            <div data-repeater-list="section_lectures">
+                                                <div data-repeater-item class="row mb-3 align-items-end">
+                                                    <div class="col-lg-7">
+                                                        <label for="name">Lecture Title</label>
+                                                        <input type="text" class="form-control"
+                                                            name="lecture_title"
+                                                            placeholder="Enter Lecture Title" />
+                                                    </div>
+
+                                                    <div class="col-lg-4">
+                                                        <label>Lecture Video</label>
+                                                        <input type="file" class="form-control"
+                                                            placeholder="Select Lecture Video"
+                                                            name="lecture_video" />
+                                                    </div>
+
+                                                    <div class="col-lg-1">
+                                                        <div
+                                                            class="d-flex align-items-center justify-content-start">
+                                                            <button data-repeater-delete type="button"
+                                                                class="btn btn-danger" value="Delete"><i
+                                                                    class="bi bi-trash"></i></button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <div class="mt-1 mb-2">
+                                                    {{-- <input data-repeater-create type="button" class="btn btn-success" value="" /> --}}
+                                                    <button type="button" data-repeater-create
+                                                        class="btn btn-success"><i class="bi bi-plus"></i> Add
+                                                        More</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-center">
+                                            <button id="submitLectures" type="button" onclick="$(this).parent().parent().submit()" class="btn btn-primary w-25 m-auto">Add Lectures</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            `);
+                            repeater_initialize();
+                        }, 3500);
+                    } else if(res.error == true){
+                        $('.add_lecture_prompt').hide();
+                        $("#submitLectures").prop('disabled', false);
+                        $("#submitLectures").html('Add Lectures');
+                        setTimeout(function() {
+                            $('.loading-bar').css('transition','none');
+                            $('.loading-bar').css('width',0); 
+                        }, 1500);
+                        $('html, body').animate({
+                                scrollTop: form.parents('.section-box').offset().top
+                            }, 2000);
+                        $('.add_lecture_prompt').html('<div class="alert alert-warning mb-3">Please make sure to fill all fields with valid values</div>');
+                        $('.add_lecture_prompt').fadeIn();
+                    }
+                },
+                error: function(e) {},
+                xhr: function() {
+                    var xhr = new window.XMLHttpRequest();
+                    xhr.upload.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = 100 * (evt.loaded / evt.total);
+                            //Do something with upload progress here
+                            postUploadProgress(percentComplete.toFixed(2))
+                        }
+                    }, false);
+
+                    xhr.addEventListener("progress", function(evt) {
+                        if (evt.lengthComputable) {
+                            var percentComplete = 100 * (evt.loaded / evt.total);
+                            //Do something with download progress
+                            postUploadProgress(percentComplete.toFixed(2))
+
+                        }
+                    }, false);
+
+                    return xhr;
+                }
+            });
+        }
+
+        // loading bar function
+        function postUploadProgress(percentComplete){
+            $('.loading-bar').css('width',percentComplete+'%');
+            $('.loading-bar').css('transition','all 0.8s'); 
+        }
     </script>
 
 @endsection

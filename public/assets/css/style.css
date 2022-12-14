@@ -64,3 +64,13 @@
 .fa, .fas{
     font-family: "Font Awesome 5 Free" !important;
 }
+
+.loading-bar{
+    background: #484848;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999999999;
+    height: 3px;
+    transition: all 0.8s;
+}
