@@ -15,11 +15,11 @@ class Authenticate extends Middleware
     protected function redirectTo($request)
     {
         if (!$request->expectsJson()) {
-            if ($request->segment(1) == 'web') {
+            if ($request->segment(1) == 'admin') {
                 session()->put('redirect_route', ($request->route()->getName()));
-                return route('login');
+                return route('admin_login');
             }
-            return route('admin_login');
+            return route('user_login');
         }
     }
 }

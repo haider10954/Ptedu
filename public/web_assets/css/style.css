@@ -677,9 +677,38 @@ header .btn.transparent, .btn.solid:hover {
     padding-top: 20px;
 }
 
+.custom_label_height{
+    height:69px;
+}
+
+.custom_height_email
+{
+    height:69px
+}
+
+.custom_height_email_input{
+    height: 70px;
+}
+
 @media only screen and (max-width: 767px) {
     .interactive-section-content {
         width: 80%;
+    }
+
+    .custom_height_email{
+        height:99px
+    }
+    .custom_height_email_input{
+        height: 100px;
+    }
+
+    .custom_label_height{
+        height: 209px;
+    }
+
+    .custom_height_phone{
+        height: 210px;
+        flex-direction: column;
     }
 
     .interactive-section-2 .interactive-section-content {
@@ -1093,7 +1122,7 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 .pt-125 {
-    padding-top: 125px;
+    padding-top: 80px;
 }
 
 .custom-tabs li {
@@ -1200,6 +1229,10 @@ header .btn.transparent, .btn.solid:hover {
     color: #ffffff;
     border-color: #ffffff;
     background-color: #808080;
+}
+
+.custom_height_phone{
+    height:70px
 }
 
 @media only screen and (max-width:991px) {
