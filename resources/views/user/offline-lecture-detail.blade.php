@@ -6,7 +6,7 @@
 <div class="section lecture_banner_section">
     <div class="lecture_banner_img" style="background-image: url({{ asset('storage/offline_course/banner/'.$course_info->course_banner) }})"></div>
     <div class="banner_text">
-        <iframe style="width:100%;height:100%;" src="https://www.youtube.com/embed/{{ $embedded_video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {!! $embedded_video_url !!}
     </div>
 </div>
 
@@ -254,5 +254,10 @@
             }
         });
     });
+
+    $('.banner_text iframe').css('width', '100%');
+    $('.banner_text iframe').css('height', '100%');
+    $('.banner_text iframe').attr('width', '');
+    $('.banner_text iframe').attr('height', '');
 </script>
 @endsection

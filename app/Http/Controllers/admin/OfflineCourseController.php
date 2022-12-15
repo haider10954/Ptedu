@@ -54,7 +54,6 @@ class OfflineCourseController extends Controller
             'discounted_Price' => 'required|min:0',
             'category' => 'required',
             'video_url' => 'required',
-            'video' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',
             'banner_img' => 'required|mimes:jpeg,png,jpg',
         ]);
@@ -71,7 +70,6 @@ class OfflineCourseController extends Controller
             'price' => $request['price'],
             'discounted_prize' => $request['discounted_Price'],
             'video_url' => $request['video_url'],
-            'video' => $request['video'],
             'course_thumbnail' => $course_thumbnail,
             'course_banner' => $course_banner
         ]);
@@ -129,7 +127,6 @@ class OfflineCourseController extends Controller
             'discounted_Price' => 'required|min:0',
             'category' => 'required',
             'video_url' => 'required',
-            'video' => 'required',
             'course_img' => 'mimes:jpeg,png,jpg',
             'banner_img' => 'mimes:jpeg,png,jpg',
         ]);
@@ -152,7 +149,6 @@ class OfflineCourseController extends Controller
         $data['price'] = $request['price'];
         $data['discounted_prize'] = $request['discounted_Price'];
         $data['video_url'] = $request['video_url'];
-        $data['video'] = $request['video'];
 
         $offline_course = Offline_course::where('id', $request->id)->update($data);
 

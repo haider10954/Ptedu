@@ -10,6 +10,7 @@ use App\Models\Tutor;
 use App\Models\Lecture;
 use Illuminate\Http\Request;
 use Owenoj\LaravelGetId3\GetId3;
+use App\Service\VideoHandler;
 
 class CourseController extends Controller
 {
