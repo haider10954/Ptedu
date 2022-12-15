@@ -102,10 +102,11 @@
                     <h4 class="mb-sm-0  Card_title">Offline Lecture List > Waiting List</h4>
                 </div>
                 <div>
-                    <h4 class="mb-sm-0 mt-2 Card_title">(Course Name)</h4>
+                    <h4 class="mb-sm-0 mt-2 Card_title">{{ $reservations->course_title }}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
+            <div class="prompt"></div>
             <div class="col-lg-12 table-responsive">
                 <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
                     <thead>
@@ -115,123 +116,75 @@
                             <td class="align-middle t_header">Email</th>
                             <td class="align-middle t_header">Phone Number</td>
                             <td class="align-middle t_header">Course List</th>
+                            <td class="align-middle t_header">Status</th>
                             <td class="align-middle t_header">Confirm/Delete</td>
                         </tr>
                     </thead>
                     <tbody>
+                        @if($reservation->count() > 0)
+                        @foreach($reservation as $r)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $loop->index+1 }}</td>
                             <td>
-                                <span class="course_name">홍길동</span> <br />
+                                <span class="course_name">{{ $r->getUser->name }}</span> <br />
                             </td>
-                            <td><span class="course_name">ash123@naver.com</span></td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td><span class="course_name">보행 A에서 Z까지</span></td>
+                            <td><span class="course_name">{{ $r->getUser->email }}</span></td>
+                            <td><span class="course_name">{{ $r->getUser->mobile_number }}</span></td>
+                            <td><span class="course_name">{{ $r->getCourses->course_title }}</span></td>
+                            <td><span class="course_name text-white badge bg-{{ $r->getStatus() }} p-2">{{ $r->status }}</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-success"><i class="bi bi-check2" style="font-size: 1 rem;"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
+                                    <a class="btn btn-sm btn-success statusBtn" onclick="changeStatus('reserved','{{ $r->id }}')"><i class="bi bi-check2" style="font-size: 1 rem;"></i></a>
+                                    <a class="btn btn-sm btn-danger" onclick="changeStatus('decline','{{ $r->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
-
+                        @endforeach
+                        @else
                         <tr>
-                            <td>2</td>
-                            <td>
-                                <span class="course_name">홍길동</span> <br />
-                            </td>
-                            <td><span class="course_name">ash123@naver.com</span></td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td><span class="course_name">보행 A에서 Z까지</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-success"><i class="bi bi-check2" style="font-size: 1 rem;"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
-                                </div>
+                            <td colspan="7" class="text-center">
+                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                         </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                <span class="course_name">홍길동</span> <br />
-                            </td>
-                            <td><span class="course_name">ash123@naver.com</span></td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td><span class="course_name">보행 A에서 Z까지</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-success"><i class="bi bi-check2" style="font-size: 1 rem;"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <span class="course_name">홍길동</span> <br />
-                            </td>
-                            <td><span class="course_name">ash123@naver.com</span></td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td><span class="course_name">보행 A에서 Z까지</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-success"><i class="bi bi-check2" style="font-size: 1 rem;"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                <span class="course_name">홍길동</span> <br />
-                            </td>
-                            <td><span class="course_name">ash123@naver.com</span></td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td><span class="course_name">보행 A에서 Z까지</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-success"><i class="bi bi-check2" style="font-size: 1 rem;"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>6</td>
-                            <td>
-                                <span class="course_name">홍길동</span> <br />
-                            </td>
-                            <td><span class="course_name">ash123@naver.com</span></td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td><span class="course_name">보행 A에서 Z까지</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-success"><i class="bi bi-check2" style="font-size: 1 rem;"></i></a>
-                                    <a class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @endif
                     </tbody>
                     </tbody>
                 </table>
-
-                <div class="paginate mt-4 mb-3">
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-
-                    <a href="javascript:void(0)" class="active">1</a>
-                    <a href="javascript:void(0)">2</a>
-                    <a href="javascript:void(0)">3</a>
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-right"></i></a>
-                </div>
-
+                {{ $reservation->links('vendor.pagination.custom-pagination-admin') }}
             </div>
         </div>
     </div>
 </div>
+@endsection
 
+@section('custom-script')
+<script>
+    function changeStatus(value, id) {
+        $.ajax({
+            type: "POST",
+            url: "{{ route('update_status') }}",
+            data: {
+                "_token": "{{ csrf_token() }}",
+                status: value,
+                id: id,
+            },
+            beforeSend: function() {},
+            success: function(res) {
+                if (res.success) {
+                    $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
+                    setTimeout(function() {
+                        location.reload();
+                    }, 3000);
+                    $('.statusBtn').attr('disabled', true);
+                } else {
+                    $('.prompt').html('<div class="alert alert-danger mb-3">' + res.message + '</div>');
+                }
+            },
+
+            error: function(e) {
+                console.log('error');
+            }
+        });
+    }
+</script>
 @endsection

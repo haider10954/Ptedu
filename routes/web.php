@@ -16,6 +16,7 @@ use App\Http\Controllers\user\ReviewController;
 use App\Http\Controllers\user\CourseController as UserCourseController;
 use App\Http\Controllers\user\InquiryController;
 use App\Http\Controllers\user\LectureController;
+use App\Http\Controllers\user\ReservationController;
 use App\Http\Controllers\user\StudentController;
 
 /*
@@ -36,12 +37,16 @@ Route::get('/student/logout', [StudentController::class, 'logout'])->name('stude
 Route::post('/check-user-id', [StudentController::class, 'checkUserId'])->name('check_user_id');
 
 Route::get('/', [IndexController::class, 'index'])->name('web-home');
+//Offline Lectures
+Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
+Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
+//Reserve Courses 
+Route::post('/reserve-course', [ReservationController::class, 'Reverse_course'])->name('course_reservation');
+Route::post('/delete-reservation', [ReservationController::class, 'delete_reservation'])->name('delete_reservation');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
     Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
-    Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
     Route::get('/review', [ReviewController::class, 'review'])->name('review');
     Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');
     Route::get('/faq', [IndexController::class, 'faq'])->name('web-faq');
@@ -154,10 +159,9 @@ Route::prefix('admin')->group(function () {
         Route::post('/edit-offline-course', [OfflineCourseController::class, 'edit_offline_course'])->name('edit-offline-course');
         //End Offline Course
 
-        Route::get('/offline-lectures/waiting-list', function () {
-            return view('admin.offline_lectures.waiting_listing');
-        })->name('waiting_list');
-
+        //Course Reservations
+        Route::get('/offline-lectures/waiting-list/{id}', [ReservationController::class, 'reservation_listing'])->name('waiting_list');
+        Route::post('/update-status', [ReservationController::class, 'update_status'])->name('update_status');
         Route::get('/review-management', function () {
             return view('admin.review_management.review_management');
         })->name('reviews');
