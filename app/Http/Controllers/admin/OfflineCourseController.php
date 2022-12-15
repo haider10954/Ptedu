@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Offline_course;
+use App\Models\Reservation;
 use App\Models\Tutor;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,7 @@ class OfflineCourseController extends Controller
 {
     public function offline_course_listing()
     {
-        $offline_course = Offline_course::paginate(10);
+        $offline_course = Offline_course::withCount(['getReservationWaiting', 'getReservationReserved'])->paginate(10);
         return view('admin.offline_lectures.offline_courses', compact('offline_course'));
     }
 

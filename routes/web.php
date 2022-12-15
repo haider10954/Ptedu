@@ -42,7 +42,7 @@ Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])-
 Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
 //Reserve Courses 
 Route::post('/reserve-course', [ReservationController::class, 'Reverse_course'])->name('course_reservation');
-Route::post('/delete-reservation', [ReservationController::class, 'delete_reservation'])->name('delete_reservation');
+Route::post('/delete-reservation', [ReservationController::class, 'delete_Reverse_course'])->name('delete_reservation');
 
 Route::middleware('auth')->group(function () {
 

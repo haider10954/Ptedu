@@ -35,7 +35,7 @@
                     @if(auth()->check())
                     @if($reservation)
                     @if($reservation->status == 'applied')
-                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Apply For Reservation</button>
+                    <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Waiting For Reservation</button>
                     @elseif($reservation->status == 'reserved')
                     <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Reserved</button>
                     @elseif($reservation->status == 'decline')
@@ -152,20 +152,23 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Confirm Reservation</h5>
+                <h5 class="modal-title">Delete Reservation</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="prompt"></div>
-                <input type="hidden" id="delReserveId" name="id">
-                <p>Are you sure to decline your Reservation.</p>
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" href="javascript:void(0)" id="delReservation">Save changes</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
+            <form>
+                @csrf
+                <div class="modal-body">
+                    <div class="prompt"></div>
+                    <input type="hidden" id="courseId" name="course_id">
+                    <p>Are you sure to decline your Reservation?</p>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-primary" href="javascript:void(0)" id="delReservation">Save changes</a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -178,12 +181,12 @@
     });
 
     $('.delBtn').on('click', function() {
-        $('#delReserveId').val($(this).attr('data-id'));
+        $('#courseId').val($(this).attr('data-id'));
     });
     $('#confirmReservation').on('click', function() {
         $("#confirmReservation").html('<i class="fa fa-spinner fa-spin"></i> Processing');
 
-        $("#confirmReservation").attr('disabled', '');
+        $("#confirmReservation").prop('disabled', true);
         $.ajax({
             dataType: 'json',
             url: "{{ route('course_reservation') }}",
@@ -196,19 +199,55 @@
                 if (res.success) {
                     $(".prompt").show();
                     $(".prompt").html('<div class="alert alert-success mb-3"><i class="fa fa-check mx-2"></i>' + res.message + '</div>');
-                    $("#confirmReservation").html('Applied');
-                    $("#confirmReservation").attr('disabled', true);
-                    $(".applyBtn").html('Waiting For Reservation');
                     $(".applyBtn").attr('disabled', true);
                     setTimeout(function() {
                         $(".prompt").hide();
                     }, 2000);
+                    window.location.reload();
                 } else {
                     $(".prompt").show();
                     $(".prompt").html('<div class="alert alert-danger mb-3"><i class="fa fa-exclamation-triangle mx-2"></i>' + res.message + '</div>');
                     setTimeout(function() {
                         $("#confirmReservation").html('Confirm');
                         $("#confirmReservation").removeAttr('disabled');
+                        $(".prompt").hide();
+                    }, 2000);
+                }
+            }
+        });
+    });
+
+    $('#delReservation').on('click', function() {
+        $("#delReservation").html('<i class="fa fa-spinner fa-spin"></i> Processing');
+
+        $("#delReservation").attr('disabled', '');
+        $.ajax({
+            dataType: 'json',
+            url: "{{ route('delete_reservation') }}",
+            type: 'POST',
+            data: {
+                course_id: $('#courseId').val(),
+                _token: "{{csrf_token()}}"
+            },
+            success: function(res) {
+                if (res.success) {
+                    $(".prompt").show();
+                    $(".prompt").html('<div class="alert alert-success mb-3"><i class="fa fa-check mx-2"></i>' + res.message + '</div>');
+                    $("#delReservation").html('Applied');
+                    $("#delReservation").attr('disabled', true);
+                    $(".applyBtn").html('Waiting For Reservation');
+                    $(".applyBtn").attr('disabled', true);
+                    setTimeout(function() {
+                        $(".prompt").hide();
+                        $('#delReservationModal').hide();
+                    }, 2000);
+                    window.location.reload();
+                } else {
+                    $(".prompt").show();
+                    $(".prompt").html('<div class="alert alert-danger mb-3"><i class="fa fa-exclamation-triangle mx-2"></i>' + res.message + '</div>');
+                    setTimeout(function() {
+                        $("#delReservation").html('Confirm');
+                        $("#delReservation").removeAttr('disabled');
                         $(".prompt").hide();
                     }, 2000);
                 }

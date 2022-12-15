@@ -39,7 +39,7 @@ class ReservationController extends Controller
 
     public function delete_Reverse_course(Request $request)
     {
-        $deleteReservation = Reservation::create([]);
+        $deleteReservation = Reservation::where('user_id', auth()->id())->where('course_id', $request->course_id)->delete();
 
         if ($deleteReservation) {
             return json_encode([
@@ -73,16 +73,6 @@ class ReservationController extends Controller
                 'success' => false,
                 'message' => 'Something went wrong Please try again.',
             ]);
-        }
-    }
-    public function delete_reservation(Request $request)
-    {
-
-        $user = Reservation::where('id', $request->id)->delete();
-        if ($user) {
-            return redirect()->back()->with('success', 'Reservation deleted successfully');
-        } else {
-            return redirect()->back()->with('error', 'Something went wrong please try again later');
         }
     }
 }

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PDO;
 
 class Offline_course extends Model
 {
@@ -29,5 +30,15 @@ class Offline_course extends Model
     public function getCourseBanner()
     {
         return asset('storage/offline_course/banner/' . $this->course_banner);
+    }
+
+    public function getReservationWaiting()
+    {
+        return $this->hasMany(Reservation::class, 'course_id', 'id')->where('status', 'applied');
+    }
+
+    public function getReservationReserved()
+    {
+        return $this->hasMany(Reservation::class, 'course_id', 'id')->where('status', 'reserved');
     }
 }
