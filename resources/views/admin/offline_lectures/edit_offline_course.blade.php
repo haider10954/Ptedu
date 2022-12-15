@@ -141,7 +141,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Total number of Lectures</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter total number of lectures" name="no_of_lectures" value="{{ $offline_course->no_of_lectures }}"></input>
+                            <input type="number" class="form-control" placeholder="Enter total number of lectures" name="no_of_lectures" value="{{ $offline_course->no_of_lectures }}">
                             <div class="error-no-of-lectures"></div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Duration of the Course</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Duration of the Course" name="course_duration" value="{{ $offline_course->duration_of_course }}"></input>
+                            <input type="text" class="form-control" placeholder="Duration of the Course" name="course_duration" value="{{ $offline_course->duration_of_course }}">
                             <div class="error-course-duration"></div>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter price" name="price" value="{{ $offline_course->price }}"></input>
+                            <input type="number" class="form-control" placeholder="Enter price" name="price" value="{{ $offline_course->price }}">
                             <div class="error-prize"></div>
                         </div>
                     </div>
@@ -165,7 +165,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Discounted Price</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter discounted Price" name="discounted_Price" value="{{ $offline_course->discounted_prize }}"></input>
+                            <input type="number" class="form-control" placeholder="Enter discounted Price" name="discounted_Price" value="{{ $offline_course->discounted_prize }}">
                             <div class="error-discounted-prize"></div>
                         </div>
                     </div>
@@ -186,16 +186,8 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Upload Video URL</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Enter video URL" name="video_url" value="{{ $offline_course->video_url }}"></input>
+                            <input type="text" class="form-control" placeholder="Enter video URL ( Youtube or Vimeo )" name="video_url" value="{{ $offline_course->video_url }}">
                             <div class="error-video-url"></div>
-                        </div>
-                    </div>
-
-                    <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Upload Video Type(Youtube , Vimeo)</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Enter Upload Video Type(Youtube , Vimeo)" name="video" value="{{ $offline_course->video }}"></input>
-                            <div class="error-video"></div>
                         </div>
                     </div>
 

@@ -228,19 +228,9 @@
                                         <div class="row mb-4">
                                             <label class="col-sm-2 col-form-label lecture-form">Upload Video URL</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter video URL"
-                                                    name="video_url">
+                                                <input type="text" class="form-control" placeholder="Enter video URL ( Youtube or Vimeo )"
+                                                    name="video_url"> 
                                                 <div class="error-video-url"></div>
-                                            </div>
-                                        </div>
-
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Upload Video Type(Youtube ,
-                                                Vimeo)</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter Upload Video Type(Youtube , Vimeo)" name="video">
-                                                <div class="error-video"></div>
                                             </div>
                                         </div>
 
@@ -599,10 +589,6 @@
                         $('.error-video-url').html('<small class=" error-message text-danger">' + e
                             .responseJSON.errors['video_url'][0] + '</small>');
                     }
-                    if (e.responseJSON.errors['video']) {
-                        $('.error-video').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['video'][0] + '</small>');
-                    }
                     if (e.responseJSON.errors['course_img']) {
                         $('.error-course-thumbnail').html('<small class=" error-message text-danger">' +
                             e.responseJSON.errors['course_img'][0] + '</small>');
@@ -654,29 +640,28 @@
                                                     <input type="hidden" name="section_id" value="${sections[i].id}" />
                                                     <div class="repeater">
                                                         <div data-repeater-list="section_lectures">
-                                                            <div data-repeater-item class="row mb-3 align-items-end">
-                                                                <div class="col-lg-7">
+                                                            <div data-repeater-item class="row align-items-end form-box mb-3">
+                                                                <div class="col-lg-12 mb-3">
                                                                     <label for="name">Lecture Title</label>
                                                                     <input type="text" class="form-control"
                                                                         name="lecture_title"
                                                                         placeholder="Enter Lecture Title" />
                                                                 </div>
 
-                                                                <div class="col-lg-4">
+                                                                <div class="col-lg-6">
                                                                     <label>Lecture Video</label>
                                                                     <input type="file" class="form-control"
                                                                         placeholder="Select Lecture Video"
                                                                         name="lecture_video" />
                                                                 </div>
 
-                                                                <div class="col-lg-1">
-                                                                    <div
-                                                                        class="d-flex align-items-center justify-content-start">
-                                                                        <button data-repeater-delete type="button"
-                                                                            class="btn btn-danger" value="Delete"><i
-                                                                                class="bi bi-trash"></i></button>
-                                                                    </div>
+                                                                <div class="col-lg-6">
+                                                                    <label for="name">Lecture Video Link</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="lecture_video_link"
+                                                                        placeholder="Enter Lecture Video Link" />
                                                                 </div>
+                                                                <button data-repeater-delete type="button" class="btn btn-soft-danger btn-sm repeater-del-btn" value="Delete"><i class="bi bi-x"></i></button>
                                                             </div>
                                                         </div>
                                                         <div class="d-flex gap-2">
@@ -858,7 +843,7 @@
                         $('html, body').animate({
                                 scrollTop: form.parents('.section-box').offset().top
                             }, 2000);
-                        $('.add_lecture_prompt').html('<div class="alert alert-warning mb-3">Please make sure to fill all fields with valid values</div>');
+                        $('.add_lecture_prompt').html('<div class="alert alert-warning mb-3">'+res.errors+'</div>');
                         $('.add_lecture_prompt').fadeIn();
                     }
                 },
