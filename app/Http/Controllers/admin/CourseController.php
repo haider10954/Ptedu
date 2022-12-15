@@ -72,7 +72,6 @@ class CourseController extends Controller
             'discounted_Price' => 'required|min:0',
             'category' => 'required',
             'video_url' => 'required',
-            'video' => 'required',
             'category' => 'required',
             'course_type' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',
@@ -91,7 +90,6 @@ class CourseController extends Controller
             'price' => $request['price'],
             'discounted_prize' => $request['discounted_Price'],
             'video_url' => $request['video_url'],
-            'video' => $request['video'],
             'course_thumbnail' => $course_thumbnail,
             'course_banner' => $course_banner,
             'course_type' => $request['course_type'],
@@ -139,7 +137,14 @@ class CourseController extends Controller
     public function add_lectures(Request $request){
         $validate = \Validator::make($request->all(),[
             'section_lectures.*.lecture_title' => 'required',
-            'section_lectures.*.lecture_video' => 'required'
+            'section_lectures.*.lecture_video' => 'nullable|required_without:section_lectures.*.lecture_video_link|mimes:mp4',
+            'section_lectures.*.lecture_video_link' => 'nullable|required_without:section_lectures.*.lecture_video|url',
+        ],[
+            'section_lectures.*.lecture_video_link.required_without' => 'Please upload lecture video or attach lecture video link',
+            'section_lectures.*.lecture_video.required_without'=>'Please upload lecture video or attach lecture video link',
+            'section_lectures.*.lecture_video_link.url' => 'Please enter a valid Url',
+            'section_lectures.*.lecture_video.mimes' => 'Only mp4 video format is supported',
+            'section_lectures.*.lecture_title.required' => 'Please enter lecture title'
         ]);
 
         if($validate->fails())
