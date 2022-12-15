@@ -15,8 +15,10 @@
         <div class="w-80 m-auto pb-40 border-bottom-1">
             <div class="row align-items-center">
                 <div class="col-lg-9">
+                    @if($reservation)
                     @if($reservation->status == 'decline')
                     <div class="badge  mt-3 mb-3 p-2" style="background: #F9DFDF; border-radius: 2px; color: #791919;">Your Reservation has been decline Apply again to Reserve Course.</div>
+                    @endif
                     @endif
                     <div class="content_wrapper">
                         <h5 class="mb-3 heading">{{ $course_info->course_title }}</h5>
@@ -31,6 +33,7 @@
                     <button class="btn btn-danger btn-sm w-100 mb-2 delBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#delReservationModal">마감</button>
 
                     @if(auth()->check())
+                    @if($reservation)
                     @if($reservation->status == 'applied')
                     <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Apply For Reservation</button>
                     @elseif($reservation->status == 'reserved')
@@ -39,7 +42,8 @@
                     <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Apply For Reservation</button>
                     @endif
                     @else
-                    <a href="{{ route('user_login') }}" class="btn btn-light btn-sm w-100 border-1 mb-2">Apply</a>
+                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Apply</button>
+                    @endif
                     @endif
 
                 </div>
