@@ -3,88 +3,213 @@
 @section('title', 'ptedu - Lecture Detial')
 
 @section('content')
-    <div class="section lecture_banner_section">
-        <div class="lecture_banner_img" style="background-image: url({{ asset('storage/offline_course/banner/'.$course_info->course_banner) }})"></div>
-        <div class="banner_text">
-            <iframe style="width:100%;height:100%;" src="https://www.youtube.com/embed/{{ $embedded_video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+<div class="section lecture_banner_section">
+    <div class="lecture_banner_img" style="background-image: url({{ asset('storage/offline_course/banner/'.$course_info->course_banner) }})"></div>
+    <div class="banner_text">
+        <iframe style="width:100%;height:100%;" src="https://www.youtube.com/embed/{{ $embedded_video_id }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
+</div>
 
-    <div class="section pt-40 lecture_details">
-        <div class="container">
-            <div class="w-80 m-auto pb-40 border-bottom-1">
-                <div class="row align-items-center">
-                    <div class="col-lg-9">
-                        <div class="content_wrapper">
-                            <h5 class="mb-3 heading">{{ $course_info->course_title }}</h5>
-                            <p class="mb-0 text">{{ $course_info->short_description }}</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-3">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <p class="mb-0 text">강좌금액</p>
-                            <p class="mb-0 text">{{ $course_info->price }}원</p>
-                        </div>
-                        <button class="btn btn-danger btn-sm w-100 mb-2">마감</button>
-                        <button class="btn btn-light btn-sm w-100 border-1 mb-2">예약대기</button>
+<div class="section pt-40 lecture_details">
+    <div class="container">
+        <div class="w-80 m-auto pb-40 border-bottom-1">
+            <div class="row align-items-center">
+                <div class="col-lg-9">
+                    @if($reservation->status == 'decline')
+                    <div class="badge  mt-3 mb-3 p-2" style="background: #F9DFDF; border-radius: 2px; color: #791919;">Your Reservation has been decline Apply again to Reserve Course.</div>
+                    @endif
+                    <div class="content_wrapper">
+                        <h5 class="mb-3 heading">{{ $course_info->course_title }}</h5>
+                        <p class="mb-0 text">{{ $course_info->short_description }}</p>
                     </div>
                 </div>
+                <div class="col-lg-3">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="mb-0 text">강좌금액</p>
+                        <p class="mb-0 text">{{ $course_info->price }}원</p>
+                    </div>
+                    <button class="btn btn-danger btn-sm w-100 mb-2 delBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#delReservationModal">마감</button>
+
+                    @if(auth()->check())
+                    @if($reservation->status == 'applied')
+                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Apply For Reservation</button>
+                    @elseif($reservation->status == 'reserved')
+                    <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Reserved</button>
+                    @elseif($reservation->status == 'decline')
+                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Apply For Reservation</button>
+                    @endif
+                    @else
+                    <a href="{{ route('user_login') }}" class="btn btn-light btn-sm w-100 border-1 mb-2">Apply</a>
+                    @endif
+
+                </div>
             </div>
-            <div class="w-80 m-auto py-4">
-                <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                            aria-controls="pills-home" aria-selected="true">강좌 소개</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                            aria-controls="pills-profile" aria-selected="false">강사 소개</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                            aria-controls="pills-contact" aria-selected="false">강의 후기</a>
-                    </li>
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        {!! $course_info->description !!}
-                    </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td><p class="mb-0 text font-weight-bold">Name</p></td>
-                                    <td><p class="mb-0 text">{{ $course_info->getTutorName->name }}</p></td>
-                                </tr>
-                                <tr>
-                                    <td><p class="mb-0 text font-weight-bold">Email</p></td>
-                                    <td><p class="mb-0 text">{{ $course_info->getTutorName->email }}</p></td>
-                                </tr>
-                                <tr>
-                                    <td><p class="mb-0 text font-weight-bold">Phone #</p></td>
-                                    <td><p class="mb-0 text">{{ $course_info->getTutorName->mobile_number }}</p></td>
-                                </tr>
-                                <tr>
-                                    <td><p class="mb-0 text font-weight-bold">Designation</p></td>
-                                    <td><p class="mb-0 text">{{ $course_info->getTutorName->job }}</p></td>
-                                </tr>
-                                <tr>
-                                    <td><p class="mb-0 text font-weight-bold">Address</p></td>
-                                    <td><p class="mb-0 text">{{ $course_info->getTutorName->address }}</p></td>
-                                </tr>
-                            </tbody>
-                        </table>    
-                    </div>
-                    <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <p class="mb-2 text font-weight-bold">Day 1</p>
-                        <p class="mb-4 text">1. 보행 기초지식: 보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
-                            이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
-                        <p class="mb-2 text font-weight-bold">Day 2</p>
-                        <p class="mb-4 text">1. 보행 기초지식: 보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
-                            이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
-                    </div>
+        </div>
+        <div class="w-80 m-auto py-4">
+            <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">강좌 소개</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">강사 소개</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">강의 후기</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    {!! $course_info->description !!}
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">Name</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->name }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">Email</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->email }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">Phone #</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->mobile_number }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">Designation</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->job }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">Address</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->address }}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <p class="mb-2 text font-weight-bold">Day 1</p>
+                    <p class="mb-4 text">1. 보행 기초지식: 보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
+                        이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
+                    <p class="mb-2 text font-weight-bold">Day 2</p>
+                    <p class="mb-4 text">1. 보행 기초지식: 보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
+                        이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+@endsection
+
+@section('modals')
+<div class="modal" id="reservationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="prompt"></div>
+                <input type="hidden" id="confirmReserveTicketId" name="id">
+                <p>Are you sure to reserve this course.</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="javascript:void(0)" id="confirmReservation">Save changes</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="delReservationModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Reservation</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="prompt"></div>
+                <input type="hidden" id="delReserveId" name="id">
+                <p>Are you sure to decline your Reservation.</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="javascript:void(0)" id="delReservation">Save changes</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('custom-script')
+<script>
+    $('.applyBtn').on('click', function() {
+        $('#confirmReserveTicketId').val($(this).attr('data-id'));
+    });
+
+    $('.delBtn').on('click', function() {
+        $('#delReserveId').val($(this).attr('data-id'));
+    });
+    $('#confirmReservation').on('click', function() {
+        $("#confirmReservation").html('<i class="fa fa-spinner fa-spin"></i> Processing');
+
+        $("#confirmReservation").attr('disabled', '');
+        $.ajax({
+            dataType: 'json',
+            url: "{{ route('course_reservation') }}",
+            type: 'POST',
+            data: {
+                id: $('#confirmReserveTicketId').val(),
+                _token: "{{csrf_token()}}"
+            },
+            success: function(res) {
+                if (res.success) {
+                    $(".prompt").show();
+                    $(".prompt").html('<div class="alert alert-success mb-3"><i class="fa fa-check mx-2"></i>' + res.message + '</div>');
+                    $("#confirmReservation").html('Applied');
+                    $("#confirmReservation").attr('disabled', true);
+                    $(".applyBtn").html('Waiting For Reservation');
+                    $(".applyBtn").attr('disabled', true);
+                    setTimeout(function() {
+                        $(".prompt").hide();
+                    }, 2000);
+                } else {
+                    $(".prompt").show();
+                    $(".prompt").html('<div class="alert alert-danger mb-3"><i class="fa fa-exclamation-triangle mx-2"></i>' + res.message + '</div>');
+                    setTimeout(function() {
+                        $("#confirmReservation").html('Confirm');
+                        $("#confirmReservation").removeAttr('disabled');
+                        $(".prompt").hide();
+                    }, 2000);
+                }
+            }
+        });
+    });
+</script>
 @endsection

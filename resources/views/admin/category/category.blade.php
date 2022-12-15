@@ -142,20 +142,15 @@
                         @endforeach
                         @else
                         <tr>
-                            <td colspan="7" class="text-center fw-bold">No Record Found</td>
+                            <td colspan="7" class="text-center">
+                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                            </td>
                         </tr>
                         @endif()
                     </tbody>
                 </table>
 
-                <div class="paginate mt-4 mb-3">
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-
-                    <a href="javascript:void(0)" class="active">1</a>
-                    <a href="javascript:void(0)">2</a>
-                    <a href="javascript:void(0)">3</a>
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-right"></i></a>
-                </div>
+                {{ $category->links('vendor.pagination.custom-pagination-admin') }}
 
             </div>
         </div>
