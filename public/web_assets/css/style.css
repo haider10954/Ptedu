@@ -1157,6 +1157,12 @@ header .btn.transparent, .btn.solid:hover {
     margin-bottom: 20px;
 }
 
+.lecture-box img {
+    height: 180px !important;
+    width: 250px !important;
+    object-fit: cover;
+}
+
 .lecture-box .lecture_box_content {
     padding: 10px 8px;
 }

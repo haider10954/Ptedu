@@ -217,10 +217,11 @@
 }
 
 .user_avatar {
-    width: 115px;
-    height: 115px;
+    width: 115px !important;
+    height: 115px !important;
     background-color: #ADADAD;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 .user_profile {
