@@ -232,13 +232,7 @@
 </div>
 @endsection
 
-@section('custom-script')
-<script>
-    $('.page-side-menu-toggle').on('click', function() {
-        $('.page-side-menu').slideToggle();
-    });
-</script>
-@endsection
+
 
 @section('modals')
 <div class="modal fade review_modal" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -248,51 +242,79 @@
                 <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel"><i class="fas fa-star text-theme-yellow"></i> <span>Write a Review</span></h5>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <div class="d-flex align-items-center gap-1 rating-stars">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
+                <div class="prompt"></div>
+                <form id="addReview">
+                    @csrf
+                    <input type="hidden" name="course_id" value="2">
+                    <div class="mb-3">
+                        <div class="d-flex align-items-center gap-1 rating-stars">
+                            <ul class="rate-area">
+                                <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 stars</label>
+                                <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 stars</label>
+                                <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 stars</label>
+                                <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 stars</label>
+                                <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="row align-items-center mb-3">
-                    <div class="col-lg-2">
-                        <label for="course_name mb-0">Course Name</label>
+                    <div class="row align-items-center mb-3">
+                        <div class="col-lg-2">
+                            <label for="course_name mb-0">Course Name</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <input type="text" name="course_name" id="course_name" placeholder="Enter Course Name" value="[2022 PTedu] pelvic healthe Integration - Melissa Devidson" class="form-control">
+                        </div>
                     </div>
-                    <div class="col-lg-10">
-                        <input type="text" name="course_name" id="course_name" placeholder="Enter Course Name" value="[2022 PTedu] pelvic healthe Integration - Melissa Devidson" class="form-control">
+                    <div class="row align-items-center mb-3">
+                        <div class="col-lg-2">
+                            <label for="writer mb-0">Writer</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <input type="text" name="writer" id="writer" placeholder="Enter Writer Name" value="{{ auth()->user()->name }}" class="form-control">
+                        </div>
                     </div>
-                </div>
-                <div class="row align-items-center mb-3">
-                    <div class="col-lg-2">
-                        <label for="writer mb-0">Writer</label>
+                    <div class="row align-items-center mb-3">
+                        <div class="col-lg-2">
+                            <label for="title mb-0">Title</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <input type="text" name="title" placeholder="Write in a title here" class="form-control" value="{{ old('title') }}">
+                            <div class="error-title"></div>
+                        </div>
                     </div>
-                    <div class="col-lg-10">
-                        <input type="text" name="writer" id="writer" placeholder="Enter Writer Name" value="홍길동" class="form-control">
+                    <div class="row align-items-center mb-3">
+                        <div class="col-lg-2">
+                            <label for="contents mb-0">Contents</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <input type="text" name="contents" placeholder="Write a review in here" class="form-control" value="{{ old('content') }}">
+                            <div class="error-content"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="row align-items-center mb-3">
-                    <div class="col-lg-2">
-                        <label for="title mb-0">Title</label>
+
+                    <div class="row align-items-center mb-3">
+                        <div class="col-lg-2">
+                            <label for="contents mb-0">Video</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <input type="file" name="video" class="form-control">
+                            <div class="error-video"></div>
+                        </div>
                     </div>
-                    <div class="col-lg-10">
-                        <input type="text" name="title" id="title" placeholder="Write in a title here" class="form-control">
+                    <div class="row align-items-center mb-3">
+                        <div class="col-lg-2">
+                            <label for="contents mb-0">Video URL</label>
+                        </div>
+                        <div class="col-lg-10">
+                            <input type="text" name="video_url" placeholder="Enter Video URL" class="form-control">
+                            <div class="error-video-url"></div>
+                        </div>
                     </div>
-                </div>
-                <div class="row align-items-center mb-3">
-                    <div class="col-lg-2">
-                        <label for="contents mb-0">Contents</label>
+                    <div class="my-3 d-flex align-items-center justify-content-center">
+                        <button type="submit" id="submitForm" class="btn btn-primary mr-2 rounded-0 btn-theme-black">Register</button>
+                        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
                     </div>
-                    <div class="col-lg-10">
-                        <input type="text" name="contents" id="contents" placeholder="Write a review in here" class="form-control">
-                    </div>
-                </div>
-                <div class="my-3 d-flex align-items-center justify-content-center">
-                    <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-black">Register</button>
-                    <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
-                </div>
+                </form>
             </div>
         </div>
     </div>
@@ -389,4 +411,67 @@
     </div>
 </div>
 
+@endsection
+
+
+@section('custom-script')
+<script>
+    $('.page-side-menu-toggle').on('click', function() {
+        $('.page-side-menu').slideToggle();
+    });
+
+    $("#addReview").on('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData($("#addReview")[0]);
+        formData = new FormData($("#addReview")[0]);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('add-review') }}",
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            cache: false,
+            data: formData,
+            mimeType: "multipart/form-data",
+            beforeSend: function() {
+                $("#submitForm").prop('disabled', true);
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+            },
+            success: function(res) {
+                $("#submitForm").attr('class', 'btn btn-success');
+                $("#submitForm").html('<i class="fa fa-check me-1"></i>  Reivew Added</>');
+                if (res.success) {
+                    $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
+                    setTimeout(function() {
+                        $('html, body').animate({
+                            scrollTop: $("html, body").offset().top
+                        }, 1000);
+                    }, 1500);
+
+                    setTimeout(function() {
+                        $('.prompt').hide()
+                        // window.location.href = "{{ route('user_login') }}";
+                    }, 4000);
+
+                } else {}
+            },
+            error: function(e) {
+                $("#submitForm").prop('disabled', false);
+                $("#submitForm").html('Register');
+                if (e.responseJSON.errors['title']) {
+                    $('.error-title').html('<small class=" error-message text-danger">' + e.responseJSON.errors['title'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['contents']) {
+                    $('.error-content').html('<small class=" error-message text-danger">' + e.responseJSON.errors['contents'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['video']) {
+                    $('.error-video').html('<small class=" error-message text-danger">' + e.responseJSON.errors['video'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['video_url']) {
+                    $('.error-video-url').html('<small class=" error-message text-danger">' + e.responseJSON.errors['video_url'][0] + '</small>');
+                }
+            }
+        });
+    });
+</script>
 @endsection

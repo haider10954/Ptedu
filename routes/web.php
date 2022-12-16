@@ -79,6 +79,9 @@ Route::middleware('auth')->group(function () {
         return view('user.change_password');
     })->name('change-user-password');
     Route::post('/update-user-password', [StudentController::class, 'change_password'])->name('user-password');
+
+    //Add Reveiw
+    Route::post('add-review', [ReviewController::class, 'add_review'])->name('add-review');
 });
 
 Route::get('/user/login', function () {
@@ -162,9 +165,10 @@ Route::prefix('admin')->group(function () {
         //Course Reservations
         Route::get('/offline-lectures/waiting-list/{id}', [ReservationController::class, 'reservation_listing'])->name('waiting_list');
         Route::post('/update-status', [ReservationController::class, 'update_status'])->name('update_status');
-        Route::get('/review-management', function () {
-            return view('admin.review_management.review_management');
-        })->name('reviews');
+
+        //Reviews
+        Route::get('/review-management', [ReviewController::class, 'admin_side_listing'])->name('reviews');
+        Route::post('/delete-review' , [ReviewController::class , 'delete_review'])->name('delete-review');
 
         Route::get('/student-list', function () {
             return view('admin.student.student_list');
