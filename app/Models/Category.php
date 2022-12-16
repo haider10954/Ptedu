@@ -10,4 +10,9 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function getCourses()
+    {
+        return $this->hasMany(Course::class, 'id', 'category_id');
+    }
 }

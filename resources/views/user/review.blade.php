@@ -8,13 +8,21 @@
         <div class="section-heading">
             <h5 class="mb-0">Review</h5>
         </div>
-        <div class="w-65 m-auto py-4">
+        <div class="w-65 review_info m-auto py-4">
             <h5 class="heading mb-3 text-center">PTEdu Student Reviews</h5>
-            <iframe style="width: 100%;" class="mb-3" height="315" src="https://www.youtube.com/embed/8SiRTLIXSzE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <p class="mb-1 font-weight-600">(Course name) [전문가 과정] 보행 A에서 Z까지 </p>
-            <p class="mb-0">(Review commnet)체계적인 커리큘럼 덕분에 실전에서도 막힘없이 티칭 할 수 있었어요!</p>
+            @if( $latest_review->count() > 0)
+            {!! $embedded_video !!}
+            <p class="mb-1 font-weight-600">{{ $latest_review->getCourse->course_title }} | {{ $latest_review->title }} </p>
+            <p class="mb-0">{{ $latest_review->content }} 할 수 있었어요!</p>
+            @else
+            <div class="text-center">
+                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+            </div>
+            @endif
         </div>
+
     </div>
+</div>
 </div>
 <div class="section course_reviews background-light">
     <div class="container">
@@ -22,72 +30,25 @@
         <div class="w-100 m-auto courses_reviews_carousel position-relative">
             <div class="swiper course-reviews-carousel">
                 <div class="swiper-wrapper">
+                    @if($review->count() > 0)
+                    @foreach($review as $r)
                     <div class="swiper-slide">
                         <div class="course-review-box">
                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" class="mb-4" alt="quotes">
-                            <h6 class="heading mb-4">동료의 소개로 수강을 하게 되었습니다.</h6>
-                            <p class="mb-4">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사 입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다!</p>
+                            <h6 class="heading mb-4">{{ $r->title  }}.</h6>
+                            <p class="mb-4">{{ $r->content }}</p>
                             <div class="d-flex align-items-center justify-content-between">
-                                <small class="text-muted">by 강** 2022-10-12</small>
+                                <small class="text-muted">by 강** {{\Carbon\Carbon::parse($r->created_at)->format('d M, Y')}}</small>
                                 <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" alt="img">
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="course-review-box">
-                            <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" class="mb-4" alt="quotes">
-                            <h6 class="heading mb-4">동료의 소개로 수강을 하게 되었습니다.</h6>
-                            <p class="mb-4">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사 입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다!</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <small class="text-muted">by 강** 2022-10-12</small>
-                                <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" alt="img">
-                            </div>
-                        </div>
+                    @endforeach
+                    @else
+                    <div class="text-center">
+                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                     </div>
-                    <div class="swiper-slide">
-                        <div class="course-review-box">
-                            <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" class="mb-4" alt="quotes">
-                            <h6 class="heading mb-4">동료의 소개로 수강을 하게 되었습니다.</h6>
-                            <p class="mb-4">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사 입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다!</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <small class="text-muted">by 강** 2022-10-12</small>
-                                <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="course-review-box">
-                            <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" class="mb-4" alt="quotes">
-                            <h6 class="heading mb-4">동료의 소개로 수강을 하게 되었습니다.</h6>
-                            <p class="mb-4">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사 입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다!</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <small class="text-muted">by 강** 2022-10-12</small>
-                                <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="course-review-box">
-                            <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" class="mb-4" alt="quotes">
-                            <h6 class="heading mb-4">동료의 소개로 수강을 하게 되었습니다.</h6>
-                            <p class="mb-4">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사 입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다!</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <small class="text-muted">by 강** 2022-10-12</small>
-                                <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" alt="img">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="course-review-box">
-                            <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" class="mb-4" alt="quotes">
-                            <h6 class="heading mb-4">동료의 소개로 수강을 하게 되었습니다.</h6>
-                            <p class="mb-4">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사 입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다!</p>
-                            <div class="d-flex align-items-center justify-content-between">
-                                <small class="text-muted">by 강** 2022-10-12</small>
-                                <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" alt="img">
-                            </div>
-                        </div>
-                    </div>
+                    @endif
                 </div>
             </div>
             <div class="swiper-button-next course-reviews-next"></div>
@@ -97,7 +58,7 @@
 </div>
 <div class="section">
     <div class="container">
-        <p class="text-beige font-weight-700 text-center mb-2">There are 25,000 reviews!</p>
+        <p class="text-beige font-weight-700 text-center mb-2">There are {{ $review->count() }} reviews!</p>
         <h5 class="heading mb-0 text-center">PTEdu Course Review</h5>
         <div class="w-50 review_tabs m-auto py-5">
             <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">
@@ -233,6 +194,13 @@
 
 @section('custom-script')
 <script>
+    $('.review_info iframe').attr('width', '');
+    $('.review_info iframe').css('width', '100%');
+    $('.review_info iframe').attr('height', '315');
+
+    $('.review_info video').css('width', '100%');
+    $('.review_info video').css('object-fit', 'cover');
+    $('.review_info video').attr('height', '315');
     var swiper = new Swiper(".course-reviews-carousel", {
         slidesPerView: 4,
         spaceBetween: 30,
