@@ -155,11 +155,21 @@ class CourseController extends Controller
         $lectures = $request->section_lectures;
 
         for ($i=0; $i < count($lectures); $i++) {
-            $track = new GetId3($lectures[$i]['lecture_video']); 
-            $video_uploaded = $this->upload_lecture_video($lectures[$i]['lecture_video']);
-            $lectures[$i]['duration'] = $track->getPlaytime();
-            $lectures[$i]['section_id'] = $request->section_id;
-            $lectures[$i]['lecture_video'] = $video_uploaded;
+            if(isset($lectures[$i]['lecture_video'])){
+                $track = new GetId3($lectures[$i]['lecture_video']); 
+                $video_uploaded = $this->upload_lecture_video($lectures[$i]['lecture_video']);
+                $lectures[$i]['duration'] = $track->getPlaytime();
+                $lectures[$i]['section_id'] = $request->section_id;
+                $lectures[$i]['lecture_video'] = $video_uploaded;
+            }else{
+                $lectures[$i]['lecture_video'] = null;
+                $lectures[$i]['duration'] = null;
+                $lectures[$i]['section_id'] = $request->section_id;
+            }
+            if(!isset($lectures[$i]['lecture_video_link'])){
+                $lectures[$i]['lecture_video_link'] = null;
+                $lectures[$i]['section_id'] = $request->section_id;
+            }           
         }   
 
         $lectureQuery = Lecture::insert($lectures);

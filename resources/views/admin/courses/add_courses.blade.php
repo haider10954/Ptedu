@@ -772,7 +772,7 @@
                                         <p class="mb-0">${i+1}강. ${lectures[i].lecture_title}</p>
                                     </div>
                                     <div class="duration">
-                                        <p class="mb-0">${lectures[i].duration}</p>
+                                        <p class="mb-0">${(lectures[i].lecture_video_link == null) ? lectures[i].duration : `<span title="${lectures[i].lecture_video_link}"><i class="bi bi-link"></i></span>`}</p>
                                     </div>
                                 </li>
                                 `);
@@ -789,29 +789,28 @@
                                         <input type="hidden" name="section_id" value="${currentSectionBox.next('.section-box').attr('data-section-id')}" />
                                         <div class="repeater">
                                             <div data-repeater-list="section_lectures">
-                                                <div data-repeater-item class="row mb-3 align-items-end">
-                                                    <div class="col-lg-7">
+                                                <div data-repeater-item class="row align-items-end form-box mb-3">
+                                                    <div class="col-lg-12 mb-3">
                                                         <label for="name">Lecture Title</label>
                                                         <input type="text" class="form-control"
                                                             name="lecture_title"
                                                             placeholder="Enter Lecture Title" />
                                                     </div>
 
-                                                    <div class="col-lg-4">
+                                                    <div class="col-lg-6">
                                                         <label>Lecture Video</label>
                                                         <input type="file" class="form-control"
                                                             placeholder="Select Lecture Video"
                                                             name="lecture_video" />
                                                     </div>
 
-                                                    <div class="col-lg-1">
-                                                        <div
-                                                            class="d-flex align-items-center justify-content-start">
-                                                            <button data-repeater-delete type="button"
-                                                                class="btn btn-danger" value="Delete"><i
-                                                                    class="bi bi-trash"></i></button>
-                                                        </div>
+                                                    <div class="col-lg-6">
+                                                        <label for="name">Lecture Video Link</label>
+                                                        <input type="text" class="form-control"
+                                                            name="lecture_video_link"
+                                                            placeholder="Enter Lecture Video Link" />
                                                     </div>
+                                                    <button data-repeater-delete type="button" class="btn btn-soft-danger btn-sm repeater-del-btn" value="Delete"><i class="bi bi-x"></i></button>
                                                 </div>
                                             </div>
                                             <div class="d-flex gap-2">
