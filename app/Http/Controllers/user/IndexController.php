@@ -7,13 +7,15 @@ use Illuminate\Http\Request;
 use App\Models\Notice;
 use App\Models\Faq;
 use App\Models\Offline_course;
+use App\Models\Course;
 
 class IndexController extends Controller
 {
     //
     public function index(){
         $offline_courses = Offline_course::with('getTutorName')->get();
-        return view('user.index',compact('offline_courses'));
+        $courses = Course::get();
+        return view('user.index',compact('offline_courses','courses'));
     }
     
     public function notice(){
