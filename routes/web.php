@@ -55,6 +55,9 @@ Route::get('/review', [ReviewController::class, 'review'])->name('review');
 //Notice
 Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');
 
+//Faq
+Route::get('/faq', [IndexController::class, 'faq'])->name('web-faq');
+
 Route::middleware('auth')->group(function () {
 
     Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
