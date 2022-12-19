@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Service\VideoHandler;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Reservation;
 use App\Models\Review;
 use Illuminate\Http\Request;
@@ -49,9 +50,8 @@ class ReviewController extends Controller
             }
         }
         $latest_review = $review[$review->count() - 1];
-
-
-        return view('user.review', compact('review', 'latest_review', 'embedded_video'));
+        $category  = Category::with('getReviews')->get();
+        return view('user.review', compact('review', 'latest_review', 'embedded_video', 'category'));
     }
 
     function upload_files($file)
@@ -80,6 +80,7 @@ class ReviewController extends Controller
 
         $review = Review::create([
             'course_id' => $request->course_id,
+            'categroy_id' => $request->categroy_id,
             'user_id' => auth()->id(),
             'title' => $request['title'],
             'content' => $request['contents'],

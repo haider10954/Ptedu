@@ -62,134 +62,70 @@
         <h5 class="heading mb-0 text-center">PTEdu Course Review</h5>
         <div class="w-50 review_tabs m-auto py-5">
             <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">
+                @foreach($category as $c)
                 <li class="nav-item">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Physical Teraphy</a>
+                    <a class="nav-link {{ ($loop->index == 0 ) ? 'active' : '' }}" id="pills-{{$c->id}}" data-toggle="pill" href="#pill-{{ $c->id }}" role="tab" aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Pilates</a>
-                </li>
+                @endforeach
             </ul>
             <div class="tab-content" id="pills-tabContent">
-                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                @foreach($category as $r)
+                <div class="tab-pane fade {{ ($loop->index == 0 ) ? 'active show' : '' }}" id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
+                    @if($r->getReviews->count() > 0)
+                    @foreach($r->getReviews as $v)
                     <div class="review_box mb-3">
                         <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">보행 A에서 z까지</small>
+                            <small class="text-muted">{{ $v->created_at->format('Y.m.d') }}</small>
                             <div class="d-flex align-items-center gap-1 rating-stars">
+                                @if($v->rating == 1)
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($v->rating == 2)
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($v->rating == 3)
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($v->rating == 4)
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="fas fa-star"></i>
                                 <i class="far fa-star"></i>
+                                @else
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                @endif
                             </div>
                         </div>
-                        <p class="font-weight-600 mb-2">동료의 소개로 수강을 하게 되었습니다.</p>
-                        <p class="mb-0">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다! :)</p>
+                        <p class="font-weight-600 mb-2">{{ $v->title }}.</p>
+                        <p class="mb-0">{{ $v->content }}</p>
                     </div>
-                    <div class="review_box mb-3">
-                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">보행 A에서 z까지</small>
-                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="font-weight-600 mb-2">동료의 소개로 수강을 하게 되었습니다.</p>
-                        <p class="mb-0">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다! :)</p>
+                    @endforeach
+                    @else
+                    <div class="text-center">
+                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                     </div>
-                    <div class="review_box mb-3">
-                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">보행 A에서 z까지</small>
-                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="font-weight-600 mb-2">동료의 소개로 수강을 하게 되었습니다.</p>
-                        <p class="mb-0">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다! :)</p>
-                    </div>
-                    <div class="review_box mb-3">
-                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">보행 A에서 z까지</small>
-                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="font-weight-600 mb-2">동료의 소개로 수강을 하게 되었습니다.</p>
-                        <p class="mb-0">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다! :)</p>
-                    </div>
+                    @endif
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <div class="review_box mb-3">
-                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">보행 A에서 z까지</small>
-                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="font-weight-600 mb-2">동료의 소개로 수강을 하게 되었습니다.</p>
-                        <p class="mb-0">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다! :)</p>
-                    </div>
-                    <div class="review_box mb-3">
-                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">보행 A에서 z까지</small>
-                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="font-weight-600 mb-2">동료의 소개로 수강을 하게 되었습니다.</p>
-                        <p class="mb-0">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다! :)</p>
-                    </div>
-                    <div class="review_box mb-3">
-                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">보행 A에서 z까지</small>
-                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="font-weight-600 mb-2">동료의 소개로 수강을 하게 되었습니다.</p>
-                        <p class="mb-0">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다! :)</p>
-                    </div>
-                    <div class="review_box mb-3">
-                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">보행 A에서 z까지</small>
-                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="font-weight-600 mb-2">동료의 소개로 수강을 하게 되었습니다.</p>
-                        <p class="mb-0">믿고 들을 수 있는 강의라 생각되어 모두 듣고 있는 강사입니다! 다소 어려운 내용도 쉽고 재밌게 들을 수 있었고 가이드라인을 정말 잘 만들어주셔서 실제 레슨하며 놓치고 있었던 세밀한 부분까지 체크할 수 있었습니다! 실제 현장레슨에 바로 도움이 많이어 적극 강추합니다! :)</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
 </div>
+
 @endsection
 
 @section('custom-script')

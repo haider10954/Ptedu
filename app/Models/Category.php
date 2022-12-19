@@ -13,6 +13,11 @@ class Category extends Model
 
     public function getCourses()
     {
-        return $this->hasMany(Course::class, 'id', 'category_id');
+        return $this->hasMany(Course::class, 'categroy_id', 'id');
+    }
+
+    public function getReviews()
+    {
+        return $this->hasMany(Review::class, 'categroy_id', 'id');
     }
 }

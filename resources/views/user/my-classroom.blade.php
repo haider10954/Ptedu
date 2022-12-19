@@ -245,6 +245,7 @@
                 <div class="prompt"></div>
                 <form id="addReview">
                     @csrf
+                    <input type="hidden" name="categroy_id" value="1">
                     <input type="hidden" name="course_id" value="2">
                     <div class="mb-3">
                         <div class="d-flex align-items-center gap-1 rating-stars">
