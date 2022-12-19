@@ -124,48 +124,50 @@
             </div>
         </div>
     </div>
-    @endsection
+</div>
 
-    @section('custom-script')
-    <script>
-        $('.review_info iframe').attr('width', '');
-        $('.review_info iframe').css('width', '100%');
-        $('.review_info iframe').attr('height', '315');
+@endsection
 
-        $('.review_info video').css('width', '100%');
-        $('.review_info video').css('object-fit', 'cover');
-        $('.review_info video').attr('height', '315');
-        var swiper = new Swiper(".course-reviews-carousel", {
-            slidesPerView: 4,
-            spaceBetween: 30,
-            slidesPerGroup: 3,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            navigation: {
-                nextEl: ".course-reviews-next",
-                prevEl: ".course-reviews-prev",
+@section('custom-script')
+<script>
+    $('.review_info iframe').attr('width', '');
+    $('.review_info iframe').css('width', '100%');
+    $('.review_info iframe').attr('height', '315');
+
+    $('.review_info video').css('width', '100%');
+    $('.review_info video').css('object-fit', 'cover');
+    $('.review_info video').attr('height', '315');
+    var swiper = new Swiper(".course-reviews-carousel", {
+        slidesPerView: 4,
+        spaceBetween: 30,
+        slidesPerGroup: 3,
+        loop: true,
+        loopFillGroupWithBlank: true,
+        navigation: {
+            nextEl: ".course-reviews-next",
+            prevEl: ".course-reviews-prev",
+        },
+        breakpoints: {
+            // when window width is >= 320px
+            320: {
+                slidesPerView: 1,
+                spaceBetween: 10
             },
-            breakpoints: {
-                // when window width is >= 320px
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                },
-                // when window width is >= 480px
-                480: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                },
-                // when window width is >= 640px
-                767: {
-                    slidesPerView: 2,
-                    spaceBetween: 15
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                }
+            // when window width is >= 480px
+            480: {
+                slidesPerView: 1,
+                spaceBetween: 10
+            },
+            // when window width is >= 640px
+            767: {
+                slidesPerView: 2,
+                spaceBetween: 15
+            },
+            992: {
+                slidesPerView: 3,
+                spaceBetween: 20
             }
-        });
-    </script>
-    @endsection
+        }
+    });
+</script>
+@endsection
