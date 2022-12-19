@@ -37,9 +37,14 @@ Route::get('/student/logout', [StudentController::class, 'logout'])->name('stude
 Route::post('/check-user-id', [StudentController::class, 'checkUserId'])->name('check_user_id');
 
 Route::get('/', [IndexController::class, 'index'])->name('web-home');
+
 //Offline Lectures
 Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
 Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
+
+//Online Courses
+Route::get('/online-course-detail/{id}', [LectureController::class, 'online_course_detail'])->name('online_course_detail');
+
 //Reserve Courses 
 Route::post('/reserve-course', [ReservationController::class, 'Reverse_course'])->name('course_reservation');
 Route::post('/delete-reservation', [ReservationController::class, 'delete_Reverse_course'])->name('delete_reservation');

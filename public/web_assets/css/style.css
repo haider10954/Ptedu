@@ -1474,3 +1474,16 @@ header .btn.transparent, .btn.solid:hover {
 .pb-40 {
     padding-bottom: 40px;
 }
+
+.offline-course-img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.text-theme-dark{
+    color: #212529;
+}
+.text-theme-dark:hover{
+    color: #464b4f;
+}

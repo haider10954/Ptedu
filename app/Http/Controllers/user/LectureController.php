@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Offline_course;
+use App\Models\Course;
 use App\Models\Reservation;
 use App\Service\VideoHandler;
 
@@ -12,7 +13,8 @@ class LectureController extends Controller
 {
     public function offline_lectures()
     {
-        return view('user.offline-lectures');
+        $offline_courses = Offline_course::with('getTutorName')->paginate(8);
+        return view('user.offline-lectures',compact('offline_courses'));
     }
 
     public function lecture_detail()
@@ -33,5 +35,16 @@ class LectureController extends Controller
     public function my_classroom()
     {
         return view('user.my-classroom');
+    }
+
+    public function online_course_detail($id)
+    {
+        $course_info = Course::with('getTutorName')->where('id', $id)->first();
+        // dd($course_info);
+        $video_handler = new VideoHandler();
+		$video_info =  $video_handler->getVideoInfo( $course_info->video_url );
+        $embedded_video_url = $video_info->html;
+        $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
+        return view('user.online-course-detail', compact('reservation', 'course_info', 'embedded_video_url'));
     }
 }
