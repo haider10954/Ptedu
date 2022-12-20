@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use App\Models\Offline_course;
+use App\Models\Offline_enrollment;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,27 @@ class ReservationController extends Controller
         $reservation = Reservation::where('course_id', $id)->paginate(10);
         return view('admin.offline_lectures.waiting_listing', compact('reservations', 'reservation'));
     }
+
+    public function offline_course_enrollment(Request $request)
+    {
+        $offline_course_enrollment = Offline_enrollment::create([
+            'user_id' => auth()->id(),
+            'course_id' => $request->id,
+        ]);
+
+        if ($offline_course_enrollment) {
+            return json_encode([
+                'success' => true,
+                'message' => 'You have Enrolled Course Successfully',
+            ]);
+        } else {
+            return json_encode([
+                'success' => false,
+                'message' => 'An Unknown Error Exist , Please try again',
+            ]);
+        }
+    }
+
     public function Reverse_course(Request $request)
     {
         $addReservation = Reservation::create([
