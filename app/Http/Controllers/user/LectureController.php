@@ -47,4 +47,8 @@ class LectureController extends Controller
         $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
         return view('user.online-course-detail', compact('reservation', 'course_info', 'embedded_video_url'));
     }
+
+    public function lecture_video(){
+        return view('user.lecture-video');
+    }
 }
