@@ -205,6 +205,8 @@
 <script>
     $('.applyBtn').on('click', function() {
         $('#confirmReserveId').val($(this).attr('data-id'));
+
+        $('#confirmEnrollmentId').val($(this).attr('data-id'));
     });
 
     $('.delBtn').on('click', function() {
@@ -253,7 +255,7 @@
             url: "{{ route('offline_course_enrollment') }}",
             type: 'POST',
             data: {
-                id: $('#confirmReserveTicketId').val(),
+                id: $('#confirmEnrollmentId').val(),
                 _token: "{{csrf_token()}}"
             },
             success: function(res) {
