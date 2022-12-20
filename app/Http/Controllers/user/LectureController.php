@@ -31,7 +31,8 @@ class LectureController extends Controller
         $embedded_video_url = $video_info->html;
         $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
         $offline_enrollment_count = Offline_enrollment::where('course_id', $id)->count();
-        return view('user.offline-lecture-detail', compact('reservation', 'course_info', 'embedded_video_url', 'offline_enrollment_count'));
+        $enrolled_user = Offline_enrollment::where('course_id', $id)->where('user_id', auth()->id())->count();
+        return view('user.offline-lecture-detail', compact('reservation', 'course_info', 'embedded_video_url', 'offline_enrollment_count', 'enrolled_user'));
     }
 
     public function my_classroom()
