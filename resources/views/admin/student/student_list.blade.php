@@ -74,10 +74,18 @@
 
 <div class="card">
     <div class="card-body">
+        <div>
+            @if (Session::has('message'))
+            <p class="alert alert-info" id="responseMessage">{{ Session::get('message') }}</p>
+            @endif
+            @if (Session::has('error'))
+            <p class="alert alert-danger" id="responseMessage">{{ Session::get('error') }}</p>
+            @endif
+        </div>
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Student List (350)</h4>
+                    <h4 class="mb-sm-0  Card_title">Student List ({{ $student->count()  }})</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -94,15 +102,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if($student->count() > 0)
+                        @foreach($student as $item)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $loop->index + 1 }}</td>
                             <td>
-                                <span class="course_name">홍길동</span>
+                                <span class="course_name">{{ $item->name }}</span>
                             </td>
                             <td>
-                                <span class="course_name">ash123@naver.com</span>
+                                <span class="course_name">{{ $item->email }}</span>
                             </td>
-                            <td><span class="course_name">010-0000-0000</span></td>
+                            <td><span class="course_name">{{ $item->mobile_number }}</span></td>
                             <td>
                                 <span class="course_name">
                                     <ul style="list-style: none; padding-left:0px !important;">
@@ -120,157 +130,68 @@
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info',$item->id)}}"><i class="bi bi-pencil"></i></a>
+                                    <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $item->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
-
+                        @endforeach
+                        @else
                         <tr>
-                            <td>2</td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">ash123@naver.com</span>
-                            </td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td>
-                                <span class="course_name">
-                                    <ul style="list-style: none; padding-left:0px !important;">
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                    </ul>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
+                            <td class="text-center">
+                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                         </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">ash123@naver.com</span>
-                            </td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td>
-                                <span class="course_name">
-                                    <ul style="list-style: none; padding-left:0px !important;">
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                    </ul>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">ash123@naver.com</span>
-                            </td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td>
-                                <span class="course_name">
-                                    <ul style="list-style: none; padding-left:0px !important;">
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                    </ul>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">ash123@naver.com</span>
-                            </td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td>
-                                <span class="course_name">
-                                    <ul style="list-style: none; padding-left:0px !important;">
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                    </ul>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>6</td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">ash123@naver.com</span>
-                            </td>
-                            <td><span class="course_name">010-0000-0000</span></td>
-                            <td>
-                                <span class="course_name">
-                                    <ul style="list-style: none; padding-left:0px !important;">
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                    </ul>
-                                </span>
-                            </td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
+                        @endif
                     </tbody>
                 </table>
 
-                <div class="paginate mt-4 mb-3">
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-
-                    <a href="javascript:void(0)" class="active">1</a>
-                    <a href="javascript:void(0)">2</a>
-                    <a href="javascript:void(0)">3</a>
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-right"></i></a>
-                </div>
-
+                {{ $student->links('vendor.pagination.custom-pagination-admin') }}
             </div>
         </div>
     </div>
 </div>
 
+<!-- Delete Record -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="{{ route('delete-student')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <p>Are you sure to delete ?</p>
+                        <input id="del_id" type="hidden" name="id">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-danger">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('custom-script')
+<script>
+    var delModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+
+    function delete_record(id) {
+        $('#del_id').val(id);
+        delModal.show();
+    }
+
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+</script>
 @endsection

@@ -18,6 +18,8 @@ use App\Http\Controllers\user\InquiryController;
 use App\Http\Controllers\user\LectureController;
 use App\Http\Controllers\user\ReservationController;
 use App\Http\Controllers\user\StudentController;
+use App\Http\Controllers\admin\StudentController as AdminStudentController;
+use App\Models\Admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -181,13 +183,11 @@ Route::prefix('admin')->group(function () {
         Route::get('/review-management', [ReviewController::class, 'admin_side_listing'])->name('reviews');
         Route::post('/delete-review', [ReviewController::class, 'delete_review'])->name('delete-review');
 
-        Route::get('/student-list', function () {
-            return view('admin.student.student_list');
-        })->name('student');
-
-        Route::get('/student--info', function () {
-            return view('admin.student.student_info');
-        })->name('student_info');
+        //Students
+        Route::get('/student-list', [AdminStudentController::class, 'student_admin_listing'])->name('student');
+        Route::post('/delete-student', [AdminStudentController::class, 'delete_student'])->name('delete-student');
+        Route::get('/student-info/{id}', [AdminStudentController::class, 'edit_student'])->name('student_info');
+        Route::post('/update-student-info', [AdminStudentController::class, 'edit_student_info'])->name('edit_student_info');
 
         //Tutor
         Route::get('/tutor', [TutorController::class, 'tutor_listing'])->name('tutor');

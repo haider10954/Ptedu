@@ -100,42 +100,46 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-12">
-                <form>
+                <div class="prompt"></div>
+                <form id="editForm">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $student->id}}">
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-firstname-input" name="name">
+                            <input type="text" class="form-control" id="horizontal-firstname-input" name="name" value="{{ $student->name }}">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">English Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-email-input" name="en_name">
+                            <input type="text" class="form-control" id="horizontal-email-input" name="en_name" value="{{ $student->english_name }}">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">ID(Email)</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" id="horizontal-password-input" name="email">
+                            <input type="email" class="form-control" id="horizontal-password-input" name="email" value="{{ $student->email }}">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Phone Number</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-email-input" name="phone_numberx">
+                            <input type="text" class="form-control" id="horizontal-email-input" name="phone_number" value="{{ $student->mobile_number }}">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Job</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="job"></input>
+                            <input type="text" class="form-control" name="job" value="{{ $student->job }}">
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Address</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="address"></input>
+
+                            <textarea rows="3" type="text" class="form-control" name="address" style="resize: none;">{{ str_replace('|' ,',', $student->address) }}</textarea>
                         </div>
                     </div>
 
@@ -149,7 +153,7 @@
 
                     <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">
-                            <button type="submit" class="btn btn-lg btn-register">Ok</button>
+                            <button type="submit" id="submitForm" class="btn btn-lg btn-register">Ok</button>
                         </div>
                     </div>
 
@@ -158,4 +162,63 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $("#editForm").on('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData($("#editForm")[0]);
+        formData = new FormData($("#editForm")[0]);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('edit_student_info') }}",
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            cache: false,
+            data: formData,
+            beforeSend: function() {
+                $("#submitForm").prop('disabled', true);
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+            },
+            success: function(res) {
+                $("#submitForm").attr('class', 'btn btn-success');
+                $("#submitForm").html('<i class="fa fa-check me-1"></i>  Student Record Updated</>');
+                if (res.success) {
+                    $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
+                    setTimeout(function() {
+                        $('html, body').animate({
+                            scrollTop: $("html, body").offset().top
+                        }, 1000);
+                    }, 1500);
+
+                    setTimeout(function() {
+                        $('.prompt').hide()
+                        window.location.href = "{{ route('student') }}";
+                    }, 4000);
+
+                } else {}
+            },
+            error: function(e) {
+                $("#submitForm").prop('disabled', false);
+                $("#submitForm").html('Submit');
+                if (e.responseJSON.errors['name']) {
+                    $('.error-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['name'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['en_name']) {
+                    $('.error-en-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['en_name'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['mobile']) {
+                    $('.error-mobile-number').html('<small class=" error-message text-danger">' + e.responseJSON.errors['mobile'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['address']) {
+                    $('.error-address').html('<small class=" error-message text-danger">' + e.responseJSON.errors['address'][0] + '</small>');
+                }
+            }
+
+        });
+    });
+</script>
+
 @endsection
