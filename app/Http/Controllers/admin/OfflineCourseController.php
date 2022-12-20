@@ -56,6 +56,7 @@ class OfflineCourseController extends Controller
             'video_url' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',
             'banner_img' => 'required|mimes:jpeg,png,jpg',
+            'no_of_enrollments' => 'required',
         ]);
         $course_thumbnail = $this->upload_files($request['course_img']);
         $course_banner = $this->upload_files_banner($request['banner_img']);
@@ -71,7 +72,9 @@ class OfflineCourseController extends Controller
             'discounted_prize' => $request['discounted_Price'],
             'video_url' => $request['video_url'],
             'course_thumbnail' => $course_thumbnail,
-            'course_banner' => $course_banner
+            'course_banner' => $course_banner,
+            'no_of_enrollments' => $request['no_of_enrollments']
+
         ]);
 
         if ($offline_course) {
@@ -129,6 +132,7 @@ class OfflineCourseController extends Controller
             'video_url' => 'required',
             'course_img' => 'mimes:jpeg,png,jpg',
             'banner_img' => 'mimes:jpeg,png,jpg',
+            'no_of_enrollments' => 'required',
         ]);
 
         if ($request->hasFile('course_img')) {
@@ -149,7 +153,7 @@ class OfflineCourseController extends Controller
         $data['price'] = $request['price'];
         $data['discounted_prize'] = $request['discounted_Price'];
         $data['video_url'] = $request['video_url'];
-
+        $data['no_of_enrollments'] = $request['no_of_enrollments'];
         $offline_course = Offline_course::where('id', $request->id)->update($data);
 
         if ($offline_course) {

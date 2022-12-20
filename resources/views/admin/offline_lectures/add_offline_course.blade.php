@@ -218,6 +218,14 @@
                     </div>
 
                     <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">Total No Of Enrollments</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" placeholder="Enter No Of Enrollments" name="no_of_enrollments">
+                            <div class="error-no-of-enrollments"></div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
                             <button type="submit" id="submitForm" class="btn btn-lg btn-register">Register</button>
@@ -312,6 +320,9 @@
                 }
                 if (e.responseJSON.errors['banner_img']) {
                     $('.error-course-banner').html('<span class=" error-message text-danger">' + e.responseJSON.errors['banner_img'][0] + '</span>');
+                }
+                if (e.responseJSON.errors['no_of_enrollments']) {
+                    $('.error-no-of-enrollments').html('<span class=" error-message text-danger">' + e.responseJSON.errors['no_of_enrollments'][0] + '</span>');
                 }
             }
         });

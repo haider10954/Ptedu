@@ -44,6 +44,9 @@ Route::get('/', [IndexController::class, 'index'])->name('web-home');
 Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
 Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
 
+//Offline_Course_Enrollment
+Route::post('/offline-course-enrollment' , [ReservationController::class , 'offline_course_enrollment'])->name('offline_course_enrollment');
+
 //Online Courses
 Route::get('/online-course-detail/{id}', [LectureController::class, 'online_course_detail'])->name('online_course_detail');
 

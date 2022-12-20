@@ -33,6 +33,7 @@
                     <button class="btn btn-danger btn-sm w-100 mb-2 delBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#delReservationModal">마감</button>
 
                     @if(auth()->check())
+                    @if($offline_enrollment_count >= $course_info->no_of_enrollments )
                     @if($reservation)
                     @if($reservation->status == 'applied')
                     <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Waiting For Reservation</button>
@@ -43,6 +44,9 @@
                     @endif
                     @else
                     <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">Apply</button>
+                    @endif
+                    @else
+                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">Enroll Now</button>
                     @endif
                     @endif
 
@@ -137,11 +141,34 @@
             </div>
             <div class="modal-body">
                 <div class="prompt"></div>
-                <input type="hidden" id="confirmReserveTicketId" name="id">
+                <input type="hidden" id="confirmReserveId" name="id">
                 <p>Are you sure to reserve this course.</p>
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="javascript:void(0)" id="confirmReservation">Save changes</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="enrollmentModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirm Enrollment</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="prompt"></div>
+                <input type="hidden" id="confirmEnrollmentId" name="id">
+                <p>Are you sure to enroll in this course.</p>
+            </div>
+            <div class="modal-footer">
+                <a class="btn btn-primary" href="javascript:void(0)" id="confirmEnrollment">Appply</a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -177,7 +204,9 @@
 @section('custom-script')
 <script>
     $('.applyBtn').on('click', function() {
-        $('#confirmReserveTicketId').val($(this).attr('data-id'));
+        $('#confirmReserveId').val($(this).attr('data-id'));
+
+        $('#confirmEnrollmentId').val($(this).attr('data-id'));
     });
 
     $('.delBtn').on('click', function() {
@@ -192,7 +221,41 @@
             url: "{{ route('course_reservation') }}",
             type: 'POST',
             data: {
-                id: $('#confirmReserveTicketId').val(),
+                id: $('#confirmReserveId').val(),
+                _token: "{{csrf_token()}}"
+            },
+            success: function(res) {
+                if (res.success) {
+                    $(".prompt").show();
+                    $(".prompt").html('<div class="alert alert-success mb-3"><i class="fa fa-check mx-2"></i>' + res.message + '</div>');
+                    $(".applyBtn").attr('disabled', true);
+                    setTimeout(function() {
+                        $(".prompt").hide();
+                    }, 2000);
+                    window.location.reload();
+                } else {
+                    $(".prompt").show();
+                    $(".prompt").html('<div class="alert alert-danger mb-3"><i class="fa fa-exclamation-triangle mx-2"></i>' + res.message + '</div>');
+                    setTimeout(function() {
+                        $("#confirmReservation").html('Confirm');
+                        $("#confirmReservation").removeAttr('disabled');
+                        $(".prompt").hide();
+                    }, 2000);
+                }
+            }
+        });
+    });
+
+    $('#confirmEnrollment').on('click', function() {
+        $("#confirmEnrollment").html('<i class="fa fa-spinner fa-spin"></i> Processing');
+
+        $("#confirmEnrollment").prop('disabled', true);
+        $.ajax({
+            dataType: 'json',
+            url: "{{ route('offline_course_enrollment') }}",
+            type: 'POST',
+            data: {
+                id: $('#confirmEnrollmentId').val(),
                 _token: "{{csrf_token()}}"
             },
             success: function(res) {
