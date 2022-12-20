@@ -172,7 +172,7 @@
                 <p>Are you sure to enroll in this course.</p>
             </div>
             <div class="modal-footer">
-                <a class="btn btn-primary" href="javascript:void(0)" id="confirmEnrollment">Appply</a>
+                <a class="btn btn-primary" href="javascript:void(0)" id="confirmEnrollment">Apply</a>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
