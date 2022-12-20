@@ -45,6 +45,8 @@ Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_le
 //Online Courses
 Route::get('/online-course-detail/{id}', [LectureController::class, 'online_course_detail'])->name('online_course_detail');
 
+Route::get('lecture-video', [LectureController::class, 'lecture_video'])->name('lecture_video');
+
 //Reserve Courses 
 Route::post('/reserve-course', [ReservationController::class, 'Reverse_course'])->name('course_reservation');
 Route::post('/delete-reservation', [ReservationController::class, 'delete_Reverse_course'])->name('delete_reservation');
