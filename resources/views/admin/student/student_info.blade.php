@@ -180,7 +180,7 @@
             data: formData,
             beforeSend: function() {
                 $("#submitForm").prop('disabled', true);
-                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i>');
             },
             success: function(res) {
                 $("#submitForm").attr('class', 'btn btn-success');
