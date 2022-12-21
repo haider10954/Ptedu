@@ -116,12 +116,17 @@
                             <td>
                                 <span class="course_name">
                                     <ul style="list-style: none; padding-left:0px !important;">
-
+                                        @if ($item->getCourses->count() > 0)
                                         @foreach($item->getCourses as $course)
                                         <li class="border-0 mb-2">
                                             {{ $course->getCousreName->course_title }} <br />
                                         </li>
                                         @endforeach
+                                        @else
+                                        <li class="border-0 mb-2">
+                                            No Enrollment Yet
+                                        </li>
+                                        @endif
                                     </ul>
                                 </span>
                             </td>
