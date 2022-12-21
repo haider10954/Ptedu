@@ -116,15 +116,12 @@
                             <td>
                                 <span class="course_name">
                                     <ul style="list-style: none; padding-left:0px !important;">
+
+                                        @foreach($item->getCourses as $course)
                                         <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
+                                            {{ $course->getCousreName->course_title }} <br />
                                         </li>
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
-                                        <li class="border-0 mb-2">
-                                            보행 A에서 Z까지
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </span>
                             </td>

@@ -9,4 +9,9 @@ class Offline_enrollment extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function getCousreName()
+    {
+    return $this->hasOne(Offline_course::class , 'id', 'course_id');
+    }
 }

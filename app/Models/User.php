@@ -37,4 +37,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function getCourses()
+    {
+        return $this->hasMany(Offline_enrollment::class, 'user_id', 'id');
+    }
 }
