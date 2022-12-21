@@ -117,7 +117,7 @@
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0  Card_title">Course List > Online Course List ({{ $course->count() }})</h4>
-                    <a class="btn btn-sm btn-add-lecture" href="{{ route('add_lectures')}}">Add Course</a>
+                    <a class="btn btn-sm btn-add-lecture" href="{{ route('add_course')}}">Add Course</a>
                 </div>
                 <hr class="hr-color" />
             </div>
