@@ -117,7 +117,7 @@
                         <label class="col-sm-2 col-form-label lecture-form">Category</label>
                         <div class="col-sm-10">
                             <select type="text" class="form-control" name="category">
-                                <option>Select Category</option>
+                                <option value="">Select Category</option>
                                 @foreach ($category as $cat)
                                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                 @endforeach
