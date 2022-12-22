@@ -453,6 +453,7 @@
 
                     setTimeout(function() {
                         $('.prompt').hide()
+                        window.location.reload();
                     }, 4000);
 
                 } else {}
