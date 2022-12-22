@@ -107,8 +107,8 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Question</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="question" placeholder="Enter title">
-                            @error('title')
+                            <input type="text" class="form-control" name="question" placeholder="Enter title" value="{{ old('question') }}">
+                            @error('question')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
                         </div>
@@ -117,7 +117,7 @@
                         <label class="col-sm-2 col-form-label lecture-form">Category</label>
                         <div class="col-sm-10">
                             <select type="text" class="form-control" name="category">
-                                <option>Select Category</option>
+                                <option value="">Select Category</option>
                                 @foreach ($category as $cat)
                                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                 @endforeach
@@ -131,8 +131,8 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Answer</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="testing" placeholder="Enter content" name="answer"></textarea>
-                            @error('content')
+                            <textarea class="form-control" id="testing" placeholder="Enter content" name="answer">{{ old('answer') }}</textarea>
+                            @error('answer')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
                         </div>
