@@ -257,6 +257,7 @@
                                 <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 star</label>
                             </ul>
                         </div>
+                        <div class="error-rating"></div>
                     </div>
                     <div class="row align-items-center mb-3">
                         <div class="col-lg-2">
@@ -452,14 +453,16 @@
 
                     setTimeout(function() {
                         $('.prompt').hide()
-                        // window.location.href = "{{ route('user_login') }}";
                     }, 4000);
 
                 } else {}
             },
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
-                $("#submitForm").html('Register');
+                $("#submitForm").html('Add Review');
+                if (e.responseJSON.errors['rating']) {
+                    $('.error-rating').html('<small class=" error-message text-danger">' + e.responseJSON.errors['rating'][0] + '</small>');
+                }
                 if (e.responseJSON.errors['title']) {
                     $('.error-title').html('<small class=" error-message text-danger">' + e.responseJSON.errors['title'][0] + '</small>');
                 }
