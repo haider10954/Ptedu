@@ -405,7 +405,8 @@
                     </div>
                 </div>
                 <div class="my-3 d-flex align-items-center justify-content-center">
-                    <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-black" data-dismiss="modal">Download</button>
+                    <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-black">Download</button>
+                    <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-light" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>

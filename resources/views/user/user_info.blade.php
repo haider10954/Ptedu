@@ -58,7 +58,7 @@
                                 <div class="ml-4">
                                     <p class="mb-0">* Please register your profile picture. <br /> * Image file size up to less than 2MB</p>
                                     <div class="d-flex mt-2">
-                                        <button type="button" class="btn rounded-0 btn-theme-delete mr-2 uploadImage">Register</button>
+                                        <button type="button" class="btn rounded-0 btn-theme-delete mr-2 uploadImage">Upload</button>
                                         <a class="btn rounded-0 btn-theme-delete" id="delete">Delete</a>
                                     </div>
                                 </div>

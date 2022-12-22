@@ -20,7 +20,6 @@ class StudentController extends Controller
             'password' => 'required|min:6|same:confirm_password',
             'job' => 'required',
             'country_code' => 'required',
-            'sim_code' => 'required',
             'mobile' => 'required',
             'email_name' => 'required',
             'email_extension' => 'required',
@@ -34,7 +33,7 @@ class StudentController extends Controller
             'user_id' => $request['user_id'],
             'password' => Hash::make($request->password),
             'job' => $request['job'],
-            'mobile_number' => $request['country_code'] . $request['sim_code'] . $request['mobile'],
+            'mobile_number' => $request['country_code'] . $request['mobile'],
             'email' => $request['email_name'] . '@' . $request['email_extension'],
             'address' => $request['address'] . '|' . $request['house_no'] . '|' . $request['street_no'],
         ]);
@@ -91,6 +90,12 @@ class StudentController extends Controller
             [
                 'success' => true,
                 'message' => 'The value is not duplicated'
+            ]
+        );
+        return json_encode(
+            [
+                'success' => false,
+                'message' => 'The value is duplicated'
             ]
         );
     }

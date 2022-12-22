@@ -99,7 +99,7 @@
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                                 <div>
-                                    <input type="password" class="form-control" name="password" placeholder="Combination of 8 or more alphanumeric characters + numbers" value="{{ old('password') }}">
+                                    <input type="password" class="form-control" name="password" placeholder="Min of 6 character" value="{{ old('password') }}">
                                     <div class="error-pass"></div>
                                 </div>
                             </div>
@@ -177,12 +177,6 @@
                                 </div>
                                 <div class="mr-2 mb-1 mb-md-0">
                                     <div>
-                                        <input type="text" class="form-control custom_width " name="sim_code" placeholder="mobile number" value="{{ old('mobile') }}">
-                                        <div class="error-mobile-number d-block"></div>
-                                    </div>
-                                </div>
-                                <div class="mr-2 mb-1 mb-md-0">
-                                    <div>
                                         <input type="text" class="form-control custom_width" name="mobile" placeholder="mobile number" value="{{ old('mobile') }}">
                                         <div class="error-mobile-number d-block"></div>
                                     </div>
@@ -228,11 +222,11 @@
                         <div class="col-9 pl-0">
                             <div class="d-flex  bottom-border flex-column" style="padding-left:10px; height:115px;">
                                 <div class="mt-2">
-                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}">
+                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="Enter your Address">
                                 </div>
                                 <div class="d-flex">
-                                    <input type="text" class="form-control mr-2 mt-1" name="house_no" value="{{ old('address') }}">
-                                    <input type="text" class="form-control mt-1" name="street_no" value="{{ old('address') }}">
+                                    <input type="text" class="form-control mr-2 mt-1" name="house_no" value="{{ old('address') }}" placeholder="House Number">
+                                    <input type="text" class="form-control mt-1" name="street_no" value="{{ old('address') }}" placeholder="Street No">
                                 </div>
                                 <div class="error-address"></div>
                             </div>
@@ -325,7 +319,7 @@
                 if (res.success) {
                     $('.error-duplicate').html('<small class=" error-message text-success mb-3">' + res.message + '</small>');
                 } else {
-
+                    $('.error-duplicate').html('<small class=" error-message text-danger mb-3">' + res.message + '</small>');
                 }
             },
             error: function(e) {
