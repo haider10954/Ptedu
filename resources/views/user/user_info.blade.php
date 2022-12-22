@@ -253,11 +253,11 @@
                             <div class="col-9 pl-0">
                                 <div class="d-flex  bottom-border flex-column" style="padding-left:10px; height:110px;">
                                     <div class="mt-2">
-                                        <input type="text" class="form-control" name="address" value="{{ $address[0] }}">
+                                        <input type="text" class="form-control" name="address" value="{{ $address[0] }}" placeholder="Enter Address">
                                     </div>
                                     <div class="d-flex">
-                                        <input type="text" class="form-control mr-2 mt-1" name="house_no" value="{{ $address[1] }}">
-                                        <input type="text" class="form-control mt-1" name="street_no" value="{{ $address[2] }}">
+                                        <input type="text" class="form-control mr-2 mt-1" name="house_no" value="{{ $address[1] }}" placeholder="Enter House No">
+                                        <input type="text" class="form-control mt-1" name="street_no" value="{{ $address[2] }}" placeholder="Enter Street number">
                                     </div>
                                     @error('address')
                                     <small style="color:#d02525;">{{$message}}</small>
