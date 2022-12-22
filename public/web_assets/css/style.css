@@ -110,12 +110,14 @@ header .btn {
     transition: .3s;
 }
 
-header .btn.solid, .btn.transparent:hover {
+header .btn.solid,
+.btn.transparent:hover {
     background-color: #000000;
     color: #ffffff;
 }
 
-header .btn.transparent, .btn.solid:hover {
+header .btn.transparent,
+.btn.solid:hover {
     background-color: transparent;
     color: #000000;
 }
@@ -368,7 +370,8 @@ header .btn.transparent, .btn.solid:hover {
         background-color: #50a9d6;
     } */
 
-    .dropdown, .dropdown.second {
+    .dropdown,
+    .dropdown.second {
         position: initial;
         top: initial;
         left: initial;
@@ -595,21 +598,25 @@ header .btn.transparent, .btn.solid:hover {
     position: relative;
 }
 
-.courses-type .section-part .swiper-button-next, .courses-type .section-part .swiper-rtl .swiper-button-prev {
+.courses-type .section-part .swiper-button-next,
+.courses-type .section-part .swiper-rtl .swiper-button-prev {
     right: -50px;
     top: 62%;
 }
 
-.courses-type .section-part .swiper-button-prev, .courses-type .section-part .swiper-rtl .swiper-button-next {
+.courses-type .section-part .swiper-button-prev,
+.courses-type .section-part .swiper-rtl .swiper-button-next {
     left: -50px;
     top: 62%;
 }
 
-.swiper-button-next:after, .swiper-button-prev:after {
+.swiper-button-next:after,
+.swiper-button-prev:after {
     font-size: 22px;
 }
 
-.courses-type .section-part .swiper-button-next:after, .courses-type .section-part .swiper-button-prev:after {
+.courses-type .section-part .swiper-button-next:after,
+.courses-type .section-part .swiper-button-prev:after {
     color: #ffffff;
 }
 
@@ -625,17 +632,20 @@ header .btn.transparent, .btn.solid:hover {
     position: relative;
 }
 
-.courses-review .section-part .swiper-button-next, .courses-review .section-part .swiper-rtl .swiper-button-prev {
+.courses-review .section-part .swiper-button-next,
+.courses-review .section-part .swiper-rtl .swiper-button-prev {
     right: -50px;
     top: 62%;
 }
 
-.courses-review .section-part .swiper-button-prev, .courses-review .section-part .swiper-rtl .swiper-button-next {
+.courses-review .section-part .swiper-button-prev,
+.courses-review .section-part .swiper-rtl .swiper-button-next {
     left: -50px;
     top: 62%;
 }
 
-.courses-review .section-part .swiper-button-next:after, .courses-review .section-part .swiper-button-prev:after {
+.courses-review .section-part .swiper-button-next:after,
+.courses-review .section-part .swiper-button-prev:after {
     color: #ffffff;
 }
 
@@ -677,16 +687,15 @@ header .btn.transparent, .btn.solid:hover {
     padding-top: 20px;
 }
 
-.custom_label_height{
-    height:69px;
+.custom_label_height {
+    height: 69px;
 }
 
-.custom_height_email
-{
-    height:69px
+.custom_height_email {
+    height: 69px
 }
 
-.custom_height_email_input{
+.custom_height_email_input {
     height: 70px;
 }
 
@@ -695,18 +704,19 @@ header .btn.transparent, .btn.solid:hover {
         width: 80%;
     }
 
-    .custom_height_email{
-        height:99px
+    .custom_height_email {
+        height: 99px
     }
-    .custom_height_email_input{
+
+    .custom_height_email_input {
         height: 100px;
     }
 
-    .custom_label_height{
+    .custom_label_height {
         height: 209px;
     }
 
-    .custom_height_phone{
+    .custom_height_phone {
         height: 210px;
         flex-direction: column;
     }
@@ -762,19 +772,24 @@ header .btn.transparent, .btn.solid:hover {
 }
 
 @media only screen and (max-width:428px) {
-    .courses-type .section-part .swiper-button-prev, .courses-type .section-part .swiper-rtl .swiper-button-next {
+
+    .courses-type .section-part .swiper-button-prev,
+    .courses-type .section-part .swiper-rtl .swiper-button-next {
         left: -32px;
     }
 
-    .courses-type .section-part .swiper-button-next, .courses-type .section-part .swiper-rtl .swiper-button-prev {
+    .courses-type .section-part .swiper-button-next,
+    .courses-type .section-part .swiper-rtl .swiper-button-prev {
         right: -32px;
     }
 
-    .courses-review .section-part .swiper-button-prev, .courses-review .section-part .swiper-rtl .swiper-button-next {
+    .courses-review .section-part .swiper-button-prev,
+    .courses-review .section-part .swiper-rtl .swiper-button-next {
         left: -32px;
     }
 
-    .courses-review .section-part .swiper-button-next, .courses-review .section-part .swiper-rtl .swiper-button-prev {
+    .courses-review .section-part .swiper-button-next,
+    .courses-review .section-part .swiper-rtl .swiper-button-prev {
         right: -32px;
     }
 }
@@ -982,7 +997,8 @@ header .btn.transparent, .btn.solid:hover {
     opacity: 1;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     background-color: #ffffff;
     color: #000000;
     border-bottom: 1px solid #000000;
@@ -1012,17 +1028,20 @@ header .btn.transparent, .btn.solid:hover {
     background: #efefef;
 }
 
-.courses_reviews_carousel .swiper-button-next, .courses_reviews_carousel .swiper-rtl .swiper-button-prev {
+.courses_reviews_carousel .swiper-button-next,
+.courses_reviews_carousel .swiper-rtl .swiper-button-prev {
     right: -4.5%;
     left: auto;
 }
 
-.courses_reviews_carousel .swiper-button-prev, .courses_reviews_carousel .swiper-rtl .swiper-button-next {
+.courses_reviews_carousel .swiper-button-prev,
+.courses_reviews_carousel .swiper-rtl .swiper-button-next {
     left: -4.5%;
     right: auto;
 }
 
-.courses_reviews_carousel .swiper-button-next:after, .courses_reviews_carousel .swiper-button-prev:after {
+.courses_reviews_carousel .swiper-button-next:after,
+.courses_reviews_carousel .swiper-button-prev:after {
     color: #000000;
 }
 
@@ -1135,7 +1154,8 @@ header .btn.transparent, .btn.solid:hover {
     background-color: #efefef;
 }
 
-.custom-tabs .nav-link.active, .custom-tabs .show>.nav-link {
+.custom-tabs .nav-link.active,
+.custom-tabs .show>.nav-link {
     color: #ffffff;
     background-color: #000000;
 }
@@ -1198,16 +1218,12 @@ header .btn.transparent, .btn.solid:hover {
 .btn-theme-black {
     background: #000000;
     border-color: #000000;
-    font-size: 0.7rem;
-    padding: 9px;
 }
 
 .btn-theme-black:hover {
     transition: all 0.5s;
     background: #222222;
     border-color: #222222;
-    font-size: 0.7rem;
-    padding: 9px;
 }
 
 .page-sidemenu-heading {
@@ -1237,8 +1253,8 @@ header .btn.transparent, .btn.solid:hover {
     background-color: #808080;
 }
 
-.custom_height_phone{
-    height:70px
+.custom_height_phone {
+    height: 70px
 }
 
 @media only screen and (max-width:991px) {
@@ -1475,15 +1491,16 @@ header .btn.transparent, .btn.solid:hover {
     padding-bottom: 40px;
 }
 
-.offline-course-img{
+.offline-course-img {
     height: 200px;
     width: 100%;
     object-fit: cover;
 }
 
-.text-theme-dark{
+.text-theme-dark {
     color: #212529;
 }
-.text-theme-dark:hover{
+
+.text-theme-dark:hover {
     color: #464b4f;
 }
