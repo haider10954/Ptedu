@@ -192,8 +192,6 @@ class StudentController extends Controller
             'email_name' => 'required',
             'email_extension' => 'required',
             'address' => 'required',
-            'house_no' => 'required',
-            'street_no' => 'required',
             'user_profile' => 'max:2000'
         ]);
 
@@ -210,7 +208,7 @@ class StudentController extends Controller
             'user_id' => $request['user_id'],
             'job' => $request['job'],
             'mobile_number' => $request['country_code'] . $request['mobile'],
-            'address' => $request['address'] . '|' . $request['house_no'] . '|' . $request['street_no'],
+            'address' => $request['address'],
             'profile_img' => $profile_img,
             'email' => $request['email_name'] . '@' . $request['email_extension'],
         ]);

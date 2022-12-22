@@ -198,7 +198,7 @@
                                 </div>
                                 <div>
                                     <input type="text" class="form-control custom_width" name="email_extension" value="{{ old('email') }}">
-                                    <div class="error-email"></div>
+                                    <div class="error-extension"></div>
                                 </div>
                             </div>
                         </div>
@@ -215,11 +215,7 @@
                         <div class="col-9 pl-0">
                             <div class="d-flex  bottom-border flex-column" style="padding-left:10px; height:115px;">
                                 <div class="mt-2">
-                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}" placeholder="Enter your Address">
-                                </div>
-                                <div class="d-flex">
-                                    <input type="text" class="form-control mr-2 mt-1" name="house_no" value="{{ old('address') }}" placeholder="House Number">
-                                    <input type="text" class="form-control mt-1" name="street_no" value="{{ old('address') }}" placeholder="Street No">
+                                    <textarea type="text" rows="2" style="resize: none;" class="form-control" name="address" placeholder="Enter your Address">{{ old('address') }}</textarea>
                                 </div>
                                 <div class="error-address"></div>
                             </div>
@@ -402,11 +398,13 @@
                 if (e.responseJSON.errors['email_name']) {
                     $('.error-email').html('<small class=" error-message text-danger">' + e.responseJSON.errors['email_name'][0] + '</small>');
                 }
+                if (e.responseJSON.errors['email_extension']) {
+                    $('.error-extension').html('<small class=" error-message text-danger">' + e.responseJSON.errors['email_extension'][0] + '</small>');
+                }
                 if (e.responseJSON.errors['address']) {
                     $('.error-address').html('<small class=" error-message text-danger">' + e.responseJSON.errors['address'][0] + '</small>');
                 }
             }
-
         });
     });
 </script>
