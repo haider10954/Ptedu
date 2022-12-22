@@ -86,16 +86,10 @@ class StudentController extends Controller
         $this->validate($request, [
             'user_id' => 'required|unique:users,user_id,' . auth()->id(),
         ]);
-        return json_encode(
+        return response()->json(
             [
                 'success' => true,
                 'message' => 'The value is not duplicated'
-            ]
-        );
-        return json_encode(
-            [
-                'success' => false,
-                'message' => 'The value is duplicated'
             ]
         );
     }

@@ -15,11 +15,7 @@
                         <p class="mb-0">We will promote your growth as an expert through close knowledge in the field.</p>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="prompt"></div>
-                    </div>
-                </div>
+                <div class="prompt"></div>
                 <div class="row">
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
@@ -69,18 +65,15 @@
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
                                 <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Enter ID" value="{{ old('ID') }}">
-                                <div class="error-user-id"></div>
                             </div>
                             <div class="verify_btn">
                                 <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
-                                <div class="error-duplicate"></div>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="verify_mobile mt-2">
                             <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
-                            <div class="error-duplicate"></div>
                         </div>
                     </div>
                 </div>
@@ -306,7 +299,7 @@
         $.ajax({
             type: "POST",
             url: "{{ route('check_user_id') }}",
-            dataType: 'json',
+
 
             data: {
                 "_token": "{{ csrf_token() }}",
@@ -316,16 +309,35 @@
 
             beforeSend: function() {},
             success: function(res) {
-                if (res.success) {
-                    $('.error-duplicate').html('<small class=" error-message text-success mb-3">' + res.message + '</small>');
+                if (res.success == true) {
+
+                    $('.prompt').show()
+                    $('.prompt').html('<div class="alert alert-success">' + res.message + '</div>');
+                    setTimeout(function() {
+                        $('.prompt').hide()
+                    }, 1500);
+
+
                 } else {
-                    $('.error-duplicate').html('<small class=" error-message text-danger mb-3">' + res.message + '</small>');
+
+                    $('.prompt').show()
+                    $('.prompt').html('<div class="alert alert-danger">' + res.message + '</div>');
+                    setTimeout(function() {
+                        $('.prompt').hide()
+                    }, 1500);
+
                 }
             },
             error: function(e) {
                 if (e.responseJSON.errors['user_id']) {
-                    $('.error-duplicate').html('<small class=" error-message text-danger">' + e.responseJSON.errors['user_id'][0] + '</small>');
+                    $('.prompt').html('<div class="alert alert-danger">' + e.responseJSON.errors['user_id'][0] + '</div>');
                 }
+                setTimeout(function() {
+                    $('.prompt').hide()
+                }, 1500);
+
+                $('.prompt').show()
+
             }
 
         });
@@ -363,6 +375,7 @@
                         window.location.href = "{{ route('user_login') }}";
                     }, 4000);
 
+                    $('.prompt').show()
                 } else {}
             },
             error: function(e) {
@@ -375,7 +388,7 @@
                     $('.error-en-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['en_name'][0] + '</small>');
                 }
                 if (e.responseJSON.errors['user_id']) {
-                    $('.error-user-id').html('<small class=" error-message text-danger">' + e.responseJSON.errors['user_id'][0] + '</small>');
+                    $('.error-user-id').html('<p class=" alert alert-danger">' + e.responseJSON.errors['user_id'][0] + '</p>');
                 }
                 if (e.responseJSON.errors['password']) {
                     $('.error-pass').html('<small class=" error-message text-danger">' + e.responseJSON.errors['password'][0] + '</small>');
