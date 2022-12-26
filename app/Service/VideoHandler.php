@@ -74,7 +74,7 @@ class VideoHandler {
         if (empty($err)) {
             $info = json_decode($response);
             if(isset($info->duration)){
-                return gmdate("i:s", number_format($info->duration));
+                return gmdate("i:s", $info->duration);
             }
         }
         return false;
