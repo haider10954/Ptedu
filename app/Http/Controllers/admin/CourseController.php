@@ -16,7 +16,7 @@ class CourseController extends Controller
 {
     public function course_listing()
     {
-        $course = Course::paginate(10);
+        $course = Course::with('getCourseStatus')->paginate(10);
         return view('admin.courses.course', compact('course'));
     }
 
@@ -291,6 +291,30 @@ class CourseController extends Controller
                 'success' => false,
                 'message' => 'Something went wrong Please try again.'
             ]);
+        }
+    }
+
+    public function course_live_status(Request $request){
+        $validate = \Validator::make($request->all(),[
+            'id' => 'required',
+            'status' => 'required',
+            'live_link' => 'required|url'
+        ]);
+
+        if($validate->fails())
+        {
+            return response()->json(['Success' => false , 'Message' => $validate->errors()->first()]);
+        }
+
+        $changeLiveStatus = Course::where('id',$request->id)->update([
+            'live_link' => $request->live_link,
+            'live_status' => $request->status
+        ]);
+
+        if($changeLiveStatus){
+            return response()->json(['Success' => true , 'Message' => 'Live Status changed']);
+        }else{
+            return response()->json(['Success' => false , 'Message' => 'Error : Please try again']);
         }
     }
 }

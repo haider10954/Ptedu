@@ -171,6 +171,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/delete-course', [CourseController::class, 'delete_course'])->name('delete-course');
         Route::get('/edit-course/{id}', [CourseController::class, 'edit_course_view'])->name('edit_course_view');
         Route::post('/edit-course', [CourseController::class, 'edit_course'])->name('edit-course');
+
+        Route::post('/course-live-status', [CourseController::class, 'course_live_status'])->name('course_live_status');
         //End Online Course
 
         // Course - Sections - Lectures Upload start

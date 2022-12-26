@@ -89,3 +89,9 @@
     padding: 2px 5px;
     width: auto !important;
 }
+.live-icon{
+    height: 20px;
+    width: 20px;
+    background-color: rgb(126, 0, 0);
+    border-radius: 50%;
+}
