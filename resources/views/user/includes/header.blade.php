@@ -19,21 +19,11 @@
                                     <a href="#" class="text-decoration-none">Physical Teraphy<i class="fas fa-angle-down"></i></a>
                                     <div class="dropdown second">
                                         <ul>
+                                            @foreach ($online_expert_courses as $expert_courses)
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)" class="text-decoration-none">(Course name)</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">{{ $expert_courses->course_title }}</a>
                                             </li>
-                                            <li class="dropdown-link">
-                                                <a href="javascript:void(0)" class="text-decoration-none">pnf level 1-2</a>
-                                            </li>
-                                            <li class="dropdown-link">
-                                                <a href="javascript:void(0)" class="text-decoration-none">운동학(basic, Advance)</a>
-                                            </li>
-                                            <li class="dropdown-link">
-                                                <a href="javascript:void(0)" class="text-decoration-none">운동조절</a>
-                                            </li>
-                                            <li class="dropdown-link">
-                                                <a href="javascript:void(0)" class="text-decoration-none">측만증 물리치료</a>
-                                            </li>
+                                            @endforeach
                                             <div class="arrow"></div>
                                         </ul>
                                     </div>
@@ -42,12 +32,11 @@
                                     <a href="#">Philates<i class="fas fa-angle-down"></i></a>
                                     <div class="dropdown second">
                                         <ul>
+                                            @foreach ($online_expert_courses as $expert_courses)
                                             <li class="dropdown-link">
-                                                <a href="javascript:void(0)" class="text-decoration-none">필라테스 ON line</a>
+                                                <a href="javascript:void(0)" class="text-decoration-none">{{ $expert_courses->course_title }}</a>
                                             </li>
-                                            <li class="dropdown-link">
-                                                <a href="javascript:void(0)" class="text-decoration-none">필라테스 강사과정</a>
-                                            </li>
+                                            @endforeach
                                             <div class="arrow"></div>
                                         </ul>
                                     </div>
@@ -63,15 +52,11 @@
                         <a href="{{ route('web-home') }}" class="text-decoration-none">Public course<i class="fas fa-angle-down"></i></a>
                         <div class="dropdown">
                             <ul>
+                                @foreach ($online_public_courses as $public_courses)
                                 <li class="dropdown-link">
-                                    <a href="javascript:void(0)" class="text-decoration-none">Link 1</a>
+                                    <a href="javascript:void(0)" class="text-decoration-none">{{ $public_courses->course_title }}</a>
                                 </li>
-                                <li class="dropdown-link">
-                                    <a href="javascript:void(0)" class="text-decoration-none">Link 2</a>
-                                </li>
-                                <li class="dropdown-link">
-                                    <a href="javascript:void(0)" class="text-decoration-none">Link 4</a>
-                                </li>
+                                @endforeach
                                 <div class="arrow"></div>
                             </ul>
                         </div>
@@ -96,72 +81,32 @@
                                 <div class="col-md-4">
                                     <h4 class="mb-3">Physical Teraphy</h4>
                                     <ul class="mb-0 px-0 megamenu-list">
+                                        @foreach ($online_expert_courses as $expert_courses)
                                         <li>
                                             <div class="row">
                                                 <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">(Course
-                                                        name)</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link">{{ $expert_courses->course_title }}</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">(Tutor name)</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">{{ $expert_courses->getTutorName->name }}</a>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">pnf level
-                                                        1-2</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">운동학(basic,
-                                                        Advance)</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">운동조절</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">측만증 물리치료</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
                                     <h4 class="mb-3">Pilates</h4>
                                     <ul class="mb-0 px-0 megamenu-list">
-                                        <li><a href="javascript:void(0)" class="megamenu-menu-link">필라테스 ON line</a>
+                                        @foreach ($online_expert_courses as $expert_courses)
+                                        <li><a href="javascript:void(0)" class="megamenu-menu-link">{{ $expert_courses->course_title }}</a>
                                         </li>
-                                        <li><a href="javascript:void(0)" class="megamenu-menu-link">필라테스 강사과정 </a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
                                     <h4 class="mb-3">Offline <i class="fas fa-arrow-circle-right"></i></h4>
+                                    <h4 class="mb-3">Online <i class="fas fa-arrow-circle-right"></i></h4>
                                 </div>
                             </div>
                         </div>
@@ -173,73 +118,32 @@
                                 <div class="col-md-4">
                                     <h4 class="mb-3">Physical Teraphy</h4>
                                     <ul class="mb-0 px-0 megamenu-list">
+                                        @foreach ($online_public_courses as $public_courses)
                                         <li>
                                             <div class="row">
                                                 <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">(Course
-                                                        name)</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link">{{ $public_courses->course_title }}</a>
                                                 </div>
                                                 <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">(Tutor name)</a>
+                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">{{ $public_courses->getTutorName->name }}</a>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">pnf level
-                                                        1-2</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">운동학(basic,
-                                                        Advance)</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">운동조절</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link">측만증
-                                                        물리치료</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">조규행</a>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
                                     <h4 class="mb-3">Pilates</h4>
                                     <ul class="mb-0 px-0 megamenu-list">
-                                        <li><a href="javascript:void(0)" class="megamenu-menu-link">필라테스 ON line</a>
+                                        @foreach ($online_public_courses as $public_courses)
+                                        <li><a href="javascript:void(0)" class="megamenu-menu-link">{{ $public_courses->course_title }}</a>
                                         </li>
-                                        <li><a href="javascript:void(0)" class="megamenu-menu-link">필라테스 강사과정 </a>
-                                        </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
                                     <h4 class="mb-3">Offline <i class="fas fa-arrow-circle-right"></i></h4>
+                                    <h4 class="mb-3">Online <i class="fas fa-arrow-circle-right"></i></h4>
                                 </div>
                             </div>
                         </div>
