@@ -153,10 +153,10 @@
                                         <td><span class="course_name">{{ $c->price }} 원</span></td>
                                         <td>
                                             @if ($c->live_status == 1)
-                                            <div class="btn btn-sm btn-soft-danger" onclick="liveStatus({{ $c->id }})">
+                                            <div class="btn btn-sm btn-soft-danger" onclick="liveStatus({{ $c->id }},{{ $c->live_status }},'{{ $c->live_link }}')">
                                                 <span class="fas fa-headset"></span> Live</div>
                                             @else
-                                            <div class="btn btn-sm btn-soft-secondary" onclick="liveStatus({{ $c->id }})">
+                                            <div class="btn btn-sm btn-soft-secondary" onclick="liveStatus({{ $c->id }},{{ $c->live_status }},'{{ $c->live_link }}')">
                                                 <span class="fas fa-headset"></span> Live</div>
                                             @endif
                                             
@@ -240,7 +240,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="liveLink">Live Link</label>
-                                <input type="text" class="form-control" name="live_link" placeholder="Enter Live Link">
+                                <input type="text" class="form-control" name="live_link" id="liveLink" placeholder="Enter Live Link">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -265,8 +265,14 @@
             delModal.show();
         }
 
-        function liveStatus(id) {
+        function liveStatus(id,status,link) {
             $('#live_record_id').val(id);
+            $('#liveLink').val(link);
+            $('#liveStatus option').each(function(){
+                if($(this).attr('value') == status){
+                    $(this).prop('selected', true);
+                }
+            });
             liveModal.show();
         }
 
