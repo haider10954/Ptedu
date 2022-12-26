@@ -1155,6 +1155,13 @@ header .btn.transparent, .btn.solid:hover {
     border: 1px solid #D9D9D9;
     border-radius: 2px;
     margin-bottom: 20px;
+    position: relative;
+}
+
+.lecture-box .lecture-box-footer{
+    position: absolute;
+    width: 94%;
+    bottom: 10px;
 }
 
 .lecture-box img {
@@ -1486,4 +1493,76 @@ header .btn.transparent, .btn.solid:hover {
 }
 .text-theme-dark:hover{
     color: #464b4f;
+}
+.classroom_box{
+    height: 85vh;
+    display: flex;
+}
+.classroom_box .left-content{
+    width: 77%;
+    height: 100%;
+    background-color: #191B1D;
+}
+.classroom_box .right-content{
+    width: 23%;
+    height: 100%;
+    background-color: #d9d9d9;
+}
+.classroom_box .left-content .content-header{
+    height: 8%;
+    background-color: #373b43;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.font-weight-400{
+    font-weight: 400 !important;
+}
+.classroom_box .right-content .content-header{
+    height: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #373b43;
+}
+.classroom_box .right-content .content{
+    height: 92%;
+    overflow: auto;
+}
+.classroom_box .left-content .content{
+    height: 92%;
+}
+.lectures_list{
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.lectures_list li{
+    list-style: none;
+    padding: 10px 15px;
+    border-bottom: 1px solid #c9c9c9;
+    position: relative;
+}
+.lectures_list li a{
+    color: #343a40;
+}
+.lectures_list li a:hover{
+    color: #4f565d;
+}
+.lecture_video_section .plyr--video{
+    height: 100% !important;
+}
+.plyr__poster{
+    background-size: cover !important;
+}
+.font-9{
+    font-size: 9px;
+}
+.lecture-progress{
+    position: absolute;
+    bottom: 0px;
+    height: 2px;
+    background-color: #a10000;
+    left: 0;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }

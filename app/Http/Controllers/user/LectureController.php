@@ -8,6 +8,8 @@ use App\Models\Offline_course;
 use App\Models\Course;
 use App\Models\Offline_enrollment;
 use App\Models\Reservation;
+use App\Models\Online_enrollment;
+use App\Models\Course_tracking;
 use App\Service\VideoHandler;
 
 class LectureController extends Controller
@@ -36,7 +38,8 @@ class LectureController extends Controller
 
     public function my_classroom()
     {
-        return view('user.my-classroom');
+        $courses_enrolled = Online_enrollment::with('getCourses')->get();
+        return view('user.my-classroom',compact('courses_enrolled'));
     }
 
     public function online_course_detail($id)
@@ -53,5 +56,34 @@ class LectureController extends Controller
     public function lecture_video()
     {
         return view('user.lecture-video');
+    }
+
+    public function enrol_course($id){
+        $check_enrollment = Online_enrollment::where('course_id', $id)->where('user_id',auth()->id())->first();
+        if(!empty($check_enrollment)){
+            return 'Already Enrolled';
+        }
+        $course = Course::where('id',$id)->with('getCourseStatus')->first();
+        $lecture_count = 0;
+        if($course->getCourseStatus->count() > 0){
+            foreach($course->getCourseStatus as $value){
+                $lecture_count = $lecture_count + $value->getLectures->count();
+            }
+        }
+        $enrollment = Online_enrollment::create([
+            'course_id' => $id,
+            'user_id' => auth()->id()
+        ]);
+        if($enrollment){
+            $course_tracking = Course_tracking::create([
+                'course_id' => $id,
+                'user_id' => auth()->id(),
+                'no_of_lectures' => $lecture_count,
+                'viewed_lectures' => 0
+            ]);
+            if($course_tracking){
+                return 'Enrolled Successfully';
+            }
+        }
     }
 }

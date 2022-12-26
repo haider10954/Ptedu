@@ -41,92 +41,41 @@
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="custom-tab-content">
-                            <h6 class="content-heading">Lecture in Progress (6)</h6>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                - Melissa Devidson</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l Tutor Name</small>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="lecture-duration">2022-10-12 ~ 2022-11-30</small>
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue">수강중</a>
+                            <h6 class="content-heading">Courses in Progress ({{ $courses_enrolled->count() }})</h6>
+                            <div class="row progress_lectures_list">
+                                {{-- {{ dd($courses_enrolled)}} --}}
+                                @foreach ($courses_enrolled as $item)
+                                    @php
+                                    $first_lecture_slug = null;
+                                    if ($item->getCourses->getCourseStatus->count() > 0) {
+                                        $sections = $item->getCourses->getCourseStatus;
+                                        for($key = 0; $key < $sections->count(); $key++){
+                                            if($sections[$key]->getLectures->count() > 0){
+                                                if(empty($first_lecture_slug)){
+                                                    $first_lecture_slug = $sections[$key]->getLectures[0]->slug;
+                                                }
+                                            }
+                                        }
+                                    }
+                                    @endphp
+                                    <div class="col-lg-3 col-md-4 col-12">
+                                        <div class="lecture-box">
+                                            <img src="{{ asset('storage/course/thumbnail/'.$item->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
+                                            <div class="lecture_box_content">
+                                                <h6 class="lecture_title">{{ $item->getCourses->course_title }}</h6>
+                                                <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCourses->getCategoryName->name }} l {{ $item->getCourses->getTutorName->name }}</small>
+                                                <div class="d-flex align-items-center justify-content-between lecture-box-footer">
+                                                    <small class="lecture-duration">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
+                                                    @if(!empty($first_lecture_slug))
+                                                    <a href="{{ route('class', [ $item->course_id , $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue">수강중</a>
+                                                    @else
+                                                    <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled">강의 없음</a>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                - Melissa Devidson</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l Tutor Name</small>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="lecture-duration">2022-10-12 ~ 2022-11-30</small>
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-black">예약대기</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                - Melissa Devidson</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l Tutor Name</small>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="lecture-duration">2022-10-12 ~ 2022-11-30</small>
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue">수강중</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                - Melissa Devidson</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l Tutor Name</small>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="lecture-duration">2022-10-12 ~ 2022-11-30</small>
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-black">예약대기</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                - Melissa Devidson</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l Tutor Name</small>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="lecture-duration">2022-10-12 ~ 2022-11-30</small>
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue">수강중</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                - Melissa Devidson</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l Tutor Name</small>
-                                            <div class="d-flex align-items-center justify-content-between">
-                                                <small class="lecture-duration">2022-10-12 ~ 2022-11-30</small>
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-black">예약대기</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -417,6 +366,15 @@
 
 @section('custom-script')
 <script>
+    var progressboxHeight = 0;
+    $('.progress_lectures_list .lecture-box .lecture_box_content').each(function(){
+        if($(this).height() > progressboxHeight){
+            progressboxHeight = $(this).height() + 20;
+        }
+    });
+
+    $('.progress_lectures_list .lecture-box .lecture_box_content').height(progressboxHeight);
+
     $('.page-side-menu-toggle').on('click', function() {
         $('.page-side-menu').slideToggle();
     });
