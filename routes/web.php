@@ -46,9 +46,10 @@ Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])-
 Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
 
 //Offline_Course_Enrollment
-Route::post('/offline-course-enrollment' , [ReservationController::class , 'offline_course_enrollment'])->name('offline_course_enrollment');
+Route::post('/offline-course-enrollment', [ReservationController::class, 'offline_course_enrollment'])->name('offline_course_enrollment');
 
 //Online Courses
+Route::get('/online-courses', [LectureController::class, 'online_courses_listing'])->name('online_courses_listing');
 Route::get('/online-course-detail/{id}', [LectureController::class, 'online_course_detail'])->name('online_course_detail');
 
 Route::get('lecture-video', [LectureController::class, 'lecture_video'])->name('lecture_video');
@@ -106,11 +107,11 @@ Route::middleware('auth')->group(function () {
     Route::post('add-review', [ReviewController::class, 'add_review'])->name('add-review');
 
     //Class Routes
-    Route::get('class/{course_id}/{lecture_slug}',[ClassController::class, 'class'])->name('class');
-    Route::post('lecture_time_track',[ClassController::class, 'lecture_time_track'])->name('lecture_time_track');
+    Route::get('class/{course_id}/{lecture_slug}', [ClassController::class, 'class'])->name('class');
+    Route::post('lecture_time_track', [ClassController::class, 'lecture_time_track'])->name('lecture_time_track');
 });
 
-Route::get('get_duration/{url}',[CourseController::class, 'get_duration'])->name('get_duration');
+Route::get('get_duration/{url}', [CourseController::class, 'get_duration'])->name('get_duration');
 
 Route::get('/user/login', function () {
     return view('user.login_user');

@@ -105,8 +105,12 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
-                                    <h4 class="mb-3">Offline <i class="fas fa-arrow-circle-right"></i></h4>
-                                    <h4 class="mb-3">Online <i class="fas fa-arrow-circle-right"></i></h4>
+                                    <a class="text-decoration-none" href="{{ route('offline_lectures') }}">
+                                        <h4 class="mb-3">Offline <i class="fas fa-arrow-circle-right"></i></h4>
+                                    </a>
+                                    <a class="text-decoration-none" href="{{ route('online_courses_listing') }}">
+                                        <h4 class="mb-3">Online <i class="fas fa-arrow-circle-right"></i></h4>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -142,8 +146,12 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
-                                    <h4 class="mb-3">Offline <i class="fas fa-arrow-circle-right"></i></h4>
-                                    <h4 class="mb-3">Online <i class="fas fa-arrow-circle-right"></i></h4>
+                                    <a class="text-decoration-none" href="{{ route('offline_lectures') }}">
+                                        <h4 class="mb-3">Offline <i class="fas fa-arrow-circle-right"></i></h4>
+                                    </a>
+                                    <a class="text-decoration-none" href="{{ route('online_courses_listing') }}">
+                                        <h4 class="mb-3">Online <i class="fas fa-arrow-circle-right"></i></h4>
+                                    </a>
                                 </div>
                             </div>
                         </div>
