@@ -772,7 +772,7 @@
                                         <p class="mb-0">${i+1}강. ${lectures[i].lecture_title}</p>
                                     </div>
                                     <div class="duration">
-                                        <p class="mb-0">${(lectures[i].duration == null) ? lectures[i].lecture_video_link : `<span title="${lectures[i].duration}"><i class="bi bi-link"></i></span>`}</p>
+                                        <p class="mb-0">${(lectures[i].duration == null) ? lectures[i].duration : `<span title="${lectures[i].lecture_video_link}"><i class="bi bi-link"></i></span>`}</p>
                                     </div>
                                 </li>
                                 `);
