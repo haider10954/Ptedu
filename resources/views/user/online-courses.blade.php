@@ -35,6 +35,7 @@
 </div>
 @endsection
 
+@section('custom-script')
 <script>
     let hiddenCount = 0;
     $("#myInput").on("keyup keypress", function() {
