@@ -33,6 +33,6 @@ class Course extends Model
 
     public function getCourseStatus()
     {
-        return $this->hasMany(Section::class, 'course_id', 'id');
+        return $this->hasMany(Section::class, 'course_id', 'id')->with('getLectures');
     }
 }

@@ -134,6 +134,14 @@ class CourseController extends Controller
         }
     }
 
+    public function get_duration($video_id){
+        // $url = "https://vimeo.com/".$video_id;
+        // $duration = VideoHandler::getYoutubeDuration($video_id);
+        // $video_duration = VideoHandler::covtime($duration);
+        $video_duration = VideoHandler::vimeoVideoDuration($video_id);
+        dd($video_duration);
+    }
+
     public function add_lectures(Request $request){
         $validate = \Validator::make($request->all(),[
             'section_lectures.*.lecture_title' => 'required',
@@ -161,15 +169,36 @@ class CourseController extends Controller
                 $lectures[$i]['duration'] = $track->getPlaytime();
                 $lectures[$i]['section_id'] = $request->section_id;
                 $lectures[$i]['lecture_video'] = $video_uploaded;
+                $lectures[$i]['slug'] = \Str::slug($lectures[$i]['lecture_title'].'-'.\Str::random(5,true));
             }else{
                 $lectures[$i]['lecture_video'] = null;
                 $lectures[$i]['duration'] = null;
                 $lectures[$i]['section_id'] = $request->section_id;
+                $lectures[$i]['slug'] = \Str::slug($lectures[$i]['lecture_title'].'-'.\Str::random(5,true));
             }
             if(!isset($lectures[$i]['lecture_video_link'])){
                 $lectures[$i]['lecture_video_link'] = null;
                 $lectures[$i]['section_id'] = $request->section_id;
-            }           
+                $lectures[$i]['slug'] = \Str::slug($lectures[$i]['lecture_title'].'-'.\Str::random(5,true));
+            }   
+            if(!isset($lectures[$i]['lecture_video']) && isset($lectures[$i]['lecture_video_link'])){
+                if (preg_match('|^http(s)?://(.*?)vimeo.com|', $lectures[$i]['lecture_video_link'])) {
+                    $provider = 'vimeo';
+                    $video_url_params = parse_url($lectures[$i]['lecture_video_link']);
+                    $video_id = str_replace('/', '', $video_url_params['path']);
+                    $video_duration = VideoHandler::vimeoVideoDuration($video_id);
+                    $lectures[$i]['duration'] = $video_duration;
+                } else {
+                    $provider = 'youtube';
+                    $video_url_params = parse_url($lectures[$i]['lecture_video_link']);
+                    parse_str($video_url_params['query'], $params);
+                    $video_id = $params['v'];
+                    $duration = VideoHandler::getYoutubeDuration($video_id);
+                    $video_duration = VideoHandler::covtime($duration);
+                    $lectures[$i]['duration'] = $video_duration;
+                }
+
+            }       
         }   
 
         $lectureQuery = Lecture::insert($lectures);

@@ -9,4 +9,8 @@ class Online_enrollment extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    public function getCourses(){
+        return $this->hasOne(Course::class, 'id', 'course_id')->with(['getTutorName','getCategoryName','getCourseStatus']);
+    }
 }

@@ -17,6 +17,7 @@ use App\Http\Controllers\user\CourseController as UserCourseController;
 use App\Http\Controllers\user\InquiryController;
 use App\Http\Controllers\user\LectureController;
 use App\Http\Controllers\user\ReservationController;
+use App\Http\Controllers\user\ClassController;
 use App\Http\Controllers\user\StudentController;
 use App\Http\Controllers\admin\StudentController as AdminStudentController;
 use App\Models\Admin;
@@ -74,6 +75,9 @@ Route::middleware('auth')->group(function () {
         return view('user.shopping_bag');
     })->name('shopping_bag');
 
+    // enroll course route
+    Route::get('/enrol_course/{id}', [LectureController::class, 'enrol_course'])->name('enrol_course');
+
     Route::get('/order', function () {
         return view('user.order');
     })->name('order');
@@ -100,7 +104,13 @@ Route::middleware('auth')->group(function () {
 
     //Add Reveiw
     Route::post('add-review', [ReviewController::class, 'add_review'])->name('add-review');
+
+    //Class Routes
+    Route::get('class/{course_id}/{lecture_slug}',[ClassController::class, 'class'])->name('class');
+    Route::post('lecture_time_track',[ClassController::class, 'lecture_time_track'])->name('lecture_time_track');
 });
+
+Route::get('get_duration/{url}',[CourseController::class, 'get_duration'])->name('get_duration');
 
 Route::get('/user/login', function () {
     return view('user.login_user');
