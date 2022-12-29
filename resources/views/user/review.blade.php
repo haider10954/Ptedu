@@ -10,7 +10,7 @@
         </div>
         <div class="w-65 review_info m-auto py-4">
             <h5 class="heading mb-3 text-center">PTEdu Student Reviews</h5>
-            @if( $latest_review->count() > 0)
+            @if(!empty($latest_review))
             {!! $embedded_video !!}
             <p class="mb-1 font-weight-600">{{ $latest_review->getCourse->course_title }} | {{ $latest_review->title }} </p>
             <p class="mb-0">{{ $latest_review->content }} 할 수 있었어요!</p>

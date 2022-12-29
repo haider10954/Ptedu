@@ -43,7 +43,7 @@
                                     <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">{{ $latest_course->course_title }}</h3>
                                     <small>{{ $latest_course->getTutorName->name }}</small>
                                 </div>
-                                <p class="text-left">{!! $latest_course->description !!}</p>
+                                <div class="text-left">{!! $latest_course->description !!}</div>
                             </div>
                         </div>
                     </div>
@@ -151,110 +151,20 @@
                     <h3 class="heading-h3 text-white mb-0">Tutor Introduction</h3>
                 </div>
                 <div class="row align-items-center justify-content-left">
+                    @foreach ($latest_tutors as $latest_tutor)
                     <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
-                            <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
+                            <img src="{{ asset('storage/tutor/' . $latest_tutor->tutor_img) }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">GAIT : 보행 A에서 Z까지</h5>
-                                <div class="box-overlay-description text-left">
-                                    <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
-                                        PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
+                                <h5 class="heading-h5 mb-3 text-white text-left">{{ $latest_tutor->english_name }}</h5>
+                                <div class="box-overlay-description text-justify">
+                                    <p class="mb-0 text-white">{{ Str::limit($latest_tutor->description,200) }}</p>
                                 </div>
-                                <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                <p class="mb-0 text-right text-white font-weight-600">{{ $latest_tutor->job }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 col-12 mb-4">
-                        <div class="tutor-image-container">
-                            <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
-                            <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">GAIT : 보행 A에서 Z까지</h5>
-                                <div class="box-overlay-description text-left">
-                                    <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
-                                        PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
-                                </div>
-                                <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-12 mb-4">
-                        <div class="tutor-image-container">
-                            <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
-                            <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">GAIT : 보행 A에서 Z까지</h5>
-                                <div class="box-overlay-description text-left">
-                                    <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
-                                        PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
-                                </div>
-                                <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-12 mb-4">
-                        <div class="tutor-image-container">
-                            <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
-                            <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">GAIT : 보행 A에서 Z까지</h5>
-                                <div class="box-overlay-description text-left">
-                                    <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
-                                        PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
-                                </div>
-                                <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-12 mb-4">
-                        <div class="tutor-image-container">
-                            <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
-                            <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">GAIT : 보행 A에서 Z까지</h5>
-                                <div class="box-overlay-description text-left">
-                                    <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
-                                        PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
-                                </div>
-                                <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-12 mb-4">
-                        <div class="tutor-image-container">
-                            <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
-                            <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">GAIT : 보행 A에서 Z까지</h5>
-                                <div class="box-overlay-description text-left">
-                                    <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
-                                        PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
-                                </div>
-                                <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-12 mb-4">
-                        <div class="tutor-image-container">
-                            <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
-                            <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">GAIT : 보행 A에서 Z까지</h5>
-                                <div class="box-overlay-description text-left">
-                                    <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
-                                        PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
-                                </div>
-                                <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-4 col-12 mb-4">
-                        <div class="tutor-image-container">
-                            <img src="{{ asset('web_assets/images/tutor_img_1.png') }}" class="tutor_img img-fluid">
-                            <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">GAIT : 보행 A에서 Z까지</h5>
-                                <div class="box-overlay-description text-left">
-                                    <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
-                                        PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
-                                </div>
-                                <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -273,6 +183,20 @@
                 </div>
                 <div class="swiper course-review-carousel">
                     <div class="swiper-wrapper">
+                        <!-- <div class="swiper-slide">
+                            @if(!empty($latest_reviews))
+                            {!! $embedded_video !!}
+                            <div class="review_video_box_overlay">
+                                <a href="javascript:void(0)">
+                                    <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
+                                </a>
+                            </div>
+                            @else
+                            <div class="text-center">
+                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                            </div>
+                            @endif
+                        </div> -->
                         <div class="swiper-slide">
                             <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
                             <div class="review_video_box_overlay">
@@ -282,7 +206,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset('web_assets/images/course_review_2.jpg') }}" class="img-fluid course-review-img">
+                            <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
                             <div class="review_video_box_overlay">
                                 <a href="javascript:void(0)">
                                     <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
@@ -290,7 +214,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset('web_assets/images/course_review_3.png') }}" class="img-fluid course-review-img">
+                            <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
                             <div class="review_video_box_overlay">
                                 <a href="javascript:void(0)">
                                     <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
@@ -298,7 +222,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset('web_assets/images/course_review_4.png') }}" class="img-fluid course-review-img">
+                            <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
                             <div class="review_video_box_overlay">
                                 <a href="javascript:void(0)">
                                     <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
@@ -306,7 +230,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset('web_assets/images/course_review_5.png') }}" class="img-fluid course-review-img">
+                            <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
                             <div class="review_video_box_overlay">
                                 <a href="javascript:void(0)">
                                     <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
@@ -314,7 +238,7 @@
                             </div>
                         </div>
                         <div class="swiper-slide">
-                            <img src="{{ asset('web_assets/images/course_review_4.png') }}" class="img-fluid course-review-img">
+                            <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
                             <div class="review_video_box_overlay">
                                 <a href="javascript:void(0)">
                                     <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">

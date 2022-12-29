@@ -604,3 +604,8 @@
 .rate-area>label:hover~input:checked~label {
     color: gold;
 }
+
+.text-justify
+{
+    text-align: justify;
+}
