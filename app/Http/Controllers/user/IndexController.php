@@ -12,20 +12,23 @@ use App\Models\Course;
 class IndexController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
         $offline_courses = Offline_course::with('getTutorName')->get();
         $courses = Course::get();
-        return view('user.index',compact('offline_courses','courses'));
-    }
-    
-    public function notice(){
-        $notices = Notice::orderBy('id','desc')->paginate(10);
-        return view('user.notice',compact('notices'));
+        $latest_courses = Course::orderBy('id', 'desc')->with('getTutorName')->take(5)->get();
+        return view('user.index', compact('offline_courses', 'courses', 'latest_courses'));
     }
 
-    public function faq(){
+    public function notice()
+    {
+        $notices = Notice::orderBy('id', 'desc')->paginate(10);
+        return view('user.notice', compact('notices'));
+    }
+
+    public function faq()
+    {
         $faqs = Faq::paginate(10);
-        return view('user.faq',compact('faqs'));
+        return view('user.faq', compact('faqs'));
     }
-
 }
