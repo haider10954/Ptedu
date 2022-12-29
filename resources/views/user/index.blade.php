@@ -156,11 +156,13 @@
                         <div class="tutor-image-container">
                             <img src="{{ asset('storage/tutor/' . $latest_tutor->tutor_img) }}" class="tutor_img img-fluid">
                             <div class="box-overlay">
-                                <h5 class="heading-h5 mb-3 text-white text-left">{{ $latest_tutor->english_name }}</h5>
-                                <div class="box-overlay-description text-justify">
-                                    <p class="mb-0 text-white">{{ Str::limit($latest_tutor->description,200) }}</p>
-                                </div>
-                                <p class="mb-0 text-right text-white font-weight-600">{{ $latest_tutor->job }}</p>
+                                <a href="{{ route('tutor_info',$latest_tutor->id) }}">
+                                    <h5 class="heading-h5 mb-3 text-white text-left">{{ $latest_tutor->english_name }}</h5>
+                                    <div class="box-overlay-description text-justify">
+                                        <p class="mb-0 text-white">{{ Str::limit($latest_tutor->description,200) }}</p>
+                                    </div>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ $latest_tutor->job }}</p>
+                                </a>
                             </div>
                         </div>
                     </div>
