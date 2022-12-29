@@ -61,4 +61,10 @@ class IndexController extends Controller
         $faqs = Faq::paginate(10);
         return view('user.faq', compact('faqs'));
     }
+
+    public function tutor_info($id)
+    {
+        $tutor = Tutor::where('id', $id)->with('getCourseName')->first();
+        return view('user.tutor_info', compact('tutor'));
+    }
 }
