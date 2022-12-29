@@ -46,8 +46,10 @@
                 </div>
                 @endforeach
                 @else
-                <div class="text-center">
-                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                <div class="col-lg-12">
+                    <div class="text-center">
+                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                    </div>
                 </div>
                 @endif
             </div>
