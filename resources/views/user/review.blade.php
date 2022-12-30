@@ -9,8 +9,8 @@
             <h5 class="mb-0">{{ __('translation.Review') }}</h5>
         </div>
         <div class="w-65 review_info m-auto py-4">
-            <h5 class="heading mb-3 text-center">PTEdu Student Reviews</h5>
-            @if( $latest_review->count() > 0)
+            <h5 class="heading mb-3 text-center">PTEdu {{ __('translation.Student Reviews') }}</h5>
+            @if(!empty($latest_review))
             {!! $embedded_video !!}
             <p class="mb-1 font-weight-600">{{ $latest_review->getCourse->course_title }} | {{ $latest_review->title }} </p>
             <p class="mb-0">{{ $latest_review->content }} 할 수 있었어요!</p>
@@ -38,7 +38,7 @@
                             <h6 class="heading mb-4">{{ $r->title  }}.</h6>
                             <p class="mb-4">{{ $r->content }}</p>
                             <div class="d-flex align-items-center justify-content-between">
-                                <small class="text-muted">by 강** {{\Carbon\Carbon::parse($r->created_at)->format('d M, Y')}}</small>
+                                <small class="text-muted">{{ __('translation.by') }} 강** {{\Carbon\Carbon::parse($r->created_at)->format('d M, Y')}}</small>
                                 <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25" alt="img">
                             </div>
                         </div>
@@ -58,7 +58,7 @@
 </div>
 <div class="section">
     <div class="container">
-        <p class="text-beige font-weight-700 text-center mb-2">{{ __('trasnlation.There are') }} {{ $review->count() }} {{ __('trasnlation.reviews') }}!</p>
+        <p class="text-beige font-weight-700 text-center mb-2">{{ __('translation.There are') }} {{ $review->count() }} {{ __('translation.reviews') }}!</p>
         <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
         <div class="w-50 review_tabs m-auto py-5">
             <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">

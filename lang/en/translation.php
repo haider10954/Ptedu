@@ -194,5 +194,6 @@ return [
     'Confirm Delete' => 'Confirm Delete',
     'Are you sure to delete profile image' => 'Are you sure to delete profile image',
     'Save' => 'Save',
-    'Live' => 'Live'
+    'Live' => 'Live',
+    'by' => 'by'
 ];
