@@ -168,6 +168,7 @@
                 </ul>
             </div>
             <div class="log-sign" style="--i: 1.8s">
+                <a href="{{ route('shopping_bag') }}" class="btn solid"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                 @if(auth()->check())
                 <div class="dropdown_header">
                     <button onclick="myFunction()" class="btn solid"><i class="fa fa-user" aria-hidden="true"></i></button>
@@ -182,7 +183,6 @@
                 @endif
                 @if(auth()->check())
                 <a href="{{ route('my_classroom') }}" class="btn solid">{{ __('translation.My Classroom') }}</a>
-                <a href="{{ route('shopping_bag') }}" class="btn solid"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                 @endif
             </div>
         </div>
