@@ -9,10 +9,10 @@
             <form id="registerForm" type="POST">
                 @csrf
                 <div class="section-heading">
-                    <h5 class="mb-4">Register</h5>
+                    <h5 class="mb-4">{{ __('translation.Register') }}</h5>
                     <div class="mt-2 mb-3">
-                        <p class="mb-0">It is a professional lecture led by physical therapy & Pilates experts.</p>
-                        <p class="mb-0">We will promote your growth as an expert through close knowledge in the field.</p>
+                        <p class="mb-0">{{ __('translation.It is a professional lecture led by physical therapy & Pilates experts') }}.</p>
+                        <p class="mb-0">{{ __('translation.We will promote your growth as an expert through close knowledge in the field') }}.</p>
                     </div>
                 </div>
                 <div class="prompt"></div>
@@ -20,14 +20,14 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                <p class="mb-0 user_profile">Name<span class="text-danger ml-1">*</span></p>
+                                <p class="mb-0 user_profile">{{ __('translation.Name') }}<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
-                                <input type="text" class="form-control" name="name" placeholder="Name" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="name" placeholder="{{ __('translation.Name') }}" value="{{ old('name') }}">
                                 <div class="error-name"></div>
                             </div>
                         </div>
@@ -38,14 +38,14 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                <p class="mb-0 user_profile">English Name<span class="text-danger ml-1">*</span></p>
+                                <p class="mb-0 user_profile">{{ __('translation.English Name') }}<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
-                                <input type="text" class="form-control" name="en_name" placeholder="English Name" value="{{ old('en_name') }}">
+                                <input type="text" class="form-control" name="en_name" placeholder="{{ __('translation.English Name') }}" value="{{ old('en_name') }}">
                                 <div class="error-en-name"></div>
                             </div>
                         </div>
@@ -57,23 +57,23 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                <p class="mb-0 user_profile">ID<span class="text-danger ml-1">*</span></p>
+                                <p class="mb-0 user_profile">{{ __('translation.ID') }}<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
-                                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Enter ID" value="{{ old('ID') }}">
+                                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="{{ __('translation.Enter ID') }}" value="{{ old('ID') }}">
                             </div>
                             <div class="verify_btn">
-                                <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
+                                <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">{{ __('translation.Duplicate Verification') }}</button>
                             </div>
                         </div>
                     </div>
                     <div class="col-12">
                         <div class="verify_mobile mt-2">
-                            <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">Duplicate Verification</button>
+                            <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">{{ __('translation.Duplicate Verification') }}</button>
                         </div>
                     </div>
                 </div>
@@ -85,14 +85,14 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                    <p class="mb-0 user_profile">Password<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Password') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                                 <div>
-                                    <input type="password" class="form-control" name="password" placeholder="Min of 6 character" value="{{ old('password') }}">
+                                    <input type="password" class="form-control" name="password" placeholder="{{ __('translation.Min of 6 character') }}" value="{{ old('password') }}">
                                     <div class="error-pass"></div>
                                 </div>
                             </div>
@@ -103,14 +103,14 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                    <p class="mb-0 user_profile">Confirm Password<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Confirm Password') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                                 <div>
-                                    <input type="password" class="form-control" name="confirm_password" placeholder="Enter New Password" value="{{ old('confirm_password') }}">
+                                    <input type="password" class="form-control" name="confirm_password" placeholder="{{ __('translation.Enter New Password') }}" value="{{ old('confirm_password') }}">
                                     <div class="error-confirm-pass"></div>
                                 </div>
                             </div>
@@ -121,7 +121,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start user_jobs">
-                                    <p class="mb-0 user_profile">Job<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Job') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -156,7 +156,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start custom_label_height">
-                                    <p class="mb-0 user_profile">Phone number<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Phone number') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -164,13 +164,13 @@
                             <div class="d-flex align-items-center  bottom-border custom_height_phone" style="padding-left:10px;">
                                 <div class="mr-2 mb-1 mb-md-0 mt-2 mt-md-0">
                                     <div>
-                                        <input type="text" class="form-control custom_width" name="country_code" placeholder="Country Code" value="{{ old('mobile') }}">
+                                        <input type="text" class="form-control custom_width" name="country_code" placeholder="{{ __('translation.Country Code') }}" value="{{ old('mobile') }}">
                                         <div class="error-mobile-number d-block"></div>
                                     </div>
                                 </div>
                                 <div class="mr-2 mb-1 mb-md-0">
                                     <div>
-                                        <input type="text" class="form-control custom_width" name="mobile" placeholder="mobile number" value="{{ old('mobile') }}">
+                                        <input type="text" class="form-control custom_width" name="mobile" placeholder="{{ __('translation.Mobile number') }}" value="{{ old('mobile') }}">
                                         <div class="error-mobile-number d-block"></div>
                                     </div>
                                 </div>
@@ -183,7 +183,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start custom_height_email">
-                                    <p class="mb-0 user_profile">Email<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Email') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -208,14 +208,14 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start" style="height:114px;">
-                                    <p class="mb-0 user_profile">Address<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Address') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-9 pl-0">
                             <div class="d-flex  bottom-border flex-column" style="padding-left:10px; height:115px;">
                                 <div class="mt-2">
-                                    <textarea type="text" rows="2" style="resize: none;" class="form-control" name="address" placeholder="Enter your Address">{{ old('address') }}</textarea>
+                                    <textarea type="text" rows="2" style="resize: none;" class="form-control" name="address" placeholder="{{ __('translation.Enter your Address') }}">{{ old('address') }}</textarea>
                                 </div>
                                 <div class="error-address"></div>
                             </div>
@@ -225,7 +225,7 @@
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input selectAll" type="checkbox" value="">
                             <label class="form-check-label ml-2 font-weight-600" for="defaultCheck1">
-                                To agree all
+                                {{ __('translation.To agree all') }}
                             </label>
                         </div>
                     </div>
@@ -233,42 +233,42 @@
                         <div class="form-check mb-2 ml-2 mt-2">
                             <input class="form-check-input selectCheckBox" type="checkbox" value="">
                             <label class="form-check-label ml-2" for="defaultCheck1">
-                                Agree to the Terms and Conditions (required)
+                                {{ __('translation.Agree to the Terms and Conditions') }} ({{ __('translation.required') }})
                             </label>
                         </div>
 
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input selectCheckBox" type="checkbox" value="">
                             <label class="form-check-label ml-2 " for="defaultCheck1">
-                                Consent to the personal information processing policy (required)
+                                {{ __('translation.Consent to the personal information processing policy') }} ({{ __('translation.required') }})
                             </label>
                         </div>
 
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input selectCheckBox" type="checkbox" value="">
                             <label class="form-check-label ml-2" for="defaultCheck1">
-                                I’m 14 years of age or older (required)
+                                {{ __('translation.I’m 14 years of age or older') }} ({{ __('translation.required') }})
                             </label>
                         </div>
 
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input selectCheckBox" type="checkbox" value="">
                             <label class="form-check-label ml-2" for="defaultCheck1">
-                                Agree to receive marketing and event information (optional)
+                                {{ __('translation.Agree to receive marketing and event information') }} ({{ __('translation.optional') }})
                             </label>
                         </div>
 
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input selectCheckBox" type="checkbox" value="">
                             <label class="form-check-label ml-2" for="defaultCheck1">
-                                If you agree to receive marketing, you can receive various benefits and event news from Ipamaster.
+                                {{ __('translation.If you agree to receive marketing, you can receive various benefits and event news from Ipamaster') }}.
                             </label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="d-flex align-items-center justify-content-center mt-5">
-                                <button id="submitForm" disabled type="submit" class="btn rounded-0 btn-register" style="padding: 5px 30px 5px 30px">Register</button>
+                                <button id="submitForm" disabled type="submit" class="btn rounded-0 btn-register" style="padding: 5px 30px 5px 30px">{{ __('translation.Register') }}</button>
                             </div>
                         </div>
                     </div>

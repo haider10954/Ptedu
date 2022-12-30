@@ -8,50 +8,51 @@
             <div class="row">
                 <div class="col-lg-2 padding-left">
                     <div class="page-sidemenu-heading mb-3">
-                        <h5 class="mb-0 font-weight-600">My Classroom</h5>
+                        <h5 class="mb-0 font-weight-600">{{ __('translation.My Classroom') }}</h5>
                         <a href="javscript:void(0)"
-                            class="btn btn-dark btn-custom-sm btn-theme-black page-side-menu-toggle">menu</a>
+                            class="btn btn-dark btn-custom-sm btn-theme-black page-side-menu-toggle">{{ __('translation.menu') }}</a>
                     </div>
                     <div class="page-side-menu">
                         <ul class="menu">
-                            <li><a href="{{ route('my_classroom') }}">My Classroom</a></li>
-                            <li><a href="{{ route('shopping_bag') }}">Shopping Bag</a></li>
-                            <li><a href="{{ route('user_info') }}">Modifying Member Info</a></li>
-                            <li><a href="{{ route('user_inquiry') }}">1:1 Inquiry</a></li>
+                            <li><a href="{{ route('my_classroom') }}">{{ __('translation.My Classroom') }}</a></li>
+                            <li><a href="{{ route('shopping_bag') }}">{{ __('translation.Shopping Bag') }}</a></li>
+                            <li><a href="{{ route('user_info') }}">{{ __('translation.Modifying Member Info') }}</a></li>
+                            <li><a href="{{ route('user_inquiry') }}">1:1 {{ __('translation.Inquiry') }}</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-10">
                     <div class="section-heading mb-3">
-                        <h5 class="mb-0">마이페이지</h5>
+                        <h5 class="mb-0">{{ __('translation.My Page') }}</h5>
                     </div>
                     <ul class="nav nav-pills mb-3 custom-tabs" id="pills-tab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <button class="nav-link active" id="pills-home-tab" data-toggle="pill" data-target="#pills-home"
-                                type="button" role="tab" aria-controls="pills-home" aria-selected="true">Lecture in
-                                progress</button>
+                                type="button" role="tab" aria-controls="pills-home"
+                                aria-selected="true">{{ __('translation.Lecture in progress') }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-profile-tab" data-toggle="pill" data-target="#pills-profile"
-                                type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Completed
-                                Lecture</button>
+                                type="button" role="tab" aria-controls="pills-profile"
+                                aria-selected="false">{{ __('translation.Completed Lecture') }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-contact-tab" data-toggle="pill" data-target="#pills-contact"
-                                type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Lecture on
-                                “Like”</button>
+                                type="button" role="tab" aria-controls="pills-contact"
+                                aria-selected="false">{{ __('translation.Lecture on “Like”') }}</button>
                         </li>
                         <li class="nav-item" role="presentation">
                             <button class="nav-link" id="pills-complete-tab" data-toggle="pill"
                                 data-target="#pills-complete" type="button" role="tab" aria-controls="pills-complete"
-                                aria-selected="false">Related Lectures List</button>
+                                aria-selected="false">{{ __('translation.Related Lectures List') }}</button>
                         </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
                         <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                             aria-labelledby="pills-home-tab">
                             <div class="custom-tab-content">
-                                <h6 class="content-heading">Courses in Progress ({{ $courses_enrolled->count() }})</h6>
+                                <h6 class="content-heading">{{ __('translation.Courses in Progress') }}
+                                    ({{ $courses_enrolled->count() }})</h6>
                                 <div class="row progress_lectures_list">
                                     {{-- {{ dd($courses_enrolled)}} --}}
                                     @foreach ($courses_enrolled as $item)
@@ -77,23 +78,26 @@
                                                     <small
                                                         class="d-block text-muted mb-2 lecture_info">{{ $item->getCourses->getCategoryName->name }}
                                                         l {{ $item->getCourses->getTutorName->name }}</small>
-                                                    <div class="d-flex align-items-center justify-content-between lecture-box-footer">
-                                                        <small class="lecture-duration">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
+                                                    <div
+                                                        class="d-flex align-items-center justify-content-between lecture-box-footer">
+                                                        <small
+                                                            class="lecture-duration">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
                                                         <div class="d-flex align-items-center">
                                                             @if ($item->getCourses->live_status == 1)
-                                                            <a href="{{ $item->getCourses->live_link }}" target="_blank" class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mx-2 font-10">
-                                                                <span class="live-icon mr-1"></span>
-                                                                <span>Live</span>
-                                                            </a>
+                                                                <a href="{{ $item->getCourses->live_link }}"
+                                                                    target="_blank"
+                                                                    class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mx-2 font-10">
+                                                                    <span class="live-icon mr-1"></span>
+                                                                    <span>{{ __('translation.Live') }}</span>
+                                                                </a>
                                                             @endif
-                                                            
+
                                                             @if (!empty($first_lecture_slug))
                                                                 <a href="{{ route('class', [$item->course_id, $first_lecture_slug]) }}"
-                                                                    class="btn btn-primary btn-custom-sm btn-theme-blue">수강중</a>
+                                                                    class="btn btn-primary btn-custom-sm btn-theme-blue">{{ __('translation.In Class') }}</a>
                                                             @else
                                                                 <a href="javascript:void(0)"
-                                                                    class="btn btn-primary btn-custom-sm btn-theme-blue disabled">강의
-                                                                    없음</a>
+                                                                    class="btn btn-primary btn-custom-sm btn-theme-blue disabled">{{ __('translation.No Lecture') }}</a>
                                                             @endif
                                                         </div>
                                                     </div>
@@ -106,7 +110,7 @@
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <div class="custom-tab-content">
-                                <h6 class="content-heading">Completed Lectures (2)</h6>
+                                <h6 class="content-heading">{{ __('translation.Completed Lectures') }} (2)</h6>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 col-12">
                                         <div class="lecture-box">
@@ -115,18 +119,22 @@
                                             <div class="lecture_box_content">
                                                 <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
                                                     - Melissa Devidson</h6>
-                                                <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l Tutor
+                                                <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l
+                                                    Tutor
                                                     Name</small>
-                                                <small class="lecture-duration mb-4 d-block">2022-10-12 ~ 2022-11-30</small>
+                                                <small class="lecture-duration mb-4 d-block">2022-10-12 ~
+                                                    2022-11-30</small>
                                                 <div class="d-flex align-items-center justify-content-between">
                                                     <a href="javascript:void(0)"
                                                         class="btn btn-primary btn-custom-sm btn-theme-light w-50"
                                                         data-toggle="modal" data-target="#reviewModal"> <i
-                                                            class="fas fa-edit"></i> 후기작성</a>
+                                                            class="fas fa-edit"></i>
+                                                        {{ __('translation.Write a review') }}</a>
                                                     <a href="javascript:void(0)"
                                                         class="btn btn-primary btn-custom-sm btn-theme-black w-48"
                                                         data-toggle="modal" data-target="#certificateModal"> <i
-                                                            class="fas fa-medal"></i> 수료증발급</a>
+                                                            class="fas fa-medal"></i>
+                                                        {{ __('translation.Certificate') }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,11 +154,13 @@
                                                     <a href="javascript:void(0)"
                                                         class="btn btn-primary btn-custom-sm btn-theme-light w-50"
                                                         data-toggle="modal" data-target="#reviewModal"> <i
-                                                            class="fas fa-edit"></i> 후기작성</a>
+                                                            class="fas fa-edit"></i>
+                                                        {{ __('translation.Write a review') }}</a>
                                                     <a href="javascript:void(0)"
                                                         class="btn btn-primary btn-custom-sm btn-theme-black w-48"
-                                                        data-toggle="modal" data-target="#checkCertificateModal"> <i
-                                                            class="fas fa-medal"></i> 수료증발급</a>
+                                                        data-toggle="modal" data-target="#certificateModal"> <i
+                                                            class="fas fa-medal"></i>
+                                                        {{ __('translation.Certificate') }}</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -161,7 +171,7 @@
                         <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                             aria-labelledby="pills-contact-tab">
                             <div class="custom-tab-content">
-                                <h6 class="content-heading">Lecture on “Like” (2)</h6>
+                                <h6 class="content-heading">{{ __('translation.Lecture on “Like”') }} (2)</h6>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 col-12">
                                         <div class="lecture-box">
@@ -195,7 +205,7 @@
                         <div class="tab-pane fade" id="pills-complete" role="tabpanel"
                             aria-labelledby="pills-complete-tab">
                             <div class="custom-tab-content">
-                                <h6 class="content-heading">Related Lectures (2)</h6>
+                                <h6 class="content-heading">{{ __('translation.Related Lectures') }} (2)</h6>
                                 <div class="row">
                                     <div class="col-lg-3 col-md-4 col-12">
                                         <div class="lecture-box">
@@ -242,7 +252,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel"><i
-                            class="fas fa-star text-theme-yellow"></i> <span>Write a Review</span></h5>
+                            class="fas fa-star text-theme-yellow"></i> <span>{{ __('translation.Review') }}</span></h5>
                 </div>
                 <div class="modal-body">
                     <div class="prompt"></div>
@@ -254,22 +264,22 @@
                             <div class="d-flex align-items-center gap-1 rating-stars">
                                 <ul class="rate-area">
                                     <input type="radio" id="5-star" name="rating" value="5" /><label
-                                        for="5-star" title="Amazing">5 stars</label>
+                                        for="5-star" title="Amazing">5 {{ __('translation.stars') }}</label>
                                     <input type="radio" id="4-star" name="rating" value="4" /><label
-                                        for="4-star" title="Good">4 stars</label>
+                                        for="4-star" title="Good">4 {{ __('translation.stars') }}</label>
                                     <input type="radio" id="3-star" name="rating" value="3" /><label
-                                        for="3-star" title="Average">3 stars</label>
+                                        for="3-star" title="Average">3 {{ __('translation.stars') }}</label>
                                     <input type="radio" id="2-star" name="rating" value="2" /><label
-                                        for="2-star" title="Not Good">2 stars</label>
+                                        for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
                                     <input type="radio" id="1-star" name="rating" value="1" /><label
-                                        for="1-star" title="Bad">1 star</label>
+                                        for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
                                 </ul>
                             </div>
                             <div class="error-rating"></div>
                         </div>
                         <div class="row align-items-center mb-3">
                             <div class="col-lg-2">
-                                <label for="course_name mb-0">Course Name</label>
+                                <label for="course_name mb-0">{{ __('translation.Course Name') }}</label>
                             </div>
                             <div class="col-lg-10">
                                 <input type="text" name="course_name" id="course_name"
@@ -280,7 +290,7 @@
                         </div>
                         <div class="row align-items-center mb-3">
                             <div class="col-lg-2">
-                                <label for="writer mb-0">Writer</label>
+                                <label for="writer mb-0">{{ __('translation.Writer') }}</label>
                             </div>
                             <div class="col-lg-10">
                                 <input type="text" name="writer" id="writer" placeholder="Enter Writer Name"
@@ -289,7 +299,7 @@
                         </div>
                         <div class="row align-items-center mb-3">
                             <div class="col-lg-2">
-                                <label for="title mb-0">Title</label>
+                                <label for="title mb-0">{{ __('translation.Title') }}</label>
                             </div>
                             <div class="col-lg-10">
                                 <input type="text" name="title" placeholder="Write in a title here"
@@ -299,7 +309,7 @@
                         </div>
                         <div class="row align-items-center mb-3">
                             <div class="col-lg-2">
-                                <label for="contents mb-0">Contents</label>
+                                <label for="contents mb-0">{{ __('translation.Contents') }}</label>
                             </div>
                             <div class="col-lg-10">
                                 <input type="text" name="contents" placeholder="Write a review in here"
@@ -310,7 +320,7 @@
 
                         <div class="row align-items-center mb-3">
                             <div class="col-lg-2">
-                                <label for="contents mb-0">Video</label>
+                                <label for="contents mb-0">{{ __('translation.Video') }}</label>
                             </div>
                             <div class="col-lg-10">
                                 <input type="file" name="video" class="form-control">
@@ -319,7 +329,7 @@
                         </div>
                         <div class="row align-items-center mb-3">
                             <div class="col-lg-2">
-                                <label for="contents mb-0">Video URL</label>
+                                <label for="contents mb-0">{{ __('translation.Video URL') }}</label>
                             </div>
                             <div class="col-lg-10">
                                 <input type="text" name="video_url" placeholder="Enter Video URL"
@@ -329,9 +339,9 @@
                         </div>
                         <div class="my-3 d-flex align-items-center justify-content-center">
                             <button type="submit" id="submitForm"
-                                class="btn btn-primary mr-2 rounded-0 btn-theme-black">Register</button>
+                                class="btn btn-primary mr-2 rounded-0 btn-theme-black">{{ __('translation.Register') }}</button>
                             <button type="button" class="btn btn-secondary rounded-0"
-                                data-dismiss="modal">Close</button>
+                                data-dismiss="modal">{{ __('translation.Close') }}</button>
                         </div>
                     </form>
                 </div>
@@ -346,28 +356,28 @@
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel"><img
                             class="certificate_icon"
-                            src="{{ asset('web_assets/images/certificate_icon.png') }}" /><span>Check Certification</span>
+                            src="{{ asset('web_assets/images/certificate_icon.png') }}" /><span>{{ __('translation.Check Certification') }}</span>
                     </h5>
                 </div>
                 <div class="modal-body">
                     <div class="row align-items-center mb-3">
                         <div class="col-lg-12">
-                            <label for="course_name mb-0">Course Name</label>
+                            <label for="course_name mb-0">{{ __('translation.Course Name') }}</label>
                             <select class="form-control" name="course_name">
-                                <option>Select Course</option>
+                                <option>{{ __('translation.Select Course') }}</option>
                                 <option>[2022 PTedu] pelvic healthe Integration - Melissa Devidson</option>
                             </select>
                         </div>
                     </div>
                     <div class="row align-items-center justify-content-center mb-3">
                         <div class="col-lg-12">
-                            <h4 class="certificate_modal_body text-center mt-3">The course has not been completed yet.
-                                Please check again.</h4>
+                            <h4 class="certificate_modal_body text-center mt-3">{{ __('translation.The course has not been completed yet') }}.
+                                {{ __('translation.Please check again') }}.</h4>
                         </div>
                     </div>
                     <div class="my-3 d-flex align-items-center justify-content-center">
                         <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-black"
-                            data-dismiss="modal">Close</button>
+                            data-dismiss="modal">{{ __('translation.Close') }}</button>
                     </div>
                 </div>
             </div>
@@ -382,13 +392,13 @@
                 <div class="modal-header">
                     <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel"><img
                             class="certificate_icon"
-                            src="{{ asset('web_assets/images/certificate_icon.png') }}" /><span>Check Certification</span>
+                            src="{{ asset('web_assets/images/certificate_icon.png') }}" /><span>{{ __('translation.Check Certification') }}</span>
                     </h5>
                 </div>
                 <div class="modal-body">
                     <div class="row align-items-center mb-3">
                         <div class="col-lg-12">
-                            <label for="course_name mb-0">Course Name</label>
+                            <label for="course_name mb-0">{{ __('translation.Course Name') }}</label>
                             <select class="form-control" name="course_name">
                                 <option>[2022 PTedu] pelvic healthe Integration - Melissa Devidson</option>
                             </select>
@@ -405,8 +415,8 @@
                                             class="w-100">
                                         <div class="divider mt-1"></div>
                                     </div>
-                                    <div class="certificate_header mb-1">CERTIFICATE</div>
-                                    <div class="certificate_sub_title">OF COMPLETION</div>
+                                    <div class="certificate_header mb-1">{{ __('translation.Certificate') }}</div>
+                                    <div class="certificate_sub_title">{{ __('of completion') }}</div>
                                     <div class="w-25 mx-auto">
                                         <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}"
                                             class="w-100">
@@ -432,7 +442,7 @@
                                         </div>
                                         <div class="certificate_date">
                                             2022.10.12 <br>
-                                            Date
+                                            {{ __('translation.Date') }}
                                         </div>
                                     </div>
                                 </div>
@@ -440,9 +450,9 @@
                         </div>
                     </div>
                     <div class="my-3 d-flex align-items-center justify-content-center">
-                        <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-black">Download</button>
+                        <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-black">{{ __('translation.Download') }}</button>
                         <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-light"
-                            data-dismiss="modal">Close</button>
+                            data-dismiss="modal">{{ __('translation.Close') }}</button>
                     </div>
                 </div>
             </div>

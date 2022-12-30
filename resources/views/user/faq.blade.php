@@ -12,8 +12,8 @@
         <div class="w-75 m-auto">
             <div class="table-header pb-3 border-bottom-2">
                 <div class="left-content notice_tabs d-flex align-items-center">
-                    <h5 class="heading mb-0 mr-5"><a href="{{ route('web-notice') }}" class="text-muted">Notice</a></h5>
-                    <h5 class="heading mb-0"><a href="{{ route('web-faq') }}" class="text-muted active">FAQ</a></h5>
+                    <h5 class="heading mb-0 mr-5"><a href="{{ route('web-notice') }}" class="text-muted">{{ __('translation.Notice') }}</a></h5>
+                    <h5 class="heading mb-0"><a href="{{ route('web-faq') }}" class="text-muted active">{{ __('translation.FAQ') }}</a></h5>
                 </div>
             </div>
             <div class="accordion faq_tabs" id="accordionExample">
@@ -54,13 +54,13 @@
     <div class="modal-dialog modal-dialog-centered modal-custom modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel">Faq</h5>
+                <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel">{{ __('translation.Faq') }}</h5>
             </div>
             <div class="modal-body">
                 <h5 class="heading-h5 mb-3 font-weight-bold notice_title"></h5>
                 <p class="mb-4 notice_content"></p>
                 <div class="my-3 d-flex align-items-center justify-content-center">
-                    <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">{{ __('translation.Close') }}</button>
                 </div>
             </div>
         </div>

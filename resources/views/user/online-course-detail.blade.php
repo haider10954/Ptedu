@@ -19,8 +19,7 @@
                         @if ($reservation)
                             @if ($reservation->status == 'decline')
                                 <div class="badge  mt-3 mb-3 p-2"
-                                    style="background: #F9DFDF; border-radius: 2px; color: #791919;">Your Reservation has
-                                    been decline Apply again to Reserve Course.</div>
+                                    style="background: #F9DFDF; border-radius: 2px; color: #791919;">{{ __('translation.Your Reservation has been decline Apply again to Reserve Course') }}.</div>
                             @endif
                         @endif
                         <div class="content_wrapper">
@@ -30,10 +29,10 @@
                     </div>
                     <div class="col-lg-3">
                         <div class="d-flex align-items-center justify-content-between">
-                            <p class="mb-0 text">강좌금액</p>
-                            <p class="mb-0 text">{{ $course_info->price }}원</p>
+                            <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
+                            <p class="mb-0 text">{{ $course_info->price }}{{ __('translation.won') }}</p>
                         </div>
-                        <button class="btn btn-dark btn-sm w-100 mb-2">장바구니에 추가</button>
+                        <button class="btn btn-dark btn-sm w-100 mb-2">{{ __('translation.Add to cart') }}</button>
 
                     </div>
                 </div>
@@ -42,15 +41,15 @@
                 <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-                            aria-controls="pills-home" aria-selected="true">강좌 소개</a>
+                            aria-controls="pills-home" aria-selected="true">{{ __('translation.Course Introduction') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-                            aria-controls="pills-profile" aria-selected="false">강사 소개</a>
+                            aria-controls="pills-profile" aria-selected="false">{{ __('translation.Instructor Introduction') }}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                            aria-controls="pills-contact" aria-selected="false">강의 후기</a>
+                            aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture review') }}</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -62,7 +61,7 @@
                             <tbody>
                                 <tr>
                                     <td>
-                                        <p class="mb-0 text font-weight-bold">Name</p>
+                                        <p class="mb-0 text font-weight-bold">{{ __('translation.Name') }}</p>
                                     </td>
                                     <td>
                                         <p class="mb-0 text">{{ $course_info->getTutorName->name }}</p>
@@ -70,7 +69,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p class="mb-0 text font-weight-bold">Email</p>
+                                        <p class="mb-0 text font-weight-bold">{{ __('translation.Email') }}</p>
                                     </td>
                                     <td>
                                         <p class="mb-0 text">{{ $course_info->getTutorName->email }}</p>
@@ -78,7 +77,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p class="mb-0 text font-weight-bold">Phone #</p>
+                                        <p class="mb-0 text font-weight-bold">{{ __('translation.Phone') }} #</p>
                                     </td>
                                     <td>
                                         <p class="mb-0 text">{{ $course_info->getTutorName->mobile_number }}</p>
@@ -86,7 +85,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p class="mb-0 text font-weight-bold">Designation</p>
+                                        <p class="mb-0 text font-weight-bold">{{ __('translation.Designation') }}</p>
                                     </td>
                                     <td>
                                         <p class="mb-0 text">{{ $course_info->getTutorName->job }}</p>
@@ -94,7 +93,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <p class="mb-0 text font-weight-bold">Address</p>
+                                        <p class="mb-0 text font-weight-bold">{{ __('translation.Address') }}</p>
                                     </td>
                                     <td>
                                         <p class="mb-0 text">{{ $course_info->getTutorName->address }}</p>
@@ -104,10 +103,10 @@
                         </table>
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                        <p class="mb-2 text font-weight-bold">Day 1</p>
+                        <p class="mb-2 text font-weight-bold">{{ __('translation.Day') }} 1</p>
                         <p class="mb-4 text">1. 보행 기초지식:  보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
                             이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
-                        <p class="mb-2 text font-weight-bold">Day 2</p>
+                        <p class="mb-2 text font-weight-bold">{{ __('translation.Day') }} 2</p>
                         <p class="mb-4 text">1. 보행 기초지식: 보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
                             이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
                     </div>

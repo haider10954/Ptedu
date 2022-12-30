@@ -161,8 +161,8 @@
             <div class="interactive-section-content text-center mb-5">
                 <div class="section-part mb-80">
                     <div class="section-title mb-5">
-                        <small class="mb-2 text-white">ABOUT COURSE</small>
-                        <h3 class="heading-h3 text-white mb-0">Expert Courses</h3>
+                        <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
+                        <h3 class="heading-h3 text-white mb-0">{{ __('translation.Expert Courses') }}</h3>
                     </div>
                     <div class="swiper expert-course-carousel">
                         <div class="swiper-wrapper">
@@ -176,7 +176,7 @@
                                             <div class="box-overlay-description text-left">
                                                 <p class="mb-0 text-white">{{ $item->short_description }}</p>
                                             </div>
-                                            <p class="mb-0 text-right text-white font-weight-600">Instructor
+                                            <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }}
                                                 {{ $item->getTutorName->name }}</p>
                                         </a>
                                     </div>
@@ -189,8 +189,8 @@
                 </div>
                 <div class="section-part mb-80">
                     <div class="section-title mb-5">
-                        <small class="mb-2 text-white">ABOUT COURSE</small>
-                        <h3 class="heading-h3 text-white mb-0">Public Courses</h3>
+                        <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
+                        <h3 class="heading-h3 text-white mb-0">{{ __('translation.Public Courses') }}</h3>
                     </div>
                     <div class="swiper public-course-carousel">
                         <div class="swiper-wrapper">
@@ -205,7 +205,7 @@
                                             <div class="box-overlay-description text-left">
                                                 <p class="mb-0 text-white">{{ $record->short_description }}</p>
                                             </div>
-                                            <p class="mb-0 text-right text-white font-weight-600">Instructor
+                                            <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }}
                                                 {{ $record->getTutorName->name }}</p>
                                         </a>
                                     </div>
@@ -218,8 +218,8 @@
                 </div>
                 <div class="section-part mb-80">
                     <div class="section-title mb-5">
-                        <small class="mb-2 text-white">ABOUT COURSE</small>
-                        <h3 class="heading-h3 text-white mb-0">Offline Lecture</h3>
+                        <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
+                        <h3 class="heading-h3 text-white mb-0">{{ __('translation.Offline Lecture') }}</h3>
                     </div>
                     <div class="swiper offline-lecture-carousel">
                         <div class="swiper-wrapper">
@@ -233,7 +233,7 @@
                                             <div class="box-overlay-description text-left">
                                                 <p class="mb-0 text-white">{{ $v->short_description }}</p>
                                             </div>
-                                            <p class="mb-0 text-right text-white font-weight-600">Instructor
+                                            <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }}
                                                 {{ $v->getTutorName->name }}</p>
                                         </a>
                                     </div>
@@ -246,8 +246,8 @@
                 </div>
                 <div class="section-part">
                     <div class="section-title mb-5">
-                        <small class="mb-2 text-white">ABOUT INSTRUCTOR</small>
-                        <h3 class="heading-h3 text-white mb-0">Tutor Introduction</h3>
+                        <small class="mb-2 text-white">{{ __('translation.ABOUT INSTRUCTOR') }}</small>
+                        <h3 class="heading-h3 text-white mb-0">{{ __('translation.Tutor Introduction') }}</h3>
                     </div>
                     <div class="row align-items-center justify-content-left">
                         <div class="col-lg-3 col-md-4 col-12 mb-4">
@@ -259,7 +259,7 @@
                                         <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
                                             PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
                                     </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }} 조규행</p>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +272,7 @@
                                         <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
                                             PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
                                     </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }} 조규행</p>
                                 </div>
                             </div>
                         </div>
@@ -285,7 +285,7 @@
                                         <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
                                             PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
                                     </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }} 조규행</p>
                                 </div>
                             </div>
                         </div>
@@ -298,7 +298,7 @@
                                         <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
                                             PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
                                     </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }} 조규행</p>
                                 </div>
                             </div>
                         </div>
@@ -311,7 +311,7 @@
                                         <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
                                             PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
                                     </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }} 조규행</p>
                                 </div>
                             </div>
                         </div>
@@ -324,7 +324,7 @@
                                         <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
                                             PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
                                     </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }} 조규행</p>
                                 </div>
                             </div>
                         </div>
@@ -337,7 +337,7 @@
                                         <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
                                             PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
                                     </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }} 조규행</p>
                                 </div>
                             </div>
                         </div>
@@ -350,7 +350,7 @@
                                         <p class="mb-0 text-white">고유 수용성 신경근 촉진법, 물리치료사에게 추천하는 기본에 충신한 PNF강의, 그리고 그 이상의
                                             PNF, 필드에서 바로 사용 할 수 있는 쉽고 간단한 입문 개론</p>
                                     </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">강사 조규행</p>
+                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }} 조규행</p>
                                 </div>
                             </div>
                         </div>
@@ -367,8 +367,8 @@
             <div class="interactive-section-content text-center">
                 <div class="section-part mb-5">
                     <div class="section-title mb-5">
-                        <small class="mb-2">ABOUT STUDENTS</small>
-                        <h3 class="heading-h3 mb-0">Course Review</h3>
+                        <small class="mb-2">{{ __('translation.ABOUT STUDENTS') }}</small>
+                        <h3 class="heading-h3 mb-0">{{ __('translation.Course Review') }}</h3>
                     </div>
                     <div class="swiper course-review-carousel">
                         <div class="swiper-wrapper">

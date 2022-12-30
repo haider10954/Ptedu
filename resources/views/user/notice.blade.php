@@ -8,9 +8,9 @@
             <div class="w-75 m-auto">
                 <div class="table-header mb-3">
                     <div class="left-content notice_tabs d-flex align-items-center">
-                        <h5 class="heading mb-0 mr-5"><a href="{{ route('web-notice') }}" class="active text-muted">Notice</a>
+                        <h5 class="heading mb-0 mr-5"><a href="{{ route('web-notice') }}" class="active text-muted">{{ __('translation.Notice') }}</a>
                         </h5>
-                        <h5 class="heading mb-0"><a href="{{ route('web-faq') }}" class="text-muted">FAQ</a></h5>
+                        <h5 class="heading mb-0"><a href="{{ route('web-faq') }}" class="text-muted">{{ __('translation.FAQ') }}</a></h5>
                     </div>
                     <div class="right-content d-flex align-items-center">
                         <input type="text" placeholder="Enter Search Items" id="myInput" onkeyup="myFunction()"
@@ -21,9 +21,9 @@
                 <table class="table w-100" id="table-notice">
                     <thead class="notice-table-header">
                         <tr>
-                            <th>Number</th>
-                            <th>Title</th>
-                            <th>Date</th>
+                            <th>{{ __('translation.Number') }}</th>
+                            <th>{{ __('translation.Title') }}</th>
+                            <th>{{ __('translation.Date') }}</th>
                         </tr>
                     </thead>
                     <tbody class="font-14px">
@@ -65,13 +65,13 @@
         <div class="modal-dialog modal-dialog-centered modal-custom modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel">Notice</h5>
+                    <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel">{{ __('translation.Notice') }}</h5>
                 </div>
                 <div class="modal-body">
                     <h5 class="heading-h5 mb-3 font-weight-bold notice_title"></h5>
                     <p class="mb-4 notice_content"></p>
                     <div class="my-3 d-flex align-items-center justify-content-center">
-                        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">{{ __('translation.Close') }}</button>
                     </div>
                 </div>
             </div>

@@ -6,10 +6,10 @@
 <div class="section pt-150 review_section">
     <div class="container">
         <div class="section-heading">
-            <h5 class="mb-0">Review</h5>
+            <h5 class="mb-0">{{ __('translation.Review') }}</h5>
         </div>
         <div class="w-65 review_info m-auto py-4">
-            <h5 class="heading mb-3 text-center">PTEdu Student Reviews</h5>
+            <h5 class="heading mb-3 text-center">PTEdu {{ __('translation.Student Reviews') }}</h5>
             @if( $latest_review->count() > 0)
             {!! $embedded_video !!}
             <p class="mb-1 font-weight-600">{{ $latest_review->getCourse->course_title }} | {{ $latest_review->title }} </p>
@@ -26,7 +26,7 @@
 </div>
 <div class="section course_reviews background-light">
     <div class="container">
-        <h5 class="mb-5 text-center heading">PTEdu Course Reivew</h5>
+        <h5 class="mb-5 text-center heading">PTEdu {{ __('translation.Course Reivew') }}</h5>
         <div class="w-100 m-auto courses_reviews_carousel position-relative">
             <div class="swiper course-reviews-carousel">
                 <div class="swiper-wrapper">
@@ -58,8 +58,8 @@
 </div>
 <div class="section">
     <div class="container">
-        <p class="text-beige font-weight-700 text-center mb-2">There are {{ $review->count() }} reviews!</p>
-        <h5 class="heading mb-0 text-center">PTEdu Course Review</h5>
+        <p class="text-beige font-weight-700 text-center mb-2">{{ __('trasnlation.There are') }} {{ $review->count() }} {{ __('trasnlation.reviews') }}!</p>
+        <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
         <div class="w-50 review_tabs m-auto py-5">
             <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">
                 @foreach($category as $c)

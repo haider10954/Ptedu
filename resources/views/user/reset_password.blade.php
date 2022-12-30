@@ -6,23 +6,23 @@
 <div class="section pt-150">
     <div class="container">
         <div class="m-auto form-wrapper">
-            <h3 class=" heading-h3 mb-3 text-center">Reset my PW</h3>
-            <p class="text-center">Please reset your Password</p>
+            <h3 class=" heading-h3 mb-3 text-center">{{ __('translation.Reset my PW') }}</h3>
+            <p class="text-center">{{ __('translation.Please reset your Password') }}</p>
             <div class="prompt"></div>
             <form type="POST" id="resetPassword">
                 @csrf
                 <div class="form-group">
-                    <label class="form-label">New Password</label>
-                    <input type="text" class="form-control" placeholder="Enter new password" name="password" />
+                    <label class="form-label">{{ __('translation.New Password') }}</label>
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter new password') }}" name="password" />
                     <div class="error-password"></div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Confirm Password</label>
-                    <input type="text" class="form-control" placeholder="Confirm Password" name="confirm_password" />
+                    <label class="form-label">{{ __('translation.Confirm Password') }}</label>
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Confirm Password') }}" name="confirm_password" />
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-login">Reset my Password</button>
+                    <button type="submit" class="btn btn-login">{{ __('translation.Reset my Password') }}</button>
                 </div>
             </form>
         </div>

@@ -6,19 +6,19 @@
 <div class="section pt-150">
     <div class="container">
         <div class="m-auto form-wrapper">
-            <h3 class=" heading-h3 mb-4 text-center">Find ID</h3>
+            <h3 class=" heading-h3 mb-4 text-center">{{ __('translation.Find ID') }}</h3>
             <div class="prompt"></div>
             <form type="POST" id="findIdForm">
                 @csrf
                 <div class="form-group">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" placeholder="Enter your Name" name="name" />
+                    <label class="form-label">{{ __('translation.Name') }}</label>
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter your Name') }}" name="name" />
                     <div class="error-name"></div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" placeholder="Enter Phone Number" name="phone_number" />
+                    <label class="form-label">{{ __('translation.Phone Number') }}</label>
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Phone Number') }}" name="phone_number" />
                     <div class="error-mobile"></div>
                 </div>
                 <div id="user_id">
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <button type="submit" id="submitForm" class="btn btn-login">Find my ID</button>
+                    <button type="submit" id="submitForm" class="btn btn-login">{{ __('translation.Find my ID') }}</button>
                 </div>
             </form>
         </div>

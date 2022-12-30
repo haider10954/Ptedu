@@ -6,30 +6,30 @@
 <div class="section pt-150">
     <div class="container">
         <div class="m-auto form-wrapper">
-            <h3 class=" heading-h3 mb-4 text-center">Find PW</h3>
+            <h3 class=" heading-h3 mb-4 text-center">{{ __('translation.Find PW') }}</h3>
             <div class="prompt"></div>
             <form type="POST" id="findPassword">
                 @csrf
                 <div class="form-group">
-                    <label class="form-label">Name</label>
-                    <input type="text" class="form-control" placeholder="Enter your Name" name="name" />
+                    <label class="form-label">{{ __('translation.Name') }}</label>
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter your Name') }}" name="name" />
                     <div class="error-name"></div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Phone Number</label>
-                    <input type="text" class="form-control" placeholder="Enter your Phone Number" name="mobile_number" />
+                    <label class="form-label">{{ __('translation.Phone Number') }}</label>
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter your Phone Number') }}" name="mobile_number" />
                     <div class="error-mobile-number"></div>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">Your ID</label>
-                    <input type="text" class="form-control" placeholder="Enter Your ID" name="user_id" />
+                    <label class="form-label">{{ __('translation.Your ID') }}</label>
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Your ID') }}" name="user_id" />
                     <div class="error-user-id"></div>
                 </div>
 
                 <div class="mb-3">
-                    <button type="submit" id="submitForm" class="btn btn-login">Find my PW</button>
+                    <button type="submit" id="submitForm" class="btn btn-login">{{ __('translation.Find my PW') }}</button>
                 </div>
             </form>
         </div>

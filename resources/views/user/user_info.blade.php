@@ -8,23 +8,23 @@
         <div class="row">
             <div class="col-lg-2 padding-left">
                 <div class="page-sidemenu-heading mb-3">
-                    <h5 class="mb-0 font-weight-600">User Info</h5>
+                    <h5 class="mb-0 font-weight-600">{{ __('translation.User Info') }}</h5>
                     <a href="javscript:void(0)" class="btn btn-dark btn-custom-sm btn-theme-black page-side-menu-toggle">menu</a>
                 </div>
                 <div class="page-side-menu">
                     <ul class="menu">
-                        <li><a href="{{ route('my_classroom') }}">My Classroom</a></li>
-                        <li><a href="{{ route('shopping_bag') }}">Shopping Bag</a></li>
-                        <li><a href="{{ route('user_info') }}">Modifying Member Info</a></li>
-                        <li><a href="{{ route('user_inquiry')  }}">1:1 Inquiry</a></li>
+                        <li><a href="{{ route('my_classroom') }}">{{ __('translation.My Classroom') }}</a></li>
+                        <li><a href="{{ route('shopping_bag') }}">{{ __('translation.Shopping Bag') }}</a></li>
+                        <li><a href="{{ route('user_info') }}">{{ __('translation.Modifying Member Info') }}</a></li>
+                        <li><a href="{{ route('user_inquiry')  }}">1:1 {{ __('translation.Inquiry') }}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-10">
                 <div class="section-heading">
-                    <h5 class="mb-4">Modifying Member Info</h5>
+                    <h5 class="mb-4">{{ __('translation.Modifying Member Info') }}</h5>
                     <div class="mt-2 mb-3">
-                        <p class="mb-0">To protect your personal information, please change your password, email, mobile phone number periodically.</p>
+                        <p class="mb-0">{{ __('translation.To protect your personal information, please change your password, email, mobile phone number periodically') }}.</p>
                     </div>
                     @if (Session::has('msg'))
                     <div class="alert alert-info" id="responseMessage">{{ Session::get('msg') }}</div>
@@ -41,7 +41,7 @@
                         <div class="col-md-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="user-details d-flex align-items-center justify-content-start" style="height: 155px;">
-                                    <p class="mb-0 user_profile">Profile Image</p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Profile Image') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -56,10 +56,10 @@
                                 </div>
                                 <input type="file" class="selectImage d-none" name="user_profile" id="profile_image">
                                 <div class="ml-4">
-                                    <p class="mb-0">* Please register your profile picture. <br /> * Image file size up to less than 2MB</p>
+                                    <p class="mb-0">* {{ __('translation.Please register your profile picture') }}. <br /> * {{ __('translation.Image file size up to less than 2MB') }}</p>
                                     <div class="d-flex mt-2">
-                                        <button type="button" class="btn rounded-0 btn-theme-delete mr-2 uploadImage">Upload</button>
-                                        <a class="btn rounded-0 btn-theme-delete" id="delete">Delete</a>
+                                        <button type="button" class="btn rounded-0 btn-theme-delete mr-2 uploadImage">{{ __('translation.Upload') }}</button>
+                                        <a class="btn rounded-0 btn-theme-delete" id="delete">{{ __('translation.Delete') }}</a>
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +73,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                    <p class="mb-0 user_profile">Name</p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Name') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -93,7 +93,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                    <p class="mb-0 user_profile">English Name</p>
+                                    <p class="mb-0 user_profile">{{ __('translation.English Name') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -114,7 +114,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                    <p class="mb-0 user_profile">ID</p>
+                                    <p class="mb-0 user_profile">{{ __('translation.ID') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -127,14 +127,14 @@
                                     @enderror
                                 </div>
                                 <div class="verify_btn">
-                                    <button class="btn rounded-0 btn-theme-delete ml-2 text-black checkUserID" type="button">Duplicate Verification</button>
+                                    <button class="btn rounded-0 btn-theme-delete ml-2 text-black checkUserID" type="button">{{ __('translation.Duplicate Verification') }}</button>
 
                                 </div>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="verify_mobile mt-2">
-                                <button class="btn rounded-0 btn-theme-delete ml-2 checkUserID" type="button">Duplicate Verification</button>
+                                <button class="btn rounded-0 btn-theme-delete ml-2 checkUserID" type="button">{{ __('translation.Duplicate Verification') }}</button>
                             </div>
                         </div>
                     </div>
@@ -146,32 +146,32 @@
                             <div class="col-3 pr-0">
                                 <div class="user-info bottom-border">
                                     <div class="d-flex align-items-center justify-content-start user_jobs">
-                                        <p class="mb-0 user_profile">Job</p>
+                                        <p class="mb-0 user_profile">{{ __('translation.Job') }}</p>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-9 pl-0">
                                 <div class="d-flex align-items-center select_job bottom-border input_jobs">
                                     <div class=" mr-2">
-                                        <input type="radio" name="job" value="physical therapist" {{ auth()->user()->job == 'physical therapist'  ? 'checked':''}}> physical therapist
+                                        <input type="radio" name="job" value="physical therapist" {{ auth()->user()->job == 'physical therapist'  ? 'checked':''}}> {{ __('translation.physical therapist') }}
                                     </div>
                                     <div class=" mr-2">
-                                        <input type="radio" name="job" value="occupational therapist" {{ auth()->user()->job == 'occupational therapist'  ? 'checked':''}}> occupational therapist
+                                        <input type="radio" name="job" value="occupational therapist" {{ auth()->user()->job == 'occupational therapist'  ? 'checked':''}}> {{ __('translation.occupational therapist') }}
                                     </div>
                                     <div class=" mr-2">
-                                        <input type="radio" name="job" value="trainer" {{ auth()->user()->job == 'trainer'  ? 'checked':''}}> trainer
+                                        <input type="radio" name="job" value="trainer" {{ auth()->user()->job == 'trainer'  ? 'checked':''}}> {{ __('translation.trainer') }}
                                     </div>
                                     <div class=" mr-2">
-                                        <input type="radio" name="job" value="pilates instructor" {{ auth()->user()->job == 'pilates instructor'  ? 'checked':''}}> pilates instructor
+                                        <input type="radio" name="job" value="pilates instructor" {{ auth()->user()->job == 'pilates instructor'  ? 'checked':''}}> {{ __('translation.pilates instructor') }}
                                     </div>
                                     <div class="mr-2">
-                                        <input type="radio" name="job" value="student" {{ auth()->user()->job == 'student'  ? 'checked':''}}> Student
+                                        <input type="radio" name="job" value="student" {{ auth()->user()->job == 'student'  ? 'checked':''}}> {{ __('translation.Student') }}
                                     </div>
                                     <div class=" mr-2">
-                                        <input type="radio" name="job" value="office worker" {{ auth()->user()->job == 'office worker'  ? 'checked':''}}> office worker
+                                        <input type="radio" name="job" value="office worker" {{ auth()->user()->job == 'office worker'  ? 'checked':''}}> {{ __('translation.office worker') }}
                                     </div>
                                     <div class=" mr-2">
-                                        <input type="radio" name="job" value="ETC" {{ auth()->user()->job == 'ETC'  ? 'checked':''}}> ETC
+                                        <input type="radio" name="job" value="ETC" {{ auth()->user()->job == 'ETC'  ? 'checked':''}}> {{ __('translation.ETC') }}
                                     </div>
                                 </div>
                             </div>
@@ -181,7 +181,7 @@
                             <div class="col-3 pr-0">
                                 <div class="user-info bottom-border">
                                     <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                        <p class="mb-0 user_profile">Phone number</p>
+                                        <p class="mb-0 user_profile">{{ __('translation.Phone number') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -211,7 +211,7 @@
                             <div class="col-3 pr-0">
                                 <div class="user-info bottom-border">
                                     <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                        <p class="mb-0 user_profile">Email</p>
+                                        <p class="mb-0 user_profile">{{ __('translation.Email') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -243,7 +243,7 @@
                             <div class="col-3 pr-0">
                                 <div class="user-info bottom-border">
                                     <div class="d-flex align-items-center justify-content-start" style="height:109px;">
-                                        <p class="mb-0 user_profile">Address</p>
+                                        <p class="mb-0 user_profile">{{ __('translation.Address') }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -269,7 +269,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="d-flex align-items-center justify-content-center mt-4">
-                                    <button type="submit" class="btn rounded-0 btn-theme-black text-white" style="padding: 10px 60px; font-size:13px;">Update</button>
+                                    <button type="submit" class="btn rounded-0 btn-theme-black text-white" style="padding: 10px 60px; font-size:13px;">{{ __('translation.Update') }}</button>
                                 </div>
                             </div>
                         </div>
@@ -284,7 +284,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Confirm Delete</h5>
+                <h5 class="modal-title">{{ __('translation.Confirm Delete') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -293,12 +293,12 @@
                 @csrf
                 <div class="modal-body">
                     <input type="hidden" name="id" value="{{ auth()->id() }}">
-                    <p>Are you sure to delete profile image.</p>
+                    <p>{{ __('translation.Are you sure to delete profile image') }}.</p>
 
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">{{ __('translation.Save') }}</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">{{ __('translation.Close') }}</button>
                 </div>
             </form>
         </div>
