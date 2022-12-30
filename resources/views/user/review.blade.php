@@ -9,7 +9,7 @@
             <h5 class="mb-0">{{ __('translation.Review') }}</h5>
         </div>
         <div class="w-65 review_info m-auto py-4">
-            <h5 class="heading mb-3 text-center">PTEdu {{ __('translation.Student Reviews') }}</h5>
+            <h5 class="heading mb-3 text-center">PTEdu Student Reviews</h5>
             @if( $latest_review->count() > 0)
             {!! $embedded_video !!}
             <p class="mb-1 font-weight-600">{{ $latest_review->getCourse->course_title }} | {{ $latest_review->title }} </p>

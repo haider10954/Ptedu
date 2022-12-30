@@ -604,3 +604,22 @@
 .rate-area>label:hover~input:checked~label {
     color: gold;
 }
+
+.text-justify {
+    text-align: justify;
+}
+
+.tutor_img {
+    height: 250px;
+    border: 2px solid #e2dfdf;
+    width: 250px;
+}
+
+.tutor_img img {
+    object-fit: contain;
+}
+
+.tutor_info:hover .box-overlay {
+    opacity: 1;
+    transition: all 0.5s;
+}

@@ -41,6 +41,8 @@ Route::post('/check-user-id', [StudentController::class, 'checkUserId'])->name('
 
 Route::get('/', [IndexController::class, 'index'])->name('web-home');
 
+Route::get('/tutor_info/{id}',[IndexController::class, 'tutor_info'])->name('tutor_info');
+
 //Offline Lectures
 Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
 Route::get('/offline-course-detail/{id}', [LectureController::class, 'offline_lecture_detail'])->name('offline_lecture_detail');
