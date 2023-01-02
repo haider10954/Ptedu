@@ -23,9 +23,7 @@ class StudentController extends Controller
             'mobile' => 'required',
             'email_name' => 'required',
             'email_extension' => 'required',
-            'address' => 'required',
-            'house_no' => 'required',
-            'street_no' => 'required',
+            'address' => 'required'
         ]);
         $student = User::create([
             'name' => $request['name'],
@@ -35,7 +33,7 @@ class StudentController extends Controller
             'job' => $request['job'],
             'mobile_number' => $request['country_code'] . $request['mobile'],
             'email' => $request['email_name'] . '@' . $request['email_extension'],
-            'address' => $request['address'] . '|' . $request['house_no'] . '|' . $request['street_no'],
+            'address' => $request['address'],
         ]);
 
         if ($student) {
