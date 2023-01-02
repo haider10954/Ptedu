@@ -170,7 +170,7 @@
                                 </div>
                                 <div class="mr-2 mb-1 mb-md-0">
                                     <div>
-                                        <input type="text" class="form-control custom_width" name="mobile" placeholder="{{ __('translation.Mobile number') }}" value="{{ old('mobile') }}">
+                                        <input type="number" class="form-control custom_width" name="mobile" placeholder="{{ __('translation.Mobile number') }}" value="{{ old('mobile') }}">
                                         <div class="error-mobile-number d-block"></div>
                                     </div>
                                 </div>

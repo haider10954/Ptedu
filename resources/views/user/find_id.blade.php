@@ -26,7 +26,9 @@
                 </div>
 
                 <div class="mb-3">
-                    <button type="submit" id="submitForm" class="btn btn-login">{{ __('translation.Find my ID') }}</button>
+                    <div class="btnToggle">
+                        <button type="submit" id="submitForm" class="btn btn-login">{{ __('translation.Find my ID') }}</button>
+                    </div>
                 </div>
             </form>
         </div>
@@ -56,7 +58,7 @@
                 if (res.success) {
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
                     $('#user_id').append(' <div class="form-group"><label class="form-label">User ID</label><input type="text" class="form-control" value=' + res.user_id + ' name="phone_number" /><div class="error-mobile"></div></div>')
-                    $("#submitForm").html("<a class='text-white text-decoration-none' href='{{ route('user_login') }}'>Login</a>");
+                    $("#btnToggle").html("<a class='text-white text-decoration-none' href='{{ route('user_login') }}'>Login</a>");
                     $("#submitForm").prop('disabled', false);
                     setTimeout(function() {
                         $('.prompt').hide()
