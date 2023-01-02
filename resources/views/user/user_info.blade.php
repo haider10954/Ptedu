@@ -247,17 +247,10 @@
                                     </div>
                                 </div>
                             </div>
-                            @php
-                            $address = explode('|', auth()->user()->address)
-                            @endphp
                             <div class="col-9 pl-0">
                                 <div class="d-flex  bottom-border flex-column" style="padding-left:10px; height:110px;">
                                     <div class="mt-2">
-                                        <input type="text" class="form-control" name="address" value="{{ $address[0] }}" placeholder="Enter Address">
-                                    </div>
-                                    <div class="d-flex">
-                                        <input type="text" class="form-control mr-2 mt-1" name="house_no" value="{{ $address[1] }}" placeholder="Enter House No">
-                                        <input type="text" class="form-control mt-1" name="street_no" value="{{ $address[2] }}" placeholder="Enter Street number">
+                                        <textarea type="text" rows="2" style="resize: none;" class="form-control" name="address" placeholder="{{ __('translation.Enter your Address') }}">{{ auth()->user()->address }}</textarea>
                                     </div>
                                     @error('address')
                                     <small style="color:#d02525;">{{$message}}</small>
