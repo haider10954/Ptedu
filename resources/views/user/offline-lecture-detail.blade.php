@@ -33,25 +33,25 @@
                     <button class="btn btn-danger btn-sm w-100 mb-2 delBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#delReservationModal">{{ __('translation.Decline') }}</button>
 
                     @if(auth()->check())
-                    @if($enrolled_user == 0)
-                    @if($offline_enrollment_count >= $course_info->no_of_enrollments )
-                    @if($reservation)
-                    @if($reservation->status == 'applied')
-                    <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Waiting For Reservation') }}</button>
-                    @elseif($reservation->status == 'reserved')
-                    <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Reserved') }}</button>
-                    @elseif($reservation->status == 'decline')
-                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply For Reservation') }}</button>
-                    @endif
-                    @else
-                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply') }}</button>
-                    @endif
-                    @else
-                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">{{ __('translation.Enroll Now') }}</button>
-                    @endif
-                    @else
-                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" disabled data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">{{ __('translation.Enrolled') }}</button>
-                    @endif
+                        @if($enrolled_user == 0)
+                                @if($offline_enrollment_count <= $course_info->no_of_enrollments )
+                                    @if($reservation)
+                                        @if($reservation->status == 'applied')
+                                        <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Waiting For Reservation') }}</button>
+                                        @elseif($reservation->status == 'reserved')
+                                        <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Reserved') }}</button>
+                                        @elseif($reservation->status == 'decline')
+                                        <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply For Reservation') }}</button>
+                                        @endif
+                                    @else
+                                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply') }}</button>
+                                    @endif
+                                @else
+                                <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">{{ __('translation.Enroll Now') }}</button>
+                                @endif
+                        @else
+                        <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" disabled data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">{{ __('translation.Enrolled') }}</button>
+                        @endif
                     @endif
 
                 </div>
