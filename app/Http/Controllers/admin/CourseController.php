@@ -120,10 +120,13 @@ class CourseController extends Controller
             return response()->json(['error' => true , 'errors' => $validate->errors()->first()]);
         }
 
+        dd($request->all());
+
         $sections = collect($request->course_sections)->map(function($item) use ($request){
             $item['course_id'] = $request->course_id; 
             return $item;
         });
+
         $sectionQuery = Section::insert($sections->toArray());
         if ($sectionQuery){
             $getSections = Section::where('course_id', $request->course_id)->get();

@@ -163,11 +163,11 @@
 .icons {
     position: absolute;
     top: 45%;
-    right: -10.8%;
+    right: -11.1%;
     border: 1px solid;
     border-radius: 50%;
     background-color: white;
-    font-size: 12px;
+    font-size: 10px;
     padding: 2px 5px;
 }
 

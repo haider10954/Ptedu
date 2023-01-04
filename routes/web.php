@@ -19,6 +19,7 @@ use App\Http\Controllers\user\LectureController;
 use App\Http\Controllers\user\ReservationController;
 use App\Http\Controllers\user\ClassController;
 use App\Http\Controllers\user\StudentController;
+use App\Http\Controllers\user\CartController;
 use App\Http\Controllers\admin\StudentController as AdminStudentController;
 use App\Models\Admin;
 
@@ -54,6 +55,11 @@ Route::post('/offline-course-enrollment', [ReservationController::class, 'offlin
 Route::get('/online-courses', [LectureController::class, 'online_courses_listing'])->name('online_courses_listing');
 Route::get('/online-course-detail/{id}', [LectureController::class, 'online_course_detail'])->name('online_course_detail');
 
+// Shopping Cart Routes
+Route::post('/add-to-cart',[CartController::class,'add_to_cart'])->name('add_to_cart');
+Route::post('/del-cart-item',[CartController::class,'del_cart_item'])->name('del_cart_item');
+Route::get('/shopping-bag',[CartController::class,'shopping_bag'])->name('shopping_bag');
+
 Route::get('lecture-video', [LectureController::class, 'lecture_video'])->name('lecture_video');
 
 //Reserve Courses 
@@ -74,9 +80,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
     Route::get('/online-course', [UserCourseController::class, 'online_course'])->name('online_course');
     Route::get('/my-classroom', [LectureController::class, 'my_classroom'])->name('my_classroom');
-    Route::get('/shopping-bag', function () {
-        return view('user.shopping_bag');
-    })->name('shopping_bag');
 
     // enroll course route
     Route::get('/enrol_course/{id}', [LectureController::class, 'enrol_course'])->name('enrol_course');
