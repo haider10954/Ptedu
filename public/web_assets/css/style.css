@@ -1603,3 +1603,19 @@ header .btn.transparent,
     background-color: #dc3545;
     border-radius: 20px;
 }
+.shopping_cart_btn{
+    position: relative;
+}
+.shopping_cart_count{
+    position: absolute;
+    padding: 1px 4px;
+    background-color: rgb(145, 10, 10);
+    color: #ffffff;
+    top: 0px;
+    border-radius: 20px;
+    font-size: 9px;
+    right: 12px;
+}
+.shopping-table tbody tr{
+    transition: all 0.3s;
+}

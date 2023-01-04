@@ -30,9 +30,9 @@
                     <div class="col-lg-3">
                         <div class="d-flex align-items-center justify-content-between">
                             <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
-                            <p class="mb-0 text">{{ $course_info->price }}{{ __('translation.won') }}</p>
+                            <p class="mb-0 text">{{ ($course_info->price - $course_info->discounted_prize) }}{{ __('translation.won') }}</p>
                         </div>
-                        <button class="btn btn-dark btn-sm w-100 mb-2">{{ __('translation.Add to cart') }}</button>
+                        <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="online" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
 
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-                            aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture review') }}</a>
+                            aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture Review') }}</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -122,5 +122,34 @@
         $('.banner_text iframe').css('height', '100%');
         $('.banner_text iframe').attr('width', '');
         $('.banner_text iframe').attr('height', '');
+
+        $('.add-to-cart-btn').on('click',function(){
+            var btn = $(this);
+            $.ajax({
+                type: "POST",
+                url: "{{ route('add_to_cart') }}",
+                dataType: 'json',
+                data: {
+                    'course_id':$(this).data('id'),
+                    'type':$(this).data('type'),
+                    '_token':'{{ csrf_token() }}'
+                },
+                beforeSend: function() {
+                    btn.prop('disabled', true);
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                },
+                success: function(res) {
+                    if (res.Success == true) {
+                        btn.html('<i class="fa fa-check mx-1"></i> Added</>');
+                        $('.shopping_cart_count').attr('data-items-count',res.cart_items_count);
+                        $('.shopping_cart_count').html(res.cart_items_count);
+                    } else {
+                        btn.html('<i class="fa fa-check mx-1"></i> Already Added</>');
+                    }
+                },
+                error: function(e) {
+                }
+            });
+        });
     </script>
 @endsection

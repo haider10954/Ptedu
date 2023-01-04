@@ -45,7 +45,7 @@ class LectureController extends Controller
 
     public function online_course_detail($id)
     {
-        $course_info = Course::with('getTutorName')->where('id', $id)->first();
+        $course_info = Course::with(['getTutorName','getCategoryName'])->where('id', $id)->first();
         // dd($course_info);
         $video_handler = new VideoHandler();
         $video_info =  $video_handler->getVideoInfo($course_info->video_url);

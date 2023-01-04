@@ -195,5 +195,8 @@ return [
     'Are you sure to delete profile image' => 'Are you sure to delete profile image',
     'Save' => 'Save',
     'Live' => 'Live',
-    'by' => 'by'
+    'by' => 'by',
+    'Instructor Introduction' => 'Instructor Introduction',
+    'Total' => 'Total',
+    'Course' => 'Course'
 ];
