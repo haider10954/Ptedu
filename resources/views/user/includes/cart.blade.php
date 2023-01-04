@@ -16,7 +16,7 @@
         <tbody>
             @foreach ($cart as $v)
             <tr>
-                <td> <input type="checkbox" class="checkbox" /> </td>
+                <td> <input type="checkbox" class="checkbox select_delete" onclick="select_delete_action($(this))" value="{{ encrypt($v) }}" /> </td>
                 <td>
                     <span>[{{ ($v['type'] == 'online') ? Str::ucfirst($v['course']->course_type) : 'Offline' }} {{ __('translation.Course') }}] {{ $v['course_name'] }} </span> <br />
                     <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span>

@@ -58,6 +58,7 @@ Route::get('/online-course-detail/{id}', [LectureController::class, 'online_cour
 // Shopping Cart Routes
 Route::post('/add-to-cart',[CartController::class,'add_to_cart'])->name('add_to_cart');
 Route::post('/del-cart-item',[CartController::class,'del_cart_item'])->name('del_cart_item');
+Route::post('/del-cart-items',[CartController::class,'del_cart_items'])->name('del_cart_items');
 Route::get('/shopping-bag',[CartController::class,'shopping_bag'])->name('shopping_bag');
 
 Route::get('lecture-video', [LectureController::class, 'lecture_video'])->name('lecture_video');

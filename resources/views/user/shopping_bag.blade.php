@@ -25,8 +25,8 @@
                     <div class="section-heading mb-3">
                         <h5 class="mb-0">{{ __('translation.Shopping Bag') }}</h5>
                     </div>
-                    <div class="mt-3 mb-3">
-                        {{-- <button class="btn rounded-0 btn-theme-delete"><i class="fa fa-times"></i><span class="ml-2">{{ __('translation.Select Delete') }}</span></button> --}}
+                    <div class="mt-3 mb-3 select_delete_btn_box" style="display: none">
+                        <button class="btn rounded-0 btn-theme-delete select_delete_btn"><i class="fa fa-times"></i><span class="ml-2">{{ __('translation.Select Delete') }}</span></button>
                     </div>
                     <div class="mt-3">
                         <div class="shopping-cart-view">
@@ -110,6 +110,59 @@
                 },
                 error: function(e) {}
             });
+        }
+
+        $('.select_delete_btn').on('click',function(){
+            var btn = $(this);
+            let $values = [];
+            $('.select_delete').each(function(){
+                if($(this).prop('checked') == true){
+                    $values.push($(this).val());
+                }
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{ route('del_cart_items') }}",
+                dataType: 'json',
+                data: {
+                    'courses': $values,
+                    '_token': '{{ csrf_token() }}'
+                },
+                beforeSend: function() {
+                    btn.prop('disabled', true);
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i>');
+                },
+                success: function(res) {
+                    if (res.Success == true) {
+                        $('.shopping-cart-view').html(res.html);
+                        $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
+                        $('.shopping_cart_count').html(res.cart_items_count);
+                        btn.parent('.select_delete_btn_box').fadeOut();
+                        btn.prop('disabled', false);
+                        btn.html('<i class="fa fa-times"></i><span class="ml-2">Select Delete</span>');
+                    } else {
+                        btn.prop('disabled', false);
+                        btn.html('<i class="fa fa-times"></i><span class="ml-2">Try Again</span>');
+                    }
+                },
+                error: function(e) {}
+            });
+        });
+
+        let $checked_values = 0;
+
+        function select_delete_action($btn){
+            let checkbox = $btn
+            if(checkbox.prop('checked') == true){
+                $checked_values = $checked_values + 1;
+            }else{
+                $checked_values = $checked_values - 1;
+            }
+            if($checked_values > 0){
+                $('.select_delete_btn_box').fadeIn();
+            }else{
+                $('.select_delete_btn_box').fadeOut();
+            }
         }
     </script>
 @endsection
