@@ -76,7 +76,7 @@
                     </div>
                     @endif
                     <div class="ms-3">
-                        <div class="mb-1"><span class="name">{{ auth('admin')->user()->name }}</span></div>
+                        <div class="mb-1"><span class="name text-capitalize">{{ auth('admin')->user()->name }}</span></div>
                         <div><span class="email"> {{ auth('admin')->user()->email }} </span></div>
                     </div>
                 </div>
