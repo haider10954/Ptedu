@@ -82,7 +82,11 @@
                 </div>
                 <div class="mt-4">
                     <div class="mb-3 user_info">
-                        Phone number : 010-000-000
+                        @if( auth('admin')->user()->phone_number == null )
+                        Phone number : 01-000-100
+                        @else
+                        Phone number : {{ auth('admin')->user()->phone_number }}
+                        @endif
                     </div>
                     <div class="mb-3 user_info">
                         Email : {{ auth('admin')->user()->email }}
