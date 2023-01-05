@@ -53,6 +53,7 @@
                         <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" disabled data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">{{ __('translation.Enrolled') }}</button>
                         @endif
                     @endif
+                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
 
                 </div>
             </div>
@@ -318,6 +319,35 @@
                         $(".prompt").hide();
                     }, 2000);
                 }
+            }
+        });
+    });
+
+    $('.add-to-cart-btn').on('click',function(){
+        var btn = $(this);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('add_to_cart') }}",
+            dataType: 'json',
+            data: {
+                'course_id':$(this).data('id'),
+                'type':$(this).data('type'),
+                '_token':'{{ csrf_token() }}'
+            },
+            beforeSend: function() {
+                btn.prop('disabled', true);
+                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+            },
+            success: function(res) {
+                if (res.Success == true) {
+                    btn.html('<i class="fa fa-check mx-1"></i> Added</>');
+                    $('.shopping_cart_count').attr('data-items-count',res.cart_items_count);
+                    $('.shopping_cart_count').html(res.cart_items_count);
+                } else {
+                    btn.html('<i class="fa fa-check mx-1"></i> Already Added</>');
+                }
+            },
+            error: function(e) {
             }
         });
     });
