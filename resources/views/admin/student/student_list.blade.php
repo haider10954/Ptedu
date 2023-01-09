@@ -85,7 +85,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Student List ({{ $student->count()  }})</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Student List') }} ({{ $student->count()  }})</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -93,12 +93,12 @@
                 <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">No</td>
-                            <td class="align-middle t_header">Name</td>
-                            <td class="align-middle t_header">Email</th>
-                            <td class="align-middle t_header">Phone Number</td>
-                            <td class="align-middle t_header">List of Courses</th>
-                            <td class="align-middle t_header">Action</td>
+                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Name') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Email')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Phone Number') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.List of Courses') }}</th>
+                            <td class="align-middle t_header">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -124,7 +124,7 @@
                                         @endforeach
                                         @else
                                         <li class="border-0 mb-2">
-                                            No Enrollment Yet
+                                            {{ __('translation.No Enrollment Yet') }}
                                         </li>
                                         @endif
                                     </ul>
@@ -147,7 +147,6 @@
                         @endif
                     </tbody>
                 </table>
-
                 {{ $student->links('vendor.pagination.custom-pagination-admin') }}
             </div>
         </div>
@@ -160,19 +159,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Confirm Delete') }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="post" action="{{ route('delete-student')}}">
                     @csrf
                     <div class="modal-body">
-                        <p>Are you sure to delete ?</p>
+                        <p>{{ __('translation.Are you sure to delete ?') }}</p>
                         <input id="del_id" type="hidden" name="id">
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
+                        <button type="submit" class="btn btn-danger">{{ __('translation.Save')}}</button>
                     </div>
                 </form>
             </div>

@@ -123,8 +123,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Course List > Offline Course List ({{ $offline_course->count() }} )</h4>
-                    <a class="btn btn-sm btn-add-lecture" href="{{ route('add_offline_course_view')}}">Add Course</a>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Course List') }} > {{ __('translation.Offline Course List') }} ({{ $offline_course->count() }} )</h4>
+                    <a class="btn btn-sm btn-add-lecture" href="{{ route('add_offline_course_view')}}">{{ __('translation.Add Course') }}</a>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -132,14 +132,14 @@
                 <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">Number</td>
-                            <td class="align-middle t_header">Lecture title</td>
-                            <td class="align-middle t_header">Category</th>
-                            <td class="align-middle t_header">Offline</td>
-                            <td class="align-middle t_header">Participants</th>
-                            <td class="align-middle t_header">Waiting </td>
-                            <td class="align-middle t_header">Management</td>
-                            <td class="align-middle t_header">Action</td>
+                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Course Title') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Category') }}</th>
+                            <td class="align-middle t_header">{{ __('translation.Offline')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Participants')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Waiting') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Management') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     @if($offline_course->count() > 0)
@@ -184,19 +184,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Confirm Delete')}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="post" action="{{ route('delete-offline-course')}}">
                     @csrf
                     <div class="modal-body">
-                        <p>Are you sure to delete ?</p>
+                        <p>{{ __('translation.Are you sure to delete ?') }}</p>
                         <input id="del_id" type="hidden" name="id">
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('translation.Save') }}</button>
                     </div>
                 </form>
             </div>

@@ -107,7 +107,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Edit Tutor Detail</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Edit Tutor Detail') }}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -119,7 +119,7 @@
                     @endif
                     <input type="hidden" name="id" value="{{ $tutor->id }}" />
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Name') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="name" placeholder="Enter Name" value="{{ $tutor->name }}">
                             @error('name')
@@ -128,7 +128,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">English Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.English Name') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="en_name" placeholder="Enter English name" value="{{ $tutor->english_name }}">
                             @error('en_name')
@@ -137,7 +137,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Email</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Email') }}</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control" name="email" placeholder="Enter email" value="{{ $tutor->email }}">
                             @error('email')
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Phone Number</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Phone Number') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="phone_number" placeholder="Enter Mobile Number" value="{{ $tutor->mobile_number }}">
                             @error('phone_number')
@@ -155,7 +155,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Job</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Job') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="job" placeholder="Enter Job" value="{{ $tutor->job }}" />
                             @error('job')
@@ -165,7 +165,7 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Address</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Address') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="address" placeholder="Enter Address" value="{{ $tutor->address }}"></input>
                             @error('address')
@@ -175,7 +175,7 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Description</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Description') }}</label>
                         <div class="col-sm-10">
                             <textarea rows="8" class="form-control" name="description" placeholder="Enter description" style="resize: none;">{{ $tutor->description }}</textarea>
                             @error('description')
@@ -185,7 +185,7 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Profile Image</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Profile Image') }}</label>
                         <div class="col-sm-10">
                             <input type="file" name="image" id="tutor_img" class="d-none" value="{{ $tutor->getTutorImage() }}">
                             <div class="d-flex align-items-end">
@@ -202,7 +202,7 @@
 
                     <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">
-                            <button type="submit" class="btn btn-lg btn-register">Ok</button>
+                            <button type="submit" class="btn btn-lg btn-register">{{ __('translation.Ok') }}</button>
                         </div>
                     </div>
                 </form>

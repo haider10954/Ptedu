@@ -110,8 +110,8 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Tutor List ({{ $tutor->total() }})</h4>
-                    <a class="btn btn-add-lecture" href="{{ route('add_tutor')}}">Add tutor</a>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Tutor List')}} ({{ $tutor->total() }})</h4>
+                    <a class="btn btn-add-lecture" href="{{ route('add_tutor')}}">{{ __('translation.Add Tutor') }}</a>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -119,12 +119,12 @@
                 <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">No</td>
-                            <td class="align-middle t_header">Name</td>
-                            <td class="align-middle t_header">Email</th>
-                            <td class="align-middle t_header">Phone</td>
-                            <td class="align-middle t_header">Course List</th>
-                            <td class="align-middle t_header">Action</td>
+                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Name')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Email')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Phone Number')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Course List')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -156,14 +156,12 @@
                         @endforeach
                         @else
                         <tr>
-                            <td colspan="8" class="text-center">NO Record Found</td>
+                            <td colspan="8" class="text-center">{{ __('translation.NO Record Found') }}</td>
                         </tr>
                         @endif
                     </tbody>
                 </table>
-
                 {{ $tutor->links('vendor.pagination.custom-pagination-admin') }}
-
             </div>
         </div>
     </div>
@@ -176,19 +174,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Confirm Delete') }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="post" action="{{ route('delete-tutor')}}">
                     @csrf
                     <div class="modal-body">
-                        <p>Are you sure to delete ?</p>
+                        <p>{{ __('translation.Are you sure to delete ?') }}</p>
                         <input id="del_id" type="hidden" name="id">
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('translation.Save') }}</button>
                     </div>
                 </form>
             </div>

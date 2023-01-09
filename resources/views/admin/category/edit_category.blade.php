@@ -18,7 +18,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Edit Category</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Edit Category') }}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -30,9 +30,9 @@
                     @endif
                     <input type="hidden" name="id" value="{{ $cat->id}}" />
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Category Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Category Name') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Enter Category name" name="category_name" value="{{ $cat->name }}">
+                            <input type="text" class="form-control" placeholder="{{ __('translation.Enter Category name') }}" name="category_name" value="{{ $cat->name }}">
                             @error('category_name')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -41,7 +41,7 @@
                     <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-primary">{{ __('translation.Submit') }}</button>
                         </div>
                     </div>
                 </form>

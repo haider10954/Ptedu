@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Student Info Detail</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Student Info Detail') }}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -105,38 +105,38 @@
                     @csrf
                     <input type="hidden" name="id" value="{{ $student->id}}">
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Name') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="horizontal-firstname-input" name="name" value="{{ $student->name }}">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">English Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.English Name') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="horizontal-email-input" name="en_name" value="{{ $student->english_name }}">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">ID(Email)</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Email') }}</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="horizontal-password-input" name="email" value="{{ $student->email }}">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Phone Number</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Phone Number') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="horizontal-email-input" name="phone_number" value="{{ $student->mobile_number }}">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Job</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Job') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="job" value="{{ $student->job }}">
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Address</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Address') }}</label>
                         <div class="col-sm-10">
 
                             <textarea rows="3" type="text" class="form-control" name="address" style="resize: none;">{{ str_replace('|' ,',', $student->address) }}</textarea>
@@ -144,7 +144,7 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Affiliation</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Affiliation') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="affiliation"></input>
                         </div>
@@ -153,7 +153,7 @@
 
                     <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">
-                            <button type="submit" id="submitForm" class="btn btn-lg btn-register">Ok</button>
+                            <button type="submit" id="submitForm" class="btn btn-lg btn-register">{{ __('translation.Ok') }}</button>
                         </div>
                     </div>
 

@@ -110,11 +110,11 @@
                     <table class="table text-center">
                         <thead>
                             <tr>
-                                <td class="align-middle">No</td>
-                                <td class="align-middle">Title</td>
-                                <td class="align-middle">Writer</td>
-                                <td class="align-middle">Date</td>
-                                <td class="align-middle">Status</td>
+                                <td class="align-middle">{{ __('translation.No') }}</td>
+                                <td class="align-middle">{{ __('translation.Title') }}</td>
+                                <td class="align-middle">{{ __('translation.Writer') }}</td>
+                                <td class="align-middle">{{ __('translation.Date') }}</td>
+                                <td class="align-middle">{{ __('translation.Status')}}</td>
                             </tr>
                         </thead>
                         <tbody>
