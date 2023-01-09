@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Course List > Offline Course</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Course List') }} > {{ __('translation.Offline Lecture')}}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -104,17 +104,17 @@
                 <form id="offline_course_Form">
                     @csrf
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Course Title</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Title') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="Enter Course Title" name="course_title">
+                            <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="{{ __('translation.Enter Course Title') }}" name="course_title">
                             <div class="error-course-title"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Tutor Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Tutor Name') }}</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="tutor_name">
-                                <option>Select Option</option>
+                                <option>{{ __('translation.Select Option') }}</option>
                                 @foreach ($tutor as $t)
                                 <option value="{{ $t->id }}">{{ $t->name }}</option>
                                 @endforeach
@@ -123,56 +123,56 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Short Description</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Short Description') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Enter Short Description" name="short_description">
+                            <input type="text" class="form-control" placeholder="{{ __('translation.Enter Short Description') }}" name="short_description">
                             <div class="error-short-description"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Description</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Description') }}</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="description" rows="2" placeholder="Enter Description" name="description"></textarea>
+                            <textarea class="form-control" id="description" rows="2" placeholder="{{ __('translation.Enter description') }}" name="description"></textarea>
                             <div class="error-description"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Total number of Lectures</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Total number of Lectures') }}</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter total number of lectures" name="no_of_lectures">
+                            <input type="number" class="form-control" placeholder="{{ __('translation.Enter total number of lectures') }}" name="no_of_lectures">
                             <div class="error-no-of-lectures"></div>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Duration of the Course</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Duration of the Course') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Duration of the Course" name="course_duration">
+                            <input type="text" class="form-control" placeholder="{{ __('translation.Duration of the Course') }}" name="course_duration">
                             <div class="error-course-duration"></div>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Price</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Price') }}</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter price" name="price">
+                            <input type="number" class="form-control" placeholder="{{ __('translation.Enter Price') }}" name="price">
                             <div class="error-prize"></div>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Discounted Price</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Discounted Price') }}</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter discounted Price" name="discounted_Price">
+                            <input type="number" class="form-control" placeholder="{{ __('translation.Enter discounted Price') }}" name="discounted_Price">
                             <div class="error-discounted-prize"></div>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Category</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Category') }}</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="category">
-                                <option>Select Option</option>
+                                <option>{{ __('translation.Select Option') }}</option>
                                 @foreach ($category as $cat)
                                 <option value="{{ $cat->id}}">{{ $cat->name }}</option>
                                 @endforeach
@@ -182,45 +182,45 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Upload Video URL</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload Video URL')}}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" placeholder="Enter video URL ( youtube or vimeo )" name="video_url">
+                            <input type="text" class="form-control" placeholder="{{ __('translation.Enter video URL ( youtube or vimeo )') }}" name="video_url">
                             <div class="error-video-url"></div>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Upload course Thumbnail image</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload course Thumbnail image') }}</label>
                         <div class="col-sm-10">
                             <input type="file" name="course_img" id="course_img" class="d-none">
                             <div class="d-flex align-items-end">
                                 <div class="course-image-preview" id="thumbnail_image_view">
                                     <img src="{{ asset('assets/images/icons/image.png') }}" />
                                 </div>
-                                <button type="button" class="btn btn-upload ms-2" onclick="courseImg('#course_img')">upload</button>
+                                <button type="button" class="btn btn-upload ms-2" onclick="courseImg('#course_img')">{{ __('translation.Upload') }}</button>
                             </div>
                             <div class="error-course-thumbnail"></div>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Upload banner image</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload banner image') }} </label>
                         <div class="col-sm-10">
                             <input type="file" name="banner_img" id="banner_img" class="d-none">
                             <div class="d-flex align-items-end">
                                 <div class="course-image-preview" id="banner_image_view">
                                     <img src="{{ asset('assets/images/icons/image.png') }}" />
                                 </div>
-                                <button type="button" class="btn btn-upload ms-2" onclick="courseImg('#banner_img')">upload</button>
+                                <button type="button" class="btn btn-upload ms-2" onclick="courseImg('#banner_img')">{{ __('translation.Upload')}}</button>
                             </div>
                             <div class="error-course-banner"></div>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Total No Of Enrollments</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Total No Of Enrollments') }}</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" placeholder="Enter No Of Enrollments" name="no_of_enrollments">
+                            <input type="number" class="form-control" placeholder="{{ __('translation.Enter No Of Enrollments') }}" name="no_of_enrollments">
                             <div class="error-no-of-enrollments"></div>
                         </div>
                     </div>
@@ -228,7 +228,7 @@
                     <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
-                            <button type="submit" id="submitForm" class="btn btn-lg btn-register">Register</button>
+                            <button type="submit" id="submitForm" class="btn btn-lg btn-register">{{ __('translation.Register') }}</button>
                         </div>
                     </div>
 

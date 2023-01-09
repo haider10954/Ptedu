@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Tutors Info Detail</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Tutors Info Detail') }}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -106,45 +106,45 @@
                     <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
                     @endif
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Name') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="name" placeholder="Enter Name">
+                            <input type="text" class="form-control" name="name" placeholder="{{ __('translation.Enter Name') }}">
                             @error('name')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">English Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.English Name') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="en_name" placeholder="Enter English name">
+                            <input type="text" class="form-control" name="en_name" placeholder="{{ __('translation.Enter English Name') }}">
                             @error('en_name')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Email</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Email') }}</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" name="email" placeholder="Enter email">
+                            <input type="email" class="form-control" name="email" placeholder="{{ __('translation.Enter Email Address') }}">
                             @error('email')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Phone Number</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Phone Number') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="phone_number" placeholder="Enter Mobile Number">
+                            <input type="text" class="form-control" name="phone_number" placeholder="{{ __('translation.Enter Mobile Number') }}">
                             @error('phone_number')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Job</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Job') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="job" placeholder="Enter Job"></input>
+                            <input type="text" class="form-control" name="job" placeholder="{{ __('translation.Enter Job') }}"></input>
                             @error('job')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -152,9 +152,9 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Address</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Address') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="address" placeholder="Enter Address"></input>
+                            <input type="text" class="form-control" name="address" placeholder="{{ __('translation.Enter Address') }}"></input>
                             @error('address')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -162,9 +162,9 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Description</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Description') }}</label>
                         <div class="col-sm-10">
-                            <textarea rows="8" class="form-control" name="description" placeholder="Enter description" style="resize: none;"></textarea>
+                            <textarea rows="8" class="form-control" name="description" placeholder="{{ __('translation.Enter description') }}" style="resize: none;"></textarea>
                             @error('description')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -173,7 +173,7 @@
 
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Profile Image</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Profile Image') }}</label>
                         <div class="col-sm-10">
                             <input type="file" class="form-control" name="image">
                             @error('image')
@@ -186,7 +186,7 @@
 
                     <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">
-                            <button type="submit" class="btn btn-lg btn-register">Ok</button>
+                            <button type="submit" class="btn btn-lg btn-register">{{ __('translation.Ok') }}</button>
                         </div>
                     </div>
                 </form>

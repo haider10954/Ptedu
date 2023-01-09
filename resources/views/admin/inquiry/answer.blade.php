@@ -72,10 +72,10 @@
                     <hr class="course_info_border" />
                     <div class="col-3 col-bg">
                         <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">Name</h4>
+                            <h4 class="mb-sm-0  course_info">{{ __('translation.Name') }}</h4>
                         </div>
                         <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">Date</h4>
+                            <h4 class="mb-sm-0  course_info">{{ __('translation.Date')}}</h4>
                         </div>
                     </div>
                     <div class="col-9">
@@ -93,10 +93,10 @@
                     <hr class="course_info_border" />
                     <div class="col-3 col-bg">
                         <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">Title</h4>
+                            <h4 class="mb-sm-0  course_info">{{__('translation.Title') }}</h4>
                         </div>
                         <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">Content</h4>
+                            <h4 class="mb-sm-0  course_info"> {{ __('translation.Content') }}</h4>
                         </div>
                     </div>
                     <div class="col-9">
@@ -110,7 +110,7 @@
                 </div>
                 <hr class="payment_info_border" />
 
-                <h4 class="answer mb-2">Answer</h4>
+                <h4 class="answer mb-2">{{ __('translation.Answers') }}</h4>
                 <form method="POST" action="{{ route('add-answer') }}">
                     @csrf
                     <input type="hidden" value="{{ $inquiry->id}}" name="id">
@@ -118,7 +118,7 @@
                         <hr class="course_info_border" />
                         <div class="col-3 col-bg">
                             <div class="d-flex align-items-center mb-3">
-                                <h4 class="mb-sm-0  course_info">Contents</h4>
+                                <h4 class="mb-sm-0  course_info">{{ __('translation.Contents') }}</h4>
                             </div>
                         </div>
                         <div class="col-9">
@@ -131,7 +131,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="d-flex align-items-center justify-content-center">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">{{ __('translation.Submit') }}</button>
                             </div>
                         </div>
                     </div>

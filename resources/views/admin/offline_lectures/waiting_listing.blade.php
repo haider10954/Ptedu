@@ -99,7 +99,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Offline Lecture List > Waiting List</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Offline Course List') }} > {{ __('translation.Waiting List') }}</h4>
                 </div>
                 <div>
                     <h4 class="mb-sm-0 mt-2 Card_title">{{ $reservations->course_title }}</h4>
@@ -111,13 +111,13 @@
                 <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">Waiting No</td>
-                            <td class="align-middle t_header">Name </td>
-                            <td class="align-middle t_header">Email</th>
-                            <td class="align-middle t_header">Phone Number</td>
-                            <td class="align-middle t_header">Course List</th>
-                            <td class="align-middle t_header">Status</th>
-                            <td class="align-middle t_header">Confirm/Delete</td>
+                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Name') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Email')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Phone Number')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Course List')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Status')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Confirm/Delete') }}</td>
                         </tr>
                     </thead>
                     <tbody>

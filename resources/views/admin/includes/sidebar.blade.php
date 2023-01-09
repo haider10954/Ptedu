@@ -24,7 +24,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon1.png')}}">
                         </i>
-                        <span key="t-dashboards">Category</span>
+                        <span key="t-dashboards">{{ __('translation.Category') }}</span>
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
                 </li>
@@ -34,7 +34,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon1.png')}}">
                         </i>
-                        <span key="t-dashboards">Online Course List</span>
+                        <span key="t-dashboards">{{ __('translation.Online Course List') }}</span>
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
                 </li>
@@ -44,7 +44,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon2.png')}}">
                         </i>
-                        <span key="t-layouts">Offline Course List</span>
+                        <span key="t-layouts">{{ __('translation.Offline Course List') }}</span>
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
                 </li>
@@ -53,7 +53,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon3.png')}}">
                         </i>
-                        <span key="t-file-manager">Review Management</span>
+                        <span key="t-file-manager">{{ __('translation.Review Management') }}</span>
 
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
@@ -64,7 +64,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon4.png')}}">
                         </i>
-                        <span key="t-file-manager">Student Information</span>
+                        <span key="t-file-manager">{{ __('translation.Student Information') }}</span>
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
                 </li>
@@ -75,7 +75,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon5.png')}}">
                         </i>
-                        <span key="t-ecommerce">Tutor Information</span>
+                        <span key="t-ecommerce">{{ __('translation.Tutor Information') }}</span>
 
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
@@ -86,7 +86,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon6.png')}}">
                         </i>
-                        <span key="t-ecommerce">Payment Management</span>
+                        <span key="t-ecommerce">{{ __('translation.Payment Management') }}</span>
 
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
@@ -97,7 +97,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon7.png')}}">
                         </i>
-                        <span key="t-ecommerce">1:1 Inquiry list</span>
+                        <span key="t-ecommerce">{{ __('translation.1:1 Inquiry list') }}</span>
 
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
@@ -108,7 +108,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon8.png')}}">
                         </i>
-                        <span key="t-ecommerce">Certificate</span>
+                        <span key="t-ecommerce">{{ __('translation.Certificate') }}</span>
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
                 </li>
@@ -118,7 +118,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon9.png')}}">
                         </i>
-                        <span key="t-ecommerce">Notice</span>
+                        <span key="t-ecommerce">{{ __('translation.Notice') }}</span>
 
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
@@ -129,7 +129,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon10.png')}}">
                         </i>
-                        <span key="t-ecommerce">FAQ</span>
+                        <span key="t-ecommerce">{{ __('translation.FAQ') }}</span>
 
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>
@@ -141,7 +141,7 @@
                         <i>
                             <img class="bx me-2" src="{{ asset('assets/images/icons/icon11.png')}}">
                         </i>
-                        <span key="t-ecommerce">Settings</span>
+                        <span key="t-ecommerce">{{ __('translation.Settings') }}</span>
 
                         <i class="bi bi-chevron-right right-icon"></i>
                     </a>

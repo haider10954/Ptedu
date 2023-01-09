@@ -94,7 +94,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">FAQ > Creating a post (Editor)</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.FAQ > Creating a post (Editor)') }}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -105,7 +105,7 @@
                     <p class="alert alert-danger mb-2">{{ Session::get('msg') }}</p>
                     @endif
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Question</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Question') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="question" placeholder="Enter title" value="{{ old('question') }}">
                             @error('question')
@@ -114,7 +114,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Category</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Category') }}</label>
                         <div class="col-sm-10">
                             <select type="text" class="form-control" name="category">
                                 <option value="">Select Category</option>
@@ -129,7 +129,7 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Answer</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Answers') }}</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" id="testing" placeholder="Enter content" name="answer">{{ old('answer') }}</textarea>
                             @error('answer')
@@ -141,7 +141,7 @@
                     <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-lg btn-register">Register</button>
+                            <button type="submit" class="btn btn-lg btn-register">{{ __('translation.Register')}}</button>
                         </div>
                     </div>
                 </form>

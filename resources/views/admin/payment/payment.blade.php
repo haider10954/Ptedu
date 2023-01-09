@@ -86,7 +86,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Payment Management (100)</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Payment Management') }} (100)</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -94,13 +94,13 @@
                 <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">No</td>
-                            <td class="align-middle t_header">Date</td>
-                            <td class="align-middle t_header">Buyer</th>
-                            <td class="align-middle t_header">Course Name</td>
-                            <td class="align-middle t_header">Price</th>
-                            <td class="align-middle t_header">Status</td>
-                            <td class="align-middle t_header">Action</td>
+                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Date') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Buyer') }}</th>
+                            <td class="align-middle t_header">{{ __('translation.Course Name') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Price') }}</th>
+                            <td class="align-middle t_header">{{ __('translation.Status') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>

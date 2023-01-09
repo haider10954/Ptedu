@@ -85,7 +85,7 @@
                 </div>
                 <div class="col-12">
                     <div class="page-title-box d-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0  Card_title">Review Management ({{ $review->count() }})</h4>
+                        <h4 class="mb-sm-0  Card_title">{{ __('translation.Review Management') }} ({{ $review->count() }})</h4>
                     </div>
                     <hr class="hr-color" />
                 </div>
@@ -93,13 +93,13 @@
                     <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
                         <thead>
                             <tr>
-                                <td class="align-middle t_header">No</td>
-                                <td class="align-middle t_header">Date</td>
-                                <td class="align-middle t_header">Course Name</th>
-                                <td class="align-middle t_header">Score</td>
-                                <td class="align-middle t_header">Writer</th>
-                                <td class="align-middle t_header">Contents</td>
-                                <td class="align-middle t_header">Action</td>
+                                <td class="align-middle t_header">{{ __('translation.No') }}</td>
+                                <td class="align-middle t_header">{{ __('translation.Date ') }}</td>
+                                <td class="align-middle t_header">{{ __('translation.Course Name') }}</th>
+                                <td class="align-middle t_header">{{ __('translation.Score') }}</td>
+                                <td class="align-middle t_header">{{ __('translation.Writer')}}</th>
+                                <td class="align-middle t_header">{{ __('translation.Content')}}</td>
+                                <td class="align-middle t_header">{{ __('translation.Action')}}</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -130,10 +130,7 @@
                             @endif
                         </tbody>
                     </table>
-
-
                     {{ $review->links('vendor.pagination.custom-pagination-admin') }}
-
                 </div>
             </div>
         </div>
@@ -145,19 +142,19 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Confirm Delete') }}</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <form method="post" action="{{ route('delete-review')}}">
                         @csrf
                         <div class="modal-body">
-                            <p>Are you sure to delete ?</p>
+                            <p>{{ __('translation.Are you sure to delete ?') }}</p>
                             <input id="del_id" type="hidden" name="id">
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close') }}</button>
+                            <button type="submit" class="btn btn-primary">{{ __('translation.Save') }}</button>
                         </div>
                     </form>
                 </div>
