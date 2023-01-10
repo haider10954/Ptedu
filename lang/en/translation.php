@@ -203,7 +203,8 @@ return [
     'Course' => 'Course',
     'Update' => 'Update',
     'User Info' => 'User Info',
-    
+    'To protect your personal information, please change your password, email, mobile phone number periodically.' => 'To protect your personal information, please change your password, email, mobile phone number periodically.',
+
     // Admin Side Translation
     'Welcome Back' => 'Welcome Back',
     'Sign in to continue to PTEdu' => 'Sign in to continue to PTEdu',
