@@ -94,7 +94,7 @@
                         <thead>
                             <tr>
                                 <td class="align-middle t_header">{{ __('translation.No') }}</td>
-                                <td class="align-middle t_header">{{ __('translation.Date ') }}</td>
+                                <td class="align-middle t_header">{{ __('translation.Date') }}</td>
                                 <td class="align-middle t_header">{{ __('translation.Course Name') }}</th>
                                 <td class="align-middle t_header">{{ __('translation.Score') }}</td>
                                 <td class="align-middle t_header">{{ __('translation.Writer')}}</th>
@@ -124,7 +124,7 @@
                             </tr>
                             @endforeach
                             @else
-                            <td class="text-center">
+                            <td colspan="7" class="text-center">
                                 <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                             @endif
