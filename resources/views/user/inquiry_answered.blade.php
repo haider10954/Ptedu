@@ -104,7 +104,7 @@
                             <div class="col-md-2 col-3 pr-0">
                                 <div class="user-info bottom-border">
                                     <div class="d-flex  justify-content-start" style="height:200px;">
-                                        <p class="mb-0 user_profile">{{ __('translation.Answer') }}<span class="text-danger">*</span></p>
+                                        <p class="mb-0 user_profile">{{ __('translation.Answers') }}<span class="text-danger">*</span></p>
                                     </div>
                                 </div>
                             </div>
