@@ -201,6 +201,7 @@ return [
     'Instructor Introduction' => 'Instructor Introduction',
     'Total' => 'Total',
     'Course' => 'Course',
+    'Update' => 'Update'
 
     // Admin Side Translation
     'Welcome Back' => 'Welcome Back',
