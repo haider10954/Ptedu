@@ -183,7 +183,6 @@
                     </div>
 
 
-
                     <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">
                             <button type="submit" class="btn btn-lg btn-register">{{ __('translation.Ok') }}</button>
