@@ -202,7 +202,8 @@ return [
     'Total' => 'Total',
     'Course' => 'Course',
     'Update' => 'Update',
-
+    'User Info' => 'User Info',
+    
     // Admin Side Translation
     'Welcome Back' => 'Welcome Back',
     'Sign in to continue to PTEdu' => 'Sign in to continue to PTEdu',
