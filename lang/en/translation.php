@@ -205,7 +205,7 @@ return [
     'User Info' => 'User Info',
     'To protect your personal information, please change your password, email, mobile phone number periodically.' => 'To protect your personal information, please change your password, email, mobile phone number periodically.',
     'Change Password' => 'Change Password',
-
+    'Video' => 'Video',
 
     // Admin Side Translation
     'Welcome Back' => 'Welcome Back',
