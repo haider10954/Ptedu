@@ -33,27 +33,27 @@
                     <button class="btn btn-danger btn-sm w-100 mb-2 delBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#delReservationModal">{{ __('translation.Decline') }}</button>
 
                     @if(auth()->check())
-                        @if($enrolled_user == 0)
-                                @if($offline_enrollment_count <= $course_info->no_of_enrollments )
-                                    @if($reservation)
-                                        @if($reservation->status == 'applied')
-                                        <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Waiting For Reservation') }}</button>
-                                        @elseif($reservation->status == 'reserved')
-                                        <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Reserved') }}</button>
-                                        @elseif($reservation->status == 'decline')
-                                        <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply For Reservation') }}</button>
-                                        @endif
-                                    @else
-                                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply') }}</button>
-                                    @endif
-                                @else
-                                <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">{{ __('translation.Enroll Now') }}</button>
-                                @endif
+                    @if($enrolled_user == 0)
+                    @if($offline_enrollment_count <= $course_info->no_of_enrollments )
+                        @if($reservation)
+                        @if($reservation->status == 'applied')
+                        <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Waiting For Reservation') }}</button>
+                        @elseif($reservation->status == 'reserved')
+                        <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Reserved') }}</button>
+                        @elseif($reservation->status == 'decline')
+                        <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply For Reservation') }}</button>
+                        @endif
+                        @else
+                        <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply') }}</button>
+                        @endif
+                        @else
+                        <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">{{ __('translation.Enroll Now') }}</button>
+                        @endif
                         @else
                         <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" disabled data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#enrollmentModal">{{ __('translation.Enrolled') }}</button>
                         @endif
-                    @endif
-                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
+                        @endif
+                        <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
 
                 </div>
             </div>
@@ -95,7 +95,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Phone') }} #</p>
+                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Phone Number') }} #</p>
                                 </td>
                                 <td>
                                     <p class="mb-0 text">{{ $course_info->getTutorName->mobile_number }}</p>
@@ -323,16 +323,16 @@
         });
     });
 
-    $('.add-to-cart-btn').on('click',function(){
+    $('.add-to-cart-btn').on('click', function() {
         var btn = $(this);
         $.ajax({
             type: "POST",
             url: "{{ route('add_to_cart') }}",
             dataType: 'json',
             data: {
-                'course_id':$(this).data('id'),
-                'type':$(this).data('type'),
-                '_token':'{{ csrf_token() }}'
+                'course_id': $(this).data('id'),
+                'type': $(this).data('type'),
+                '_token': '{{ csrf_token() }}'
             },
             beforeSend: function() {
                 btn.prop('disabled', true);
@@ -341,14 +341,13 @@
             success: function(res) {
                 if (res.Success == true) {
                     btn.html('<i class="fa fa-check mx-1"></i> Added</>');
-                    $('.shopping_cart_count').attr('data-items-count',res.cart_items_count);
+                    $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
                     $('.shopping_cart_count').html(res.cart_items_count);
                 } else {
                     btn.html('<i class="fa fa-check mx-1"></i> Already Added</>');
                 }
             },
-            error: function(e) {
-            }
+            error: function(e) {}
         });
     });
 
