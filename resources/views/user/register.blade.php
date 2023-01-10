@@ -157,7 +157,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start custom_label_height">
-                                    <p class="mb-0 user_profile">{{ __('translation.Phone number') }}<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Phone Number') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
