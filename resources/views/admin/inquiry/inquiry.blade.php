@@ -124,7 +124,7 @@
                                 <td>{{ $loop->index+1 }}</td>
                                 <td>{{ Str::limit($inq->title, 70) }}</td>
                                 <td>{{ $inq->getStudentName->name }}</td>
-                                <td>{{ Carbon\Carbon::parse($inq->expired_at)->format('d M, Y')}}</td>
+                                <td>{{ Carbon\Carbon::parse($inq->created_at)->format('d M, Y')}}</td>
                                 @if($inq->answer == null)
                                 <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn">Waiting for response</a></td>
                                 @else

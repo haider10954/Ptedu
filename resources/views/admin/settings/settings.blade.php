@@ -92,7 +92,7 @@
                         {{ __('translation.Email') }} : {{ auth('admin')->user()->email }}
                     </div>
                     <div class="mb-3 user_info">
-                        {{ __('translation.Account Created') }} : {{ \Carbon\Carbon::parse( auth('admin')->user()->expired_at)->format('d M, Y') }}
+                        {{ __('translation.Account Created') }} : {{ \Carbon\Carbon::parse( auth('admin')->user()->created_at)->format('d M, Y') }}
                     </div>
                 </div>
             </div>
