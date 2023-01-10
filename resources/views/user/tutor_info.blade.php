@@ -30,7 +30,7 @@
             <div class="row">
                 @if($tutor->getCourseName->count() > 0)
                 @foreach ($tutor->getCourseName as $tutor_course)
-                <div class="col-lg-4 col-md-4 col-sm-12 mb-3 mb-md-0">
+                <div class="col-lg-4 col-md-4 col-sm-12 mb-3 mb-md-2">
                     <div class="position-relative tutor_info">
                         <img src="{{ asset('storage/course/thumbnail/'.$tutor_course->course_thumbnail) }}" class=" img-fluid course-detail-img">
                         <div class="box-overlay">
