@@ -107,7 +107,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Title') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="title" placeholder="{{ __('translation.Enter Title') }}">
+                            <input type="text" class="form-control" name="title" placeholder="{{ __('translation.Enter Title') }}" value="{{ old('title') }}">
                             @error('title')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -131,7 +131,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Contents') }}</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="testing" placeholder="Enter content" name="content"></textarea>
+                            <textarea class="form-control" id="testing" placeholder="Enter content" name="content">{{ old('content') }}</textarea>
                             @error('content')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
