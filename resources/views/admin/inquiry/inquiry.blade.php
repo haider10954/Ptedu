@@ -121,7 +121,7 @@
                             @if ($inquiry->count() > 0)
                             @foreach($inquiry as $inq)
                             <tr>
-                                <td>{{ $loop->index+1 }}</td>
+                                <td>{{ $inquiry->firstItem() + $loop->index }}</td>
                                 <td>{{ Str::limit($inq->title, 70) }}</td>
                                 <td>{{ $inq->getStudentName->name }}</td>
                                 <td>{{ Carbon\Carbon::parse($inq->created_at)->format('d M, Y')}}</td>
