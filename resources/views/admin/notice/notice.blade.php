@@ -145,7 +145,7 @@
                         @if ($notice->count() > 0)
                         @foreach ($notice as $n)
                         <tr>
-                            <td>{{ $loop -> index + 1 }}</td>
+                            <td>{{ $notice->firstItem() + $loop->index }}</td>
                             <td>
                                 <span class="course_name">{{ Carbon\Carbon::parse($n->created_at)->format('d M, Y')}}</span>
                             </td>
