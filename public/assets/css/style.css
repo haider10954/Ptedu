@@ -112,6 +112,10 @@
     border-radius: 50%;
 }
 
+.section-box-content .section-lectures .section-lecture-record .duration a i{
+    font-size: 10px;
+    color: #ffffff; 
+}
 ::-ms-reveal {
     display: none;
 }
