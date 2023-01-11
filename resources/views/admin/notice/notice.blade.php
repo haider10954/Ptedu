@@ -126,8 +126,8 @@
             </div>
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Notice / F&Q</h4>
-                    <a class="btn btn-add-lecture" href="{{ route('add_notice')}}">Add Notice</a>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Notice / F&Q') }}</h4>
+                    <a class="btn btn-add-lecture" href="{{ route('add_notice')}}">{{ __('translation.Add Notice') }}</a>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -135,17 +135,17 @@
                 <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">No</td>
-                            <td class="align-middle t_header">Date</td>
-                            <td class="align-middle t_header" style="width: 65%;">Title</th>
-                            <td class="align-middle t_header">Action</td>
+                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Date') }}</td>
+                            <td class="align-middle t_header" style="width: 65%;">{{ __('translation.Title') }}</th>
+                            <td class="align-middle t_header">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
                         @if ($notice->count() > 0)
                         @foreach ($notice as $n)
                         <tr>
-                            <td>{{ $loop -> index + 1 }}</td>
+                            <td>{{ $notice->firstItem() + $loop->index }}</td>
                             <td>
                                 <span class="course_name">{{ Carbon\Carbon::parse($n->created_at)->format('d M, Y')}}</span>
                             </td>
@@ -162,20 +162,12 @@
                         @endforeach
                         @else
                         <tr>
-                            <td colspan="7" class="text-center">No Record Found</td>
+                            <td colspan="7" class="text-center">{{ __('translation.NO Record Found') }}</td>
                         </tr>
                         @endif
                     </tbody>
                 </table>
-
-                <div class="paginate mt-4 mb-3">
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-                    <a href="javascript:void(0)" class="active">1</a>
-                    <a href="javascript:void(0)">2</a>
-                    <a href="javascript:void(0)">3</a>
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-right"></i></a>
-                </div>
-
+                {{ $notice->links('vendor.pagination.custom-pagination-admin') }}
             </div>
         </div>
     </div>
@@ -187,19 +179,19 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Confirm Delete') }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="post" action="{{ route('delete-notice')}}">
                     @csrf
                     <div class="modal-body">
-                        <p>Are you sure to delete ?</p>
+                        <p>{{ __('translation.Are you sure to delete ?') }}</p>
                         <input id="del_id" type="hidden" name="id">
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('translation.Save') }}</button>
                     </div>
                 </form>
             </div>

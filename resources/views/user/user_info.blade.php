@@ -24,7 +24,7 @@
                 <div class="section-heading">
                     <h5 class="mb-4">{{ __('translation.Modifying Member Info') }}</h5>
                     <div class="mt-2 mb-3">
-                        <p class="mb-0">{{ __('translation.To protect your personal information, please change your password, email, mobile phone number periodically') }}.</p>
+                        <p class="mb-0">{{ __('translation.To protect your personal information, please change your password, email, mobile phone number periodically.') }}.</p>
                     </div>
                     @if (Session::has('msg'))
                     <div class="alert alert-info" id="responseMessage">{{ Session::get('msg') }}</div>

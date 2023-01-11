@@ -40,7 +40,7 @@
                     <div class="status"></div>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item text-danger" href="{{ route('admin_auth_logout') }}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">Logout</span></a>
+                    <a class="dropdown-item text-danger" href="{{ route('admin_auth_logout') }}"><i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i> <span key="t-logout">{{ __('translation.Logout') }}</span></a>
                 </div>
             </div>
         </div>

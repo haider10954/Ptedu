@@ -1,30 +1,37 @@
-.nav-fill .nav-item .nav-link, .nav-justified .nav-item .nav-link{
+.nav-fill .nav-item .nav-link,
+.nav-justified .nav-item .nav-link {
     background-color: #f8f8fb;
     color: #222222;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     color: #ffffff;
     background-color: #2c2c2c;
 }
 
-.nav-justified .nav-item, .nav-justified>.nav-link{
+.nav-justified .nav-item,
+.nav-justified>.nav-link {
     padding: 2px;
 }
-.repeater{
+
+.repeater {
     border-bottom: 1px solid rgb(240 240 240);
     padding-bottom: 20px;
     margin-bottom: 20px;
 }
-.section-box{
+
+.section-box {
     border: 1px solid rgba(223, 224, 235, 1);
     margin-bottom: 20px;
 }
-.section-box-header{
+
+.section-box-header {
     padding: 16px 25px;
     background-color: rgba(245, 245, 245, 1);
 }
-.section-box-heading{
+
+.section-box-heading {
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
@@ -32,40 +39,47 @@
     letter-spacing: 0.5px;
 }
 
-.section-box-content{
+.section-box-content {
     padding: 20px 30px;
 }
-.section-box-content .section-description{
+
+.section-box-content .section-description {
     font-size: 14px;
     font-weight: 500;
     color: #000000;
 }
-.section-box-content .section-lectures{
+
+.section-box-content .section-lectures {
     margin-bottom: 0;
     padding-left: 20px;
 }
-.section-box-content .section-lectures li{
+
+.section-box-content .section-lectures li {
     list-style: none;
     margin-bottom: 20px;
 }
-.section-box-content .section-lectures .section-lecture-record{
+
+.section-box-content .section-lectures .section-lecture-record {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.section-box-content .section-lectures .section-lecture-record i{
+
+.section-box-content .section-lectures .section-lecture-record i {
     font-size: 20px;
     color: #000000;
 }
-.section-box-content .section-lectures .section-lecture-record p{
+
+.section-box-content .section-lectures .section-lecture-record p {
     font-size: 14px;
 }
 
-.fa, .fas{
+.fa,
+.fas {
     font-family: "Font Awesome 5 Free" !important;
 }
 
-.loading-bar{
+.loading-bar {
     background: #484848;
     position: fixed;
     top: 0;
@@ -75,13 +89,14 @@
     transition: all 0.8s;
 }
 
-.form-box{
+.form-box {
     border-radius: 5px;
     box-shadow: 0px 0px 5px #f2f2f2;
     position: relative;
     padding: 15px;
 }
-.form-box .repeater-del-btn{
+
+.form-box .repeater-del-btn {
     position: absolute;
     top: -8px;
     right: -8px;
@@ -89,13 +104,18 @@
     padding: 2px 5px;
     width: auto !important;
 }
-.live-icon{
+
+.live-icon {
     height: 20px;
     width: 20px;
     background-color: rgb(126, 0, 0);
     border-radius: 50%;
 }
+
 .section-box-content .section-lectures .section-lecture-record .duration a i{
     font-size: 10px;
     color: #ffffff; 
+}
+::-ms-reveal {
+    display: none;
 }

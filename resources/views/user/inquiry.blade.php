@@ -48,7 +48,7 @@
                                     <td>{{ $count == 1 ? $inq->count() : $inq->count() + 1 - $count }}</td>
                                     <td>{{ Str::limit($inq->title, 70) }}</td>
                                     <td>{{ $inq->getStudentName->name }}</td>
-                                    <td>{{ Carbon\Carbon::parse($inq->expired_at)->format('d M, Y')}}</td>
+                                    <td>{{ Carbon\Carbon::parse($inq->created_at)->format('d M, Y')}}</td>
                                     @if($inq->answer == null)
                                     <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered',$inq->id) }}">답변준비중</a></td>
                                     @else

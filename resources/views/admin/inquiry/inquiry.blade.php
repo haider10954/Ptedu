@@ -110,21 +110,21 @@
                     <table class="table text-center">
                         <thead>
                             <tr>
-                                <td class="align-middle">No</td>
-                                <td class="align-middle">Title</td>
-                                <td class="align-middle">Writer</td>
-                                <td class="align-middle">Date</td>
-                                <td class="align-middle">Status</td>
+                                <td class="align-middle">{{ __('translation.No') }}</td>
+                                <td class="align-middle">{{ __('translation.Title') }}</td>
+                                <td class="align-middle">{{ __('translation.Writer') }}</td>
+                                <td class="align-middle">{{ __('translation.Date') }}</td>
+                                <td class="align-middle">{{ __('translation.Status')}}</td>
                             </tr>
                         </thead>
                         <tbody>
                             @if ($inquiry->count() > 0)
                             @foreach($inquiry as $inq)
                             <tr>
-                                <td>{{ $loop->index+1 }}</td>
+                                <td>{{ $inquiry->firstItem() + $loop->index }}</td>
                                 <td>{{ Str::limit($inq->title, 70) }}</td>
                                 <td>{{ $inq->getStudentName->name }}</td>
-                                <td>{{ Carbon\Carbon::parse($inq->expired_at)->format('d M, Y')}}</td>
+                                <td>{{ Carbon\Carbon::parse($inq->created_at)->format('d M, Y')}}</td>
                                 @if($inq->answer == null)
                                 <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn">Waiting for response</a></td>
                                 @else

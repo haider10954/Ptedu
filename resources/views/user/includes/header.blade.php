@@ -174,7 +174,7 @@
                     <button onclick="myFunction()" class="btn solid"><i class="fa fa-user" aria-hidden="true"></i></button>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="{{ route('user_info') }}">{{ __('translation.Profile') }}</a>
-                        <a href="{{ route('change-user-password') }}">{{ __('transaltion.Change password') }}</a>
+                        <a href="{{ route('change-user-password') }}">{{ __('translation.Change password') }}</a>
                         <a href="{{ route('student_logout') }}" class="text-danger">{{ __('translation.Logout') }}</a>
                     </div>
                 </div>

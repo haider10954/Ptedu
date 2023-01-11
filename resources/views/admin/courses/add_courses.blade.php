@@ -3,347 +3,325 @@
 @section('title', 'Add Course')
 
 @section('custom-style')
-    <style>
-        .hr-color {
-            border: 1px solid #C4C4C4;
-        }
+<style>
+    .hr-color {
+        border: 1px solid #C4C4C4;
+    }
 
-        .btn-register {
-            background: #F0F0F0;
-            border: 1.43489px solid #DFE0EB;
-            border-radius: 2.86978px;
-            color: #6F6F6F;
-            font-weight: 400;
-            font-size: 14px;
-            padding: 7px 30px;
-        }
+    .btn-register {
+        background: #F0F0F0;
+        border: 1.43489px solid #DFE0EB;
+        border-radius: 2.86978px;
+        color: #6F6F6F;
+        font-weight: 400;
+        font-size: 14px;
+        padding: 7px 30px;
+    }
 
-        .course-image-preview {
-            width: 150px;
-            height: 150px;
-            background: #FFFFFF;
-            /* grayscale / divider */
-            border: 1px solid #DFE0EB;
-            border-radius: 2px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    .course-image-preview {
+        width: 150px;
+        height: 150px;
+        background: #FFFFFF;
+        /* grayscale / divider */
+        border: 1px solid #DFE0EB;
+        border-radius: 2px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-        }
+    }
 
-        .course-image-preview img {
-            width: 20px;
-            height: 20px;
-        }
+    .course-image-preview img {
+        width: 20px;
+        height: 20px;
+    }
 
-        .btn-upload {
-            background: #F0F0F0;
-            border: 1px solid #DFE0EB;
-            border-radius: 2px;
-            color: #6F6F6F;
-        }
+    .btn-upload {
+        background: #F0F0F0;
+        border: 1px solid #DFE0EB;
+        border-radius: 2px;
+        color: #6F6F6F;
+    }
 
-        .btn-upload:hover {
-            background: #F0F0F0;
-            border: 1px solid #DFE0EB;
-            border-radius: 2px;
-            color: #6F6F6F;
-        }
+    .btn-upload:hover {
+        background: #F0F0F0;
+        border: 1px solid #DFE0EB;
+        border-radius: 2px;
+        color: #6F6F6F;
+    }
 
-        .btn-add-section {
-            background: #FFFFFF;
-            border: 1px solid #696CFF;
-            border-radius: 2px;
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 23px;
-            color: #696CFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px 16px;
-        }
+    .btn-add-section {
+        background: #FFFFFF;
+        border: 1px solid #696CFF;
+        border-radius: 2px;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 23px;
+        color: #696CFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 16px;
+    }
 
-        .btn-add-section:hover {
-            background: #FFFFFF;
-            border: 1px solid #696CFF;
-            border-radius: 2px;
-            font-weight: 400;
-            font-size: 13px;
-            line-height: 23px;
-            color: #696CFF;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 4px 16px;
-        }
+    .btn-add-section:hover {
+        background: #FFFFFF;
+        border: 1px solid #696CFF;
+        border-radius: 2px;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 23px;
+        color: #696CFF;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4px 16px;
+    }
 
-        .lecture-form {
-            font-weight: 400 !important;
-            font-size: 14px !important;
-            line-height: 23px !important;
-            color: #6F6F6F !important;
-        }
-    </style>
+    .lecture-form {
+        font-weight: 400 !important;
+        font-size: 14px !important;
+        line-height: 23px !important;
+        color: #6F6F6F !important;
+    }
+</style>
 @endsection
 
 @section('content')
-    <div class="loading-bar" style="width: 0;"></div>
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <div class="col-12">
-                    <div class="page-title-box d-flex align-items-center justify-content-between">
-                        <h4 class="mb-sm-0  Card_title">Course List > Add Course</h4>
-                    </div>
-                    <hr class="hr-color" />
+<div class="loading-bar" style="width: 0;"></div>
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Course List') }} > {{ __('translation.Add Course')}}</h4>
                 </div>
-                <div class="col-12 mb-3">
-                    <ul class="nav nav-pills nav-justified" role="tablist">
-                        <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link active course-tab" data-bs-toggle="tab" href="#course" role="tab" disabled="disabled">
-                                <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
-                                <span class="d-none d-sm-block">Course</span>
-                            </a>
-                        </li>
-                        <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link section-tab" data-bs-toggle="tab" href="#sections" role="tab" disabled="disabled">
-                                <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
-                                <span class="d-none d-sm-block">Sections</span>
-                            </a>
-                        </li>
-                        <li class="nav-item waves-effect waves-light">
-                            <a class="nav-link lecture-tab" data-bs-toggle="tab" href="#lectures" role="tab" disabled="disabled">
-                                <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
-                                <span class="d-none d-sm-block">Lectures</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="tab-content">
-                    <div class="tab-pane active" id="course" role="tabpanel">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="prompt"></div>
-                                    <form id="courseForm" type="POST">
-                                        @csrf
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Course Type</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-control" name="course_type">
-                                                    <option value="">Select Option</option>
-                                                    <option value="expert">Expert Course</option>
-                                                    <option value="public">Public Course</option>
-                                                </select>
-                                                <div class="error-course-type"></div>
-                                            </div>
+                <hr class="hr-color" />
+            </div>
+            <div class="col-12 mb-3">
+                <ul class="nav nav-pills nav-justified" role="tablist">
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link active course-tab" data-bs-toggle="tab" href="#course" role="tab" disabled="disabled">
+                            <span class="d-block d-sm-none"><i class="fas fa-home"></i></span>
+                            <span class="d-none d-sm-block">{{ __('translation.Course') }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link section-tab" data-bs-toggle="tab" href="#sections" role="tab" disabled="disabled">
+                            <span class="d-block d-sm-none"><i class="far fa-user"></i></span>
+                            <span class="d-none d-sm-block">{{ __('translation.Sections') }}</span>
+                        </a>
+                    </li>
+                    <li class="nav-item waves-effect waves-light">
+                        <a class="nav-link lecture-tab" data-bs-toggle="tab" href="#lectures" role="tab" disabled="disabled">
+                            <span class="d-block d-sm-none"><i class="far fa-envelope"></i></span>
+                            <span class="d-none d-sm-block">{{__('translation.Lectures') }}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="course" role="tabpanel">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="prompt"></div>
+                                <form id="courseForm" type="POST">
+                                    @csrf
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Type') }}</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="course_type">
+                                                <option value="">{{ __('translation.Select Option') }}</option>
+                                                <option value="expert">{{ __('translation.Expert course') }}</option>
+                                                <option value="public">{{ __('translation.Public course')}}</option>
+                                            </select>
+                                            <div class="error-course-type"></div>
                                         </div>
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Course Title</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="horizontal-firstname-input"
-                                                    placeholder="Enter Course Title" name="course_title">
-                                                <div class="error-course-title"></div>
-                                            </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Title') }}</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="{{ __('translation.Enter Course Title') }}" name="course_title">
+                                            <div class="error-course-title"></div>
                                         </div>
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Tutor Name</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-control" name="tutor_name">
-                                                    <option value="">Select Option</option>
-                                                    @foreach ($tutor as $t)
-                                                        <option value="{{ $t->id }}">{{ $t->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <div class="error-tutor-name"></div>
-                                            </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Tutor Name') }}</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="tutor_name">
+                                                <option value="">{{ __('translation.Select Option') }}</option>
+                                                @foreach ($tutor as $t)
+                                                <option value="{{ $t->id }}">{{ $t->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <div class="error-tutor-name"></div>
                                         </div>
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Short Description</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Enter Short Description" name="short_description">
-                                                <div class="error-short-description"></div>
-                                            </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Short Description')}}</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="{{ __('translation.Enter Short Description') }}" name="short_description">
+                                            <div class="error-short-description"></div>
                                         </div>
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Description</label>
-                                            <div class="col-sm-10">
-                                                <textarea class="form-control" id="description" rows="2" placeholder="Enter Description" name="description"></textarea>
-                                                <div class="error-description"></div>
-                                            </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Description') }}</label>
+                                        <div class="col-sm-10">
+                                            <textarea class="form-control" id="description" rows="2" placeholder="Enter Description" name="description"></textarea>
+                                            <div class="error-description"></div>
                                         </div>
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Total number of
-                                                Lectures</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control"
-                                                    placeholder="Enter total number of lectures" name="no_of_lectures">
-                                                <div class="error-no-of-lectures"></div>
-                                            </div>
+                                    </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Total number of Lectures') }}</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" placeholder="{{ __('translation.Enter total number of lectures') }}" name="no_of_lectures">
+                                            <div class="error-no-of-lectures"></div>
                                         </div>
+                                    </div>
 
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Duration of the
-                                                Course</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Duration of the Course" name="course_duration">
-                                                <div class="error-course-duration"></div>
-                                            </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Duration of the Course') }}</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="{{ __('translation.Duration of the Course') }}" name="course_duration">
+                                            <div class="error-course-duration"></div>
                                         </div>
+                                    </div>
 
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Price</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control" placeholder="Enter price"
-                                                    name="price">
-                                                <div class="error-prize"></div>
-                                            </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Price') }}</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" placeholder="{{ __('translation.Enter Price')}}" name="price">
+                                            <div class="error-prize"></div>
                                         </div>
+                                    </div>
 
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Discounted Price</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control"
-                                                    placeholder="Enter discounted Price" name="discounted_Price">
-                                                <div class="error-discounted-prize"></div>
-                                            </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Discounted Price') }}</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" placeholder="{{ __('translation.Enter discounted Price') }}" name="discounted_Price">
+                                            <div class="error-discounted-prize"></div>
                                         </div>
+                                    </div>
 
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Category</label>
-                                            <div class="col-sm-10">
-                                                <select class="form-control" name="category">
-                                                    <option value="">Select Option</option>
-                                                    @foreach ($category as $cat)
-                                                        <option value="{{ $cat->id }}">{{ $cat->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <div class="error-category"></div>
-                                            </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Category') }}</label>
+                                        <div class="col-sm-10">
+                                            <select class="form-control" name="category">
+                                                <option value="">{{ __('translation.Select Option') }}</option>
+                                                @foreach ($category as $cat)
+                                                <option value="{{ $cat->id }}">{{ $cat->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <div class="error-category"></div>
                                         </div>
+                                    </div>
 
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Upload Video URL</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" placeholder="Enter video URL ( Youtube or Vimeo )"
-                                                    name="video_url"> 
-                                                <div class="error-video-url"></div>
-                                            </div>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload Video URL') }}</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" placeholder="{{ __('translation.Enter video URL ( Youtube or Vimeo )') }}" name="video_url">
+                                            <div class="error-video-url"></div>
                                         </div>
+                                    </div>
 
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Upload course Thumbnail
-                                                image</label>
-                                            <div class="col-sm-10">
-                                                <input type="file" name="course_img" id="course_img" class="d-none">
-                                                <div class="d-flex align-items-end">
-                                                    <div class="course-image-preview" id="thumbnail_image_view">
-                                                        <img src="{{ asset('assets/images/icons/image.png') }}" />
-                                                    </div>
-                                                    <button type="button" class="btn btn-upload ms-2"
-                                                        onclick="courseImg('#course_img')">upload</button>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload course Thumbnail image') }}</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" name="course_img" id="course_img" class="d-none">
+                                            <div class="d-flex align-items-end">
+                                                <div class="course-image-preview" id="thumbnail_image_view">
+                                                    <img src="{{ asset('assets/images/icons/image.png') }}" />
                                                 </div>
-                                                <div class="error-course-thumbnail"></div>
+                                                <button type="button" class="btn btn-upload ms-2" onclick="courseImg('#course_img')">{{ __('translation.Upload') }}</button>
                                             </div>
+                                            <div class="error-course-thumbnail"></div>
                                         </div>
+                                    </div>
 
-                                        <div class="row mb-4">
-                                            <label class="col-sm-2 col-form-label lecture-form">Upload banner image</label>
-                                            <div class="col-sm-10">
-                                                <input type="file" name="banner_img" id="banner_img" class="d-none">
-                                                <div class="d-flex align-items-end">
-                                                    <div class="course-image-preview" id="banner_image_view">
-                                                        <img src="{{ asset('assets/images/icons/image.png') }}" />
-                                                    </div>
-                                                    <button type="button" class="btn btn-upload ms-2"
-                                                        onclick="courseImg('#banner_img')">upload</button>
+                                    <div class="row mb-4">
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload banner image') }}</label>
+                                        <div class="col-sm-10">
+                                            <input type="file" name="banner_img" id="banner_img" class="d-none">
+                                            <div class="d-flex align-items-end">
+                                                <div class="course-image-preview" id="banner_image_view">
+                                                    <img src="{{ asset('assets/images/icons/image.png') }}" />
                                                 </div>
-                                                <div class="error-course-banner"></div>
+                                                <button type="button" class="btn btn-upload ms-2" onclick="courseImg('#banner_img')">{{ __('translation.Upload') }}</button>
                                             </div>
+                                            <div class="error-course-banner"></div>
                                         </div>
+                                    </div>
 
-                                        <div class="row mb-4">
-                                            <div class="col-sm-2"></div>
-                                            <div class="col-sm-10">
-                                                <button type="submit" id="submitForm"
-                                                    class="btn btn-lg btn-register">Register</button>
-                                            </div>
+                                    <div class="row mb-4">
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-10">
+                                            <button type="submit" id="submitForm" class="btn btn-lg btn-register">{{ __('translation.Register') }}</button>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="sections" role="tabpanel">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="section_prompt"></div>
-                                    <div class="row mb-4">
-                                        <div class="col-12 mb-3">
-                                            <h5 class="fw-bold">Add Sections</h5>
-                                        </div>
-                                        <div class="col-12">
-                                            <form id="add_section_form">
-                                                @csrf
-                                                <input type="hidden" id="course_id" name="course_id">
-                                                <div class="repeater">
-                                                    <div data-repeater-list="course_sections">
-                                                        <div data-repeater-item class="row mb-3 align-items-end">
-                                                            <div class="col-lg-4">
-                                                                <label for="name">Section Title</label>
-                                                                <input type="text" class="form-control"
-                                                                    name="section_title"
-                                                                    placeholder="Enter Section Title" />
-                                                                    <div class="error-section-title"></div>
-                                                            </div>
+                </div>
+                <div class="tab-pane" id="sections" role="tabpanel">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="section_prompt"></div>
+                                <div class="row mb-4">
+                                    <div class="col-12 mb-3">
+                                        <h5 class="fw-bold">{{ __('translation.Add Sections') }}</h5>
+                                    </div>
+                                    <div class="col-12">
+                                        <form id="add_section_form">
+                                            @csrf
+                                            <input type="hidden" id="course_id" name="course_id">
+                                            <div class="repeater">
+                                                <div data-repeater-list="course_sections">
+                                                    <div data-repeater-item class="row mb-3 align-items-end">
+                                                        <div class="col-lg-4">
+                                                            <label for="name">{{ __('translation.Section Title') }}</label>
+                                                            <input type="text" class="form-control" name="section_title" placeholder="{{ __('translation.Enter Section Title') }}" />
+                                                            <div class="error-section-title"></div>
+                                                        </div>
 
-                                                            <div class="col-lg-7">
-                                                                <label>Section Description</label>
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Enter Section description"
-                                                                    name="section_description" />
-                                                                    <div class="error-section-description"></div>
-                                                            </div>
+                                                        <div class="col-lg-7">
+                                                            <label>{{ __('translation.Section Description') }}</label>
+                                                            <input type="text" class="form-control" placeholder="{{ __('translation.Enter Section description') }}" name="section_description" />
+                                                            <div class="error-section-description"></div>
+                                                        </div>
 
-                                                            <div class="col-lg-1">
-                                                                <div
-                                                                    class="d-flex align-items-center justify-content-start">
-                                                                    <button data-repeater-delete type="button"
-                                                                        class="btn btn-danger" value="Delete"><i
-                                                                            class="bi bi-trash"></i></button>
-                                                                </div>
+                                                        <div class="col-lg-1">
+                                                            <div class="d-flex align-items-center justify-content-start">
+                                                                <button data-repeater-delete type="button" class="btn btn-danger" value="Delete"><i class="bi bi-trash"></i></button>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="d-flex gap-2">
-                                                        <div class="mt-1 mb-2">
-                                                            {{-- <input data-repeater-create type="button" class="btn btn-success" value="" /> --}}
-                                                            <button type="button" data-repeater-create
-                                                                class="btn btn-success"><i class="bi bi-plus"></i> Add
-                                                                More</button>
-                                                        </div>
+                                                </div>
+                                                <div class="d-flex gap-2">
+                                                    <div class="mt-1 mb-2">
+                                                        {{-- <input data-repeater-create type="button" class="btn btn-success" value="" /> --}}
+                                                        <button type="button" data-repeater-create class="btn btn-success"><i class="bi bi-plus"></i> {{ __('translation.Add More') }}</button>
                                                     </div>
                                                 </div>
-                                                <div class="text-center">
-                                                    <button class="btn btn-primary w-25 m-auto" id="submitSections">Submit Sections</button>
-                                                </div>
-                                            </form>
-                                        </div>
+                                            </div>
+                                            <div class="text-center">
+                                                <button class="btn btn-primary w-25 m-auto" id="submitSections">{{ __('translation.Submit Sections') }}</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="lectures" role="tabpanel">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="section-boxes">
-                                        {{-- <div class="section-box">
+                </div>
+                <div class="tab-pane" id="lectures" role="tabpanel">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="section-boxes">
+                                    {{-- <div class="section-box">
                                             <div class="d-flex justify-content-between section-box-header align-items-center">
                                                 <h3 class="mb-0 section-box-heading">Section-1. <span
                                                         class="section-title">Welcome</span></h3>
@@ -461,8 +439,8 @@
             </div>
         </div>
     </div>
-@endsection
-@section('custom-script')
+    @endsection
+    @section('custom-script')
     <script>
         // Intializing summer note
         $(document).ready(function() {
@@ -521,20 +499,20 @@
                     $(".error-message").hide();
                 },
                 success: function(res) {
-                    $("#submitForm").attr('class','btn btn-success');
+                    $("#submitForm").attr('class', 'btn btn-success');
                     $("#submitForm").html('<i class="fa fa-check me-1"></i>  Course Uploaded</>');
                     if (res.success) {
                         $('#course_id').val(res.course_id);
                         setTimeout(function() {
                             $('html, body').animate({
                                 scrollTop: $("html, body").offset().top
-                            }, 2000); 
+                            }, 2000);
                         }, 1500);
                         setTimeout(function() {
                             $('.course-tab').removeClass('active');
                             $('#course').removeClass('active');
                             $('.section-tab').addClass('active');
-                            $('#sections').addClass('active'); 
+                            $('#sections').addClass('active');
                         }, 3500);
                     } else {}
                 },
@@ -618,9 +596,8 @@
                     if (res.success == true) {
                         let sections = res.sections;
                         $('.section_prompt').html('');
-                        for (var i = 0; i < sections.length; i++) 
-                        {
-                            if(i == 0){
+                        for (var i = 0; i < sections.length; i++) {
+                            if (i == 0) {
                                 $('.section-boxes').append(`
                                 <div class="section-box" data-section-id="${sections[i].id}" data-position="${(i+1 < sections.length) ? 'initialState' : 'finalState'}">
                                     <div class="d-flex justify-content-between section-box-header align-items-center">
@@ -683,7 +660,7 @@
                                 </div>
                                 `);
                                 repeater_initialize();
-                            } else{
+                            } else {
                                 $('.section-boxes').append(`
                                 <div class="section-box" data-section-id="${sections[i].id}" data-position="${(i+1 < sections.length) ? 'initialState' : 'finalState'}">
                                     <div class="d-flex justify-content-between section-box-header align-items-center">
@@ -697,25 +674,25 @@
                                 `);
                             }
                         }
-                        $("#submitSections").attr('class','btn btn-success');
+                        $("#submitSections").attr('class', 'btn btn-success');
                         $("#submitSections").html('<i class="fa fa-check me-1"></i>  Sections Uploaded</>');
                         setTimeout(function() {
                             $('html, body').animate({
                                 scrollTop: $("html, body").offset().top
-                            }, 2000); 
+                            }, 2000);
                         }, 1500);
                         setTimeout(function() {
                             $('.section-tab').removeClass('active');
                             $('#sections').removeClass('active');
                             $('.lecture-tab').addClass('active');
-                            $('#lectures').addClass('active'); 
+                            $('#lectures').addClass('active');
                         }, 3500);
-                    } else if(res.error == true) {
+                    } else if (res.error == true) {
                         $("#submitSections").prop('disabled', false);
                         $("#submitSections").html('Submit Sections');
                         $('html, body').animate({
-                                scrollTop: $("html, body").offset().top
-                            }, 2000);
+                            scrollTop: $("html, body").offset().top
+                        }, 2000);
                         $('.section_prompt').html('<div class="alert alert-warning mb-3">Please make sure to fill all fields with valid values</div>');
                     }
                 },
@@ -724,7 +701,7 @@
         });
 
         // lectures form submit
-        function lectures_submit(e,form){
+        function lectures_submit(e, form) {
             e.preventDefault();
             var currentForm = form;
             var formData = new FormData(form[0]);
@@ -743,13 +720,13 @@
                 success: function(res) {
                     if (res.success == true) {
                         setTimeout(function() {
-                            $('.loading-bar').css('transition','none');
-                            $('.loading-bar').css('width',0); 
+                            $('.loading-bar').css('transition', 'none');
+                            $('.loading-bar').css('width', 0);
                         }, 1500);
                         var lectures = res.lectures;
-                        $("#submitLectures").attr('class','btn btn-success');
+                        $("#submitLectures").attr('class', 'btn btn-success');
                         $("#submitLectures").html('<i class="fa fa-check me-1"></i>  Lectures Uploaded</>');
-                        if(currentForm.parents('.section-box').attr('data-position') == 'finalState'){
+                        if (currentForm.parents('.section-box').attr('data-position') == 'finalState') {
                             $('.section-boxes').append(`
                             <div class="mt-3 text-center"><a href="{{ route('course') }}" class="btn btn-primary w-25 m-auto">Go to Listing</a></div>
                             `);
@@ -757,14 +734,13 @@
                         setTimeout(function() {
                             $('html, body').animate({
                                 scrollTop: form.parents('.section-box').offset().top - 100
-                            }, 2000); 
+                            }, 2000);
                         }, 1500);
                         setTimeout(function() {
                             var currentSectionBox = currentForm.parents('.section-box');
                             currentForm.parents('.section-add-lectures-form').remove();
                             currentSectionBox.find('.section-box-content').append(`<ul class="section-lectures mt-4"></ul>`);
-                            for (var i = 0; i < lectures.length; i++) 
-                            {
+                            for (var i = 0; i < lectures.length; i++) {
                                 currentSectionBox.find('.section-lectures').append(`
                                 <li class="section-lecture-record">
                                     <div class="d-flex align-items-center">
@@ -831,18 +807,18 @@
                             `);
                             repeater_initialize();
                         }, 3500);
-                    } else if(res.error == true){
+                    } else if (res.error == true) {
                         $('.add_lecture_prompt').hide();
                         $("#submitLectures").prop('disabled', false);
                         $("#submitLectures").html('Add Lectures');
                         setTimeout(function() {
-                            $('.loading-bar').css('transition','none');
-                            $('.loading-bar').css('width',0); 
+                            $('.loading-bar').css('transition', 'none');
+                            $('.loading-bar').css('width', 0);
                         }, 1500);
                         $('html, body').animate({
-                                scrollTop: form.parents('.section-box').offset().top
-                            }, 2000);
-                        $('.add_lecture_prompt').html('<div class="alert alert-warning mb-3">'+res.errors+'</div>');
+                            scrollTop: form.parents('.section-box').offset().top
+                        }, 2000);
+                        $('.add_lecture_prompt').html('<div class="alert alert-warning mb-3">' + res.errors + '</div>');
                         $('.add_lecture_prompt').fadeIn();
                     }
                 },
@@ -872,10 +848,10 @@
         }
 
         // loading bar function
-        function postUploadProgress(percentComplete){
-            $('.loading-bar').css('width',percentComplete+'%');
-            $('.loading-bar').css('transition','all 0.8s'); 
+        function postUploadProgress(percentComplete) {
+            $('.loading-bar').css('width', percentComplete + '%');
+            $('.loading-bar').css('transition', 'all 0.8s');
         }
     </script>
 
-@endsection
+    @endsection

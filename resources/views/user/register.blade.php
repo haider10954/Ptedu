@@ -16,6 +16,7 @@
                     </div>
                 </div>
                 <div class="prompt"></div>
+                <div class="error-user-id"></div>
                 <div class="row">
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
@@ -156,7 +157,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start custom_label_height">
-                                    <p class="mb-0 user_profile">{{ __('translation.Phone number') }}<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile">{{ __('translation.Phone Number') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -377,6 +378,11 @@
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
                 $("#submitForm").html('Register');
+                setTimeout(function() {
+                    $('html, body').animate({
+                        scrollTop: $("html, body").offset().top
+                    }, 1000);
+                }, 1500);
                 if (e.responseJSON.errors['name']) {
                     $('.error-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['name'][0] + '</small>');
                 }
@@ -385,6 +391,9 @@
                 }
                 if (e.responseJSON.errors['user_id']) {
                     $('.error-user-id').html('<p class=" alert alert-danger">' + e.responseJSON.errors['user_id'][0] + '</p>');
+                    setTimeout(function() {
+                        $('.error-user-id').fadeOut();
+                    }, 3000);
                 }
                 if (e.responseJSON.errors['password']) {
                     $('.error-pass').html('<small class=" error-message text-danger">' + e.responseJSON.errors['password'][0] + '</small>');

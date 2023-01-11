@@ -147,24 +147,36 @@
 @endsection
 
 @section('custom-script')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-pdCVFUWsxl1A4g0uV6fyJ3nrnTGeWnZN2Tl/56j45UvZ1OMdm9CIbctuIHj+yBIRTUUyv6I9+OivXj4i0LPEYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     window.onload = function() {
-        document.getElementById("download").addEventListener("click", () => {
-            const certificate = this.document.getElementById("certificate");
-            var opt = {
+        document.getElementById("download")
+            .addEventListener("click", () => {
+                const certificate = this.document.getElementById("certificate");
+                console.log(certificate);
+                console.log(window);
+                var opt = {
+                    margin: 1,
+                    filename: 'certificate.pdf',
+                    image: {
+                        type: 'jpeg',
+                        quality: 0.98
+                    },
+                    html2canvas: {
+                        scrollX: 0,
+                        scrollY: 0
+                    },
+                    jsPDF: {
+                        orientation: 'l',
+                        unit: 'mm',
+                        format: 'a4',
+                        putOnlyUsedFonts: true,
+                        floatPrecision: 16 // or "smart", default is 16
+                    }
 
-                margin: 1.5,
-                marginTop: 1,
-                filename: 'certificate.pdf',
-                jsPDF: {
-                    unit: 'in',
-                    format: 'A4',
-                    orientation: 'landscape',
-                }
-            };
-            html2pdf().from(certificate).set(opt).save();
-        })
+                };
+                html2pdf().from(certificate).set(opt).save();
+            })
     }
 </script>
 

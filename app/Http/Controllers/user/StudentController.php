@@ -20,7 +20,7 @@ class StudentController extends Controller
             'password' => 'required|min:6|same:confirm_password',
             'job' => 'required',
             'country_code' => 'required',
-            'mobile' => 'required',
+            'mobile' => 'required|min:9',
             'email_name' => 'required',
             'email_extension' => 'required',
             'address' => 'required'

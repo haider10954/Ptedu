@@ -94,7 +94,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Notice > Creating a post (Editor)</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Notice > Creating a post (Editor)') }}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -106,7 +106,7 @@
                     @endif
                     <input type="hidden" name="id" value="{{ $notice->id}}" />
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Title</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Title') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="title" placeholder="Enter title" value="{{ $notice->title}}">
                             @error('title')
@@ -115,7 +115,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Category</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Category') }}</label>
                         <div class="col-sm-10">
                             <select type="text" class="form-control" name="category">
                                 <option>Select Category</option>
@@ -130,7 +130,7 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Contents</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Contents')}}</label>
                         <div class="col-sm-10">
                             <textarea class="form-control" id="testing" placeholder="Enter content" name="content">{{ $notice->content}}</textarea>
                             @error('content')
@@ -142,7 +142,7 @@
                     <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-lg btn-register">Register</button>
+                            <button type="submit" class="btn btn-lg btn-register">{{ __('translation.Register') }}</button>
                         </div>
                     </div>
                 </form>
