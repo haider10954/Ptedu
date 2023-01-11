@@ -95,3 +95,7 @@
     background-color: rgb(126, 0, 0);
     border-radius: 50%;
 }
+.section-box-content .section-lectures .section-lecture-record .duration a i{
+    font-size: 10px;
+    color: #ffffff; 
+}

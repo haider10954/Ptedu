@@ -32,7 +32,7 @@
             @include('admin.includes.footer')
         </div>
     </div>
-
+    @yield('modals')
     @include('admin.includes.script')
     @yield('custom-script')
 </body>
