@@ -316,5 +316,8 @@ return [
     'Enter Current Password' => 'Enter Current Password',
     'Change' => 'Change',
     'Edit Profile' => 'Edit Profile',
-    'Introduction' => 'Introduction'
+    'Introduction' => 'Introduction',
+
+    // New
+    'delete' => 'Delete',
 ];

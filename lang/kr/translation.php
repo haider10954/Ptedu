@@ -316,5 +316,8 @@ return [
     'Enter Current Password' => '현재 비밀번호',
     'Change' => '변경하기',
     'Edit Profile' => '프로필 변경',
-    'Introduction' => '소개'
+    'Introduction' => '소개',
+
+    // New
+    'delete' => '삭제',
 ];
