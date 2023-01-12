@@ -39,7 +39,7 @@ class LectureController extends Controller
 
     public function my_classroom()
     {
-        $courses_enrolled = Online_enrollment::with('getCourses')->get();
+        $courses_enrolled = Course_tracking::where('user_id',auth()->id())->where('status',0)->with('getCourses')->get();
         return view('user.my-classroom', compact('courses_enrolled'));
     }
 
