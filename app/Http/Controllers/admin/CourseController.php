@@ -8,6 +8,7 @@ use App\Models\Course;
 use App\Models\Section;
 use App\Models\Tutor;
 use App\Models\Lecture;
+use App\Models\Course_tracking;
 use Illuminate\Http\Request;
 use Owenoj\LaravelGetId3\GetId3;
 use App\Service\VideoHandler;
@@ -521,7 +522,10 @@ class CourseController extends Controller
         ]);
 
         if($addLecture){
-            $sections = Section::with('getLectures')->where('course_id', $request->course_id)->get();
+            $sections = Section::with('getLectures')->withCount('getLectures')->where('course_id', $request->course_id)->get();
+            $updateLectureCount = Course_tracking::where('course_id', $request->course_id)->update([
+                'no_of_lectures' => $sections->sum('get_lectures_count'),
+            ]);
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
             return json_encode([
                 'Success' => true,
@@ -540,7 +544,10 @@ class CourseController extends Controller
     public function del_single_lecture(Request $request){
         $lectureDelete = Lecture::where('id', $request->lecture_id)->delete();
         if ($lectureDelete) {
-            $sections = Section::with('getLectures')->where('course_id', $request->course_id)->get();
+            $sections = Section::with('getLectures')->withCount('getLectures')->where('course_id', $request->course_id)->get();
+            $updateLectureCount = Course_tracking::where('course_id', $request->course_id)->update([
+                'no_of_lectures' => $sections->sum('get_lectures_count'),
+            ]);
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
             return json_encode([
                 'success' => true,
