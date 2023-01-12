@@ -34,7 +34,7 @@
                 <td>
                     <div class="d-flex flex-column">
                         {{-- <button class="btn rounded-0 btn-theme-white mb-2">Delete</button> --}}
-                        <button class="btn rounded-0 btn-theme-black text-white" data-course="{{ encrypt($v['course_id']) }}" data-type="{{ encrypt($v['type']) }}" onclick="delCartItem($(this))">Delete</button>
+                        <button class="btn rounded-0 btn-theme-black text-white" data-course="{{ encrypt($v['course_id']) }}" data-type="{{ encrypt($v['type']) }}" onclick="delCartItem($(this))">{{__('translation.delete')}}</button>
                     </div>
                 </td>
             </tr>
