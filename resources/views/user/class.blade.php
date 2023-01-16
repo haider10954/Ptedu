@@ -100,7 +100,7 @@
     <script>
         let player = new Plyr('#player');
         player.on('ready', (event) => {
-            console.log("{{ $lecture->viewed }}");
+            // console.log("{{ $lecture->viewed }}");
             setTimeout(() => {
                 if(!isEmpty("{{ $lecture->viewed }}")){
                     player.currentTime = durationToSeconds("{{ $lecture->viewed }}");
@@ -130,7 +130,7 @@
             return `${minutes}:${secondsReadable}`
         }
         setInterval(() => {
-            console.log(player.ended);
+            // console.log(player.ended);
             if (player.playing === true) {
                 $.ajax({
                     type: "POST",
@@ -139,6 +139,7 @@
                     data: {
                         'viewed_duration': formatTime(player.currentTime),
                         'lecture_id': "{{ $lecture->id }}",
+                        'course_id': "{{ $course->id }}",
                         '_token': "{{ csrf_token() }}"
                     },
                     success: function(res) {
@@ -151,14 +152,62 @@
                     error: function(e) {}
                 });
             }
-            if (player.ended == true) {
-                setInterval(() => {
-                    if ($('#playingVideoLink').next('li').find('a').attr('href') !== undefined) {
-                        console.log('working');
-                        window.location.href = $('#playingVideoLink').next('li').find('a').attr('href');
-                    }
-                }, 2500);
-            }
+            // if (player.ended == true) {
+            //     setInterval(() => {
+            //         if ($('#playingVideoLink').next('li').find('a').attr('href') !== undefined) {
+            //             console.log('working');
+            //             window.location.href = $('#playingVideoLink').next('li').find('a').attr('href');
+            //         }
+            //     }, 2500);
+            // }
         }, 5000);
+        player.on('ended', (event) => {
+            $.ajax({
+                type: "POST",
+                url: "{{ route('lecture_time_completed') }}",
+                dataType: 'json',
+                data: {
+                    'lecture_id': "{{ $lecture->id }}",
+                    'course_id': "{{ $course->id }}",
+                    'completed': 1,
+                    '_token': "{{ csrf_token() }}"
+                },
+                success: function(res) {
+                    if (res.success == true) {
+                        // setInterval(() => {
+                        //     if ($('#playingVideoLink').next('li').find('a').attr('href') !== undefined) {
+                        //         console.log('working');
+                        //         window.location.href = $('#playingVideoLink').next('li').find('a').attr('href');
+                        //     }
+                        // }, 2500);
+                    } else {
+                        //    console.log(false);
+                    }
+                },
+                error: function(e) {}
+            });
+            $.ajax({
+                type: "POST",
+                url: "{{ route('course_completion_action') }}",
+                dataType: 'json',
+                data: {
+                    'course_id': "{{ $course->id }}",
+                    '_token': "{{ csrf_token() }}"
+                },
+                success: function(res) {
+                    if (res.success == true) {
+                        // setInterval(() => {
+                        //     if ($('#playingVideoLink').next('li').find('a').attr('href') !== undefined) {
+                        //         console.log('working');
+                        //         window.location.href = $('#playingVideoLink').next('li').find('a').attr('href');
+                        //     }
+                        // }, 2500);
+                    } else {
+                        //    console.log(false);
+                    }
+                },
+                error: function(e) {}
+            });
+        });
     </script>
 @endsection

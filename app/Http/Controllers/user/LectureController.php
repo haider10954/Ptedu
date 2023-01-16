@@ -39,8 +39,17 @@ class LectureController extends Controller
 
     public function my_classroom()
     {
-        $courses_enrolled = Course_tracking::where('user_id',auth()->id())->where('status',0)->with('getCourses')->get();
-        return view('user.my-classroom', compact('courses_enrolled'));
+        $categories = [];
+        $courses = Course_tracking::where('user_id',auth()->id())->with('getCourses')->get();
+        $completed_courses = $courses->where('status',1);
+        $courses_enrolled = $courses->where('status',0);
+        foreach ($courses as $v) {
+            if(!in_array($v->getCourses->category_id,$categories)){
+                array_push($categories,$v->getCourses->category_id);
+            }
+        }
+        $related_courses = Course::with(['getCategoryName','getTutorName','getCourseStatus'])->whereIn('category_id',$categories)->get();
+        return view('user.my-classroom', compact('courses_enrolled','completed_courses','related_courses'));
     }
 
     public function online_course_detail($id)
