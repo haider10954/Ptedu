@@ -110,20 +110,18 @@
                         </div>
                         <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                             <div class="custom-tab-content">
-                                <h6 class="content-heading">{{ __('translation.Completed Lectures') }} (2)</h6>
+                                <h6 class="content-heading">{{ __('translation.Completed Lectures') }} ({{ $completed_courses->count() }})</h6>
                                 <div class="row">
+                                    @foreach ($completed_courses as $v)
                                     <div class="col-lg-3 col-md-4 col-12">
                                         <div class="lecture-box">
-                                            <img src="{{ asset('web_assets/images/lecture_img.png') }}"
+                                            <img src="{{ asset('storage/course/thumbnail/' . $v->getCourses->course_thumbnail) }}"
                                                 class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content">
-                                                <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                    - Melissa Devidson</h6>
-                                                <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l
-                                                    Tutor
-                                                    Name</small>
-                                                <small class="lecture-duration mb-4 d-block">2022-10-12 ~
-                                                    2022-11-30</small>
+                                                <h6 class="lecture_title">{{ $v->getCourses->course_title }}</h6>
+                                                <small class="d-block text-muted mb-2 lecture_info">{{ $v->getCourses->getCategoryName->name }} l
+                                                    {{ $v->getCourses->getTutorName->name }}</small>
+                                                <small class="lecture-duration mb-4 d-block">{{ $v->getCourses->created_at->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between">
                                                     <a href="javascript:void(0)"
                                                         class="btn btn-primary btn-custom-sm btn-theme-light w-50"
@@ -139,32 +137,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-4 col-12">
-                                        <div class="lecture-box">
-                                            <img src="{{ asset('web_assets/images/lecture_img_2.png') }}"
-                                                class="lecture_img img-fluid" alt="lecture_img">
-                                            <div class="lecture_box_content">
-                                                <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                    - Melissa Devidson</h6>
-                                                <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l
-                                                    Tutor Name</small>
-                                                <small class="lecture-duration mb-4 d-block">2022-10-12 ~
-                                                    2022-11-30</small>
-                                                <div class="d-flex align-items-center justify-content-between">
-                                                    <a href="javascript:void(0)"
-                                                        class="btn btn-primary btn-custom-sm btn-theme-light w-50"
-                                                        data-toggle="modal" data-target="#reviewModal"> <i
-                                                            class="fas fa-edit"></i>
-                                                        {{ __('translation.Write a review') }}</a>
-                                                    <a href="javascript:void(0)"
-                                                        class="btn btn-primary btn-custom-sm btn-theme-black w-48"
-                                                        data-toggle="modal" data-target="#certificateModal"> <i
-                                                            class="fas fa-medal"></i>
-                                                        {{ __('translation.Certificate') }}</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -205,34 +178,22 @@
                         <div class="tab-pane fade" id="pills-complete" role="tabpanel"
                             aria-labelledby="pills-complete-tab">
                             <div class="custom-tab-content">
-                                <h6 class="content-heading">{{ __('translation.Related Lectures') }} (2)</h6>
+                                <h6 class="content-heading">{{ __('translation.Related Lectures') }}</h6>
                                 <div class="row">
+                                    @foreach ($related_courses->take(8) as $value)
                                     <div class="col-lg-3 col-md-4 col-12">
                                         <div class="lecture-box">
-                                            <img src="{{ asset('web_assets/images/lecture_img.png') }}"
+                                            <img src="{{ asset('storage/course/thumbnail/' . $value->course_thumbnail) }}"
                                                 class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content">
-                                                <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                    - Melissa Devidson</h6>
-                                                <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l
-                                                    Tutor Name</small>
-                                                <small class="lecture-duration d-block">2022-10-12 ~ 2022-11-30</small>
+                                                <h6 class="lecture_title">{{ $value->course_title }}</h6>
+                                                <small class="d-block text-muted mb-2 lecture_info">{{ $value->getCategoryName->name }} l
+                                                    {{ $value->getTutorName->name }}</small>
+                                                <small class="lecture-duration mb-4 d-block">{{ $value->created_at->format('Y-m-d') }}</small>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-md-4 col-12">
-                                        <div class="lecture-box">
-                                            <img src="{{ asset('web_assets/images/lecture_img_2.png') }}"
-                                                class="lecture_img img-fluid" alt="lecture_img">
-                                            <div class="lecture_box_content">
-                                                <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                    - Melissa Devidson</h6>
-                                                <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l
-                                                    Tutor Name</small>
-                                                <small class="lecture-duration d-block">2022-10-12 ~ 2022-11-30</small>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @endforeach                                    
                                 </div>
                             </div>
                         </div>

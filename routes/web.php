@@ -115,6 +115,8 @@ Route::middleware('auth')->group(function () {
     //Class Routes
     Route::get('class/{course_id}/{lecture_slug}', [ClassController::class, 'class'])->name('class');
     Route::post('lecture_time_track', [ClassController::class, 'lecture_time_track'])->name('lecture_time_track');
+    Route::post('lecture_time_completed', [ClassController::class, 'lecture_time_completed'])->name('lecture_time_completed');
+    Route::post('course_completion_action', [ClassController::class, 'course_completion_action'])->name('course_completion_action');
 });
 
 Route::get('get_duration/{url}', [CourseController::class, 'get_duration'])->name('get_duration');
