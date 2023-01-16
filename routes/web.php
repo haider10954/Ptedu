@@ -21,6 +21,7 @@ use App\Http\Controllers\user\ClassController;
 use App\Http\Controllers\user\StudentController;
 use App\Http\Controllers\user\CartController;
 use App\Http\Controllers\admin\StudentController as AdminStudentController;
+use App\Http\Controllers\user\CertificateController;
 use App\Models\Admin;
 
 /*
@@ -42,7 +43,7 @@ Route::post('/check-user-id', [StudentController::class, 'checkUserId'])->name('
 
 Route::get('/', [IndexController::class, 'index'])->name('web-home');
 
-Route::get('/tutor_info/{id}',[IndexController::class, 'tutor_info'])->name('tutor_info');
+Route::get('/tutor_info/{id}', [IndexController::class, 'tutor_info'])->name('tutor_info');
 
 //Offline Lectures
 Route::get('/offline-lectures', [LectureController::class, 'offline_lectures'])->name('offline_lectures');
@@ -56,10 +57,10 @@ Route::get('/online-courses', [LectureController::class, 'online_courses_listing
 Route::get('/online-course-detail/{id}', [LectureController::class, 'online_course_detail'])->name('online_course_detail');
 
 // Shopping Cart Routes
-Route::post('/add-to-cart',[CartController::class,'add_to_cart'])->name('add_to_cart');
-Route::post('/del-cart-item',[CartController::class,'del_cart_item'])->name('del_cart_item');
-Route::post('/del-cart-items',[CartController::class,'del_cart_items'])->name('del_cart_items');
-Route::get('/shopping-bag',[CartController::class,'shopping_bag'])->name('shopping_bag');
+Route::post('/add-to-cart', [CartController::class, 'add_to_cart'])->name('add_to_cart');
+Route::post('/del-cart-item', [CartController::class, 'del_cart_item'])->name('del_cart_item');
+Route::post('/del-cart-items', [CartController::class, 'del_cart_items'])->name('del_cart_items');
+Route::get('/shopping-bag', [CartController::class, 'shopping_bag'])->name('shopping_bag');
 
 Route::get('lecture-video', [LectureController::class, 'lecture_video'])->name('lecture_video');
 
@@ -117,6 +118,10 @@ Route::middleware('auth')->group(function () {
     Route::post('lecture_time_track', [ClassController::class, 'lecture_time_track'])->name('lecture_time_track');
     Route::post('lecture_time_completed', [ClassController::class, 'lecture_time_completed'])->name('lecture_time_completed');
     Route::post('course_completion_action', [ClassController::class, 'course_completion_action'])->name('course_completion_action');
+
+
+    //certificate
+    Route::post('certificate', [CertificateController::class, 'check_completed_courses'])->name('completed-courses-certificate');
 });
 
 Route::get('get_duration/{url}', [CourseController::class, 'get_duration'])->name('get_duration');
@@ -188,15 +193,15 @@ Route::prefix('admin')->group(function () {
         Route::post('/add-course', [CourseController::class, 'add_course'])->name('add-course');
         Route::post('/add-sections', [CourseController::class, 'add_sections'])->name('add-sections');
         Route::post('/add-lectures-action', [CourseController::class, 'add_lectures'])->name('add-lectures-submit');
-        Route::post('/add-single-section',[CourseController::class, 'add_single_section'])->name('add_single_section');
+        Route::post('/add-single-section', [CourseController::class, 'add_single_section'])->name('add_single_section');
         // Course - Sections - Lectures Upload end
 
         // Courses - Sections - Lectures Edit Start
         Route::get('/edit-course/{id}', [CourseController::class, 'edit_course_view'])->name('edit_course_view');
         Route::post('/edit-course-action', [CourseController::class, 'edit_course_action'])->name('edit_course_action');
-        Route::post('/del-section',[CourseController::class, 'del_section'])->name('del_section');
-        Route::post('/edit-section',[CourseController::class, 'edit_section'])->name('edit_section');
-        Route::post('/add-single-lecture',[CourseController::class, 'add_single_lecture'])->name('add_single_lecture');
+        Route::post('/del-section', [CourseController::class, 'del_section'])->name('del_section');
+        Route::post('/edit-section', [CourseController::class, 'edit_section'])->name('edit_section');
+        Route::post('/add-single-lecture', [CourseController::class, 'add_single_lecture'])->name('add_single_lecture');
         Route::post('/del-single-lecture', [CourseController::class, 'del_single_lecture'])->name('del_single_lecture');
         Route::post('/edit-single-lecture', [CourseController::class, 'edit_single_lecture'])->name('edit_single_lecture');
         // Courses - Sections - Lectures Edit End

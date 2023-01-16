@@ -1186,7 +1186,7 @@ header .btn.transparent,
 
 .lecture-box img {
     height: 180px !important;
-    width: 250px !important;
+    width: 100% !important;
     object-fit: cover;
 }
 
