@@ -152,7 +152,7 @@
                                 <span class="tutor_name">{{ $course->getCourses->getTutorName->english_name }}</span>
                             </td>
                             @if ($course->generate_certificate == 1)
-                            <td><a href="javascript:void(0)" class="btn btn-status">{{ __(translation.Completion) }}</a></td>
+                            <td><a href="javascript:void(0)" class="btn btn-status">{{ __('translation.Completion') }}</a></td>
                             @else
                             <td><a href="{{ route('add_certificate', [$course->getCourses->id , $course->getUser->id] )}}" class="btn btn-status">{{ __('translation.On Completion') }}</a></td>
                             @endif
