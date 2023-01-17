@@ -125,7 +125,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">{{ __('translation.New Password') }}</label>
-                        <input class="form-control" type="password" placeholder="{{ __('translation.Enter New Password') }}" name="new_password">
+                        <input class="form-control" type="password" placeholder="{{ __('translation.Enter New password') }}" name="new_password">
                         @error('new_password')
                         <small style="color:#d02525;">{{$message}}</small>
                         @enderror
