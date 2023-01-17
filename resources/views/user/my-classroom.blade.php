@@ -106,8 +106,14 @@
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}"> <i class="fas fa-edit"></i>
                                                     {{ __('translation.Write a review') }}</button>
+                                                @if ($v->generate_certificate == 1)
                                                 <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-black w-48" onclick="certificate('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" id="completed_courses"> <i class="fas fa-medal"></i>
                                                     {{ __('translation.Certificate') }}</a>
+                                                @else
+                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-black w-48" onclick="checkCertificate($(this))" data-course-name="{{ $v->getCourses->course_title }}"> <i class="fas fa-medal"></i>
+                                                    {{ __('translation.Certificate') }}</a>
+                                                @endif
+
                                             </div>
                                         </div>
                                     </div>
@@ -276,10 +282,7 @@
                 <div class="row align-items-center mb-3">
                     <div class="col-lg-12">
                         <label for="course_name mb-0">{{ __('translation.Course Name') }}</label>
-                        <select class="form-control" name="course_name">
-                            <option>{{ __('translation.Select Course') }}</option>
-                            <option>[2022 PTedu] pelvic healthe Integration - Melissa Devidson</option>
-                        </select>
+                        <input class="form-control" name="course_name" id="check_certificate">
                     </div>
                 </div>
                 <div class="row align-items-center justify-content-center mb-3">
@@ -343,7 +346,7 @@
                                         <img src="{{ asset('assets/images/icons/certificate_footer.png') }}" class="certificate_footer" />
                                     </div>
                                     <div class="certificate_date">
-                                        {{ now()->format('Y/m/d') }} <br>
+                                        <span id="issue_date"></span> <br>
                                         {{ __('translation.Date') }}
                                     </div>
                                 </div>
@@ -366,6 +369,13 @@
 @section('custom-script')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-pdCVFUWsxl1A4g0uV6fyJ3nrnTGeWnZN2Tl/56j45UvZ1OMdm9CIbctuIHj+yBIRTUUyv6I9+OivXj4i0LPEYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+    var checkModal = new bootstrap.Modal(document.getElementById("checkCertificateModal"), {});
+
+    function checkCertificate(name) {
+        $('#check_certificate').val(name.attr('data-course-name'));
+        checkModal.show();
+    }
+
     var certificateModal = new bootstrap.Modal(document.getElementById("certificateModal"), {});
 
     function certificate(id, name) {
@@ -392,6 +402,7 @@
                     $('#t_name').text(response.data.get_courses.get_tutor_name.english_name);
                     $('#certificate_start_date').text(response.date);
                     $('#certificate_end_date').text(response.end_date);
+                    $('#issue_date').text(response.data.issue_date);
                     certificateModal.show();
                     $('#completed_courses').html('<i class="fas fa-medal"></i> Certificate ');
                 } else {

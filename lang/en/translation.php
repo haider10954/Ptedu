@@ -38,11 +38,9 @@ return [
     'Ok' => 'Ok',
     'Enter Title' => 'Enter Title',
     'Enter Content Here' => 'Enter Content Here',
-    'Enter New password' => 'Enter New password',
     'Re Enter password' => 'Re Enter password',
     'Your current password' => 'Your current password',
     'FAQ' => 'FAQ',
-    'Faq' => 'Faq',
     'Close' => 'Close',
     'Find ID' => 'Find ID',
     'Name' => 'Name',
@@ -221,7 +219,6 @@ return [
     '1:1 Inquiry list' => '1:1 Inquiry list',
     'Certificate' => 'Certificate',
     'Notice' => 'Notice',
-    'FAQ' => 'FAQ',
     'Settings' => 'Settings',
     'Add Category' => 'Add Category',
     'Category Name' => 'Category Name',
@@ -320,4 +317,13 @@ return [
 
     // New
     'delete' => 'Delete',
+    'Online' => 'Online',
+    'Enter Search Items' => 'Enter Search Items',
+    'Student who Completed' => 'Student who Completed',
+    'Completion status' => 'Completion status',
+    'Completion' => 'Completion',
+    'On Completion' => 'On Completion',
+    'Enter Introduction' => 'Enter Introduction',
+
+
 ];

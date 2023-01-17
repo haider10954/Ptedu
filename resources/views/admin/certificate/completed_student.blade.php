@@ -94,8 +94,6 @@
     }
 
     .btn-status {
-        width: 103px;
-        height: 37.31px;
         background: #F0F0F0;
         border: 1.43489px solid #DFE0EB;
         border-radius: 2.86978px;
@@ -114,147 +112,116 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Student who Completed (120)</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Student who Completed') }} ({{ $completed_courses->count() }})</h4>
                 </div>
                 <hr class="hr-color" />
+            </div>
+            <div>
+                @if (Session::has('success'))
+                <p class="alert alert-info" id="responseMessage">{{ Session::get('success') }}</p>
+                @endif
+                @if (Session::has('error'))
+                <p class="alert alert-danger" id="responseMessage">{{ Session::get('error') }}</p>
+                @endif
             </div>
             <div class="col-lg-12 table-responsive">
                 <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">No</td>
-                            <td class="align-middle t_header">Date</td>
-                            <td class="align-middle t_header">Name</td>
-                            <td class="align-middle t_header">Course Name</td>
-                            <td class="align-middle t_header">Completion status</td>
-                            <td class="align-middle t_header">Action</td>
+                            <td class="align-middle t_header">{{ __('translation.No')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Date')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Name')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Course Name')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Completion status') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Action')}}</td>
                         </tr>
                     </thead>
                     <tbody>
+                        @if ($completed_courses->count() > 0)
+                        @foreach ($completed_courses as $course)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $loop->index+1 }}</td>
                             <td>
-                                <span class="course_name">22 - 10 - 13</span>
+                                <span class="course_name">{{ \Carbon\Carbon::parse($course->created_at)->format('Y-m-d')}}</span>
                             </td>
                             <td>
-                                <span class="course_name">홍길동</span>
+                                <span class="course_name">{{ $course->getUser->english_name }}</span>
                             </td>
                             <td>
-                                <span class="course_name">보행 A에서 Z까지</span> <br>
-                                <span class="tutor_name">조규행</span>
+                                <span class="course_name">{{ $course->getCourses->course_title }}</span> <br>
+                                <span class="tutor_name">{{ $course->getCourses->getTutorName->english_name }}</span>
                             </td>
-                            <td><a href="{{ route('add_certificate')}}" class="btn btn-status">Completion</a></td>
+                            @if ($course->generate_certificate == 1)
+                            <td><a href="javascript:void(0)" class="btn btn-status">{{ __(translation.Completion) }}</a></td>
+                            @else
+                            <td><a href="{{ route('add_certificate', [$course->getCourses->id , $course->getUser->id] )}}" class="btn btn-status">{{ __('translation.On Completion') }}</a></td>
+                            @endif
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('add_certificate')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+                                    <a class="btn btn-sm btn-primary" href="{{ route('add_certificate',[ $course->getCourses->id , $course->getUser->id] )}}"><i class="bi bi-pencil"></i></a>
+                                    <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $course->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
-
+                        @endforeach
+                        @else
                         <tr>
-                            <td>2</td>
-                            <td>
-                                <span class="course_name">22 - 10 - 13</span>
-                            </td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span> <br>
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><span class="course_name">On Completion</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('add_certificate')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
+                            <td colspan="7" class="text-center">
+                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                         </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                <span class="course_name">22 - 10 - 13</span>
-                            </td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span> <br>
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><span class="course_name">On Completion</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('add_certificate')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <span class="course_name">22 - 10 - 13</span>
-                            </td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span> <br>
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><span class="course_name">On Completion</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('add_certificate')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                <span class="course_name">22 - 10 - 13</span>
-                            </td>
-                            <td>
-                                <span class="course_name">홍길동</span>
-                            </td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span> <br>
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><button class="btn btn-status">Completion</button></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('add_certificate')}}"><i class="bi bi-pencil"></i></a>
-                                    <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
-                                </div>
-                            </td>
-                        </tr>
+                        @endif
                     </tbody>
                 </table>
-
-                <div class="paginate mt-4 mb-3">
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-
-                    <a href="javascript:void(0)" class="active">1</a>
-                    <a href="javascript:void(0)">2</a>
-                    <a href="javascript:void(0)">3</a>
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-right"></i></a>
-                </div>
-
+                {{ $completed_courses->links('vendor.pagination.custom-pagination-admin') }}
             </div>
         </div>
     </div>
 </div>
 
+
+<!-- Delete Record -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm Delete</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="{{ route('delete-certificate')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <p>{{ __('translation.Are you sure to delete ?') }}</p>
+                        <input id="del_id" type="hidden" name="id">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('translation.Save') }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+
+@section('custom-script')
+<script>
+    var delModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+
+    function delete_record(id) {
+        $('#del_id').val(id);
+        delModal.show();
+    }
+
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+</script>
 @endsection

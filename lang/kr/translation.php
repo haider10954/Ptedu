@@ -31,7 +31,7 @@ return [
     'Attached files can be registered as jpg, gif, png, ppt, xls, doc, hwp, pdf files' => '첨부 파일은 jpg, gif, png, ppt, xls, doc, hwp, pdf 파일 등록 가능합니다.',
     'Back' => '취소',
     'Register' => '등록',
-    'To protect your personal information, please change your password, email, mobile phone number periodically'=> '안전한 개인정보보호를 위해 주기적으로 비밀번호 및 이메일, 휴대폰번호 등 최신 정보를 변경해주세요.',
+    'To protect your personal information, please change your password, email, mobile phone number periodically' => '안전한 개인정보보호를 위해 주기적으로 비밀번호 및 이메일, 휴대폰번호 등 최신 정보를 변경해주세요.',
     'Current Password' => '기존 비밀번호',
     'New Password' => '새로운 비밀번호',
     'Confirm Password' => '비밀번호 확인',
@@ -42,7 +42,6 @@ return [
     'Re Enter password' => '비밀번호를 다시 입력해주세요',
     'Your current password' => '현재 비밀번호',
     'FAQ' => 'FAQ', //Please use in English. Do not translate it.
-    'Faq' => 'FAQ', //Please use in English. Do not translate it.
     'Close' => '닫기',
     'Find ID' => 'ID 찾기',
     'Name' => '이름',
@@ -154,7 +153,6 @@ return [
     'Password' => '비밀번호',
     'Min of 6 character' => '최소 6자리',
     'Confirm Password' => '비밀번호 확인',
-    'Enter New Password' => '비밀번호 입력',
     'Job' => '직업',
     'Country Code' => 'Country Code', // Please delete this. We will make 1 box in phone number blank. https://3.basecamp.com/5459371/buckets/29873243/todos/5712735363
     'Mobile number' => '휴대폰번호',
@@ -320,4 +318,11 @@ return [
 
     // New
     'delete' => '삭제',
+    'Online' => '온라인',
+    'Enter Search Items' => '검색 항목 입력',
+    'Student who Completed' => '수료생',
+    'Completion status' => '완료 상태',
+    'Completion' => '완성',
+    'On Completion' => '완료시',
+    'Enter Introduction' => '소개 입력',
 ];
