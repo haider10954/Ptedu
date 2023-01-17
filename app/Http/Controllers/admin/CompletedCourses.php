@@ -19,6 +19,11 @@ class CompletedCourses extends Controller
     {
         $add_certificate = Course_tracking::with('getCourses', 'getUser')->where('course_id', $course_id)->where('user_id', $user_id)->first();
         $certificate = Certificate::where('course_id', $course_id)->first();
+        if (empty($certificate)) {
+            $certificate->certificate_number = '';
+            $certificate->id = '';
+            $certificate->issue_date = '';
+        }
         return view('admin.certificate.add_certificate', compact('add_certificate', 'certificate'));
     }
 

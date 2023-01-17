@@ -110,9 +110,7 @@
             <div class="col-12">
                 <form method="post" action="{{ route('generate-certificate') }}">
                     @csrf
-                    @if(isset($certificate))
                     <input type="hidden" name="id" value="{{ $certificate->id ?? '' }}">
-                    @endif
                     <input type="hidden" name="course_id" value="{{  Request::segment(4) }}">
                     <input type="hidden" name="user_id" value="{{  Request::segment(5) }}">
 
