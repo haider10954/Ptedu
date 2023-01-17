@@ -99,51 +99,71 @@
                 </div>
                 <hr class="hr-color" />
             </div>
+            <div>
+                @if (Session::has('success'))
+                <p class="alert alert-info" id="responseMessage">{{ Session::get('success') }}</p>
+                @endif
+                @if (Session::has('error'))
+                <p class="alert alert-danger" id="responseMessage">{{ Session::get('error') }}</p>
+                @endif
+            </div>
             <div class="col-12">
-                <form>
+                <form method="post" action="{{ route('generate-certificate') }}">
+                    @csrf
+                    <input type="hidden" name="id" value="{{ $certificate->id }}">
+                    <input type="hidden" name="course_id" value="{{  Request::segment(4) }}">
+                    <input type="hidden" name="user_id" value="{{  Request::segment(5) }}">
+
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Certificate Number</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-firstname-input" name="certificate_number" placeholder="Enter Certificate Number">
+                            <input type="text" class="form-control" id="horizontal-firstname-input" name="certificate_number" placeholder="Enter Certificate Number" value="{{ $certificate->certificate_number }}">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-email-input" name="name" placeholder="Enter name">
+                            <input type="text" class="form-control" id="horizontal-email-input" placeholder="Enter name" value="{{ $add_certificate->getUser->name }}">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Course Name</label>
                         <div class="col-sm-10">
-                            <select type="text" class="form-control" name="course_name">
-                                <option>Enter course name</option>
-                                <option>Course 1</option>
-                            </select>
+                            <input type="text" class="form-control" name="course_name" value="{{ $add_certificate->getCourses->course_title }}">
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Course Period</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="course_period" placeholder="Enter course period"></input>
+                            <input type="text" class="form-control" name="course_period" placeholder="Enter course period" value="{{ $add_certificate->getCourses->duration_of_course }}" />
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">Issue Date</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="issue_date" placeholder="Enter issue date"></input>
+                            <input type="date" class="form-control" name="issue_date" placeholder="Enter issue date" value="{{ $certificate->issue_date }}" />
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-sm-2 "></div>
                         <div class="col-sm-10">
-                            <a href="{{ route('generate_certificate') }}" type="submit" class="btn btn-lg btn-register">Register</a>
+                            <a href="{{ route('generate_certificate', [$certificate->id , $add_certificate->id] ) }}" type="submit" class="btn btn-lg btn-register">Register</a>
                         </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+</script>
 @endsection

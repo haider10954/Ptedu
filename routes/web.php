@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\CompletedCourses;
 use App\Http\Controllers\admin\CourseController;
 use App\Http\Controllers\admin\CourseLectureController;
 use App\Http\Controllers\admin\FaqController;
@@ -268,17 +269,15 @@ Route::prefix('admin')->group(function () {
         Route::get('/inquiry', [InquiryController::class, 'inquiry_listing_admin'])->name('inquiry');
         Route::get('/inquiry/answer/{id}', [InquiryController::class, 'answer_inquiry_admin'])->name('inquiry_answer');
         Route::post('/add-answer', [InquiryController::class, 'add_answer'])->name('add-answer');
-        Route::get('/certificate', function () {
-            return view('admin.certificate.completed_student');
-        })->name('certificate');
 
-        Route::get('/certificate/add', function () {
-            return view('admin.certificate.add_certificate');
-        })->name('add_certificate');
+        //Certificate
+        Route::get('/certificate', [CompletedCourses::class, 'CompletedCourses'])->name('certificate');
+        Route::post('/delete-certificate', [CompletedCourses::class, 'delete_record'])->name('delete-certificate');
+        Route::get('/certificate/add/{id}/{user_id}', [CompletedCourses::class, 'add_certificate'])->name('add_certificate');
 
-        Route::get('/certificate/generate', function () {
-            return view('admin.certificate.certificate');
-        })->name('generate_certificate');
+        Route::post('/generate-certificate', [CompletedCourses::class, 'generate_certificate'])->name('generate-certificate');
+        Route::get('/certificate/generate/{id}/{course_track}', [CompletedCourses::class, 'certicate_view'])->name('generate_certificate');
+        Route::post('/certificate-download', [CompletedCourses::class, 'download_certificate'])->name('download_certificate');
 
         //Notice
         Route::get('/notice', [NoticeController::class, 'notice_listing'])->name('notice');
