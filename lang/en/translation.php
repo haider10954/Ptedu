@@ -118,7 +118,6 @@ return [
     'Delete Reservation' => 'Delete Reservation',
     'Are you sure to decline your Reservation' => 'Are you sure to decline your Reservation',
     'Save changes' => 'Save changes',
-    'Offline Lectures' => 'Offline Lectures',
     'Add to cart' => 'Add to cart',
     'Designation' => 'Designation',
     'Address' => 'Address',
