@@ -44,7 +44,7 @@ class CompletedCourses extends Controller
             'issue_date' => $request->issue_date
         ]);
         if ($generate_certificate) {
-            return redirect()->back()->with('success', 'Certificate has been generated successfully.');
+            return redirect()->route('generate_certificate', [$generate_certificate->id , $generate_certificate->course_id]);
         } else {
             return redirect()->back()->with('error', 'Somerthing went wrong.');
         }
@@ -63,7 +63,7 @@ class CompletedCourses extends Controller
     public function certicate_view($id, $course_track)
     {
         $certificate = Certificate::with('getCourses', 'getUser')->where('id', $id)->first();
-        $download = Course_tracking::where('id', $course_track)->first();
+        $download = Course_tracking::where('course_id', $course_track)->first();
         return view('admin.certificate.certificate', compact('certificate', 'download'));
     }
 

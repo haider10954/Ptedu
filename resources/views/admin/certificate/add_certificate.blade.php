@@ -149,7 +149,7 @@
                     <div class="row mb-4">
                         <div class="col-sm-2 "></div>
                         <div class="col-sm-10">
-                            <a href="{{ route('generate_certificate', [$certificate->id , $add_certificate->id] ) }}" type="submit" class="btn btn-lg btn-register">Register</a>
+                            <button type="submit" class="btn btn-lg btn-register">Register</button>
                         </div>
                 </form>
             </div>
