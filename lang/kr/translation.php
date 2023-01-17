@@ -324,4 +324,5 @@ return [
     'Completion' => '완성',
     'On Completion' => '완료시',
     'Enter Introduction' => '소개 입력',
+    'Enter Answer' => '답변 입력'
 ];

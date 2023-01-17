@@ -323,6 +323,8 @@ return [
     'Completion' => 'Completion',
     'On Completion' => 'On Completion',
     'Enter Introduction' => 'Enter Introduction',
+    'Enter Answer' => 'Enter Answer',
+
 
 
 ];

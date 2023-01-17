@@ -123,7 +123,7 @@
                         </div>
                         <div class="col-9">
                             <div class="d-flex align-items-center mb-3">
-                                <textarea class="form-control" rows="6" style="resize: none;" placeholder="Enter Answer" name="answer">{{ $inquiry->answer }}</textarea>
+                                <textarea class="form-control" rows="6" style="resize: none;" placeholder="{{ __('translation.Enter Answer') }}" name="answer">{{ $inquiry->answer }}</textarea>
                             </div>
                         </div>
                     </div>
