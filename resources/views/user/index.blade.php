@@ -71,7 +71,7 @@
                 </div>
                 <div class="swiper expert-course-carousel">
                     <div class="swiper-wrapper">
-                        @if($courses->count() > 0)
+                        @if($courses->where('course_type', 'expert')->count() > 0)
                         @foreach ($courses->where('course_type', 'expert') as $item)
                         <div class="swiper-slide position-relative">
                             <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
@@ -103,7 +103,7 @@
                 </div>
                 <div class="swiper public-course-carousel">
                     <div class="swiper-wrapper">
-                        @if($courses->count() > 0)
+                        @if($courses->where('course_type', 'public')->count() > 0)
                         @foreach ($courses->where('course_type', 'public') as $record)
                         <div class="swiper-slide position-relative">
                             <img src="{{ asset('storage/course/thumbnail/' . $record->course_thumbnail) }}" class="img-fluid course-detail-img">
