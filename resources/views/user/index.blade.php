@@ -154,9 +154,8 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="swiper offline-lecture-carousel" style="display: none;">/div>
-                            @endif
-                        </div>
+                        <div class="text-center text-white">No record Found</div>
+                        @endif
                     </div>
                     <div class="swiper-button-next offline-lecture-next"></div>
                     <div class="swiper-button-prev offline-lecture-prev"></div>
