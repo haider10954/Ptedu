@@ -122,7 +122,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="text-center"></div>
+                        <div class="text-center">No record Found</div>
                         @endif
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="text-center"></div>
+                        <div class="text-center">No record Found</div>
                         @endif
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                     </div>
                     @endforeach
                     @else
-                    <div class="text-center"></div>
+                    <div class="text-center">No record Found</div>
                     @endif
                 </div>
             </div>
