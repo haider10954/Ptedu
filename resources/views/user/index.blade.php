@@ -89,8 +89,8 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="text-center text-white">No record Found</div>
-                        @endif
+                        <div class="text-center text-white">No record Found</div>      
+                         @endif
                     </div>
                 </div>
                 <div class="swiper-button-next expert-course-next"></div>
@@ -122,7 +122,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="text-center text-white">No record FoundNo record Found</div>
+                        <div class="text-center text-white">No record Found</div>
                         @endif
                     </div>
                 </div>
@@ -154,7 +154,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="text-center text-white">No record FoundNo record Found</div>
+                        <div class="text-center text-white">No record Found</div>
                         @endif
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                     </div>
                     @endforeach
                     @else
-                    <div class="text-center text-white">No record FoundNo record Found</div>
+                    <div class="text-center text-white">No record Found</div>
                     @endif
                 </div>
             </div>
