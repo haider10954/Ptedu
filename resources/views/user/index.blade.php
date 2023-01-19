@@ -50,7 +50,7 @@
                     </div>
                     @endforeach
                     @else
-                    <div class="swiper courses_detail_carousel" style="display: none;"></div>
+                    <div class="text-center text-white">No record Found</div>
                     @endif
                 </div>
                 <div class="courses-detail-pagination"></div>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="swiper expert-course-carousel">
                     <div class="swiper-wrapper">
-                        @if($courses->where('course_type', 'expert')->count() > 0)
+                        @if($courses->count() > 0)
                         @foreach ($courses->where('course_type', 'expert') as $item)
                         <div class="swiper-slide position-relative">
                             <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
@@ -89,7 +89,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="swiper expert-course-carousel" style="display: none;"></div>
+                        <div class="text-center text-white">No record Found</div>
                         @endif
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                 </div>
                 <div class="swiper public-course-carousel">
                     <div class="swiper-wrapper">
-                        @if($courses->where('course_type', 'public')->count() > 0)
+                        @if($courses->count() > 0)
                         @foreach ($courses->where('course_type', 'public') as $record)
                         <div class="swiper-slide position-relative">
                             <img src="{{ asset('storage/course/thumbnail/' . $record->course_thumbnail) }}" class="img-fluid course-detail-img">
@@ -122,7 +122,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="swiper public-course-carousel" style="display: none;"></div>
+                        <div class="wiper public-course-carousel">No record found</div>
                         @endif
                     </div>
                 </div>
@@ -154,8 +154,9 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="swiper offline-lecture-carousel" style="display: none;"></div>
-                        @endif
+                        <div class="swiper offline-lecture-carousel" style="display: none;">/div>
+                            @endif
+                        </div>
                     </div>
                     <div class="swiper-button-next offline-lecture-next"></div>
                     <div class="swiper-button-prev offline-lecture-prev"></div>
@@ -184,7 +185,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="d-flex justify-content-center text-white">No record Found</div>
+                        <div class="d-flex justify-content-center text-white">No record found</div>
                         @endif
                     </div>
                 </div>
