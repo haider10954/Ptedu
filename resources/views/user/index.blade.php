@@ -50,7 +50,7 @@
                     </div>
                     @endforeach
                     @else
-                    <div class="text-center">No record Found</div>
+                    <div class="swiper courses_detail_carousel" style="display: none;"></div>
                     @endif
                 </div>
                 <div class="courses-detail-pagination"></div>
@@ -89,7 +89,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="text-center text-white">No record Found</div>
+                        <div class="swiper expert-course-carousel" style="display: none;"></div>
                         @endif
                     </div>
                 </div>
@@ -122,7 +122,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="text-center text-white">No record Found</div>
+                        <div class="wiper public-course-carousel" style="display: none;"></div>
                         @endif
                     </div>
                 </div>
@@ -185,7 +185,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="text-center text-white">No record Found</div>
+                        <div class="d-flex justify-content-center text-white">No record Found</div>
                         @endif
                     </div>
                 </div>
