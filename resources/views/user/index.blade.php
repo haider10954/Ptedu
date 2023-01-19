@@ -32,6 +32,7 @@
         <div class="interactive-section-content text-center">
             <div class="swiper courses_detail_carousel">
                 <div class="swiper-wrapper">
+                    @if ($latest_courses->count() > 0)
                     @foreach ($latest_courses as $latest_course)
                     <div class="swiper-slide">
                         <div class="row align-items-center">
@@ -48,6 +49,9 @@
                         </div>
                     </div>
                     @endforeach
+                    @else
+                    <div class="text-center">No record Found</div>
+                    @endif
                 </div>
                 <div class="courses-detail-pagination"></div>
             </div>
@@ -67,6 +71,7 @@
                 </div>
                 <div class="swiper expert-course-carousel">
                     <div class="swiper-wrapper">
+                        @if($courses->count() > 0)
                         @foreach ($courses->where('course_type', 'expert') as $item)
                         <div class="swiper-slide position-relative">
                             <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
@@ -83,6 +88,9 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                        <div class="text-center"></div>
+                        @endif
                     </div>
                 </div>
                 <div class="swiper-button-next expert-course-next"></div>
@@ -95,6 +103,7 @@
                 </div>
                 <div class="swiper public-course-carousel">
                     <div class="swiper-wrapper">
+                        @if($courses->count() > 0)
                         @foreach ($courses->where('course_type', 'public') as $record)
                         <div class="swiper-slide position-relative">
                             <img src="{{ asset('storage/course/thumbnail/' . $record->course_thumbnail) }}" class="img-fluid course-detail-img">
@@ -112,6 +121,9 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                        <div class="text-center"></div>
+                        @endif
                     </div>
                 </div>
                 <div class="swiper-button-next public-course-next"></div>
@@ -124,6 +136,7 @@
                 </div>
                 <div class="swiper offline-lecture-carousel">
                     <div class="swiper-wrapper">
+                        @if($offline_courses->count() > 0)
                         @foreach ($offline_courses as $v)
                         <div class="swiper-slide">
                             <img src="{{ asset('storage/offline_course/thumbnail/' . $v->course_thumbnail) }}" class="img-fluid course-detail-img">
@@ -140,6 +153,9 @@
                             </div>
                         </div>
                         @endforeach
+                        @else
+                        <div class="text-center"></div>
+                        @endif
                     </div>
                 </div>
                 <div class="swiper-button-next offline-lecture-next"></div>
@@ -151,6 +167,7 @@
                     <h3 class="heading-h3 text-white mb-0">{{ __('translation.Tutor Introduction') }}</h3>
                 </div>
                 <div class="row align-items-center justify-content-left">
+                    @if($latest_tutors->count() > 0)
                     @foreach ($latest_tutors as $latest_tutor)
                     <div class="col-lg-3 col-md-4 col-12 mb-4">
                         <div class="tutor-image-container">
@@ -167,6 +184,9 @@
                         </div>
                     </div>
                     @endforeach
+                    @else
+                    <div class="text-center"></div>
+                    @endif
                 </div>
             </div>
         </div>
