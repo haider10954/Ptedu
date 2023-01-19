@@ -122,7 +122,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="wiper public-course-carousel" style="display: none;"></div>
+                        <div class="swiper public-course-carousel" style="display: none;"></div>
                         @endif
                     </div>
                 </div>
@@ -154,9 +154,8 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="swiper offline-lecture-carousel" style="display: none;">/div>
-                            @endif
-                        </div>
+                        <div class="swiper offline-lecture-carousel" style="display: none;"></div>
+                        @endif
                     </div>
                     <div class="swiper-button-next offline-lecture-next"></div>
                     <div class="swiper-button-prev offline-lecture-prev"></div>
