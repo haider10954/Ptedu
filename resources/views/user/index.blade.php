@@ -122,7 +122,7 @@
                         </div>
                         @endforeach
                         @else
-                        <div class="wiper public-course-carousel">No record found</div>
+                        <div class="text-center text-white">No record found</div>
                         @endif
                     </div>
                 </div>
