@@ -331,7 +331,7 @@ return [
     'Edit' => 'Edit',
     'Add Lectures' => 'Add Lectures',
     'Lecture Title' => 'Lecture Title',
-    'Enter lecture title'=> 'Enter lecture title',
+    'Enter lecture title' => 'Enter lecture title',
     'Lecture Video' => 'Lecture Video',
     'Add Lecture Video' => 'Add Lecture Video',
     'Lecture Video Link' => 'Lecture Video Link',
@@ -344,6 +344,10 @@ return [
     'Enter course period' => 'Enter course period',
     'Issue Date' => 'Issue Date',
     'Enter issue date' => 'Enter issue date',
+    'Course Content' => 'Course Content',
+    'We will promote your growth as an expert through close knowledge in the field' => 'We will promote your growth as an expert through close knowledge in the field',
+    'Student has been registered successfully' => 'Student has been registered successfully',
+    'The value is not duplicated' => 'The value is not duplicated',
 
 
 

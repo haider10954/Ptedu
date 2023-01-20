@@ -16,7 +16,7 @@
                         <li><a href="{{ route('my_classroom') }}">{{ __('translation.My Classroom') }}</a></li>
                         <li><a href="{{ route('shopping_bag') }}">{{ __('translation.Shopping Bag') }}</a></li>
                         <li><a href="{{ route('user_info') }}">{{ __('translation.Modifying Member Info') }}</a></li>
-                        <li><a href="{{ route('user_inquiry')  }}">1:1 {{ __('translation.Inquiry') }}</a></li>
+                        <li><a href="{{ route('user_inquiry')  }}">{{ __('translation.Inquiry') }}</a></li>
                     </ul>
                 </div>
             </div>
