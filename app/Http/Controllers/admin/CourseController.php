@@ -37,6 +37,10 @@ class CourseController extends Controller
 
     function upload_files($file)
     {
+        if(!file_exists(storage_path('app/public/course/thumbnail')))
+        {
+            mkdir(storage_path('app/public/course/thumbnail'),0755);
+        }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/thumbnail', $fileName);
         $loadPath = storage_path('app/public/') . '/' . $fileName;
@@ -45,6 +49,10 @@ class CourseController extends Controller
 
     function upload_files_banner($file)
     {
+        if(!file_exists(storage_path('app/public/course/banner')))
+        {
+            mkdir(storage_path('app/public/course/banner'),0755);
+        }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/banner', $fileName);
         $loadPath = storage_path('app/public/') . '/' . $fileName;
@@ -53,6 +61,10 @@ class CourseController extends Controller
 
     function upload_lecture_video($file)
     {
+        if(!file_exists(storage_path('app/public/lectures')))
+        {
+            mkdir(storage_path('app/public/lectures'),0755);
+        }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/lectures', $fileName);
         $loadPath = storage_path('app/public/') . '/' . $fileName;

@@ -65,6 +65,10 @@ class ReviewController extends Controller
 
     function upload_files($file)
     {
+        if(!file_exists(storage_path('app/public/review/video')))
+        {
+            mkdir(storage_path('app/public/review/video'),0755);
+        }
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/review/video', $fileName);
         $loadPath = storage_path('app/public/') . '/' . $fileName;

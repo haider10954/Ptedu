@@ -11,6 +11,10 @@ class CourseLectureController extends Controller
 {
     function upload_video($file)
     {
+        if(!file_exists(storage_path('app/public/course/lectures')))
+        {
+            mkdir(storage_path('app/public/course/lectures'),0755);
+        }
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/lectures', $fileName);
         $loadPath = storage_path('app/public/') . '/' . $fileName;
