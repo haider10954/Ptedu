@@ -62,7 +62,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="{{ route('web-home') }}" class="text-decoration-none">PTEdu</a>
+                        <a href="{{ route('about_us') }}" class="text-decoration-none">PTEdu</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ route('review') }}" class="text-decoration-none">{{ __('translation.Review') }}</a>
@@ -157,7 +157,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="{{ route('web-home')}}" class="text-decoration-none">PTEdu</a>
+                        <a href="{{ route('about_us')}}" class="text-decoration-none">PTEdu</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ route('review')}}" class="text-decoration-none">{{ __('translation.Review') }}</a>
