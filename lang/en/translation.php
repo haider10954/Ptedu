@@ -325,6 +325,35 @@ return [
     'Enter Introduction' => 'Enter Introduction',
     'Enter Answer' => 'Enter Answer',
 
+    //Latest
+    'Edit Course' => 'Edit Course',
+    'Edit Section' => 'Edit Section',
+    'Edit' => 'Edit',
+    'Add Lectures' => 'Add Lectures',
+    'Lecture Title' => 'Lecture Title',
+    'Enter lecture title'=> 'Enter lecture title',
+    'Lecture Video' => 'Lecture Video',
+    'Add Lecture Video' => 'Add Lecture Video',
+    'Lecture Video Link' => 'Lecture Video Link',
+    'Add Lecture Video Link' => 'Add Lecture Video Link',
+    'Edit Lecture' => 'Edit Lecture',
+    'Generate a Certificate' => 'Generate a Certificate',
+    'Certificate Number' => 'Certificate Number',
+    'Enter Certificate Number' => 'Enter Certificate Number',
+    'Course Period' => 'Course Period',
+    'Enter course period' => 'Enter course period',
+    'Issue Date' => 'Issue Date',
+    'Enter issue date' => 'Enter issue date',
+
+
+
+
+
+
+
+
+
+
 
 
 ];

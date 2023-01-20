@@ -105,6 +105,9 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Inquiry') }}</h4>
+                </div>
                 <hr class="hr-color" />
                 <div class="table-responsive">
                     <table class="table text-center">

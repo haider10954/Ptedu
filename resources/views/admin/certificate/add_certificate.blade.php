@@ -95,7 +95,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Generate a Certificate</h4>
+                    <h4 class="mb-sm-0  Card_title">{{__('translation.Generate a Certificate')}}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -115,41 +115,41 @@
                     <input type="hidden" name="user_id" value="{{  Request::segment(5) }}">
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Certificate Number</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Certificate Number')}}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-firstname-input" name="certificate_number" placeholder="Enter Certificate Number" value="{{ $certificate->certificate_number ?? '' }}">
+                            <input type="text" class="form-control" id="horizontal-firstname-input" name="certificate_number" placeholder="{{ __('translation.Enter Certificate Number') }}" value="{{ $certificate->certificate_number ?? '' }}">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Name')}}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-email-input" placeholder="Enter name" value="{{ $add_certificate->getUser->name }}">
+                            <input type="text" class="form-control" id="horizontal-email-input" placeholder="{{__('translation.Enter Name') }}" value="{{ $add_certificate->getUser->name }}">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Course Name</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Course Name')}}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="course_name" value="{{ $add_certificate->getCourses->course_title }}">
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Course Period</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Course Period')}}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="course_period" placeholder="Enter course period" value="{{ $add_certificate->getCourses->duration_of_course }}" />
+                            <input type="text" class="form-control" name="course_period" placeholder="{{__('translation.Enter course period')}}" value="{{ $add_certificate->getCourses->duration_of_course }}" />
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">Issue Date</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Issue Date') }}</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="issue_date" placeholder="Enter issue date" value="{{ $certificate->issue_date ?? '' }}" />
+                            <input type="date" class="form-control" name="issue_date" placeholder="{{__('translation.Enter issue date')}}" value="{{ $certificate->issue_date ?? '' }}" />
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <div class="col-sm-2 "></div>
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-lg btn-register">Register</button>
+                            <button type="submit" class="btn btn-lg btn-register">{{__('translation.Register')}}</button>
                         </div>
                 </form>
             </div>
