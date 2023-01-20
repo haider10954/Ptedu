@@ -122,4 +122,36 @@ class VideoHandler {
 			return "$M:$S";
 		}
 	}
+
+	public static function getVideoThumbnail($video_url){
+		try {
+			if (preg_match('|^http(s)?://(.*?)vimeo.com|', $video_url)) {
+				$provider = 'vimeo';
+				$video_url_params = parse_url($video_url);
+				$video_id = str_replace('/', '', $video_url_params['path']);
+			} else {
+				$provider = 'youtube';
+				$video_url_params = parse_url($video_url);
+				parse_str($video_url_params['query'], $params);
+				$video_id = $params['v'];
+			}
+			
+			if($provider == 'youtube'){
+				$video_thumbnail = "https://img.youtube.com/vi/".$video_id."/hqdefault.jpg";
+				return $video_thumbnail;
+			}else if($provider == 'vimeo'){
+				$hash = unserialize(file_get_contents("http://vimeo.com/api/v2/video/".$video_id.".php"));
+				return $hash[0]['thumbnail_large'];
+			}
+		} catch (\Throwable $th) {
+			return $th->getMessage();
+		}
+	}
+
+	public static function getLocalVideoThumbnail($seconds , $video_path, $thumbnail){
+		$ffmpeg = \FFMpeg\FFMpeg::create();
+		$video = $ffmpeg->open($movie);
+		$frame = $video->frame(FFMpeg\Coordinate\TimeCode::fromSeconds($sec));
+		return $frame->save($thumbnail);
+	}
 }

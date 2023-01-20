@@ -174,7 +174,7 @@ class StudentController extends Controller
     {
         if(!file_exists(storage_path('app/public/student')))
         {
-            mkdir(storage_path('app/public/student'),0755);
+            mkdir(storage_path('app/public/student'),0755,true);
         }
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/student', $fileName);

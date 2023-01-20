@@ -13,7 +13,7 @@ class CourseLectureController extends Controller
     {
         if(!file_exists(storage_path('app/public/course/lectures')))
         {
-            mkdir(storage_path('app/public/course/lectures'),0755);
+            mkdir(storage_path('app/public/course/lectures'),0755,true);
         }
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/lectures', $fileName);

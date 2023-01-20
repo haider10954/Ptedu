@@ -35,6 +35,7 @@ use App\Models\Admin;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/get-video-thumbnail',[IndexController::class, 'get_video_thumbnail'])->name('get_video_thumbnail');
 
 // Main site routes start
 Route::post('/student-register', [StudentController::class, 'student_register'])->name('student_register');

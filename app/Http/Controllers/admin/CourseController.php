@@ -39,7 +39,7 @@ class CourseController extends Controller
     {
         if(!file_exists(storage_path('app/public/course/thumbnail')))
         {
-            mkdir(storage_path('app/public/course/thumbnail'),0755);
+            mkdir(storage_path('app/public/course/thumbnail'),0755,true);
         }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/thumbnail', $fileName);
@@ -51,7 +51,7 @@ class CourseController extends Controller
     {
         if(!file_exists(storage_path('app/public/course/banner')))
         {
-            mkdir(storage_path('app/public/course/banner'),0755);
+            mkdir(storage_path('app/public/course/banner'),0755,true);
         }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/banner', $fileName);
@@ -63,7 +63,7 @@ class CourseController extends Controller
     {
         if(!file_exists(storage_path('app/public/lectures')))
         {
-            mkdir(storage_path('app/public/lectures'),0755);
+            mkdir(storage_path('app/public/lectures'),0755,true);
         }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/lectures', $fileName);

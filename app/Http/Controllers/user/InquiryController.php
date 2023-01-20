@@ -61,7 +61,7 @@ class InquiryController extends Controller
         if ($request->hasFile('files')) {
             if(!file_exists(storage_path('app/public/inquiry/files')))
             {
-                mkdir(storage_path('app/public/inquiry/files'),0755);
+                mkdir(storage_path('app/public/inquiry/files'),0755,true);
             }
             foreach ($request['files'] as $file) {
                 $name = time() . mt_rand(300, 9000) . '.' . $file->extension();
