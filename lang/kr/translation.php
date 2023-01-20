@@ -344,7 +344,11 @@ return [
     'Course Period' => '수강기간',
     'Enter course period' => '수강기간 입력',
     'Issue Date' => '발행일',
-    'Enter issue date' => '발행일 입력'
+    'Enter issue date' => '발행일 입력',
+    'Course Content' => '강의목록',
+    'We will promote your growth as an expert through close knowledge in the field' => '해당 분야에 대한 긴밀한 지식을 통해 전문가로의 성장을 도모하겠습니다.',
+    'Student has been registered successfully' => '학생이 성공적으로 등록되었습니다',
+    'The value is not duplicated' => '값은 중복되지 않습니다'
 
 
 ];
