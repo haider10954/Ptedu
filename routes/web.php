@@ -37,6 +37,12 @@ use App\Models\Admin;
 */
 Route::get('/get-video-thumbnail',[IndexController::class, 'get_video_thumbnail'])->name('get_video_thumbnail');
 
+//About US
+Route::get('/about_us', function () {
+    return view('user.about_us');
+})->name('about_us');
+
+
 // Main site routes start
 Route::post('/student-register', [StudentController::class, 'student_register'])->name('student_register');
 Route::post('/student-login', [StudentController::class, 'student_login'])->name('student_login');

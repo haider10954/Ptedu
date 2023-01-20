@@ -9,10 +9,10 @@
             <form id="registerForm" type="POST">
                 @csrf
                 <div class="section-heading">
-                    <h5 class="mb-4">{{ __('translation.Register') }}</h5>
+                    <h5 class="mb-4">회원가입</h5>
                     <div class="mt-2 mb-3">
                         <p class="mb-0">{{ __('translation.It is a professional lecture led by physical therapy & Pilates experts') }}.</p>
-                        <p class="mb-0">{{ __('translation.We will promote your growth as an expert through close knowledge in the field') }}.</p>
+                        <p class="mb-0">현업에 밀착한 지식을 통해 전문가로서의 성장을 촉진시켜드리겠습니다..</p>
                     </div>
                 </div>
                 <div class="prompt"></div>
@@ -129,25 +129,25 @@
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center  bottom-border input_jobs">
                                 <div class=" mr-2 mb-1 mb-md-0">
-                                    <input type="radio" value="physical therapist" name="job"> physical therapist
+                                    <input type="radio" value="physical therapist" name="job"> 물리치료사
                                 </div>
                                 <div class=" mr-2 mb-1 mb-md-0">
-                                    <input type="radio" value="occupational therapist" name="job"> occupational therapist
+                                    <input type="radio" value="occupational therapist" name="job"> 작업치료사
                                 </div>
                                 <div class=" mr-2 mb-1 mb-md-0">
-                                    <input type="radio" value="trainer" name="job"> trainer
+                                    <input type="radio" value="trainer" name="job"> 트레이너
                                 </div>
                                 <div class=" mr-2 mb-1 mb-md-0">
-                                    <input type="radio" value="pilates instructor" name="job"> pilates instructor
+                                    <input type="radio" value="pilates instructor" name="job"> 필라테스 강사
                                 </div>
                                 <div class="mr-2 mb-1 mb-md-0">
-                                    <input type="radio" value="student" name="job"> Student
+                                    <input type="radio" value="student" name="job"> 대학생
                                 </div>
                                 <div class=" mr-2 mb-1 mb-md-0">
-                                    <input type="radio" value="office worker" name="job"> office worker
+                                    <input type="radio" value="office worker" name="job"> 회사원
                                 </div>
                                 <div class=" mr-2">
-                                    <input type="radio" value="ETC" name="job"> ETC
+                                    <input type="radio" value="ETC" name="job"> 기타
                                 </div>
                             </div>
                         </div>
@@ -163,12 +163,6 @@
                         </div>
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center  bottom-border custom_height_phone" style="padding-left:10px;">
-                                <div class="mr-2 mb-1 mb-md-0 mt-2 mt-md-0">
-                                    <div>
-                                        <input type="text" class="form-control custom_width" name="country_code" placeholder="{{ __('translation.Country Code') }}" value="{{ old('mobile') }}">
-                                        <div class="error-mobile-number d-block"></div>
-                                    </div>
-                                </div>
                                 <div class="mr-2 mb-1 mb-md-0">
                                     <div>
                                         <input type="number" class="form-control custom_width" name="mobile" placeholder="{{ __('translation.Mobile number') }}" value="{{ old('mobile') }}">

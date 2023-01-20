@@ -18,7 +18,7 @@
 
                 <div class="form-group">
                     <label class="form-label">{{ __('translation.Phone Number') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter your Phone Number') }}" name="mobile_number" />
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Phone Number') }}" name="mobile_number" />
                     <div class="error-mobile-number"></div>
                 </div>
 

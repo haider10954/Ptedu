@@ -324,5 +324,31 @@ return [
     'Completion' => '완성',
     'On Completion' => '완료시',
     'Enter Introduction' => '소개 입력',
-    'Enter Answer' => '답변 입력'
+    'Enter Answer' => '답변 입력',
+
+    //Latest
+    'Edit Course' => '코스 편집',
+    'Edit Section' => '섹션 편집',
+    'Edit' => '편집하다',
+    'Add Lectures' => '강의 추가',
+    'Lecture Title' => '강의제목',
+    'Enter lecture title' => '강의 제목 입력',
+    'Lecture Video' => '강의 영상',
+    'Add Lecture Video' => '강의 동영상 추가',
+    'Lecture Video Link' => '강의 영상 링크',
+    'Add Lecture Video Link' => '강의 동영상 링크 추가',
+    'Edit Lecture' => '강의 편집',
+    'Generate a Certificate' => '인증서 생성',
+    'Certificate Number' => '인증서 번호',
+    'Enter Certificate Number' => '인증서 번호 입력',
+    'Course Period' => '수강기간',
+    'Enter course period' => '수강기간 입력',
+    'Issue Date' => '발행일',
+    'Enter issue date' => '발행일 입력',
+    'Course Content' => '강의목록',
+    'We will promote your growth as an expert through close knowledge in the field' => '해당 분야에 대한 긴밀한 지식을 통해 전문가로의 성장을 도모하겠습니다.',
+    'Student has been registered successfully' => '학생이 성공적으로 등록되었습니다',
+    'The value is not duplicated' => '값은 중복되지 않습니다'
+
+
 ];

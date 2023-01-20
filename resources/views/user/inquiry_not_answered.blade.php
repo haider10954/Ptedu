@@ -16,14 +16,14 @@
                         <li><a href="{{ route('my_classroom') }}">{{ __('translation.My Classroom') }}</a></li>
                         <li><a href="{{ route('shopping_bag') }}">{{ __('translation.Shopping Bag') }}</a></li>
                         <li><a href="{{ route('user_info') }}">{{ __('translation.Modifying Member Info') }}</a></li>
-                        <li><a href="{{ route('user_inquiry')  }}">1:1 {{ __('translation.Inquiry') }}</a></li>
+                        <li><a href="{{ route('user_inquiry')  }}">{{ __('translation.Inquiry') }}</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-10">
                 <div class="custom_padding">
                     <div class="section-heading">
-                        <h5 class="mb-2">1:1 {{ __('translation.Inquiry') }}</h5>
+                        <h5 class="mb-2">{{ __('translation.Inquiry') }}</h5>
                         <p class="mb-0">{{ __('translation.Questions & Answers in PTEdu') }}</p>
                     </div>
                     <div class="row">
