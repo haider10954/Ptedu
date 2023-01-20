@@ -2,192 +2,201 @@
 @section('title', 'ptedu - index')
 
 @section('content')
-<!-- banner start -->
-<div class="banner_area">
-    <div class="container">
-        <div class="banner-content">
-            <div class="banner-content-inner">
-                <img src="{{ asset('web_assets/images/banner.gif') }}" class="img-fluid">
+    <!-- banner start -->
+    <div class="banner_area">
+        <div class="container">
+            <div class="banner-content">
+                <div class="banner-content-inner">
+                    <img src="{{ asset('web_assets/images/banner.gif') }}" class="img-fluid">
+                </div>
             </div>
         </div>
     </div>
-</div>
-<!-- banner end -->
+    <!-- banner end -->
 
-<!-- interactive section  -->
-<div class="interactive-section-1">
-    <img src="{{ asset('web_assets/images/about_img_1.png') }}" class="interaction_img" alt="interaction_img">
-</div>
-<!-- interactive section end -->
-
-<!-- interactive section  -->
-<div class="interactive-section-2">
-    <img src="{{ asset('web_assets/images/about_img_2.png') }}" class="interaction_img" alt="interaction_img">
-</div>
-<!-- interactive section end -->
-
-<!-- course detail section -->
-<div class="courses-detail section">
-    <div class="container">
-        <div class="interactive-section-content text-center">
-            <div class="swiper courses_detail_carousel">
-                <div class="swiper-wrapper">
-                    @if ($latest_courses->count() > 0)
-                    @foreach ($latest_courses as $latest_course)
-                    <div class="swiper-slide">
-                        <div class="row align-items-center">
-                            <div class="col-md-4 p-4">
-                                <img src="{{ asset('storage/course/thumbnail/' . $latest_course->course_thumbnail) }}" class="img-fluid course-detail-img">
-                            </div>
-                            <div class="col-md-8 p-4">
-                                <div class="d-flex align-items-center course-detail-author-content justify-content-between mb-50">
-                                    <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">{{ $latest_course->course_title }}</h3>
-                                    <small>{{ $latest_course->getTutorName->name }}</small>
-                                </div>
-                                <div class="text-left">{!! $latest_course->description !!}</div>
-                            </div>
-                        </div>
-                    </div>
-                    @endforeach
-                    @else
-                    <div class="text-center text-white">No record Found</div>
-                    @endif
-                </div>
-                <div class="courses-detail-pagination"></div>
-            </div>
-        </div>
+    <!-- interactive section  -->
+    <div class="interactive-section-1">
+        <img src="{{ asset('web_assets/images/about_img_1.png') }}" class="interaction_img" alt="interaction_img">
     </div>
-</div>
-<!-- course detail section end -->
+    <!-- interactive section end -->
 
-<!-- course type section start -->
-<div class="courses-type section">
-    <div class="container">
-        <div class="interactive-section-content text-center mb-5">
-            <div class="section-part mb-80">
-                <div class="section-title mb-5">
-                    <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
-                    <h3 class="heading-h3 text-white mb-0">{{ __('translation.Expert Courses') }}</h3>
-                </div>
-                <div class="swiper expert-course-carousel">
+    <!-- interactive section  -->
+    <div class="interactive-section-2">
+        <img src="{{ asset('web_assets/images/about_img_2.png') }}" class="interaction_img" alt="interaction_img">
+    </div>
+    <!-- interactive section end -->
+
+    <!-- course detail section -->
+    <div class="courses-detail section">
+        <div class="container">
+            <div class="interactive-section-content text-center">
+                @if ($latest_courses->count() > 0)
+                <div class="swiper courses_detail_carousel">
                     <div class="swiper-wrapper">
-                        @if($courses->count() > 0)
-                        @foreach ($courses->where('course_type', 'expert') as $item)
-                        <div class="swiper-slide position-relative">
-                            <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
-                            <div class="box-overlay">
-                                <a href="{{ route('online_course_detail', $item->id) }}">
-                                    <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}</h5>
-                                    <div class="box-overlay-description text-left">
-                                        <p class="mb-0 text-white">{{ $item->short_description }}</p>
-                                    </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }}
-                                        {{ $item->getTutorName->name }}
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        @endforeach
-                        @else
-                        <div class="text-center text-white">No record Found</div>
-                        @endif
-                    </div>
-                </div>
-                <div class="swiper-button-next expert-course-next"></div>
-                <div class="swiper-button-prev expert-course-prev"></div>
-            </div>
-            <div class="section-part mb-80">
-                <div class="section-title mb-5">
-                    <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
-                    <h3 class="heading-h3 text-white mb-0">{{ __('translation.Public Courses') }}</h3>
-                </div>
-                <div class="swiper public-course-carousel">
-                    <div class="swiper-wrapper">
-                        @if($courses->count() > 0)
-                        @foreach ($courses->where('course_type', 'public') as $record)
-                        <div class="swiper-slide position-relative">
-                            <img src="{{ asset('storage/course/thumbnail/' . $record->course_thumbnail) }}" class="img-fluid course-detail-img">
-                            <div class="box-overlay">
-                                <a href="{{ route('online_course_detail', $record->id) }}">
-                                    <h5 class="heading-h5 mb-3 text-white text-left">{{ $record->course_title }}
-                                    </h5>
-                                    <div class="box-overlay-description text-left">
-                                        <p class="mb-0 text-white">{{ $record->short_description }}</p>
-                                    </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }}
-                                        {{ $record->getTutorName->name }}
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        @endforeach
-                        @else
-                        <div class="text-center text-white">No record found</div>
-                        @endif
-                    </div>
-                </div>
-                <div class="swiper-button-next public-course-next"></div>
-                <div class="swiper-button-prev public-course-prev"></div>
-            </div>
-            <div class="section-part mb-80">
-                <div class="section-title mb-5">
-                    <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
-                    <h3 class="heading-h3 text-white mb-0">{{ __('translation.Offline Lecture') }}</h3>
-                </div>
-                <div class="swiper offline-lecture-carousel">
-                    <div class="swiper-wrapper">
-                        @if($offline_courses->count() > 0)
-                        @foreach ($offline_courses as $v)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/offline_course/thumbnail/' . $v->course_thumbnail) }}" class="img-fluid course-detail-img">
-                            <div class="box-overlay">
-                                <a href="{{ route('offline_lecture_detail', $v->id) }}">
-                                    <h5 class="heading-h5 mb-3 text-white text-left">{{ $v->course_title }}</h5>
-                                    <div class="box-overlay-description text-left">
-                                        <p class="mb-0 text-white">{{ $v->short_description }}</p>
-                                    </div>
-                                    <p class="mb-0 text-right text-white font-weight-600">{{ __('translation.Instructor') }}
-                                        {{ $v->getTutorName->name }}
-                                    </p>
-                                </a>
-                            </div>
-                        </div>
-                        @endforeach
-                        @else
-                        <div class="text-center text-white">No record Found</div>
-                        @endif
-                    </div>
-                    <div class="swiper-button-next offline-lecture-next"></div>
-                    <div class="swiper-button-prev offline-lecture-prev"></div>
-                </div>
-                <div class="section-part">
-                    <div class="section-title mb-5">
-                        <small class="mb-2 text-white">{{ __('translation.ABOUT INSTRUCTOR') }}</small>
-                        <h3 class="heading-h3 text-white mb-0">{{ __('translation.Tutor Introduction') }}</h3>
-                    </div>
-                    <div class="row align-items-center justify-content-left">
-                        @if($latest_tutors->count() > 0)
-                        @foreach ($latest_tutors as $latest_tutor)
-                        <div class="col-lg-3 col-md-4 col-12 mb-4">
-                            <div class="tutor-image-container">
-                                <img src="{{ asset('storage/tutor/' . $latest_tutor->tutor_img) }}" class="tutor_img img-fluid">
-                                <div class="box-overlay">
-                                    <a href="{{ route('tutor_info',$latest_tutor->id) }}">
-                                        <h5 class="heading-h5 mb-3 text-white text-left">{{ $latest_tutor->english_name }}</h5>
-                                        <div class="box-overlay-description text-justify">
-                                            <p class="mb-0 text-white">{{ Str::limit($latest_tutor->description,200) }}</p>
+                            @foreach ($latest_courses as $latest_course)
+                                <div class="swiper-slide">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-4 p-4">
+                                            <img src="{{ asset('storage/course/thumbnail/' . $latest_course->course_thumbnail) }}"
+                                                class="img-fluid course-detail-img">
                                         </div>
-                                        <p class="mb-0 text-right text-white font-weight-600">{{ $latest_tutor->job }}</p>
-                                    </a>
+                                        <div class="col-md-8 p-4">
+                                            <div
+                                                class="d-flex align-items-center course-detail-author-content justify-content-between mb-50">
+                                                <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">
+                                                    {{ $latest_course->course_title }}</h3>
+                                                <small>{{ $latest_course->getTutorName->name }}</small>
+                                            </div>
+                                            <div class="text-left">{!! $latest_course->description !!}</div>
+                                        </div>
+                                    </div>
                                 </div>
+                            @endforeach
+                    </div>
+                    <div class="courses-detail-pagination"></div>
+                </div>
+                @else
+                <h3 class="heading-h3 font-30" style="margin-bottom: 0 !important;">No Records Found</h3>
+                @endif
+            </div>
+        </div>
+    </div>
+    <!-- course detail section end -->
+
+    <!-- course type section start -->
+    <div class="courses-type section">
+        <div class="container">
+            <div class="interactive-section-content text-center mb-5">
+                @if ($courses->count() > 0)
+                    <div class="section-part mb-80">
+                        <div class="section-title mb-5">
+                            <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
+                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Expert Courses') }}</h3>
+                        </div>
+                        <div class="swiper expert-course-carousel">
+                            <div class="swiper-wrapper">
+                                @foreach ($courses->where('course_type', 'expert') as $item)
+                                    <div class="swiper-slide position-relative">
+                                        <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}"
+                                            class="img-fluid course-detail-img">
+                                        <div class="box-overlay">
+                                            <a href="{{ route('online_course_detail', $item->id) }}">
+                                                <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}
+                                                </h5>
+                                                <div class="box-overlay-description text-left">
+                                                    <p class="mb-0 text-white">{{ $item->short_description }}</p>
+                                                </div>
+                                                <p class="mb-0 text-right text-white font-weight-600">
+                                                    {{ __('translation.Instructor') }}
+                                                    {{ $item->getTutorName->name }}
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
                         </div>
-                        @endforeach
-                        @else
-                        <div class="d-flex justify-content-center text-white">No record found</div>
-                        @endif
+                        <div class="swiper-button-next expert-course-next"></div>
+                        <div class="swiper-button-prev expert-course-prev"></div>
                     </div>
-                </div>
+                @endif
+                @if ($courses->count() > 0)
+                    <div class="section-part mb-80">
+                        <div class="section-title mb-5">
+                            <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
+                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Public Courses') }}</h3>
+                        </div>
+                        <div class="swiper public-course-carousel">
+                            <div class="swiper-wrapper">
+                                @foreach ($courses->where('course_type', 'public') as $record)
+                                    <div class="swiper-slide position-relative">
+                                        <img src="{{ asset('storage/course/thumbnail/' . $record->course_thumbnail) }}"
+                                            class="img-fluid course-detail-img">
+                                        <div class="box-overlay">
+                                            <a href="{{ route('online_course_detail', $record->id) }}">
+                                                <h5 class="heading-h5 mb-3 text-white text-left">
+                                                    {{ $record->course_title }}
+                                                </h5>
+                                                <div class="box-overlay-description text-left">
+                                                    <p class="mb-0 text-white">{{ $record->short_description }}</p>
+                                                </div>
+                                                <p class="mb-0 text-right text-white font-weight-600">
+                                                    {{ __('translation.Instructor') }}
+                                                    {{ $record->getTutorName->name }}
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="swiper-button-next public-course-next"></div>
+                        <div class="swiper-button-prev public-course-prev"></div>
+                    </div>
+                @endif
+                @if ($offline_courses->count() > 0)
+                    <div class="section-part mb-80">
+                        <div class="section-title mb-5">
+                            <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
+                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Offline Lecture') }}</h3>
+                        </div>
+                        <div class="swiper offline-lecture-carousel">
+                            <div class="swiper-wrapper">
+                                @foreach ($offline_courses as $v)
+                                    <div class="swiper-slide">
+                                        <img src="{{ asset('storage/offline_course/thumbnail/' . $v->course_thumbnail) }}"
+                                            class="img-fluid course-detail-img">
+                                        <div class="box-overlay">
+                                            <a href="{{ route('offline_lecture_detail', $v->id) }}">
+                                                <h5 class="heading-h5 mb-3 text-white text-left">{{ $v->course_title }}
+                                                </h5>
+                                                <div class="box-overlay-description text-left">
+                                                    <p class="mb-0 text-white">{{ $v->short_description }}</p>
+                                                </div>
+                                                <p class="mb-0 text-right text-white font-weight-600">
+                                                    {{ __('translation.Instructor') }}
+                                                    {{ $v->getTutorName->name }}
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <div class="swiper-button-next offline-lecture-next"></div>
+                            <div class="swiper-button-prev offline-lecture-prev"></div>
+                        </div>
+                    </div>
+                @endif
+                @if ($latest_tutors->count() > 0)
+                    <div class="section-part">
+                        <div class="section-title mb-5">
+                            <small class="mb-2 text-white">{{ __('translation.ABOUT INSTRUCTOR') }}</small>
+                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Tutor Introduction') }}</h3>
+                        </div>
+                        <div class="row align-items-center justify-content-left">
+                            @foreach ($latest_tutors as $latest_tutor)
+                                <div class="col-lg-3 col-md-4 col-12 mb-4">
+                                    <div class="tutor-image-container">
+                                        <img src="{{ asset('storage/tutor/' . $latest_tutor->tutor_img) }}"
+                                            class="tutor_img img-fluid">
+                                        <div class="box-overlay">
+                                            <a href="{{ route('tutor_info', $latest_tutor->id) }}">
+                                                <h5 class="heading-h5 mb-3 text-white text-left">
+                                                    {{ $latest_tutor->english_name }}</h5>
+                                                <div class="box-overlay-description text-justify">
+                                                    <p class="mb-0 text-white">
+                                                        {{ Str::limit($latest_tutor->description, 200) }}</p>
+                                                </div>
+                                                <p class="mb-0 text-right text-white font-weight-600">
+                                                    {{ $latest_tutor->job }}</p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                @endif
             </div>
         </div>
     </div>
@@ -205,64 +214,76 @@
                     <div class="swiper course-review-carousel">
                         <div class="swiper-wrapper">
                             <!-- <div class="swiper-slide">
-                            @if(!empty($latest_reviews))
-                            {!! $embedded_video !!}
-                            <div class="review_video_box_overlay">
-                                <a href="javascript:void(0)">
-                                    <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
-                                </a>
-                            </div>
-                            @else
-                            <div class="text-center">
-                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
-                            </div>
-                            @endif
-                        </div> -->
+                                        @if (!empty($latest_reviews))
+    {!! $embedded_video !!}
+                                        <div class="review_video_box_overlay">
+                                            <a href="javascript:void(0)">
+                                                <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
+                                            </a>
+                                        </div>
+@else
+    <div class="text-center">
+                                            <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                                        </div>
+    @endif
+                                    </div> -->
                             <div class="swiper-slide">
-                                <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
+                                <img src="{{ asset('web_assets/images/course_review_1.png') }}"
+                                    class="img-fluid course-review-img">
                                 <div class="review_video_box_overlay">
                                     <a href="javascript:void(0)">
-                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
+                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60"
+                                            alt="icon_img">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
+                                <img src="{{ asset('web_assets/images/course_review_1.png') }}"
+                                    class="img-fluid course-review-img">
                                 <div class="review_video_box_overlay">
                                     <a href="javascript:void(0)">
-                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
+                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60"
+                                            alt="icon_img">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
+                                <img src="{{ asset('web_assets/images/course_review_1.png') }}"
+                                    class="img-fluid course-review-img">
                                 <div class="review_video_box_overlay">
                                     <a href="javascript:void(0)">
-                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
+                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60"
+                                            alt="icon_img">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
+                                <img src="{{ asset('web_assets/images/course_review_1.png') }}"
+                                    class="img-fluid course-review-img">
                                 <div class="review_video_box_overlay">
                                     <a href="javascript:void(0)">
-                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
+                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60"
+                                            alt="icon_img">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
+                                <img src="{{ asset('web_assets/images/course_review_1.png') }}"
+                                    class="img-fluid course-review-img">
                                 <div class="review_video_box_overlay">
                                     <a href="javascript:void(0)">
-                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
+                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60"
+                                            alt="icon_img">
                                     </a>
                                 </div>
                             </div>
                             <div class="swiper-slide">
-                                <img src="{{ asset('web_assets/images/course_review_1.png') }}" class="img-fluid course-review-img">
+                                <img src="{{ asset('web_assets/images/course_review_1.png') }}"
+                                    class="img-fluid course-review-img">
                                 <div class="review_video_box_overlay">
                                     <a href="javascript:void(0)">
-                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60" alt="icon_img">
+                                        <img src="{{ asset('web_assets/images/icon_play.png') }}" height="60"
+                                            alt="icon_img">
                                     </a>
                                 </div>
                             </div>
@@ -275,9 +296,9 @@
         </div>
     </div>
     <!-- course review section end -->
-    @endsection
+@endsection
 
-    @section('custom-script')
+@section('custom-script')
     <script>
         var swiper = new Swiper(".courses_detail_carousel", {
             spaceBetween: 30,
@@ -461,4 +482,4 @@
             }
         });
     </script>
-    @endsection
+@endsection
