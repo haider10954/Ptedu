@@ -181,7 +181,7 @@
                             <div class="col-3 pr-0">
                                 <div class="user-info bottom-border">
                                     <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                        <p class="mb-0 user_profile">{{ __('translation.Phone number') }}</p>
+                                        <p class="mb-0 user_profile">{{ __('translation.Phone Number') }}</p>
                                     </div>
                                 </div>
                             </div>

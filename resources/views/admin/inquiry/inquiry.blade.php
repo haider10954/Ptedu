@@ -126,9 +126,9 @@
                                 <td>{{ $inq->getStudentName->name }}</td>
                                 <td>{{ Carbon\Carbon::parse($inq->created_at)->format('d M, Y')}}</td>
                                 @if($inq->answer == null)
-                                <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn">Waiting for response</a></td>
+                                <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn">응답을 기다리는 중</a></td>
                                 @else
-                                <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn_complete">Answer Complete</a></td>
+                                <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn_complete">답변완료</a></td>
                                 @endif
                             </tr>
                             @endforeach

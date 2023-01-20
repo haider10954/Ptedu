@@ -125,7 +125,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">{{ __('translation.New Password') }}</label>
-                        <input class="form-control" type="password" placeholder="Enter New Password" name="new_password">
+                        <input class="form-control" type="password" placeholder="{{ __('translation.Enter New password') }}" name="new_password">
                         @error('new_password')
                         <small style="color:#d02525;">{{$message}}</small>
                         @enderror
@@ -134,7 +134,7 @@
 
                     <div class="mb-3">
                         <label class="form-label">{{ __('translation.Confirm Password') }}</label>
-                        <input class="form-control" type="password" placeholder="Enter New Password" name="confirm_password">
+                        <input class="form-control" type="password" placeholder="{{ __('translation.Enter New password') }}" name="confirm_password">
                         @error('confirm_password')
                         <small style="color:#d02525;">{{$message}}</small>
                         @enderror
@@ -167,7 +167,7 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">{{ __('translation.Name') }}</label>
-                                <input class="form-control" type="text" placeholder="Enter Name" name="name" value="{{ auth('admin')->user()->name }}">
+                                <input class="form-control" type="text" placeholder="{{ __('translation.Enter Name') }}" name="name" value="{{ auth('admin')->user()->name }}">
                                 @error('name')
                                 <small style="color:#d02525;">{{$message}}</small>
                                 @enderror
@@ -175,7 +175,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">{{ __('translation.Email') }}</label>
-                                <input class="form-control" type="email" placeholder="Enter Email" name="email" value="{{ auth('admin')->user()->email }}">
+                                <input class="form-control" type="email" placeholder="{{ __('translation.Enter Email Address') }}" name="email" value="{{ auth('admin')->user()->email }}">
                                 @error('email')
                                 <small style="color:#d02525;">{{$message}}</small>
                                 @enderror
@@ -183,7 +183,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">{{ __('translation.Job') }}</label>
-                                <input class="form-control" type="text" placeholder="Enter Job" name="job" value="{{ auth('admin')->user()->job }}">
+                                <input class="form-control" type="text" placeholder="{{ __('translation.Enter Job') }}" name="job" value="{{ auth('admin')->user()->job }}">
                                 @error('job')
                                 <small style="color:#d02525;">{{$message}}</small>
                                 @enderror
@@ -193,7 +193,7 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">{{ __('translation.English Name') }}</label>
-                                <input class="form-control" type="text" placeholder="Enter English Name" name="en_name" value="{{ auth('admin')->user()->english_name }}">
+                                <input class="form-control" type="text" placeholder="{{ __('translation.Enter English Name') }}" name="en_name" value="{{ auth('admin')->user()->english_name }}">
                                 @error('en_name')
                                 <small style="color:#d02525;">{{$message}}</small>
                                 @enderror
@@ -201,7 +201,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">{{ __('translation.Phone Number') }}</label>
-                                <input class="form-control" type="text" placeholder="Enter phone number" name="phone_number" value="{{ auth('admin')->user()->phone_number }}">
+                                <input class="form-control" type="text" placeholder="{{ __('translation.Enter Phone Number') }}" name="phone_number" value="{{ auth('admin')->user()->phone_number }}">
                                 @error('phone_number')
                                 <small style="color:#d02525;">{{$message}}</small>
                                 @enderror
@@ -219,7 +219,7 @@
                         <div class="col-lg-12">
                             <div class="mb-3">
                                 <label class="form-label">{{ __('translation.Address') }}</label>
-                                <input class="form-control" type="text" placeholder="Enter address" name="address" value="{{ auth('admin')->user()->address }}">
+                                <input class="form-control" type="text" placeholder="{{ __('translation.Enter Address') }}" name="address" value="{{ auth('admin')->user()->address }}">
                                 @error('address')
                                 <small style="color:#d02525;">{{$message}}</small>
                                 @enderror
@@ -227,7 +227,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">{{ __('translation.Introduction') }}</label>
-                                <textarea class="form-control" type="file" rows="7" placeholder="Enter introduction" name="introduction">{{ auth('admin')->user()->introduction }}</textarea>
+                                <textarea class="form-control" type="file" rows="7" placeholder="{{ __('translation.Enter Introduction') }}" name="introduction">{{ auth('admin')->user()->introduction }}</textarea>
                                 @error('introduction')
                                 <small style="color:#d02525;">{{$message}}</small>
                                 @enderror
