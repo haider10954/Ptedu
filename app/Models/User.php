@@ -38,8 +38,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function getCourses()
+    public function getOfflineEnrolments()
     {
         return $this->hasMany(Offline_enrollment::class, 'user_id', 'id');
+    }
+    public function getOnlineEnrolments()
+    {
+        return $this->hasMany(Online_enrollment::class, 'user_id', 'id');
     }
 }
