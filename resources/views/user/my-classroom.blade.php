@@ -225,7 +225,7 @@
                             <label for="course_name mb-0">{{ __('translation.Course Name') }}</label>
                         </div>
                         <div class="col-lg-10">
-                            <input type="text" name="course_name" id="course_name" placeholder="Enter Course Name" value="" class="form-control">
+                            <input type="text" name="course_name" readonly id="course_name" placeholder="Enter Course Name" value="" class="form-control">
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
@@ -233,7 +233,7 @@
                             <label for="writer mb-0">{{ __('translation.Writer') }}</label>
                         </div>
                         <div class="col-lg-10">
-                            <input type="text" name="writer" id="writer" placeholder="Enter Writer Name" value="{{ auth()->user()->name }}" class="form-control">
+                            <input type="text" name="writer" readonly id="writer" placeholder="Enter Writer Name" value="{{ auth()->user()->name }}" class="form-control">
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
