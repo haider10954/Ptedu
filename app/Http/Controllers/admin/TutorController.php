@@ -24,7 +24,7 @@ class TutorController extends Controller
     {
         if(!file_exists(storage_path('app/public/tutor')))
         {
-            mkdir(storage_path('app/public/tutor'),0755);
+            mkdir(storage_path('app/public/tutor'),0755,true);
         }
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/tutor', $fileName);

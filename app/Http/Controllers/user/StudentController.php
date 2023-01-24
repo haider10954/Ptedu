@@ -171,8 +171,9 @@ class StudentController extends Controller
 
     function upload_files($file)
     {
-        if (!file_exists(storage_path('app/public/student'))) {
-            mkdir(storage_path('app/public/student'), 0755);
+        if(!file_exists(storage_path('app/public/student')))
+        {
+            mkdir(storage_path('app/public/student'),0755,true);
         }
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/student', $fileName);

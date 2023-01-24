@@ -67,7 +67,7 @@ class ReviewController extends Controller
     {
         if(!file_exists(storage_path('app/public/review/video')))
         {
-            mkdir(storage_path('app/public/review/video'),0755);
+            mkdir(storage_path('app/public/review/video'),0755,true);
         }
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/review/video', $fileName);

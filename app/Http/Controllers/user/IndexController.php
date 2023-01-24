@@ -15,39 +15,24 @@ use App\Service\VideoHandler;
 class IndexController extends Controller
 {
     //
+    public function get_video_thumbnail(){
+        $video_thumbnail = VideoHandler::getLocalVideoThumbnail(10 , asset('storage/lectures/16710031836563.mp4') , asset('storage/thumbnails/'.time().'.mp4') );
+        dd($video_thumbnail);
+    }
+
     public function index()
     {
         $offline_courses = Offline_course::with('getTutorName')->get();
         $courses = Course::get();
         $latest_courses = Course::orderBy('id', 'desc')->with('getTutorName')->take(5)->get();
         $latest_tutors = Tutor::orderBy('id', 'desc')->take(8)->get();
-        $latest_reviews = Review::orderBy('id', 'desc')->get();
-
-        if ($latest_reviews->count() > 0) {
-            for ($i = 0; $i <  $latest_reviews->count(); $i++) {
-                if (!empty($latest_reviews[$i]->video_url) || !empty($latest_reviews[$i]->video)) {
-                    if (empty($latest_reviews[$i]->video_url)) {
-                        $embedded_video = '<video src="' . asset('storage/review/video') . '/' . $latest_reviews[$i]->video . '" controls height="300" width="300"></video>';
-                    }
-
-                    if (empty($latest_reviews[$i]->video)) {
-                        $video_handler = new VideoHandler();
-                        $video_url = $video_handler->getVideoInfo($latest_reviews[$i]->video_url);
-                        $embedded_video = $video_url->html;
-                    }
-
-                    if (!empty($latest_reviews[$i]->video_url) && !empty($latest_reviews[$i]->video)) {
-                        $video_handler = new VideoHandler();
-                        $video_url = $video_handler->getVideoInfo($latest_reviews[$i]->video_url);
-                        $embedded_video = $video_url->html;
-                    }
-                }
+        $reviews = Review::orderBy('id', 'desc')->get();
+        foreach($reviews as $review){
+            if(!empty($review->video_url)){
+                $review['video_thumbnail'] = VideoHandler::getVideoThumbnail($review->video_url);
             }
-        } else {
-            $embedded_video = "";
         }
-
-        return view('user.index', compact('offline_courses', 'courses', 'latest_courses', 'latest_tutors', 'latest_reviews', 'embedded_video'));
+        return view('user.index', compact('offline_courses', 'courses', 'latest_courses', 'latest_tutors','reviews'));
     }
 
     public function notice()

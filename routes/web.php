@@ -35,6 +35,7 @@ use App\Models\Admin;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/get-video-thumbnail',[IndexController::class, 'get_video_thumbnail'])->name('get_video_thumbnail');
 
 //About US
 Route::get('/about_us', function () {
