@@ -33,7 +33,7 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item waves-effect position-relative" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     @if(auth('admin')->user()->profile_img == null)
-                    <img class="rounded-circle header-profile-user" src="{{ asset('assets/images/users/avatar-1.jpg') }}" alt="Header Avatar">
+                    <img class="rounded-circle header-profile-user" src="{{asset('assets/images/icons/user_avatar.png')}}" alt="Header Avatar">
                     @else
                     <img class="rounded-circle header-profile-user" src="{{ auth('admin')->user()->getAdminProfileImage() }}" alt="Header Avatar">
                     @endif

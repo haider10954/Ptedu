@@ -83,7 +83,7 @@
                             <h4 class="mb-sm-0  course_details">{{ $inquiry->name }}</h4>
                         </div>
                         <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">{{ Carbon\Carbon::parse($inquiry->expired_at)->format('d M, Y')}}</h4>
+                            <h4 class="mb-sm-0  course_details">{{ Carbon\Carbon::parse($inquiry->created_at)->format('d M, Y')}}</h4>
                         </div>
                     </div>
                 </div>

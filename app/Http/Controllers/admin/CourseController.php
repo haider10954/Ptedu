@@ -12,6 +12,7 @@ use App\Models\Course_tracking;
 use Illuminate\Http\Request;
 use Owenoj\LaravelGetId3\GetId3;
 use App\Service\VideoHandler;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -37,9 +38,8 @@ class CourseController extends Controller
 
     function upload_files($file)
     {
-        if(!file_exists(storage_path('app/public/course/thumbnail')))
-        {
-            mkdir(storage_path('app/public/course/thumbnail'),0755);
+        if (!file_exists(storage_path('app/public/course/thumbnail'))) {
+            mkdir(storage_path('app/public/course/thumbnail'), 0755);
         }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/thumbnail', $fileName);
@@ -49,9 +49,8 @@ class CourseController extends Controller
 
     function upload_files_banner($file)
     {
-        if(!file_exists(storage_path('app/public/course/banner')))
-        {
-            mkdir(storage_path('app/public/course/banner'),0755);
+        if (!file_exists(storage_path('app/public/course/banner'))) {
+            mkdir(storage_path('app/public/course/banner'), 0755);
         }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/banner', $fileName);
@@ -61,9 +60,8 @@ class CourseController extends Controller
 
     function upload_lecture_video($file)
     {
-        if(!file_exists(storage_path('app/public/lectures')))
-        {
-            mkdir(storage_path('app/public/lectures'),0755);
+        if (!file_exists(storage_path('app/public/lectures'))) {
+            mkdir(storage_path('app/public/lectures'), 0755);
         }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/lectures', $fileName);
@@ -82,7 +80,7 @@ class CourseController extends Controller
             'no_of_lectures' => 'required|min:0',
             'course_duration' => 'required',
             'price' => 'required|min:0',
-            'discounted_Price' => 'required|min:0',
+            'discounted_Price' => 'min:0',
             'category' => 'required',
             'video_url' => 'required',
             'category' => 'required',
@@ -164,12 +162,12 @@ class CourseController extends Controller
             'section_lectures.*.lecture_video' => 'nullable|required_without:section_lectures.*.lecture_video_link|mimes:mp4',
             'section_lectures.*.lecture_video_link' => 'nullable|required_without:section_lectures.*.lecture_video|url',
         ], [
-                'section_lectures.*.lecture_video_link.required_without' => 'Please upload lecture video or attach lecture video link',
-                'section_lectures.*.lecture_video.required_without' => 'Please upload lecture video or attach lecture video link',
-                'section_lectures.*.lecture_video_link.url' => 'Please enter a valid Url',
-                'section_lectures.*.lecture_video.mimes' => 'Only mp4 video format is supported',
-                'section_lectures.*.lecture_title.required' => 'Please enter lecture title'
-            ]);
+            'section_lectures.*.lecture_video_link.required_without' => 'Please upload lecture video or attach lecture video link',
+            'section_lectures.*.lecture_video.required_without' => 'Please upload lecture video or attach lecture video link',
+            'section_lectures.*.lecture_video_link.url' => 'Please enter a valid Url',
+            'section_lectures.*.lecture_video.mimes' => 'Only mp4 video format is supported',
+            'section_lectures.*.lecture_title.required' => 'Please enter lecture title'
+        ]);
 
         if ($validate->fails()) {
             return response()->json(['error' => true, 'errors' => $validate->errors()->first()]);
@@ -212,7 +210,6 @@ class CourseController extends Controller
                     $video_duration = VideoHandler::covtime($duration);
                     $lectures[$i]['duration'] = $video_duration;
                 }
-
             }
         }
 
@@ -481,12 +478,12 @@ class CourseController extends Controller
             'lecture_video' => 'nullable|required_without:lecture_video_link|mimes:mp4',
             'lecture_video_link' => 'nullable|required_without:lecture_video|url',
         ], [
-                'lecture_video_link.required_without' => 'Please upload lecture video or attach lecture video link',
-                'lecture_video.required_without' => 'Please upload lecture video or attach lecture video link',
-                'lecture_video_link.url' => 'Please enter a valid Url',
-                'lecture_video.mimes' => 'Only mp4 video format is supported',
-                'lecture_title.required' => 'Please enter lecture title'
-            ]);
+            'lecture_video_link.required_without' => 'Please upload lecture video or attach lecture video link',
+            'lecture_video.required_without' => 'Please upload lecture video or attach lecture video link',
+            'lecture_video_link.url' => 'Please enter a valid Url',
+            'lecture_video.mimes' => 'Only mp4 video format is supported',
+            'lecture_title.required' => 'Please enter lecture title'
+        ]);
 
         if ($validate->fails()) {
             return response()->json(['Success' => false, 'Msg' => $validate->errors()->first()]);
@@ -517,7 +514,7 @@ class CourseController extends Controller
                 $video_duration = VideoHandler::covtime($duration);
                 $duration = $video_duration;
             }
-        } else{
+        } else {
             $track = new GetId3($request->lecture_video);
             $video_uploaded = $this->upload_lecture_video($request->lecture_video);
             $duration = $track->getPlaytime();
@@ -533,7 +530,7 @@ class CourseController extends Controller
             'slug' => $slug
         ]);
 
-        if($addLecture){
+        if ($addLecture) {
             $sections = Section::with('getLectures')->withCount('getLectures')->where('course_id', $request->course_id)->get();
             $updateLectureCount = Course_tracking::where('course_id', $request->course_id)->update([
                 'no_of_lectures' => $sections->sum('get_lectures_count'),
@@ -544,16 +541,16 @@ class CourseController extends Controller
                 'Msg' => 'Lecture has been Added successfully.',
                 'html' => $html
             ]);
-        }else{
+        } else {
             return json_encode([
                 'Success' => false,
                 'Msg' => 'Something went wrong Please try again.'
             ]);
         }
-        
     }
 
-    public function del_single_lecture(Request $request){
+    public function del_single_lecture(Request $request)
+    {
         $lectureDelete = Lecture::where('id', $request->lecture_id)->delete();
         if ($lectureDelete) {
             $sections = Section::with('getLectures')->withCount('getLectures')->where('course_id', $request->course_id)->get();
@@ -574,7 +571,8 @@ class CourseController extends Controller
         }
     }
 
-    public function edit_single_lecture(Request $request){
+    public function edit_single_lecture(Request $request)
+    {
         $validate = \Validator::make($request->all(), [
             'lecture_title' => 'required',
         ]);
@@ -601,6 +599,5 @@ class CourseController extends Controller
                 'message' => 'Something went wrong Please try again.'
             ]);
         }
-
     }
 }

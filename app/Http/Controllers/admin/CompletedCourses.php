@@ -44,7 +44,7 @@ class CompletedCourses extends Controller
             'issue_date' => $request->issue_date
         ]);
         if ($generate_certificate) {
-            return redirect()->route('generate_certificate', [$generate_certificate->id , $generate_certificate->course_id]);
+            return redirect()->route('generate_certificate', [$generate_certificate->id, $generate_certificate->course_id]);
         } else {
             return redirect()->back()->with('error', 'Somerthing went wrong.');
         }

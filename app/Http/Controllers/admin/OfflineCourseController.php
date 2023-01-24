@@ -26,9 +26,8 @@ class OfflineCourseController extends Controller
 
     function upload_files($file)
     {
-        if(!file_exists(storage_path('app/public/offline_course/thumbnail')))
-        {
-            mkdir(storage_path('app/public/offline_course/thumbnail'),0755);
+        if (!file_exists(storage_path('app/public/offline_course/thumbnail'))) {
+            mkdir(storage_path('app/public/offline_course/thumbnail'), 0755);
         }
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/offline_course/thumbnail', $fileName);
@@ -38,9 +37,8 @@ class OfflineCourseController extends Controller
 
     function upload_files_banner($file)
     {
-        if(!file_exists(storage_path('app/public/offline_course/banner')))
-        {
-            mkdir(storage_path('app/public/offline_course/banner'),0755);
+        if (!file_exists(storage_path('app/public/offline_course/banner'))) {
+            mkdir(storage_path('app/public/offline_course/banner'), 0755);
         }
         $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/offline_course/banner', $fileName);
@@ -59,7 +57,7 @@ class OfflineCourseController extends Controller
             'no_of_lectures' => 'required|min:0',
             'course_duration' => 'required',
             'price' => 'required|min:0',
-            'discounted_Price' => 'required|min:0',
+            'discounted_Price' => 'min:0',
             'category' => 'required',
             'video_url' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',

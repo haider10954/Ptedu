@@ -117,7 +117,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Certificate Number')}}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-firstname-input" name="certificate_number" placeholder="{{ __('translation.Enter Certificate Number') }}" value="{{ $certificate->certificate_number ?? '' }}">
+                            <input type="text" class="form-control" id="horizontal-firstname-input" name="certificate_number" placeholder="{{ __('translation.Enter Certificate Number') }}" value="{{ $certificate->certificate_number }}">
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -135,14 +135,14 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Course Period')}}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="course_period" placeholder="{{__('translation.Enter course period')}}" value="{{ $add_certificate->getCourses->duration_of_course }}" />
+                            <input type="text" class="form-control" name="course_period" placeholder="{{__('translation.Enter course period')}}" value="{{ $certificate->course_duration }}" />
                         </div>
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Issue Date') }}</label>
                         <div class="col-sm-10">
-                            <input type="date" class="form-control" name="issue_date" placeholder="{{__('translation.Enter issue date')}}" value="{{ $certificate->issue_date ?? '' }}" />
+                            <input type="date" class="form-control" name="issue_date" placeholder="{{__('translation.Enter issue date')}}" value="{{ $certificate->issue_date }}" />
                         </div>
                     </div>
 
@@ -151,6 +151,7 @@
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-lg btn-register">{{__('translation.Register')}}</button>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>

@@ -14,7 +14,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ]);
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->route('course');
@@ -58,9 +58,8 @@ class AuthController extends Controller
         if (empty($file)) {
             return $oldName;
         }
-        if(!file_exists(storage_path('app/public/admin/profile')))
-        {
-            mkdir(storage_path('app/public/admin/profile'),0755);
+        if (!file_exists(storage_path('app/public/admin/profile'))) {
+            mkdir(storage_path('app/public/admin/profile'), 0755);
         }
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/admin/profile', $fileName);
