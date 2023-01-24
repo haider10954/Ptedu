@@ -149,6 +149,7 @@
                                 <div class=" mr-2">
                                     <input type="radio" value="ETC" name="job"> 기타
                                 </div>
+                                <div class="error-job"></div>
                             </div>
                         </div>
                     </div>
@@ -406,6 +407,9 @@
                 }
                 if (e.responseJSON.errors['address']) {
                     $('.error-address').html('<small class=" error-message text-danger">' + e.responseJSON.errors['address'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['job']) {
+                    $('.error-job').html('<small class=" error-message text-danger">' + e.responseJSON.errors['job'][0] + '</small>');
                 }
             }
         });
