@@ -11,7 +11,7 @@ class StudentController extends Controller
 {
     public function student_admin_listing()
     {
-        $student = User::paginate(10);
+        $student = User::with(['getOfflineEnrolments', 'getOnlineEnrolments'])->paginate(10);
         return view('admin.student.student_list', compact('student'));
     }
 
