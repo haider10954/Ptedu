@@ -113,7 +113,7 @@
                                             <div class="d-flex align-items-center justify-content-between">
 
                                                 @if($Data == 1)
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" disabled> <i class="fas fa-edit"></i>Review Added</button>
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" disabled> <i class="fas fa-edit"></i> Review Added</button>
                                                 @else
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}"> <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
                                                 @endif
