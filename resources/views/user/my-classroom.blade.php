@@ -94,7 +94,14 @@
                         <div class="custom-tab-content">
                             <h6 class="content-heading">{{ __('translation.Completed Lectures') }} ({{ $completed_courses->count() }})</h6>
                             <div class="row">
+
                                 @foreach ($completed_courses as $v)
+                                <?php
+                                $Data = Illuminate\Support\Facades\DB::table('reviews')
+                                    ->where('user_id', auth()->id())
+                                    ->where('course_id', $v->course_id)
+                                    ->count();
+                                ?>
                                 <div class="col-lg-3 col-md-4 col-12">
                                     <div class="lecture-box">
                                         <img src="{{ asset('storage/course/thumbnail/' . $v->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
@@ -104,8 +111,14 @@
                                                 {{ $v->getCourses->getTutorName->name }}</small>
                                             <small class="lecture-duration mb-4 d-block">{{ $v->getCourses->created_at->format('Y-m-d') }}</small>
                                             <div class="d-flex align-items-center justify-content-between">
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}"> <i class="fas fa-edit"></i>
-                                                    {{ __('translation.Write a review') }}</button>
+
+                                                @if($Data == 1)
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" disabled> <i class="fas fa-edit"></i>Review Added</button>
+                                                @else
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}"> <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
+                                                @endif
+
+
                                                 @if ($v->generate_certificate == 1)
                                                 <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-black w-48" onclick="certificate('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" id="completed_courses"> <i class="fas fa-medal"></i>
                                                     {{ __('translation.Certificate') }}</a>

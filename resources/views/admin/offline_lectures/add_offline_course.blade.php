@@ -114,7 +114,7 @@
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Tutor Name') }}</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="tutor_name">
-                                <option>{{ __('translation.Select Option') }}</option>
+                                <option value="">{{ __('translation.Select Option') }}</option>
                                 @foreach ($tutor as $t)
                                 <option value="{{ $t->id }}">{{ $t->name }}</option>
                                 @endforeach
@@ -172,7 +172,7 @@
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Category') }}</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="category">
-                                <option>{{ __('translation.Select Option') }}</option>
+                                <option value="">{{ __('translation.Select Option') }}</option>
                                 @foreach ($category as $cat)
                                 <option value="{{ $cat->id}}">{{ $cat->name }}</option>
                                 @endforeach

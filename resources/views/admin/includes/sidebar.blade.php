@@ -22,7 +22,7 @@
                     <a href="{{ route('category') }}" class="">
                         <div></div>
                         <i>
-                            <img class="bx me-2" src="{{ asset('assets/images/icons/icon1.png')}}">
+                            <img class="bx me-2" src="{{ asset('assets/images/icons/icon.png')}}">
                         </i>
                         <span key="t-dashboards">{{ __('translation.Category') }}</span>
                         <i class="bi bi-chevron-right right-icon"></i>

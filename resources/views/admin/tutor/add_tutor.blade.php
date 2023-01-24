@@ -126,7 +126,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Email') }}</label>
                         <div class="col-sm-10">
-                            <input type="email" class="form-control" name="email" placeholder="{{ __('translation.Enter Email Address') }}" value="{{ old('emial') }}">
+                            <input type="email" class="form-control" name="email" placeholder="{{ __('translation.Enter Email Address') }}" value="{{ old('email') }}">
                             @error('email')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
