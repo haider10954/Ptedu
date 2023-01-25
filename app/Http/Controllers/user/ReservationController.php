@@ -40,7 +40,10 @@ class ReservationController extends Controller
 
     public function Reverse_course(Request $request)
     {
-        $addReservation = Reservation::create([
+        $addReservation = Reservation::updateOrCreate([
+            'user_id' => auth()->id(),
+            'course_id' => $request->id
+        ],[
             'user_id' => auth()->id(),
             'course_id' => $request->id,
             'status' => 'applied'

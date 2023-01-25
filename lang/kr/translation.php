@@ -349,7 +349,10 @@ return [
     'We will promote your growth as an expert through close knowledge in the field' => '해당 분야에 대한 긴밀한 지식을 통해 전문가로의 성장을 도모하겠습니다.',
     'Student has been registered successfully' => '학생이 성공적으로 등록되었습니다',
     'The value is not duplicated' => '값은 중복되지 않습니다',
-    'Offline Courses' => '오프라인 과정'
-
+    'Offline Courses' => '오프라인 과정',
+    'Reached maximum limit of enrollments' => '최대 등록 한도에 도달했습니다',
+    'please login to submit application' => '신청서를 제출하려면 로그인하십시오',
+    'Already Enrolled' => '이미 등록됨',
+    'Limit Reached' => '한도 도달'
 
 ];
