@@ -115,42 +115,66 @@
                                 </div>
                             </div>
                         </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                        <div class="custom-tab-content">
-                            <h6 class="content-heading">{{ __('translation.Completed Lectures') }} ({{ $completed_courses->count() }})</h6>
-                            <div class="row">
-                                @if($completed_courses->count() > 0)
-                                @foreach ($completed_courses as $v)
-                                <?php
-                                $Data = Illuminate\Support\Facades\DB::table('reviews')
-                                    ->where('user_id', auth()->id())
-                                    ->where('course_id', $v->course_id)
-                                    ->count();
-                                ?>
-                                <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('storage/course/thumbnail/' . $v->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title">{{ $v->getCourses->course_title }}</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">{{ $v->getCourses->getCategoryName->name }} l
-                                                {{ $v->getCourses->getTutorName->name }}</small>
-                                            <small class="lecture-duration mb-4 d-block">{{ $v->getCourses->created_at->format('Y-m-d') }}</small>
-                                            <div class="d-flex align-items-center justify-content-between">
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div class="custom-tab-content">
+                                <h6 class="content-heading">{{ __('translation.Completed Lectures') }}
+                                    ({{ $completed_courses->count() }})</h6>
+                                <div class="row">
+                                    @if ($completed_courses->count() > 0)
+                                        @foreach ($completed_courses as $v)
+                                            <?php
+                                            $Data = Illuminate\Support\Facades\DB::table('reviews')
+                                                ->where('user_id', auth()->id())
+                                                ->where('course_id', $v->course_id)
+                                                ->count();
+                                            ?>
+                                            <div class="col-lg-3 col-md-4 col-12">
+                                                <div class="lecture-box">
+                                                    <img src="{{ asset('storage/course/thumbnail/' . $v->getCourses->course_thumbnail) }}"
+                                                        class="lecture_img img-fluid" alt="lecture_img">
+                                                    <div class="lecture_box_content">
+                                                        <h6 class="lecture_title">{{ $v->getCourses->course_title }}</h6>
+                                                        <small
+                                                            class="d-block text-muted mb-2 lecture_info">{{ $v->getCourses->getCategoryName->name }}
+                                                            l
+                                                            {{ $v->getCourses->getTutorName->name }}</small>
+                                                        <small
+                                                            class="lecture-duration mb-4 d-block">{{ $v->getCourses->created_at->format('Y-m-d') }}</small>
+                                                        <div class="d-flex align-items-center justify-content-between">
 
-                                                @if($Data == 1)
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" disabled> <i class="fas fa-edit"></i> Review Added</button>
-                                                @else
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}"> <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
-                                                @endif
+                                                            @if ($Data == 1)
+                                                                <button href="javascript:void(0)"
+                                                                    class="btn btn-primary btn-custom-sm btn-theme-light w-50"
+                                                                    disabled> <i class="fas fa-edit"></i> Review
+                                                                    Added</button>
+                                                            @else
+                                                                <button href="javascript:void(0)"
+                                                                    class="btn btn-primary btn-custom-sm btn-theme-light w-50"
+                                                                    onclick="reviewModal('{{ $v->getCourses->id }}',$(this))"
+                                                                    data-course-name="{{ $v->getCourses->course_title }}">
+                                                                    <i
+                                                                        class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
+                                                            @endif
 
 
-                                                @if ($v->generate_certificate == 1)
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-black w-48" onclick="certificate('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" id="completed_courses"> <i class="fas fa-medal"></i>
-                                                    {{ __('translation.Certificate') }}</a>
-                                                @else
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-black w-48" onclick="checkCertificate($(this))" data-course-name="{{ $v->getCourses->course_title }}"> <i class="fas fa-medal"></i>
-                                                    {{ __('translation.Certificate') }}</a>
-                                                @endif
+                                                            @if ($v->generate_certificate == 1)
+                                                                <a href="javascript:void(0)"
+                                                                    class="btn btn-primary btn-custom-sm btn-theme-black w-48"
+                                                                    onclick="certificate('{{ $v->getCourses->id }}',$(this))"
+                                                                    data-course-name="{{ $v->getCourses->course_title }}"
+                                                                    id="completed_courses"> <i class="fas fa-medal"></i>
+                                                                    {{ __('translation.Certificate') }}</a>
+                                                            @else
+                                                                <a href="javascript:void(0)"
+                                                                    class="btn btn-primary btn-custom-sm btn-theme-black w-48"
+                                                                    onclick="checkCertificate($(this))"
+                                                                    data-course-name="{{ $v->getCourses->course_title }}">
+                                                                    <i class="fas fa-medal"></i>
+                                                                    {{ __('translation.Certificate') }}</a>
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         @endforeach
                                     @else
@@ -233,7 +257,7 @@
             </div>
         </div>
     </div>
-    
+
 @endsection
 
 
@@ -274,62 +298,65 @@
                             <div class="col-lg-2">
                                 <label for="course_name mb-0">{{ __('translation.Course Name') }}</label>
                             </div>
-                        <div class="col-lg-10">
-                            <input type="text" name="course_name" readonly id="course_name" placeholder="Enter Course Name" value="" class="form-control">
-                        </div>
-                        <div class="row align-items-center mb-3">
-                            <div class="col-lg-2">
-                                <label for="writer mb-0">{{ __('translation.Writer') }}</label>
-                            </div>
                             <div class="col-lg-10">
-                                <input type="text" name="writer" id="writer" placeholder="Enter Writer Name"
-                                    value="{{ auth()->user()->name }}" class="form-control">
+                                <input type="text" name="course_name" readonly id="course_name"
+                                    placeholder="Enter Course Name" value="" class="form-control">
                             </div>
-                        </div>
-                        <div class="row align-items-center mb-3">
-                            <div class="col-lg-2">
-                                <label for="title mb-0">{{ __('translation.Title') }}</label>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-lg-2">
+                                    <label for="writer mb-0">{{ __('translation.Writer') }}</label>
+                                </div>
+                                <div class="col-lg-10">
+                                    <input type="text" name="writer" id="writer" placeholder="Enter Writer Name"
+                                        value="{{ auth()->user()->name }}" class="form-control">
+                                </div>
                             </div>
+                            <div class="row align-items-center mb-3">
+                                <div class="col-lg-2">
+                                    <label for="title mb-0">{{ __('translation.Title') }}</label>
+                                </div>
 
-                        <div class="col-lg-10">
-                            <input type="text" name="writer" readonly id="writer" placeholder="Enter Writer Name" value="{{ auth()->user()->name }}" class="form-control">
-                        </div>
-                        <div class="row align-items-center mb-3">
-                            <div class="col-lg-2">
-                                <label for="contents mb-0">{{ __('translation.Contents') }}</label>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text" name="contents" placeholder="Write a review in here"
-                                    class="form-control" value="{{ old('content') }}">
-                                <div class="error-content"></div>
-                            </div>
-                        </div>
+                                <div class="col-lg-10">
+                                    <input type="text" name="writer" readonly id="writer"
+                                        placeholder="Enter Writer Name" value="{{ auth()->user()->name }}"
+                                        class="form-control">
+                                </div>
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-lg-2">
+                                        <label for="contents mb-0">{{ __('translation.Contents') }}</label>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="contents" placeholder="Write a review in here"
+                                            class="form-control" value="{{ old('content') }}">
+                                        <div class="error-content"></div>
+                                    </div>
+                                </div>
 
-                        <div class="row align-items-center mb-3">
-                            <div class="col-lg-2">
-                                <label for="contents mb-0">{{ __('translation.Video') }}</label>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="file" name="video" class="form-control">
-                                <div class="error-video"></div>
-                            </div>
-                        </div>
-                        <div class="row align-items-center mb-3">
-                            <div class="col-lg-2">
-                                <label for="contents mb-0">{{ __('translation.Video URL') }}</label>
-                            </div>
-                            <div class="col-lg-10">
-                                <input type="text" name="video_url" placeholder="Enter Video URL"
-                                    class="form-control">
-                                <div class="error-video-url"></div>
-                            </div>
-                        </div>
-                        <div class="my-3 d-flex align-items-center justify-content-center">
-                            <button type="submit" id="submitForm"
-                                class="btn btn-primary mr-2 rounded-0 btn-theme-black">{{ __('translation.Register') }}</button>
-                            <button type="button" class="btn btn-secondary rounded-0"
-                                data-dismiss="modal">{{ __('translation.Close') }}</button>
-                        </div>
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-lg-2">
+                                        <label for="contents mb-0">{{ __('translation.Video') }}</label>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <input type="file" name="video" class="form-control">
+                                        <div class="error-video"></div>
+                                    </div>
+                                </div>
+                                <div class="row align-items-center mb-3">
+                                    <div class="col-lg-2">
+                                        <label for="contents mb-0">{{ __('translation.Video URL') }}</label>
+                                    </div>
+                                    <div class="col-lg-10">
+                                        <input type="text" name="video_url" placeholder="Enter Video URL"
+                                            class="form-control">
+                                        <div class="error-video-url"></div>
+                                    </div>
+                                </div>
+                                <div class="my-3 d-flex align-items-center justify-content-center">
+                                    <button type="submit" id="submitForm"
+                                        class="btn btn-primary mr-2 rounded-0 btn-theme-black">{{ __('translation.Register') }}</button>
+                                    <button type="button" class="btn btn-secondary rounded-0"
+                                        data-dismiss="modal">{{ __('translation.Close') }}</button>
+                                </div>
                     </form>
                 </div>
             </div>
