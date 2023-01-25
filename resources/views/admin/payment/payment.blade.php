@@ -76,6 +76,15 @@
         width: 62px;
         line-height: 15px
     }
+
+    .status-badge-warning {
+        background: #F7F4CE;
+        border-radius: 2px;
+        color: #DFB200;
+        height: 19px;
+        width: 62px;
+        line-height: 15px;
+    }
 </style>
 @endsection
 
@@ -83,12 +92,21 @@
 
 <div class="card">
     <div class="card-body">
+
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Payment Management') }} (100)</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Payment Management') }} ({{ $order->count() }})</h4>
                 </div>
                 <hr class="hr-color" />
+            </div>
+            <div>
+                @if (Session::has('msg'))
+                <p class="alert alert-info" id="responseMessage">{{ Session::get('msg') }}</p>
+                @endif
+                @if (Session::has('error'))
+                <p class="alert alert-danger" id="responseMessage">{{ Session::get('error') }}</p>
+                @endif
             </div>
             <div class="col-lg-12 table-responsive">
                 <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
@@ -104,147 +122,174 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @if ($order->count() > 0)
+                        @foreach ($order as $item)
                         <tr>
-                            <td>1</td>
+                            <td>{{ $order->firstitem() + $loop->index }}</td>
                             <td>
-                                <span class="course_name">2022 - 10 - 13</span>
+                                <span class="course_name">{{\Carbon\Carbon::parse($item->created_at)->format('m/d/Y')}}</span>
                             </td>
-                            <td><span class="course_name">홍길동</span></td>
+                            <td><span class="course_name">{{ $item->getUser->english_name }}</span></td>
                             <td>
-                                <span class="course_name">보행 A에서 Z까지</span>
+                                @foreach (json_decode($item->order_items) as $order_item)
+                                <span class="course_name">{{ $order_item->course_name }}</span>
                                 <br />
-                                <span class="tutor_name">조규행</span>
+                                @endforeach
+
                             </td>
                             <td><span class="course_name">300,000 원</span></td>
-                            <td><span class="badge status-badge ">Success</span></td>
-
+                            @if ($item->status == 1)
+                            <td><span class="badge status-badge ">{{__('translation.success')}}</span></td>
+                            @else
+                            <td><span class="badge status-badge-warning">{{__('translation.In Process')}}</span></td>
+                            @endif
                             <td>
                                 <div class="d-flex gap-1">
+                                    <a onclick="change_Status('{{ $item->id }}')" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></a>
+                                    <a onclick="delete_record('{{ $item->id }}')" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
                                     <a href="{{ route('view_payment')}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
                                 </div>
                             </td>
                         </tr>
 
+                        @endforeach
+                        @else
                         <tr>
-                            <td>2</td>
-                            <td>
-                                <span class="course_name">2022 - 10 - 13</span>
-                            </td>
-                            <td><span class="course_name">홍길동</span></td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span>
-                                <br />
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td><span class="badge status-badge ">Success</span></td>
-
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('view_payment')}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                </div>
+                            <td colspan="7" class="text-center">
+                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                         </tr>
-
-                        <tr>
-                            <td>3</td>
-                            <td>
-                                <span class="course_name">2022 - 10 - 13</span>
-                            </td>
-                            <td><span class="course_name">홍길동</span></td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span>
-                                <br />
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td><span class="badge status-badge ">Success</span></td>
-
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('view_payment')}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>4</td>
-                            <td>
-                                <span class="course_name">2022 - 10 - 13</span>
-                            </td>
-                            <td><span class="course_name">홍길동</span></td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span>
-                                <br />
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td><span class="badge status-badge ">Success</span></td>
-
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('view_payment')}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>5</td>
-                            <td>
-                                <span class="course_name">2022 - 10 - 13</span>
-                            </td>
-                            <td><span class="course_name">홍길동</span></td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span>
-                                <br />
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td><span class="badge status-badge ">Success</span></td>
-
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('view_payment')}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>6</td>
-                            <td>
-                                <span class="course_name">2022 - 10 - 13</span>
-                            </td>
-                            <td><span class="course_name">홍길동</span></td>
-                            <td>
-                                <span class="course_name">보행 A에서 Z까지</span>
-                                <br />
-                                <span class="tutor_name">조규행</span>
-                            </td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            <td><span class="badge status-badge ">Success</span></td>
-                            <td>
-                                <div class="d-flex gap-1">
-                                    <a href="{{ route('view_payment')}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
-
+                        @endif
                     </tbody>
                 </table>
-
-                <div class="paginate mt-4 mb-3">
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-left"></i></a>
-
-                    <a href="javascript:void(0)" class="active">1</a>
-                    <a href="javascript:void(0)">2</a>
-                    <a href="javascript:void(0)">3</a>
-                    <a href="javascript:void(0)" class="page_navigate_btn"><i class="bi bi-chevron-right"></i></a>
-                </div>
-
+                {{ $order->links('vendor.pagination.custom-pagination-admin') }}
             </div>
         </div>
     </div>
 </div>
 
+@endsection
+
+@section('modals')
+<!-- Delete Record -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{__('translation.Confirm Delete')}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="{{ route('update-order-status')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <p>{{ __('translation.Are you sure to delete ?') }}</p>
+                        <input id="del_id" type="hidden" name="id">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('translation.Save') }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Change Payment Status -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="changeStatus" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{__('translation.Change Status')}}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="changeOrderStatus">
+                    <div class="prompt"></div>
+                    @csrf
+                    <div class="modal-body">
+                        <input id="order_id" type="hidden" name="id">
+                        <label>{{__('translation.Select Status')}}</label>
+                        <select class="form-control" name="orderStatus" id="orderStatus">
+                            <option value="">{{__('translation.Select Option')}}</option>
+                            <option value="0">{{__('translation.In Process')}}</option>
+                            <option value="1">{{__('translation.Completed')}}</option>
+                        </select>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close') }}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('translation.Save') }}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection
+
+
+
+@section('custom-script')
+<script>
+    var delModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+    var changeStatus = new bootstrap.Modal(document.getElementById("changeStatus"), {});
+
+    function change_Status(id) {
+        $('#order_id').val(id);
+        changeStatus.show();
+    }
+
+    function delete_record(id) {
+        $('#del_id').val(id);
+        delModal.show();
+    }
+
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
+
+
+    $('#changeOrderStatus').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "{{ route('update-order-status')}}",
+            dataType: 'json',
+            data: {
+                id: $('#order_id').val(),
+                status: $('#orderStatus').val(),
+                _token: '{{csrf_token()}}'
+            },
+            beforeSend: function() {
+
+            },
+            success: function(res) {
+                if (res.success == true) {
+                    $('.prompt').show()
+                    $('.prompt').html('<div class="alert alert-success">' + res.message + '</div>');
+                    setTimeout(function() {
+                        $('.prompt').hide()
+                    }, 1500);
+                    window.location.reload();
+                } else {
+                    $('.prompt').show()
+                    $('.prompt').html('<div class="alert alert-danger">' + res.message + '</div>');
+                    setTimeout(function() {
+                        $('.prompt').hide()
+                    }, 1500);
+                    window.location.reload();
+                }
+            },
+            error: function(e) {}
+        });
+    });
+</script>
 @endsection

@@ -64,7 +64,8 @@ class LectureController extends Controller
         $video_info =  $video_handler->getVideoInfo($course_info->video_url);
         $embedded_video_url = $video_info->html;
         $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
-        return view('user.online-course-detail', compact('reservation', 'course_info', 'embedded_video_url'));
+        $reviews = Review::where('course_id', $id)->get();
+        return view('user.online-course-detail', compact('reservation', 'course_info', 'embedded_video_url', 'reviews'));
     }
 
     public function lecture_video()
@@ -98,7 +99,7 @@ class LectureController extends Controller
             ]);
             if ($course_tracking) {
                 return 'Enrolled Successfully';
-            }   
+            }
         }
     }
 

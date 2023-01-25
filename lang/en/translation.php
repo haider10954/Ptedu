@@ -353,4 +353,12 @@ return [
     'please login to submit application' => 'please login to submit application',
     'Already Enrolled' => 'Already Enrolled',
     'Limit Reached' => 'Limit Reached'
+    'success' => 'Success',
+    'In Process' => 'In Process',
+    'Order has been deleted Successfully' => 'Order has been deleted successfully',
+    'Something went wrong Please try again' => 'Something went wrong Please try again',
+    'Change Status' => 'Change Status',
+    'Completed' =>  'Completed',
+    'Select Status' => 'Select Status',
+    'Order Status has been updated successfully' => 'Order has been updated successfully',
 ];
