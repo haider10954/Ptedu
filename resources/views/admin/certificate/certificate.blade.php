@@ -105,7 +105,7 @@
             </div>
             <div class="col-12" id="certificate">
                 <input type="hidden" name="id" value="{{ $download->id }}">
-                <div class="position-relative w-75 m-auto">
+                <div class="position-relative m-auto" style="width: 60%;">
                     <img src="{{ asset('assets/images/icons/frame.png')}}" class="w-100">
                     <div class="position-absolute text-center w-100" style="padding: 10px 100px 10px 100px; top:50px;">
                         <div class="w-25 mx-auto">
