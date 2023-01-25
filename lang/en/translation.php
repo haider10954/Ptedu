@@ -352,7 +352,7 @@ return [
     'Reached maximum limit of enrollments' => 'Reached maximum limit of enrollments',
     'please login to submit application' => 'please login to submit application',
     'Already Enrolled' => 'Already Enrolled',
-    'Limit Reached' => 'Limit Reached'
+    'Limit Reached' => 'Limit Reached',
     'success' => 'Success',
     'In Process' => 'In Process',
     'Order has been deleted Successfully' => 'Order has been deleted successfully',

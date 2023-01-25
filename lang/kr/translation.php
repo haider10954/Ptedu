@@ -353,7 +353,7 @@ return [
     'Reached maximum limit of enrollments' => '최대 등록 한도에 도달했습니다',
     'please login to submit application' => '신청서를 제출하려면 로그인하십시오',
     'Already Enrolled' => '이미 등록됨',
-    'Limit Reached' => '한도 도달'
+    'Limit Reached' => '한도 도달',
     'success' => '성공',
     'In Process' => '과정에서',
     'Order has been deleted Successfully' => '주문이 성공적으로 삭제되었습니다.',
