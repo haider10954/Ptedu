@@ -6,7 +6,8 @@
 <div class="section pt-150 lectures_section bg-grey">
     <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between">
-            <h5 class="mb-0">오프라인 특강</h5>
+            <h5 class="mb-0">{{ __('translation.Offline Courses') }}</h5>
+
             <div class="text-right">
                 <input type="text" class="form-control" placeholder="Search by Name" id="myInput">
             </div>

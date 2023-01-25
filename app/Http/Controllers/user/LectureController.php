@@ -98,7 +98,7 @@ class LectureController extends Controller
             ]);
             if ($course_tracking) {
                 return 'Enrolled Successfully';
-            }
+            }   
         }
     }
 

@@ -55,4 +55,12 @@ class Cart {
             return false;
         }
     }
+    public static function empty_cart(){
+        try {
+            session()->forget('shopping_cart');
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

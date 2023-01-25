@@ -94,9 +94,8 @@ Route::middleware('auth')->group(function () {
     // enroll course route
     Route::get('/enrol_course/{id}', [LectureController::class, 'enrol_course'])->name('enrol_course');
 
-    Route::get('/order', function () {
-        return view('user.order');
-    })->name('order');
+    Route::get('/order',[CartController::class,'order'])->name('order');
+    Route::post('/proceed_checkout',[CartController::class, 'proceed_checkout'])->name('proceed_checkout');
 
     Route::get('/user-information', function () {
         return view('user.user_info');

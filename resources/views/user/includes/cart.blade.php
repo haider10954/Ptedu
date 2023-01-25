@@ -14,6 +14,7 @@
             </tr>
         </thead>
         <tbody>
+            @if(count($cart) > 0)
             @foreach ($cart as $v)
             <tr>
                 <td> <input type="checkbox" class="checkbox select_delete" onclick="select_delete_action($(this))" value="{{ encrypt($v) }}" /> </td>
@@ -39,6 +40,13 @@
                 </td>
             </tr>
             @endforeach
+            @else
+            <tr>
+                <td colspan="5" class="text-center"> 
+                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 250px;"> 
+                </td> 
+            </tr>
+            @endif
         </tbody>
     </table>
 </div>
@@ -66,7 +74,7 @@
             <div class="col-md-3 h-110 border_right">
                 <div class="cart-total-price  text-center position-relative  ">
                     <h5 class="font-weight-700">{{ __('translation.Delivery Fee') }}</h5>
-                    <p class="price mb-0 text-danger">20원</p>
+                    <p class="price mb-0 text-danger">0원</p>
                     <div class="icons">
                         <i class="fa fa-equals"></i>
                     </div>
@@ -75,7 +83,7 @@
             <div class="col-md-3">
                 <div class="cart-total-price  text-center">
                     <h5 class="font-weight-700">{{ __('translation.Total estimated payment amount') }}</h5>
-                    <p class="total-price mb-0">{{ ($cart->sum('price') + 20) - $cart->sum('discount') }}원</p>
+                    <p class="total-price mb-0">{{ ($cart->sum('price')) - $cart->sum('discount') }}원</p>
                 </div>
             </div>
         </div>
@@ -109,7 +117,7 @@
                 <div class="position">
                     <div class="p-5 text-center" style="border-bottom: 1px black solid;">
                         <h5 class="font-weight-700">{{ __('translation.Delivery Fee') }}</h5>
-                        <p class="price mb-0">20원</p>
+                        <p class="price mb-0">0원</p>
                     </div>
                     <div class="mobi-icons">
                         <i class="fa fa-plus"></i>
@@ -120,7 +128,7 @@
                 <div class="position">
                     <div class="p-5 text-center" style="border-bottom: 1px black solid;">
                         <h5 class="font-weight-700">{{ __('translation.Total estimated payment amount') }}</h5>
-                        <p class="price mb-0">{{ ($cart->sum('price') + 20) - $cart->sum('discount') }}원</p>
+                        <p class="price mb-0">{{ ($cart->sum('price')) - $cart->sum('discount') }}원</p>
                     </div>
                 </div>
             </div>
