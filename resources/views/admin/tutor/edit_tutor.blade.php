@@ -194,7 +194,7 @@
                                 </div>
                                 <button type="button" class="btn btn-upload ms-2" onclick="tutorImg('#tutor_img')">upload</button>
                             </div>
-                            @error('description')
+                            @error('image')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
                         </div>

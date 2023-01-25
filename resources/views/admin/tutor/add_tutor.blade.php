@@ -135,7 +135,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Phone Number') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="phone_number" placeholder="{{ __('translation.Enter Mobile Number') }}" value="{{ old('phone_number') }}">
+                            <input type="number" class="form-control" name="phone_number" placeholder="{{ __('translation.Enter Mobile Number') }}" value="{{ old('phone_number') }}">
                             @error('phone_number')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror

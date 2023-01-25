@@ -9,8 +9,8 @@
                 </div>
                 <div class="footer-right-content text-right">
                     <ul class="social-icons">
-                        <li><a href="javascript:void(0)"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="javascript:void(0)"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.facebook.com/PTEdu2016"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/ptedu.official/?igshid=MDM4ZDc5MmU%3D"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                 </div>
             </div>
