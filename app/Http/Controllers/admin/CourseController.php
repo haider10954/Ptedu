@@ -18,7 +18,7 @@ class CourseController extends Controller
 {
     public function course_listing()
     {
-        $course = Course::with('getCourseStatus')->paginate(10);
+        $course = Course::with('getCourseStatus')->orderBy('id', 'DESC')->paginate(10);
         return view('admin.courses.course', compact('course'));
     }
 
