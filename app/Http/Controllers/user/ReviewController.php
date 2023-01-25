@@ -65,9 +65,8 @@ class ReviewController extends Controller
 
     function upload_files($file)
     {
-        if(!file_exists(storage_path('app/public/review/video')))
-        {
-            mkdir(storage_path('app/public/review/video'),0755,true);
+        if (!file_exists(storage_path('app/public/review/video'))) {
+            mkdir(storage_path('app/public/review/video'), 0755, true);
         }
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/review/video', $fileName);
@@ -82,6 +81,7 @@ class ReviewController extends Controller
             'title' => 'required',
             'contents' => 'required',
             'video' => 'mimes:mp4',
+            'video_url' => 'required'
         ]);
 
         if ($request->hasFile('video')) {
