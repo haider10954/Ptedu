@@ -201,7 +201,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">{{ __('translation.Phone Number') }}</label>
-                                <input class="form-control" type="text" placeholder="{{ __('translation.Enter Phone Number') }}" name="phone_number" value="{{ auth('admin')->user()->phone_number }}">
+                                <input class="form-control" type="number" placeholder="{{ __('translation.Enter Phone Number') }}" name="phone_number" value="{{ auth('admin')->user()->phone_number }}">
                                 @error('phone_number')
                                 <small style="color:#d02525;">{{$message}}</small>
                                 @enderror
