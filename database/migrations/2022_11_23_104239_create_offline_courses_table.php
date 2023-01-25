@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('offline_courses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('tutor_id')->constrained('tutors');
-            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('tutor_id')->constrained('tutors')->cascadeOnDelete();
+            $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('course_title');
             $table->longText('short_description');
             $table->longText('description');

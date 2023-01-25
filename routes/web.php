@@ -163,7 +163,7 @@ Route::get('/admin-logout', [AuthController::class, 'logout'])->name('admin_auth
 Route::middleware('guest:admin')->group(function () {
     Route::post('admin-login', [AuthController::class, 'login'])->name('admin_auth_login');
 
-    Route::get('/admin/login', function () {
+    Route::get('/admin', function () {
         return view('admin.login.login');
     })->name('admin_login');
 });

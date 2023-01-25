@@ -138,7 +138,7 @@
                         @if ($course->count() > 0)
                         @foreach ($course as $c)
                         <tr>
-                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $course->lastItem()-$loop->index }}</td>
                             <td>
                                 <span class="course_name">{{ $c->course_title }}</span> <br />
                                 <span class="tutor_name"> {{ $c->getTutorName->name }}</span>

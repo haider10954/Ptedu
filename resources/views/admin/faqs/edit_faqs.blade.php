@@ -118,7 +118,7 @@
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Category') }}</label>
                         <div class="col-sm-10">
                             <select type="text" class="form-control" name="category">
-                                <option>Select Category</option>
+                                <option value="">Select Category</option>
                                 @foreach ($category as $cat)
                                 <option value="{{ $cat->id }}" {{ $faq->category_id == $cat->id ? 'selected' : ' ' }}>{{ $cat->name }}</option>
                                 @endforeach
@@ -132,7 +132,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Answers') }}</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="testing" placeholder="Enter content" name="answer">{{ $faq->content}}</textarea>
+                            <textarea class="form-control" id="testing" rows="5" placeholder="Enter content" name="answer">{{ $faq->content}}</textarea>
                             @error('content')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror

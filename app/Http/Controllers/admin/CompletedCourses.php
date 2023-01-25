@@ -44,7 +44,7 @@ class CompletedCourses extends Controller
             'issue_date' => $request->issue_date
         ]);
         if ($generate_certificate) {
-            return redirect()->route('generate_certificate', [$generate_certificate->id , $generate_certificate->course_id]);
+            return redirect()->route('generate_certificate', [$generate_certificate->id, $generate_certificate->course_id]);
         } else {
             return redirect()->back()->with('error', 'Somerthing went wrong.');
         }
@@ -74,12 +74,12 @@ class CompletedCourses extends Controller
                 'generate_certificate' => 1,
             ]);
             return json_encode([
-                'successs' => true,
+                'success' => true,
                 'message' => 'Certificate has been generated successfully.'
             ]);
         } catch (\Exception $th) {
             return json_encode([
-                'successs' => false,
+                'success' => false,
                 'message' => $th->getMessage()
             ]);
         }

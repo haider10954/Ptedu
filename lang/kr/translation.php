@@ -65,7 +65,7 @@ return [
     'Answers' => '답변',
     'Go to List' => '목록으로',
     'menu' => '메뉴',
-    'No' => 'No', //Please use in English. Do not translate it.
+    'No' => 'No.', //Please use in English. Do not translate it.
     'Writer' => '작성자',
     'Registration date' => '등록일',
     'Progress' => '진행상태',

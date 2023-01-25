@@ -125,7 +125,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Phone Number') }}</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="horizontal-email-input" name="phone_number" value="{{ $student->mobile_number }}">
+                            <input type="number" class="form-control" id="horizontal-email-input" name="phone_number" value="{{ $student->mobile_number }}">
                         </div>
                     </div>
                     <div class="row mb-4">
@@ -138,26 +138,32 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Address') }}</label>
                         <div class="col-sm-10">
-
                             <textarea rows="3" type="text" class="form-control" name="address" style="resize: none;">{{ str_replace('|' ,',', $student->address) }}</textarea>
                         </div>
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Affiliation') }}</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="affiliation"></input>
-                        </div>
-                    </div>
-
-
-                    <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">
-                            <button type="submit" id="submitForm" class="btn btn-lg btn-register">{{ __('translation.Ok') }}</button>
+                            <button type="submadd-courseit" id="submitForm" class="btn btn-lg btn-register">{{ __('translation.Ok') }}</button>
                         </div>
                     </div>
-
                 </form>
+                <div class="row mb-4">
+                    <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Affiliation') }}</label>
+                    <div class="col-sm-10">
+                        @if($enrolled_courses->count() > 0)
+                        <div>
+                            <div class="custom-badges gap-2">
+                                @foreach ($enrolled_courses as $c)
+                                <span class="bagde bg-success text-white rounded p-1">{{ $c->getCourses->course_title }}</span>
+                                @endforeach
+                            </div>
+                            @else
+                            <div class="text-right">{{ __('translation.NO Record Found') }}</div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

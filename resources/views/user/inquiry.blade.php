@@ -50,9 +50,9 @@
                                     <td>{{ $inq->getStudentName->name }}</td>
                                     <td>{{ Carbon\Carbon::parse($inq->created_at)->format('d M, Y')}}</td>
                                     @if($inq->answer == null)
-                                    <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered',$inq->id) }}">답변준비중</a></td>
+                                    <td><a class="btn btn-sm btn-theme-delete rounded-0" href="{{ route('inquiry_not_answered',$inq->id) }}">답변준비중 </a></td>
                                     @else
-                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered',$inq->id) }}">답변준비중</a></td>
+                                    <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered',$inq->id) }}">답변완료</a></td>
                                     @endif
                                 </tr>
                                 @php

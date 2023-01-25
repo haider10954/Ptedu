@@ -10,6 +10,7 @@ use App\Models\Offline_enrollment;
 use App\Models\Reservation;
 use App\Models\Online_enrollment;
 use App\Models\Course_tracking;
+use App\Models\Review;
 use App\Service\VideoHandler;
 
 class LectureController extends Controller
@@ -37,24 +38,27 @@ class LectureController extends Controller
         return view('user.offline-lecture-detail', compact('reservation', 'course_info', 'embedded_video_url', 'offline_enrollment_count', 'enrolled_user'));
     }
 
-    public function my_classroom()
+    public function my_classroom(Request $request)
     {
+
         $categories = [];
-        $courses = Course_tracking::where('user_id',auth()->id())->with('getCourses')->get();
-        $completed_courses = $courses->where('status',1);
-        $courses_enrolled = $courses->where('status',0);
+        $courses = Course_tracking::where('user_id', auth()->id())->with('getCourses')->get();
+        $completed_courses = $courses->where('status', 1);
+        $courses_enrolled = $courses->where('status', 0);
         foreach ($courses as $v) {
-            if(!in_array($v->getCourses->category_id,$categories)){
-                array_push($categories,$v->getCourses->category_id);
+            if (!in_array($v->getCourses->category_id, $categories)) {
+                array_push($categories, $v->getCourses->category_id);
             }
         }
-        $related_courses = Course::with(['getCategoryName','getTutorName','getCourseStatus'])->whereIn('category_id',$categories)->get();
-        return view('user.my-classroom', compact('courses_enrolled','completed_courses','related_courses'));
+        $related_courses = Course::with(['getCategoryName', 'getTutorName', 'getCourseStatus'])->whereIn('category_id', $categories)->get();
+        $reviews =  Review::where('user_id', auth()->id())->where('course_id', $request->course_id)->count();
+        // dd($request->course_id);
+        return view('user.my-classroom', compact('courses_enrolled', 'completed_courses', 'related_courses', 'reviews'));
     }
 
     public function online_course_detail($id)
     {
-        $course_info = Course::with(['getTutorName','getCategoryName'])->where('id', $id)->first();
+        $course_info = Course::with(['getTutorName', 'getCategoryName'])->where('id', $id)->first();
         // dd($course_info);
         $video_handler = new VideoHandler();
         $video_info =  $video_handler->getVideoInfo($course_info->video_url);

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Online_enrollment;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class StudentController extends Controller
 {
     public function student_admin_listing()
     {
-        $student = User::paginate(10);
+        $student = User::with(['getOfflineEnrolments', 'getOnlineEnrolments'])->paginate(10);
         return view('admin.student.student_list', compact('student'));
     }
 
@@ -27,7 +28,8 @@ class StudentController extends Controller
     public function edit_student($id)
     {
         $student =  User::where('id', $id)->first();
-        return view('admin.student.student_info', compact('student'));
+        $enrolled_courses = Online_enrollment::where('user_id', $student->id)->with('getCourses')->get();
+        return view('admin.student.student_info', compact('student', 'enrolled_courses'));
     }
 
     public function edit_student_info(Request $request)
@@ -35,7 +37,7 @@ class StudentController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'en_name' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'phone_number' => 'required',
             'job' => 'required',
             'address' => 'required',

@@ -64,7 +64,7 @@ return [
     'Answers' => 'Answers',
     'Go to List' => 'Go to List',
     'menu' => 'menu',
-    'No' => 'No',
+    'No' => 'No.',
     'Writer' => 'Writer',
     'Registration date' => 'Registration date',
     'Progress' => 'Progress',

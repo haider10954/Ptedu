@@ -14,7 +14,7 @@ class AuthController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ]);
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->route('course');
@@ -38,7 +38,7 @@ class AuthController extends Controller
     {
         $this->validate($request, [
             'old_password' => 'required',
-            'new_password' => 'required',
+            'new_password' => 'required|min:6',
             'confirm_password' => 'required|same:new_password',
         ]);
         if ((Hash::check($request->old_password, auth('admin')->user()->password))) {
@@ -58,9 +58,9 @@ class AuthController extends Controller
         if (empty($file)) {
             return $oldName;
         }
-        if(!file_exists(storage_path('app/public/admin/profile')))
-        {
-            mkdir(storage_path('app/public/admin/profile'),0755,true);
+
+        if (!file_exists(storage_path('app/public/admin/profile'))) {
+            mkdir(storage_path('app/public/admin/profile'), 0755, true);
         }
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/admin/profile', $fileName);

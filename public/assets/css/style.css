@@ -112,10 +112,16 @@
     border-radius: 50%;
 }
 
-.section-box-content .section-lectures .section-lecture-record .duration a i{
+.section-box-content .section-lectures .section-lecture-record .duration a i {
     font-size: 10px;
-    color: #ffffff; 
+    color: #ffffff;
 }
+
 ::-ms-reveal {
     display: none;
+}
+
+.custom-badges {
+    display: flex;
+    flex-wrap: wrap;
 }

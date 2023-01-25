@@ -7,6 +7,7 @@
     <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between">
             <h5 class="mb-0">{{ __('translation.Offline Courses') }}</h5>
+
             <div class="text-right">
                 <input type="text" class="form-control" placeholder="Search by Name" id="myInput">
             </div>
