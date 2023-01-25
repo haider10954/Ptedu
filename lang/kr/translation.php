@@ -349,7 +349,15 @@ return [
     'We will promote your growth as an expert through close knowledge in the field' => '해당 분야에 대한 긴밀한 지식을 통해 전문가로의 성장을 도모하겠습니다.',
     'Student has been registered successfully' => '학생이 성공적으로 등록되었습니다',
     'The value is not duplicated' => '값은 중복되지 않습니다',
-    'Offline Courses' => '오프라인 과정'
+    'Offline Courses' => '오프라인 과정',
+    'success' => '성공',
+    'In Process' => '과정에서',
+    'Order has been deleted Successfully' => '주문이 성공적으로 삭제되었습니다.',
+    'Something went wrong Please try again' => '문제가 발생했습니다. 다시 시도하십시오',
+    'Change Status' => '상태 변경',
+    'Completed' => '완전한',
+    'Select Status' => '상태 선택',
+    'Order Status has been updated successfully' => '주문 상태가 성공적으로 업데이트되었습니다.'
 
 
 ];

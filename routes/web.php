@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\user\IndexController;
 use App\Http\Controllers\admin\CourseSectionController;
+use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\user\ReviewController;
 use App\Http\Controllers\user\CourseController as UserCourseController;
 use App\Http\Controllers\user\InquiryController;
@@ -35,7 +36,8 @@ use App\Models\Admin;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/get-video-thumbnail',[IndexController::class, 'get_video_thumbnail'])->name('get_video_thumbnail');
+
+Route::get('/get-video-thumbnail', [IndexController::class, 'get_video_thumbnail'])->name('get_video_thumbnail');
 
 //About US
 Route::get('/about_us', function () {
@@ -94,8 +96,8 @@ Route::middleware('auth')->group(function () {
     // enroll course route
     Route::get('/enrol_course/{id}', [LectureController::class, 'enrol_course'])->name('enrol_course');
 
-    Route::get('/order',[CartController::class,'order'])->name('order');
-    Route::post('/proceed_checkout',[CartController::class, 'proceed_checkout'])->name('proceed_checkout');
+    Route::get('/order', [CartController::class, 'order'])->name('order');
+    Route::post('/proceed_checkout', [CartController::class, 'proceed_checkout'])->name('proceed_checkout');
 
     Route::get('/user-information', function () {
         return view('user.user_info');
@@ -263,10 +265,12 @@ Route::prefix('admin')->group(function () {
         Route::post('/add-lectures', [CourseLectureController::class, 'add_course_lecture'])->name('add-course-lecture');
         Route::post('/delete-course-lecture', [CourseLectureController::class, 'delete_course_lecture'])->name('delete-course-lecture');
         //End Course Lecture
-        Route::get('/payment', function () {
-            return view('admin.payment.payment');
-        })->name('payment');
 
+
+        //Orders
+        Route::get('/payment', [OrderController::class, 'order_listing'])->name('payment');
+        Route::post('/delete-order', [OrderController::class, 'delete_order'])->name('delete-order');
+        Route::post('/update-order-status',[OrderController::class , 'update_order_status'])->name('update-order-status');
         Route::get('/payment/view_payment', function () {
             return view('admin.payment.view_payment');
         })->name('view_payment');
