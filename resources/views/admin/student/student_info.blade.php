@@ -154,7 +154,7 @@
                         <div class="text-right">
                             @if($enrolled_courses->count() > 0)
                             @foreach ($enrolled_courses as $c)
-                            <span class="bagde bg-success p-2 text-white me-2 rounded">{{ $c->getCourses->course_title }}</span>
+                            <span class="bagde bg-success p-2 text-white me-2 mb-2 rounded">{{ $c->getCourses->course_title }}</span>
                             @endforeach
                             @else
                             <div class="text-right">{{ __('translation.NO Record Found') }}</div>
