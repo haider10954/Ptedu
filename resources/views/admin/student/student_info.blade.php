@@ -151,10 +151,12 @@
                 <div class="row mb-4">
                     <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Affiliation') }}</label>
                     <div class="col-sm-10">
-                        <div class="text-right">
+                        <div class="row">
                             @if($enrolled_courses->count() > 0)
                             @foreach ($enrolled_courses as $c)
-                            <span class="bagde bg-success p-2 text-white me-2 mb-2 rounded">{{ $c->getCourses->course_title }}</span>
+                            <div class="col-lg-3">
+                                <span class="bagde bg-success p-2 text-white me-2 mb-2 rounded">{{ $c->getCourses->course_title }}</span>
+                            </div>
                             @endforeach
                             @else
                             <div class="text-right">{{ __('translation.NO Record Found') }}</div>
