@@ -119,7 +119,7 @@
                         <div class="custom-tab-content">
                             <h6 class="content-heading">{{ __('translation.Completed Lectures') }} ({{ $completed_courses->count() }})</h6>
                             <div class="row">
-
+                                @if($completed_courses->count() > 0)
                                 @foreach ($completed_courses as $v)
                                 <?php
                                 $Data = Illuminate\Support\Facades\DB::table('reviews')
