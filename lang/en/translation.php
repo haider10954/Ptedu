@@ -348,8 +348,15 @@ return [
     'We will promote your growth as an expert through close knowledge in the field' => 'We will promote your growth as an expert through close knowledge in the field',
     'Student has been registered successfully' => 'Student has been registered successfully',
     'The value is not duplicated' => 'The value is not duplicated',
-    "Offline Courses" => 'Offline Courses'
-
+    "Offline Courses" => 'Offline Courses',
+    'success' => 'Success',
+    'In Process' => 'In Process',
+    'Order has been deleted Successfully' => 'Order has been deleted successfully',
+    'Something went wrong Please try again' => 'Something went wrong Please try again',
+    'Change Status' => 'Change Status',
+    'Completed' =>  'Completed',
+    'Select Status' => 'Select Status',
+    'Order Status has been updated successfully' => 'Order has been updated successfully',
 
 
 
