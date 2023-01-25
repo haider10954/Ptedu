@@ -350,6 +350,10 @@ return [
     'Student has been registered successfully' => '학생이 성공적으로 등록되었습니다',
     'The value is not duplicated' => '값은 중복되지 않습니다',
     'Offline Courses' => '오프라인 과정',
+    'Reached maximum limit of enrollments' => '최대 등록 한도에 도달했습니다',
+    'please login to submit application' => '신청서를 제출하려면 로그인하십시오',
+    'Already Enrolled' => '이미 등록됨',
+    'Limit Reached' => '한도 도달'
     'success' => '성공',
     'In Process' => '과정에서',
     'Order has been deleted Successfully' => '주문이 성공적으로 삭제되었습니다.',
@@ -358,6 +362,4 @@ return [
     'Completed' => '완전한',
     'Select Status' => '상태 선택',
     'Order Status has been updated successfully' => '주문 상태가 성공적으로 업데이트되었습니다.'
-
-
 ];

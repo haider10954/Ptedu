@@ -349,6 +349,10 @@ return [
     'Student has been registered successfully' => 'Student has been registered successfully',
     'The value is not duplicated' => 'The value is not duplicated',
     "Offline Courses" => 'Offline Courses',
+    'Reached maximum limit of enrollments' => 'Reached maximum limit of enrollments',
+    'please login to submit application' => 'please login to submit application',
+    'Already Enrolled' => 'Already Enrolled',
+    'Limit Reached' => 'Limit Reached'
     'success' => 'Success',
     'In Process' => 'In Process',
     'Order has been deleted Successfully' => 'Order has been deleted successfully',
@@ -357,15 +361,4 @@ return [
     'Completed' =>  'Completed',
     'Select Status' => 'Select Status',
     'Order Status has been updated successfully' => 'Order has been updated successfully',
-
-
-
-
-
-
-
-
-
-
-
 ];
