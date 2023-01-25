@@ -341,7 +341,7 @@ class CourseController extends Controller
             'no_of_lectures' => 'required|min:0',
             'course_duration' => 'required',
             'price' => 'required|min:0',
-            'discounted_Price' => 'required|min:0',
+            'discounted_Price' => 'min:0',
             'category' => 'required',
             'video_url' => 'required',
             'course_img' => 'mimes:jpeg,png,jpg',
