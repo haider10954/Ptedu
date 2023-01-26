@@ -40,13 +40,21 @@ class ReviewController extends Controller
                     if (empty($review[$i]->video)) {
                         $video_handler = new VideoHandler();
                         $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
-                        $embedded_video = $video_url->html;
+                        if($video_url != false){
+                            $embedded_video = $video_url->html;
+                        }else{
+                            $embedded_video = false;
+                        }
                     }
 
                     if (!empty($review[$i]->video_url) && !empty($review[$i]->video)) {
                         $video_handler = new VideoHandler();
                         $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
-                        $embedded_video = $video_url->html;
+                        if($video_url != false){
+                            $embedded_video = $video_url->html;
+                        }else{
+                            $embedded_video = false;
+                        }
                     }
                 }
             }

@@ -29,7 +29,7 @@ class VideoHandler {
 		$obj = json_decode( $json_string );
 
 		if ($obj == null || !$obj) {
-			return null;
+			return false;
 		}
 		return $obj;
 	}

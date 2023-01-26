@@ -499,9 +499,9 @@
                     $(".error-message").hide();
                 },
                 success: function(res) {
-                    $("#submitForm").attr('class', 'btn btn-success');
-                    $("#submitForm").html('<i class="fa fa-check me-1"></i>  Course Uploaded</>');
-                    if (res.success) {
+                    if (res.success == true) {
+                        $("#submitForm").attr('class', 'btn btn-success');
+                        $("#submitForm").html('<i class="fa fa-check me-1"></i>  Course Uploaded</>');
                         $('#course_id').val(res.course_id);
                         setTimeout(function() {
                             $('html, body').animate({
@@ -514,7 +514,14 @@
                             $('.section-tab').addClass('active');
                             $('#sections').addClass('active');
                         }, 3500);
-                    } else {}
+                    } else {
+                        $("#submitForm").prop('disabled', false);
+                        $("#submitForm").html('Register');
+                        $('html, body').animate({
+                            scrollTop: $("html, body").offset().top
+                        }, 2000);
+                        $('.prompt').html(`<div class="alert alert-danger mb-2">${res.message}</div>`);
+                    }
                 },
                 error: function(e) {
                     $("#submitForm").prop('disabled', false);

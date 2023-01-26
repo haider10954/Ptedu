@@ -88,6 +88,7 @@ class CourseController extends Controller
             'course_img' => 'required|mimes:jpeg,png,jpg',
             'banner_img' => 'required|mimes:jpeg,png,jpg',
         ]);
+
         $course_thumbnail = $this->upload_files($request['course_img']);
         $course_banner = $this->upload_files_banner($request['banner_img']);
         $course = Course::create([

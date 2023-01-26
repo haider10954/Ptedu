@@ -623,3 +623,14 @@
     opacity: 1;
     transition: all 0.5s;
 }
+.video_review_container{
+    background-color: #000000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+}
+.video_review_container h5{
+    color: #ffffff;
+}

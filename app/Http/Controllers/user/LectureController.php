@@ -31,7 +31,11 @@ class LectureController extends Controller
         $course_info = Offline_course::with('getTutorName')->where('id', $id)->first();
         $video_handler = new VideoHandler();
         $video_info =  $video_handler->getVideoInfo($course_info->video_url);
-        $embedded_video_url = $video_info->html;
+        if($video_info != false){
+            $embedded_video_url = $video_info->html;
+        }else{
+            $embedded_video_url = false;
+        }
         $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
         $offline_enrollment_count = Offline_enrollment::where('course_id', $id)->count();
         $enrolled_user = Offline_enrollment::where('course_id', $id)->where('user_id', auth()->id())->count();
@@ -62,7 +66,11 @@ class LectureController extends Controller
         // dd($course_info);
         $video_handler = new VideoHandler();
         $video_info =  $video_handler->getVideoInfo($course_info->video_url);
-        $embedded_video_url = $video_info->html;
+        if($video_info != false){
+            $embedded_video_url = $video_info->html;
+        }else{
+            $embedded_video_url = false;
+        }
         $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
         return view('user.online-course-detail', compact('reservation', 'course_info', 'embedded_video_url'));
     }

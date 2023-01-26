@@ -6,7 +6,11 @@
 <div class="section lecture_banner_section">
     <div class="lecture_banner_img" style="background-image: url({{ asset('storage/course/banner/' . $course_info->course_banner) }})"></div>
     <div class="banner_text">
-        {!! $embedded_video_url !!}
+        @if($embedded_video_url != false)
+            {!! $embedded_video_url !!}
+        @else
+            <h5> <i class="fa fa-exclamation-circle mx-1"></i> Video Not Found</h5>
+        @endif
     </div>
 </div>
 
