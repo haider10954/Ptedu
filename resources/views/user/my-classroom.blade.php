@@ -354,31 +354,31 @@
                 <div class="row align-items-center justify-content-center mb-3">
                     <div class="col-lg-12" id="download_certificate">
                         <div class="position-relative w-75 m-auto" style="background-color: #fff8f0;">
-                            <img src="{{ asset('assets/images/icons/frame.png') }}" class="w-100">
+                            <img src="{{ asset('assets/images/icons/frame.png') }}" class="w-100" style="height: 480px;">
                             <div class="position-absolute text-center w-100" style="padding: 10px 80px 10px 80px; top:15px;">
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_header.png') }}" class="w-100">
                                 </div>
                                 <div class="w-50 mx-auto">
-                                    <div class="divider mt-1"></div>
+                                    <div class="divider mt-1 mb-1"></div>
                                 </div>
                                 <div class="certificate_header">Certificate</div>
-                                <div class="certificate_sub_title">{{ __('of completion') }}</div>
+                                <div class="certificate_sub_title">OF COMPLETION</div>
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}" class="w-100">
                                 </div>
                                 <div class="w-50 mx-auto">
-                                    <div class="divider mt-1"></div>
+                                    <div class="divider mt-1 mb-1"></div>
                                 </div>
-                                <div class="certificate_name">
-                                    {{ auth()->user()->name }}
+                                <div class="certificate_name mb-3">
+                                    {{ auth()->user()->english_name }}
                                 </div>
-                                <div class="certificate_description mb-1">
+                                <div class="certificate_description mb-3">
                                     Is hereby cetified as an <span class="font-weight-bold"><span id="c_name"></span> – <br /> <span id="t_name"></span></span> with Full Certification for the half-year period <br />
                                     starting on
                                     <span id="certificate_start_date"></span> and ending on <span id="certificate_end_date"></span>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center mr-5">
+                                <div class="d-flex justify-content-between align-items-center mr-5 mb-3">
                                     <div>
                                         <img src="{{ asset('assets/images/icons/certificate_logo.png') }}" class="certificate_logo">
                                         <img src="{{ asset('assets/images/index.png') }}" class="footer_logo" />
