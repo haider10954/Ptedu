@@ -9,7 +9,7 @@
         @if($embedded_video_url != false)
             {!! $embedded_video_url !!}
         @else
-            <h5> <i class="fa fa-exclamation-circle mx-1"></i> Video Not Found</h5>
+            <h5> <i class="fa fa-exclamation-circle mx-1"></i> {{ __('translation.Video Not Found') }}</h5>
         @endif
     </div>
 </div>

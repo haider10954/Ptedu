@@ -364,6 +364,7 @@ return [
     'Review Added' => 'Review Added',
     'Offline Course has been added successfully' => 'Offline Course has been added successfully',
     'Offline Course has been deleted Successfully' => 'Offline Course has been deleted successfully',
-    'Offline course has been updated successfully' => 'Offline course has been updated successfully'
+    'Offline course has been updated successfully' => 'Offline course has been updated successfully',
+    'Video Not Found' => 'Video Not Found'
 
 ];
