@@ -118,7 +118,11 @@
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Certificate Number')}}</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="horizontal-firstname-input" name="certificate_number" placeholder="{{ __('translation.Enter Certificate Number') }}" value="{{ $certificate->certificate_number }}">
+                            @error('certificate_number')
+                            <small style="color:#d02525;">{{$message}}</small>
+                            @enderror
                         </div>
+
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Name')}}</label>
@@ -136,14 +140,22 @@
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Course Period')}}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="course_period" placeholder="{{__('translation.Enter course period')}}" value="{{ $certificate->course_duration }}" />
+                            @error('course_period')
+                            <small style="color:#d02525;">{{$message}}</small>
+                            @enderror
                         </div>
+
                     </div>
 
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Issue Date') }}</label>
                         <div class="col-sm-10">
                             <input type="date" class="form-control" name="issue_date" placeholder="{{__('translation.Enter issue date')}}" value="{{ $certificate->issue_date }}" />
+                            @error('issue_date')
+                            <small style="color:#d02525;">{{$message}}</small>
+                            @enderror
                         </div>
+
                     </div>
 
                     <div class="row mb-4">
