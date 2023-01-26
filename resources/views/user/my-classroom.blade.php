@@ -354,17 +354,21 @@
                 </div>
                 <div class="row align-items-center justify-content-center mb-3">
                     <div class="col-lg-12" id="download_certificate">
-                        <div class="position-relative w-75 m-auto">
+                        <div class="position-relative w-75 m-auto" style="background-color: #fff8f0;">
                             <img src="{{ asset('assets/images/icons/frame.png') }}" class="w-100">
-                            <div class="position-absolute text-center w-100" style="padding: 10px 100px 10px 100px; top:15px;">
+                            <div class="position-absolute text-center w-100" style="padding: 10px 80px 10px 80px; top:15px;">
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_header.png') }}" class="w-100">
+                                </div>
+                                <div class="w-50 mx-auto">
                                     <div class="divider mt-1"></div>
                                 </div>
                                 <div class="certificate_header mb-1">{{ __('translation.Certificate') }}</div>
                                 <div class="certificate_sub_title">{{ __('of completion') }}</div>
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}" class="w-100">
+                                </div>
+                                <div class="w-50 mx-auto">
                                     <div class="divider mt-1"></div>
                                 </div>
                                 <div class="certificate_name">
