@@ -3,15 +3,18 @@
 @section('title', 'ptedu - Lecture Detial')
 
 @section('content')
-<div class="section lecture_banner_section">
-    <div class="lecture_banner_img" style="background-image: url({{ asset('storage/offline_course/banner/'.$course_info->course_banner) }})"></div>
-    <div class="banner_text">
-        @if($embedded_video_url != false)
-            {!! $embedded_video_url !!}
-        @else
-            <h5> <i class="fa fa-exclamation-circle mx-1"></i> Video Not Found</h5>
-        @endif
+    <div class="section lecture_banner_section">
+        <div class="lecture_banner_img"
+            style="background-image: url({{ asset('storage/offline_course/banner/' . $course_info->course_banner) }})"></div>
+        <div class="banner_text">
+            @if ($embedded_video_url != false)
+                {!! $embedded_video_url !!}
+            @else
+                <h5> <i class="fa fa-exclamation-circle mx-1"></i> Video Not Found</h5>
+            @endif
+        </div>
     </div>
+
     <div class="section pt-40 lecture_details">
         <div class="container">
             <div class="w-80 m-auto pb-40 border-bottom-1">
