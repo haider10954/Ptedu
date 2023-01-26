@@ -23,6 +23,7 @@
     font-style: normal;
     font-weight: 700;
     font-size: 40px;
+    line-height: 40px;
     text-align: center;
     color: #7D5741;
 }
@@ -42,7 +43,7 @@
     font-family: 'Cardo' !important;
     font-style: normal;
     font-weight: 700;
-    font-size: 40px;
+    font-size: 35px;
     text-align: center;
     color: #7D5741;
 }
@@ -50,7 +51,7 @@
 .certificate_sub_title {
     font-weight: 400;
     font-size: 21px;
-    line-height: 40px;
+    line-height: 20px;
     text-align: center;
     color: #7D5741;
 }
@@ -95,7 +96,6 @@
 
 .certificate_footer {
     width: 90.41px;
-    height: 90.41px;
 }
 
 .btn-theme-delete {
