@@ -363,7 +363,7 @@
                                 <div class="w-50 mx-auto">
                                     <div class="divider mt-1"></div>
                                 </div>
-                                <div class="certificate_header mb-1">{{ __('translation.Certificate') }}</div>
+                                <div class="certificate_header">{{ __('translation.Certificate') }}</div>
                                 <div class="certificate_sub_title">{{ __('of completion') }}</div>
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}" class="w-100">
@@ -375,11 +375,11 @@
                                     {{ auth()->user()->name }}
                                 </div>
                                 <div class="certificate_description mb-1">
-                                    Is hereby cetified as an <span id="c_name"></span> – <br /> <span id="t_name"></span> with Full Certification for the half-year period <br />
+                                    Is hereby cetified as an <span class="font-weight-bold"><span id="c_name"></span> – <br /> <span id="t_name"></span></span> with Full Certification for the half-year period <br />
                                     starting on
                                     <span id="certificate_start_date"></span> and ending on <span id="certificate_end_date"></span>
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex justify-content-between align-items-center mr-5">
                                     <div>
                                         <img src="{{ asset('assets/images/icons/certificate_logo.png') }}" class="certificate_logo">
                                         <img src="{{ asset('assets/images/index.png') }}" class="footer_logo" />
