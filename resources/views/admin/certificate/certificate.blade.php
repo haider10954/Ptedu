@@ -9,23 +9,24 @@
     }
 
     .certificate_header {
+        font-family: 'Cardo' !important;
+        font-style: normal;
         font-weight: 700;
-        font-size: 35px;
-        line-height: 54px;
+        font-size: 40px;
         text-align: center;
         color: #7D5741;
     }
 
     .certificate_sub_title {
         font-weight: 400;
-        font-size: 18px;
+        font-size: 21px;
         line-height: 40px;
         text-align: center;
         color: #7D5741;
     }
 
     .divider {
-        border: 1px solid #7D5741;
+        border: 1px solid #f3ddbd;
     }
 
     .certificate_name {
@@ -105,24 +106,29 @@
             </div>
             <div class="col-12" id="certificate">
                 <input type="hidden" name="id" value="{{ $download->id }}">
-                <div class="position-relative m-auto" style="width: 60%;">
+                <div class="position-relative m-auto" style="width: 60%; background-color: #fff8f0;">
                     <img src="{{ asset('assets/images/icons/frame.png')}}" class="w-100">
-                    <div class="position-absolute text-center w-100" style="padding: 10px 100px 10px 100px; top:50px;">
+                    <div class="position-absolute text-center w-100" style="padding: 10px 80px 10px 80px; top:30px;">
                         <div class="w-25 mx-auto">
                             <img src="{{ asset('assets/images/icons/certificate_header.png')}}" class="w-100">
+                        </div>
+                        <div class="w-50 mx-auto">
                             <div class="divider mt-1"></div>
                         </div>
                         <div class="certificate_header mb-1">CERTIFICATE</div>
                         <div class="certificate_sub_title">OF COMPLETION</div>
                         <div class="w-25 mx-auto">
                             <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}" class="w-100">
+
+                        </div>
+                        <div class="w-50 mx-auto">
                             <div class="divider mt-1"></div>
                         </div>
-                        <div class="certificate_name">
+                        <div class="certificate_name mb-3 mt-3">
                             {{ $certificate->getUser->english_name }}
                         </div>
-                        <div class="certificate_description mb-3">
-                            Is hereby cetified as an {{ $certificate->getCourses->course_title }} – <br /> {{ $certificate->getCourses->getTutorName->english_name  }} with Full Certification for the {{ $certificate->course_duration }} period <br /> starting on {{\Carbon\Carbon::parse($certificate->getCourses->created_at)->format('d M, Y')}} and ending on {{\Carbon\Carbon::parse($certificate->getCourses->expired_at)->format('d M, Y')}}
+                        <div class="certificate_description mb-2">
+                            Is hereby cetified as an <span class="fw-bold">{{ $certificate->getCourses->course_title }} – <br /> {{ $certificate->getCourses->getTutorName->english_name  }} </span> with Full Certification for the {{ $certificate->course_duration }} period <br /> starting on {{\Carbon\Carbon::parse($certificate->getCourses->created_at)->format('d M, Y')}} and ending on {{\Carbon\Carbon::parse($certificate->getCourses->expired_at)->format('d M, Y')}}
                         </div>
                         <div class="d-flex justify-content-between align-items-center mb-3">
                             <div>

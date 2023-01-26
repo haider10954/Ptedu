@@ -19,13 +19,14 @@
 }
 
 .certificate_header {
+    font-family: 'Cardo' !important;
+    font-style: normal;
     font-weight: 700;
-    font-size: 34px;
-    line-height: 40px;
+    font-size: 40px;
     text-align: center;
     color: #7D5741;
-    font-family: 'Cardo';
 }
+
 
 .certificate_sub_title {
     font-weight: 400;
@@ -36,8 +37,9 @@
     font-family: 'Cardo';
 }
 
+
 .divider {
-    border: 1px solid #7D5741;
+    border: 1px solid #f3ddbd;
 }
 
 .certificate_name {
