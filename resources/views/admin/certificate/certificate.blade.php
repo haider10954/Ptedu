@@ -39,7 +39,7 @@
 
     .certificate_description {
         font-weight: 400;
-        font-size: 11px;
+        font-size: 14px;
         line-height: 25px;
         text-align: center;
         color: #7D5741;
@@ -53,7 +53,7 @@
     }
 
     .certificate_logo {
-        height: 39px;
+        height: 52px;
         display: block;
         padding-bottom: 15px;
     }
@@ -115,11 +115,10 @@
                         <div class="w-50 mx-auto">
                             <div class="divider mt-1"></div>
                         </div>
-                        <div class="certificate_header mb-1">CERTIFICATE</div>
+                        <div class="certificate_header">CERTIFICATE</div>
                         <div class="certificate_sub_title">OF COMPLETION</div>
                         <div class="w-25 mx-auto">
                             <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}" class="w-100">
-
                         </div>
                         <div class="w-50 mx-auto">
                             <div class="divider mt-1"></div>
@@ -130,7 +129,7 @@
                         <div class="certificate_description mb-2">
                             Is hereby cetified as an <span class="fw-bold">{{ $certificate->getCourses->course_title }} – <br /> {{ $certificate->getCourses->getTutorName->english_name  }} </span> with Full Certification for the {{ $certificate->course_duration }} period <br /> starting on {{\Carbon\Carbon::parse($certificate->getCourses->created_at)->format('d M, Y')}} and ending on {{\Carbon\Carbon::parse($certificate->getCourses->expired_at)->format('d M, Y')}}
                         </div>
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3 me-5">
                             <div>
                                 <img src="{{ asset('assets/images/icons/certificate_logo.png') }}" class="certificate_logo">
                                 <img src="{{ asset('assets/images/index.png') }}" class="footer_logo" />
