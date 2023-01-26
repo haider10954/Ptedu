@@ -12,13 +12,13 @@
                 @csrf
                 <div class="form-group">
                     <label class="form-label">{{ __('translation.Name') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter your Name') }}" name="name" />
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter your Name') }}" name="name" value="{{ old('name') }}" />
                     <div class="error-name"></div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">{{ __('translation.Phone Number') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Phone Number') }}" name="phone_number" />
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Phone Number') }}" name="phone_number" value="{{ old('phone_number') }}" />
                     <div class="error-mobile"></div>
                 </div>
                 <div id="user_id"></div>
@@ -60,7 +60,8 @@
                     setTimeout(function() {
                         $('.prompt').hide()
                     }, 2000);
-
+                    $('.error-name').html('');
+                    $('.error-mobile').html('');
 
                 } else {
                     $('.prompt').html('<div class="alert alert-danger mb-3">' + res.message + '</div>');
@@ -81,9 +82,6 @@
                 if (e.responseJSON.errors['phone_number']) {
                     $('.error-mobile').html('<small class=" error-message text-danger">' + e.responseJSON.errors['phone_number'][0] + '</small>');
                 }
-                // if (e.responseJSON.errors['user_id']) {
-                //     $('.error-user-id').html('<small class=" error-message text-danger">' + e.responseJSON.errors['user_id'][0] + '</small>');
-                // }
             }
 
         });

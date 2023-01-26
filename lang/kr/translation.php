@@ -38,7 +38,7 @@ return [
     'Ok' => 'Ok',
     'Enter Title' => '제목을 입력해주세요',
     'Enter Content Here' => '내용을 입력해주세요',
-    'Enter New password' => '새로운 비밀번호를 입력해주세요',
+    'Enter New Password' => '새로운 비밀번호를 입력해주세요',
     'Re Enter password' => '비밀번호를 다시 입력해주세요',
     'Your current password' => '현재 비밀번호',
     'FAQ' => 'FAQ', //Please use in English. Do not translate it.
@@ -361,5 +361,9 @@ return [
     'Change Status' => '상태 변경',
     'Completed' => '완전한',
     'Select Status' => '상태 선택',
-    'Order Status has been updated successfully' => '주문 상태가 성공적으로 업데이트되었습니다.'
+    'Order Status has been updated successfully' => '주문 상태가 성공적으로 업데이트되었습니다.',
+    'Review Added' => '리뷰가 추가됨',
+    'Offline Course has been added successfully' => '오프라인 과정이 성공적으로 추가되었습니다',
+    'Offline Course has been deleted Successfully' => '오프라인 과정이 성공적으로 삭제되었습니다.',
+    'Offline course has been updated successfully' => '오프라인 과정이 성공적으로 업데이트되었습니다.'
 ];
