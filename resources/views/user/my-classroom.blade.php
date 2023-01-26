@@ -305,8 +305,6 @@
         </form>
     </div>
 </div>
-</div>
-</div>
 
 <!-- Check Certificate -->
 <div class="modal fade review_modal" id="checkCertificateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
