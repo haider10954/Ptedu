@@ -38,7 +38,7 @@ return [
     'Ok' => 'Ok',
     'Enter Title' => '제목을 입력해주세요',
     'Enter Content Here' => '내용을 입력해주세요',
-    'Enter New password' => '새로운 비밀번호를 입력해주세요',
+    'Enter New Password' => '새로운 비밀번호를 입력해주세요',
     'Re Enter password' => '비밀번호를 다시 입력해주세요',
     'Your current password' => '현재 비밀번호',
     'FAQ' => 'FAQ', //Please use in English. Do not translate it.
@@ -349,7 +349,21 @@ return [
     'We will promote your growth as an expert through close knowledge in the field' => '해당 분야에 대한 긴밀한 지식을 통해 전문가로의 성장을 도모하겠습니다.',
     'Student has been registered successfully' => '학생이 성공적으로 등록되었습니다',
     'The value is not duplicated' => '값은 중복되지 않습니다',
-    'Offline Courses' => '오프라인 과정'
-
-
+    'Offline Courses' => '오프라인 과정',
+    'Reached maximum limit of enrollments' => '최대 등록 한도에 도달했습니다',
+    'please login to submit application' => '신청서를 제출하려면 로그인하십시오',
+    'Already Enrolled' => '이미 등록됨',
+    'Limit Reached' => '한도 도달',
+    'success' => '성공',
+    'In Process' => '과정에서',
+    'Order has been deleted Successfully' => '주문이 성공적으로 삭제되었습니다.',
+    'Something went wrong Please try again' => '문제가 발생했습니다. 다시 시도하십시오',
+    'Change Status' => '상태 변경',
+    'Completed' => '완전한',
+    'Select Status' => '상태 선택',
+    'Order Status has been updated successfully' => '주문 상태가 성공적으로 업데이트되었습니다.',
+    'Review Added' => '리뷰가 추가됨',
+    'Offline Course has been added successfully' => '오프라인 과정이 성공적으로 추가되었습니다',
+    'Offline Course has been deleted Successfully' => '오프라인 과정이 성공적으로 삭제되었습니다.',
+    'Offline course has been updated successfully' => '오프라인 과정이 성공적으로 업데이트되었습니다.'
 ];

@@ -102,12 +102,54 @@
                     </table>
                 </div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    <p class="mb-2 text font-weight-bold">{{ __('translation.Day') }} 1</p>
-                    <p class="mb-4 text">1. 보행 기초지식: 보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
-                        이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
-                    <p class="mb-2 text font-weight-bold">{{ __('translation.Day') }} 2</p>
-                    <p class="mb-4 text">1. 보행 기초지식: 보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
-                        이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
+                    @if($reviews->count() > 0)
+                    @foreach($reviews as $r)
+                    <div class="review_box mb-3">
+                        <div class="d-flex mb-2 align-items-center justify-content-between">
+                            <small class="text-muted">{{ $r->created_at->format('Y.m.d') }}</small>
+                            <div class="d-flex align-items-center gap-1 rating-stars">
+                                @if($r->rating == 1)
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($r->rating == 2)
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($r->rating == 3)
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($r->rating == 4)
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @else
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                @endif
+                            </div>
+                        </div>
+                        <p class="font-weight-600 mb-2">{{ $r->title }}.</p>
+                        <p class="mb-0">{{ $r->content }}</p>
+                    </div>
+                    @endforeach
+                    @else
+                    <div class="text-center">
+                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                    </div>
+                    @endif
                 </div>
             </div>
         </div>

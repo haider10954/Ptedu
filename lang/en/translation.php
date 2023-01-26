@@ -348,17 +348,22 @@ return [
     'We will promote your growth as an expert through close knowledge in the field' => 'We will promote your growth as an expert through close knowledge in the field',
     'Student has been registered successfully' => 'Student has been registered successfully',
     'The value is not duplicated' => 'The value is not duplicated',
-    "Offline Courses" => 'Offline Courses'
-
-
-
-
-
-
-
-
-
-
-
+    "Offline Courses" => 'Offline Courses',
+    'Reached maximum limit of enrollments' => 'Reached maximum limit of enrollments',
+    'please login to submit application' => 'please login to submit application',
+    'Already Enrolled' => 'Already Enrolled',
+    'Limit Reached' => 'Limit Reached',
+    'success' => 'Success',
+    'In Process' => 'In Process',
+    'Order has been deleted Successfully' => 'Order has been deleted successfully',
+    'Something went wrong Please try again' => 'Something went wrong Please try again',
+    'Change Status' => 'Change Status',
+    'Completed' =>  'Completed',
+    'Select Status' => 'Select Status',
+    'Order Status has been updated successfully' => 'Order has been updated successfully',
+    'Review Added' => 'Review Added',
+    'Offline Course has been added successfully' => 'Offline Course has been added successfully',
+    'Offline Course has been deleted Successfully' => 'Offline Course has been deleted successfully',
+    'Offline course has been updated successfully' => 'Offline course has been updated successfully'
 
 ];

@@ -19,13 +19,15 @@
 }
 
 .certificate_header {
+    font-family: 'Cardo' !important;
+    font-style: normal;
     font-weight: 700;
-    font-size: 34px;
+    font-size: 40px;
     line-height: 40px;
     text-align: center;
     color: #7D5741;
-    font-family: 'Cardo';
 }
+
 
 .certificate_sub_title {
     font-weight: 400;
@@ -36,37 +38,53 @@
     font-family: 'Cardo';
 }
 
+
+.certificate_header {
+    font-family: 'Cardo' !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 35px;
+    text-align: center;
+    color: #7D5741;
+}
+
+.certificate_sub_title {
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 20px;
+    text-align: center;
+    color: #7D5741;
+}
+
 .divider {
-    border: 1px solid #7D5741;
+    border: 1px solid #f3ddbd;
 }
 
 .certificate_name {
     font-weight: 400;
-    font-size: 34px;
-    line-height: 38px;
+    font-size: 35px;
+    line-height: 42px;
     text-align: center;
     color: #7D5741;
-    font-family: 'Inter';
 }
 
 .certificate_description {
     font-weight: 400;
-    font-size: 10px;
-    line-height: 17px;
+    font-size: 11px;
+    line-height: 25px;
     text-align: center;
     color: #7D5741;
-    font-family: 'Mulish';
 }
 
 .certificate_date {
     font-weight: 400;
-    font-size: 10px;
+    font-size: 11px;
     line-height: 16px;
     color: #7D5741;
 }
 
 .certificate_logo {
-    height: 39px;
+    height: 52px;
     display: block;
     padding-bottom: 15px;
 }
@@ -77,8 +95,7 @@
 }
 
 .certificate_footer {
-    margin-left: -10px;
-    height: 104.41px;
+    width: 90.41px;
 }
 
 .btn-theme-delete {

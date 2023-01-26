@@ -12,19 +12,19 @@
                 @csrf
                 <div class="form-group">
                     <label class="form-label">{{ __('translation.Name') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter your Name') }}" name="name" />
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter your Name') }}" name="name" value="{{ old('name') }}" />
                     <div class="error-name"></div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">{{ __('translation.Phone Number') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Phone Number') }}" name="mobile_number" />
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Phone Number') }}" name="mobile_number" value="{{ old('mobile_number') }}" />
                     <div class="error-mobile-number"></div>
                 </div>
 
                 <div class="form-group">
                     <label class="form-label">{{ __('translation.Your ID') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Your ID') }}" name="user_id" />
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter Your ID') }}" name="user_id" value="{{ old('user_id') }}" />
                     <div class="error-user-id"></div>
                 </div>
 
@@ -62,6 +62,9 @@
                         $('.prompt').hide()
                         window.location.href = "{{ route('reset_password') }}";
                     }, 2000);
+                    $('.error-name').html('');
+                    $('.error-mobile-number').html('');
+                    $('.error-user-id').html('');
 
                 } else {
                     $('.prompt').html('<div class="alert alert-danger mb-3">' + res.message + '</div>');

@@ -13,7 +13,7 @@
                 @csrf
                 <div class="form-group">
                     <label class="form-label">{{ __('translation.New Password') }}</label>
-                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter new password') }}" name="password" />
+                    <input type="text" class="form-control" placeholder="{{ __('translation.Enter New Password') }}" name="password" />
                     <div class="error-password"></div>
                 </div>
 
@@ -56,6 +56,7 @@
                         $('.prompt').hide()
                         window.location.href = "{{ route('user_login') }}";
                     }, 2000);
+                    $('.error-password').html('');
 
                 } else {
                     $('.prompt').html('<div class="alert alert-danger mb-3">' + res.message + '</div>');
@@ -64,10 +65,6 @@
                         $('.prompt').hide()
                         window.location.href = "{{ route('find_password') }}"
                     }, 2000);
-
-
-
-
                 }
             },
             error: function(e) {
