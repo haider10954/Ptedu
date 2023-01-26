@@ -88,12 +88,12 @@ class OfflineCourseController extends Controller
         if ($offline_course) {
             return json_encode([
                 'success' => true,
-                'message' => 'Offline Course has been added successfully.'
+                'message' => __('translation.Offline Course has been added successfully')
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -111,9 +111,9 @@ class OfflineCourseController extends Controller
         }
         $offline_course = Offline_course::where('id', $request['id'])->delete();
         if ($offline_course) {
-            return redirect()->back()->with('msg', 'Offline Course has been deleted Successfully');
+            return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -167,12 +167,12 @@ class OfflineCourseController extends Controller
         if ($offline_course) {
             return json_encode([
                 'success' => true,
-                'message' => 'Offline course has been updated successfully.'
+                'message' => __('translation.Offline course has been updated successfully')
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }

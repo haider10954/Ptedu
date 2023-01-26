@@ -361,4 +361,9 @@ return [
     'Completed' =>  'Completed',
     'Select Status' => 'Select Status',
     'Order Status has been updated successfully' => 'Order has been updated successfully',
+    'Review Added' => 'Review Added',
+    'Offline Course has been added successfully' => 'Offline Course has been added successfully',
+    'Offline Course has been deleted Successfully' => 'Offline Course has been deleted successfully',
+    'Offline course has been updated successfully' => 'Offline course has been updated successfully'
+
 ];

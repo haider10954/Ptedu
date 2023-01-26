@@ -121,8 +121,7 @@
                                             <div class="d-flex align-items-center justify-content-between">
 
                                                 @if ($Data == 1)
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" disabled> <i class="fas fa-edit"></i> Review
-                                                    Added</button>
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" disabled> <i class="fas fa-edit"></i>{{ __('translation.Review Added') }}</button>
                                                 @else
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}">
                                                     <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
@@ -363,7 +362,7 @@
                                 <div class="w-50 mx-auto">
                                     <div class="divider mt-1"></div>
                                 </div>
-                                <div class="certificate_header">{{ __('translation.Certificate') }}</div>
+                                <div class="certificate_header">Certificate</div>
                                 <div class="certificate_sub_title">{{ __('of completion') }}</div>
                                 <div class="w-25 mx-auto">
                                     <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}" class="w-100">
@@ -446,7 +445,7 @@
                     $('#certificate_end_date').text(response.end_date);
                     $('#issue_date').text(response.data.issue_date);
                     certificateModal.show();
-                    $('#completed_courses').html('<i class="fas fa-medal"></i> Certificate ');
+                    $('#completed_courses').html('<i class="fas fa-medal"></i> {{ __("translation.Certificate") }} ');
                 } else {
                     console.log(error)
                 }
@@ -552,25 +551,7 @@
                 id: id,
             },
             beforeSend: function() {},
-            success: function(res) {
-                // $("#submitForm").attr('class', 'btn btn-success');
-                // $("#submitForm").html('<i class="fa fa-check me-1"></i>  Reivew Added</>');
-                // if (res.success) {
-                //     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message +
-                //         '</div>');
-                //     setTimeout(function() {
-                //         $('html, body').animate({
-                //             scrollTop: $("html, body").offset().top
-                //         }, 1000);
-                //     }, 1500);
-
-                //     setTimeout(function() {
-                //         $('.prompt').hide()
-                //         window.location.reload();
-                //     }, 4000);
-
-                // } else {}
-            },
+            success: function(res) {},
             error: function(e) {}
         });
     };
@@ -581,8 +562,8 @@
             .addEventListener("click", () => {
                 const certificate = this.document.getElementById("download_certificate");
                 var opt = {
-                    margin: 1,
-                    filename: 'Test.pdf',
+                    margin: [30, 0, 30, 0],
+                    filename: 'certificate.pdf',
                     image: {
                         type: 'jpeg',
                         quality: 0.98

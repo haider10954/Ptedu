@@ -191,7 +191,7 @@
                 console.log(certificate);
                 console.log(window);
                 var opt = {
-                    margin: 1,
+                    margin: [30, 0, 30, 0],
                     filename: 'certificate.pdf',
                     image: {
                         type: 'jpeg',
