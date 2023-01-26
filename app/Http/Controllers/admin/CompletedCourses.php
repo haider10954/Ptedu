@@ -36,7 +36,7 @@ class CompletedCourses extends Controller
             'course_period' => 'required',
         ]);
         $generate_certificate = Certificate::updateOrCreate([
-            'id' => $request->user_id,
+            'user_id' => $request->user_id,
             'course_id' => $request->course_id
         ], [
             'course_id' =>  $request->course_id,
