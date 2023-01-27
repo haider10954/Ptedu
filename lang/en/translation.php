@@ -379,6 +379,9 @@ return [
     'In-depth to fill healthy values in modern people lives.' => 'In-depth to fill healthy values in modern people lives.',
     'Taking the leap to become an expert PTE is with you.' => 'Taking the leap to become an expert PTE is with you.',
     'Education is not the learning of facts' => 'Education is not the learning of facts',
-    'but the traning of the mind to think' => 'but the traning of the mind to think'
+    'but the traning of the mind to think' => 'but the traning of the mind to think',
+    '4th floor, 479 Tower, 51-2 Samseong-dong, Gangnam-gu, Seoul' => '4th floor, 479 Tower, 51-2 Samseong-dong, Gangnam-gu, Seoul',
+    'Business registration number: 102-22-52806 CEO Kyu-Haeng Cho' => 'Business registration number: 102-22-52806 CEO Kyu-Haeng Cho',
+    'Service center' => 'Service center'
 
 ];

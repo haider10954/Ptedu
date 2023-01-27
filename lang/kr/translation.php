@@ -380,5 +380,8 @@ return [
     'In-depth to fill healthy values in modern people lives.' => '현대인의 삶에 건강한 가치를 채우기위한 깊이있는.',
     'Taking the leap to become an expert PTE is with you.' => '전문가로의 도약 피티에듀에서 함께합니다.',
     'Education is not the learning of facts' => '교육은 사실을 배우는 것이 아니다',
-    'but the traning of the mind to think' => '그러나 생각하는 마음의 훈련'
+    'but the traning of the mind to think' => '그러나 생각하는 마음의 훈련',
+    '4th floor, 479 Tower, 51-2 Samseong-dong, Gangnam-gu, Seoul' => '서울시 강남구 삼성동 51-2 479타워 4층 ',
+    'Business registration number: 102-22-52806 CEO Kyu-Haeng Cho' => '사업자 등록 번호 : 102-22-52806   대표 조규행',
+    'Service center' => '고객센터'
 ];

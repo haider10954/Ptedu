@@ -8,7 +8,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-12 banner-left-content">
                     <img src="{{ asset('web_assets/images/banner-logo.png') }}" height="60" alt="img-fluid" class="mb-3">
-                    <p class="text-theme-light-grey">{{ __('translation.Education is not the learning of facts') }},<br>{{ __('translation.but the traning of the mind to think') }}.</p>
+                    <p class="text-theme-light-grey">Education is not the learning of facts,<br>but the traning of the mind to think.</p>
                 </div>
                 <div class="col-lg-7 col-md-12 text-center">
                     <img src="{{ asset('web_assets/images/banner-img.png') }}" alt="banner-img" class="img-fluid">
@@ -26,9 +26,9 @@
                     <img src="{{ asset('web_assets/images/interactive-section-logo.png') }}" height="20" alt="img">
                 </div>
                 <div class="col-lg-7 interactive-section-content-box">
-                    <h2>{{ __('translation.The beginning of') }} <br> {{ __('translation.Customized education') }}</h2>
-                    <p class="text-danger mb-4">{{ __('translation.Global standard') }} / {{ __('translation.Evidence based') }} / {{ __('translation.Job based') }}</p>
-                    <small class="d-block">{{ __('translation.From beginner to expert as a professor') }}</small>
+                    <h2>The beginning of <br> Customized education</h2>
+                    <p class="text-danger mb-4">Global standard / Evidence based / Job based</p>
+                    <small class="d-block">From beginner to expert as a professor</small>
                 </div>
             </div>
         </div>
@@ -40,10 +40,10 @@
         <div class="container">
             <div class="row align-items-top">
                 <div class="col-lg-7 interactive-section-content-box">
-                    <h2>{{ __('translation.Increasing thinking ability') }}</h2>
-                    <p class="text-danger mb-4">{{ __('translation.Critical Thinking') }} / {{ __('translation.Creative Thinking') }}</p>
-                    <small class="d-block mb-1">{{ __('translation.Contribution to the Society') }}</small>
-                    <small class="d-block">{{ __('translation.In-depth to fill healthy values in modern people lives.') }}<br>{{ __('translation.Taking the leap to become an expert PTE is with you.') }}</small>
+                    <h2>Increasing thinking ability</h2>
+                    <p class="text-danger mb-4">Critical Thinking / Creative Thinking</p>
+                    <small class="d-block mb-1">Contribution to the Society</small>
+                    <small class="d-block">In-depth to fill healthy values in modern people lives.<br>Taking the leap to become an expert PTE is with you.</small>
                 </div>
                 <div class="col-lg-5 text-center interactive-section-logo">
                     <img src="{{ asset('web_assets/images/interactive-section-logo.png') }}" height="20" alt="img">
@@ -99,7 +99,7 @@
                 @if ($courses->count() > 0)
                     <div class="section-part mb-80">
                         <div class="section-title mb-5">
-                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Online Courses') }}</h3>
+                            <h3 class="heading-h3 text-white mb-0">Online Courses</h3>
                         </div>
                         <div class="swiper expert-course-carousel">
                             <div class="swiper-wrapper">
@@ -131,7 +131,7 @@
                 @if ($offline_courses->count() > 0)
                     <div class="section-part mb-120">
                         <div class="section-title mb-5">
-                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Offline Courses') }}</h3>
+                            <h3 class="heading-h3 text-white mb-0">Offline Courses</h3>
                         </div>
                         <div class="swiper offline-lecture-carousel">
                             <div class="swiper-wrapper">
@@ -161,30 +161,23 @@
                     </div>
                 @endif
                 @if ($latest_tutors->count() > 0)
-                    <div class="section-part">
+                    <div class="section-part tutor-section">
                         <div class="section-title mb-5">
-                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Instructor') }}</h3>
+                            <h3 class="heading-h3 text-white mb-0">Instructor</h3>
                         </div>
-                        <div class="width-75 m-auto">
+                        <div class="w-100 m-auto">
                             <div class="row align-items-center justify-content-center">
                                 @foreach ($latest_tutors as $latest_tutor)
                                     <div class="col-lg-3 col-md-4 col-12 mb-4">
                                         <div class="tutor-image-container">
                                             <img src="{{ asset('storage/tutor/' . $latest_tutor->tutor_img) }}"
                                                 class="tutor_img img-fluid">
-                                            <div class="box-overlay">
+                                            <div class="tutor-box-overlay">
                                                 <a href="{{ route('tutor_info', $latest_tutor->id) }}">
-                                                    <h5 class="heading-h5 mb-3 text-white text-left">
+                                                    <h5 class="heading-h5 mb-1 text-white text-left">
                                                         {{ $latest_tutor->english_name }}
                                                     </h5>
-                                                    <div class="box-overlay-description text-left">
-                                                        <p class="mb-0 text-white">
-                                                            {{ Str::limit($latest_tutor->description, 150) }}
-                                                        </p>
-                                                    </div>
-                                                    <p class="mb-0 text-right text-white font-weight-600">
-                                                        {{ $latest_tutor->job }}
-                                                    </p>
+                                                    <p class="text-theme-light-grey mb-0">PTEdu</p>
                                                 </a>
                                             </div>
                                         </div>
@@ -204,7 +197,7 @@
     <div class="review-section section" style="background-image: url({{ asset('web_assets/images/review_background_image.png') }})">
         <div class="review-section-overlay"></div>
         <div class="container">
-            <h3 class="heading-h3 text-white mb-5 text-center">{{ __('translation.Review') }}</h3>
+            <h3 class="heading-h3 text-white mb-5 text-center">Review</h3>
             <div class="review-section-container m-auto">
                 @foreach($reviews as $review)
                 <!-- single review start -->
