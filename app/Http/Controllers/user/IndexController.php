@@ -25,7 +25,7 @@ class IndexController extends Controller
         $offline_courses = Offline_course::with('getTutorName')->get();
         $courses = Course::get();
         $latest_courses = Course::orderBy('id', 'desc')->with('getTutorName')->take(5)->get();
-        $latest_tutors = Tutor::orderBy('id', 'desc')->take(8)->get();
+        $latest_tutors = Tutor::take(4)->get();
         $reviews = Review::orderBy('id', 'desc')->get();
         foreach($reviews as $review){
             if(!empty($review->video_url)){

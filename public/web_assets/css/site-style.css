@@ -628,12 +628,13 @@
 
 .tutor_img {
     height: 250px;
-    border: 2px solid #e2dfdf;
     width: 250px;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .tutor_img img {
-    object-fit: contain;
+    object-fit: cover;
 }
 
 .tutor_info:hover .box-overlay {
