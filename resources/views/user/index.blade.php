@@ -39,13 +39,13 @@
     <div class="interactive-section-2">
         <div class="container">
             <div class="row align-items-top">
-                <div class="col-lg-7 interactive-section-content-box">
+                <div class="col-lg-9 interactive-section-content-box">
                     <h2>Increasing thinking ability</h2>
                     <p class="text-danger mb-4">Critical Thinking / Creative Thinking</p>
                     <small class="d-block mb-1">Contribution to the Society</small>
-                    <small class="d-block">In-depth to fill healthy values in modern people lives.<br>Taking the leap to become an expert PTE is with you.</small>
+                    <small class="d-block">{{ __('translation.In-depth to fill healthy values in modern people lives.') }}<br>{{ __('translation.Taking the leap to become an expert PTE is with you.') }}</small>
                 </div>
-                <div class="col-lg-5 text-center interactive-section-logo">
+                <div class="col-lg-3 text-center interactive-section-logo">
                     <img src="{{ asset('web_assets/images/interactive-section-logo.png') }}" height="20" alt="img">
                 </div>
             </div>
