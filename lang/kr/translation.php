@@ -366,5 +366,19 @@ return [
     'Offline Course has been added successfully' => '오프라인 과정이 성공적으로 추가되었습니다',
     'Offline Course has been deleted Successfully' => '오프라인 과정이 성공적으로 삭제되었습니다.',
     'Offline course has been updated successfully' => '오프라인 과정이 성공적으로 업데이트되었습니다.',
-    'Video Not Found' => '비디오를 찾을 수 없습니다'
+    'Video Not Found' => '비디오를 찾을 수 없습니다',
+    'The beginning of' => '의 시작',
+    'Customized education' => '맞춤형 교육',
+    'Global standard' => '글로벌 스탠다드',
+    'Evidence based' => '증거 기반',
+    'Job based' => '직업 기반',
+    'From beginner to expert as a professor' => '초심자에서 교수로서 전문가로',
+    'Increasing thinking ability' => '사고력 키우기',
+    'Critical Thinking' => '비판적 사고',
+    'Creative Thinking' => '창의적 사고',
+    'Contribution to the Society' => '사회공헌',
+    'In-depth to fill healthy values in modern people lives.' => '현대인의 삶에 건강한 가치를 채우기위한 깊이있는.',
+    'Taking the leap to become an expert PTE is with you.' => '전문가로의 도약 피티에듀에서 함께합니다.',
+    'Education is not the learning of facts' => '교육은 사실을 배우는 것이 아니다',
+    'but the traning of the mind to think' => '그러나 생각하는 마음의 훈련'
 ];

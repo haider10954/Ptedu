@@ -365,6 +365,20 @@ return [
     'Offline Course has been added successfully' => 'Offline Course has been added successfully',
     'Offline Course has been deleted Successfully' => 'Offline Course has been deleted successfully',
     'Offline course has been updated successfully' => 'Offline course has been updated successfully',
-    'Video Not Found' => 'Video Not Found'
+    'Video Not Found' => 'Video Not Found',
+    'The beginning of' => 'The beginning of',
+    'Customized education' => 'Customized education',
+    'Global standard' => 'Global standard',
+    'Evidence based' => 'Evidence based',
+    'Job based' => 'Job based',
+    'From beginner to expert as a professior' => 'From beginner to expert as a professior',
+    'Increasing thinking ability' => 'Increasing thinking ability',
+    'Critical Thinking' => 'Critical Thinking',
+    'Creative Thinking' => 'Creative Thinking',
+    'Contribution to the Society' => 'Contribution to the Society',
+    'In-depth to fill healthy values in modern people lives.' => 'In-depth to fill healthy values in modern people lives.',
+    'Taking the leap to become an expert PTE is with you.' => 'Taking the leap to become an expert PTE is with you.',
+    'Education is not the learning of facts' => 'Education is not the learning of facts',
+    'but the traning of the mind to think' => 'but the traning of the mind to think'
 
 ];

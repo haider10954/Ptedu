@@ -8,8 +8,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-5 col-md-12 banner-left-content">
                     <img src="{{ asset('web_assets/images/banner-logo.png') }}" height="60" alt="img-fluid" class="mb-3">
-                    <p class="text-theme-light-grey">Education is not the learning of facts,<br>but the traning of the mind
-                        to think.</p>
+                    <p class="text-theme-light-grey">{{ __('translation.Education is not the learning of facts') }},<br>{{ __('translation.but the traning of the mind to think') }}.</p>
                 </div>
                 <div class="col-lg-7 col-md-12 text-center">
                     <img src="{{ asset('web_assets/images/banner-img.png') }}" alt="banner-img" class="img-fluid">
@@ -27,9 +26,9 @@
                     <img src="{{ asset('web_assets/images/interactive-section-logo.png') }}" height="20" alt="img">
                 </div>
                 <div class="col-lg-7 interactive-section-content-box">
-                    <h2>The beginning of <br> Customized education</h2>
-                    <p class="text-danger mb-4">Global standard / Evidence based / Job based</p>
-                    <small class="d-block">From beginner to expert as a professior</small>
+                    <h2>{{ __('translation.The beginning of') }} <br> {{ __('translation.Customized education') }}</h2>
+                    <p class="text-danger mb-4">{{ __('translation.Global standard') }} / {{ __('translation.Evidence based') }} / {{ __('translation.Job based') }}</p>
+                    <small class="d-block">{{ __('translation.From beginner to expert as a professor') }}</small>
                 </div>
             </div>
         </div>
@@ -41,10 +40,10 @@
         <div class="container">
             <div class="row align-items-top">
                 <div class="col-lg-7 interactive-section-content-box">
-                    <h2>Increasing thinking ability</h2>
-                    <p class="text-danger mb-4">Critical Thinking / Creative Thinking</p>
-                    <small class="d-block mb-1">Contribution to the Society</small>
-                    <small class="d-block">현대인의 삶에 건강한 가치를 채우기위한 깊이있는<br>전문가로의 도약 피티에듀에서 함께합니다</small>
+                    <h2>{{ __('translation.Increasing thinking ability') }}</h2>
+                    <p class="text-danger mb-4">{{ __('translation.Critical Thinking') }} / {{ __('translation.Creative Thinking') }}</p>
+                    <small class="d-block mb-1">{{ __('translation.Contribution to the Society') }}</small>
+                    <small class="d-block">{{ __('translation.In-depth to fill healthy values in modern people lives.') }}<br>{{ __('translation.Taking the leap to become an expert PTE is with you.') }}</small>
                 </div>
                 <div class="col-lg-5 text-center interactive-section-logo">
                     <img src="{{ asset('web_assets/images/interactive-section-logo.png') }}" height="20" alt="img">
@@ -100,12 +99,11 @@
                 @if ($courses->count() > 0)
                     <div class="section-part mb-80">
                         <div class="section-title mb-5">
-                            <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
-                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Expert Courses') }}</h3>
+                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Online Courses') }}</h3>
                         </div>
                         <div class="swiper expert-course-carousel">
                             <div class="swiper-wrapper">
-                                @foreach ($courses->where('course_type', 'expert') as $item)
+                                @foreach ($courses as $item)
                                     <div class="swiper-slide position-relative">
                                         <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}"
                                             class="img-fluid course-detail-img">
@@ -130,45 +128,10 @@
                         <div class="swiper-button-prev expert-course-prev"></div>
                     </div>
                 @endif
-                @if ($courses->count() > 0)
-                    <div class="section-part mb-80">
-                        <div class="section-title mb-5">
-                            <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
-                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Public Courses') }}</h3>
-                        </div>
-                        <div class="swiper public-course-carousel">
-                            <div class="swiper-wrapper">
-                                @foreach ($courses->where('course_type', 'public') as $record)
-                                    <div class="swiper-slide position-relative">
-                                        <img src="{{ asset('storage/course/thumbnail/' . $record->course_thumbnail) }}"
-                                            class="img-fluid course-detail-img">
-                                        <div class="box-overlay">
-                                            <a href="{{ route('online_course_detail', $record->id) }}">
-                                                <h5 class="heading-h5 mb-3 text-white text-left">
-                                                    {{ $record->course_title }}
-                                                </h5>
-                                                <div class="box-overlay-description text-left">
-                                                    <p class="mb-0 text-white">{{ $record->short_description }}</p>
-                                                </div>
-                                                <p class="mb-0 text-right text-white font-weight-600">
-                                                    {{ __('translation.Instructor') }}
-                                                    {{ $record->getTutorName->name }}
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <div class="swiper-button-next public-course-next"></div>
-                        <div class="swiper-button-prev public-course-prev"></div>
-                    </div>
-                @endif
                 @if ($offline_courses->count() > 0)
                     <div class="section-part mb-120">
                         <div class="section-title mb-5">
-                            <small class="mb-2 text-white">{{ __('translation.ABOUT COURSE') }}</small>
-                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Offline Lecture') }}</h3>
+                            <h3 class="heading-h3 text-white mb-0">{{ __('translation.Offline Courses') }}</h3>
                         </div>
                         <div class="swiper offline-lecture-carousel">
                             <div class="swiper-wrapper">
