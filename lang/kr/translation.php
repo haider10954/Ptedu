@@ -383,5 +383,6 @@ return [
     'but the traning of the mind to think' => '그러나 생각하는 마음의 훈련',
     '4th floor, 479 Tower, 51-2 Samseong-dong, Gangnam-gu, Seoul' => '서울시 강남구 삼성동 51-2 479타워 4층 ',
     'Business registration number: 102-22-52806 CEO Kyu-Haeng Cho' => '사업자 등록 번호 : 102-22-52806   대표 조규행',
-    'Service center' => '고객센터'
+    'Service center' => '고객센터',
+    'Add KakaoTalk' => '카카오톡 추가'
 ];

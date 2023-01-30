@@ -9,10 +9,11 @@
                     <p class="text-white mb-0">{{ __('translation.Service center') }}<span class="mx-2"></span>02-6930-4105 / 010-6567-4105</p>
                 </div>
                 <div class="footer-right-content text-right">
-                    <ul class="social-icons">
+                    <ul class="social-icons mb-4">
                         <li><a href="https://www.facebook.com/PTEdu2016"><i class="fab fa-facebook"></i></a></li>
                         <li><a href="https://www.instagram.com/ptedu.official/?igshid=MDM4ZDc5MmU%3D"><i class="fab fa-instagram"></i></a></li>
                     </ul>
+                    <p class="mb-0 text-white">{{ __('translation.Add KakaoTalk') }}</p>   
                 </div>
             </div>
         </div>

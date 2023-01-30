@@ -1704,6 +1704,10 @@ header .btn.transparent,
 .tutor-section .tutor-image-container:hover .tutor-box-overlay {
     opacity: 1;
 }
+.box-overlay .heading-h5{
+    max-height: 50px;
+    overflow: auto;
+}
 @media only screen and (max-width: 992px) {
     .banner-left-content{
         display: none;

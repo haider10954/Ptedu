@@ -133,7 +133,7 @@
                         <div class="section-title mb-5">
                             <h3 class="heading-h3 text-white mb-0">Offline Courses</h3>
                         </div>
-                        <div class="swiper offline-lecture-carousel">
+                        <div class="swiper public-course-carousel">
                             <div class="swiper-wrapper">
                                 @foreach ($offline_courses as $v)
                                     <div class="swiper-slide">
@@ -155,8 +155,8 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <div class="swiper-button-next offline-lecture-next"></div>
-                            <div class="swiper-button-prev offline-lecture-prev"></div>
+                            <div class="swiper-button-next public-course-next"></div>
+                            <div class="swiper-button-prev public-course-prev"></div>
                         </div>
                     </div>
                 @endif
