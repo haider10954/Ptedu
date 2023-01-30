@@ -84,8 +84,7 @@
                                 <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="offline"
                                     data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                             @else
-                                <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="offline"
-                                    data-id="{{ encrypt($course_info) }}">Limit Reached</button>
+                                <button class="btn btn-dark btn-sm w-100 mb-2 disabled" diabled>Limit Reached</button>
                             @endif
                         @endif
                     </div>
