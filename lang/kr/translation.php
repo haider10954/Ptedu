@@ -119,7 +119,7 @@ return [
     'Delete Reservation' => '예약 삭제',
     'Are you sure to decline your Reservation' => '예약을 취소하시겠습니까?',
     'Save changes' => '저장',
-    'Add to cart' => '예약 대기',
+    'Add to cart' => '장바구니에 담기',
     'Designation' => '지정',
     'Address' => '주소',
     'Online Courses' => '온라인 강의',
