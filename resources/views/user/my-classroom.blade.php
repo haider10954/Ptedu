@@ -265,6 +265,7 @@
 
                         <div class="col-lg-10">
                             <input type="text" name="title" placeholder="Enter Title" value="{{ old('title') }}" class="form-control">
+                            <div class="error-title"></div>
                         </div>
                     </div>
                     <div class="row align-items-center mb-3">
@@ -509,6 +510,12 @@
                         $('.prompt').hide()
                         window.location.reload();
                     }, 4000);
+                    $('.error-rating').html('');
+                    $('.error-title').html('');
+                    $('.error-content').html('');
+                    $('.error-video').html('');
+                    $('.error-video-url').html('');
+                    
 
                 } else {}
             },
