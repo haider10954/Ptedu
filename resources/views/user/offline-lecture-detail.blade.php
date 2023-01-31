@@ -91,7 +91,7 @@
                 </div>
             </div>
             <div class="w-80 m-auto py-4">
-                <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
+                {{-- <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
                             aria-controls="pills-home" aria-selected="true">{{ __('translation.Course Introduction') }}</a>
@@ -105,12 +105,12 @@
                         <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
                             aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture Review') }}</a>
                     </li>
-                </ul>
+                </ul> --}}
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         {!! $course_info->description !!}
                     </div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    {{-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                         <table class="table">
                             <tbody>
                                 <tr>
@@ -163,7 +163,7 @@
                         <p class="mb-2 text font-weight-bold">{{ __('translation.Day') }} 2</p>
                         <p class="mb-4 text">1. 보행 기초지식: 보행 이해를 위한 기본 운동학, 8개 보행주기의 이해(근육, 관절, 힘)<br>2. 사람 움직임으로서의 보행: 운동조절
                             이론과 보행, 보행의 개인별 다양성<br>3. 질의 응답</p>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

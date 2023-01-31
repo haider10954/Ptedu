@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="w-80 m-auto py-4">
-            <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
+            {{-- <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('translation.Course Introduction') }}</a>
                 </li>
@@ -50,12 +50,12 @@
                 <li class="nav-item">
                     <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture Review') }}</a>
                 </li>
-            </ul>
+            </ul> --}}
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     {!! $course_info->description !!}
                 </div>
-                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                {{-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <table class="table">
                         <tbody>
                             <tr>
@@ -150,7 +150,7 @@
                         <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                     </div>
                     @endif
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
