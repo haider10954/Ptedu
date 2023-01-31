@@ -383,5 +383,6 @@ return [
     '4th floor, 479 Tower, 51-2 Samseong-dong, Gangnam-gu, Seoul' => '4th floor, 479 Tower, 51-2 Samseong-dong, Gangnam-gu, Seoul',
     'Business registration number: 102-22-52806 CEO Kyu-Haeng Cho' => 'Business registration number: 102-22-52806 CEO Kyu-Haeng Cho',
     'Service center' => 'Service center',
-    'Add KakaoTalk' => 'Add KakaoTalk'
+    'Add KakaoTalk' => 'Add KakaoTalk',
+    'Tutor Thumbnail' => 'Tutor thumbnail',
 ];

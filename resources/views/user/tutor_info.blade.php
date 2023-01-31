@@ -10,6 +10,7 @@
                 <h6 class="mb-0">Tutor Introduction</h5>
             </div>
             <div class="row">
+                @if($tutor->tutor_thumbnail == null)
                 <div class="col-lg-6 col-md-4 col-sm-12">
                     <div class="pt-3">
                         <h5 class="heading mb-3 text-left">{{ $tutor->english_name }}</h5>
@@ -23,6 +24,13 @@
                         <img src="{{ asset('storage/tutor/'.$tutor->tutor_img) }}" class="tutor_img">
                     </div>
                 </div>
+                @else
+                <div class="col-lg-12 col-md-4 col-sm-12">
+                    <div class="pt-3">
+                        <img src="{{ asset('storage/tutor-thumbnail/'.$tutor->tutor_thumbnail) }}" class="w-100">
+                    </div>
+                </div>
+                @endif
             </div>
             <div class="pt-3">
                 <h5 class="heading mb-3 text-left">{{ $tutor->english_name }} courses</h5>

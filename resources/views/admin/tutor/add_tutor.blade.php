@@ -182,6 +182,16 @@
                         </div>
                     </div>
 
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Tutor Thumbnail') }}</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" name="thumbnail_image">
+                            @error('thumbnail_image')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+
 
                     <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">

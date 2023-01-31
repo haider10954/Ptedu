@@ -201,6 +201,22 @@
                     </div>
 
                     <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Tutor Thumbnail') }}</label>
+                        <div class="col-sm-10">
+                            <input type="file" name="tutor_thumbnail" id="tutor_thumbnail" class="d-none" value="{{ $tutor->getTutorThumbnail() }}">
+                            <div class="d-flex align-items-end">
+                                <div class="display_img" id="tutor_thumbnail_view">
+                                    <img src="{{ asset('storage/tutor-thumbnail/' . $tutor->tutor_thumbnail )}}" />
+                                </div>
+                                <button type="button" class="btn btn-upload ms-2" onclick="tutorthumbnail('#tutor_thumbnail')">upload</button>
+                            </div>
+                            @error('tutor_thumbnail')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
                         <div class="col-sm-12 d-flex justify-content-center align-content-center">
                             <button type="submit" class="btn btn-lg btn-register">{{ __('translation.Ok') }}</button>
                         </div>
@@ -225,6 +241,22 @@
         reader.onload = function(e) {
 
             $("#tutor_image_view").html(`<img style="height: 100%; object-fit: contain;"  id="main_image_preview"  src="${e.target.result}" class="main_image_preview img-block- img-fluid w-100">`);
+        }
+        reader.readAsDataURL(f);
+    })
+
+
+    function tutorthumbnail(id) {
+        $(id).click();
+    }
+
+    $("#tutor_thumbnail").on("change", function(e) {
+
+        f = Array.prototype.slice.call(e.target.files)[0]
+        let reader = new FileReader();
+        reader.onload = function(e) {
+
+            $("#tutor_thumbnail_view").html(`<img style="height: 100%; object-fit: contain;"  id="main_image_preview"  src="${e.target.result}" class="main_image_preview img-block- img-fluid w-100">`);
         }
         reader.readAsDataURL(f);
     })

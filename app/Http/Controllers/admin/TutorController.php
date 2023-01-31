@@ -22,12 +22,22 @@ class TutorController extends Controller
 
     function upload_files($file)
     {
-        if(!file_exists(storage_path('app/public/tutor')))
-        {
-            mkdir(storage_path('app/public/tutor'),0755,true);
+        if (!file_exists(storage_path('app/public/tutor'))) {
+            mkdir(storage_path('app/public/tutor'), 0755, true);
         }
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/tutor', $fileName);
+        $loadPath = storage_path('app/public/') . '/' . $fileName;
+        return $fileName;
+    }
+
+    function upload_thumbnail($file)
+    {
+        if (!file_exists(storage_path('app/public/tutor-thumbnail'))) {
+            mkdir(storage_path('app/public/tutor-thumbnail'), 0755, true);
+        }
+        $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
+        $file->storeAs('public/tutor-thumbnail', $fileName);
         $loadPath = storage_path('app/public/') . '/' . $fileName;
         return $fileName;
     }
@@ -43,8 +53,11 @@ class TutorController extends Controller
             'address' => 'required',
             'description' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg',
+            'thumbnail_image' => 'mimes:jpeg,png,jpg',
         ]);
+
         $tutor_img = $this->upload_files($request['image']);
+        $thumbnail_image = $this->upload_thumbnail($request['thumbnail_image']);
         $tutor = Tutor::create([
             'name' => $request['name'],
             'english_name' => $request['en_name'],
@@ -54,6 +67,7 @@ class TutorController extends Controller
             'address' => $request['address'],
             'description' => $request['description'],
             'tutor_img' => $tutor_img,
+            'tutor_thumbnail' => $thumbnail_image,
         ]);
 
         if ($tutor) {
@@ -89,6 +103,7 @@ class TutorController extends Controller
             'address' => 'required',
             'description' => 'required',
             'image' => 'mimes:jpeg,png,jpg',
+            'thumbnail_image' => 'mimes:jpeg,png,jpg',
         ]);
 
 
@@ -105,6 +120,11 @@ class TutorController extends Controller
         if ($request->hasFile('image')) {
             $data['tutor_img'] = $this->upload_files($request['image']);
         }
+        if ($request->hasFile('tutor_thumbnail')) {
+            $data['tutor_thumbnail'] = $this->upload_thumbnail($request['tutor_thumbnail']);
+        }
+
+
 
         $tutor = Tutor::where('id', $request['id'])->update($data);
         if ($tutor) {

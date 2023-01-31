@@ -16,6 +16,11 @@ class Tutor extends Model
         return asset('storage/tutor/' . $this->tutor_img);
     }
 
+    public function getTutorThumbnail()
+    {
+        return asset('storage/tutor-thumbnail/' . $this->tutor_thumbnail);
+    }
+
     public function getCourseName()
     {
         return $this->hasMany(Course::class, 'tutor_id', 'id');
