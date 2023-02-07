@@ -21,7 +21,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-10">
+                <div class="col-lg-9">
                     <div class="section-heading mb-3">
                         <h5 class="mb-0">{{ __('translation.Shopping Bag') }}</h5>
                     </div>
