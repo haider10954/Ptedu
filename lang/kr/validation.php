@@ -7,4 +7,5 @@ return [
         'array' => ':attribute는 최소한 :min 이어야 합니다.',
         'string' => ':attribute는 최소한 :min 이어야 합니다.'
     ],
+    'confirmed' => ':attribute 확인이 일치하지 않습니다.',
 ];
