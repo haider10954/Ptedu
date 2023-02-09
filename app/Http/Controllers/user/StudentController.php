@@ -122,7 +122,7 @@ class StudentController extends Controller
         if ($id == null) {
             return json_encode([
                 'success' => false,
-                'message' => __('translation.Something went wrong Please try again'),,
+                'message' => __('translation.Something went wrong Please try again'),
             ]);
         }
         $request->validate([
