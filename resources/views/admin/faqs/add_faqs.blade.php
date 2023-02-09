@@ -117,7 +117,7 @@
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Category') }}</label>
                         <div class="col-sm-10">
                             <select type="text" class="form-control" name="category">
-                                <option value="">Select Category</option>
+                                <option value="">{{__('translation.Select Option')}}</option>
                                 @foreach ($category as $cat)
                                 <option value="{{ $cat->id }}">{{ $cat->name }}</option>
                                 @endforeach
@@ -131,7 +131,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Answers') }}</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="testing" placeholder="Enter content" name="answer">{{ old('answer') }}</textarea>
+                            <textarea class="form-control" id="testing" placeholder="{{ __('translation.Enter content') }}" name="answer">{{ old('answer') }}</textarea>
                             @error('answer')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror

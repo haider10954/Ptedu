@@ -19,9 +19,9 @@ class StudentController extends Controller
     {
         $student = User::where('id', $request->id)->delete();
         if ($student) {
-            return redirect()->back()->with('message', 'Student has been deleted Successfully');
+            return redirect()->back()->with('message', __('translation.Student has been deleted Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong. Please try agian later.');
+            return redirect()->back()->with('error',  __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -55,12 +55,12 @@ class StudentController extends Controller
         if ($student) {
             return json_encode([
                 'success' => true,
-                'message' => 'Student Record has been Updated Successfully'
+                'message' =>  __('translation.Student Record has been Updated Successfully'),
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong.Please try again later'
+                'message' =>  __('translation.Something went wrong Please try again')
             ]);
         }
     }

@@ -81,12 +81,12 @@ class InquiryController extends Controller
         if ($inquiry) {
             return json_encode([
                 'success' => true,
-                'message' => 'Inquiry has been added Successfully'
+                'message' => __('translation.Inquiry has been added Successfully'),
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong. Please try again'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }

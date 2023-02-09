@@ -495,13 +495,13 @@
                 mimeType: "multipart/form-data",
                 beforeSend: function() {
                     $("#submitForm").prop('disabled', true);
-                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                     $(".error-message").hide();
                 },
                 success: function(res) {
                     if (res.success == true) {
                         $("#submitForm").attr('class', 'btn btn-success');
-                        $("#submitForm").html('<i class="fa fa-check me-1"></i>  Course Uploaded</>');
+                        $("#submitForm").html('<i class="fa fa-check me-1"></i>  과정이 업로드됨</>');
                         $('#course_id').val(res.course_id);
                         setTimeout(function() {
                             $('html, body').animate({
@@ -516,7 +516,7 @@
                         }, 3500);
                     } else {
                         $("#submitForm").prop('disabled', false);
-                        $("#submitForm").html('Register');
+                        $("#submitForm").html('등록하다');
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
                         }, 2000);
@@ -525,7 +525,7 @@
                 },
                 error: function(e) {
                     $("#submitForm").prop('disabled', false);
-                    $("#submitForm").html('Register');
+                    $("#submitForm").html('등록하다');
                     if (e.responseJSON.errors['course_type']) {
                         $('.error-course-type').html('<small class=" error-message text-danger">' + e
                             .responseJSON.errors['course_type'][0] + '</small>');
@@ -596,7 +596,7 @@
                 data: $('#add_section_form').serialize(),
                 beforeSend: function() {
                     $("#submitSections").prop('disabled', true);
-                    $("#submitSections").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    $("#submitSections").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                     $(".error-message").hide();
                 },
                 success: function(res) {
@@ -615,7 +615,7 @@
                                         <h5 class="section-description">${sections[i].section_description}</h5>
                                         <div class="row section-add-lectures-form mt-2">
                                             <div class="col-12 mb-3">
-                                                <small class="d-block text-left fw-bold">Add Lectures</small>
+                                                <small class="d-block text-left fw-bold">강의 추가</small>
                                             </div>
                                             <div class="col-12">
                                                 <form id="add_lectures_form" onsubmit="lectures_submit(event,$(this))">
@@ -629,13 +629,13 @@
                                                                     <label for="name">Lecture Title</label>
                                                                     <input type="text" class="form-control"
                                                                         name="lecture_title"
-                                                                        placeholder="Enter Lecture Title" />
+                                                                        placeholder="강의 제목 입력" />
                                                                 </div>
 
                                                                 <div class="col-lg-6">
                                                                     <label>Lecture Video</label>
                                                                     <input type="file" class="form-control"
-                                                                        placeholder="Select Lecture Video"
+                                                                        placeholder="강의 영상 선택"
                                                                         name="lecture_video" />
                                                                 </div>
 
@@ -643,7 +643,7 @@
                                                                     <label for="name">Lecture Video Link</label>
                                                                     <input type="text" class="form-control"
                                                                         name="lecture_video_link"
-                                                                        placeholder="Enter Lecture Video Link" />
+                                                                        placeholder="강의 동영상 링크 입력" />
                                                                 </div>
                                                                 <button data-repeater-delete type="button" class="btn btn-soft-danger btn-sm repeater-del-btn" value="Delete"><i class="bi bi-x"></i></button>
                                                             </div>
@@ -652,13 +652,12 @@
                                                             <div class="mt-1 mb-2">
                                                                 {{-- <input data-repeater-create type="button" class="btn btn-success" value="" /> --}}
                                                                 <button type="button" data-repeater-create
-                                                                    class="btn btn-success"><i class="bi bi-plus"></i> Add
-                                                                    More</button>
+                                                                    class="btn btn-success"><i class="bi bi-plus"></i> 더 추가</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="text-center">
-                                                        <button id="submitLectures" type="button" onclick="$(this).parent().parent().submit()" class="btn btn-primary w-25 m-auto">Add Lectures</button>
+                                                        <button id="submitLectures" type="button" onclick="$(this).parent().parent().submit()" class="btn btn-primary w-25 m-auto">강의 추가</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -682,7 +681,7 @@
                             }
                         }
                         $("#submitSections").attr('class', 'btn btn-success');
-                        $("#submitSections").html('<i class="fa fa-check me-1"></i>  Sections Uploaded</>');
+                        $("#submitSections").html('<i class="fa fa-check me-1"></i>  업로드된 섹션</>');
                         setTimeout(function() {
                             $('html, body').animate({
                                 scrollTop: $("html, body").offset().top
@@ -696,11 +695,11 @@
                         }, 3500);
                     } else if (res.error == true) {
                         $("#submitSections").prop('disabled', false);
-                        $("#submitSections").html('Submit Sections');
+                        $("#submitSections").html('섹션 제출');
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
                         }, 2000);
-                        $('.section_prompt').html('<div class="alert alert-warning mb-3">Please make sure to fill all fields with valid values</div>');
+                        $('.section_prompt').html('<div class="alert alert-warning mb-3">유효한 값으로 모든 필드를 채우십시오.</div>');
                     }
                 },
                 error: function(e) {}
@@ -722,7 +721,7 @@
                 processData: false,
                 beforeSend: function() {
                     $("#submitLectures").prop('disabled', true);
-                    $("#submitLectures").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    $("#submitLectures").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                 },
                 success: function(res) {
                     if (res.success == true) {
@@ -735,7 +734,7 @@
                         $("#submitLectures").html('<i class="fa fa-check me-1"></i>  Lectures Uploaded</>');
                         if (currentForm.parents('.section-box').attr('data-position') == 'finalState') {
                             $('.section-boxes').append(`
-                            <div class="mt-3 text-center"><a href="{{ route('course') }}" class="btn btn-primary w-25 m-auto">Go to Listing</a></div>
+                            <div class="mt-3 text-center"><a href="{{ route('course') }}" class="btn btn-primary w-25 m-auto">목록으로 이동</a></div>
                             `);
                         }
                         setTimeout(function() {
@@ -763,7 +762,7 @@
                             currentSectionBox.next('.section-box').find('.section-box-content').append(`
                             <div class="row section-add-lectures-form mt-4">
                                 <div class="col-12 mb-3">
-                                    <small class="d-block text-left fw-bold">Add Lectures</small>
+                                    <small class="d-block text-left fw-bold">강의 추가</small>
                                 </div>
                                 <div class="col-12">
                                     <form id="add_lectures_form" onsubmit="lectures_submit(event,$(this))">
@@ -777,13 +776,13 @@
                                                         <label for="name">Lecture Title</label>
                                                         <input type="text" class="form-control"
                                                             name="lecture_title"
-                                                            placeholder="Enter Lecture Title" />
+                                                            placeholder="강의 제목 입력" />
                                                     </div>
 
                                                     <div class="col-lg-6">
                                                         <label>Lecture Video</label>
                                                         <input type="file" class="form-control"
-                                                            placeholder="Select Lecture Video"
+                                                            placeholder="강의 영상 선택"
                                                             name="lecture_video" />
                                                     </div>
 
@@ -791,7 +790,7 @@
                                                         <label for="name">Lecture Video Link</label>
                                                         <input type="text" class="form-control"
                                                             name="lecture_video_link"
-                                                            placeholder="Enter Lecture Video Link" />
+                                                            placeholder="강의 동영상 링크 입력" />
                                                     </div>
                                                     <button data-repeater-delete type="button" class="btn btn-soft-danger btn-sm repeater-del-btn" value="Delete"><i class="bi bi-x"></i></button>
                                                 </div>
@@ -800,13 +799,12 @@
                                                 <div class="mt-1 mb-2">
                                                     {{-- <input data-repeater-create type="button" class="btn btn-success" value="" /> --}}
                                                     <button type="button" data-repeater-create
-                                                        class="btn btn-success"><i class="bi bi-plus"></i> Add
-                                                        More</button>
+                                                        class="btn btn-success"><i class="bi bi-plus"></i> 더 추가</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="text-center">
-                                            <button id="submitLectures" type="button" onclick="$(this).parent().parent().submit()" class="btn btn-primary w-25 m-auto">Add Lectures</button>
+                                            <button id="submitLectures" type="button" onclick="$(this).parent().parent().submit()" class="btn btn-primary w-25 m-auto">강의 추가</button>
                                         </div>
                                     </form>
                                 </div>
@@ -817,7 +815,7 @@
                     } else if (res.error == true) {
                         $('.add_lecture_prompt').hide();
                         $("#submitLectures").prop('disabled', false);
-                        $("#submitLectures").html('Add Lectures');
+                        $("#submitLectures").html('강의 추가');
                         setTimeout(function() {
                             $('.loading-bar').css('transition', 'none');
                             $('.loading-bar').css('width', 0);

@@ -28,12 +28,12 @@ class ReservationController extends Controller
         if ($offline_course_enrollment) {
             return json_encode([
                 'success' => true,
-                'message' => 'You have Enrolled Course Successfully',
+                'message' => __('translation.You have Enrolled Course Successfully'),
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'An Unknown Error Exist , Please try again',
+                'message' => __('translation.Something went wrong Please try again'),
             ]);
         }
     }
@@ -43,7 +43,7 @@ class ReservationController extends Controller
         $addReservation = Reservation::updateOrCreate([
             'user_id' => auth()->id(),
             'course_id' => $request->id
-        ],[
+        ], [
             'user_id' => auth()->id(),
             'course_id' => $request->id,
             'status' => 'applied'
@@ -52,12 +52,12 @@ class ReservationController extends Controller
         if ($addReservation) {
             return json_encode([
                 'success' => true,
-                'message' => 'Course Reserved Successfully',
+                'message' => __('translation.Course Reserved Successfully'),
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'An Unknown Error Exist , Please try again',
+                'message' => __('translation.Something went wrong Please try again'),
             ]);
         }
     }
@@ -69,12 +69,12 @@ class ReservationController extends Controller
         if ($deleteReservation) {
             return json_encode([
                 'success' => true,
-                'message' => 'Course Reserved deleted Successfully',
+                'message' => __('translation.Course Reservation deleted Successfully'),
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'An Unknown Error Exist , Please try again',
+                'message' => __('translation.Something went wrong Please try again'),
             ]);
         }
     }
@@ -90,13 +90,13 @@ class ReservationController extends Controller
         if ($course_status) {
             return response()->json([
                 'success' => true,
-                'message' => 'Course Reservation Status Updated Successfully',
+                'message' => __('translation.Course Reservation Status Updated Successfully'),
             ]);
         } else {
 
             return response()->json([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.',
+                'message' => __('translation.Something went wrong Please try again'),
             ]);
         }
     }

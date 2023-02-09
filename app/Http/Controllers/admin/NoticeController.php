@@ -45,7 +45,7 @@ class NoticeController extends Controller
         if ($notice) {
             return redirect()->route('notice');
         } else {
-            return redirect()->back()->with('msg', 'Something went wrong Please try again.');
+            return redirect()->back()->with('msg',  __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -53,9 +53,9 @@ class NoticeController extends Controller
     {
         $notice = Notice::where('id', $request['id'])->delete();
         if ($notice) {
-            return redirect()->back()->with('msg', 'Notice has been deleted Successfully');
+            return redirect()->back()->with('msg', __('translation.Notice has been deleted Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error',  __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -76,7 +76,7 @@ class NoticeController extends Controller
         if ($notice) {
             return redirect()->route('notice');
         } else {
-            return redirect()->back()->with('msg', 'Something went wrong Please try again.');
+            return redirect()->back()->with('msg',  __('translation.Something went wrong Please try again'));
         }
     }
 }

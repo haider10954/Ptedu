@@ -19,7 +19,7 @@ class AuthController extends Controller
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
             return redirect()->route('course');
         } else {
-            return redirect()->back()->with('message', 'Email or password is invalid');
+            return redirect()->back()->with('message', __('translation.Email or password is invalid'));
         }
     }
 
@@ -46,10 +46,10 @@ class AuthController extends Controller
                 'password' => Hash::make($request['new_password']),
             ]);
         } else {
-            return redirect()->back()->with('profile_false', 'The entered password is not valid');
+            return redirect()->back()->with('profile_false', __('translation.The entered password is not valid'));
         }
         if ($admin) {
-            return redirect()->back()->with('profile_true', 'Password has been updated successfully');
+            return redirect()->back()->with('profile_true', __('translation.Password has been updated successfully'));
         }
     }
 
@@ -94,9 +94,9 @@ class AuthController extends Controller
             'introduction' => $request['introduction']
         ]);
         if ($admin) {
-            return redirect()->back()->with('msg', 'Admin Profile has been Updated Successfully');
+            return redirect()->back()->with('msg', __('translation.Admin Profile has been Updated Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 }

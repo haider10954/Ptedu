@@ -11,9 +11,8 @@ class CourseLectureController extends Controller
 {
     function upload_video($file)
     {
-        if(!file_exists(storage_path('app/public/course/lectures')))
-        {
-            mkdir(storage_path('app/public/course/lectures'),0755,true);
+        if (!file_exists(storage_path('app/public/course/lectures'))) {
+            mkdir(storage_path('app/public/course/lectures'), 0755, true);
         }
         $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/course/lectures', $fileName);
@@ -46,9 +45,9 @@ class CourseLectureController extends Controller
             'lecture_videos' => $lecture_videos_arr,
         ]);
         if ($lecture) {
-            return redirect()->back()->with('msg', 'Course Lecture has been Added Successfully');
+            return redirect()->back()->with('msg', __('translation.Lecture has been Added successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -56,9 +55,9 @@ class CourseLectureController extends Controller
     {
         $lecture = Course_lecture::where('id', $request['id'])->delete();
         if ($lecture) {
-            return redirect()->back()->with('msg', 'Course Lecture has been deleted Successfully');
+            return redirect()->back()->with('msg', __('translation.Lecture has been deleted successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 }

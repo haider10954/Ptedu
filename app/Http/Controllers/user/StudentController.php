@@ -46,7 +46,7 @@ class StudentController extends Controller
             return json_encode(
                 [
                     'success' => false,
-                    'message' => 'Something went wrong. Please try again later.'
+                    'message' => __('translation.Something went wrong Please try again'),
                 ]
             );
         }
@@ -62,12 +62,12 @@ class StudentController extends Controller
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return json_encode([
                 'success' => true,
-                'message' => 'Welcome to Student Portal'
+                'message' => __('translation.Welcome to Student Portal'),
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Email or Password is Incorrect'
+                'message' => __('translation.Email or Password is Incorrect'),
             ]);
         }
     }
@@ -105,12 +105,12 @@ class StudentController extends Controller
             session()->save();
             return json_encode([
                 'success' => true,
-                'message' => 'Your Entered Credentails are Valid',
+                'message' => __('translation.Your Entered Credentails are Valid'),
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Credentails are Invalid',
+                'message' => __('translation.Credentails are Invalid'),
             ]);
         }
     }
@@ -122,7 +122,7 @@ class StudentController extends Controller
         if ($id == null) {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong',
+                'message' => __('translation.Something went wrong Please try again'),,
             ]);
         }
         $request->validate([
@@ -137,12 +137,12 @@ class StudentController extends Controller
             session()->save();
             return json_encode([
                 'success' => true,
-                'message' => 'Your Password has been changed Successfully'
+                'message' => __('translation.Your Password has been changed Successfully')
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong',
+                'message' => __('translation.Something went wrong Please try again'),
             ]);
         }
     }
@@ -158,22 +158,21 @@ class StudentController extends Controller
         if ($find_id) {
             return json_encode([
                 'success' => true,
-                'message' => 'Your Entered Credentails are Valid',
+                'message' => __('translation.Your Entered Credentails are Valid'),
                 'user_id' => $find_id->user_id
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Credentails are Invalid',
+                'message' => __('translation.Credentails are Invalid'),
             ]);
         }
     }
 
     function upload_files($file)
     {
-        if(!file_exists(storage_path('app/public/student')))
-        {
-            mkdir(storage_path('app/public/student'),0755,true);
+        if (!file_exists(storage_path('app/public/student'))) {
+            mkdir(storage_path('app/public/student'), 0755, true);
         }
         $fileName = time() . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/student', $fileName);
@@ -214,9 +213,9 @@ class StudentController extends Controller
             'email' => $request['email_name'] . '@' . $request['email_extension'],
         ]);
         if ($user) {
-            return redirect()->back()->with('msg', 'Student Profile has been updated Successfully');
+            return redirect()->back()->with('msg', __('translation.Student Profile has been updated Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went Wrong. Please try again later');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
     public function delete_profile_image()
@@ -225,9 +224,9 @@ class StudentController extends Controller
             'profile_img' => null,
         ]);
         if ($delete_profile_img) {
-            return redirect()->back()->with('msg', 'Your Profile image has been deleted successfully');
+            return redirect()->back()->with('msg', __('translation.Your Profile image has been deleted successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something Went Wrong.Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'),);
         }
     }
 
@@ -243,13 +242,13 @@ class StudentController extends Controller
                 'password' => Hash::make($request['new_password'])
             ]);
         } else {
-            return redirect()->back()->with('error', 'Password you entered is incorrect');
+            return redirect()->back()->with('error', __('translation.Password you entered is incorrect'));
         }
 
         if ($change_password) {
-            return redirect()->back()->with('msg', 'Your Password has been Updated Successfully');
+            return redirect()->back()->with('msg', __('translation.Your Password has been Updated Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went Wrong. Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'),);
         }
     }
 }
