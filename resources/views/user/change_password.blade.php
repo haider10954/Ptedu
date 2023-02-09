@@ -66,7 +66,7 @@
                         <div class="col-9 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                                 <div>
-                                    <input type="password" class="form-control" name="new_password" placeholder="{{ __('translation.Enter New password') }}">
+                                    <input type="password" class="form-control" name="new_password" placeholder="{{ __('translation.Enter New Password') }}">
                                     @error('new_password')
                                     <small style="color:#d02525;">{{$message}}</small>
                                     @enderror
