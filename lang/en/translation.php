@@ -386,7 +386,7 @@ return [
     'Add KakaoTalk' => 'Add KakaoTalk',
     'Tutor Thumbnail' => 'Tutor thumbnail',
 
-    //New
+    //New from 2/9/2023
     'Email or password is invalid' => 'Email or password is invalid',
     'The entered password is not valid' => 'The entered password is not valid',
     'Password has been updated successfully' => 'Password has been updated successfully',
