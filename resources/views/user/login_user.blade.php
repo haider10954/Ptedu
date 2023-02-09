@@ -64,6 +64,8 @@
             },
             success: function(res) {
                 if (res.success) {
+                    
+                    $('.prompt').show();
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
 
                     setTimeout(function() {
@@ -72,6 +74,8 @@
                     }, 2000);
 
                 } else {
+                    
+                    $('.prompt').show();
                     $('.prompt').html('<div class="alert alert-danger mb-3">' + res.message + '</div>');
 
                     setTimeout(function() {

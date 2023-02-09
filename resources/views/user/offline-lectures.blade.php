@@ -9,7 +9,7 @@
             <h5 class="mb-0">{{ __('translation.Offline Courses') }}</h5>
 
             <div class="text-right">
-                <input type="text" class="form-control" placeholder="Search by Name" id="myInput">
+                <input type="text" class="form-control" placeholder="{{ __('translation.Search by Name') }}" id="myInput">
             </div>
         </div>
         <div class="row pt-4">

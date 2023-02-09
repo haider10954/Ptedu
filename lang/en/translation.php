@@ -439,4 +439,8 @@ return [
     'Section' => 'Section',
     'Issuance of Certificate of Completion' => 'Issuance of Certificate of Completion',
     'Enter content' => 'Enter content',
+    'Write a review in here' => 'Write a review in here',
+    'Search by Name' => 'Search by Name',
+    'Tutor Introduction' => 'Tutor Introduction',
+    'Search' => 'Search'
 ];

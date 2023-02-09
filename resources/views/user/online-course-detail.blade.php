@@ -177,15 +177,15 @@
             },
             beforeSend: function() {
                 btn.prop('disabled', true);
-                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 가공');
             },
             success: function(res) {
                 if (res.Success == true) {
-                    btn.html('<i class="fa fa-check mx-1"></i> Added</>');
+                    btn.html('<i class="fa fa-check mx-1"></i> 추가됨</>');
                     $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
                     $('.shopping_cart_count').html(res.cart_items_count);
                 } else {
-                    btn.html('<i class="fa fa-check mx-1"></i> Already Added</>');
+                    btn.html('<i class="fa fa-check mx-1"></i> 이미 추가됨</>');
                 }
             },
             error: function(e) {}

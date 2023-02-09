@@ -52,7 +52,7 @@
             data: formData,
             beforeSend: function() {
                 $("#submitForm").prop('disabled', true);
-                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
             },
             success: function(res) {
                 if (res.success) {
@@ -77,7 +77,7 @@
             },
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
-                $("#submitForm").html('Finf my PW');
+                $("#submitForm").html('내 비밀번호 찾기');
                 if (e.responseJSON.errors['name']) {
                     $('.error-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['name'][0] + '</small>');
                 }

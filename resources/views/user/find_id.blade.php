@@ -49,13 +49,13 @@
             data: formData,
             beforeSend: function() {
                 $("#submitForm").prop('disabled', true);
-                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
             },
             success: function(res) {
                 if (res.success) {
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
                     $('#user_id').append(' <div class="form-group"><label class="form-label">User ID</label><input type="text" class="form-control" value=' + res.user_id + ' name="phone_number" /><div class="error-mobile"></div></div>')
-                    $(".btnToggle").html("<a class='text-white text-decoration-none btn btn-login' href='{{ route('user_login') }}'>Login</a>");
+                    $(".btnToggle").html("<a class='text-white text-decoration-none btn btn-login' href='{{ route('user_login') }}'>로그인</a>");
                     $("#submitForm").prop('disabled', false);
                     setTimeout(function() {
                         $('.prompt').hide()
@@ -69,13 +69,13 @@
                     setTimeout(function() {
                         $('.prompt').hide()
                     }, 2000);
-                    $("#submitForm").html('Find my ID');
+                    $("#submitForm").html('내 아이디 찾기');
                     $("#submitForm").prop('disabled', false);
                 }
             },
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
-                $("#submitForm").html('Finf my ID');
+                $("#submitForm").html('내 아이디 찾기');
                 if (e.responseJSON.errors['name']) {
                     $('.error-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['name'][0] + '</small>');
                 }

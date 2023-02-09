@@ -64,7 +64,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="prompt"></div>
-                    <p>Are you sure you want to delete ?</p>
+                    <p>{{ __('translation.Are you sure to delete ?')}}</p>
                     <div class="d-flex align-items-center justify-content-end">
                         <button type="submit" id="submitForm"
                             class="btn btn-primary mr-2 rounded-0 btn-theme-black">{{ __('translation.Delete') }}</button>
@@ -105,7 +105,7 @@
                         $('.shopping_cart_count').html(res.cart_items_count);
                     } else {
                         btn.prop('disabled', false);
-                        btn.html('Try Again');
+                        btn.html('다시 시도하십시오');
                     }
                 },
                 error: function(e) {}
@@ -139,10 +139,10 @@
                         $('.shopping_cart_count').html(res.cart_items_count);
                         btn.parent('.select_delete_btn_box').fadeOut();
                         btn.prop('disabled', false);
-                        btn.html('<i class="fa fa-times"></i><span class="ml-2">Select Delete</span>');
+                        btn.html('<i class="fa fa-times"></i><span class="ml-2">삭제를 선택합니다</span>');
                     } else {
                         btn.prop('disabled', false);
-                        btn.html('<i class="fa fa-times"></i><span class="ml-2">Try Again</span>');
+                        btn.html('<i class="fa fa-times"></i><span class="ml-2">다시 시도하십시오</span>');
                     }
                 },
                 error: function(e) {}

@@ -7,7 +7,7 @@
     <div class="container mb-80">
         <div class="w-75 m-auto">
             <div class="section-heading">
-                <h6 class="mb-0">Tutor Introduction</h5>
+                <h6 class="mb-0">{{ __('translation.Tutor Introduction')}}</h5>
             </div>
             <div class="row">
                 @if($tutor->tutor_thumbnail == null)

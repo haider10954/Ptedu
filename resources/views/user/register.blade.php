@@ -349,11 +349,11 @@
             data: formData,
             beforeSend: function() {
                 $("#submitForm").prop('disabled', true);
-                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
             },
             success: function(res) {
                 $("#submitForm").attr('class', 'btn btn-success');
-                $("#submitForm").html('<i class="fa fa-check me-1"></i>  Student Registered</>');
+                $("#submitForm").html('<i class="fa fa-check me-1"></i>  등록된 학생</>');
                 if (res.success) {
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
                     setTimeout(function() {
@@ -372,7 +372,7 @@
             },
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
-                $("#submitForm").html('Register');
+                $("#submitForm").html('등록하다');
                 setTimeout(function() {
                     $('html, body').animate({
                         scrollTop: $("html, body").offset().top

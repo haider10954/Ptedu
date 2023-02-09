@@ -264,7 +264,7 @@
                         </div>
 
                         <div class="col-lg-10">
-                            <input type="text" name="title" placeholder="Enter Title" value="{{ old('title') }}" class="form-control">
+                            <input type="text" name="title" placeholder="{{ __('translation.Enter Title') }}" value="{{ old('title') }}" class="form-control">
                             <div class="error-title"></div>
                         </div>
                     </div>
@@ -273,7 +273,7 @@
                             <label for="contents mb-0">{{ __('translation.Contents') }}</label>
                         </div>
                         <div class="col-lg-10">
-                            <input type="text" name="contents" placeholder="Write a review in here" class="form-control" value="{{ old('content') }}">
+                            <input type="text" name="contents" placeholder="{{ __('translation.Write a review in here') }}" class="form-control" value="{{ old('content') }}">
                             <div class="error-content"></div>
                         </div>
                     </div>
@@ -292,7 +292,7 @@
                             <label for="contents mb-0">{{ __('translation.Video URL') }}</label>
                         </div>
                         <div class="col-lg-10">
-                            <input type="text" name="video_url" placeholder="Enter Video URL" class="form-control">
+                            <input type="text" name="video_url" placeholder="{{ __('translation.Enter video URL ( Youtube or Vimeo )') }}" class="form-control">
                             <div class="error-video-url"></div>
                         </div>
                     </div>
@@ -431,7 +431,7 @@
                 id: id,
             },
             beforeSend: function() {
-                $('#completed_courses').html('<i class="fa fa-spinner me-2"></i> processing');
+                $('#completed_courses').html('<i class="fa fa-spinner me-2"></i> 가공');
             },
             success: function(response) {
 
@@ -492,11 +492,11 @@
             mimeType: "multipart/form-data",
             beforeSend: function() {
                 $("#submitForm").prop('disabled', true);
-                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
             },
             success: function(res) {
                 $("#submitForm").attr('class', 'btn btn-success');
-                $("#submitForm").html('<i class="fa fa-check me-1"></i>  Reivew Added</>');
+                $("#submitForm").html('<i class="fa fa-check me-1"></i>  리뷰가 추가됨</>');
                 if (res.success) {
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message +
                         '</div>');
@@ -521,7 +521,7 @@
             },
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
-                $("#submitForm").html('Add Review');
+                $("#submitForm").html('리뷰 추가');
                 if (e.responseJSON.errors['rating']) {
                     $('.error-rating').html('<small class=" error-message text-danger">' + e
                         .responseJSON.errors['rating'][0] + '</small>');

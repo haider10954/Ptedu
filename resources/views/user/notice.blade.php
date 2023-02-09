@@ -14,7 +14,7 @@
                 </div>
                 <div class="right-content d-flex align-items-center">
                     <input type="text" placeholder="{{ __('translation.Enter Search Items') }}" id="myInput" onkeyup="myFunction()" class="form-control search_box">
-                    <button class="btn btn-theme-black text-white font-size-12">Search</button>
+                    <button class="btn btn-theme-black text-white font-size-12">{{ __('translation.Search') }}</button>
                 </div>
             </div>
             <table class="table w-100" id="table-notice">
