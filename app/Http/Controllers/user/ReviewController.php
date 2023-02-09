@@ -22,9 +22,9 @@ class ReviewController extends Controller
         $review = Review::where('id', $request->id)->delete();
 
         if ($review) {
-            return redirect()->back()->with('msg', 'Review has been deleted successfully');
+            return redirect()->back()->with('msg', __('translation.Review has been deleted successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong. Please try again later');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
     public function review()
@@ -40,9 +40,9 @@ class ReviewController extends Controller
                     if (empty($review[$i]->video)) {
                         $video_handler = new VideoHandler();
                         $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
-                        if($video_url != false){
+                        if ($video_url != false) {
                             $embedded_video = $video_url->html;
-                        }else{
+                        } else {
                             $embedded_video = false;
                         }
                     }
@@ -50,9 +50,9 @@ class ReviewController extends Controller
                     if (!empty($review[$i]->video_url) && !empty($review[$i]->video)) {
                         $video_handler = new VideoHandler();
                         $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
-                        if($video_url != false){
+                        if ($video_url != false) {
                             $embedded_video = $video_url->html;
-                        }else{
+                        } else {
                             $embedded_video = false;
                         }
                     }
@@ -114,12 +114,12 @@ class ReviewController extends Controller
         if ($review) {
             return json_encode([
                 'success' => true,
-                'message' => 'Review has been added Successfully',
+                'message' => __('translation.Review has been deleted successfully'),
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong. Please try again later',
+                'message' => __('translation.Something went wrong Please try again'),
             ]);
         }
     }

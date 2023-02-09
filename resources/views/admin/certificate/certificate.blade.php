@@ -99,7 +99,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">Issuance of Certificate of Completion</h4>
+                    <h4 class="mb-sm-0  Card_title">{{__('translation.Issuance of Certificate of Completion')}}</h4>
                 </div>
                 <div class="prompt mt-2 mb-2"></div>
                 <hr class="hr-color" />
@@ -146,7 +146,7 @@
                 </div>
             </div>
             <div class="col-12 mt-3">
-                <button class="btn btn-sm btn-download" onclick="download('{{ $download->id }}')" id="download"><span class="me-2"><i class="bi bi-download"></i></span>Download</button>
+                <button class="btn btn-sm btn-download" onclick="download('{{ $download->id }}')" id="download"><span class="me-2"><i class="bi bi-download"></i></span>{{ __('translation.Download') }}</button>
             </div>
         </div>
     </div>

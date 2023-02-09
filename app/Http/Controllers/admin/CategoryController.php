@@ -33,7 +33,7 @@ class CategoryController extends Controller
         if ($cat) {
             return redirect()->route('category');
         } else {
-            return redirect()->back()->with('msg', 'Something went wrong Please try again.');
+            return redirect()->back()->with('msg', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -41,9 +41,9 @@ class CategoryController extends Controller
     {
         $category = Category::where('id', $request['id'])->delete();
         if ($category) {
-            return redirect()->back()->with('msg', 'Category has been deleted Successfully');
+            return redirect()->back()->with('msg', __('translation.Category has been deleted Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -59,7 +59,7 @@ class CategoryController extends Controller
         if ($category) {
             return redirect()->route('category');
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 }

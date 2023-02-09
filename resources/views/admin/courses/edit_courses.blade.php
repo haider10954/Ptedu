@@ -537,7 +537,7 @@
                 mimeType: "multipart/form-data",
                 beforeSend: function() {
                     $("#submitForm").prop('disabled', true);
-                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                     $(".error-message").hide();
                 },
                 success: function(res) {
@@ -553,7 +553,7 @@
                         }, 4000);
                     } else {
                         $("#submitForm").prop('disabled', false);
-                        $("#submitForm").html('Register');
+                        $("#submitForm").html('등록하다');
                         $('.prompt').html(`<div class="alert alert-warning">${res.message}</div>`);
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
@@ -565,7 +565,7 @@
                 },
                 error: function(e) {
                     $("#submitForm").prop('disabled', false);
-                    $("#submitForm").html('Register');
+                    $("#submitForm").html('등록하다');
                     if (e.responseJSON.errors['course_type']) {
                         $('.error-course-type').html('<small class=" error-message text-danger">' + e
                             .responseJSON.errors['course_type'][0] + '</small>');
@@ -659,12 +659,12 @@
                 },
                 beforeSend: function() {
                     btn.prop('disabled', true);
-                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                 },
                 success: function(res) {
                     if (res.success) {
                         btn.prop('disabled', false);
-                        btn.html('Delete');
+                        btn.html('삭제');
                         $('.del-section-prompt').html(`<div class="alert alert-success">${res.message}</div>`);
                         setTimeout(() => {
                             $('.del-section-prompt').html('');
@@ -674,7 +674,7 @@
                         $('.section_boxes_view').html(res.html);
                     } else {
                         btn.prop('disabled', false);
-                        btn.html('Delete');
+                        btn.html('삭제');
                         $('.del-section-prompt').html(`<div class="alert alert-danger">${res.message}</div>`);
                         setTimeout(() => {
                             $('.del-section-prompt').html('');
@@ -709,7 +709,7 @@
                 },
                 beforeSend: function() {
                     btn.prop('disabled', true);
-                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                 },
                 success: function(res) {
                     if (res.success) {
@@ -755,12 +755,12 @@
                 },
                 beforeSend: function() {
                     btn.prop('disabled', true);
-                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                 },
                 success: function(res) {
                     if (res.success) {
                         btn.prop('disabled', false);
-                        btn.html('Add');
+                        btn.html('추가하다');
                         $('.add-section-prompt').html(`<div class="alert alert-success">${res.message}</div>`);
                         setTimeout(() => {
                             $('.add-section-prompt').html('');
@@ -782,7 +782,7 @@
                         $('.section_boxes_view').html(res.html);
                     } else {
                         btn.prop('disabled', false);
-                        btn.html('Add');
+                        btn.html('추가하다');
                         $('.add-section-prompt').html(`<div class="alert alert-danger">${res.message}</div>`);
                         setTimeout(() => {
                             $('.add-section-prompt').html('');
@@ -812,7 +812,7 @@
                 processData: false,
                 beforeSend: function() {
                     $("#addLectureActionBtn").prop('disabled', true);
-                    $("#addLectureActionBtn").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    $("#addLectureActionBtn").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                 },
                 success: function(res) {
                     if (res.Success == true) {
@@ -891,7 +891,7 @@
                 },
                 beforeSend: function() {
                     btn.prop('disabled', true);
-                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                 },
                 success: function(res) {
                     if (res.success) {
@@ -905,7 +905,7 @@
                         $('.section_boxes_view').html(res.html);
                     } else {
                         btn.prop('disabled', false);
-                        btn.html('Delete');
+                        btn.html('삭제');
                         $('.del-lecture-prompt').html(`<div class="alert alert-danger">${res.message}</div>`);
                         setTimeout(() => {
                             $('.del-lecture-prompt').html('');
@@ -938,7 +938,7 @@
                 },
                 beforeSend: function() {
                     btn.prop('disabled', true);
-                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
                 },
                 success: function(res) {
                     if (res.success) {
@@ -953,7 +953,7 @@
                         $('.section_boxes_view').html(res.html);
                     } else {
                         btn.prop('disabled', false);
-                        btn.html('Edit');
+                        btn.html('편집하다');
                         $('.edit-lecture-prompt').html(`<div class="alert alert-danger">${res.message}</div>`);
                         setTimeout(() => {
                             $('.edit-lecture-prompt').html('');

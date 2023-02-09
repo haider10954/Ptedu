@@ -386,4 +386,7 @@ return [
     'Service center' => '고객센터',
     'Add KakaoTalk' => '카카오톡 추가',
     'Tutor Thumbnail' => '튜터 썸네일',
+
+    //New
+    
 ];

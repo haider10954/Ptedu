@@ -22,9 +22,9 @@ class CartController extends Controller
         $course['type'] = $request->type;
         $cart = Cart::add_to_cart($course);
         if($cart == true){
-            return json_encode(['Success' => true, 'Msg' => 'Course successfully added' , 'cart_items_count' => count(session('shopping_cart'))]);
+            return json_encode(['Success' => true, 'Msg' => __('translation.Course successfully added') , 'cart_items_count' => count(session('shopping_cart'))]);
         }else{
-            return json_encode(['Success' => false, 'Msg' => 'Course already added to cart' , 'cart_items_count' => count(session('shopping_cart'))]);
+            return json_encode(['Success' => false, 'Msg' => __('translation.Course already added to cart') , 'cart_items_count' => count(session('shopping_cart'))]);
         }
     } 
 
@@ -61,9 +61,9 @@ class CartController extends Controller
         if($status == true){
             $cart = collect(session()->get('shopping_cart'));
             $html =  view('user.includes.cart',compact('cart'))->render();
-            return json_encode(['Success' => true, 'Msg' => 'Cart Updated added' , 'cart_items_count' => count(session('shopping_cart')) , 'html' => $html]);
+            return json_encode(['Success' => true, 'Msg' => __('translation.Cart Updated added') , 'cart_items_count' => count(session('shopping_cart')) , 'html' => $html]);
         }else{
-            return json_encode(['Success' => true, 'Msg' => 'Error : Try Again']);
+            return json_encode(['Success' => true, 'Msg' => __('translation.Something went wrong Please try again')]);
         }
     }
 
@@ -118,7 +118,7 @@ class CartController extends Controller
                     }
                 }
                 Cart::empty_cart();
-                return json_encode(['Success' => true, 'Message' => 'Order was created successfully']);
+                return json_encode(['Success' => true, 'Message' => __('translation.Order was created successfully')]);
             }
         } catch (\Throwable $th) {
             return json_encode(['Success' => false, 'Message' => $th->getMessage() ]);

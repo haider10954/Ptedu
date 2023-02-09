@@ -19,7 +19,7 @@ class CertificateController extends Controller
             $end_time = $completed_courses->updated_at->format('Y-m-d');
             return json_encode([
                 'success' => true,
-                'message' => 'Request completed successfully',
+                'message' => __('translation.Request completed successfully'),
                 'data' => $completed_courses,
                 'date' => $created_time,
                 'end_date' => $end_time,
@@ -27,7 +27,7 @@ class CertificateController extends Controller
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong',
+                'message' => __('translation.Something went wrong Please try again'),
             ]);
         }
     }

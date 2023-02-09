@@ -48,7 +48,7 @@ class CompletedCourses extends Controller
         if ($generate_certificate) {
             return redirect()->route('generate_certificate', [$generate_certificate->id, $generate_certificate->course_id]);
         } else {
-            return redirect()->back()->with('error', 'Somerthing went wrong.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -56,9 +56,9 @@ class CompletedCourses extends Controller
     {
         $delete_record = Course_tracking::where('id', $request->course_id)->delete();
         if ($delete_record) {
-            return redirect()->back()->with('success', 'Record deleted successfully.');
+            return redirect()->back()->with('success', __('translation.Record deleted successfully'));
         } else {
-            return redirect()->back()->with('error', 'Record not deleted.');
+            return redirect()->back()->with('error', __('translation.Record not deleted'));
         }
     }
 
@@ -77,7 +77,7 @@ class CompletedCourses extends Controller
             ]);
             return json_encode([
                 'success' => true,
-                'message' => 'Certificate has been generated successfully.'
+                'message' => __('translation.Certificate has been generated successfully'),
             ]);
         } catch (\Exception $th) {
             return json_encode([

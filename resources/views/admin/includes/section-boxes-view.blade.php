@@ -3,9 +3,9 @@
         @foreach ($sections as $v)
         <div class="section-box">
             <div class="d-flex justify-content-between section-box-header align-items-center">
-                <h3 class="mb-0 section-box-heading">Section-{{ $loop->index+1 }}. <span
+                <h3 class="mb-0 section-box-heading">{{ __('translation.Section')}}-{{ $loop->index+1 }}. <span
                         class="section-title">{{ $v->section_title }}</span></h3>
-                        <button class="btn btn-primary btn-sm add_lectures_btn" onclick="addLecture($(this))" data-section-id="{{ $v->id }}" data-course-id="{{ $v->course_id }}"><i class="fa fa-plus"></i> Add Lectures</button>
+                        <button class="btn btn-primary btn-sm add_lectures_btn" onclick="addLecture($(this))" data-section-id="{{ $v->id }}" data-course-id="{{ $v->course_id }}"><i class="fa fa-plus"></i>{{ __('translation.Add Lectures') }}</button>
             </div>
             <div class="section-box-content">
                 <h5 class="section-description mb-4">{{ $v->section_description }}</h5>

@@ -110,13 +110,13 @@ class CourseController extends Controller
         if ($course) {
             return json_encode([
                 'success' => true,
-                'message' => 'Course has been added successfully.',
+                'message' => __('translation.Course has been added successfully'),
                 'course_id' => $course->id
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -163,11 +163,11 @@ class CourseController extends Controller
             'section_lectures.*.lecture_video' => 'nullable|required_without:section_lectures.*.lecture_video_link|mimes:mp4',
             'section_lectures.*.lecture_video_link' => 'nullable|required_without:section_lectures.*.lecture_video|url',
         ], [
-            'section_lectures.*.lecture_video_link.required_without' => 'Please upload lecture video or attach lecture video link',
-            'section_lectures.*.lecture_video.required_without' => 'Please upload lecture video or attach lecture video link',
-            'section_lectures.*.lecture_video_link.url' => 'Please enter a valid Url',
-            'section_lectures.*.lecture_video.mimes' => 'Only mp4 video format is supported',
-            'section_lectures.*.lecture_title.required' => 'Please enter lecture title'
+            'section_lectures.*.lecture_video_link.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
+            'section_lectures.*.lecture_video.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
+            'section_lectures.*.lecture_video_link.url' => __('translation.Please enter a valid Url'),
+            'section_lectures.*.lecture_video.mimes' => __('translation.Only mp4 video format is supported'),
+            'section_lectures.*.lecture_title.required' => __('translation.Please enter lecture title'),
         ]);
 
         if ($validate->fails()) {
@@ -237,9 +237,9 @@ class CourseController extends Controller
         }
         $course = Course::where('id', $request['id'])->delete();
         if ($course) {
-            return redirect()->back()->with('msg', 'Course has been deleted Successfully');
+            return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -297,12 +297,12 @@ class CourseController extends Controller
         if ($course) {
             return json_encode([
                 'success' => true,
-                'message' => 'Course has been updated successfully.'
+                'message' => __('translation.Course has been updated successfully')
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -325,9 +325,9 @@ class CourseController extends Controller
         ]);
 
         if ($changeLiveStatus) {
-            return response()->json(['Success' => true, 'Message' => 'Live Status changed']);
+            return response()->json(['Success' => true, 'Message' => __('translation.Live Status changed')]);
         } else {
-            return response()->json(['Success' => false, 'Message' => 'Error : Please try again']);
+            return response()->json(['Success' => false, 'Message' => __('translation.Something went wrong Please try again')]);
         }
     }
 
@@ -374,12 +374,12 @@ class CourseController extends Controller
         if ($course) {
             return json_encode([
                 'success' => true,
-                'message' => 'Course has been updated successfully.'
+                'message' => __('translation.Course has been updated successfully')
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -392,13 +392,13 @@ class CourseController extends Controller
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
             return json_encode([
                 'success' => true,
-                'message' => 'Section has been deleted successfully.',
+                'message' => __('translation.Section has been deleted successfully'),
                 'html' => $html
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -425,14 +425,14 @@ class CourseController extends Controller
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
             return json_encode([
                 'success' => true,
-                'message' => 'Section has been edited successfully.',
+                'message' => __('translation.Section has been edited successfully'),
                 'section' => $sectionEdited,
                 'html' => $html
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -459,14 +459,14 @@ class CourseController extends Controller
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
             return json_encode([
                 'success' => true,
-                'message' => 'Section has been Added successfully.',
+                'message' => __('translation.Section has been Added successfully'),
                 'section' => $sectionAdd,
                 'html' => $html
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -478,11 +478,11 @@ class CourseController extends Controller
             'lecture_video' => 'nullable|required_without:lecture_video_link|mimes:mp4',
             'lecture_video_link' => 'nullable|required_without:lecture_video|url',
         ], [
-            'lecture_video_link.required_without' => 'Please upload lecture video or attach lecture video link',
-            'lecture_video.required_without' => 'Please upload lecture video or attach lecture video link',
-            'lecture_video_link.url' => 'Please enter a valid Url',
-            'lecture_video.mimes' => 'Only mp4 video format is supported',
-            'lecture_title.required' => 'Please enter lecture title'
+            'lecture_video_link.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
+            'lecture_video.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
+            'lecture_video_link.url' => __('translation.Please enter a valid Url'),
+            'lecture_video.mimes' => __('translation.Only mp4 video format is supported'),
+            'lecture_title.required' => __('translation.Please enter lecture title')
         ]);
 
         if ($validate->fails()) {
@@ -538,13 +538,13 @@ class CourseController extends Controller
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
             return json_encode([
                 'Success' => true,
-                'Msg' => 'Lecture has been Added successfully.',
+                'Msg' => __('translation.Lecture has been Added successfully'),
                 'html' => $html
             ]);
         } else {
             return json_encode([
                 'Success' => false,
-                'Msg' => 'Something went wrong Please try again.'
+                'Msg' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -560,13 +560,13 @@ class CourseController extends Controller
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
             return json_encode([
                 'success' => true,
-                'message' => 'Lecture has been deleted successfully.',
+                'message' => __('translation.Lecture has been deleted successfully'),
                 'html' => $html
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }
@@ -590,13 +590,13 @@ class CourseController extends Controller
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
             return json_encode([
                 'success' => true,
-                'message' => 'Lecture has been edited successfully.',
+                'message' => __('translation.Lecture has been edited successfully'),
                 'html' => $html
             ]);
         } else {
             return json_encode([
                 'success' => false,
-                'message' => 'Something went wrong Please try again.'
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
     }

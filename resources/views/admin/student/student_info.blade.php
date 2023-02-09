@@ -190,7 +190,7 @@
             },
             success: function(res) {
                 $("#submitForm").attr('class', 'btn btn-success');
-                $("#submitForm").html('<i class="fa fa-check me-1"></i>  Student Record Updated</>');
+                $("#submitForm").html('<i class="fa fa-check me-1"></i>  학생 기록 업데이트됨</>');
                 if (res.success) {
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
                     setTimeout(function() {
@@ -208,7 +208,7 @@
             },
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
-                $("#submitForm").html('Submit');
+                $("#submitForm").html('제출하다');
                 if (e.responseJSON.errors['name']) {
                     $('.error-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['name'][0] + '</small>');
                 }

@@ -73,7 +73,7 @@ class TutorController extends Controller
         if ($tutor) {
             return redirect()->route('tutor');
         } else {
-            return redirect()->back()->with('msg', 'Something went wrong Please try again.');
+            return redirect()->back()->with('msg', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -86,9 +86,9 @@ class TutorController extends Controller
         }
         $tutor = Tutor::where('id', $request['id'])->delete();
         if ($tutor) {
-            return redirect()->back()->with('msg', 'Tutor has been deleted Successfully');
+            return redirect()->back()->with('msg', __('translation.Tutor has been deleted Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -130,7 +130,7 @@ class TutorController extends Controller
         if ($tutor) {
             return redirect()->route('tutor');
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 }

@@ -45,7 +45,7 @@ class FaqController extends Controller
         if ($faq) {
             return redirect()->route('faqs');
         } else {
-            return redirect()->back()->with('msg', 'Something went wrong Please try again.');
+            return redirect()->back()->with('msg', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -53,9 +53,9 @@ class FaqController extends Controller
     {
         $faq = Faq::where('id', $request['id'])->delete();
         if ($faq) {
-            return redirect()->back()->with('msg', 'Faqs has been deleted Successfully');
+            return redirect()->back()->with('msg', __('translation.Faqs has been deleted Successfully'));
         } else {
-            return redirect()->back()->with('error', 'Something went wrong Please try again.');
+            return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
 
@@ -76,7 +76,7 @@ class FaqController extends Controller
         if ($faq) {
             return redirect()->route('faqs');
         } else {
-            return redirect()->back()->with('msg', 'Something went wrong Please try again.');
+            return redirect()->back()->with('msg', __('translation.Something went wrong Please try again'));
         }
     }
 }
