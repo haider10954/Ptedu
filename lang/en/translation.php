@@ -424,7 +424,6 @@ return [
     'Course Reservation deleted Successfully' => 'Course Reservation deleted Successfully',
     'Course Reservation Status Updated Successfully' => 'Course Reservation Status Updated Successfully',
     'Review has been deleted successfully' => 'Review has been deleted Successfully',
-    'Review has been deleted successfully' => 'Review has been deleted Successfully',
     'Welcome to Student Portal' => 'Welcome to Student Portal',
     'Email or Password is Incorrect' => 'Email or Password is Incorrect',
     'Your Entered Credentails are Valid' => 'Your entered Credentails are Valid',
