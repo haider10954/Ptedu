@@ -10,7 +10,7 @@ return [
     'Public course' => 'Public course',
     'Review' => 'Review',
     'Notice' => 'Notice',
-    'Physical Teraphy' => 'Physical Teraphy',
+    'Physical Teraphy' => 'Physical Theraphy',
     'Pilates' => 'Pilates',
     'Profile' => 'Profile',
     'Change password' => 'Change password',
