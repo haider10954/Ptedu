@@ -350,6 +350,7 @@
             beforeSend: function() {
                 $("#submitForm").prop('disabled', true);
                 $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
+                $('.error-message').hide();
             },
             success: function(res) {
                 $("#submitForm").attr('class', 'btn btn-success');
@@ -368,6 +369,8 @@
                     }, 4000);
 
                     $('.prompt').show()
+
+
                 } else {}
             },
             error: function(e) {

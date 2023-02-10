@@ -108,30 +108,35 @@
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Name') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="horizontal-firstname-input" name="name" value="{{ $student->name }}">
+                            <div class="error-name"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.English Name') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="horizontal-email-input" name="en_name" value="{{ $student->english_name }}">
+                            <div class="error-en-name"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Email') }}</label>
                         <div class="col-sm-10">
                             <input type="email" class="form-control" id="horizontal-password-input" name="email" value="{{ $student->email }}">
+                            <div class="error-email"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Phone Number') }}</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="horizontal-email-input" name="phone_number" value="{{ $student->mobile_number }}">
+                            <div class="error-number"></div>
                         </div>
                     </div>
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Job') }}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="job" value="{{ $student->job }}">
+                            <div class="error-job"></div>
                         </div>
                     </div>
 
@@ -139,6 +144,7 @@
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Address') }}</label>
                         <div class="col-sm-10">
                             <textarea rows="3" type="text" class="form-control" name="address" style="resize: none;">{{ str_replace('|' ,',', $student->address) }}</textarea>
+                            <div class="error-address"></div>
                         </div>
                     </div>
 
@@ -187,6 +193,7 @@
             beforeSend: function() {
                 $("#submitForm").prop('disabled', true);
                 $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i>');
+                $('.error-message ').hide();
             },
             success: function(res) {
                 $("#submitForm").attr('class', 'btn btn-success');
@@ -215,8 +222,15 @@
                 if (e.responseJSON.errors['en_name']) {
                     $('.error-en-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['en_name'][0] + '</small>');
                 }
-                if (e.responseJSON.errors['mobile']) {
-                    $('.error-mobile-number').html('<small class=" error-message text-danger">' + e.responseJSON.errors['mobile'][0] + '</small>');
+                if (e.responseJSON.errors['email']) {
+                    $('.error-email').html('<small class=" error-message text-danger">' + e.responseJSON.errors['email'][0] + '</small>');
+                }
+
+                if (e.responseJSON.errors['phone_number']) {
+                    $('.error-number').html('<small class=" error-message text-danger">' + e.responseJSON.errors['phone_number'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['job']) {
+                    $('.error-job').html('<small class=" error-message text-danger">' + e.responseJSON.errors['job'][0] + '</small>');
                 }
                 if (e.responseJSON.errors['address']) {
                     $('.error-address').html('<small class=" error-message text-danger">' + e.responseJSON.errors['address'][0] + '</small>');
