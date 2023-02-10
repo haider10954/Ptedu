@@ -27,18 +27,13 @@
                 </thead>
                 <tbody class="font-14px">
                     @if ($notices->count() > 0)
-                    @php
-                    $count = 1;
-                    @endphp
+                    
                     @foreach ($notices as $item)
                     <tr data-toggle="modal" data-target="#noticeModal" class="click_record" data-title="{{ $item->title }}" data-content="{{ $item->content }}" style="cursor: pointer">
-                        <td>{{ $count == 1 ? $notices->count() : $notices->count() + 1 - $count }}</td>
+                        <td>{{ $loop->index+1 }}</td>
                         <td>{{ Str::limit($item->title, 70) }}</td>
                         <td>{{ Carbon\Carbon::parse($item->created_at)->format('d M, Y') }}</td>
                     </tr>
-                    @php
-                    $count++;
-                    @endphp
                     @endforeach
                     @else
                     <tr>
