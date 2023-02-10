@@ -441,5 +441,6 @@ return [
     'Write a review in here' => 'Write a review in here',
     'Search by Name' => 'Search by Name',
     'Tutor Introduction' => 'Tutor Introduction',
-    'Search' => 'Search'
+    'Search' => 'Search',
+    'Language' => 'Language',
 ];

@@ -164,17 +164,20 @@
             mimeType: "multipart/form-data",
             beforeSend: function() {
                 $("#submitForm").prop('disabled', true);
-                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
             },
             success: function(res) {
 
                 $("#submitForm").attr('class', 'btn btn-success');
-                $("#submitForm").html('<i class="fa fa-check me-1"></i> Inquiry Added</>');
+                $("#submitForm").html('<i class="fa fa-check me-1"></i> 문의 추가</>');
                 if (res.success) {
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
                     $('html, body').animate({
                         scrollTop: $("html, body").offset().top
                     }, 1000);
+                    $('.error-title').html('');
+                    $('.error-content').html('');
+                    $('.error-image').html('');
                     setTimeout(function() {
                         $('.prompt').hide()
                         window.location.href = "{{ route('user_inquiry') }}";
@@ -193,7 +196,7 @@
             },
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
-                $("#submitForm").html('Register');
+                $("#submitForm").html('등록하다');
                 if (e.responseJSON.errors['title']) {
                     $('.error-title').html('<small class=" error-message text-danger">' + e.responseJSON.errors['title'][0] + '</small>');
                 }

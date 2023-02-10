@@ -37,6 +37,11 @@ use App\Models\Admin;
 |
 */
 
+Route::get('set/language/{lang}', function ($lang) {
+    session()->put('lang', $lang);
+    return redirect()->back();
+})->name('set_language');
+
 Route::get('/get-video-thumbnail', [IndexController::class, 'get_video_thumbnail'])->name('get_video_thumbnail');
 
 //About US
@@ -270,7 +275,7 @@ Route::prefix('admin')->group(function () {
         //Orders
         Route::get('/payment', [OrderController::class, 'order_listing'])->name('payment');
         Route::post('/delete-order', [OrderController::class, 'delete_order'])->name('delete-order');
-        Route::post('/update-order-status',[OrderController::class , 'update_order_status'])->name('update-order-status');
+        Route::post('/update-order-status', [OrderController::class, 'update_order_status'])->name('update-order-status');
         Route::get('/payment/view_payment', function () {
             return view('admin.payment.view_payment');
         })->name('view_payment');
