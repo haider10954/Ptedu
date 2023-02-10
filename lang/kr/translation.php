@@ -386,7 +386,8 @@ return [
     'Service center' => '고객센터',
     'Add KakaoTalk' => '카카오톡 추가',
     'Tutor Thumbnail' => '튜터 썸네일',
+    'Language' => '언어',
 
-    //New
-    
+    //New from 2/9/2023
+
 ];
