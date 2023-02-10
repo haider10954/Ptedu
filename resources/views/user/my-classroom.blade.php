@@ -569,7 +569,7 @@
             .addEventListener("click", () => {
                 const certificate = this.document.getElementById("download_certificate");
                 var opt = {
-                    margin: [50, 0, 50, 0],
+                    margin: [30, 0, 30, 0],
                     filename: 'certificate.pdf',
                     image: {
                         type: 'jpeg',
