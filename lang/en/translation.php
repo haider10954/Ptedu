@@ -4,7 +4,7 @@ use function PHPSTORM_META\map;
 
 return [
     'Expert course' => 'Expert course',
-    'Physical Teraphy' => 'Physical Teraphy',
+    'Physical Teraphy' => 'Physical Theraphy',
     'Philates' => 'Philates',
     'Offline' => 'Offline',
     'Public course' => 'Public course',

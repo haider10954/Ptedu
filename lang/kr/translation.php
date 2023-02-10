@@ -4,13 +4,13 @@ use function PHPSTORM_META\map;
 
 return [
     'Expert course' => '전문가 강좌',
-    'Physical Teraphy' => 'Physical Teraphy', //Please use in English. Do not translate it.
+    'Physical Teraphy' => 'Physical Theraphy', //Please use in English. Do not translate it.
     'Philates' => 'Philates', //Please use in English. Do not translate it.
     'Offline' => 'Offline', //Please use in English. Do not translate it.
     'Public course' => '일반인 강좌',
     'Review' => '후기',
     'Notice' => '공지사항',
-    'Physical Teraphy' => 'Physical Teraphy', //Please use in English. Do not translate it.
+    'Physical Teraphy' => 'Physical Theraphy', //Please use in English. Do not translate it.
     'Pilates' => 'Pilates', //Please use in English. Do not translate it.
     'Profile' => '프로필',
     'Change password' => '비밀번호 변경',
