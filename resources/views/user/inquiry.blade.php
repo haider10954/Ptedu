@@ -40,12 +40,10 @@
                             </thead>
                             <tbody>
                                 @if ($inquiry->count() > 0)
-                                @php
-                                $count = 1;
-                                @endphp
+
                                 @foreach($inquiry as $inq)
                                 <tr>
-                                    <td>{{ $count == 1 ? $inq->count() : $inq->count() + 1 - $count }}</td>
+                                    <td>{{ $loop->index+1 }}</td>
                                     <td>{{ Str::limit($inq->title, 70) }}</td>
                                     <td>{{ $inq->getStudentName->name }}</td>
                                     <td>{{ Carbon\Carbon::parse($inq->created_at)->format('d M, Y')}}</td>
@@ -55,9 +53,6 @@
                                     <td><a class="btn btn-sm btn-theme-black-inquiry text-white rounded-0" href="{{ route('inquiry_answered',$inq->id) }}">답변완료</a></td>
                                     @endif
                                 </tr>
-                                @php
-                                $count++;
-                                @endphp
                                 @endforeach
                                 @else
                                 <tr>

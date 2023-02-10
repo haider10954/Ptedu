@@ -122,7 +122,7 @@
                         <div class="col-3 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start user_jobs">
-                                    <p class="mb-0 user_profile">{{ __('translation.Job') }}<span class="text-danger ml-1">*</span></p>
+                                    <p style="padding: 1rem 1.5rem; font-size: 14px; color: #808080;">{{ __('translation.Job') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>

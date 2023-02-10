@@ -47,7 +47,7 @@ class InquiryController extends Controller
     }
     public function inquiry_listing()
     {
-        $inquiry = Inquiry::where('user_id', auth()->id())->orderBy('id', 'DESC')->latest()->paginate(10);
+        $inquiry = Inquiry::where('user_id', auth()->id())->orderBy('id', 'desc')->paginate(10);
         return view('user.inquiry', compact('inquiry'));
     }
     public function add_inquiry(Request $request)
@@ -60,9 +60,8 @@ class InquiryController extends Controller
         ]);
         $filesList = [];
         if ($request->hasFile('files')) {
-            if(!file_exists(storage_path('app/public/inquiry/files')))
-            {
-                mkdir(storage_path('app/public/inquiry/files'),0755,true);
+            if (!file_exists(storage_path('app/public/inquiry/files'))) {
+                mkdir(storage_path('app/public/inquiry/files'), 0755, true);
             }
             foreach ($request['files'] as $file) {
                 $name = time() . mt_rand(300, 9000) . '.' . $file->extension();
