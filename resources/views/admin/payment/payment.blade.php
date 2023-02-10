@@ -180,11 +180,11 @@
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">{{__('translation.Confirm Delete')}}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" action="{{ route('update-order-status')}}">
+                <form method="post" action="{{ route('delete-order')}}">
                     @csrf
                     <div class="modal-body">
                         <p>{{ __('translation.Are you sure to delete ?') }}</p>
-                        <input id="del_id" type="hidden" name="id">
+                        <input id="del_id" type="hidden" name="id" value="">
 
                     </div>
                     <div class="modal-footer">

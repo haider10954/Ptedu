@@ -53,7 +53,7 @@ class TutorController extends Controller
             'address' => 'required',
             'description' => 'required',
             'image' => 'required|mimes:jpeg,png,jpg',
-            'thumbnail_image' => 'mimes:jpeg,png,jpg',
+            'thumbnail_image' => 'required|mimes:jpeg,png,jpg',
         ]);
 
         $tutor_img = $this->upload_files($request['image']);

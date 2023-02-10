@@ -16,7 +16,7 @@ class OrderController extends Controller
 
     public function delete_order(Request $request)
     {
-        $order = Order::where('id', $request['id'])->delete();
+        $order = Order::where('id', $request->id)->delete();
         if ($order) {
             return redirect()->back()->with('msg', __('translation.Order has been deleted Successfully'));
         } else {
