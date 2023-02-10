@@ -353,7 +353,7 @@
                 </div>
                 <div class="row align-items-center justify-content-center mb-3">
                     <div class="col-lg-12" id="download_certificate">
-                        <div class="position-relative m-auto" style="width: 64%; background-color: #fff8f0;">
+                        <div class="position-relative m-auto" style="width: 68%; background-color: #fff8f0;">
                             <img src="{{ asset('assets/images/icons/frame.png') }}" class="w-100" style="height: 450px;">
                             <div class="position-absolute text-center w-100" style="padding: 40px; top:0;">
                                 <div class="w-25 mx-auto">
