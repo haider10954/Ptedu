@@ -177,7 +177,7 @@
             },
             beforeSend: function() {
                 btn.prop('disabled', true);
-                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 가공');
+                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
             },
             success: function(res) {
                 if (res.Success == true) {

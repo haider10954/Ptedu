@@ -150,7 +150,7 @@
                             @else
                             <td><span class="badge status-badge  p-1">Open</span></td>
                             @endif
-                            <td><span class="course_name">{{ $c->price }} 원</span></td>
+                            <td><span class="course_name">{{ $c->discounted_prize }} 원</span></td>
                             <td>
                                 @if ($c->live_status == 1)
                                 <div class="btn btn-sm btn-soft-danger" onclick="liveStatus({{ $c->id }},{{ $c->live_status }},'{{ $c->live_link }}')">

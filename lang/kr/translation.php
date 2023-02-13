@@ -30,7 +30,7 @@ return [
     'Maximum of 3 files to be attached, total capacity cannot exceed 10M' => '첨부될 파일 최대 3개, 총 용량 10M를 넘을 수 없습니다.',
     'Attached files can be registered as jpg, gif, png, ppt, xls, doc, hwp, pdf files' => '첨부 파일은 jpg, gif, png, ppt, xls, doc, hwp, pdf 파일 등록 가능합니다.',
     'Back' => '취소',
-    'Register' => '등록',
+    'Register' => '회원가입',
     'To protect your personal information, please change your password, email, mobile phone number periodically' => '안전한 개인정보보호를 위해 주기적으로 비밀번호 및 이메일, 휴대폰번호 등 최신 정보를 변경해주세요.',
     'Current Password' => '기존 비밀번호',
     'New Password' => '새로운 비밀번호',

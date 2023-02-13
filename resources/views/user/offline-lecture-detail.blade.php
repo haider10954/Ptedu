@@ -45,7 +45,7 @@
                     <div class="col-lg-3">
                         <div class="d-flex align-items-center justify-content-between">
                             <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
-                            <p class="mb-0 text">{{ $course_info->price }}{{ __('translation.won') }}</p>
+                            <p class="mb-0 text">{{ $course_info->price - $course_info->discounted_prize }}{{ __('translation.won') }}</p>
                         </div>
                         @if (auth()->check())
                             @if ($enrolled_user == 0)
@@ -260,7 +260,7 @@
             $('#courseId').val($(this).attr('data-id'));
         });
         $('#confirmReservation').on('click', function() {
-            $("#confirmReservation").html('<i class="fa fa-spinner fa-spin"></i> Processing');
+            $("#confirmReservation").html('<i class="fa fa-spinner fa-spin"></i> 진행중');
 
             $("#confirmReservation").prop('disabled', true);
             $.ajax({
@@ -298,7 +298,7 @@
         });
 
         $('#confirmEnrollment').on('click', function() {
-            $("#confirmEnrollment").html('<i class="fa fa-spinner fa-spin"></i> Processing');
+            $("#confirmEnrollment").html('<i class="fa fa-spinner fa-spin"></i> 진행중');
 
             $("#confirmEnrollment").prop('disabled', true);
             $.ajax({
@@ -336,7 +336,7 @@
         });
 
         $('#delReservation').on('click', function() {
-            $("#delReservation").html('<i class="fa fa-spinner fa-spin"></i> Processing');
+            $("#delReservation").html('<i class="fa fa-spinner fa-spin"></i> 진행중');
 
             $("#delReservation").attr('disabled', '');
             $.ajax({
@@ -390,7 +390,7 @@
                 },
                 beforeSend: function() {
                     btn.prop('disabled', true);
-                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
                 },
                 success: function(res) {
                     if (res.Success == true) {
@@ -398,7 +398,7 @@
                         $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
                         $('.shopping_cart_count').html(res.cart_items_count);
                     } else {
-                        btn.html('<i class="fa fa-check mx-1"></i> Already Added</>');
+                        btn.html('<i class="fa fa-check mx-1"></i> 이미 추가됨</>');
                     }
                 },
                 error: function(e) {}

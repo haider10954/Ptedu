@@ -537,13 +537,13 @@
                 mimeType: "multipart/form-data",
                 beforeSend: function() {
                     $("#submitForm").prop('disabled', true);
-                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
+                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
                     $(".error-message").hide();
                 },
                 success: function(res) {
                     if (res.success) {
                         $("#submitForm").prop('disabled', false);
-                        $("#submitForm").html('Register');
+                        $("#submitForm").html("{{__('translation.Register')}}");
                         $('.prompt').html(`<div class="alert alert-success">${res.message}</div>`);
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
