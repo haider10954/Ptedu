@@ -288,7 +288,7 @@
                             '<div class="alert alert-danger mb-3"><i class="fa fa-exclamation-triangle mx-2"></i>' +
                             res.message + '</div>');
                         setTimeout(function() {
-                            $("#confirmReservation").html('Confirm');
+                            $("#confirmReservation").html('확인하다');
                             $("#confirmReservation").removeAttr('disabled');
                             $(".prompt").hide();
                         }, 2000);
@@ -326,7 +326,7 @@
                             '<div class="alert alert-danger mb-3"><i class="fa fa-exclamation-triangle mx-2"></i>' +
                             res.message + '</div>');
                         setTimeout(function() {
-                            $("#confirmReservation").html('Confirm');
+                            $("#confirmReservation").html('확인하다');
                             $("#confirmReservation").removeAttr('disabled');
                             $(".prompt").hide();
                         }, 2000);
@@ -353,9 +353,9 @@
                         $(".prompt").html(
                             '<div class="alert alert-success mb-3"><i class="fa fa-check mx-2"></i>' +
                             res.message + '</div>');
-                        $("#delReservation").html('Applied');
+                        $("#delReservation").html('적용된');
                         $("#delReservation").attr('disabled', true);
-                        $(".applyBtn").html('Waiting For Reservation');
+                        $(".applyBtn").html('예약 대기 중');
                         $(".applyBtn").attr('disabled', true);
                         setTimeout(function() {
                             $(".prompt").hide();
@@ -368,7 +368,7 @@
                             '<div class="alert alert-danger mb-3"><i class="fa fa-exclamation-triangle mx-2"></i>' +
                             res.message + '</div>');
                         setTimeout(function() {
-                            $("#delReservation").html('Confirm');
+                            $("#delReservation").html('확인하다');
                             $("#delReservation").removeAttr('disabled');
                             $(".prompt").hide();
                         }, 2000);
@@ -394,7 +394,7 @@
                 },
                 success: function(res) {
                     if (res.Success == true) {
-                        btn.html('<i class="fa fa-check mx-1"></i> Added</>');
+                        btn.html('<i class="fa fa-check mx-1"></i> 추가됨</>');
                         $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
                         $('.shopping_cart_count').html(res.cart_items_count);
                     } else {
