@@ -1742,3 +1742,7 @@ header .btn.transparent,
         border-radius: 5px;
     }
 }
+
+.h-120{
+    height: 120px;
+}

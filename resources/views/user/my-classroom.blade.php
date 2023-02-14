@@ -62,7 +62,7 @@
                                     <div class="col-lg-3 col-md-4 col-12">
                                         <div class="lecture-box">
                                             <img src="{{ asset('storage/course/thumbnail/' . $item->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
-                                            <div class="lecture_box_content">
+                                            <div class="lecture_box_content h-120">
                                                 <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,100) }}</a></h6>
                                                 <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCourses->getCategoryName->name }}
                                                     l {{ $item->getCourses->getTutorName->name }}</small>
