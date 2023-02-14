@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\user\StudentLoginRequest;
 use App\Http\Requests\user\StudentRegisterRequest;
 use App\Models\User;
 use Illuminate\Contracts\Session\Session;
@@ -42,12 +43,8 @@ class StudentController extends Controller
         }
     }
 
-    public function student_login(Request $request)
+    public function student_login(StudentLoginRequest $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
             return json_encode([
