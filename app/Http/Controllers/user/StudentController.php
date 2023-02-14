@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\user\StudentRegisterRequest;
 use App\Models\User;
 use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
@@ -11,19 +12,8 @@ use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
-    public function student_register(Request $request)
+    public function student_register(StudentRegisterRequest $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'en_name' => 'required',
-            'user_id' => 'required|unique:users',
-            'password' => 'required|min:6|same:confirm_password',
-            'job' => 'required',
-            'mobile' => 'required|min:9',
-            'email_name' => 'required',
-            'email_extension' => 'required',
-            'address' => 'required'
-        ]);
         $student = User::create([
             'name' => $request['name'],
             'english_name' => $request['en_name'],
@@ -39,7 +29,7 @@ class StudentController extends Controller
             return json_encode(
                 [
                     'success' => true,
-                    'message' => __('translation.Student has been registered successfully.')
+                    'message' => __('translation.Student has been registered successfully')
                 ]
             );
         } else {
