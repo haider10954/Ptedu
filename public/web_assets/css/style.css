@@ -1744,5 +1744,5 @@ header .btn.transparent,
 }
 
 .h-120{
-    height: 120px;
+    height: 120px !important;
 }
