@@ -264,7 +264,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="d-flex align-items-center justify-content-center mt-5">
-                                <button id="submitForm" disabled type="submit" class="btn rounded-0 btn-register" style="padding: 5px 30px 5px 30px">{{ __('translation.Register') }}</button>
+                                <button id="submitForm" disabled type="submit" class="btn rounded-0 btn-register" style="padding: 5px 30px 5px 30px">등록</button>
                             </div>
                         </div>
                     </div>

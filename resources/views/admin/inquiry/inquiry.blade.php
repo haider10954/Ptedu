@@ -4,8 +4,37 @@
 
 @section('custom-style')
 <style>
+    .Card_title {
+        font-size: 18px !important;
+        font-weight: 500 !important;
+        color: black;
+        text-transform: capitalize !important;
+    }
+
+    .btn-add-lecture {
+        background: #FFFFFF;
+        border: 0.8px solid rgba(161, 172, 184, 0.5);
+        border-radius: 2px;
+        padding: 5px 15px 5px 15px;
+    }
+
+    .btn-add-lecture:hover {
+        background: #FFFFFF;
+        border: 0.8px solid rgba(161, 172, 184, 0.5);
+        border-radius: 2px;
+        padding: 5px 15px 5px 15px;
+        color: black;
+    }
+
     .hr-color {
-        border: 2px solid #191B1D;
+        border: 1px solid #C4C4C4;
+    }
+
+    .t_header {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 23px;
+        color: #6F6F6F;
     }
 
     .course_name {
@@ -20,6 +49,22 @@
         font-size: 13px;
         line-height: 15px;
         color: #9E9E9E;
+    }
+
+    .status-badge {
+        background: #E8F9DF;
+        border-radius: 2px;
+        color: #64C330;
+        height: 19px;
+        width: 62px;
+    }
+
+    .status-badge-danger {
+        background: #F9DFDF;
+        border-radius: 2px;
+        color: #791919;
+        height: 19px;
+        width: 62px;
     }
 
     .paginate {
@@ -50,20 +95,8 @@
         color: #000000 !important;
     }
 
-    thead>tr>td {
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 21px;
-        color: #000000;
-        border-bottom: 1px solid #191B1D;
-    }
-
-    tbody>tr>td {
-        font-weight: 700;
-        font-size: 18px;
-        line-height: 21px;
-        color: #000000;
-        border-bottom: 1px solid #191B1D;
+    tbody>tr:nth-child(odd) {
+        background-color: rgba(242, 243, 250, 0.8);
     }
 
     .status_btn {
@@ -109,8 +142,10 @@
                     <h4 class="mb-sm-0  Card_title">{{ __('translation.Inquiry') }}</h4>
                 </div>
                 <hr class="hr-color" />
+            </div>
+            <div class="col-12">
                 <div class="table-responsive">
-                    <table class="table text-center">
+                    <table class="table align-middle table-nowrap mb-0  table-lectures border-white">
                         <thead>
                             <tr>
                                 <td class="align-middle">{{ __('translation.No') }}</td>
