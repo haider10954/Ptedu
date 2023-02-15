@@ -828,12 +828,12 @@
                             $('#add_lecture_video').val('');
                             $('#add_lecture_video_link').val('');
                             $("#addLectureActionBtn").prop('disabled', false);
-                            $("#addLectureActionBtn").html('Add Lecture');
+                            $("#addLectureActionBtn").html('강의 추가   ');
                         }, 1000);
                         $('.section_boxes_view').html(res.html);
                     } else {
                         $("#addLectureActionBtn").prop('disabled', false);
-                        $("#addLectureActionBtn").html('Add Lecture');
+                        $("#addLectureActionBtn").html('강의 추가');
                         setTimeout(function() {
                             $('.loading-bar').css('transition', 'none');
                             $('.loading-bar').css('width', 0);
@@ -843,7 +843,7 @@
                 },
                 error: function(e) {
                     $("#addLectureActionBtn").prop('disabled', false);
-                    $("#addLectureActionBtn").html('Add Lecture');
+                    $("#addLectureActionBtn").html('강의 추가');
                 },
                 xhr: function() {
                     var xhr = new window.XMLHttpRequest();
