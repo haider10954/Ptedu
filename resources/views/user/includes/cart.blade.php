@@ -23,7 +23,7 @@
                     <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span>
                 </td>
                 <td>{{ $v['quantity'] }}</td>
-                <td>{{ ($v['course']->discounted_prize > 0) ? '-'.$v['course']->discounted_prize.'원' : 'Unavailable' }}</td>
+                <td>{{ ($v['course']->discounted_prize > 0) ? '-'.$v['course']->discounted_prize.'원' : '0' }}</td>
                 <td>
                     @if ($v['course']->discounted_prize > 0)
                         <span class="discounted_Price">{{ $v['price'] }}원</span> <br />

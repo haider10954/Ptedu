@@ -841,7 +841,10 @@
                         $('.add-lecture-prompt').html('<div class="alert alert-warning mb-3">' + res.Msg + '</div>');
                     }
                 },
-                error: function(e) {},
+                error: function(e) {
+                    $("#addLectureActionBtn").prop('disabled', false);
+                    $("#addLectureActionBtn").html('Add Lecture');
+                },
                 xhr: function() {
                     var xhr = new window.XMLHttpRequest();
                     xhr.upload.addEventListener("progress", function(evt) {
