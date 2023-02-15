@@ -149,10 +149,10 @@
                         <thead>
                             <tr>
                                 <td class="align-middle">{{ __('translation.No') }}</td>
-                                <td class="align-middle">{{ __('translation.Title') }}</td>
-                                <td class="align-middle">{{ __('translation.Writer') }}</td>
+                                <td class="align-middle">제목</td>
+                                <td class="align-middle">작성자</td>
                                 <td class="align-middle">{{ __('translation.Date') }}</td>
-                                <td class="align-middle">{{ __('translation.Status')}}</td>
+                                <td class="align-middle">상태</td>
                             </tr>
                         </thead>
                         <tbody>
@@ -164,7 +164,7 @@
                                 <td>{{ $inq->getStudentName->name }}</td>
                                 <td>{{ Carbon\Carbon::parse($inq->created_at)->format('d M, Y')}}</td>
                                 @if($inq->answer == null)
-                                <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn">응답을 기다리는 중</a></td>
+                                <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn">답변대기중</a></td>
                                 @else
                                 <td><a href="{{ route('inquiry_answer',$inq->id) }}" class="btn status_btn_complete">답변완료</a></td>
                                 @endif

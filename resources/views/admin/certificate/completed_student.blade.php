@@ -130,9 +130,9 @@
                         <tr>
                             <td class="align-middle t_header">{{ __('translation.No')}}</td>
                             <td class="align-middle t_header">{{ __('translation.Date')}}</td>
-                            <td class="align-middle t_header">작성자</td>
-                            <td class="align-middle t_header">제목</td>
-                            <td class="align-middle t_header">상태</td>
+                            <td class="align-middle t_header">{{ __('translation.Name') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Course Name') }}</td>
+                            <td class="align-middle t_header">{{ __('translation.Status')}}</td>
                             <td class="align-middle t_header">{{ __('translation.Action')}}</td>
                         </tr>
                     </thead>
