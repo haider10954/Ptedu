@@ -35,4 +35,9 @@ class Course extends Model
     {
         return $this->hasMany(Section::class, 'course_id', 'id')->with('getLectures');
     }
+
+    public function getOnlineCourseEnrollment()
+    {
+        return $this->hasMany(Online_enrollment::class, 'course_id', 'id');
+    }
 }

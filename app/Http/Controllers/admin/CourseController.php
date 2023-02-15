@@ -18,7 +18,7 @@ class CourseController extends Controller
 {
     public function course_listing()
     {
-        $course = Course::with('getCourseStatus')->paginate(10);
+        $course = Course::with(['getCourseStatus', 'getOnlineCourseEnrollment'])->paginate(10);
         return view('admin.courses.course', compact('course'));
     }
 
@@ -286,7 +286,7 @@ class CourseController extends Controller
         $data['short_description'] = $request['short_description'];
         $data['description'] = $request['description'];
         $data['no_of_lectures'] = $request['no_of_lectures'];
-        $data['duration_of_course'] = $request['course_duration'];
+        $data['duration_of_course'] = $request['course_duration'] . ' weeks';
         $data['price'] = $request['price'];
         $data['discounted_prize'] = $request['discounted_Price'];
         $data['video_url'] = $request['video_url'];

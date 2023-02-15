@@ -183,7 +183,7 @@
                                     <div class="row mb-4">
                                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Duration of the Course') }}</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" placeholder="{{ __('translation.Duration of the Course') }}" name="course_duration">
+                                            <input type="number" class="form-control" placeholder="{{ __('translation.Duration of the Course') }}" name="course_duration">
                                             <div class="error-course-duration"></div>
                                         </div>
                                     </div>

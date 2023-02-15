@@ -144,7 +144,7 @@
                                 <span class="tutor_name"> {{ $c->getTutorName->name }}</span>
                             </td>
                             <td><span class="course_name">{{ $c->getCategoryName->name }}</span></td>
-                            <td><span class="course_name">120</span></td>
+                            <td><span class="course_name">{{ $c->getOnlineCourseEnrollment->count() }}</span></td>
                             @if ($c->getCourseStatus()->count() == 0)
                             <td><span class="badge status-badge-danger p-1">Closed</span></td>
                             @else
