@@ -61,6 +61,10 @@ $cartBtn = 0;
                     @else
                         <button class="btn btn-dark btn-sm w-100 mb-2 disabled" disabled>{{ __('translation.Add to cart') }}</button>
                     @endif
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
+                        <p class="mb-0 text">{{ $course_info->duration_of_course }}</p>
+                    </div>
                 </div>
             </div>
         </div>
