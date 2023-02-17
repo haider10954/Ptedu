@@ -98,7 +98,7 @@ class CourseController extends Controller
             'short_description' => $request['short_description'],
             'description' => $request['description'],
             'no_of_lectures' => $request['no_of_lectures'],
-            'duration_of_course' => $request['course_duration'],
+            'duration_of_course' => $request['course_duration'].'주',
             'price' => $request['price'],
             'discounted_prize' => $request['discounted_Price'],
             'video_url' => $request['video_url'],
