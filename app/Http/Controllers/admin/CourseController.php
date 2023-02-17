@@ -286,7 +286,7 @@ class CourseController extends Controller
         $data['short_description'] = $request['short_description'];
         $data['description'] = $request['description'];
         $data['no_of_lectures'] = $request['no_of_lectures'];
-        $data['duration_of_course'] = $request['course_duration'] . ' weeks';
+        $data['duration_of_course'] = $request['course_duration'] . '주';
         $data['price'] = $request['price'];
         $data['discounted_prize'] = $request['discounted_Price'];
         $data['video_url'] = $request['video_url'];
