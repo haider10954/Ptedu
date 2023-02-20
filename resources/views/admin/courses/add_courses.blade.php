@@ -183,8 +183,17 @@
                                     <div class="row mb-4">
                                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Duration of the Course') }}</label>
                                         <div class="col-sm-10">
-                                            <input type="number" class="form-control" placeholder="{{ __('translation.Duration of the Course') }}" name="course_duration">
-                                            <div class="error-course-duration"></div>
+                                            <div class="row align-items-center">
+                                                <div class="col-sm-6">
+                                                    <input type="number" class="form-control" placeholder="{{ __('translation.Duration of the Course') }}" name="course_duration">
+                                                    <div class="error-course-duration"></div>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <div class="text-left">
+                                                        <p class="mb-0">주</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 

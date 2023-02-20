@@ -63,7 +63,7 @@ $cartBtn = 0;
                     @endif
                     <div class="d-flex align-items-center justify-content-between">
                         <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
-                        <p class="mb-0 text">{{ $course_info->duration_of_course }}</p>
+                        <p class="mb-0 text">{{ $course_info->duration_of_course }} 주</p>
                     </div>
                 </div>
             </div>
