@@ -25,6 +25,9 @@
 <!-- include summer_note css/js -->
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
+<!-- Ck Editor -->
+<script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
+
 <script>
     // When the user scrolls down 20px from the top of the document, slide down the navbar
     window.onscroll = function() {

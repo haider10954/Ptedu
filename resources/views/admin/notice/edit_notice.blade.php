@@ -132,7 +132,7 @@
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Contents')}}</label>
                         <div class="col-sm-10">
-                            <textarea class="form-control" id="testing" placeholder="Enter content" name="content">{{ $notice->content}}</textarea>
+                            <textarea class="form-control" id="editor" placeholder="Enter content" name="content">{{ $notice->content}}</textarea>
                             @error('content')
                             <p style="color:#d02525;">{{$message}}</p>
                             @enderror
@@ -150,4 +150,17 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('custom-script')
+<script>
+    ClassicEditor
+        .create(document.querySelector('#editor'))
+        .then(editor => {
+            console.log(editor);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+</script>
 @endsection
