@@ -7,7 +7,7 @@
     <div class="container mb-80">
         <div class="w-75 m-auto">
             <div class="section-heading">
-                <h6 class="mb-0">{{ __('translation.Notice / F&Q')}}</h5>
+                <h6 class="mb-0">공지사항</h5>
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-4 col-sm-12">
