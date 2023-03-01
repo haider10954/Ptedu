@@ -16,7 +16,7 @@
                             <h5 class="heading text-left mb-0">{{ __('translation.Title')}}</h5>
                         </div>
                         <div class="text-justify">
-                            <p class="mb-0 text-dark">{{ $notices->title }}</p>
+                            <p class="mb-0 text-dark" style="font-size: 18px !important;">{{ $notices->title }}</p>
                         </div>
                     </div>
                 </div>
