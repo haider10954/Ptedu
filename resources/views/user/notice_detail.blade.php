@@ -21,9 +21,7 @@
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-4 col-sm-12">
-                    <div class="pt-3">
-                        <h5 class="heading mb-3 text-left">{{ __('translation.Description')}}</h5>
-                    </div>
+                    <hr style="border: 1px solid #191B1D;" />
                     <div class="pt-2 text-justify">
                         <p class="mb-0 text-dark"><?= html_entity_decode($notices->content) ?></p>
                     </div>
