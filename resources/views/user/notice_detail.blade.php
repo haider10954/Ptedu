@@ -11,11 +11,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-12 col-md-4 col-sm-12">
-                    <div class="pt-3">
-                        <h5 class="heading mb-3 text-left">{{ __('translation.Title')}}</h5>
-                    </div>
-                    <div class="pt-2 text-justify">
-                        <p class="mb-0 text-dark">{{ $notices->title }}</p>
+                    <div class="d-flex align-items-center pt-3">
+                        <div class="mr-3">
+                            <h5 class="heading text-left mb-0">{{ __('translation.Title')}}</h5>
+                        </div>
+                        <div class="text-justify">
+                            <p class="mb-0 text-dark">{{ $notices->title }}</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-lg-12 col-md-4 col-sm-12">
