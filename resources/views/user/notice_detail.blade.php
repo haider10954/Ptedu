@@ -33,3 +33,12 @@
     </div>
 </div>
 @endsection
+@section('custom-script')
+<script>
+    $('.table').each(function(index, entry) {
+        $(entry).children().first().addClass('table').addClass('table-bordered');
+        $(entry).children().first().children().first().addClass('w-100');
+        $(entry).find('td').css('vertical-align', 'middle');
+    });
+</script>
+@endsection
