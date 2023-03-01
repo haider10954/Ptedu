@@ -27,11 +27,11 @@
                 </thead>
                 <tbody class="font-14px">
                     @if ($notices->count() > 0)
-                    
+
                     @foreach ($notices as $item)
-                    <tr data-toggle="modal" data-target="#noticeModal" class="click_record" data-title="{{ $item->title }}" data-content="{{ $item->content }}" style="cursor: pointer">
-                        <td>{{ $loop->index+1 }}</td>
-                        <td>{{ Str::limit($item->title, 70) }}</td>
+                    <tr>
+                        <td> {{ $loop->index+1 }} </td>
+                        <td><a class="text-dark" href="{{ route('notice_detail',$item->id) }}" style="cursor: pointer;">{{ Str::limit($item->title, 70) }} </a> </td>
                         <td>{{ Carbon\Carbon::parse($item->created_at)->format('d M, Y') }}</td>
                     </tr>
                     @endforeach
@@ -71,11 +71,6 @@
 
 @section('custom-script')
 <script>
-    $('.click_record').on('click', function() {
-        $('.notice_title').text($(this).attr('data-title'));
-        $('.notice_content').text($(this).attr('data-content'));
-    });
-
     function myFunction() {
         var input, filter, table, tr, td, i, txtValue;
         input = document.getElementById("myInput");

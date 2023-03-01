@@ -88,6 +88,7 @@ Route::get('/review', [ReviewController::class, 'review'])->name('review');
 
 //Notice
 Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');
+Route::get('/notice/{id}', [IndexController::class, 'notice_detail'])->name('notice_detail');
 
 //Faq
 Route::get('/faq', [IndexController::class, 'faq'])->name('web-faq');

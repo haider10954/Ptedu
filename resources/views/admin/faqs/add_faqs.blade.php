@@ -141,7 +141,7 @@
                     <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
-                            <button type="submit" class="btn btn-lg btn-register">{{ __('translation.Register')}}</button>
+                            <button type="submit" class="btn btn-lg btn-register">저장</button>
                         </div>
                     </div>
                 </form>

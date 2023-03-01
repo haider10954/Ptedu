@@ -15,30 +15,37 @@ use App\Service\VideoHandler;
 class IndexController extends Controller
 {
     //
-    public function get_video_thumbnail(){
-        $video_thumbnail = VideoHandler::getLocalVideoThumbnail(10 , asset('storage/lectures/16710031836563.mp4') , asset('storage/thumbnails/'.time().'.mp4') );
+    public function get_video_thumbnail()
+    {
+        $video_thumbnail = VideoHandler::getLocalVideoThumbnail(10, asset('storage/lectures/16710031836563.mp4'), asset('storage/thumbnails/' . time() . '.mp4'));
         dd($video_thumbnail);
     }
 
     public function index()
     {
-        $offline_courses = Offline_course::orderBy('id','desc')->with('getTutorName')->get();
-        $courses = Course::orderBy('id','desc')->get();
+        $offline_courses = Offline_course::orderBy('id', 'desc')->with('getTutorName')->get();
+        $courses = Course::orderBy('id', 'desc')->get();
         $latest_courses = Course::orderBy('id', 'desc')->with('getTutorName')->take(5)->get();
         $latest_tutors = Tutor::take(4)->get();
         $reviews = Review::orderBy('id', 'desc')->get();
-        foreach($reviews as $review){
-            if(!empty($review->video_url)){
+        foreach ($reviews as $review) {
+            if (!empty($review->video_url)) {
                 $review['video_thumbnail'] = VideoHandler::getVideoThumbnail($review->video_url);
             }
         }
-        return view('user.index', compact('offline_courses', 'courses', 'latest_courses', 'latest_tutors','reviews'));
+        return view('user.index', compact('offline_courses', 'courses', 'latest_courses', 'latest_tutors', 'reviews'));
     }
 
     public function notice()
     {
         $notices = Notice::orderBy('id', 'desc')->paginate(10);
         return view('user.notice', compact('notices'));
+    }
+
+    public function notice_detail($id)
+    {
+        $notices = Notice::where('id', $id)->first();
+        return view('user.notice_detail', compact('notices'));
     }
 
     public function faq()
