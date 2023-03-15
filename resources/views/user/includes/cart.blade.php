@@ -27,7 +27,7 @@
                 <td>
                     @if ($v['course']->discounted_prize > 0)
                         <span class="discounted_Price">{{ $v['price'] }}원</span> <br />
-                        <span>{{ (number_format($v['price'])) - number_format(($v['course']->discounted_prize)) }}원</span>
+                        <span>{{ ($v['price']) - ($v['course']->discounted_prize) }}원</span>
                     @else
                         <span>{{ number_format($v['price']) }}원</span>
                     @endif
