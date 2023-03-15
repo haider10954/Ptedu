@@ -36,7 +36,7 @@ $cartBtn = 0;
                 <div class="col-lg-3">
                     <div class="d-flex align-items-center justify-content-between">
                         <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
-                        <p class="mb-0 text">{{ $course_info->price }}{{ __('translation.won') }}</p>
+                        <p class="mb-0 text">{{ number_format($course_info->price) }}{{ __('translation.won') }}</p>
                     </div>
                     @if (!empty($cart))
                         @foreach ($cart as $v)

@@ -23,13 +23,13 @@
                     <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span>
                 </td>
                 <td>{{ $v['quantity'] }}</td>
-                <td>{{ ($v['course']->discounted_prize > 0) ? '-'.$v['course']->discounted_prize.'원' : '0' }}</td>
+                <td>{{ ($v['course']->discounted_prize > 0) ? . number_format($v['course']->discounted_prize) .'원' : '0' }}</td>
                 <td>
                     @if ($v['course']->discounted_prize > 0)
                         <span class="discounted_Price">{{ $v['price'] }}원</span> <br />
-                        <span>{{ ($v['price']) - ($v['course']->discounted_prize) }}원</span>
+                        <span>{{ (number_format($v['price'])) - number_format(($v['course']->discounted_prize)) }}원</span>
                     @else
-                        <span>{{ $v['price'] }}원</span>
+                        <span>{{ number_format($v['price']) }}원</span>
                     @endif
                 </td>
                 <td>
@@ -56,7 +56,7 @@
             <div class="col-md-3  h-110 border_right">
                 <div class="cart-total-price  text-center position-relative">
                     <h5 class="font-weight-700">{{ __('translation.Total') }}</h5>
-                    <p class="price mb-0">{{ $cart->sum('price') }}원</p>
+                    <p class="price mb-0">{{ number_format($cart->sum('price')) }}원</p>
                     <div class="icons">
                         <i class="fa fa-minus"></i>
                     </div>
@@ -65,7 +65,7 @@
             <div class="col-md-3 h-110 border_right">
                 <div class="cart-total-price  text-center position-relative">
                     <h5 class="font-weight-700">{{ __('translation.Discount') }}</h5>
-                    <p class="price mb-0 text-danger">{{ $cart->sum('discount') }}원</p>
+                    <p class="price mb-0 text-danger">{{ number_format($cart->sum('discount')) }}원</p>
                     <div class="icons">
                         <i class="fa fa-plus"></i>
                     </div>
