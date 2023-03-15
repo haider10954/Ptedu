@@ -23,11 +23,14 @@
                     <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span>
                 </td>
                 <td>{{ $v['quantity'] }}</td>
-                <td>{{ ($v['course']->discounted_prize > 0) ? . number_format($v['course']->discounted_prize).'원' : 'Unavailable' }}</td>
+                <td>{{ ($v['course']->discounted_prize > 0) ? '' . number_format($v['course']->discounted_prize).'원' : 'Unavailable' }}</td>
                 <td>
                     @if ($v['course']->discounted_prize > 0)
-                        <span class="discounted_Price">{{ $v['price'] }}원</span> <br />
-                        <span>{{ (number_format($v['price'])) - (number_format($v['course']->discounted_prize)) }}원</span>
+                        <span class="discounted_Price">{{ number_format($v['price']) }}원</span> <br />
+                        @php
+                        $discouted_prize = ($v['price']) - ($v['course']->discounted_prize)
+                        @endphp
+                        <span>{{ number_format($discouted_prize) }}원</span>
                     @else
                         <span>{{ number_format($v['price']) }}원</span>
                     @endif
@@ -45,7 +48,7 @@
                 <td colspan="5">
                     <div class="text-right total_payment">
                         <p class="mb-0 text-muted">{{ __('translation.Total payment') }}</p>
-                        <span class="font-20 font-weight-700">{{ (number_format($cart->sum('price'))) }}원</span>
+                        <span class="font-20 font-weight-700">{{ number_format($cart->sum('price')) }}원</span>
                     </div>
                 </td>
             </tr>
@@ -109,7 +112,7 @@
                 </div>
                 <div class="col-6 text-right pl-0">
                     <p class="font-20 font-weight-700">
-                        {{ (number_format($cart->sum('price'))) }}{{ __('translation.won') }}
+                        {{ number_format($cart->sum('price')) }}{{ __('translation.won') }}
                     </p>
                     <div class="confirm_payment">
                         <p class="mb-0">
@@ -122,9 +125,12 @@
                             0 {{ __('translation.won') }}
                         </p>
                     </div>
-                    <p class="text-danger">-{{ $cart->sum('discount') }} {{ __('translation.won') }}</p>
+                    <p class="text-danger">-{{ number_format($cart->sum('discount')) }} {{ __('translation.won') }}</p>
 
-                    <p class="text-danger font-20 font-weight-700">{{ (number_format($cart->sum('price'))) - number_format($cart->sum('discount')) }}{{ __('translation.won') }}</p>
+                    @php
+                        $total = ($cart->sum('price')) - ($cart->sum('discount'))
+                    @endphp
+                    <p class="text-danger font-20 font-weight-700">{{ number_format($total) }}{{ __('translation.won') }}</p>
                 </div>
             </div>
         </div>

@@ -26,8 +26,11 @@
                 <td>{{ ($v['course']->discounted_prize > 0) ? '-' . number_format($v['course']->discounted_prize) .'원' : '0' }}</td>
                 <td>
                     @if ($v['course']->discounted_prize > 0)
-                        <span class="discounted_Price">{{ $v['price'] }}원</span> <br />
-                        <span>{{ ($v['price']) - ($v['course']->discounted_prize) }}원</span>
+                        <span class="discounted_Price">{{ number_format($v['price']) }}원</span> <br />
+                        @php
+                        $discounted_prize = ($v['price']) - ($v['course']->discounted_prize)
+                        @endphp
+                        <span>{{ number_format($discounted_prize)  }}원</span>
                     @else
                         <span>{{ number_format($v['price']) }}원</span>
                     @endif
@@ -83,7 +86,10 @@
             <div class="col-md-3">
                 <div class="cart-total-price  text-center">
                     <h5 class="font-weight-700">{{ __('translation.Total estimated payment amount') }}</h5>
-                    <p class="total-price mb-0">{{ ($cart->sum('price')) - $cart->sum('discount') }}원</p>
+                    @php
+                    $cart_total = ($cart->sum('price')) - $cart->sum('discount')
+                    @endphp
+                    <p class="total-price mb-0">{{ number_format($cart_total) }}원</p>
                 </div>
             </div>
         </div>
