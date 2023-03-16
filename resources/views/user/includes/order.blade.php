@@ -106,7 +106,7 @@
                     @endphp
                     <input type="hidden" name="ordr_idxx" value="TEST1234567890" maxlength="40" />
                     <input type="hidden" name="good_name" value="운동화" />
-                    <input type="hidden" name="good_mny" value="{{ number_format($total) }}" maxlength="9" />
+                    <input type="hidden" name="good_mny" value="100" maxlength="9" />
                     <input type="hidden" name="buyr_name" value="홍길동" />
                     <input type="hidden" name="buyr_tel1" value="02-0000-0000" />
                     <input type="hidden" name="buyr_tel2" value="010-0000-0000" />
