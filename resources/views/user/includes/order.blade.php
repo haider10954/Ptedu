@@ -65,9 +65,9 @@
                 <p>{{ __('translation.Payment Method') }}</p>
             </div>
             <div class="align-items-center radio_select mb-3">
-                <form id="payment_method_form">
+                <form name="order_info" method="post" style="display: flex;align-items: center;flex-wrap: wrap;">
                     @csrf
-                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                    {{-- <div class="mr-3 payment_method_card mb-1 mb-md-0">
                         <input type="radio" name="payment_method" class="payment-method-radio" value="card" checked> <span>{{ __('translation.Card') }}</span>
                     </div>
                     <div class="mr-3 w-100 mb-1 mb-md-0">
@@ -78,7 +78,55 @@
                     </div>
                     <div class="mr-3 payment_method_mobile mb-1 mb-md-0">
                         <input type="radio" name="payment_method" class="payment-method-radio" value="mobile_phone_transfer"> {{ __('translation.Mobile phone transfer') }}
+                    </div> --}}
+                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                        <input type="radio" name="pay_method" class="payment-method-radio" value="100000000000" checked> <span>신용카드</span>
                     </div>
+                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                        <input type="radio" name="pay_method" class="payment-method-radio" value="010000000000"> <span>계좌이체</span>
+                    </div>
+                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                        <input type="radio" name="pay_method" class="payment-method-radio" value="001000000000"> <span>가상계좌</span>
+                    </div>
+                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                        <input type="radio" name="pay_method" class="payment-method-radio" value="000100000000"> <span>포인트</span>
+                    </div>
+                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                        <input type="radio" name="pay_method" class="payment-method-radio" value="000010000000"> <span>휴대폰</span>
+                    </div>
+                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                        <input type="radio" name="pay_method" class="payment-method-radio" value="000000001000"> <span>상품권</span>
+                    </div>
+                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                        <input type="radio" name="pay_method" class="payment-method-radio" value="111000000000"> <span>신용카드/계좌이체/가상계좌</span>
+                    </div>
+                    {{-- hidden fields for payment --}}
+                    @php
+                        $total = ($cart->sum('price')) - ($cart->sum('discount'))
+                    @endphp
+                    <input type="hidden" name="ordr_idxx" value="TEST1234567890" maxlength="40" />
+                    <input type="hidden" name="good_name" value="운동화" />
+                    <input type="hidden" name="good_mny" value="{{ number_format($total) }}" maxlength="9" />
+                    <input type="hidden" name="buyr_name" value="홍길동" />
+                    <input type="hidden" name="buyr_tel1" value="02-0000-0000" />
+                    <input type="hidden" name="buyr_tel2" value="010-0000-0000" />
+                    <input type="hidden" name="buyr_mail" value="test@test.co.kr" />
+
+                    <input type="hidden" name="site_cd"         value="T0000" />
+                    <input type="hidden" name="site_name"       value="TEST SITE" />
+                    <input type="hidden" name="pay_method"       value="" />
+                    <input type="hidden" name="res_cd"          value=""/>
+                    <input type="hidden" name="res_msg"         value=""/>
+                    <input type="hidden" name="enc_info"        value=""/>
+                    <input type="hidden" name="enc_data"        value=""/>
+                    <input type="hidden" name="ret_pay_method"  value=""/>
+                    <input type="hidden" name="tran_cd"         value=""/>
+                    <input type="hidden" name="use_pay_method"  value=""/>
+                    <input type="hidden" name="ordr_chk"        value=""/>
+                    <input type="hidden" name="cash_yn"         value=""/>
+                    <input type="hidden" name="cash_tr_code"    value=""/>
+                    <input type="hidden" name="cash_id_info"    value=""/>
+                    {{-- hidden fields for payment --}}
                 </form>
             </div>
         </div>
