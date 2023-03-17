@@ -97,9 +97,6 @@
                     <div class="mr-3 payment_method_card mb-1 mb-md-0">
                         <input type="radio" name="pay_method" class="payment-method-radio" value="000000001000"> <span>상품권</span>
                     </div>
-                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
-                        <input type="radio" name="pay_method" class="payment-method-radio" value="111000000000"> <span>신용카드/계좌이체/가상계좌</span>
-                    </div>
                     {{-- hidden fields for payment --}}
                     @php
                         $total = ($cart->sum('price')) - ($cart->sum('discount'))
