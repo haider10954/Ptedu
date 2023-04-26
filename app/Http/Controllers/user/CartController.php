@@ -124,4 +124,304 @@ class CartController extends Controller
             return json_encode(['Success' => false, 'Message' => $th->getMessage() ]);
         }
     }
+
+    public function proceed_payment(Request $request){
+        /* 
+    ==========================================================================
+         결제 API URL                                                                 
+    --------------------------------------------------------------------------
+    */
+    // $target_URL = "https://stg-spl.kcp.co.kr/gw/enc/v1/payment"; // development server
+    $target_URL = "https://spl.kcp.co.kr/gw/enc/v1/payment"; // operation server
+    /* 
+    ==========================================================================
+         요청정보                                                                
+    --------------------------------------------------------------------------
+    */
+    $tran_cd            = $request->tran_cd; // request code
+    $site_cd            = $request->site_cd; // site code
+    // Certificate information (serialized)
+    $kcp_cert_info      = "-----BEGIN CERTIFICATE-----MIIDjDCCAnSgAwIBAgIHBy/vlsKxuDANBgkqhkiG9w0BAQsFADBzMQswCQYDVQQGEwJLUjEOMAwGA1UECAwFU2VvdWwxEDAOBgNVBAcMB0d1cm8tZ3UxFTATBgNVBAoMDE5ITktDUCBDb3JwLjETMBEGA1UECwwKSVQgQ2VudGVyLjEWMBQGA1UEAwwNc3BsLmtjcC5jby5rcjAeFw0yMzAzMDkwMTIzNTdaFw0yODAzMDcwMTIzNTdaMHsxCzAJBgNVBAYTAktSMQ4wDAYDVQQIDAVTZW91bDEQMA4GA1UEBwwHR3Vyby1ndTEWMBQGA1UECgwNTkhOIEtDUCBDb3JwLjEXMBUGA1UECwwOUEdXRUJERVYgVGVhbS4xGTAXBgNVBAMMEDIwMjMwMzA5MTAwMDQ4ODYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCg2269Ns2iWkFdthzarNBX/l3ChWhVds/0nje01/MtLG5DSfTXhgg8iH8JPbszOuvGYCMytKF7oGfV7c8XMjSRK+QPWYOQ5zx428oZUhx2Y62eFdzP4ScC65e+kagc9H05AGAlA+cgSWdKS63ckqN2ydZOcTlSTlQeMfd85jdC5iyIT/mLC3GCFldmZdVcVNCbfpLoX7PerO5n/pW280l+rotA1OQZF/mmMGsp+ZkrI5BeOFNcWoWrvKfXWz1MEBZ/ZvHGnOuiRRr2utcDCV0tQ3F6DEuXmi89MTWJPx8KWBsrRj5iyTUmUsEu0waQxjdI15vsRmtQ5RJIBSB7IbsfAgMBAAGjHTAbMA4GA1UdDwEB/wQEAwIHgDAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQC7L7nBRts0YPRHTjMZxXmCVdLJ9JBn/8qy7XEB0WSAaPcMkKl7nCT0kxnxEPUcmsGQp/stJ2exJBk3OECzl6t6yX6bZLi7XBm57bjjJo9rvBD8wtNsPJJfeyBi+yIOKBGPxri3CgiIkHl5vtJBVfshzZYwK+P6AcnGiCAbtLRfXx+pcAF76GJ1Lc3CnEmpDaO++ZXqvGgkWrwUcYlWIyXmph581rYGDkbHx6H3NUM7Wl6tbTRgXWlcaqUpqIxAaTfhtLUiUUKuaxoFG0YrpW9YUsiz8/ed34PppgYtrsCpWww/Ep2cod6gQesDymTaIlRFURCOtXFiWA00AmaCOVp1-----END CERTIFICATE-----";
+    $enc_data           = $_POST[ "enc_data" ]; // Encryption authentication data
+    $enc_info           = $_POST[ "enc_info" ]; // Encryption authentication data  
+    $ordr_mony          = "1000"; // Payment request amount   ** 1 For Won, you must enter the amount of Won that you actually have to pay at the company. Payment amount validation **
+    /* = -------------------------------------------------------------------------- = */
+    $use_pay_method     = $_POST[ "use_pay_method" ]; // Payment Method
+    $ordr_idxx          = $_POST[ "ordr_idxx" ]; // Order Number
+    
+    $data = array( "tran_cd"        => $tran_cd, 
+				   "site_cd"        => $site_cd,
+				   "kcp_cert_info"  => $kcp_cert_info,
+				   "enc_data"       => $enc_data,
+				   "enc_info"       => $enc_info,
+				   "ordr_mony"      => $ordr_mony
+                 );
+    
+    $req_data = json_encode($data);
+    
+    $header_data = array( "Content-Type: application/json", "charset=utf-8" );
+    
+    // API REQ
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $target_URL);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header_data); 
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $req_data);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    
+    // API RES
+    $res_data  = curl_exec($ch); 
+    
+    /* 
+    ==========================================================================
+    Response information                                                               
+    --------------------------------------------------------------------------
+    */
+    // common
+    $res_cd         = "";
+    $res_msg        = "";
+    $res_en_msg     = "";
+    $tno            = "";
+    $amount         = "";
+    $app_time       = ""; // Common (card: approval time, account transfer: account transfer time, virtual account: virtual account numbering time)
+    // card
+    $card_cd     = ""; // card code
+    $card_name   = ""; // card company
+    $app_no      = ""; // Approval number
+    $quota       = ""; // installment month
+    $noinf       = ""; // interest free
+    // point
+    $pnt_issue        = ""; // point service company
+    $add_pnt          = ""; // occurrence point
+    $use_pnt          = ""; // available points
+    $rsv_pnt          = ""; // earned points
+    $pnt_app_time     = ""; // approval time
+    $pnt_app_no       = ""; // Approval number
+    $pnt_amount       = ""; // Accumulated amount or used amount
+    // account transfer
+    $bank_name        = ""; // name of bank
+    $bank_code        = ""; // bank code
+    // Virtual Account
+    $bankname         = ""; // bank to deposit
+    $bankcode         = ""; // bank code to deposit
+    $depositor        = ""; // Depositor of the account to be deposited
+    $account          = ""; // account number to deposit
+    $va_date          = ""; // Virtual account deposit deadline
+    // cell phone
+    $commid           = ""; // carrier code
+    $mobile_no        = ""; // phone number
+    // gift card
+    $tk_van_code      = ""; // issuer code
+    $tk_app_no        = ""; // Approval number
+    $tk_app_time      = ""; // Gift certificate approval time
+    // Cash receipts
+    $cash_yn        = $_POST[ "cash_yn"        ]; // Registered Cash Receipt
+    $cash_tr_code   = $_POST[ "cash_tr_code"   ]; // Issuance of cash receipt
+    $cash_id_info   = $_POST[ "cash_id_info"   ]; // Cash Receipt Registration Number
+    $cash_authno    = ""; // Cash Receipt Authorization Number
+    $cash_no        = ""; // Cash Receipt Transaction Number    
+    
+    // RES JSON DATA Parsing
+    $json_res = json_decode($res_data, true);
+    
+    $res_cd = $json_res["res_cd"];
+    $res_msg = $json_res["res_msg"];
+    
+    if ( $res_cd == "0000" )
+    {
+        $tno       = $json_res["tno"];
+        $res_cd    = $json_res["res_cd"];
+        $res_msg   = $json_res["res_msg"];
+        $amount    = $json_res["amount"];
+        
+        // card
+        if ( $use_pay_method == "100000000000" )
+        {
+            $card_cd   = $json_res["card_cd"];
+            $card_name = $json_res["card_name"];
+            $app_no    = $json_res["app_no"];
+            $app_time  = $json_res["app_time"];
+            $noinf     = $json_res["noinf"];
+            $quota     = $json_res["quota"];
+            // Point Complex Payment
+            $pnt_issue = $json_res["pnt_issue"];
+            if ( $pnt_issue == "SCSK" || $pnt_issue ==  "SCWB" )
+            {
+                $pnt_issue    = $json_res["pnt_issue"];
+                $add_pnt      = $json_res["add_pnt"];
+                $use_pnt      = $json_res["use_pnt"];
+                $rsv_pnt      = $json_res["rsv_pnt"];
+                $pnt_app_time = $json_res["pnt_app_time"];
+                $pnt_app_no   = $json_res["pnt_app_no"];
+                $pnt_amount   = $json_res["pnt_amount"];
+                // When issuing a cash receipt
+                if ( $cash_yn == "Y" )
+                {
+                    $cash_authno = $json_res["cash_authno"];
+                    $cash_no     = $json_res["cash_no"];
+                }
+            }
+        }
+        // account transfer
+        else if ( $use_pay_method == "010000000000" )
+        {
+            $bank_name = $json_res["bank_name"];
+            $bank_code = $json_res["bank_code"];
+            $app_time  = $json_res["app_time"];
+            
+            // When issuing a cash receipt
+            if ( $cash_yn == "Y" )
+            {
+                $cash_authno = $json_res["cash_authno"];
+                $cash_no     = $json_res["cash_no"];
+            }
+        }
+        // Virtual Account
+        else if ( $use_pay_method == "001000000000" )
+        {
+            $bankname  = $json_res["bankname"];
+            $bankcode  = $json_res["bankcode"];
+            $depositor = $json_res["depositor"];
+            $account   = $json_res["account"];
+            $va_date   = $json_res["va_date"];
+            $app_time  = $json_res["app_time"];
+            
+            // When issuing a cash receipt
+            if ( $cash_yn == "Y" )
+            {
+                // Processing after issuance of cash receipt
+                //$cash_authno = $json_res["cash_authno"];
+                //$cash_no     = $json_res["cash_no"];
+            }
+        }
+        // point
+        else if ( $use_pay_method == "000100000000" )
+        {
+            $pnt_issue    = $json_res["pnt_issue"];
+            $add_pnt      = $json_res["add_pnt"];
+            $use_pnt      = $json_res["use_pnt"];
+            $rsv_pnt      = $json_res["rsv_pnt"];
+            $pnt_app_time = $json_res["pnt_app_time"];
+            $pnt_app_no   = $json_res["pnt_app_no"];
+            $pnt_amount   = $json_res["pnt_amount"];
+            // When issuing a cash receipt
+            if ( $cash_yn == "Y" )
+            {
+                $cash_authno = $json_res["cash_authno"];
+                $cash_no     = $json_res["cash_no"];
+            }
+        }
+        // cell phone
+        else if ( $use_pay_method == "000010000000" )
+        {
+            $app_time    = $json_res["app_time"];
+            $commid      = $json_res["commid"];
+            $mobile_no   = $json_res["mobile_no"];
+        }
+        // gift card
+        else if ( $use_pay_method == "000000001000" )
+        {
+            $tk_van_code  = $json_res["tk_van_code"];
+            $tk_app_no    = $json_res["tk_app_no"];
+            $tk_app_time  = $json_res["tk_app_time"];
+        }
+    }
+    
+    curl_close($ch); 
+    
+    /* 
+    ==========================================================================
+         승인 결과 DB 처리 실패시 : 자동취소
+    --------------------------------------------------------------------------
+         승인 결과를 DB 작업 하는 과정에서 정상적으로 승인된 건에 대해
+    DB 작업을 실패하여 DB update 가 완료되지 않은 경우, 자동으로
+         승인 취소 요청을 하는 프로세스가 구성되어 있습니다.
+
+    DB 작업이 실패 한 경우, bSucc 라는 변수(String)의 값을 "false"
+         로 설정해 주시기 바랍니다. (DB 작업 성공의 경우에는 "false" 이외의
+         값을 설정하시면 됩니다.)
+    --------------------------------------------------------------------------
+    */
+    $bSucc = "";
+    
+    if ( $res_cd == "0000" )
+    {
+        if ( $bSucc == "false")
+        {
+            $res_data      = "";
+            $req_data      = "";
+            $kcp_sign_data = "";
+            /* 
+            ==========================================================================
+            cancellation API URL                                                           
+            --------------------------------------------------------------------------
+            */
+            $target_URL = "https://stg-spl.kcp.co.kr/gw/mod/v1/cancel"; // development server
+            //$target_URL = "https://spl.kcp.co.kr/gw/mod/v1/cancel"; // operation server
+            
+            // Signature data creation time
+            // site_cd(site code) + "^" + tno(transaction number) + "^" + mod_type(Cancellation type)
+            // NHN KCPprivate key issued by(PRIVATE KEY)로 SHA256withRSA String encoding value using algorithm
+            $cancel_target_data = $site_cd . "^" . $tno . "^" . "STSC";
+            /*
+             ==========================================================================
+             privatekey file read
+             --------------------------------------------------------------------------
+             */
+            $key_data = file_get_contents('C:\...\php_kcp_api_pay_sample\certificate\splPrikeyPKCS8.pem');
+            
+            /*
+             ==========================================================================
+             privatekey extraction
+             'changeit' is the private key password for testing
+             --------------------------------------------------------------------------
+             */
+            $pri_key = openssl_pkey_get_private($key_data,'changeit');
+            
+            /*
+             ==========================================================================
+             sign data produce
+             --------------------------------------------------------------------------
+             */
+            // cancel payment signature produce
+            openssl_sign($cancel_target_data, $signature, $pri_key, 'sha256WithRSAEncryption');
+            //echo "cancel_signature :".base64_encode($signature)."<br><br>";
+            $kcp_sign_data = base64_encode($signature);
+            
+            $data = array(
+                "site_cd"        => $site_cd,
+                "kcp_cert_info"  => $kcp_cert_info,
+                "kcp_sign_data"  => $kcp_sign_data,
+                "tno"            => $tno,
+                "mod_type"       => "STSC",
+                "mod_desc"       => "가맹점 DB 처리 실패(자동취소)"
+            );
+            
+            $req_data = json_encode($data);
+            
+            $header_data = array( "Content-Type: application/json", "charset=utf-8" );
+            
+            // API REQ
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $target_URL);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $header_data);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $req_data);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            
+            // API RES
+            $res_data  = curl_exec($ch);
+            
+            // RES JSON DATA Parsing
+            $json_res = json_decode($res_data, true);
+            
+            $res_cd = $json_res["res_cd"];
+            $res_msg = $json_res["res_msg"];
+
+            curl_close($ch); 
+        }
+    }
+    }
 }
