@@ -142,12 +142,12 @@ class CartController extends Controller
     $site_cd            = $request->site_cd; // site code
     // Certificate information (serialized)
     $kcp_cert_info      = "-----BEGIN CERTIFICATE-----MIIDjDCCAnSgAwIBAgIHBy/vlsKxuDANBgkqhkiG9w0BAQsFADBzMQswCQYDVQQGEwJLUjEOMAwGA1UECAwFU2VvdWwxEDAOBgNVBAcMB0d1cm8tZ3UxFTATBgNVBAoMDE5ITktDUCBDb3JwLjETMBEGA1UECwwKSVQgQ2VudGVyLjEWMBQGA1UEAwwNc3BsLmtjcC5jby5rcjAeFw0yMzAzMDkwMTIzNTdaFw0yODAzMDcwMTIzNTdaMHsxCzAJBgNVBAYTAktSMQ4wDAYDVQQIDAVTZW91bDEQMA4GA1UEBwwHR3Vyby1ndTEWMBQGA1UECgwNTkhOIEtDUCBDb3JwLjEXMBUGA1UECwwOUEdXRUJERVYgVGVhbS4xGTAXBgNVBAMMEDIwMjMwMzA5MTAwMDQ4ODYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCg2269Ns2iWkFdthzarNBX/l3ChWhVds/0nje01/MtLG5DSfTXhgg8iH8JPbszOuvGYCMytKF7oGfV7c8XMjSRK+QPWYOQ5zx428oZUhx2Y62eFdzP4ScC65e+kagc9H05AGAlA+cgSWdKS63ckqN2ydZOcTlSTlQeMfd85jdC5iyIT/mLC3GCFldmZdVcVNCbfpLoX7PerO5n/pW280l+rotA1OQZF/mmMGsp+ZkrI5BeOFNcWoWrvKfXWz1MEBZ/ZvHGnOuiRRr2utcDCV0tQ3F6DEuXmi89MTWJPx8KWBsrRj5iyTUmUsEu0waQxjdI15vsRmtQ5RJIBSB7IbsfAgMBAAGjHTAbMA4GA1UdDwEB/wQEAwIHgDAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQC7L7nBRts0YPRHTjMZxXmCVdLJ9JBn/8qy7XEB0WSAaPcMkKl7nCT0kxnxEPUcmsGQp/stJ2exJBk3OECzl6t6yX6bZLi7XBm57bjjJo9rvBD8wtNsPJJfeyBi+yIOKBGPxri3CgiIkHl5vtJBVfshzZYwK+P6AcnGiCAbtLRfXx+pcAF76GJ1Lc3CnEmpDaO++ZXqvGgkWrwUcYlWIyXmph581rYGDkbHx6H3NUM7Wl6tbTRgXWlcaqUpqIxAaTfhtLUiUUKuaxoFG0YrpW9YUsiz8/ed34PppgYtrsCpWww/Ep2cod6gQesDymTaIlRFURCOtXFiWA00AmaCOVp1-----END CERTIFICATE-----";
-    $enc_data           = $_POST[ "enc_data" ]; // Encryption authentication data
-    $enc_info           = $_POST[ "enc_info" ]; // Encryption authentication data  
-    $ordr_mony          = "1000"; // Payment request amount   ** 1 For Won, you must enter the amount of Won that you actually have to pay at the company. Payment amount validation **
+    $enc_data           = $request->enc_data; // Encryption authentication data
+    $enc_info           = $request->enc_info; // Encryption authentication data  
+    $ordr_mony          = $request->good_mny; // Payment request amount   ** 1 For Won, you must enter the amount of Won that you actually have to pay at the company. Payment amount validation **
     /* = -------------------------------------------------------------------------- = */
-    $use_pay_method     = $_POST[ "use_pay_method" ]; // Payment Method
-    $ordr_idxx          = $_POST[ "ordr_idxx" ]; // Order Number
+    $use_pay_method     = $request->use_pay_method; // Payment Method
+    $ordr_idxx          = $request->ordr_idxx; // Order Number
     
     $data = array( "tran_cd"        => $tran_cd, 
 				   "site_cd"        => $site_cd,
@@ -216,9 +216,9 @@ class CartController extends Controller
     $tk_app_no        = ""; // Approval number
     $tk_app_time      = ""; // Gift certificate approval time
     // Cash receipts
-    $cash_yn        = $_POST[ "cash_yn"        ]; // Registered Cash Receipt
-    $cash_tr_code   = $_POST[ "cash_tr_code"   ]; // Issuance of cash receipt
-    $cash_id_info   = $_POST[ "cash_id_info"   ]; // Cash Receipt Registration Number
+    $cash_yn        = $request->cash_yn; // Registered Cash Receipt
+    $cash_tr_code   = $request->cash_tr_code; // Issuance of cash receipt
+    $cash_id_info   = $request->cash_id_info; // Cash Receipt Registration Number
     $cash_authno    = ""; // Cash Receipt Authorization Number
     $cash_no        = ""; // Cash Receipt Transaction Number    
     
@@ -357,8 +357,8 @@ class CartController extends Controller
             cancellation API URL                                                           
             --------------------------------------------------------------------------
             */
-            $target_URL = "https://stg-spl.kcp.co.kr/gw/mod/v1/cancel"; // development server
-            //$target_URL = "https://spl.kcp.co.kr/gw/mod/v1/cancel"; // operation server
+            // $target_URL = "https://stg-spl.kcp.co.kr/gw/mod/v1/cancel"; // development server
+            $target_URL = "https://spl.kcp.co.kr/gw/mod/v1/cancel"; // operation server
             
             // Signature data creation time
             // site_cd(site code) + "^" + tno(transaction number) + "^" + mod_type(Cancellation type)
@@ -369,7 +369,35 @@ class CartController extends Controller
              privatekey file read
              --------------------------------------------------------------------------
              */
-            $key_data = file_get_contents('C:\...\php_kcp_api_pay_sample\certificate\splPrikeyPKCS8.pem');
+            $key_data = "-----BEGIN ENCRYPTED PRIVATE KEY-----
+            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
+            nKJZKwQJKhzoX8i2Ty8AsO7VFZUXngfPXnM=
+            -----END ENCRYPTED PRIVATE KEY-----";
             
             /*
              ==========================================================================
@@ -423,5 +451,6 @@ class CartController extends Controller
             curl_close($ch); 
         }
     }
+    dd($json_res);
     }
 }
