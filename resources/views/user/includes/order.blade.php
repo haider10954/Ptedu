@@ -101,16 +101,16 @@
                     @php
                         $total = ($cart->sum('price')) - ($cart->sum('discount'))
                     @endphp
-                    <input type="hidden" name="ordr_idxx" value="TEST1234567890" maxlength="40" />
-                    <input type="hidden" name="good_name" value="운동화" />
-                    <input type="hidden" name="good_mny" value="1000" maxlength="9" />
-                    <input type="hidden" name="buyr_name" value="홍길동" />
-                    <input type="hidden" name="buyr_tel1" value="02-0000-0000" />
-                    <input type="hidden" name="buyr_tel2" value="010-0000-0000" />
-                    <input type="hidden" name="buyr_mail" value="test@test.co.kr" />
+                    <input type="hidden" name="ordr_idxx" value="ptedu-{{ uniqid('ord') }}" maxlength="40" />
+                    <input type="hidden" name="good_name" value="물리 치료사 코스" />
+                    <input type="hidden" name="good_mny" value="{{ $total }}" maxlength="9" />
+                    <input type="hidden" name="buyr_name" value="{{ auth()->user()->name }}" />
+                    <input type="hidden" name="buyr_tel1" value="{{ auth()->user()->mobile_number }}" />
+                    <input type="hidden" name="buyr_tel2" value="{{ auth()->user()->mobile_number }}" />
+                    <input type="hidden" name="buyr_mail" value="{{ auth()->user()->email }}" />
 
                     <input type="hidden" name="site_cd"         value="AIYNH" />
-                    <input type="hidden" name="site_name"       value="TEST SITE" />
+                    <input type="hidden" name="site_name"       value="PTEDU" />
                     <input type="hidden" name="pay_method"       value="" />
                     <input type="hidden" name="res_cd"          value=""/>
                     <input type="hidden" name="res_msg"         value=""/>
