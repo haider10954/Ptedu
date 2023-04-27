@@ -109,7 +109,7 @@
                     <input type="hidden" name="buyr_tel2" value="{{ auth()->user()->mobile_number }}" />
                     <input type="hidden" name="buyr_mail" value="{{ auth()->user()->email }}" />
 
-                    <input type="hidden" name="site_cd"         value="T0000" />
+                    <input type="hidden" name="site_cd"         value="AIYNH" />
                     <input type="hidden" name="site_name"       value="PTEDU" />
                     <input type="hidden" name="pay_method"       value="" />
                     <input type="hidden" name="res_cd"          value=""/>

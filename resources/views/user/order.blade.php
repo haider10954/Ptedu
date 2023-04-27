@@ -73,9 +73,9 @@
 
 @section('custom-script')
 {{-- kcp payment scripts --}}
-<script type="text/javascript" src="https://testpay.kcp.co.kr/plugin/payplus_web.jsp"></script>
+<script type="text/javascript" src="https://pay.kcp.co.kr/plugin/payplus_web.jsp"></script>
 <script type="text/javascript">
-    
+        
     /* 표준웹 실행 */
     function jsf__pay( form )
     {
