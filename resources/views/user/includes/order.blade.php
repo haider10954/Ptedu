@@ -103,7 +103,7 @@
                     @endphp
                     <input type="hidden" name="ordr_idxx" value="ptedu-{{ uniqid('ord') }}" maxlength="40" />
                     <input type="hidden" name="good_name" value="물리 치료사 코스" />
-                    <input type="hidden" name="good_mny" value="{{ $total }}" maxlength="9" />
+                    <input type="hidden" name="good_mny" value="1000" maxlength="9" />
                     <input type="hidden" name="buyr_name" value="{{ auth()->user()->name }}" />
                     <input type="hidden" name="buyr_tel1" value="{{ auth()->user()->mobile_number }}" />
                     <input type="hidden" name="buyr_tel2" value="{{ auth()->user()->mobile_number }}" />
