@@ -112,7 +112,7 @@
         
         if( frm.res_cd.value == "0000" )
         {
-            alert("Before payment authorization request,\n\nAfter the customer completes payment verification in the payment window\n\nreturned ordr_chk and company order information\n\nAfter verifying again, please request payment approval."); //Required checklist when linking with a company.
+            // alert("Before payment authorization request,\n\nAfter the customer completes payment verification in the payment window\n\nreturned ordr_chk and company order information\n\nAfter verifying again, please request payment approval."); //Required checklist when linking with a company.
             /*
                                  Merchant return value processing area
             */
@@ -121,7 +121,7 @@
         }
         else
         {
-            alert( "[" + frm.res_cd.value + "] " + frm.res_msg.value );
+            // alert( "[" + frm.res_cd.value + "] " + frm.res_msg.value );
             
             closeEvent();
         }

@@ -10,6 +10,7 @@ use App\Models\Course;
 use App\Models\Online_enrollment;
 use App\Models\Offline_enrollment;
 use App\Models\Course_tracking;
+use Illuminate\Support\Facades\Log;
 
 class CartController extends Controller
 {
@@ -172,7 +173,9 @@ class CartController extends Controller
     
     // API RES
     $res_data  = curl_exec($ch); 
-    
+
+    Log::critical($res_data);
+
     /* 
     ==========================================================================
     Response information                                                               
@@ -227,6 +230,8 @@ class CartController extends Controller
     
     $res_cd = $json_res["res_cd"];
     $res_msg = $json_res["res_msg"];
+
+    dd($json_res);
     
     if ( $res_cd == "0000" )
     {
@@ -332,15 +337,15 @@ class CartController extends Controller
     
     /* 
     ==========================================================================
-         승인 결과 DB 처리 실패시 : 자동취소
+         When approval result DB processing fails : automatic cancellation
     --------------------------------------------------------------------------
-         승인 결과를 DB 작업 하는 과정에서 정상적으로 승인된 건에 대해
-    DB 작업을 실패하여 DB update 가 완료되지 않은 경우, 자동으로
-         승인 취소 요청을 하는 프로세스가 구성되어 있습니다.
+         approval result DB 작업 Regarding normally approved cases in the process of
+    DB work failed DB update 가if not completed, Automatically
+         A process for requesting approval cancellation is configured.
 
-    DB 작업이 실패 한 경우, bSucc 라는 변수(String)의 값을 "false"
-         로 설정해 주시기 바랍니다. (DB 작업 성공의 경우에는 "false" 이외의
-         값을 설정하시면 됩니다.)
+    DB If the job fails, bSucc variable called(String)the value of "false"
+         Please set. (DB In case of job success "false" other than
+         Just set the value.)
     --------------------------------------------------------------------------
     */
     $bSucc = "";
@@ -451,6 +456,6 @@ class CartController extends Controller
             curl_close($ch); 
         }
     }
-    dd($json_res);
+    
     }
 }
