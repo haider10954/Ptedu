@@ -553,7 +553,7 @@
                 success: function(res) {
                     if (res.success) {
                         $("#submitForm").prop('disabled', false);
-                        $("#submitForm").html("{{__('translation.Register')}}");
+                        $("#submitForm").html("저장");
                         $('.prompt').html(`<div class="alert alert-success">${res.message}</div>`);
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
@@ -563,7 +563,7 @@
                         }, 4000);
                     } else {
                         $("#submitForm").prop('disabled', false);
-                        $("#submitForm").html('등록하다');
+                        $("#submitForm").html('저장');
                         $('.prompt').html(`<div class="alert alert-warning">${res.message}</div>`);
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
