@@ -65,7 +65,7 @@
                 <p>{{ __('translation.Payment Method') }}</p>
             </div>
             <div class="align-items-center radio_select mb-3">
-                <form name="order_info" method="post" action="{{ route('check_payment') }}" style="display: flex;align-items: center;flex-wrap: wrap;">
+                <form name="order_info" method="post" action="{{ route('proceed_payment') }}" style="display: flex;align-items: center;flex-wrap: wrap;">
                     @csrf
                     {{-- <div class="mr-3 payment_method_card mb-1 mb-md-0">
                         <input type="radio" name="payment_method" class="payment-method-radio" value="card" checked> <span>{{ __('translation.Card') }}</span>
@@ -124,8 +124,6 @@
                     <input type="hidden" name="cash_tr_code"    value=""/>
                     <input type="hidden" name="cash_id_info"    value=""/>
                     {{-- hidden fields for payment --}}
-
-                    <button type="submit" class="btn btn-primary">Check Payment</button>
                 </form>
             </div>
         </div>
