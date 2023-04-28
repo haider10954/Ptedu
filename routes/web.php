@@ -139,6 +139,10 @@ Route::middleware('auth')->group(function () {
     Route::post('certificate', [CertificateController::class, 'check_completed_courses'])->name('completed-courses-certificate');
 
     Route::post('proceed-payment',[CartController::class,'proceed_payment'])->name('proceed_payment');
+
+    Route::post('check-payment',[CartController::class,'check_payment'])->name('check_payment');
+
+    Route::view('payment-status','user.payment_status')->name('payment_status');
 });
 
 Route::get('get_duration/{url}', [CourseController::class, 'get_duration'])->name('get_duration');
