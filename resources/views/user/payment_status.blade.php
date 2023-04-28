@@ -18,8 +18,8 @@
             <div class="col-lg-6 col-md-8 col-12">
                 <div class="card">
                     <div class="card-body text-center">
-                        @if(\Session::has('status'))
-                            @if(\Session::get('status') == true)
+                        @if(\Session::has('Success'))
+                            @if(\Session::get('Success') == true)
                                 <img src="{{ asset('web_assets/images/checked.png') }}" height="100" class="mb-4" alt="Done">
                                 <h5>주문 완료</h5>  
                                 <p class="mb-0">주문 완료, 대시보드로 리디렉션되는 동안 기다려 주십시오 ...</p>
