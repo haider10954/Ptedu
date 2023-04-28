@@ -21,12 +21,12 @@
                         @if(\Session::has('status'))
                             @if(\Session::get('status') == true)
                                 <img src="{{ asset('web_assets/images/checked.png') }}" height="100" class="mb-4" alt="Done">
-                                <h5>Order Completed Successfully</h5>  
-                                <p class="mb-0">Order completed successfully, please wait redirecting you to your dashboard ...</p>
+                                <h5>주문 완료</h5>  
+                                <p class="mb-0">주문 완료, 대시보드로 리디렉션되는 동안 기다려 주십시오 ...</p>
                             @else
                                 <img src="{{ asset('web_assets/images/remove.png') }}" height="100" class="mb-4" alt="Done">
-                                <h5>Error while completing order</h5>  
-                                <p class="mb-0">Error while completing order, please wait redirecting you to your dashboard ...</p>
+                                <h5>주문을 완료하는 동안 오류가 발생했습니다</h5>  
+                                <p class="mb-0">주문을 완료하는 동안 오류가 발생했습니다, 대시보드로 리디렉션되는 동안 기다려 주십시오 ...</p>
                             @endif
                         @endif
                     </div>
