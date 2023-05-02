@@ -42,7 +42,7 @@
                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                         <div class="custom-tab-content">
                             <h6 class="content-heading">{{ __('translation.Courses in Progress') }}
-                                ({{ $courses_enrolled->count() }})</h6>
+                                ({{ $courses_enrolled->count() + $offline_enrolments->count() }})</h6>
                             <div class="row progress_lectures_list">
                                 @if ($courses_enrolled->count() > 0)
                                 @foreach ($courses_enrolled as $item)
@@ -87,10 +87,50 @@
                                         </div>
                                     </div>
                                     @endforeach
-                                    @else
-                                    <div class="col-12 text-center">
-                                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" class="img-fluid" alt="img" style="height: 250px;">
-                                    </div>
+                                    @endif
+
+                                    @if ($offline_enrolments->count() > 0)
+                                    @foreach ($offline_enrolments as $item)
+                                    <div class="col-lg-3 col-md-4 col-12">
+                                        <div class="lecture-box">
+                                            <img src="{{ asset('storage/offline_course/thumbnail/' . $item->getCousreName->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
+                                            <div class="lecture_box_content h-130">
+                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCousreName->id) }}" class="text-dark">{{ Str::limit($item->getCousreName->course_title,100) }}</a></h6>
+                                                <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCousreName->getCategoryName->name }}
+                                                    l {{ $item->getCousreName->getTutorName->name }} l {{ __('translation.Offline') }}</small>
+                                                <div class="d-flex align-items-center justify-content-between lecture-box-footer">
+                                                    <small class="lecture-duration">{{ $item->getCousreName->created_at->format('Y-m-d') }}</small>
+                                                    <div class="d-flex align-items-center">
+                                                        <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue ">예약 확정</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    @endforeach
+                                    @endif
+
+                                    @if ($reservations->count() > 0)
+                                    @foreach ($reservations as $item)
+                                    @if($item->status == 'applied')
+                                    <div class="col-lg-3 col-md-4 col-12">
+                                        <div class="lecture-box">
+                                            <img src="{{ asset('storage/offline_course/thumbnail/' . $item->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
+                                            <div class="lecture_box_content h-130">
+                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,100) }}</a></h6>
+                                                <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCourses->getCategoryName->name }}
+                                                    l {{ $item->getCourses->getTutorName->name }} l {{ __('translation.Offline') }}</small>
+                                                <div class="d-flex align-items-center justify-content-between lecture-box-footer">
+                                                    <small class="lecture-duration">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
+                                                    <div class="d-flex align-items-center">
+                                                        <a href="javascript:void(0)" class="btn btn-dark btn-custom-sm">예약 대기 중</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    @endif
+                                    @endforeach
                                     @endif
                             </div>
                         </div>

@@ -72,7 +72,7 @@
                                             data-target="#reservationModal">{{ __('translation.Apply') }}</button>
                                     @endif
                                 @else
-                                    <button class="btn btn-dark btn-sm w-100 mb-2" data-type="offline"
+                                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="offline"
                                         data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                                 @endif
                             @else
