@@ -59,7 +59,7 @@
 
                             {{-- <button class="btn btn-theme-black text-white mx-2 btn-padding checkout_btn" disabled="true"><span class="mr-2">{{ __('translation.Pay') }}</span> <i class="fa fa-angle-right"></i> </button> --}}
 
-                            <a href="javascript:void(0)" onclick="jsf__pay(document.order_info)" class="btn btn-theme-black text-white mx-2 btn-padding">
+                            <a href="javascript:void(0)" id="payment_btn" disabled="true" onclick="jsf__pay(document.order_info)" class="btn btn-theme-black text-white mx-2 btn-padding">
                                 <span class="mr-2">{{ __('translation.Pay') }}</span> <i class="fa fa-angle-right"></i> 
                             </a>
                         </div>
@@ -137,9 +137,9 @@
 
     $('#terms_check').on('change',function(){
         if($(this).prop('checked') == true){
-            $('.checkout_btn').prop('disabled',false);
+            $('#payment_btn').prop('disabled',false);
         }else{
-            $('.checkout_btn').prop('disabled',true);
+            $('#payment_btn').prop('disabled',true);
         }
     });
 
