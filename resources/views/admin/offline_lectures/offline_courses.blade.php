@@ -145,9 +145,9 @@
                     @if($offline_course->count() > 0)
                     @foreach ($offline_course as $offline_c)
                     <tr>
-                        <td>{{ $loop-> index + 1 }}</td>
+                        <td>{{ $counter }}</td>
                         <td>
-                            <span class="course_name">{{ $offline_c->course_title }}</span> <br />
+                            <span class="course_name">{{ Str::limit($offline_c->course_title, 40, '...') }}</span> <br />
                             <span class="tutor_name"> {{ $offline_c->getTutorName->name }}</span>
                         </td>
                         <td><span class="course_name">{{ $offline_c->getCategoryName->name}}</span></td>
@@ -162,6 +162,9 @@
                             </div>
                         </td>
                     </tr>
+                    @php
+                    $counter--;    
+                    @endphp
                     @endforeach
                     @else
                     <tr>

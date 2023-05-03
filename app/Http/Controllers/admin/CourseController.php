@@ -18,8 +18,20 @@ class CourseController extends Controller
 {
     public function course_listing()
     {
+        $limit = 10;
+        $page = 1;
+        $totalRecords = Course::count();
+        if (request()->has('page')) {
+            $page = request()->get('page');
+        }
+
+        if ($totalRecords > $limit) {
+            $counter = $totalRecords - (($page - 1) * $limit);
+        } else {
+            $counter = $totalRecords;
+        }
         $course = Course::with(['getCourseStatus', 'getOnlineCourseEnrollment'])->paginate(10);
-        return view('admin.courses.course', compact('course'));
+        return view('admin.courses.course', compact('course','counter'));
     }
 
     public function add_course_view()

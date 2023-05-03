@@ -13,8 +13,20 @@ class OfflineCourseController extends Controller
 {
     public function offline_course_listing()
     {
+        $limit = 10;
+        $page = 1;
+        $totalRecords = Offline_course::count();
+        if (request()->has('page')) {
+            $page = request()->get('page');
+        }
+
+        if ($totalRecords > $limit) {
+            $counter = $totalRecords - (($page - 1) * $limit);
+        } else {
+            $counter = $totalRecords;
+        }
         $offline_course = Offline_course::withCount(['getReservationWaiting', 'getReservationReserved'])->paginate(10);
-        return view('admin.offline_lectures.offline_courses', compact('offline_course'));
+        return view('admin.offline_lectures.offline_courses', compact('offline_course','counter'));
     }
 
     public function add_offline_course_view()

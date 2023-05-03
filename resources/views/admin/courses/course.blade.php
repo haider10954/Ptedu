@@ -138,9 +138,9 @@
                         @if ($course->count() > 0)
                         @foreach ($course as $c)
                         <tr>
-                            <td>{{ $course->lastItem()-$loop->index }}</td>
+                            <td>{{ $counter }}</td>
                             <td>
-                                <span class="course_name">{{ $c->course_title }}</span> <br />
+                                <span class="course_name">{{ Str::limit($c->course_title, 40, '...') }}</span> <br />
                                 <span class="tutor_name"> {{ $c->getTutorName->name }}</span>
                             </td>
                             <td><span class="course_name">{{ $c->getCategoryName->name }}</span></td>
@@ -171,6 +171,9 @@
                                 </div>
                             </td>
                         </tr>
+                        @php
+                            $counter--;
+                        @endphp
                         @endforeach
                         @else
                         <tr>
