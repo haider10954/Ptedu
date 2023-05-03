@@ -76,8 +76,7 @@
                                                 </h3>
                                                 <small class="text-white">{{ $latest_course->getTutorName->name }}</small>
                                             </div>
-                                            {{ dd(strip_tags($latest_course->description)) }}
-                                            {{-- <div class="text-left text-white">{!! $latest_course->description !!}</div> --}}
+                                            <div class="text-left text-white">{{ strip_tags($latest_course->description) }}</div>
                                         </div>
                                     </div>
                                 </div>
