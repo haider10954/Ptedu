@@ -353,10 +353,11 @@
                 $('.error-message').hide();
             },
             success: function(res) {
-                $("#submitForm").attr('class', 'btn btn-success');
-                $("#submitForm").html('<i class="fa fa-check me-1"></i>  등록된 학생</>');
-                if (res.success) {
+                if (res.success == true) {
+                    $("#submitForm").attr('class', 'btn btn-success');
+                    $("#submitForm").html('<i class="fa fa-check me-1"></i>  등록된 학생</>');
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
+                    $('.prompt').show();
                     setTimeout(function() {
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
@@ -368,14 +369,22 @@
                         window.location.href = "{{ route('user_login') }}";
                     }, 4000);
 
-                    $('.prompt').show()
-
-
-                } else {}
+                } else {
+                    $("#submitForm").prop('disabled', false);
+                    $("#submitForm").html('등록');
+                    $('.prompt').html('<div class="alert alert-danger mb-3">' + res.message + '</div>');
+                    $('.prompt').show();
+                    setTimeout(function() {
+                        $('html, body').animate({
+                            scrollTop: $("html, body").offset().top
+                        }, 1000);
+                    }, 1500);
+                }
             },
             error: function(e) {
+                $('.prompt').html('<div class="alert alert-danger mb-3">Please make sure all fields are filled</div>');
                 $("#submitForm").prop('disabled', false);
-                $("#submitForm").html('등록하다');
+                $("#submitForm").html('등록');
                 setTimeout(function() {
                     $('html, body').animate({
                         scrollTop: $("html, body").offset().top

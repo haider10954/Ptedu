@@ -15,6 +15,16 @@ class StudentController extends Controller
 {
     public function student_register(StudentRegisterRequest $request)
     {
+        $email = $request['email_name'] . '@' . $request['email_extension'];
+        $check_user = User::where('email',$email)->first();
+        if(!empty($check_user)){
+            return json_encode(
+                [
+                    'success' => false,
+                    'message' => __('translation.Email already exists')
+                ]
+            );
+        }
         $student = User::create([
             'name' => $request['name'],
             'english_name' => $request['en_name'],

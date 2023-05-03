@@ -26,7 +26,7 @@ class StudentRegisterRequest extends FormRequest
         return [
             'name' => 'required',
             'en_name' => 'required',
-            'user_id' => 'required|unique:users',
+            'user_id' => 'required|unique:users|numeric',
             'password' => 'required|min:6|same:confirm_password',
             'job' => 'required',
             'mobile' => 'required|min:9',

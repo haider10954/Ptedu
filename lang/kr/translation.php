@@ -443,5 +443,7 @@ return [
     'Write a review in here' => '리뷰를 작성해주세요',
     'Search by Name' => '이름으로 검색',
     'Tutor Introduction' => '강사소개',
-    'Search' => '검색'
+    'Search' => '검색',
+
+    'Email already exists' => '이메일이 이미 존재합니다'
 ];

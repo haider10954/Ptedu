@@ -95,7 +95,7 @@ Route::get('/faq', [IndexController::class, 'faq'])->name('web-faq');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/lecture-detail', [LectureController::class, 'lecture_detail'])->name('lecture_detail');
+    Route::get('/lecture-detail', [Lecturstudent_registereController::class, 'lecture_detail'])->name('lecture_detail');
     Route::get('/online-course', [UserCourseController::class, 'online_course'])->name('online_course');
     Route::get('/my-classroom', [LectureController::class, 'my_classroom'])->name('my_classroom');
 
