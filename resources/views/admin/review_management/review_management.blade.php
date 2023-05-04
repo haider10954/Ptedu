@@ -108,7 +108,7 @@
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
                                 <td>
-                                    <span class="course_name">{{\Carbon\Carbon::parse($r->created_at)->format('d M, Y')}}</span>
+                                    <span class="course_name">{{\Carbon\Carbon::parse($r->created_at)->format('Y-M-d')}}</span>
                                 </td>
                                 <td>
                                     <span class="course_name">{{ $r->getCourse->course_title }}</span>

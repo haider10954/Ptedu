@@ -78,12 +78,25 @@ class CartController extends Controller
     }
 
     public function add_to_cart(Request $request){
-        // session()->remove('shopping_cart');
-        // session()->save();
-        // dd('working');
+        if(empty(session('shopping_cart'))){
+            $shoping_cart_count = 0;
+        }else{
+            $shoping_cart_count = count(session('shopping_cart'));
+        }
         $encrypted_course = $request->course_id;
         $course = decrypt($encrypted_course);
         $course['type'] = $request->type;
+        if($request->type == 'online'){
+            $check_enrolment = Online_enrollment::where('course_id',$course['id'])->where('user_id',auth()->id())->first();
+            if(!empty($check_enrolment)){
+                return json_encode(['Success' => false, 'Msg' => __('translation.Already enrolled') , 'cart_items_count' => $shoping_cart_count]);
+            }
+        }else{
+            $check_enrolment = Offline_enrollment::where('course_id',$course['id'])->where('user_id',auth()->id())->first();
+            if(!empty($check_enrolment)){
+                return json_encode(['Success' => false, 'Msg' => __('translation.Already enrolled') , 'cart_items_count' => $shoping_cart_count]);
+            }
+        }
         $cart = Cart::add_to_cart($course);
         if($cart == true){
             return json_encode(['Success' => true, 'Msg' => __('translation.Course successfully added') , 'cart_items_count' => count(session('shopping_cart'))]);

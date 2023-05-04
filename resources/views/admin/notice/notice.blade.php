@@ -126,7 +126,7 @@
             </div>
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Notice / F&Q') }}</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Notice') }}</h4>
                     <a class="btn btn-add-lecture" href="{{ route('add_notice')}}">{{ __('translation.Add Notice') }}</a>
                 </div>
                 <hr class="hr-color" />
@@ -147,7 +147,7 @@
                         <tr>
                             <td>{{ $notice->firstItem() + $loop->index }}</td>
                             <td>
-                                <span class="course_name">{{ Carbon\Carbon::parse($n->created_at)->format('d M, Y')}}</span>
+                                <span class="course_name">{{ Carbon\Carbon::parse($n->created_at)->format('Y-M-d')}}</span>
                             </td>
                             <td>
                                 <span class="course_name">{{ $n->title }}</span>

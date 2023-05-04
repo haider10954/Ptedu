@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Online_enrollment;
+use App\Models\Offline_enrollment;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -28,8 +29,9 @@ class StudentController extends Controller
     public function edit_student($id)
     {
         $student =  User::where('id', $id)->first();
-        $enrolled_courses = Online_enrollment::where('user_id', $student->id)->with('getCourses')->get();
-        return view('admin.student.student_info', compact('student', 'enrolled_courses'));
+        $online_courses_enrolled = Online_enrollment::where('user_id', $student->id)->with('getCourses')->get();
+        $offline_courses_enrolled = Offline_enrollment::where('user_id', $student->id)->with('getCousreName')->get();
+        return view('admin.student.student_info', compact('student', 'online_courses_enrolled', 'offline_courses_enrolled'));
     }
 
     public function edit_student_info(Request $request)

@@ -278,7 +278,7 @@ return [
     'List of Courses' => '수강강좌 목록',
     'No Enrollment Yet' => '아직 등록 내역이 없습니다',
     'Student Info Detail' => '회원정보 상세보기',
-    'Affiliation' => '소속',
+    'Affiliation' => '수강강좌 목록',
     'Tutor List' => '강사 리스트',
     'Add Tutor' => '강사 추가',
     'NO Record Found' => '내역이 없습니다',

@@ -135,7 +135,6 @@
                                 <span class="course_name">{{ $order_item->course_name }}</span>
                                 <br />
                                 @endforeach
-
                             </td>
                             <td><span class="course_name">300,000 원</span></td>
                             @if ($item->status == 1)
