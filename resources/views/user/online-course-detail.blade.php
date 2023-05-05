@@ -214,7 +214,7 @@ $cartBtn = 0;
                     $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
                     $('.shopping_cart_count').html(res.cart_items_count);
                 } else {
-                    btn.html('<i class="fa fa-check mx-1"></i> 이미 추가됨</>');
+                    btn.html(`<i class="fa fa-times mx-1"></i> ${res.Msg}`);
                 }
             },
             error: function(e) {}

@@ -445,5 +445,6 @@ return [
     'Tutor Introduction' => '강사소개',
     'Search' => '검색',
 
-    'Email already exists' => '이메일이 이미 존재합니다'
+    'Email already exists' => '이메일이 이미 존재합니다',
+    'Already Added' => '이미 추가됨'
 ];

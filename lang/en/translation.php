@@ -443,5 +443,6 @@ return [
     'Tutor Introduction' => 'Tutor Introduction',
     'Search' => 'Search',
     'Language' => 'Language',
-    'Email already exists' => 'Email already exists'
+    'Email already exists' => 'Email already exists',
+    'Already Added' => 'Already Added'
 ];
