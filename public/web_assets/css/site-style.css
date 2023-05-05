@@ -654,3 +654,7 @@
 .video_review_container h5 {
     color: #ffffff;
 }
+
+.course-box .course-info{
+    height: 80px !important;
+}
