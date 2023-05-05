@@ -147,7 +147,7 @@
                         <tr>
                             <td>{{ $notice->firstItem() + $loop->index }}</td>
                             <td>
-                                <span class="course_name">{{ Carbon\Carbon::parse($n->created_at)->format('Y-M-d')}}</span>
+                                <span class="course_name">{{ Carbon\Carbon::parse($n->created_at)->format('Y-m-d')}}</span>
                             </td>
                             <td>
                                 <span class="course_name">{{ $n->title }}</span>

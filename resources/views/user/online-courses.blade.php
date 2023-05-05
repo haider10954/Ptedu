@@ -21,7 +21,7 @@
                     </div>
                     <div class="course-info">
                         <small class="d-block text-muted mb-1 font-weight-600">{{ $item->created_at->format('Y.m.d') }}</small>
-                        <p class="mb-0"><a href="{{ route('online_course_detail',$item->id) }}" class="text-theme-dark">{{ $item->course_title }}</a></p>
+                        <p class="mb-0"><a href="{{ route('online_course_detail',$item->id) }}" class="text-theme-dark">{{ Str::limit($item->course_title, 40, '...') }}</a></p>
                     </div>
                 </div>
             </div>
