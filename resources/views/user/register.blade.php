@@ -355,7 +355,7 @@
             success: function(res) {
                 if (res.success == true) {
                     $("#submitForm").attr('class', 'btn btn-success');
-                    $("#submitForm").html('<i class="fa fa-check me-1"></i>  등록된 학생</>');
+                    $("#submitForm").html('<i class="fa fa-check me-1"></i>  등록</>');
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
                     $('.prompt').show();
                     setTimeout(function() {
