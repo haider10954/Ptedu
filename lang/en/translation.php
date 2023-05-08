@@ -444,5 +444,11 @@ return [
     'Search' => 'Search',
     'Language' => 'Language',
     'Email already exists' => 'Email already exists',
-    'Already Added' => 'Already Added'
+    'Already Added' => 'Already Added',
+    'Must be numeric' => 'Must be numeric',
+    'Duration course' => 'Duration course',
+    'Video Lecture' => 'Video Lecture',
+    'Offline Lecture' => 'Offline Lecture',
+    'Days' => 'Days',
+    'Offline Course' => 'Offline Course'
 ];

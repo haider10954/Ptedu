@@ -2,6 +2,21 @@
 
 @section('title' , 'PTEdu | Register')
 
+@section('custom-style')
+<style>
+    #user_id::-webkit-outer-spin-button,
+    #user_id::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    #user_id {
+    -moz-appearance: textfield;
+    }
+</style>
+@endsection
+
 @section('content')
 <div class="section pt-150">
     <div class="container">
@@ -16,7 +31,6 @@
                     </div>
                 </div>
                 <div class="prompt"></div>
-                <div class="error-user-id"></div>
                 <div class="row">
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
@@ -58,14 +72,15 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                <p class="mb-0 user_profile">{{ __('translation.ID') }}<span class="text-danger ml-1">*</span></p>
+                                <p class="mb-0 user_profile">{{ __('translation.ID') }}<small class="text-danger ml-1">({{ __('translation.Must be numeric') }})*</small></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
-                                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="{{ __('translation.Enter ID') }}" value="{{ old('ID') }}">
+                                <input type="number" class="form-control" id="user_id" name="user_id" placeholder="{{ __('translation.Enter ID') }}" value="{{ old('ID') }}">
+                                <div class="error-user-id"></div>
                             </div>
                             <div class="verify_btn">
                                 <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">{{ __('translation.Duplicate Verification') }}</button>
@@ -302,21 +317,24 @@
             beforeSend: function() {},
             success: function(res) {
                 if (res.success == true) {
-
+                    $('html, body').animate({
+                        scrollTop: $("html, body").offset().top
+                    }, 1000);
                     $('.prompt').show()
                     $('.prompt').html('<div class="alert alert-success">' + res.message + '</div>');
                     setTimeout(function() {
                         $('.prompt').hide()
-                    }, 1500);
-
+                    }, 2500);
 
                 } else {
-
+                    $('html, body').animate({
+                        scrollTop: $("html, body").offset().top
+                    }, 1000);
                     $('.prompt').show()
                     $('.prompt').html('<div class="alert alert-danger">' + res.message + '</div>');
                     setTimeout(function() {
                         $('.prompt').hide()
-                    }, 1500);
+                    }, 2500);
 
                 }
             },
@@ -382,7 +400,6 @@
                 }
             },
             error: function(e) {
-                $('.prompt').html('<div class="alert alert-danger mb-3">Please make sure all fields are filled</div>');
                 $("#submitForm").prop('disabled', false);
                 $("#submitForm").html('등록');
                 setTimeout(function() {
@@ -397,10 +414,7 @@
                     $('.error-en-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['en_name'][0] + '</small>');
                 }
                 if (e.responseJSON.errors['user_id']) {
-                    $('.error-user-id').html('<p class=" alert alert-danger">' + e.responseJSON.errors['user_id'][0] + '</p>');
-                    setTimeout(function() {
-                        $('.error-user-id').fadeOut();
-                    }, 3000);
+                    $('.error-user-id').html('<small class=" error-message text-danger">' + e.responseJSON.errors['user_id'][0] + '</small>');
                 }
                 if (e.responseJSON.errors['password']) {
                     $('.error-pass').html('<small class=" error-message text-danger">' + e.responseJSON.errors['password'][0] + '</small>');

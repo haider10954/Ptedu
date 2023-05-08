@@ -68,13 +68,14 @@
 
 @section('content')
 
+@php $order_items = json_decode($order->order_items) @endphp
+
 <div class="card">
     <div class="card-body">
         <div class="row">
             <div class="col-12 mb-5">
                 <div class="page-title-box d-flex align-items-center">
-                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Payment Management') }} (100)</h4>
-                    <h6 class="date mb-0 ms-2">2022 - 10 - 13</h6>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Payment Management') }}</h4>
                 </div>
             </div>
             <div class="col-12">
@@ -83,89 +84,90 @@
                 </div>
                 <hr class="divider" />
             </div>
-            <div class="col-12">
-                <div class="row mx-0">
-                    <div class="col-3 col-bg">
-                        <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">{{ __('translation.Course Name') }}</h4>
+            @foreach ($order_items as $item)
+                <div class="col-12">
+                    <div class="row mx-0">
+                        <div class="col-3 col-bg">
+                            <div class="d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_info">{{ __('translation.Course Name') }}</h4>
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_info">{{ __('translation.Tutor Name') }}</h4>
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_info">{{ __('translation.Duration of the Course') }}</h4>
+                            </div>
                         </div>
-                        <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">{{ __('translation.Tutor Name') }}</h4>
+                        <div class="col-3">
+                            <div class="d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_details">{{ $item->course->course_title }}</h4>
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_details">{{ $item->course->get_tutor_name->name }}</h4>
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_details">{{ (int)$item->course->duration_of_course }} {{ __('translation.Days') }}</h4>
+                            </div>
                         </div>
-                        <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">{{ __('translation.Duration of the Course') }}</h4>
+                        <div class="col-3 col-bg">
+                            <div class="d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_info">{{ __('translation.Course Type') }}</h4>
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_info">{{ __('translation.Course composition') }}</h4>
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_info">{{ __('translation.Production Type') }}</h4>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                            <div class="d-flex align-items-center mb-3">
+                                @if($item->type == 'online')
+                                <h4 class="mb-sm-0  course_details">{{ ucfirst($item->course->course_type) }} Course</h4>
+                                @else
+                                <h4 class="mb-sm-0  course_details">{{ __('translation.Offline Course') }}</h4>
+                                @endif
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_details">Total {{ $item->course->no_of_lectures }} Lecture</h4>
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_details">{{ ($item->type == 'online') ? __('translation.Video Lecture') : __('translation.Offline Lecture') }}</h4>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-3">
-                        <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">보행 A에서 Z까지</h4>
-                        </div>
-                        <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">조규행</h4>
-                        </div>
-                        <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">2022 - 10 - 13 ~ 2022 - 11 - 13 (Duration course : 30days)</h4>
-                        </div>
-                    </div>
-                    <div class="col-3 col-bg">
-                        <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">{{ __('translation.Course Type') }}</h4>
-                        </div>
-                        <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">{{ __('translation.Course composition') }}</h4>
-                        </div>
-                        <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_info">{{ __('translation.Production Type') }}</h4>
-                        </div>
-                    </div>
-                    <div class="col-3">
-                        <div class="d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">Expert Course</h4>
-                        </div>
-                        <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">Total 20 Lecture / 360min</h4>
-                        </div>
-                        <div class=" d-flex align-items-center mb-3">
-                            <h4 class="mb-sm-0  course_details">Video Lecture</h4>
-                        </div>
-                    </div>
+                    <hr class="course_info_border" />
                 </div>
-                <hr class="course_info_border" />
-            </div>
+            @endforeach
             <div class="col-12 mt-4">
                 <div class="page-title-box d-flex align-items-center">
                     <h4 class="mb-sm-0  Card_title">{{ __('translation.Payment Information') }}</h4>
                 </div>
                 <hr class="divider" />
+                @php
+                $payment_response = json_decode($order->getTransaction->payment_response);
+                @endphp
                 <table class="table table-border-c">
                     <tbody>
                         <tr>
                             <td class="td-left">{{ __('translation.Payment No') }}</td>
-                            <td>A54312388 </td>
+                            <td>{{ $payment_response->order_no }}</td>
                         </tr>
                         <tr>
                             <td class="td-left">{{ __('translation.Payment Date') }}</td>
-                            <td>2022 - 10 - 13</td>
+                            <td>{{\Carbon\Carbon::parse($order->getTransaction->created_at)->format('Y-m-d')}}</td>
                         </tr>
                         <tr>
                             <td class="td-left">{{ __('translation.Method Payment') }}</td>
-                            <td>a deposit without a bankbook</td>
+                            <td>{{ ucwords($order->getTransaction->payment_method) }}</td>
                         </tr>
                         <tr>
                             <td class="td-left">{{ __('translation.Payment Price') }}</td>
-                            <td>300,000 원</td>
+                            <td>{{ $order->getTransaction->ammount }} 원</td>
                         </tr>
                         <tr>
                             <td class="td-left">{{ __('translation.Payment Status') }}</td>
-                            <td>Payment success</td>
-                        </tr>
-                        <tr>
-                            <td class="td-left">{{ __('translation.Virtual Account number') }}</td>
-                            <td> Hana Bank 801100-00-000000</td>
-                        </tr>
-                        <tr>
-                            <td class="td-left">{{ __('translation.Cash receipt number') }}</td>
-                            <td>개인 010-0000-0000 </td>
+                            <td>{{ $payment_response->res_msg  }}</td>
                         </tr>
                     </tbody>
                 </table>

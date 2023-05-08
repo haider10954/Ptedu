@@ -10,7 +10,7 @@ class OrderController extends Controller
 {
     public function order_listing()
     {
-        $order = Order::with('getUser')->paginate(10);
+        $order = Order::with(['getUser','getTransaction'])->paginate(10);
         return view('admin.payment.payment', compact('order'));
     }
 
@@ -41,5 +41,10 @@ class OrderController extends Controller
                 'message' =>  __('translation.Something went wrong Please try again')
             ]);
         }
+    }
+
+    public function view_payment($id){
+        $order = Order::with(['getTransaction','getUser'])->where('id',$id)->first();
+        return view('admin.payment.view_payment',compact('order'));
     }
 }

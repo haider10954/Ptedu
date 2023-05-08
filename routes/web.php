@@ -283,9 +283,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/payment', [OrderController::class, 'order_listing'])->name('payment');
         Route::post('/delete-order', [OrderController::class, 'delete_order'])->name('delete-order');
         Route::post('/update-order-status', [OrderController::class, 'update_order_status'])->name('update-order-status');
-        Route::get('/payment/view_payment', function () {
-            return view('admin.payment.view_payment');
-        })->name('view_payment');
+        Route::get('/payment/view_payment/{id}',[OrderController::class, 'view_payment'])->name('view_payment');
 
         //Inquiry
         Route::get('/inquiry', [InquiryController::class, 'inquiry_listing_admin'])->name('inquiry');

@@ -132,13 +132,13 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-lg-12 table-responsive">
-                <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
+                <table class="table align-middle mb-0 table-lectures border-white table-layout-fixed" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Date') }}</td>
-                            <td class="align-middle t_header" style="width: 65%;">{{ __('translation.Title') }}</th>
-                            <td class="align-middle t_header">{{ __('translation.Action') }}</td>
+                            <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header t-width-100">{{ __('translation.Date') }}</td>
+                            <td class="align-middle t_header t-width-300">{{ __('translation.Title') }}</th>
+                            <td class="align-middle t_header t-width-80">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>

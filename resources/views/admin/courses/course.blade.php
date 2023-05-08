@@ -121,17 +121,16 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-lg-12 table-responsive">
-                <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
+                <table class="table align-middle mb-0 table-lectures border-white table-layout-fixed" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Course Name') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Category')}}</th>
-                            <td class="align-middle t_header">{{ __('translation.Number of Student')}}</td>
-                            <td class="align-middle t_header">{{ __('translation.Open Status')}}</th>
-                            <td class="align-middle t_header">{{ __('translation.Price')}}</td>
-                            <td class="align-middle t_header">{{ __('translation.Live')}}</td>
-                            <td class="align-middle t_header">{{ __('translation.Action')}}</td>
+                            <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header t-width-290">{{ __('translation.Course Name') }}</td>
+                            <td class="align-middle t_header t-width-150">{{ __('translation.Category')}}</th>
+                            <td class="align-middle t_header t-width-80">{{ __('translation.Number of Student')}}</td>
+                            <td class="align-middle t_header t-width-80">{{ __('translation.Price')}}</td>
+                            <td class="align-middle t_header t-width-80">{{ __('translation.Live')}}</td>
+                            <td class="align-middle t_header t-width-90">{{ __('translation.Action')}}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -140,16 +139,11 @@
                         <tr>
                             <td>{{ $counter }}</td>
                             <td>
-                                <span class="course_name">{{ Str::limit($c->course_title, 40, '...') }}</span> <br />
+                                <span class="course_name d-block mb-1">{{ Str::limit($c->course_title, 40, '...') }}</span>
                                 <span class="tutor_name"> {{ $c->getTutorName->name }}</span>
                             </td>
                             <td><span class="course_name">{{ $c->getCategoryName->name }}</span></td>
                             <td><span class="course_name">{{ $c->getOnlineCourseEnrollment->count() }}</span></td>
-                            @if ($c->getCourseStatus()->count() == 0)
-                            <td><span class="badge status-badge-danger p-1">Closed</span></td>
-                            @else
-                            <td><span class="badge status-badge  p-1">Open</span></td>
-                            @endif
                             <td><span class="course_name">{{ $c->price - $c->discounted_prize }} 원</span></td>
                             <td>
                                 @if ($c->live_status == 1)

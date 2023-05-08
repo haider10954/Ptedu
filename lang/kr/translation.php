@@ -267,7 +267,7 @@ return [
     'Participants' => '신청자 수',
     'Waiting' => '대기자',
     'Management' => '관리',
-    'Confirm Delete' => '예약확정/삭제',
+    'Confirm Delete' => '삭제',
     'Enter description' => '설명을 입력하세요',
     'Total No Of Enrollments' => '총 등록자 수',
     'Enter No Of Enrollments' => '등록자 수를 입력하세요',
@@ -446,5 +446,11 @@ return [
     'Search' => '검색',
 
     'Email already exists' => '이메일이 이미 존재합니다',
-    'Already Added' => '이미 추가됨'
+    'Already Added' => '이미 추가됨',
+    'Must be numeric' => '숫자여야 합니다.',
+    'Duration course' => '수강기간',
+    'Video Lecture' => '온라인 강좌',
+    'Offline Lecture' => '오프라인 강좌',
+    'Days' => '날',
+    'Offline Course' => '오프라인 과정'
 ];

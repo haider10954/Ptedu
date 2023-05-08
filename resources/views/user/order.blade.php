@@ -42,7 +42,7 @@
                 </div>
                 <div class="mt-3 mb-3">
                     <div>
-                        <input type="checkbox" id="terms_check" class="mr-2" />{{ __('translation.Cancellation/refund regulation has been confirmed') }}.
+                        <input type="checkbox" id="terms_check" class="mr-2" />{{ __('translation.Cancellation/refund regulation has been confirmed') }}    
                     </div>
                 </div>
                 <div class="row">

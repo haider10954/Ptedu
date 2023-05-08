@@ -96,7 +96,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Payment Management') }} ({{ $order->count() }})</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Payment Management') }}</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -109,16 +109,15 @@
                 @endif
             </div>
             <div class="col-lg-12 table-responsive">
-                <table class="table align-middle table-nowrap mb-0  table-lectures border-white" id="myTable">
+                <table class="table align-middle mb-0 table-lectures border-white table-layout-fixed" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Date') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Buyer') }}</th>
-                            <td class="align-middle t_header">{{ __('translation.Course Name') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Price') }}</th>
-                            <td class="align-middle t_header">{{ __('translation.Status') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Action') }}</td>
+                            <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header t-width-100">{{ __('translation.Date') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Buyer') }}</th>
+                            <td class="align-middle t_header t-width-250">{{ __('translation.Course Name') }}</td>
+                            <td class="align-middle t_header t-width-80">{{ __('translation.Price') }}</th>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
@@ -127,7 +126,7 @@
                         <tr>
                             <td>{{ $order->firstitem() + $loop->index }}</td>
                             <td>
-                                <span class="course_name">{{\Carbon\Carbon::parse($item->created_at)->format('m/d/Y')}}</span>
+                                <span class="course_name">{{\Carbon\Carbon::parse($item->created_at)->format('Y-m-d')}}</span>
                             </td>
                             <td><span class="course_name">{{ $item->getUser->english_name }}</span></td>
                             <td>
@@ -136,17 +135,12 @@
                                 <br />
                                 @endforeach
                             </td>
-                            <td><span class="course_name">300,000 원</span></td>
-                            @if ($item->status == 1)
-                            <td><span class="badge status-badge ">{{__('translation.success')}}</span></td>
-                            @else
-                            <td><span class="badge status-badge-warning">{{__('translation.In Process')}}</span></td>
-                            @endif
+                            <td><span class="course_name">{{ $item->getTransaction->ammount }} 원</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a onclick="change_Status('{{ $item->id }}')" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></a>
+                                    {{-- <a onclick="change_Status('{{ $item->id }}')" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></a> --}}
                                     <a onclick="delete_record('{{ $item->id }}')" class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></a>
-                                    <a href="{{ route('view_payment')}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
+                                    <a href="{{ route('view_payment',$item->id)}}" class="btn btn-sm btn-warning"><i class="bi bi-eye"></i></a>
                                 </div>
                             </td>
                         </tr>

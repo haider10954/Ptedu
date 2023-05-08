@@ -129,17 +129,17 @@
                 <hr class="hr-color" />
             </div>
             <div class="col-lg-12 table-responsive">
-                <table class="table align-middle table-nowrap mb-0   border-white" id="myTable">
+                <table class="table align-middle mb-0 border-white table-layout-fixed" id="myTable">
                     <thead>
                         <tr>
-                            <td class="align-middle t_header">{{ __('translation.No') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Course Title') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Category') }}</th>
-                            <td class="align-middle t_header">{{ __('translation.Offline')}}</td>
-                            <td class="align-middle t_header">{{ __('translation.Participants')}}</th>
-                            <td class="align-middle t_header">{{ __('translation.Waiting') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Management') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Action') }}</td>
+                            <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
+                            <td class="align-middle t_header t-width-290">{{ __('translation.Course Title') }}</td>
+                            <td class="align-middle t_header t-width-150">{{ __('translation.Category') }}</th>
+                            <td class="align-middle t_header t-width-80">{{ __('translation.Offline')}}</td>
+                            <td class="align-middle t_header t-width-100">{{ __('translation.Participants')}}</th>
+                            <td class="align-middle t_header t-width-80">{{ __('translation.Waiting') }}</td>
+                            <td class="align-middle t_header t-width-100">{{ __('translation.Management') }}</td>
+                            <td class="align-middle t_header t-width-90">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     @if($offline_course->count() > 0)
