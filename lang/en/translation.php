@@ -450,5 +450,8 @@ return [
     'Video Lecture' => 'Video Lecture',
     'Offline Lecture' => 'Offline Lecture',
     'Days' => 'Days',
-    'Offline Course' => 'Offline Course'
+    'Offline Course' => 'Offline Course',
+    'card' => 'Card',
+    'account-transfer' => 'Account Transfer',
+    'virtual-account' => 'Virtual Account'
 ];

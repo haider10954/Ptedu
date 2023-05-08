@@ -452,5 +452,8 @@ return [
     'Video Lecture' => '온라인 강좌',
     'Offline Lecture' => '오프라인 강좌',
     'Days' => '날',
-    'Offline Course' => '오프라인 과정'
+    'Offline Course' => '오프라인 과정',
+    'card' => '신용카드',
+    'account-transfer' => '계좌이체',
+    'virtual-account' => '가상계좌'
 ];

@@ -154,12 +154,12 @@
                             <td>{{ $payment_response->order_no }}</td>
                         </tr>
                         <tr>
-                            <td class="td-left">{{ __('translation.Payment Date') }}</td>
+                            <td class="td-left">승인일자</td>
                             <td>{{\Carbon\Carbon::parse($order->getTransaction->created_at)->format('Y-m-d')}}</td>
                         </tr>
                         <tr>
                             <td class="td-left">{{ __('translation.Method Payment') }}</td>
-                            <td>{{ ucwords($order->getTransaction->payment_method) }}</td>
+                            <td>{{ __('translation.'.$order->getTransaction->payment_method) }}</td>
                         </tr>
                         <tr>
                             <td class="td-left">{{ __('translation.Payment Price') }}</td>
