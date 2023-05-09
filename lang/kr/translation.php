@@ -455,5 +455,6 @@ return [
     'Offline Course' => '오프라인 과정',
     'card' => '신용카드',
     'account-transfer' => '계좌이체',
-    'virtual-account' => '가상계좌'
+    'virtual-account' => '가상계좌',
+    'Weeks' => '주'
 ];

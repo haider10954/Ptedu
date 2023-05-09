@@ -72,14 +72,14 @@
                     <div class="col-3 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:69px;">
-                                <p class="mb-0 user_profile">{{ __('translation.ID') }}<small class="text-danger ml-1">({{ __('translation.Must be numeric') }})*</small></p>
+                                <p class="mb-0 user_profile">{{ __('translation.ID') }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-9 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
-                                <input type="number" class="form-control" id="user_id" name="user_id" placeholder="{{ __('translation.Enter ID') }}" value="{{ old('ID') }}">
+                                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="{{ __('translation.Enter ID') }}" value="{{ old('ID') }}">
                                 <div class="error-user-id"></div>
                             </div>
                             <div class="verify_btn">

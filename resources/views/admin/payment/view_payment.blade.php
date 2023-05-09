@@ -106,7 +106,7 @@
                                 <h4 class="mb-sm-0  course_details">{{ $item->course->get_tutor_name->name }}</h4>
                             </div>
                             <div class=" d-flex align-items-center mb-3">
-                                <h4 class="mb-sm-0  course_details">{{ (int)$item->course->duration_of_course }} {{ __('translation.Days') }}</h4>
+                                <h4 class="mb-sm-0  course_details">{{ (int)$item->course->duration_of_course }} {{ __('translation.Weeks') }}</h4>
                             </div>
                         </div>
                         <div class="col-3 col-bg">

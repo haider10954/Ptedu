@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="section pt-125">
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-lg-2 padding-left">
                 <div class="page-sidemenu-heading mb-3">

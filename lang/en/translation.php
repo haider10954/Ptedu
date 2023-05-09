@@ -453,5 +453,6 @@ return [
     'Offline Course' => 'Offline Course',
     'card' => 'Card',
     'account-transfer' => 'Account Transfer',
-    'virtual-account' => 'Virtual Account'
+    'virtual-account' => 'Virtual Account',
+    'Weeks' => 'Weeks'
 ];
