@@ -18,9 +18,11 @@
   @include('user.includes.header')
   <!-- header end -->
 
-  {{-- content start --}}
-  @yield('content')
-  {{-- content end --}}
+  <div class="page-wrapper">
+    {{-- content start --}}
+    @yield('content')
+    {{-- content end --}}
+  </div>
 
   <!-- footer start -->
   @include('user.includes.footer')

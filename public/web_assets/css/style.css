@@ -1262,7 +1262,8 @@ header .btn.transparent,
 }
 
 .custom_height_phone {
-    height: 70px
+    height: 70px;
+    padding-top: 10px;
 }
 
 @media only screen and (max-width:991px) {
@@ -1749,4 +1750,18 @@ header .btn.transparent,
 
 .h-130{
     height: 130px !important;
+}
+.nav-btn{
+    z-index: 999999;
+}
+@media only screen and (max-width: 768px){
+    header{
+        position: fixed;
+        top: 0;
+        background-color: #ffffff;
+        z-index: 999999;
+    }
+    .page-wrapper{
+        padding-top: 40px;
+    }
 }

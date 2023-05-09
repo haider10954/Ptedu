@@ -482,10 +482,13 @@
 
     .input_jobs {
         height: 170px;
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start !important;
         padding-bottom: 5px;
         font-size: 12px;
+        padding-top: 20px;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 
     .custom_width {

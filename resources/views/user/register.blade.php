@@ -32,14 +32,14 @@
                 </div>
                 <div class="prompt"></div>
                 <div class="row">
-                    <div class="col-3 pr-0">
+                    <div class="col-lg-3 col-4 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:69px;">
                                 <p class="mb-0 user_profile">{{ __('translation.Name') }}<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 pl-0">
+                    <div class="col-lg-9 col-8 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
                                 <input type="text" class="form-control" name="name" placeholder="{{ __('translation.Name') }}" value="{{ old('name') }}">
@@ -50,14 +50,14 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-3 pr-0">
+                    <div class="col-lg-3 col-4 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:69px;">
                                 <p class="mb-0 user_profile">{{ __('translation.English Name') }}<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 pl-0">
+                    <div class="col-lg-9 col-8 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
                                 <input type="text" class="form-control" name="en_name" placeholder="{{ __('translation.English Name') }}" value="{{ old('en_name') }}">
@@ -69,14 +69,14 @@
 
 
                 <div class="row">
-                    <div class="col-3 pr-0">
+                    <div class="col-lg-3 col-4 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:69px;">
                                 <p class="mb-0 user_profile">{{ __('translation.ID') }}</p>
                             </div>
                         </div>
                     </div>
-                    <div class="col-9 pl-0">
+                    <div class="col-lg-9 col-8 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                             <div>
                                 <input type="text" class="form-control" id="user_id" name="user_id" placeholder="{{ __('translation.Enter ID') }}" value="{{ old('ID') }}">
@@ -98,14 +98,14 @@
 
                 <div class="mt-5 top-border">
                     <div class="row">
-                        <div class="col-3 pr-0">
+                        <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:69px;">
                                     <p class="mb-0 user_profile">{{ __('translation.Password') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
+                        <div class="col-lg-9 col-8 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                                 <div>
                                     <input type="password" class="form-control" name="password" placeholder="{{ __('translation.Min of 6 character') }}" value="{{ old('password') }}">
@@ -116,14 +116,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-3 pr-0">
+                        <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start" style="height:69px;">
                                     <p class="mb-0 user_profile">{{ __('translation.Confirm Password') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
+                        <div class="col-lg-9 col-8 pl-0">
                             <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
                                 <div>
                                     <input type="password" class="form-control" name="confirm_password" placeholder="{{ __('translation.Enter New Password') }}" value="{{ old('confirm_password') }}">
@@ -134,15 +134,15 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-3 pr-0">
+                        <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start user_jobs">
                                     <p style="padding: 1rem 1.5rem; font-size: 14px; color: #808080;">{{ __('translation.Job') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
-                            <div class="d-flex align-items-center  bottom-border input_jobs">
+                        <div class="col-lg-9 col-8 pl-0">
+                            <div class="d-flex align-items-center bottom-border input_jobs">
                                 <div class=" mr-2 mb-1 mb-md-0">
                                     <input type="radio" value="physical therapist" name="job"> 물리치료사
                                 </div>
@@ -170,14 +170,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-3 pr-0">
+                        <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start custom_label_height">
+                                <div class="d-flex align-items-center justify-content-start custom_height_phone">
                                     <p class="mb-0 user_profile">{{ __('translation.Phone Number') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
+                        <div class="col-lg-9 col-8 pl-0">
                             <div class="d-flex align-items-center  bottom-border custom_height_phone" style="padding-left:10px;">
                                 <div class="mr-2 mb-1 mb-md-0">
                                     <div>
@@ -191,14 +191,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-3 pr-0">
+                        <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start custom_height_email">
                                     <p class="mb-0 user_profile">{{ __('translation.Email') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
+                        <div class="col-lg-9 col-8 pl-0">
                             <div class="d-flex align-items-center bottom-border custom_height_email_input" style="padding-left:10px;">
                                 <div>
                                     <input type="text" class="form-control" name="email_name" value="{{ old('email') }}">
@@ -216,14 +216,14 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-3 pr-0">
+                        <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start" style="height:114px;">
                                     <p class="mb-0 user_profile">{{ __('translation.Address') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-9 pl-0">
+                        <div class="col-lg-9 col-8 pl-0">
                             <div class="d-flex  bottom-border flex-column" style="padding-left:10px; height:115px;">
                                 <div class="mt-2">
                                     <textarea type="text" rows="2" style="resize: none;" class="form-control" name="address" placeholder="{{ __('translation.Enter your Address') }}">{{ old('address') }}</textarea>

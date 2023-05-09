@@ -12,11 +12,11 @@
             <div class="nav-links navigation-mobile">
                 <ul>
                     <li class="nav-link" style="--i: 1.1s">
-                        <a href="{{ route('web-home') }}" class="text-decoration-none">{{ __('translation.Expert course') }}<i class="fas fa-angle-down"></i></a>
+                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Expert course') }}<i class="fas fa-angle-down"></i></a>
                         <div class="dropdown">
                             <ul>
                                 <li class="dropdown-link">
-                                    <a href="#" class="text-decoration-none">{{ __('translation.Physical Teraphy') }}<i class="fas fa-angle-down"></i></a>
+                                    <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Physical Teraphy') }}<i class="fas fa-angle-down"></i></a>
                                     <div class="dropdown second">
                                         <ul>
                                             @foreach ($online_expert_courses as $expert_courses)
@@ -29,7 +29,7 @@
                                     </div>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="#">{{ __('translation.Philates') }}<i class="fas fa-angle-down"></i></a>
+                                    <a href="javascript:void(0)">{{ __('translation.Philates') }}<i class="fas fa-angle-down"></i></a>
                                     <div class="dropdown second">
                                         <ul>
                                             @foreach ($online_expert_courses as $expert_courses)
@@ -49,7 +49,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: .85s">
-                        <a href="{{ route('web-home') }}" class="text-decoration-none">{{ __('translation.Public course') }}<i class="fas fa-angle-down"></i></a>
+                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Public course') }}<i class="fas fa-angle-down"></i></a>
                         <div class="dropdown">
                             <ul>
                                 @foreach ($online_public_courses as $public_courses)
@@ -70,6 +70,9 @@
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ route('web-notice') }}" class="text-decoration-none">{{ __('translation.Notice') }}</a>
                     </li>
+                    @if(auth()->check())
+                    <a href="{{ route('student_logout') }}" class="text-danger">{{ __('translation.Logout') }}</a>
+                    @endif
                 </ul>
             </div>
             <div class="nav-links navigation-desktop">
@@ -195,6 +198,14 @@
         </div>
 
         <div class="hamburger-menu-container">
+            <a href="{{ route('shopping_bag') }}" class="btn solid shopping_cart_btn"><span class="shopping_cart_count" data-items-count="{{ count(session('shopping_cart') ?? []) }}">{{ count(session('shopping_cart') ?? []) }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+            @if(auth()->check())
+            @else
+            <a href="{{ route('user_login') }}" class="btn solid">{{ __('translation.Login') }}</a>
+            @endif
+            @if(auth()->check())
+            <a href="{{ route('my_classroom') }}" class="btn solid">{{ __('translation.My Classroom') }}</a>
+            @endif
             <div class="hamburger-menu">
                 <div></div>
             </div>
