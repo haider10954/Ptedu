@@ -26,8 +26,8 @@
                 <div class="section-heading">
                     <h5 class="mb-4">회원가입</h5>
                     <div class="mt-2 mb-3">
-                        <p class="mb-0">{{ __('translation.It is a professional lecture led by physical therapy & Pilates experts') }}.</p>
-                        <p class="mb-0">현업에 밀착한 지식을 통해 전문가로서의 성장을 촉진시켜드리겠습니다..</p>
+                        <p class="mb-0">{{ __('translation.It is a professional lecture led by physical therapy & Pilates experts') }}</p>
+                        <p class="mb-0">현업에 밀착한 지식을 통해 전문가로서의 성장을 촉진시켜드리겠습니다.</p>
                     </div>
                 </div>
                 <div class="prompt"></div>
