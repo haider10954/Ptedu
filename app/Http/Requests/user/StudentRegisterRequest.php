@@ -26,8 +26,8 @@ class StudentRegisterRequest extends FormRequest
         return [
             'name' => 'required',
             'en_name' => 'required',
-            'user_id' => 'required|unique:users',
-            'password' => 'required|min:6|same:confirm_password',
+            'user_id' => 'required|unique:users|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$/',
+            'password' => 'required|min:8|same:confirm_password|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$/',
             'job' => 'required',
             'mobile' => 'required|min:9',
             'email_name' => 'required',
@@ -47,6 +47,9 @@ class StudentRegisterRequest extends FormRequest
             'email_name.required' => "이메일을 입력해주세요.",
             'email_extension.required' => "이메일을 입력해주세요.",
             'address.required' => "주소를 입력해주세요.",
+            'password.same' => '비밀번호와 확인 비밀번호가 일치해야 합니다.',
+            'password.regex' => '비밀번호는 영문, 숫자 조합 8자리 이상이여야 합니다.',
+            'user_id.regex' => '아이디는 영문숫자 조합이여야 합니다.'
         ];
     }
 }

@@ -71,19 +71,22 @@
                 <div class="row">
                     <div class="col-lg-3 col-4 pr-0">
                         <div class="user-info bottom-border">
-                            <div class="d-flex align-items-center justify-content-start" style="height:69px;">
+                            <div class="d-flex align-items-center justify-content-start" style="height:89px;">
                                 <p class="mb-0 user_profile">{{ __('translation.ID') }}</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-9 col-8 pl-0">
-                        <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
-                            <div>
-                                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="{{ __('translation.Enter ID') }}" value="{{ old('ID') }}">
-                                <div class="error-user-id"></div>
-                            </div>
-                            <div class="verify_btn">
-                                <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">{{ __('translation.Duplicate Verification') }}</button>
+                        <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:89.8px;">
+                            <div class="d-flex align-items-start">
+                                <div>
+                                    <input type="text" class="form-control" id="user_id" name="user_id" placeholder="{{ __('translation.Enter ID') }}" value="{{ old('ID') }}">
+                                    <small class="text-dark">{{ __('translation.Combination of English letters and numbers') }}</small>
+                                    <div class="error-user-id"></div>
+                                </div>
+                                <div class="verify_btn">
+                                    <button type="button" class="checkUserID btn rounded-0 btn-theme-delete ml-2 text-black">{{ __('translation.Duplicate Verification') }}</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -100,15 +103,16 @@
                     <div class="row">
                         <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start" style="height:69px;">
+                                <div class="d-flex align-items-center justify-content-start" style="height:109px;">
                                     <p class="mb-0 user_profile">{{ __('translation.Password') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-9 col-8 pl-0">
-                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
+                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:109.1px;">
                                 <div>
                                     <input type="password" class="form-control" name="password" placeholder="{{ __('translation.Min of 6 character') }}" value="{{ old('password') }}">
+                                    <small class="text-dark">{{ __('translation.At least 8 digits in combination of English and numbers') }}</small>
                                     <div class="error-pass"></div>
                                 </div>
                             </div>
