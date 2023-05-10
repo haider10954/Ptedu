@@ -72,7 +72,7 @@
                     <div class="col-lg-3 col-4 pr-0">
                         <div class="user-info bottom-border">
                             <div class="d-flex align-items-center justify-content-start" style="height:89px;">
-                                <p class="mb-0 user_profile">{{ __('translation.ID') }}</p>
+                                <p class="mb-0 user_profile">{{ __('translation.ID') }}<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
@@ -141,7 +141,7 @@
                         <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex  justify-content-start user_jobs">
-                                    <p style="padding: 1rem 1.5rem; font-size: 14px; color: #808080;">{{ __('translation.Job') }}<span class="text-danger ml-1">*</span></p>
+                                    <p class="user_profile">{{ __('translation.Job') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
@@ -177,7 +177,7 @@
                         <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
                                 <div class="d-flex align-items-center justify-content-start custom_height_phone">
-                                    <p class="mb-0 user_profile">{{ __('translation.Phone Number') }}<span class="text-danger ml-1">*</span></p>
+                                    <p class="mb-0 user_profile margin-mobile-left">{{ __('translation.Phone Number') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>

@@ -1764,4 +1764,7 @@ header .btn.transparent,
     .page-wrapper{
         padding-top: 40px;
     }
+    .margin-mobile-left{
+        margin-left: -5px;
+    }
 }
