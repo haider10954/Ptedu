@@ -63,7 +63,7 @@
                                         <div class="lecture-box">
                                             <img src="{{ asset('storage/course/thumbnail/' . $item->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content h-130">
-                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,100) }}</a></h6>
+                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,35) }}</a></h6>
                                                 <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCourses->getCategoryName->name }}
                                                     l {{ $item->getCourses->getTutorName->name }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
@@ -95,7 +95,7 @@
                                         <div class="lecture-box">
                                             <img src="{{ asset('storage/offline_course/thumbnail/' . $item->getCousreName->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content h-130">
-                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCousreName->id) }}" class="text-dark">{{ Str::limit($item->getCousreName->course_title,100) }}</a></h6>
+                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCousreName->id) }}" class="text-dark">{{ Str::limit($item->getCousreName->course_title,35) }}</a></h6>
                                                 <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCousreName->getCategoryName->name }}
                                                     l {{ $item->getCousreName->getTutorName->name }} l {{ __('translation.Offline') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
