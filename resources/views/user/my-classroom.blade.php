@@ -63,11 +63,11 @@
                                         <div class="lecture-box">
                                             <img src="{{ asset('storage/course/thumbnail/' . $item->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content h-130">
-                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,35) }}</a></h6>
-                                                <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCourses->getCategoryName->name }}
+                                                <h6 class="lecture_title mb-1"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,35) }}</a></h6>
+                                                <small class="d-block text-muted mb-1 lecture_info">{{ $item->getCourses->getCategoryName->name }}
                                                     l {{ $item->getCourses->getTutorName->name }}</small>
+                                                    <small class="lecture-duration d-block">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
-                                                    <small class="lecture-duration">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
                                                     <div class="d-flex align-items-center">
                                                         @if ($item->getCourses->live_status == 1)
                                                         <a href="{{ $item->getCourses->live_link }}" target="_blank" class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mx-2 font-10">
@@ -95,11 +95,11 @@
                                         <div class="lecture-box">
                                             <img src="{{ asset('storage/offline_course/thumbnail/' . $item->getCousreName->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content h-130">
-                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCousreName->id) }}" class="text-dark">{{ Str::limit($item->getCousreName->course_title,35) }}</a></h6>
-                                                <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCousreName->getCategoryName->name }}
+                                                <h6 class="lecture_title mb-1"><a href="{{ route('online_course_detail' , $item->getCousreName->id) }}" class="text-dark">{{ Str::limit($item->getCousreName->course_title,35) }}</a></h6>
+                                                <small class="d-block text-muted mb-1 lecture_info">{{ $item->getCousreName->getCategoryName->name }}
                                                     l {{ $item->getCousreName->getTutorName->name }} l {{ __('translation.Offline') }}</small>
+                                                    <small class="lecture-duration d-block">{{ $item->getCousreName->created_at->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
-                                                    <small class="lecture-duration">{{ $item->getCousreName->created_at->format('Y-m-d') }}</small>
                                                     <div class="d-flex align-items-center">
                                                         <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue ">예약 확정</a>
                                                     </div>
@@ -117,11 +117,11 @@
                                         <div class="lecture-box">
                                             <img src="{{ asset('storage/offline_course/thumbnail/' . $item->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content h-130">
-                                                <h6 class="lecture_title"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,100) }}</a></h6>
-                                                <small class="d-block text-muted mb-2 lecture_info">{{ $item->getCourses->getCategoryName->name }}
+                                                <h6 class="lecture_title mb-1"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,100) }}</a></h6>
+                                                <small class="d-block text-muted mb-1 lecture_info">{{ $item->getCourses->getCategoryName->name }}
                                                     l {{ $item->getCourses->getTutorName->name }} l {{ __('translation.Offline') }}</small>
+                                                <small class="lecture-duration d-block">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
-                                                    <small class="lecture-duration">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
                                                     <div class="d-flex align-items-center">
                                                         <a href="javascript:void(0)" class="btn btn-dark btn-custom-sm">예약 대기 중</a>
                                                     </div>
@@ -151,9 +151,9 @@
                                 <div class="col-lg-3 col-md-4 col-12">
                                     <div class="lecture-box">
                                         <img src="{{ asset('storage/course/thumbnail/' . $v->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title">{{ $v->getCourses->course_title }}</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">{{ $v->getCourses->getCategoryName->name }}
+                                        <div class="lecture_box_content completed-lectures-box">
+                                            <h6 class="lecture_title mb-1">{{ $v->getCourses->course_title }}</h6>
+                                            <small class="d-block text-muted mb-1 lecture_info">{{ $v->getCourses->getCategoryName->name }}
                                                 l
                                                 {{ $v->getCourses->getTutorName->name }}</small>
                                             <small class="lecture-duration mb-4 d-block">{{ $v->getCourses->created_at->format('Y-m-d') }}</small>
@@ -631,5 +631,15 @@
                 html2pdf().from(certificate).set(opt).save();
             })
     }
+
+    $(document).ready(function(){
+        let courseBoxContentHeight = 0;
+        $('.completed-lectures-box').each(function(){
+            if(courseBoxContentHeight < $(this).height()){
+                courseBoxContentHeight = $(this).height();
+            }
+        });
+        $('.completed-lectures-box').height(courseBoxContentHeight);
+    });
 </script>
 @endsection
