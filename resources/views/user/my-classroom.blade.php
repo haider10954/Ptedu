@@ -70,7 +70,7 @@
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
                                                     <div class="d-flex align-items-center">
                                                         @if ($item->getCourses->live_status == 1)
-                                                        <a href="{{ $item->getCourses->live_link }}" target="_blank" class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mx-2 font-10">
+                                                        <a href="{{ $item->getCourses->live_link }}" target="_blank" class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mr-2 font-10">
                                                             <span class="live-icon mr-1"></span>
                                                             <span>{{ __('translation.Live') }}</span>
                                                         </a>
