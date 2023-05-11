@@ -639,7 +639,7 @@
                 courseBoxContentHeight = $(this).height();
             }
         });
-        $('.completed-lectures-box').height(courseBoxContentHeight);
+        $('.completed-lectures-box').height(courseBoxContentHeight + 22);
     });
 </script>
 @endsection
