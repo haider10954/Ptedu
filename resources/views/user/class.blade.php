@@ -80,6 +80,9 @@
                         @endforeach
                     </ul>
                 </div>
+                <div class="content-footer">
+                    <a class="btn btn-danger" href="{{ route('my_classroom') }}">수강종료</a>
+                </div>
             </div>
         </div>
     </div>

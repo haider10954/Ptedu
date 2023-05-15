@@ -132,7 +132,7 @@
                             <div class="col-lg-12">
                                 <div class="d-flex align-items-center justify-content-center mt-4">
                                     <a type="button" class="btn rounded-0 btn-theme-black text-white mr-2" style="padding: 5px 30px" href="{{ route('user_inquiry') }}">{{ __('translation.Back') }}</a>
-                                    <button type="submit" id="submitForm" class="btn rounded-0 btn-theme-black text-white " style="padding: 5px 30px">{{ __('translation.Register') }}</button>
+                                    <button type="submit" id="submitForm" class="btn rounded-0 btn-theme-black text-white " style="padding: 5px 30px">등록</button>
                                 </div>
                             </div>
                         </div>

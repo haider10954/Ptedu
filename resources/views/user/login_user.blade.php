@@ -11,7 +11,7 @@
             <form type="POST" id="loginForm">
                 @csrf
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="{{ __('translation.Enter Email Address') }}" name="email" />
+                    <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="email" />
                     <div class="error-email"></div>
                 </div>
 
@@ -63,8 +63,8 @@
                 $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> Processing');
             },
             success: function(res) {
-                if (res.success) {
-                    
+                if (res.error == false) {
+
                     $('.prompt').show();
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message + '</div>');
 
@@ -74,7 +74,7 @@
                     }, 2000);
 
                 } else {
-                    
+
                     $('.prompt').show();
                     $('.prompt').html('<div class="alert alert-danger mb-3">' + res.message + '</div>');
 

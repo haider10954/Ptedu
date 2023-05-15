@@ -6,13 +6,13 @@
 <style>
     #user_id::-webkit-outer-spin-button,
     #user_id::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+        -webkit-appearance: none;
+        margin: 0;
     }
 
     /* Firefox */
     #user_id {
-    -moz-appearance: textfield;
+        -moz-appearance: textfield;
     }
 </style>
 @endsection
@@ -140,8 +140,8 @@
                     <div class="row">
                         <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex  justify-content-start user_jobs">
-                                    <p class="user_profile">{{ __('translation.Job') }}<span class="text-danger ml-1">*</span></p>
+                                <div class="d-flex  justify-content-start align-items-center user_jobs">
+                                    <p class="user_profile mb-0">{{ __('translation.Job') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>

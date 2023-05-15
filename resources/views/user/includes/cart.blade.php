@@ -6,7 +6,7 @@
         <thead>
             <tr>
                 <td></td>
-                <td class="text-center" style="width: 57%;">{{ __('translation.Course Name') }}</td>
+                <td class="text-center" style="width: 50%;">{{ __('translation.Course Name') }}</td>
                 <td>{{ __('translation.Quantity') }}</td>
                 <td>{{ __('translation.Discount') }}</td>
                 <td>{{ __('translation.Price') }}</td>

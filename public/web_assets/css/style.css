@@ -1178,7 +1178,7 @@ header .btn.transparent,
     position: relative;
 }
 
-.lecture-box .lecture-box-footer{
+.lecture-box .lecture-box-footer {
     position: absolute;
     width: 94%;
     bottom: 10px;
@@ -1386,7 +1386,7 @@ header .btn.transparent,
     margin-bottom: 10px;
 }
 
-.tutor-image-container .box-overlay-description{
+.tutor-image-container .box-overlay-description {
     height: 160px;
 }
 
@@ -1517,70 +1517,96 @@ header .btn.transparent,
 .text-theme-dark:hover {
     color: #464b4f;
 }
-.classroom_box{
+
+.classroom_box {
     height: 85vh;
     display: flex;
 }
-.classroom_box .left-content{
+
+.classroom_box .left-content {
     width: 77%;
     height: 100%;
     background-color: #191B1D;
 }
-.classroom_box .right-content{
+
+.classroom_box .right-content {
     width: 23%;
     height: 100%;
     background-color: #d9d9d9;
 }
-.classroom_box .left-content .content-header{
+
+.classroom_box .left-content .content-header {
     height: 8%;
     background-color: #373b43;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.font-weight-400{
+
+.font-weight-400 {
     font-weight: 400 !important;
 }
-.classroom_box .right-content .content-header{
+
+.classroom_box .right-content .content-header {
     height: 8%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-bottom: 1px solid #373b43;
 }
-.classroom_box .right-content .content{
+
+.classroom_box .right-content .content-footer {
+    height: 8%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    position: relative;
+    right: 10px;
+    bottom: 70px;
+}
+
+.classroom_box .right-content .content {
     height: 92%;
     overflow: auto;
 }
-.classroom_box .left-content .content{
+
+.classroom_box .left-content .content {
     height: 92%;
 }
-.lectures_list{
+
+.lectures_list {
     padding-left: 0;
     margin-bottom: 0;
 }
-.lectures_list li{
+
+.lectures_list li {
     list-style: none;
     padding: 10px 15px;
     border-bottom: 1px solid #c9c9c9;
     position: relative;
 }
-.lectures_list li a{
+
+.lectures_list li a {
     color: #343a40;
 }
-.lectures_list li a:hover{
+
+.lectures_list li a:hover {
     color: #4f565d;
 }
-.lecture_video_section .plyr--video{
+
+.lecture_video_section .plyr--video {
     height: 100% !important;
 }
-.plyr__poster{
+
+.plyr__poster {
     background-size: cover !important;
 }
-.font-9{
+
+.font-9 {
     font-size: 9px;
 }
-.lecture-progress{
+
+.lecture-progress {
     position: absolute;
     bottom: 0px;
     height: 2px;
@@ -1590,29 +1616,34 @@ header .btn.transparent,
     border-bottom-right-radius: 20px;
 }
 
-.btn-theme-live{
+.btn-theme-live {
     background-color: #ffffff;
     border-color: #dc3545;
     color: #dc3545;
 }
-.btn-theme-live:hover{
+
+.btn-theme-live:hover {
     background-color: #ffffff;
     border-color: #dc3545;
     color: #dc3545;
 }
-.btn-theme-live:hover .live-icon{
+
+.btn-theme-live:hover .live-icon {
     background-color: #dc3545;
 }
-.live-icon{
+
+.live-icon {
     height: 5px;
     width: 5px;
     background-color: #dc3545;
     border-radius: 20px;
 }
-.shopping_cart_btn{
+
+.shopping_cart_btn {
     position: relative;
 }
-.shopping_cart_count{
+
+.shopping_cart_count {
     position: absolute;
     padding: 1px 4px;
     background-color: rgb(145, 10, 10);
@@ -1622,39 +1653,49 @@ header .btn.transparent,
     font-size: 9px;
     right: 12px;
 }
-.shopping-table tbody tr{
+
+.shopping-table tbody tr {
     transition: all 0.3s;
 }
-.text-theme-light-grey{
+
+.text-theme-light-grey {
     color: #848587 !important;
 }
-.interactive-section-content-box h2{
-    font-size:60px;
+
+.interactive-section-content-box h2 {
+    font-size: 60px;
     font-weight: 700;
     color: #ffffff;
 }
-.interactive-section-content-box p{
+
+.interactive-section-content-box p {
     color: #EA4841;
     font-size: 18px;
 }
-.interactive-section-content-box small{
+
+.interactive-section-content-box small {
     color: #AEAFAE;
 }
-.courses-detail p{
+
+.courses-detail p {
     line-height: 28px;
 }
-.courses-type .swiper-slide{
+
+.courses-type .swiper-slide {
     border: 1px solid #AFB0B4;
 }
-.mb-120{
+
+.mb-120 {
     margin-bottom: 120px;
 }
-.review-section{
+
+.review-section {
     background-color: #191b1d;
     background-size: cover;
     position: relative;
 }
-.review-section .review-section-overlay{
+
+.review-section .review-section-overlay {
     position: absolute;
     top: 0;
     height: 100%;
@@ -1662,30 +1703,37 @@ header .btn.transparent,
     background: linear-gradient(180deg, #191B1D 0%, rgba(25, 27, 29, 0.4) 100%);
     z-index: 2;
 }
-.review-section-container{
+
+.review-section-container {
     width: 70%;
 }
-.review-section .container{
+
+.review-section .container {
     z-index: 3;
     position: relative;
 }
-.single-review{
+
+.single-review {
     padding: 25px 32px;
     margin-bottom: 30px;
     background-color: #ffffff;
     border-radius: 5px;
 }
-.single-review h5{
+
+.single-review h5 {
     font-weight: 700;
     font-size: 16px;
 }
-.single-review p{
+
+.single-review p {
     line-height: 25px;
     font-size: 12px;
 }
-.width-75{
+
+.width-75 {
     width: 75%;
 }
+
 .tutor-section .tutor-box-overlay {
     position: absolute;
     height: 100%;
@@ -1706,37 +1754,47 @@ header .btn.transparent,
 .tutor-section .tutor-image-container:hover .tutor-box-overlay {
     opacity: 1;
 }
-.box-overlay .heading-h5{
+
+.box-overlay .heading-h5 {
     max-height: 50px;
     overflow: auto;
 }
+
 @media only screen and (max-width: 992px) {
-    .banner-left-content{
+    .banner-left-content {
         display: none;
     }
-    .interactive-section-logo{
+
+    .interactive-section-logo {
         display: none;
     }
-    .interactive-section-content-box h2{
+
+    .interactive-section-content-box h2 {
         font-size: 30px;
     }
-    .course-detail-author-content{
+
+    .course-detail-author-content {
         margin-bottom: 30px !important;
     }
-    .course-detail-author-content h3{
+
+    .course-detail-author-content h3 {
         font-size: 18px !important;
     }
-    .width-75{
+
+    .width-75 {
         width: 100% !important;
     }
-    .section{
+
+    .section {
         padding-top: 50px;
         padding-bottom: 50px;
     }
-    .review-section-container{
+
+    .review-section-container {
         width: 100%;
     }
-    .single-review{
+
+    .single-review {
         padding: 18px 25px;
         margin-bottom: 20px;
         background-color: #ffffff;
@@ -1744,27 +1802,31 @@ header .btn.transparent,
     }
 }
 
-.h-120{
+.h-120 {
     height: 120px !important;
 }
 
-.h-130{
+.h-130 {
     height: 130px !important;
 }
-.nav-btn{
+
+.nav-btn {
     z-index: 999999;
 }
-@media only screen and (max-width: 768px){
-    header{
+
+@media only screen and (max-width: 768px) {
+    header {
         position: fixed;
         top: 0;
         background-color: #ffffff;
         z-index: 999999;
     }
-    .page-wrapper{
+
+    .page-wrapper {
         padding-top: 40px;
     }
-    .margin-mobile-left{
+
+    .margin-mobile-left {
         margin-left: -5px;
     }
 }
