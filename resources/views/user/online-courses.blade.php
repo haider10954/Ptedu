@@ -8,7 +8,7 @@
         <div class="section-heading d-flex align-items-center justify-content-between">
             <h5 class="mb-0">{{ __('translation.Online Courses') }}</h5>
             <div class="text-right">
-                <input type="text" class="form-control" placeholder="Search by Name" id="myInput">
+                <input type="text" class="form-control" placeholder="강좌명으로 검색" id="myInput">
             </div>
         </div>
         <div class="row pt-4">

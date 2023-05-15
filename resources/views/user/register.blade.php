@@ -34,13 +34,13 @@
                 <div class="row">
                     <div class="col-lg-3 col-4 pr-0">
                         <div class="user-info bottom-border">
-                            <div class="d-flex align-items-center justify-content-start" style="height:69px;">
+                            <div class="d-flex align-items-center justify-content-start" style="height:70px;">
                                 <p class="mb-0 user_profile">{{ __('translation.Name') }}<span class="text-danger ml-1">*</span></p>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-9 col-8 pl-0">
-                        <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
+                        <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:71px;">
                             <div>
                                 <input type="text" class="form-control" name="name" placeholder="{{ __('translation.Name') }}" value="{{ old('name') }}">
                                 <div class="error-name"></div>
@@ -103,13 +103,13 @@
                     <div class="row">
                         <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex align-items-center justify-content-start" style="height:109px;">
+                                <div class="d-flex align-items-center justify-content-start" style="height:108px;">
                                     <p class="mb-0 user_profile">{{ __('translation.Password') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-9 col-8 pl-0">
-                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:109.1px;">
+                            <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:108.8px;">
                                 <div>
                                     <input type="password" class="form-control" name="password" placeholder="{{ __('translation.Min of 6 character') }}" value="{{ old('password') }}">
                                     <small class="text-dark">{{ __('translation.At least 8 digits in combination of English and numbers') }}</small>
@@ -182,7 +182,7 @@
                             </div>
                         </div>
                         <div class="col-lg-9 col-8 pl-0">
-                            <div class="d-flex align-items-center  bottom-border custom_height_phone" style="padding-left:10px;">
+                            <div class="d-flex align-items-center  bottom-border" style="padding-left:10px; height: 71px; padding-top: 10px;">
                                 <div class="mr-2 mb-1 mb-md-0">
                                     <div>
                                         <input type="number" class="form-control custom_width" name="mobile" placeholder="{{ __('translation.Mobile number') }}" value="{{ old('mobile') }}">
@@ -222,13 +222,13 @@
                     <div class="row">
                         <div class="col-lg-3 col-4 pr-0">
                             <div class="user-info bottom-border">
-                                <div class="d-flex  justify-content-start" style="height:114px;">
+                                <div class="d-flex  justify-content-start" style="height:97px;">
                                     <p class="mb-0 user_profile">{{ __('translation.Address') }}<span class="text-danger ml-1">*</span></p>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-9 col-8 pl-0">
-                            <div class="d-flex  bottom-border flex-column" style="padding-left:10px; height:115px;">
+                            <div class="d-flex  bottom-border flex-column" style="padding-left:10px; height:97.5px;">
                                 <div class="mt-2">
                                     <textarea type="text" rows="2" style="resize: none;" class="form-control" name="address" placeholder="{{ __('translation.Enter your Address') }}">{{ old('address') }}</textarea>
                                 </div>
