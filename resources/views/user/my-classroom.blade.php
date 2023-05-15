@@ -461,7 +461,7 @@
                 </div>
                 <div class="row align-items-center justify-content-center mb-3">
                     <div class="col-lg-12">
-                        <h4 class="certificate_modal_body text-center mt-3" id="check_review_title">
+                        <h4 class="certificate_modal_body text-start mt-3" id="check_review_title">
                         
                         </h4>
                         <p id="review_content"></p>
