@@ -324,6 +324,9 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+Route::get('/download_file/{enc}', [\App\Http\Controllers\admin\StudentController::class, 'downloadFile'])->name('download_file');
+
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

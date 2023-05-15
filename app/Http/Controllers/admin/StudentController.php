@@ -7,6 +7,7 @@ use App\Models\Online_enrollment;
 use App\Models\Offline_enrollment;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class StudentController extends Controller
 {
@@ -65,5 +66,12 @@ class StudentController extends Controller
                 'message' =>  __('translation.Something went wrong Please try again')
             ]);
         }
+    }
+
+    public function downloadFile($hash)
+    {
+        $path = Crypt::decryptString($hash);
+        return response()->download(storage_path('app/public/'.trim($path,'/')));
+       
     }
 }

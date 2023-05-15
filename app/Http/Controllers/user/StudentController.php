@@ -96,35 +96,6 @@ class StudentController extends Controller
                 'message' => __('translation.Email or Password is Incorrect'),
             ]);
         }
-
-        // if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-        //     if (session()->has('shopping_cart')) {
-        //         $cart = session()->get('shopping_cart');
-        //         foreach ($cart as $cart_item) {
-        //             if ($cart_item['type'] == 'online') {
-        //                 $check_online_enrolment = Online_enrollment::where('user_id', auth()->id())->where('course_id', $cart_item['course_id'])->first();
-        //                 if (!empty($check_online_enrolment)) {
-        //                     $del_cart_item = Cart::del_cart_item($cart_item['course_id'], $cart_item['type']);
-        //                 }
-        //             }
-        //             if ($cart_item['type'] == 'offline') {
-        //                 $check_offline_enrolment = Offline_enrollment::where('user_id', auth()->id())->where('course_id', $cart_item['course_id'])->first();
-        //                 if (!empty($check_offline_enrolment)) {
-        //                     $del_cart_item = Cart::del_cart_item($cart_item['course_id'], $cart_item['type']);
-        //                 }
-        //             }
-        //         }
-        //     }
-        //     return json_encode([
-        //         'success' => true,
-        //         'message' => __('translation.Welcome to Student Portal'),
-        //     ]);
-        // } else {
-        //     return json_encode([
-        //         'success' => false,
-        //         'message' => __('translation.Email or Password is Incorrect'),
-        //     ]);
-        // }
     }
 
     public function logout()
