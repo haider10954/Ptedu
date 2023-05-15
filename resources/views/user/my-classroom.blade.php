@@ -159,7 +159,7 @@
                                             <small class="lecture-duration mb-4 d-block">{{ $v->getCourses->created_at->format('Y-m-d') }}</small>
                                             <div class="d-flex align-items-center justify-content-between">
 
-                                                @if ($Data->count() == 1)
+                                                @if ($Data)
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="checkReviewModal($(this))" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>{{ __('translation.Review Added') }}</button>
                                                 @else
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}">
@@ -449,7 +449,7 @@
     <div class="modal-dialog modal-dialog-centered modal-custom modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel"><img class="certificate_icon" src="{{ asset('web_assets/images/certificate_icon.png') }}" /><span>{{ __('translation.Check Certification') }}</span>
+                <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel"><span>{{ __('translation.Review') }}</span>
                 </h5>
             </div>
             <div class="modal-body">
@@ -462,7 +462,7 @@
                 <div class="row align-items-center justify-content-center mb-3">
                     <div class="col-lg-12">
                         <h4 class="certificate_modal_body text-center mt-3" id="check_review_title">
-                            
+                        
                         </h4>
                         <p id="review_content"></p>
                     </div>
@@ -540,7 +540,7 @@
         $('#review_content').text(btn.attr('data-content'));
         $('#check_review_title').text(btn.attr('data-title'));
         $('#check_review_certificate').val(btn.attr('data-course-name'));
-        showModal.show();
+        checkReview.show();
     }
 
     var progressboxHeight = 0;
