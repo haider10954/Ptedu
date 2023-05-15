@@ -66,7 +66,7 @@
                                                 <h6 class="lecture_title mb-1"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,35) }}</a></h6>
                                                 <small class="d-block text-muted mb-1 lecture_info">{{ $item->getCourses->getCategoryName->name }}
                                                     l {{ $item->getCourses->getTutorName->name }}</small>
-                                                    <small class="lecture-duration d-block">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
+                                                <small class="lecture-duration d-block">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
                                                     <div class="d-flex align-items-center">
                                                         @if ($item->getCourses->live_status == 1)
@@ -98,7 +98,7 @@
                                                 <h6 class="lecture_title mb-1"><a href="{{ route('online_course_detail' , $item->getCousreName->id) }}" class="text-dark">{{ Str::limit($item->getCousreName->course_title,35) }}</a></h6>
                                                 <small class="d-block text-muted mb-1 lecture_info">{{ $item->getCousreName->getCategoryName->name }}
                                                     l {{ $item->getCousreName->getTutorName->name }} l {{ __('translation.Offline') }}</small>
-                                                    <small class="lecture-duration d-block">{{ $item->getCousreName->created_at->format('Y-m-d') }}</small>
+                                                <small class="lecture-duration d-block">{{ $item->getCousreName->created_at->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
                                                     <div class="d-flex align-items-center">
                                                         <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue ">예약 확정</a>
@@ -106,7 +106,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>  
+                                    </div>
                                     @endforeach
                                     @endif
 
@@ -128,7 +128,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>  
+                                    </div>
                                     @endif
                                     @endforeach
                                     @endif
@@ -146,7 +146,7 @@
                                 $Data = Illuminate\Support\Facades\DB::table('reviews')
                                     ->where('user_id', auth()->id())
                                     ->where('course_id', $v->course_id)
-                                    ->count();
+                                    ->first();
                                 ?>
                                 <div class="col-lg-3 col-md-4 col-12">
                                     <div class="lecture-box">
@@ -159,8 +159,8 @@
                                             <small class="lecture-duration mb-4 d-block">{{ $v->getCourses->created_at->format('Y-m-d') }}</small>
                                             <div class="d-flex align-items-center justify-content-between">
 
-                                                @if ($Data == 1)
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" disabled> <i class="fas fa-edit"></i>{{ __('translation.Review Added') }}</button>
+                                                @if ($Data->count() == 1)
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="checkReviewModal($(this))" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>{{ __('translation.Review Added') }}</button>
                                                 @else
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}">
                                                     <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
@@ -444,6 +444,37 @@
     </div>
 </div>
 
+<!-- Check Review -->
+<div class="modal fade review_modal" id="checkReviewModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-custom modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel"><img class="certificate_icon" src="{{ asset('web_assets/images/certificate_icon.png') }}" /><span>{{ __('translation.Check Certification') }}</span>
+                </h5>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center mb-3">
+                    <div class="col-lg-12">
+                        <label for="course_name mb-0">{{ __('translation.Course Name') }}</label>
+                        <input class="form-control" id="check_review_certificate">
+                    </div>
+                </div>
+                <div class="row align-items-center justify-content-center mb-3">
+                    <div class="col-lg-12">
+                        <h4 class="certificate_modal_body text-center mt-3" id="check_review_title">
+                            
+                        </h4>
+                        <p id="review_content"></p>
+                    </div>
+                </div>
+                <div class="my-3 d-flex align-items-center justify-content-center">
+                    <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-black" data-dismiss="modal">{{ __('translation.Close') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 
@@ -500,6 +531,15 @@
     function reviewModal(id, btn) {
         $('#course_id').val(id);
         $('#course_name').val(btn.attr('data-course-name'));
+        showModal.show();
+    }
+
+    var checkReview = new bootstrap.Modal(document.getElementById("checkReviewModal"), {});
+
+    function checkReviewModal(btn) {
+        $('#review_content').text(btn.attr('data-content'));
+        $('#check_review_title').text(btn.attr('data-title'));
+        $('#check_review_certificate').val(btn.attr('data-course-name'));
         showModal.show();
     }
 
@@ -586,24 +626,6 @@
         });
     });
 
-
-    function completedCourses(value, id) {
-        e.preventDefault();
-
-        $.ajax({
-            type: "POST",
-            url: "{{ route('completed-courses-certificate') }}",
-            data: {
-                "_token": "{{ csrf_token() }}",
-                id: id,
-            },
-            beforeSend: function() {},
-            success: function(res) {},
-            error: function(e) {}
-        });
-    };
-
-
     window.onload = function() {
         document.getElementById("download")
             .addEventListener("click", () => {
@@ -632,10 +654,10 @@
             })
     }
 
-    $(document).ready(function(){
+    $(document).ready(function() {
         let courseBoxContentHeight = 0;
-        $('.completed-lectures-box').each(function(){
-            if(courseBoxContentHeight < $(this).height()){
+        $('.completed-lectures-box').each(function() {
+            if (courseBoxContentHeight < $(this).height()) {
                 courseBoxContentHeight = $(this).height();
             }
         });
