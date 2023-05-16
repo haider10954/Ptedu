@@ -22,6 +22,13 @@
 <script src="{{ asset('assets/js/main.js') }}"></script>
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+<!-- <script src="{{ asset('assets/js/pdfjs-viewer.js') }}"></script> -->
+<script src="{{ asset('assets/js/pdf-viewer.js') }}"></script>
+
+
+
+
 <!-- include summer_note css/js -->
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 

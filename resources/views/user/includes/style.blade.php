@@ -6,6 +6,8 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('web_assets/css/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('web_assets/css/font-awesome.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('web_assets/css/all.min.css') }}">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 <link rel="stylesheet" type="text/css" href="{{ asset('web_assets/css/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('web_assets/css/site-style.css') }}">
+<link href="{{ asset('assets/css/pdf-viewer.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+<link href="{{ asset('assets/css/pdftoolbar.css') }}" id="app-style" rel="stylesheet" type="text/css" />

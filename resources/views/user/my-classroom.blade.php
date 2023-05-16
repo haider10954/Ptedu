@@ -160,7 +160,7 @@
                                             <div class="d-flex align-items-center justify-content-between">
 
                                                 @if ($Data)
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="checkReviewModal($(this))" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>리뷰가 추가됨</button>
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="checkReviewModal($(this))" data-rating="{{ $Data->rating }}" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>리뷰가 추가됨</button>
                                                 @else
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-light w-50" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}">
                                                     <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
@@ -379,7 +379,7 @@
 <!--Certificate Modal -->
 <div class="modal fade review_modal" id="certificateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-custom modal-lg" role="document">
-        <div class="modal-content">
+        <div class="modal-content" style="width: 1052px;">
             <div class="modal-header">
                 <h5 class="modal-title d-flex align-items-center" id="exampleModalLabel"><img class="certificate_icon" src="{{ asset('web_assets/images/certificate_icon.png') }}" /><span>{{ __('translation.Check Certification') }}</span>
                 </h5>
@@ -392,47 +392,8 @@
                     </div>
                 </div>
                 <div class="row align-items-center justify-content-center mb-3">
-                    <div class="col-lg-12" id="download_certificate">
-                        <div class="position-relative m-auto" style="width: 68%; background-color: #fff8f0;">
-                            <img src="{{ asset('assets/images/icons/frame.png') }}" class="w-100" style="height: 450px;">
-                            <div class="position-absolute text-center w-100" style="padding: 40px; top:0;">
-                                <div class="w-25 mx-auto">
-                                    <img src="{{ asset('assets/images/icons/certificate_header.png') }}" class="w-100">
-                                </div>
-                                <div class="w-50 mx-auto">
-                                    <div class="divider mt-1 mb-1"></div>
-                                </div>
-                                <div class="certificate_header">CERTIFICATE</div>
-                                <div class="certificate_sub_title">OF COMPLETION</div>
-                                <div class="w-25 mx-auto">
-                                    <img src="{{ asset('assets/images/icons/certificate_bottom.png') }}" class="w-100">
-                                </div>
-                                <div class="w-50 mx-auto">
-                                    <div class="divider mt-1 mb-1"></div>
-                                </div>
-                                <div class="certificate_name mb-3">
-                                    {{ auth()->user()->english_name }}
-                                </div>
-                                <div class="certificate_description mb-3">
-                                    Is hereby cetified as an <span class="font-weight-bold"><span id="c_name"></span> – <br /> <span id="t_name"></span></span> with Full Certification for the half-year period <br />
-                                    starting on
-                                    <span id="certificate_start_date"></span> and ending on <span id="certificate_end_date"></span>
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mr-5">
-                                    <div>
-                                        <img src="{{ asset('assets/images/icons/certificate_logo.png') }}" class="certificate_logo">
-                                        <img src="{{ asset('assets/images/index.png') }}" class="footer_logo" />
-                                    </div>
-                                    <div class="mr-3">
-                                        <img src="{{ asset('assets/images/icons/certificate_footer.png') }}" class="certificate_footer" />
-                                    </div>
-                                    <div class="certificate_date">
-                                        <span id="issue_date"></span> <br>
-                                        Date
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-12">
+                        <div class="pdfjs-viewer" id="download_certificate"></div>
                     </div>
                 </div>
                 <div class="my-3 d-flex align-items-center justify-content-center">
@@ -461,9 +422,8 @@
                 </div>
                 <div class="row align-items-center justify-content-center mb-3">
                     <div class="col-lg-12">
-                        <h4 class="certificate_modal_body text-start mt-3" id="check_review_title">
-                        
-                        </h4>
+                        <div id="review_rating"></div>
+                        <h4 class="certificate_modal_body text-start mt-3" id="check_review_title"></h4>
                         <p id="review_content"></p>
                     </div>
                 </div>
@@ -505,16 +465,14 @@
             },
             success: function(response) {
 
-                console.log(response.data)
-                console.log(response.end_date)
-                console.log(response.date)
                 if (response.success == true) {
-                    $('#completed_course_name').val(response.data.get_courses.course_title);
-                    $('#c_name').text(response.data.get_courses.course_title);
-                    $('#t_name').text(response.data.get_courses.get_tutor_name.english_name);
-                    $('#certificate_start_date').text(response.date);
-                    $('#certificate_end_date').text(response.end_date);
-                    $('#issue_date').text(response.data.issue_date);
+
+                    //setting up pdf viewer
+                    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+                    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+                    var pdfViewer = new PDFjsViewer($('.pdfjs-viewer'));
+                    pdfViewer.loadDocument('{{ asset("path") }}'.replace('path', response.data.certificate));
+                    $('#completed_course_name').val(response.name)
                     certificateModal.show();
                     $('#completed_courses').html('<i class="fas fa-medal"></i> {{ __("translation.Certificate") }} ');
                 } else {
@@ -539,7 +497,67 @@
     function checkReviewModal(btn) {
         $('#review_content').text(btn.attr('data-content'));
         $('#check_review_title').text(btn.attr('data-title'));
+        var rating = btn.attr('data-rating');
+        $('#review_rating').html('');
+        if (rating == 5) {
+            $('#review_rating').append(
+                `<div class="d-flex align-items-center gap-1 rating-stars">
+                    <div>Rating :</div> 
+                    <ul class="rate-area">
+                        <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                    </ul>
+                </div>`
+            );
+        } else if (rating == 4) {
+            $('#review_rating').append(
+                `<div class="d-flex align-items-center gap-1 rating-stars">
+                    <div>Rating :</div>
+                    <ul class="rate-area">
+                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                    </ul>
+                </div>`
+            );
+        } else if (rating == 3) {
+            $('#review_rating').append(
+                `<div class="d-flex align-items-center gap-1 rating-stars">
+                    <div>Rating :</div>   
+                    <ul class="rate-area">
+                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                    </ul>
+                </div>`
+            );
+        } else if (rating == 2) {
+            $('#review_rating').append(
+                `<div class="d-flex align-items-center gap-1 rating-stars">
+                    <div>Rating :</div> 
+                    <ul class="rate-area">
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                    </ul>
+                </div>`
+            );
+        } else {
+            $('#review_rating').append(
+                `<div class="d-flex align-items-center gap-1 rating-stars">
+                    <div>Rating :</div> 
+                    <ul class="rate-area">
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                    </ul>
+                </div>`
+            );
+        }
         $('#check_review_certificate').val(btn.attr('data-course-name'));
+
         checkReview.show();
     }
 
@@ -631,18 +649,18 @@
             .addEventListener("click", () => {
                 const certificate = this.document.getElementById("download_certificate");
                 var opt = {
-                    margin: [30, 0, 30, 0],
+                    margin: 0,
                     filename: 'certificate.pdf',
                     image: {
                         type: 'jpeg',
-                        quality: 0.98
+                        quality: 1
                     },
                     html2canvas: {
                         scrollX: 0,
                         scrollY: 0
                     },
                     jsPDF: {
-                        orientation: 'l',
+                        orientation: 'p',
                         unit: 'mm',
                         format: 'a4',
                         putOnlyUsedFonts: true,

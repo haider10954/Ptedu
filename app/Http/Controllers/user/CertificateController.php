@@ -15,14 +15,11 @@ class CertificateController extends Controller
         $id = $request->id;
         $completed_courses = Certificate::with('getCourses')->where('course_id', $id)->where('user_id', auth()->id())->first();
         if ($completed_courses) {
-            $created_time = $completed_courses->created_at->format('Y-m-d');
-            $end_time = $completed_courses->updated_at->format('Y-m-d');
             return json_encode([
                 'success' => true,
                 'message' => __('translation.Request completed successfully'),
                 'data' => $completed_courses,
-                'date' => $created_time,
-                'end_date' => $end_time,
+                'name' => $completed_courses->getCourses->course_title,
             ]);
         } else {
             return json_encode([

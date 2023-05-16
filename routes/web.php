@@ -296,7 +296,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/certificate/add/{id}/{user_id}', [CompletedCourses::class, 'add_certificate'])->name('add_certificate');
 
         Route::post('/generate-certificate', [CompletedCourses::class, 'generate_certificate'])->name('generate-certificate');
-        Route::get('/certificate/generate/{id}/{course_track}', [CompletedCourses::class, 'certicate_view'])->name('generate_certificate');
+        Route::get('/certificate/generate/{id}', [CompletedCourses::class, 'certicate_view'])->name('certicate-view');
         Route::post('/certificate-download', [CompletedCourses::class, 'download_certificate'])->name('download_certificate');
 
         //Notice

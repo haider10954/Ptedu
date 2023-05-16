@@ -108,13 +108,13 @@
                 @endif
             </div>
             <div class="col-12">
-                <form method="post" action="{{ route('generate-certificate') }}">
+                <form method="post" action="{{ route('generate-certificate') }}" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="id" value="{{ $certificate->id ?? '' }}">
                     <input type="hidden" name="course_id" value="{{  Request::segment(4) }}">
                     <input type="hidden" name="user_id" value="{{  Request::segment(5) }}">
 
-                    <div class="row mb-4">
+                    {{--<div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Certificate Number')}}</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="horizontal-firstname-input" name="certificate_number" placeholder="{{ __('translation.Enter Certificate Number') }}" value="{{ $certificate->certificate_number }}">
@@ -123,7 +123,7 @@
                             @enderror
                         </div>
 
-                    </div>
+                    </div>--}}
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Name')}}</label>
                         <div class="col-sm-10">
@@ -136,7 +136,7 @@
                             <input type="text" class="form-control" name="course_name" value="{{ $add_certificate->getCourses->course_title }}">
                         </div>
                     </div>
-                    <div class="row mb-4">
+                    {{--<div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Course Period')}}</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" name="course_period" placeholder="{{__('translation.Enter course period')}}" value="{{ $certificate->course_duration }}" />
@@ -152,6 +152,17 @@
                         <div class="col-sm-10">
                             <input type="date" class="form-control" name="issue_date" placeholder="{{__('translation.Enter issue date')}}" value="{{ $certificate->issue_date }}" />
                             @error('issue_date')
+                            <small style="color:#d02525;">{{$message}}</small>
+                            @enderror
+                        </div>
+
+                    </div>--}}
+
+                    <div class="row mb-4">
+                        <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Certificate')}}</label>
+                        <div class="col-sm-10">
+                            <input type="file" class="form-control" name="certificate" />
+                            @error('certificate')
                             <small style="color:#d02525;">{{$message}}</small>
                             @enderror
                         </div>

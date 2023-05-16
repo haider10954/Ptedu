@@ -1208,7 +1208,7 @@ header .btn.transparent,
 }
 
 .btn-custom-sm {
-    font-size: 10px;
+    font-size: 9px;
     padding: 3px 12px;
     border-radius: 0;
 }
@@ -1830,3 +1830,4 @@ header .btn.transparent,
         margin-left: -5px;
     }
 }
+

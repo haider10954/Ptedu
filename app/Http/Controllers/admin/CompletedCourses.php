@@ -31,22 +31,29 @@ class CompletedCourses extends Controller
     public function generate_certificate(Request $request)
     {
         $request->validate([
-            'certificate_number' => 'required',
-            'issue_date' => 'required',
-            'course_period' => 'required',
+            'certificate' => 'required|mimes:png,jpg,jpeg,pdf',
         ]);
+
+        if ($request->hasfile('certificate')) {
+            $name = time() . mt_rand(300, 9000) . '.' . $request->certificate->extension();
+            $request->certificate->storeAs('public/certificate', $name);
+            $path = 'storage/certificate/' . $name;
+        }
+
         $generate_certificate = Certificate::updateOrCreate([
             'user_id' => $request->user_id,
             'course_id' => $request->course_id
         ], [
             'course_id' =>  $request->course_id,
             'user_id' => $request->user_id,
-            'course_duration' => $request->course_period,
-            'certificate_number' => rand($request->certificate_number, 999999),
-            'issue_date' => $request->issue_date
+            'certificate' => $path
         ]);
+        Course_tracking::where('course_id', $request->course_id)->update([
+            'generate_certificate' => 1,
+        ]);
+
         if ($generate_certificate) {
-            return redirect()->route('generate_certificate', [$generate_certificate->id, $generate_certificate->course_id]);
+            return redirect()->route('certicate-view', $request->course_id);
         } else {
             return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
@@ -62,28 +69,10 @@ class CompletedCourses extends Controller
         }
     }
 
-    public function certicate_view($id, $course_track)
+    public function certicate_view($id)
     {
-        $certificate = Certificate::with('getCourses', 'getUser')->where('id', $id)->first();
-        $download = Course_tracking::where('course_id', $course_track)->first();
-        return view('admin.certificate.certificate', compact('certificate', 'download'));
-    }
-
-    public function download_certificate(Request $request)
-    {
-        try {
-            Course_tracking::where('id', $request->id)->update([
-                'generate_certificate' => 1,
-            ]);
-            return json_encode([
-                'success' => true,
-                'message' => __('translation.Certificate has been generated successfully'),
-            ]);
-        } catch (\Exception $th) {
-            return json_encode([
-                'success' => false,
-                'message' => $th->getMessage()
-            ]);
-        }
+        $certificate = Certificate::with('getCourses', 'getUser')->where('course_id', $id)->first();
+        // $download = Course_tracking::where('course_id', $course_track)->first();
+        return view('admin.certificate.certificate', compact('certificate'));
     }
 }
