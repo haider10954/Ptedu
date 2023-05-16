@@ -546,7 +546,7 @@
     var progressboxHeight = 0;
     $('.progress_lectures_list .lecture-box .lecture_box_content').each(function() {
         if ($(this).height() > progressboxHeight) {
-            progressboxHeight = $(this).height() + 20;
+            progressboxHeight = $(this).height();
         }
     });
 
@@ -661,7 +661,7 @@
                 courseBoxContentHeight = $(this).height();
             }
         });
-        $('.completed-lectures-box').height(courseBoxContentHeight + 22);
+        $('.completed-lectures-box').height(courseBoxContentHeight);
     });
 </script>
 @endsection
