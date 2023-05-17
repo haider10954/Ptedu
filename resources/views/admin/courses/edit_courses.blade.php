@@ -485,8 +485,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('translation.Close')}}</button>
-                    <button type="button" class="btn btn-primary" onclick="editLectureAction($(this))">{{__('translation.Edit')}}</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-primary" onclick="editLectureAction($(this))">편집</button>
                 </div>
             </div>
         </div>
