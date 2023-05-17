@@ -95,7 +95,7 @@
                                         <div class="lecture-box">
                                             <img src="{{ asset('storage/offline_course/thumbnail/' . $item->getCousreName->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content h-130">
-                                                <h6 class="lecture_title mb-1"><a href="{{ route('online_course_detail' , $item->getCousreName->id) }}" class="text-dark">{{ Str::limit($item->getCousreName->course_title,35) }}</a></h6>
+                                                <h6 class="lecture_title mb-1"><a href="{{ route('online_course_detail' , $item->getCousreName->id) }}" class="text-dark">{{ Str::limit($item->getCousreName->course_title,25) }}</a></h6>
                                                 <small class="d-block text-muted mb-1 lecture_info">{{ $item->getCousreName->getCategoryName->name }}
                                                     l {{ $item->getCousreName->getTutorName->name }} l {{ __('translation.Offline') }}</small>
                                                 <small class="lecture-duration d-block">{{ $item->getCousreName->created_at->format('Y-m-d') }}</small>
@@ -152,7 +152,7 @@
                                     <div class="lecture-box">
                                         <img src="{{ asset('storage/course/thumbnail/' . $v->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                         <div class="lecture_box_content completed-lectures-box">
-                                            <h6 class="lecture_title mb-1">{{ $v->getCourses->course_title }}</h6>
+                                            <h6 class="lecture_title mb-1">{{ Str::limit($v->getCourses->course_title,25) }}</h6>
                                             <small class="d-block text-muted mb-1 lecture_info">{{ $v->getCourses->getCategoryName->name }}
                                                 l
                                                 {{ $v->getCourses->getTutorName->name }}</small>
