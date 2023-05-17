@@ -143,6 +143,7 @@
                         putOnlyUsedFonts: true,
                         floatPrecision: 16 // or "smart", default is 16
                     }
+
                 };
                 html2pdf().from(certificate).set(opt).save();
             })

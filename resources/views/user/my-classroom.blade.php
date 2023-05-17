@@ -393,7 +393,9 @@
                 </div>
                 <div class="row align-items-center justify-content-center mb-3">
                     <div class="col-lg-12">
-                        <div class="pdfjs-viewer" id="download_certificate"></div>
+                        <div id="download_certificate">
+                            <div class="pdfjs-viewer"></div>
+                        </div>
                     </div>
                 </div>
                 <div class="my-3 d-flex align-items-center justify-content-center">
@@ -649,7 +651,7 @@
             .addEventListener("click", () => {
                 const certificate = this.document.getElementById("download_certificate");
                 var opt = {
-                    margin: 0,
+                    margin: 10,
                     filename: 'certificate.pdf',
                     image: {
                         type: 'jpeg',
