@@ -72,7 +72,7 @@ class CompletedCourses extends Controller
     public function certicate_view($id)
     {
         $certificate = Certificate::with('getCourses', 'getUser')->where('course_id', $id)->first();
-        // $download = Course_tracking::where('course_id', $course_track)->first();
+    
         return view('admin.certificate.certificate', compact('certificate'));
     }
 }

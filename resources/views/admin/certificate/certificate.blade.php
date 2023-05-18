@@ -109,7 +109,7 @@
                 <div class="pdfjs-viewer" id="certificate"></div>
             </div>
             <div class="col-12 mt-3">
-                <button class="btn btn-sm btn-download" id="download"><span class="me-2"><i class="bi bi-download"></i></span>{{ __('translation.Download') }}</button>
+                <a class="btn btn-sm btn-download" href="{{ route('download_file',Illuminate\Support\Facades\Crypt::encryptString(str_replace('storage','',$certificate->certificate))) }}" downlaod>Download</a>
             </div>
         </div>
     </div>
@@ -117,39 +117,6 @@
 @endsection
 
 @section('custom-script')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-pdCVFUWsxl1A4g0uV6fyJ3nrnTGeWnZN2Tl/56j45UvZ1OMdm9CIbctuIHj+yBIRTUUyv6I9+OivXj4i0LPEYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script>
-    window.onload = function() {
-        document.getElementById("download")
-            .addEventListener("click", () => {
-                const certificate = this.document.getElementById("certificate");
-                console.log(certificate);
-                console.log(window);
-                var opt = {
-                    margin: 10,
-                    filename: 'certificate.pdf',
-                    image: {
-                        type: 'jpeg',
-                        quality: 1
-                    },
-                    html2canvas: {
-                        scrollX: 0,
-                        scrollY: 0
-                    },
-                    jsPDF: {
-                        orientation: 'p',
-                        unit: 'mm',
-                        format: 'a4',
-                        putOnlyUsedFonts: true,
-                        floatPrecision: 16 // or "smart", default is 16
-                    }
-
-                };
-                html2pdf().from(certificate).set(opt).save();
-            })
-    }
-</script>
-
 <script>
     var pdfjsLib = window['pdfjs-dist/build/pdf'];
     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';

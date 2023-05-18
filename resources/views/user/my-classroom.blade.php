@@ -399,7 +399,7 @@
                     </div>
                 </div>
                 <div class="my-3 d-flex align-items-center justify-content-center">
-                    <button type="button" id="download" class="btn btn-primary mr-2 rounded-0 btn-theme-black">{{ __('translation.Download') }}</button>
+                    <a class="btn btn-primary mr-2 rounded-0 btn-theme-black" id="downlaod_certificate" href="#" downlaod>Download</a>
                     <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-light" data-dismiss="modal">{{ __('translation.Close') }}</button>
                 </div>
             </div>
@@ -441,9 +441,9 @@
 
 
 @section('custom-script')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js" integrity="sha512-pdCVFUWsxl1A4g0uV6fyJ3nrnTGeWnZN2Tl/56j45UvZ1OMdm9CIbctuIHj+yBIRTUUyv6I9+OivXj4i0LPEYA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     var checkModal = new bootstrap.Modal(document.getElementById("checkCertificateModal"), {});
+    let download_certificate_url = "{{ route('download_file','hash') }}";
 
     function checkCertificate(name) {
         $('#check_certificate').val(name.attr('data-course-name'));
@@ -468,14 +468,19 @@
             success: function(response) {
 
                 if (response.success == true) {
-
+                    console.log($('#downlaod_certificate').attr('href').replace('hash', response.hash));
                     //setting up pdf viewer
                     var pdfjsLib = window['pdfjs-dist/build/pdf'];
                     pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
                     var pdfViewer = new PDFjsViewer($('.pdfjs-viewer'));
                     pdfViewer.loadDocument('{{ asset("path") }}'.replace('path', response.data.certificate));
-                    $('#completed_course_name').val(response.name)
+
+                    // Dynamic Course Name and Certificate UrL In Modal
+                    $('#completed_course_name').val(response.name);
+                    var hash = download_certificate_url.replace('hash', response.hash);
+                    $('#downlaod_certificate').attr("href", hash);
                     certificateModal.show();
+
                     $('#completed_courses').html('<i class="fas fa-medal"></i> {{ __("translation.Certificate") }} ');
                 } else {
                     console.log(error)
@@ -645,34 +650,6 @@
             }
         });
     });
-
-    window.onload = function() {
-        document.getElementById("download")
-            .addEventListener("click", () => {
-                const certificate = this.document.getElementById("download_certificate");
-                var opt = {
-                    margin: 10,
-                    filename: 'certificate.pdf',
-                    image: {
-                        type: 'jpeg',
-                        quality: 1
-                    },
-                    html2canvas: {
-                        scrollX: 0,
-                        scrollY: 0
-                    },
-                    jsPDF: {
-                        orientation: 'p',
-                        unit: 'mm',
-                        format: 'a4',
-                        putOnlyUsedFonts: true,
-                        floatPrecision: 16 // or "smart", default is 16
-                    }
-
-                };
-                html2pdf().from(certificate).set(opt).save();
-            })
-    }
 
     $(document).ready(function() {
         let courseBoxContentHeight = 0;
