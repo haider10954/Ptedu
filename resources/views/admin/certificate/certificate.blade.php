@@ -109,7 +109,7 @@
                 <div class="pdfjs-viewer"></div>
             </div>
             <div class="col-12 mt-3">
-                <a class="btn btn-sm btn-download" href="{{ route('download_file',Illuminate\Support\Facades\Crypt::encryptString(str_replace('storage','',$certificate->certificate))) }}" downlaod>Download</a>
+                <a class="btn btn-sm btn-download" href="{{ route('download_file',Illuminate\Support\Facades\Crypt::encryptString(str_replace('storage','',$certificate->certificate))) }}" downlaod>{{ __('translation.Download') }}</a>
             </div>
         </div>
     </div>

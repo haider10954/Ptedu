@@ -399,7 +399,7 @@
                     </div>
                 </div>
                 <div class="my-3 d-flex align-items-center justify-content-center">
-                    <a class="btn btn-primary mr-2 rounded-0 btn-theme-black" id="downlaod_certificate" href="#" downlaod>Download</a>
+                    <a class="btn btn-primary mr-2 rounded-0 btn-theme-black" id="downlaod_certificate" href="#" downlaod>{{ __('translation.Download') }}</a>
                     <button type="button" class="btn btn-primary mr-2 rounded-0 btn-theme-light" data-dismiss="modal">{{ __('translation.Close') }}</button>
                 </div>
             </div>
