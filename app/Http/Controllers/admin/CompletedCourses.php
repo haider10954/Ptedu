@@ -48,8 +48,9 @@ class CompletedCourses extends Controller
             'user_id' => $request->user_id,
             'certificate' => $path
         ]);
-        Course_tracking::where('course_id', $request->course_id)->update([
+        Course_tracking::where('course_id', $request->course_id)->where('user_id', $request->user_id)->update([
             'generate_certificate' => 1,
+            'status' => 1
         ]);
 
         if ($generate_certificate) {
@@ -72,7 +73,7 @@ class CompletedCourses extends Controller
     public function certicate_view($id)
     {
         $certificate = Certificate::with('getCourses', 'getUser')->where('course_id', $id)->first();
-    
+
         return view('admin.certificate.certificate', compact('certificate'));
     }
 }
