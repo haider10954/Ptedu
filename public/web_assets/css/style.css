@@ -1208,10 +1208,9 @@ header .btn.transparent,
 }
 
 .btn-custom-sm {
-    font-size: 11px;
-    padding: 8px 12px;
+    font-size: 9px;
+    padding: 3px 12px;
     border-radius: 0;
-    height: 50px;
 }
 
 .btn-theme-blue {
