@@ -1211,6 +1211,7 @@ header .btn.transparent,
     font-size: 11px;
     padding: 8px 12px;
     border-radius: 0;
+    height: 50px;
 }
 
 .btn-theme-blue {
