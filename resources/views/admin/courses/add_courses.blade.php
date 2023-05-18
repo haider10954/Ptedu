@@ -448,173 +448,174 @@
             </div>
         </div>
     </div>
-    @endsection
-    @section('custom-script')
-    <script>
-        // Intializing summer note
-        $(document).ready(function() {
-            $('#description').summernote();
-        });
+</div>
+@endsection
+@section('custom-script')
+<script>
+    // Intializing summer note
+    $(document).ready(function() {
+        $('#description').summernote();
+    });
 
-        function courseImg(id) {
-            $(id).click();
+    function courseImg(id) {
+        $(id).click();
+    }
+
+    // course img preview
+    $("#course_img").on("change", function(e) {
+
+        f = Array.prototype.slice.call(e.target.files)[0]
+        let reader = new FileReader();
+        reader.onload = function(e) {
+
+            $("#thumbnail_image_view").html(
+                `<img style="height: 100%; object-fit: contain;"  id="main_image_preview"  src="${e.target.result}" class="main_image_preview img-block- img-fluid w-100">`
+            );
         }
+        reader.readAsDataURL(f);
+    });
 
-        // course img preview
-        $("#course_img").on("change", function(e) {
+    // course banner image preview
+    $("#banner_img").on("change", function(e) {
 
-            f = Array.prototype.slice.call(e.target.files)[0]
-            let reader = new FileReader();
-            reader.onload = function(e) {
+        f = Array.prototype.slice.call(e.target.files)[0]
+        let reader = new FileReader();
+        reader.onload = function(e) {
 
-                $("#thumbnail_image_view").html(
-                    `<img style="height: 100%; object-fit: contain;"  id="main_image_preview"  src="${e.target.result}" class="main_image_preview img-block- img-fluid w-100">`
-                );
-            }
-            reader.readAsDataURL(f);
-        });
+            $("#banner_image_view").html(
+                `<img style="height: 100%; object-fit: contain;"  id="main_image_preview"  src="${e.target.result}" class="main_image_preview img-block- img-fluid w-100">`
+            );
+        }
+        reader.readAsDataURL(f);
+    });
 
-        // course banner image preview
-        $("#banner_img").on("change", function(e) {
-
-            f = Array.prototype.slice.call(e.target.files)[0]
-            let reader = new FileReader();
-            reader.onload = function(e) {
-
-                $("#banner_image_view").html(
-                    `<img style="height: 100%; object-fit: contain;"  id="main_image_preview"  src="${e.target.result}" class="main_image_preview img-block- img-fluid w-100">`
-                );
-            }
-            reader.readAsDataURL(f);
-        });
-
-        // course form submit
-        $("#courseForm").on('submit', function(e) {
-            e.preventDefault();
-            var formData = new FormData($("#courseForm")[0]);
-            formData = new FormData($("#courseForm")[0]);
-            $.ajax({
-                type: "POST",
-                url: "{{ route('add-course') }}",
-                dataType: 'json',
-                contentType: false,
-                processData: false,
-                cache: false,
-                data: formData,
-                mimeType: "multipart/form-data",
-                beforeSend: function() {
-                    $("#submitForm").prop('disabled', true);
-                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
-                    $(".error-message").hide();
-                },
-                success: function(res) {
-                    if (res.success == true) {
-                        $("#submitForm").attr('class', 'btn btn-success');
-                        $("#submitForm").html('<i class="fa fa-check me-1"></i>  과정이 업로드됨</>');
-                        $('#course_id').val(res.course_id);
-                        setTimeout(function() {
-                            $('html, body').animate({
-                                scrollTop: $("html, body").offset().top
-                            }, 2000);
-                        }, 1500);
-                        setTimeout(function() {
-                            $('.course-tab').removeClass('active');
-                            $('#course').removeClass('active');
-                            $('.section-tab').addClass('active');
-                            $('#sections').addClass('active');
-                        }, 3500);
-                    } else {
-                        $("#submitForm").prop('disabled', false);
-                        $("#submitForm").html('등록하다');
+    // course form submit
+    $("#courseForm").on('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData($("#courseForm")[0]);
+        formData = new FormData($("#courseForm")[0]);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('add-course') }}",
+            dataType: 'json',
+            contentType: false,
+            processData: false,
+            cache: false,
+            data: formData,
+            mimeType: "multipart/form-data",
+            beforeSend: function() {
+                $("#submitForm").prop('disabled', true);
+                $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
+                $(".error-message").hide();
+            },
+            success: function(res) {
+                if (res.success == true) {
+                    $("#submitForm").attr('class', 'btn btn-success');
+                    $("#submitForm").html('<i class="fa fa-check me-1"></i>  과정이 업로드됨</>');
+                    $('#course_id').val(res.course_id);
+                    setTimeout(function() {
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
                         }, 2000);
-                        $('.prompt').html(`<div class="alert alert-danger mb-2">${res.message}</div>`);
-                    }
-                },
-                error: function(e) {
+                    }, 1500);
+                    setTimeout(function() {
+                        $('.course-tab').removeClass('active');
+                        $('#course').removeClass('active');
+                        $('.section-tab').addClass('active');
+                        $('#sections').addClass('active');
+                    }, 3500);
+                } else {
                     $("#submitForm").prop('disabled', false);
                     $("#submitForm").html('등록하다');
-                    if (e.responseJSON.errors['course_type']) {
-                        $('.error-course-type').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['course_type'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['course_title']) {
-                        $('.error-course-title').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['course_title'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['tutor_name']) {
-                        $('.error-tutor-name').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['tutor_name'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['short_description']) {
-                        $('.error-short-description').html('<small class=" error-message text-danger">' +
-                            e.responseJSON.errors['short_description'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['description']) {
-                        $('.error-description').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['description'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['no_of_lectures']) {
-                        $('.error-no-of-lectures').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['no_of_lectures'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['course_duration']) {
-                        $('.error-course-duration').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['course_duration'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['course_duration']) {
-                        $('.error-course-duration').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['course_duration'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['price']) {
-                        $('.error-prize').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['price'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['discounted_Price']) {
-                        $('.error-discounted-prize').html('<small class=" error-message text-danger">' +
-                            e.responseJSON.errors['discounted_Price'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['category']) {
-                        $('.error-category').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['category'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['video_url']) {
-                        $('.error-video-url').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['video_url'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['course_img']) {
-                        $('.error-course-thumbnail').html('<small class=" error-message text-danger">' +
-                            e.responseJSON.errors['course_img'][0] + '</small>');
-                    }
-                    if (e.responseJSON.errors['banner_img']) {
-                        $('.error-course-banner').html('<small class=" error-message text-danger">' + e
-                            .responseJSON.errors['banner_img'][0] + '</small>');
-                    }
+                    $('html, body').animate({
+                        scrollTop: $("html, body").offset().top
+                    }, 2000);
+                    $('.prompt').html(`<div class="alert alert-danger mb-2">${res.message}</div>`);
                 }
-            });
+            },
+            error: function(e) {
+                $("#submitForm").prop('disabled', false);
+                $("#submitForm").html('등록하다');
+                if (e.responseJSON.errors['course_type']) {
+                    $('.error-course-type').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['course_type'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['course_title']) {
+                    $('.error-course-title').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['course_title'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['tutor_name']) {
+                    $('.error-tutor-name').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['tutor_name'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['short_description']) {
+                    $('.error-short-description').html('<small class=" error-message text-danger">' +
+                        e.responseJSON.errors['short_description'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['description']) {
+                    $('.error-description').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['description'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['no_of_lectures']) {
+                    $('.error-no-of-lectures').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['no_of_lectures'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['course_duration']) {
+                    $('.error-course-duration').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['course_duration'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['course_duration']) {
+                    $('.error-course-duration').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['course_duration'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['price']) {
+                    $('.error-prize').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['price'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['discounted_Price']) {
+                    $('.error-discounted-prize').html('<small class=" error-message text-danger">' +
+                        e.responseJSON.errors['discounted_Price'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['category']) {
+                    $('.error-category').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['category'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['video_url']) {
+                    $('.error-video-url').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['video_url'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['course_img']) {
+                    $('.error-course-thumbnail').html('<small class=" error-message text-danger">' +
+                        e.responseJSON.errors['course_img'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['banner_img']) {
+                    $('.error-course-banner').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['banner_img'][0] + '</small>');
+                }
+            }
         });
+    });
 
-        // sections form submit
-        $("#add_section_form").on('submit', function(e) {
-            e.preventDefault();
-            $.ajax({
-                type: "POST",
-                url: "{{ route('add-sections') }}",
-                dataType: 'json',
-                data: $('#add_section_form').serialize(),
-                beforeSend: function() {
-                    $("#submitSections").prop('disabled', true);
-                    $("#submitSections").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
-                    $(".error-message").hide();
-                },
-                success: function(res) {
-                    if (res.success == true) {
-                        let sections = res.sections;
-                        $('.section_prompt').html('');
-                        for (var i = 0; i < sections.length; i++) {
-                            if (i == 0) {
-                                $('.section-boxes').append(`
+    // sections form submit
+    $("#add_section_form").on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "{{ route('add-sections') }}",
+            dataType: 'json',
+            data: $('#add_section_form').serialize(),
+            beforeSend: function() {
+                $("#submitSections").prop('disabled', true);
+                $("#submitSections").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
+                $(".error-message").hide();
+            },
+            success: function(res) {
+                if (res.success == true) {
+                    let sections = res.sections;
+                    $('.section_prompt').html('');
+                    for (var i = 0; i < sections.length; i++) {
+                        if (i == 0) {
+                            $('.section-boxes').append(`
                                 <div class="section-box" data-section-id="${sections[i].id}" data-position="${(i+1 < sections.length) ? 'initialState' : 'finalState'}">
                                     <div class="d-flex justify-content-between section-box-header align-items-center">
                                         <h3 class="mb-0 section-box-heading">Section-${i+1}. <span
@@ -674,9 +675,9 @@
                                     </div>
                                 </div>
                                 `);
-                                repeater_initialize();
-                            } else {
-                                $('.section-boxes').append(`
+                            repeater_initialize();
+                        } else {
+                            $('.section-boxes').append(`
                                 <div class="section-box" data-section-id="${sections[i].id}" data-position="${(i+1 < sections.length) ? 'initialState' : 'finalState'}">
                                     <div class="d-flex justify-content-between section-box-header align-items-center">
                                         <h3 class="mb-0 section-box-heading">Section-${i+1}. <span
@@ -687,76 +688,76 @@
                                     </div>
                                 </div>
                                 `);
-                            }
                         }
-                        $("#submitSections").attr('class', 'btn btn-success');
-                        $("#submitSections").html('<i class="fa fa-check me-1"></i>  업로드된 섹션</>');
-                        setTimeout(function() {
-                            $('html, body').animate({
-                                scrollTop: $("html, body").offset().top
-                            }, 2000);
-                        }, 1500);
-                        setTimeout(function() {
-                            $('.section-tab').removeClass('active');
-                            $('#sections').removeClass('active');
-                            $('.lecture-tab').addClass('active');
-                            $('#lectures').addClass('active');
-                        }, 3500);
-                    } else if (res.error == true) {
-                        $("#submitSections").prop('disabled', false);
-                        $("#submitSections").html('섹션 제출');
+                    }
+                    $("#submitSections").attr('class', 'btn btn-success');
+                    $("#submitSections").html('<i class="fa fa-check me-1"></i>  업로드된 섹션</>');
+                    setTimeout(function() {
                         $('html, body').animate({
                             scrollTop: $("html, body").offset().top
                         }, 2000);
-                        $('.section_prompt').html('<div class="alert alert-warning mb-3">유효한 값으로 모든 필드를 채우십시오.</div>');
-                    }
-                },
-                error: function(e) {}
-            });
+                    }, 1500);
+                    setTimeout(function() {
+                        $('.section-tab').removeClass('active');
+                        $('#sections').removeClass('active');
+                        $('.lecture-tab').addClass('active');
+                        $('#lectures').addClass('active');
+                    }, 3500);
+                } else if (res.error == true) {
+                    $("#submitSections").prop('disabled', false);
+                    $("#submitSections").html('섹션 제출');
+                    $('html, body').animate({
+                        scrollTop: $("html, body").offset().top
+                    }, 2000);
+                    $('.section_prompt').html('<div class="alert alert-warning mb-3">유효한 값으로 모든 필드를 채우십시오.</div>');
+                }
+            },
+            error: function(e) {}
         });
+    });
 
-        // lectures form submit
-        function lectures_submit(e, form) {
-            e.preventDefault();
-            var currentForm = form;
-            var formData = new FormData(form[0]);
-            $.ajax({
-                type: "POST",
-                url: "{{ route('add-lectures-submit') }}",
-                dataType: 'json',
-                cache: false,
-                data: formData,
-                contentType: false,
-                processData: false,
-                beforeSend: function() {
-                    $("#submitLectures").prop('disabled', true);
-                    $("#submitLectures").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
-                },
-                success: function(res) {
-                    if (res.success == true) {
-                        setTimeout(function() {
-                            $('.loading-bar').css('transition', 'none');
-                            $('.loading-bar').css('width', 0);
-                        }, 1500);
-                        var lectures = res.lectures;
-                        $("#submitLectures").attr('class', 'btn btn-success');
-                        $("#submitLectures").html('<i class="fa fa-check me-1"></i>  Lectures Uploaded</>');
-                        if (currentForm.parents('.section-box').attr('data-position') == 'finalState') {
-                            $('.section-boxes').append(`
+    // lectures form submit
+    function lectures_submit(e, form) {
+        e.preventDefault();
+        var currentForm = form;
+        var formData = new FormData(form[0]);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('add-lectures-submit') }}",
+            dataType: 'json',
+            cache: false,
+            data: formData,
+            contentType: false,
+            processData: false,
+            beforeSend: function() {
+                $("#submitLectures").prop('disabled', true);
+                $("#submitLectures").html('<i class="fa fa-spinner fa-spin me-1"></i> 처리');
+            },
+            success: function(res) {
+                if (res.success == true) {
+                    setTimeout(function() {
+                        $('.loading-bar').css('transition', 'none');
+                        $('.loading-bar').css('width', 0);
+                    }, 1500);
+                    var lectures = res.lectures;
+                    $("#submitLectures").attr('class', 'btn btn-success');
+                    $("#submitLectures").html('<i class="fa fa-check me-1"></i>  Lectures Uploaded</>');
+                    if (currentForm.parents('.section-box').attr('data-position') == 'finalState') {
+                        $('.section-boxes').append(`
                             <div class="mt-3 text-center"><a href="{{ route('course') }}" class="btn btn-primary w-25 m-auto">목록으로 이동</a></div>
                             `);
-                        }
-                        setTimeout(function() {
-                            $('html, body').animate({
-                                scrollTop: form.parents('.section-box').offset().top - 100
-                            }, 2000);
-                        }, 1500);
-                        setTimeout(function() {
-                            var currentSectionBox = currentForm.parents('.section-box');
-                            currentForm.parents('.section-add-lectures-form').remove();
-                            currentSectionBox.find('.section-box-content').append(`<ul class="section-lectures mt-4"></ul>`);
-                            for (var i = 0; i < lectures.length; i++) {
-                                currentSectionBox.find('.section-lectures').append(`
+                    }
+                    setTimeout(function() {
+                        $('html, body').animate({
+                            scrollTop: form.parents('.section-box').offset().top - 100
+                        }, 2000);
+                    }, 1500);
+                    setTimeout(function() {
+                        var currentSectionBox = currentForm.parents('.section-box');
+                        currentForm.parents('.section-add-lectures-form').remove();
+                        currentSectionBox.find('.section-box-content').append(`<ul class="section-lectures mt-4"></ul>`);
+                        for (var i = 0; i < lectures.length; i++) {
+                            currentSectionBox.find('.section-lectures').append(`
                                 <li class="section-lecture-record">
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-play-circle-fill me-2" data-video="${lectures[i].lecture_video}"></i>
@@ -767,8 +768,8 @@
                                     </div>
                                 </li>
                                 `);
-                            }
-                            currentSectionBox.next('.section-box').find('.section-box-content').append(`
+                        }
+                        currentSectionBox.next('.section-box').find('.section-box-content').append(`
                             <div class="row section-add-lectures-form mt-4">
                                 <div class="col-12 mb-3">
                                     <small class="d-block text-left fw-bold">강의 추가</small>
@@ -819,53 +820,53 @@
                                 </div>
                             </div>
                             `);
-                            repeater_initialize();
-                        }, 3500);
-                    } else if (res.error == true) {
-                        $('.add_lecture_prompt').hide();
-                        $("#submitLectures").prop('disabled', false);
-                        $("#submitLectures").html('강의 추가');
-                        setTimeout(function() {
-                            $('.loading-bar').css('transition', 'none');
-                            $('.loading-bar').css('width', 0);
-                        }, 1500);
-                        $('html, body').animate({
-                            scrollTop: form.parents('.section-box').offset().top
-                        }, 2000);
-                        $('.add_lecture_prompt').html('<div class="alert alert-warning mb-3">' + res.errors + '</div>');
-                        $('.add_lecture_prompt').fadeIn();
-                    }
-                },
-                error: function(e) {},
-                xhr: function() {
-                    var xhr = new window.XMLHttpRequest();
-                    xhr.upload.addEventListener("progress", function(evt) {
-                        if (evt.lengthComputable) {
-                            var percentComplete = 100 * (evt.loaded / evt.total);
-                            //Do something with upload progress here
-                            postUploadProgress(percentComplete.toFixed(2))
-                        }
-                    }, false);
-
-                    xhr.addEventListener("progress", function(evt) {
-                        if (evt.lengthComputable) {
-                            var percentComplete = 100 * (evt.loaded / evt.total);
-                            //Do something with download progress
-                            postUploadProgress(percentComplete.toFixed(2))
-
-                        }
-                    }, false);
-
-                    return xhr;
+                        repeater_initialize();
+                    }, 3500);
+                } else if (res.error == true) {
+                    $('.add_lecture_prompt').hide();
+                    $("#submitLectures").prop('disabled', false);
+                    $("#submitLectures").html('강의 추가');
+                    setTimeout(function() {
+                        $('.loading-bar').css('transition', 'none');
+                        $('.loading-bar').css('width', 0);
+                    }, 1500);
+                    $('html, body').animate({
+                        scrollTop: form.parents('.section-box').offset().top
+                    }, 2000);
+                    $('.add_lecture_prompt').html('<div class="alert alert-warning mb-3">' + res.errors + '</div>');
+                    $('.add_lecture_prompt').fadeIn();
                 }
-            });
-        }
+            },
+            error: function(e) {},
+            xhr: function() {
+                var xhr = new window.XMLHttpRequest();
+                xhr.upload.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = 100 * (evt.loaded / evt.total);
+                        //Do something with upload progress here
+                        postUploadProgress(percentComplete.toFixed(2))
+                    }
+                }, false);
 
-        // loading bar function
-        function postUploadProgress(percentComplete) {
-            $('.loading-bar').css('width', percentComplete + '%');
-            $('.loading-bar').css('transition', 'all 0.8s');
-        }
-    </script>
+                xhr.addEventListener("progress", function(evt) {
+                    if (evt.lengthComputable) {
+                        var percentComplete = 100 * (evt.loaded / evt.total);
+                        //Do something with download progress
+                        postUploadProgress(percentComplete.toFixed(2))
 
-    @endsection
+                    }
+                }, false);
+
+                return xhr;
+            }
+        });
+    }
+
+    // loading bar function
+    function postUploadProgress(percentComplete) {
+        $('.loading-bar').css('width', percentComplete + '%');
+        $('.loading-bar').css('transition', 'all 0.8s');
+    }
+</script>
+
+@endsection
