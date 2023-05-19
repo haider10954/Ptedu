@@ -160,9 +160,9 @@
                                             <div class="d-flex align-items-center justify-content-between">
 
                                                 @if ($Data)
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 12px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="checkReviewModal($(this))" data-rating="{{ $Data->rating }}" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>리뷰가 추가됨</button>
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 13px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="checkReviewModal($(this))" data-rating="{{ $Data->rating }}" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>리뷰가 추가됨</button>
                                                 @else
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 12px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}">
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 13px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}">
                                                     <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
                                                 @endif
 
