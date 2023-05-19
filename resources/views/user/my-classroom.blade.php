@@ -169,7 +169,7 @@
 
                                                 @if ($v->generate_certificate == 1)
                                                 <a href="javascript:void(0)" class="btn btn-primary btn-theme-black w-48" style="font-size: 11px; padding: 8px 12px; border-radius: 0; height: 50px;" onclick="certificate('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" id="completed_courses"> <i class="fas fa-medal"></i>
-                                                    {{ __('translation.Certificate') }}</a>
+                                                    수료증 관리 </a>
                                                 @else
                                                 <a href="javascript:void(0)" class="btn btn-primary btn-theme-black w-48" style="font-size: 11px; padding: 8px 12px; border-radius: 0; height: 50px;" onclick="checkCertificate($(this))" data-course-name="{{ $v->getCourses->course_title }}">
                                                     <i class="fas fa-medal"></i>
