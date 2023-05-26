@@ -13,7 +13,7 @@
                         <li><a href="https://www.facebook.com/PTEdu2016"><i class="fab fa-facebook"></i></a></li>
                         <li><a href="https://www.instagram.com/ptedu.official/?igshid=MDM4ZDc5MmU%3D"><i class="fab fa-instagram"></i></a></li>
                     </ul>
-                    <p class="mb-0 text-white">{{ __('translation.Add KakaoTalk') }}</p>   
+                    <a class="mb-0 text-white" href="http://pf.kakao.com/_xjKnpd">{{ __('translation.Add KakaoTalk') }}</a>   
                 </div>
             </div>
         </div>

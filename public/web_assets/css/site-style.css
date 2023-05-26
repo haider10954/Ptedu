@@ -625,9 +625,7 @@
     color: gold;
 }
 
-.rate-area:not(:checked) > label{
-    color: gold;
-}
+
 
 .text-justify {
     text-align: justify;

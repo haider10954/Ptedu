@@ -26,7 +26,7 @@ class StudentRegisterRequest extends FormRequest
         return [
             'name' => 'required',
             'en_name' => 'required',
-            'user_id' => 'required|unique:users|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$/',
+            'user_id' => 'required|unique:users',
             'password' => 'required|min:8|same:confirm_password|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$/',
             'job' => 'required',
             'mobile' => 'required|min:9',

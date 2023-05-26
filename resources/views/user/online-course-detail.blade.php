@@ -57,9 +57,9 @@ $cartBtn = 0;
                     @endif
 
                     @if ($cartBtn == 1)
-                        <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="online" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
+                        <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn  shopping_cart_btn" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                     @else
-                        <button class="btn btn-dark btn-sm w-100 mb-2 disabled" disabled>{{ __('translation.Add to cart') }}</button>
+                        <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black;" disabled>{{ __('translation.Add to cart') }}</button>
                     @endif
                     <div class="d-flex align-items-center justify-content-between">
                         <p class="mb-0 text">{{ __('translation.Course Period') }}</p>

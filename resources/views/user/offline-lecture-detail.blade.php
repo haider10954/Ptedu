@@ -52,39 +52,39 @@
                                 @if ($offline_enrollment_count >= $course_info->no_of_enrollments)
                                     @if (!empty($reservation))
                                         @if ($reservation->status == 'applied')
-                                            <button class="btn btn-danger btn-sm w-100 mb-2 delBtn"
+                                            <button class="btn btn-danger btn-sm w-100 mb-2 delBtn" style="border-radius: 2rem; background: black; color:white !important;"
                                                 data-id="{{ $course_info->id }}" data-toggle="modal"
                                                 data-target="#delReservationModal">{{ __('translation.Decline') }}</button>
                                             <button disabled
-                                                class="btn btn-light btn-sm w-100 border-1 mb-2 disabled">{{ __('translation.Waiting For Reservation') }}</button>
+                                                class="btn btn-light btn-sm w-100 border-1 mb-2 disabled" style="border-radius: 2rem; background: black; color:white !important;">{{ __('translation.Waiting For Reservation') }}</button>
                                         @elseif($reservation->status == 'reserved')
-                                            <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn"
+                                            <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style="border-radius: 2rem; background: black; color:white !important;"
                                                 data-type="offline"
                                                 data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                                         @elseif($reservation->status == 'decline')
-                                            <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn"
+                                            <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" style="border-radius: 2rem; background: black; color:white !important;"
                                                 data-id="{{ $course_info->id }}" data-toggle="modal"
                                                 data-target="#reservationModal">{{ __('translation.Apply') }}</button>
                                         @endif
                                     @else
-                                        <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn"
+                                        <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" style="border-radius: 2rem; background: black; color:white !important;"
                                             data-id="{{ $course_info->id }}" data-toggle="modal"
                                             data-target="#reservationModal">{{ __('translation.Apply') }}</button>
                                     @endif
                                 @else
-                                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="offline"
+                                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style="border-radius: 2rem; background: black; color:white !important;" data-type="offline"
                                         data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                                 @endif
                             @else
-                                <button class="btn btn-dark btn-sm w-100 mb-2 disabled"
+                                <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black; color:white !important;"
                                     disabled>{{ __('translation.Already Enrolled') }}</button>
                             @endif
                         @else
                             @if ($offline_enrollment_count < $course_info->no_of_enrollments)
-                                <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" data-type="offline"
+                                <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style="border-radius: 2rem; background: black; color:white !important;" data-type="offline"
                                     data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                             @else
-                                <button class="btn btn-dark btn-sm w-100 mb-2 disabled" diabled>Limit Reached</button>
+                                <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black; color:white !important;" diabled>Limit Reached</button>
                             @endif
                         @endif
                         <div class="d-flex align-items-center justify-content-between">

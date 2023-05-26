@@ -336,7 +336,7 @@
                         </div>
                     </div>
                     <div class="my-3 d-flex align-items-center justify-content-center">
-                        <button type="submit" id="submitForm" class="btn btn-primary mr-2 rounded-0 btn-theme-black">{{ __('translation.Register') }}</button>
+                        <button type="submit" id="submitForm" class="btn btn-primary mr-2 rounded-0 btn-theme-black">등록</button>
                         <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">{{ __('translation.Close') }}</button>
                     </div>
             </div>
@@ -511,11 +511,11 @@
                 `<div class="d-flex align-items-center gap-1 rating-stars">
                     <div>Rating :</div> 
                     <ul class="rate-area">
-                        <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing">5 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                        <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing" style="color: gold;">5 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good" style="color: gold;">4 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average" style="color: gold;">3 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good" style="color: gold;">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad"  style="color: gold;">1 {{ __('translation.star') }}</label>
                     </ul>
                 </div>`
             );
@@ -524,10 +524,10 @@
                 `<div class="d-flex align-items-center gap-1 rating-stars">
                     <div>Rating :</div>
                     <ul class="rate-area">
-                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good">4 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                        <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good" style="color: gold;">4 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average" style="color: gold;">3 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good" style="color: gold;">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad" style="color: gold;">1 {{ __('translation.star') }}</label>
                     </ul>
                 </div>`
             );
@@ -536,9 +536,9 @@
                 `<div class="d-flex align-items-center gap-1 rating-stars">
                     <div>Rating :</div>   
                     <ul class="rate-area">
-                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average">3 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                        <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average" style="color: gold;">3 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good" style="color: gold;">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad" style="color: gold;">1 {{ __('translation.star') }}</label>
                     </ul>
                 </div>`
             );
@@ -547,8 +547,8 @@
                 `<div class="d-flex align-items-center gap-1 rating-stars">
                     <div>Rating :</div> 
                     <ul class="rate-area">
-                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good" style="color: gold;">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad" style="color: gold;">1 {{ __('translation.star') }}</label>
                     </ul>
                 </div>`
             );
@@ -557,8 +557,8 @@
                 `<div class="d-flex align-items-center gap-1 rating-stars">
                     <div>Rating :</div> 
                     <ul class="rate-area">
-                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good">2 {{ __('translation.stars') }}</label>
-                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad">1 {{ __('translation.star') }}</label>
+                        <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good" style="color: gold;">2 {{ __('translation.stars') }}</label>
+                        <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad" style="color: gold;">1 {{ __('translation.star') }}</label>
                     </ul>
                 </div>`
             );
