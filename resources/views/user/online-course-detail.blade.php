@@ -67,9 +67,9 @@ $cartBtn = 0;
                     </div>
                     @if (auth()->check())
                     @if ($liked_course)
-                    <button class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">Already Liked</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black; font-size: 12px;" data-type="online" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다</button>
                     @else
-                    <button class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">Like This Course</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
                     @endif
                     @endif
                 </div>
@@ -247,7 +247,7 @@ $cartBtn = 0;
             success: function(res) {
                 if (res.success == true) {
                     btn.prop('disabled', false);
-                    btn.html('Already Liked');
+                    btn.html('이미 찜리스트에 추가되었습니다');
                 }
             },
             error: function(e) {}
@@ -273,7 +273,7 @@ $cartBtn = 0;
             success: function(res) {
                 if (res.success == true) {
                     btn.prop('disabled', false);
-                    btn.html('Like This Course');
+                    btn.html('찜하기');
                 }
             },
             error: function(e) {}
