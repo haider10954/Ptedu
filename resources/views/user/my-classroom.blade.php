@@ -196,27 +196,31 @@
                                 @foreach ($liked_courses as $liked_course)
                                 @if ($liked_course->type == 'online')
                                 <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box" style="height: 300px;">
-                                        <img src="{{ asset('storage/course/thumbnail/' . $liked_course->getLikedCourse->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title"> {{$liked_course->getLikedCourse->course_title}}</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">{{ $liked_course->getLikedCourse->getCategoryName->name }} l
-                                                {{ $liked_course->getLikedCourse->getTutorName->name }}</small>
-                                            <small class="lecture-duration d-block">{{ $liked_course->created_at->format('Y-m-d') }}</small>
+                                    <a href="{{ route('online_course_detail',$liked_course->getLikedCourse->id) }}" style="color: black;;">
+                                        <div class="lecture-box" style="height: 300px;">
+                                            <img src="{{ asset('storage/course/thumbnail/' . $liked_course->getLikedCourse->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
+                                            <div class="lecture_box_content">
+                                                <h6 class="lecture_title"> {{$liked_course->getLikedCourse->course_title}}</h6>
+                                                <small class="d-block text-muted mb-2 lecture_info">{{ $liked_course->getLikedCourse->getCategoryName->name }} l
+                                                    {{ $liked_course->getLikedCourse->getTutorName->name }}</small>
+                                                <small class="lecture-duration d-block">{{ $liked_course->created_at->format('Y-m-d') }}</small>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 @else
                                 <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box" style="height: 300px;">
-                                        <img src="{{ asset('storage/course/thumbnail/' . $liked_course->getLikedCourse->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content">
-                                            <h6 class="lecture_title"> {{$liked_course->getOfflineLikedCourse->course_title}}</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">{{ $liked_course->getOfflineLikedCourse->getCategoryName->name }} l
-                                                {{ $liked_course->getOfflineLikedCourse->getTutorName->name }}</small>
-                                            <small class="lecture-duration d-block">{{ $liked_course->created_at->format('Y-m-d') }}</small>
+                                    <a href="{{ route('offline_lecture_detail',$liked_course->getOfflineLikedCourse->id) }}" style="color: black;">
+                                        <div class="lecture-box" style="height: 300px;">
+                                            <img src="{{ asset('storage/course/thumbnail/' . $liked_course->getLikedCourse->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
+                                            <div class="lecture_box_content">
+                                                <h6 class="lecture_title"> {{$liked_course->getOfflineLikedCourse->course_title}}</h6>
+                                                <small class="d-block text-muted mb-2 lecture_info">{{ $liked_course->getOfflineLikedCourse->getCategoryName->name }} l
+                                                    {{ $liked_course->getOfflineLikedCourse->getTutorName->name }}</small>
+                                                <small class="lecture-duration d-block">{{ $liked_course->created_at->format('Y-m-d') }}</small>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 </div>
                                 @endif
                                 @endforeach
