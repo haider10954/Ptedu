@@ -13,7 +13,8 @@
                         <li><a href="https://www.facebook.com/PTEdu2016"><i class="fab fa-facebook"></i></a></li>
                         <li><a href="https://www.instagram.com/ptedu.official/?igshid=MDM4ZDc5MmU%3D"><i class="fab fa-instagram"></i></a></li>
                     </ul>
-                    <a class="mb-0 text-white" href="http://pf.kakao.com/_xjKnpd">{{ __('translation.Add KakaoTalk') }}</a>   
+                    <a href="http://pf.kakao.com/_xjKnpd"><img style="height: 35px;" src="{{ asset('web_assets/images/question_large_mono_mobile.png') }}" /></a>
+
                 </div>
             </div>
         </div>

@@ -190,32 +190,43 @@
                     </div>
                     <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
                         <div class="custom-tab-content">
-                            <h6 class="content-heading">{{ __('translation.Lecture on “Like”') }} (2)</h6>
+                            <h6 class="content-heading">{{ __('translation.Lecture on “Like”') }} ({{ $liked_courses->count() }})</h6>
                             <div class="row">
+                                @if ($liked_courses->count() > 0)
+                                @foreach ($liked_courses as $liked_course)
+                                @if ($liked_course->type == 'online')
                                 <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('web_assets/images/lecture_img.png') }}" class="lecture_img img-fluid" alt="lecture_img">
+                                    <div class="lecture-box" style="height: 300px;">
+                                        <img src="{{ asset('storage/course/thumbnail/' . $liked_course->getLikedCourse->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                         <div class="lecture_box_content">
-                                            <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                - Melissa Devidson</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l
-                                                Tutor Name</small>
-                                            <small class="lecture-duration d-block">2022-10-12 ~ 2022-11-30</small>
+                                            <h6 class="lecture_title"> {{$liked_course->getLikedCourse->course_title}}</h6>
+                                            <small class="d-block text-muted mb-2 lecture_info">{{ $liked_course->getLikedCourse->getCategoryName->name }} l
+                                                {{ $liked_course->getLikedCourse->getTutorName->name }}</small>
+                                            <small class="lecture-duration d-block">{{ $liked_course->created_at->format('Y-m-d') }}</small>
                                         </div>
                                     </div>
                                 </div>
+                                @else
                                 <div class="col-lg-3 col-md-4 col-12">
-                                    <div class="lecture-box">
-                                        <img src="{{ asset('web_assets/images/lecture_img_2.png') }}" class="lecture_img img-fluid" alt="lecture_img">
+                                    <div class="lecture-box" style="height: 300px;">
+                                        <img src="{{ asset('storage/course/thumbnail/' . $liked_course->getLikedCourse->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                         <div class="lecture_box_content">
-                                            <h6 class="lecture_title">[2022 PTedu] pelvic healthe Integration
-                                                - Melissa Devidson</h6>
-                                            <small class="d-block text-muted mb-2 lecture_info">Physical Teraphy l
-                                                Tutor Name</small>
-                                            <small class="lecture-duration d-block">2022-10-12 ~ 2022-11-30</small>
+                                            <h6 class="lecture_title"> {{$liked_course->getOfflineLikedCourse->course_title}}</h6>
+                                            <small class="d-block text-muted mb-2 lecture_info">{{ $liked_course->getOfflineLikedCourse->getCategoryName->name }} l
+                                                {{ $liked_course->getOfflineLikedCourse->getTutorName->name }}</small>
+                                            <small class="lecture-duration d-block">{{ $liked_course->created_at->format('Y-m-d') }}</small>
                                         </div>
                                     </div>
                                 </div>
+                                @endif
+                                @endforeach
+                                @else
+                                <div class="col-lg-12 col-md-12 col-12">
+                                    <div class="text-center mt-3 mb-3">No record Found</div>
+                                </div>
+                                @endif
+
+
                             </div>
                         </div>
                     </div>

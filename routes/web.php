@@ -138,11 +138,15 @@ Route::middleware('auth')->group(function () {
     //certificate
     Route::post('certificate', [CertificateController::class, 'check_completed_courses'])->name('completed-courses-certificate');
 
-    Route::post('proceed-payment',[CartController::class,'proceed_payment'])->name('proceed_payment');
+    Route::post('proceed-payment', [CartController::class, 'proceed_payment'])->name('proceed_payment');
 
-    Route::post('check-payment',[CartController::class,'check_payment'])->name('check_payment');
+    Route::post('check-payment', [CartController::class, 'check_payment'])->name('check_payment');
 
-    Route::view('payment-status','user.payment_status')->name('payment_status');
+    Route::view('payment-status', 'user.payment_status')->name('payment_status');
+
+    // Like Course
+    Route::post('/like-course', [UserCourseController::class, 'like_courses'])->name('like-course');
+    Route::post('/dislike-course', [UserCourseController::class, 'dislike_courses'])->name('dislike-course');
 });
 
 Route::get('get_duration/{url}', [CourseController::class, 'get_duration'])->name('get_duration');
@@ -283,7 +287,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/payment', [OrderController::class, 'order_listing'])->name('payment');
         Route::post('/delete-order', [OrderController::class, 'delete_order'])->name('delete-order');
         Route::post('/update-order-status', [OrderController::class, 'update_order_status'])->name('update-order-status');
-        Route::get('/payment/view_payment/{id}',[OrderController::class, 'view_payment'])->name('view_payment');
+        Route::get('/payment/view_payment/{id}', [OrderController::class, 'view_payment'])->name('view_payment');
 
         //Inquiry
         Route::get('/inquiry', [InquiryController::class, 'inquiry_listing_admin'])->name('inquiry');
@@ -321,6 +325,8 @@ Route::prefix('admin')->group(function () {
         //Settings
         Route::get('/settings', [AuthController::class, 'admin_profile'])->name('settings');
         Route::post('/update-admin-profile', [AuthController::class, 'update_admin_profile'])->name('update-admin-profile');
+
+        
     });
 });
 

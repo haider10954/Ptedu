@@ -39,32 +39,39 @@ $cartBtn = 0;
                         <p class="mb-0 text">{{ number_format($course_info->price) }}{{ __('translation.won') }}</p>
                     </div>
                     @if (!empty($cart))
-                        @foreach ($cart as $v)
-                            @if (($v['type'] == 'online') && ($v['course_id'] == $course_info->id))
-                                @php
-                                    $cartBtn = 0;
-                                @endphp
-                            @else
-                                @php
-                                    $cartBtn = 1;
-                                @endphp
-                            @endif
-                        @endforeach    
+                    @foreach ($cart as $v)
+                    @if (($v['type'] == 'online') && ($v['course_id'] == $course_info->id))
+                    @php
+                    $cartBtn = 0;
+                    @endphp
                     @else
-                        @php
-                            $cartBtn = 1;
-                        @endphp
+                    @php
+                    $cartBtn = 1;
+                    @endphp
+                    @endif
+                    @endforeach
+                    @else
+                    @php
+                    $cartBtn = 1;
+                    @endphp
                     @endif
 
                     @if ($cartBtn == 1)
-                        <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn  shopping_cart_btn" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn  shopping_cart_btn" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                     @else
-                        <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black;" disabled>{{ __('translation.Add to cart') }}</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black;" disabled>{{ __('translation.Add to cart') }}</button>
                     @endif
                     <div class="d-flex align-items-center justify-content-between">
                         <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
                         <p class="mb-0 text">{{ $course_info->duration_of_course }} 주</p>
                     </div>
+                    @if (auth()->check())
+                    @if ($liked_course)
+                    <button class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">Already Liked</button>
+                    @else
+                    <button class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">Like This Course</button>
+                    @endif
+                    @endif
                 </div>
             </div>
         </div>
@@ -215,6 +222,58 @@ $cartBtn = 0;
                     $('.shopping_cart_count').html(res.cart_items_count);
                 } else {
                     btn.html(`<i class="fa fa-times mx-1"></i> ${res.Msg}`);
+                }
+            },
+            error: function(e) {}
+        });
+    });
+
+    $('.like_course').on('click', function(e) {
+        e.preventDefault();
+        var btn = $(this);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('like-course') }}",
+            dataType: 'json',
+            data: {
+                'course_id': $(this).data('id'),
+                'type': $(this).data('type'),
+                '_token': '{{ csrf_token() }}'
+            },
+            beforeSend: function() {
+                btn.prop('disabled', true);
+                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
+            },
+            success: function(res) {
+                if (res.success == true) {
+                    btn.prop('disabled', false);
+                    btn.html('Already Liked');
+                }
+            },
+            error: function(e) {}
+        });
+    });
+
+    $('.dislike_course').on('click', function(e) {
+        e.preventDefault();
+        var btn = $(this);
+        $.ajax({
+            type: "POST",
+            url: "{{ route('dislike-course') }}",
+            dataType: 'json',
+            data: {
+                'course_id': $(this).data('id'),
+                'type': $(this).data('type'),
+                '_token': '{{ csrf_token() }}'
+            },
+            beforeSend: function() {
+                btn.prop('disabled', true);
+                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
+            },
+            success: function(res) {
+                if (res.success == true) {
+                    btn.prop('disabled', false);
+                    btn.html('Like This Course');
                 }
             },
             error: function(e) {}
