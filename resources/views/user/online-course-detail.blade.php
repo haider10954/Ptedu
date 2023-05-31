@@ -269,6 +269,7 @@ $liked = 0;
                     if (res.success == true) {
                         var btn_div = element;
                         btn_div.html('이미 찜리스트에 추가되었습니다');
+                        btn_div.css('font-size','12px');
                         btn_div.addClass('dislike_course');
                         btn_div.removeClass('like_course');
                         // btn_div.attr('data-id', btn.attr('data-id'));
@@ -289,10 +290,6 @@ $liked = 0;
                     '_token': '{{ csrf_token() }}'
                 },
                 beforeSend: function() {
-
-
-
-                    // btn.prop('disabled', true);
                     btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
                 },
                 success: function(res) {
@@ -303,7 +300,6 @@ $liked = 0;
                         btn_div.html('찜하기');
                         btn_div.addClass('like_course');
                         btn_div.removeClass('dislike_course');
-                        // btn_div.attr('data-id', btn.attr('data-id'));
 
                     }
                 },

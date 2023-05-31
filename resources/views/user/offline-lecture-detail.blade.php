@@ -429,6 +429,7 @@ $liked = 0;
                 success: function(res) {
                     if (res.success == true) {
                         var btn_div = element;
+                        btn_div.css('font-size','12px');
                         btn_div.html('이미 찜리스트에 추가되었습니다');
                         btn_div.addClass('dislike_course');
                         btn_div.removeClass('like_course');
