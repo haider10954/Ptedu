@@ -12,6 +12,7 @@ use App\Models\Offline_enrollment;
 use App\Models\Course_tracking;
 use Illuminate\Support\Facades\Log;
 use App\Models\Transaction;
+use App\Models\Virtual_payment;
 
 class CartController extends Controller
 {
@@ -428,5 +429,23 @@ class CartController extends Controller
     public function check_payment(Request $request){
         $shopping_cart = session()->get('shopping_cart');
         dd(auth()->id());
+    }
+
+    public function virtual_payment_callback(Request $request){
+        try {
+            $response_data = json_encode($request->all());
+            $save_res = Virtual_payment::create([
+                'response_data' => $response_data
+            ]);
+            return json_encode([
+                'success' => true,
+                'message' => 'Callback execulted successfully'
+            ]);
+        } catch (\Throwable $th) {
+            return json_encode([
+                'success' => false,
+                'message' => 'Error : Callback execution failed'
+            ]);
+        }
     }
 }
