@@ -1,6 +1,6 @@
 @extends('user.layout')
 
-@section('title', 'ptedu - Lecture Detial')
+@section('title', 'ptedu - Lecture detail')
 
 @section('content')
 @php
