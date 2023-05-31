@@ -79,9 +79,9 @@
                         </div>
                         @if (auth()->check())
                         @if ($liked_course)
-                        <button class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black; font-size: 12px;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다.</button>
+                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black; font-size: 12px;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다.</button>
                         @else
-                        <button class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
+                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
                         @endif
                         @endif
                 </div>
@@ -234,10 +234,21 @@
         </div>
     </div>
 </div>
+@php
+$liked =1;
+if(empty($liked_course))
+{
+$liked = 0;
+}
+@endphp
+
 @endsection
 
 @section('custom-script')
 <script>
+
+    var like = '{{$liked}}';
+
     $('.applyBtn').on('click', function() {
         $('#confirmReserveId').val($(this).attr('data-id'));
 
@@ -399,56 +410,60 @@
     $('.banner_text iframe').attr('height', '');
 
 
-    $('.like_course').on('click', function(e) {
-        e.preventDefault();
-        var btn = $(this);
-        $.ajax({
-            type: "POST",
-            url: "{{ route('like-course') }}",
-            dataType: 'json',
-            data: {
-                'course_id': $(this).data('id'),
-                'type': $(this).data('type'),
-                '_token': '{{ csrf_token() }}'
-            },
-            beforeSend: function() {
-                btn.prop('disabled', true);
-                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
-            },
-            success: function(res) {
-                if (res.success == true) {
-                    btn.prop('disabled', false);
-                    btn.html('Already Liked');
-                }
-            },
-            error: function(e) {}
-        });
-    });
+    function LikeDislike(element) {
+        var btn = element;
 
-    $('.dislike_course').on('click', function(e) {
-        e.preventDefault();
-        var btn = $(this);
-        $.ajax({
-            type: "POST",
-            url: "{{ route('dislike-course') }}",
-            dataType: 'json',
-            data: {
-                'course_id': $(this).data('id'),
-                'type': $(this).data('type'),
-                '_token': '{{ csrf_token() }}'
-            },
-            beforeSend: function() {
-                btn.prop('disabled', true);
-                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
-            },
-            success: function(res) {
-                if (res.success == true) {
-                    btn.prop('disabled', false);
-                    btn.html('찜하기');
-                }
-            },
-            error: function(e) {}
-        });
-    });
+        if (like != 1) {
+            $.ajax({
+                type: "POST",
+                url: "{{ route('like-course') }}",
+                dataType: 'json',
+                data: {
+                    'course_id': element.data('id'),
+                    'type': element.data('type'),
+                    '_token': '{{ csrf_token() }}'
+                },
+                beforeSend: function() {
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
+                },
+                success: function(res) {
+                    if (res.success == true) {
+                        var btn_div = element;
+                        btn_div.html('이미 찜리스트에 추가되었습니다');
+                        btn_div.addClass('dislike_course');
+                        btn_div.removeClass('like_course');
+                        like = 1;
+                    }
+                },
+                error: function(e) {}
+            });
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "{{ route('dislike-course') }}",
+                dataType: 'json',
+                data: {
+                    'course_id': element.data('id'),
+                    'type': element.data('type'),
+                    '_token': '{{ csrf_token() }}'
+                },
+                beforeSend: function() {
+                    btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
+                },
+                success: function(res) {
+                    if (res.success == true) {
+
+                        like = 0;
+                        var btn_div = element;
+                        btn_div.html('찜하기');
+                        btn_div.addClass('like_course');
+                        btn_div.removeClass('dislike_course');
+                    }
+                },
+                error: function(e) {}
+            });
+        }
+
+    }
 </script>
 @endsection
