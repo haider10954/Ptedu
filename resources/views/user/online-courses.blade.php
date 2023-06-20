@@ -3,7 +3,7 @@
 @section('title', 'ptedu - Online Lectures')
 
 @section('content')
-<div class="section pt-150 lectures_section bg-grey">
+<div class="section pt-150 lectures_section bg-white">
     <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between">
             <h5 class="mb-0">{{ __('translation.Online Courses') }}</h5>

@@ -272,12 +272,12 @@
             data: formData,
             mimeType: "multipart/form-data",
             beforeSend: function() {
-                $("#submitForm").html('<i class="bi bi-arrow-clockwise"></i>');
+                $("#submitForm").html('<i class="bi bi-arrow-clockwise"></i> 저장');
                 $(".error-message").hide();
             },
             success: function(res) {
 
-                $("#submitForm").html('<class="btn btn-dark">도서 추가</>');
+                $("#submitForm").html('저장');
                 if (res.success) {
                     $('.prompt').html('<div class="alert alert-info mb-3">' + res.message + '</div>');
                     $('html, body').animate({
@@ -289,7 +289,7 @@
                 } else {}
             },
             error: function(e) {
-                $("#submitForm").html('<class="btn btn-lg btn-register">Register</>');
+                $("#submitForm").html('저장');
                 if (e.responseJSON.errors['course_title']) {
                     $('.error-course-title').html('<span class=" error-message text-danger">' + e.responseJSON.errors['course_title'][0] + '</span>');
                 }

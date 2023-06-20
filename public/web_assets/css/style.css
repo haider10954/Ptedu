@@ -901,6 +901,10 @@ header .btn.transparent,
     background-color: rgb(205, 206, 207);
 }
 
+.bg-white {
+    background-color: #fff;
+}
+
 .custom-pagination {
     display: flex;
     align-items: center;
