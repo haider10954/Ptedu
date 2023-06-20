@@ -112,7 +112,7 @@
                                         <h4 class="mb-3">실시간 강좌 <i class="fas fa-arrow-circle-right"></i></h4>
                                     </a>
                                     <a class="text-decoration-none" href="{{ route('online_courses_listing') }}">
-                                        <h4 class="mb-3">{{ __('translation.Online') }} <i class="fas fa-arrow-circle-right"></i></h4>
+                                        <h4 class="mb-3">Special Lecture <i class="fas fa-arrow-circle-right"></i></h4>
                                     </a>
                                 </div>
                             </div>
@@ -153,7 +153,7 @@
                                         <h4 class="mb-3">실시간 강좌<i class="fas fa-arrow-circle-right"></i></h4>
                                     </a>
                                     <a class="text-decoration-none" href="{{ route('online_courses_listing') }}">
-                                        <h4 class="mb-3">{{ __('translation.Online') }} <i class="fas fa-arrow-circle-right"></i></h4>
+                                        <h4 class="mb-3">Special Lecture <i class="fas fa-arrow-circle-right"></i></h4>
                                     </a>
                                 </div>
                             </div>
