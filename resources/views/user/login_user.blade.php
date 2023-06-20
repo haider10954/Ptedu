@@ -3,42 +3,44 @@
 @section('title' , 'PTEdu | Login')
 
 @section('content')
-<div class="section pt-150">
-    <div class="container">
-        <div class="m-auto form-wrapper">
-            <h3 class=" heading-h3 mb-4 text-center">Login</h3>
-            <div class="prompt"></div>
-            <form type="POST" id="loginForm">
-                @csrf
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="email" />
-                    <div class="error-email"></div>
-                </div>
-
-                <div class="form-group position-relative">
-                    <input type="password" class="form-control" placeholder="{{ __('translation.Enter Password') }}" name="password" id="password" />
-                    <i class="fa fa-eye password-icon" id="togglePassword"></i>
-                    <div class="error-password"></div>
-                </div>
-
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-login">{{ __('translation.Login') }}</a>
-                </div>
-
-                <div class="d-flex align-items-center justify-content-between p-3 mt-0 mb-2" style="border-bottom: 1px solid #191B1D;">
-                    <div>
-                        <a href="{{ route('user_register') }}" class="text-dark text-decoration-none">{{ __('translation.Register') }}</a>
+<div style="min-height: 75vh;">
+    <div class="section pt-150">
+        <div class="container">
+            <div class="m-auto form-wrapper">
+                <h3 class=" heading-h3 mb-4 text-center">Login</h3>
+                <div class="prompt"></div>
+                <form type="POST" id="loginForm">
+                    @csrf
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="email" />
+                        <div class="error-email"></div>
                     </div>
 
-                    <div>
-                        <a href="{{ route('find_id') }}" class="text-dark text-decoration-none">{{ __('translation.Find ID') }}</a>
+                    <div class="form-group position-relative">
+                        <input type="password" class="form-control" placeholder="{{ __('translation.Enter Password') }}" name="password" id="password" />
+                        <i class="fa fa-eye password-icon" id="togglePassword"></i>
+                        <div class="error-password"></div>
                     </div>
 
-                    <div>
-                        <a href="{{ route('find_password') }}" class="text-dark text-decoration-none">{{ __('translation.Find PW') }}</a>
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-login">{{ __('translation.Login') }}</a>
                     </div>
-                </div>
-            </form>
+
+                    <div class="d-flex align-items-center justify-content-between p-3 mt-0 mb-2" style="border-bottom: 1px solid #191B1D;">
+                        <div>
+                            <a href="{{ route('user_register') }}" class="text-dark text-decoration-none">{{ __('translation.Register') }}</a>
+                        </div>
+
+                        <div>
+                            <a href="{{ route('find_id') }}" class="text-dark text-decoration-none">{{ __('translation.Find ID') }}</a>
+                        </div>
+
+                        <div>
+                            <a href="{{ route('find_password') }}" class="text-dark text-decoration-none">{{ __('translation.Find PW') }}</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
