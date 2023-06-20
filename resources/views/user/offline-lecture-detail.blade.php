@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="section lecture_banner_section">
-    <div class="lecture_banner_img" style="background-image: url({{ asset('storage/offline_course/banner/' . $course_info->course_banner) }})"></div>
+    <div class="lecture_banner_img" style="  background-color: #191B2D;"></div>
     <div class="banner_text">
         @if ($embedded_video_url != false)
         {!! $embedded_video_url !!}
