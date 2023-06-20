@@ -4,7 +4,7 @@
 
         <div class="logo-container">
             <h3 class="logo">
-                <a class="text-decoration-none text-dark" href="{{ route('web-home') }}">PTEdu<sub>®</sub> </a>
+                <a class="text-decoration-none text-dark" href="{{ route('web-home') }}"><img src="{{ asset('web_assets/images/ptedu_logo.png') }}" style="  height: 30px;width: 100%;" /></a>
             </h3>
         </div>
 
@@ -12,7 +12,7 @@
             <div class="nav-links navigation-mobile">
                 <ul>
                     <li class="nav-link" style="--i: 1.1s">
-                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Expert course') }}<i class="fas fa-angle-down"></i></a>
+                        <a href="javascript:void(0)" class="text-decoration-none">온라인 강좌</a>
                         <div class="dropdown">
                             <ul>
                                 <li class="dropdown-link">
@@ -49,7 +49,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: .85s">
-                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Public course') }}<i class="fas fa-angle-down"></i></a>
+                        <a href="javascript:void(0)" class="text-decoration-none">오프라인 강좌</a>
                         <div class="dropdown">
                             <ul>
                                 @foreach ($online_public_courses as $public_courses)
@@ -62,7 +62,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="{{ route('about_us') }}" class="text-decoration-none">PTEdu</a>
+                        <a href="{{ route('about_us') }}" class="text-decoration-none">피티에듀</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ route('review') }}" class="text-decoration-none">{{ __('translation.Review') }}</a>
@@ -78,7 +78,7 @@
             <div class="nav-links navigation-desktop">
                 <ul>
                     <li class="nav-link has-megamenu" style="--i: 1.1s">
-                        <a href="#" class="text-decoration-none">{{ __('translation.Expert course') }}<i class="fas fa-angle-down"></i></a>
+                        <a href="javascript:void(0)" class="text-decoration-none">온라인 강좌</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
@@ -119,7 +119,7 @@
                         </div>
                     </li>
                     <li class="nav-link has-megamenu" style="--i: .85s">
-                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Public course') }} <i class="fas fa-angle-down"></i></a>
+                        <a href="javascript:void(0)" class="text-decoration-none">오프라인 강좌</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
@@ -160,7 +160,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="{{ route('about_us')}}" class="text-decoration-none">PTEdu</a>
+                        <a href="{{ route('about_us')}}" class="text-decoration-none">피티에듀</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ route('review')}}" class="text-decoration-none">{{ __('translation.Review') }}</a>
@@ -171,9 +171,9 @@
                 </ul>
             </div>
             <div class="log-sign" style="--i: 1.8s">
-                 @if(auth()->check())
-                 <a href="{{ route('shopping_bag') }}" class="btn solid shopping_cart_btn"><span class="shopping_cart_count" data-items-count="{{ count(session('shopping_cart') ?? []) }}">{{ count(session('shopping_cart') ?? []) }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-               
+                @if(auth()->check())
+                <a href="{{ route('shopping_bag') }}" class="btn solid shopping_cart_btn"><span class="shopping_cart_count" data-items-count="{{ count(session('shopping_cart') ?? []) }}">{{ count(session('shopping_cart') ?? []) }}</span> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+
                 <div class="dropdown_header">
                     <button onclick="myFunction()" class="btn solid"><i class="fa fa-user" aria-hidden="true"></i></button>
                     <div id="myDropdown" class="dropdown-content">
