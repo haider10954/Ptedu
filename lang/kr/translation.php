@@ -364,7 +364,7 @@ return [
     'Order Status has been updated successfully' => '주문 상태가 성공적으로 업데이트되었습니다.',
     'Review Added' => '리뷰가 추가됨',
     'Offline Course has been added successfully' => '오프라인 과정이 성공적으로 추가되었습니다',
-    'Offline Course has been deleted Successfully' => '오프라인 과정이 성공적으로 삭제되었습니다.',
+    'Offline Course has been deleted Successfully' => '온라인 과정이 성공적으로 삭제되었습니다.',
     'Offline course has been updated successfully' => '오프라인 과정이 성공적으로 업데이트되었습니다.',
     'Video Not Found' => '비디오를 찾을 수 없습니다',
     'The beginning of' => '의 시작',

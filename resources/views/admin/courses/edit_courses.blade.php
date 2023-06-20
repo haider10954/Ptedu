@@ -547,7 +547,7 @@
                 mimeType: "multipart/form-data",
                 beforeSend: function() {
                     $("#submitForm").prop('disabled', true);
-                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
+                    $("#submitForm").html('<i class="fa fa-spinner fa-spin me-1"></i> 저장');
                     $(".error-message").hide();
                 },
                 success: function(res) {
@@ -575,7 +575,7 @@
                 },
                 error: function(e) {
                     $("#submitForm").prop('disabled', false);
-                    $("#submitForm").html('등록하다');
+                    $("#submitForm").html('저장');
                     if (e.responseJSON.errors['course_type']) {
                         $('.error-course-type').html('<small class=" error-message text-danger">' + e
                             .responseJSON.errors['course_type'][0] + '</small>');

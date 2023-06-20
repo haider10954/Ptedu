@@ -575,8 +575,8 @@ header .btn.transparent,
 .course-detail-img {
     height: 250px;
     width: 419px;
-    object-fit: cover;
-    background-color: #f2f2f2;
+    object-fit: contain;
+    background-color: #a6a4a4;
 }
 
 .course-review-img {
@@ -1507,7 +1507,8 @@ header .btn.transparent,
 .offline-course-img {
     height: 200px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    background-color: #d9d9d9;;
 }
 
 .text-theme-dark {
