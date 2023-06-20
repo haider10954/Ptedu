@@ -49,7 +49,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: .85s">
-                        <a href="javascript:void(0)" class="text-decoration-none">오프라인 강좌</a>
+                        <a href="{{ route('offline_lectures') }}" class="text-decoration-none">오프라인 강좌</a>
                         <div class="dropdown">
                             <ul>
                                 @foreach ($online_public_courses as $public_courses)
@@ -108,8 +108,8 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
-                                    <a class="text-decoration-none" href="{{ route('offline_lectures') }}">
-                                        <h4 class="mb-3">{{ __('translation.Offline') }} <i class="fas fa-arrow-circle-right"></i></h4>
+                                    <a class="text-decoration-none" href="{{ route('online_courses_listing') }}">
+                                        <h4 class="mb-3">실시간 강좌 <i class="fas fa-arrow-circle-right"></i></h4>
                                     </a>
                                     <a class="text-decoration-none" href="{{ route('online_courses_listing') }}">
                                         <h4 class="mb-3">{{ __('translation.Online') }} <i class="fas fa-arrow-circle-right"></i></h4>
@@ -119,7 +119,7 @@
                         </div>
                     </li>
                     <li class="nav-link has-megamenu" style="--i: .85s">
-                        <a href="javascript:void(0)" class="text-decoration-none">오프라인 강좌</a>
+                        <a href="{{ route('offline_lectures') }}" class="text-decoration-none">오프라인 강좌</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
@@ -149,8 +149,8 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
-                                    <a class="text-decoration-none" href="{{ route('offline_lectures') }}">
-                                        <h4 class="mb-3">{{ __('translation.Offline') }} <i class="fas fa-arrow-circle-right"></i></h4>
+                                    <a class="text-decoration-none" href="{{ route('online_courses_listing') }}">
+                                        <h4 class="mb-3">실시간 강좌<i class="fas fa-arrow-circle-right"></i></h4>
                                     </a>
                                     <a class="text-decoration-none" href="{{ route('online_courses_listing') }}">
                                         <h4 class="mb-3">{{ __('translation.Online') }} <i class="fas fa-arrow-circle-right"></i></h4>
