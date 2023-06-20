@@ -1508,7 +1508,8 @@ header .btn.transparent,
     height: 200px;
     width: 100%;
     object-fit: contain;
-    background-color: #d9d9d9;;
+    background-color: #d9d9d9;
+    ;
 }
 
 .text-theme-dark {
@@ -1683,7 +1684,9 @@ header .btn.transparent,
 }
 
 .courses-type .swiper-slide {
-    border: 1px solid #AFB0B4;
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .mb-120 {
