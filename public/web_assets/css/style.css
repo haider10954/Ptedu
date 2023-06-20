@@ -1835,20 +1835,20 @@ header .btn.transparent,
     }
 }
 
-.about_us_image{
+.about_us_image {
     display: block;
 }
 
-.about_us_image_mobile{
+.about_us_image_mobile {
     display: none;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 767px) {
     .about_us_image {
-      display: none;
+        display: none;
     }
 
-    .about_us_image_mobile{
+    .about_us_image_mobile {
         display: block;
     }
 
