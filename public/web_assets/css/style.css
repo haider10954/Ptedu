@@ -1859,5 +1859,5 @@ header .btn.transparent,
 }
 
 .ckeditor_description img {
-    width: 100%;
+    width: 100% !important;
 }
