@@ -45,7 +45,7 @@
             @endforeach
             @else
             <tr>
-                <td colspan="5" class="text-center">
+                <td colspan="8" class="text-center">
                     <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 250px;">
                 </td>
             </tr>
