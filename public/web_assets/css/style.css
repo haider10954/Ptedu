@@ -1857,3 +1857,7 @@ header .btn.transparent,
     }
 
 }
+
+.ckeditor_description img {
+    width: 100%;
+}

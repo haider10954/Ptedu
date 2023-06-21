@@ -70,10 +70,10 @@ $cartBtn = 0;
                     <div class="btn_parent">
                         @if ($liked_course)
 
-                        <button  onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black; font-size: 12px;" data-type="online" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다</button>
+                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black; font-size: 12px;" data-type="online" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다</button>
                         @else
 
-                        <button  onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
+                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
                         @endif
                     </div>
                     @endif
@@ -81,120 +81,122 @@ $cartBtn = 0;
             </div>
         </div>
         <div class="w-80 m-auto py-4">
-            {{-- <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
+            <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('translation.Course Introduction') }}</a>
-            </li>
-            <li class="nav-item">
+                </li>
+                {{-- <li class="nav-item">
                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">{{ __('translation.Instructor Introduction') }}</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture Review') }}</a>
-            </li>
-            </ul> --}}
+                </li> --}}
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture Review') }}</a>
+                </li>
+            </ul>
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    {!! $course_info->description !!}
+                    <div class="ckeditor_description">
+                        {!! $course_info->description !!}
+                    </div>
                 </div>
-                {{-- <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                {{--<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
                     <table class="table">
                         <tbody>
                             <tr>
                                 <td>
                                     <p class="mb-0 text font-weight-bold">{{ __('translation.Name') }}</p>
-                </td>
-                <td>
-                    <p class="mb-0 text">{{ $course_info->getTutorName->name }}</p>
-                </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="mb-0 text font-weight-bold">{{ __('translation.Email') }}</p>
-                    </td>
-                    <td>
-                        <p class="mb-0 text">{{ $course_info->getTutorName->email }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="mb-0 text font-weight-bold">{{ __('translation.Phone Number') }}</p>
-                    </td>
-                    <td>
-                        <p class="mb-0 text">{{ $course_info->getTutorName->mobile_number }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="mb-0 text font-weight-bold">{{ __('translation.Designation') }}</p>
-                    </td>
-                    <td>
-                        <p class="mb-0 text">{{ $course_info->getTutorName->job }}</p>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <p class="mb-0 text font-weight-bold">{{ __('translation.Address') }}</p>
-                    </td>
-                    <td>
-                        <p class="mb-0 text">{{ $course_info->getTutorName->address }}</p>
-                    </td>
-                </tr>
-                </tbody>
-                </table>
-            </div>
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                @if($reviews->count() > 0)
-                @foreach($reviews as $r)
-                <div class="review_box mb-3">
-                    <div class="d-flex mb-2 align-items-center justify-content-between">
-                        <small class="text-muted">{{ $r->created_at->format('Y.m.d') }}</small>
-                        <div class="d-flex align-items-center gap-1 rating-stars">
-                            @if($r->rating == 1)
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            @elseif($r->rating == 2)
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            @elseif($r->rating == 3)
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <i class="far fa-star"></i>
-                            @elseif($r->rating == 4)
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            @else
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            @endif
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->name }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Email') }}</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->email }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Phone Number') }}</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->mobile_number }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Designation') }}</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->job }}</p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Address') }}</p>
+                                </td>
+                                <td>
+                                    <p class="mb-0 text">{{ $course_info->getTutorName->address }}</p>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>--}}
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    @if($reviews->count() > 0)
+                    @foreach($reviews as $r)
+                    <div class="review_box mb-3">
+                        <div class="d-flex mb-2 align-items-center justify-content-between">
+                            <small class="text-muted">{{ $r->created_at->format('Y.m.d') }}</small>
+                            <div class="d-flex align-items-center gap-1 rating-stars">
+                                @if($r->rating == 1)
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($r->rating == 2)
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($r->rating == 3)
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @elseif($r->rating == 4)
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                @else
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                @endif
+                            </div>
                         </div>
+                        <p class="font-weight-600 mb-2">{{ $r->title }}.</p>
+                        <p class="mb-0">{{ $r->content }}</p>
                     </div>
-                    <p class="font-weight-600 mb-2">{{ $r->title }}.</p>
-                    <p class="mb-0">{{ $r->content }}</p>
+                    @endforeach
+                    @else
+                    <div class="text-center">
+                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                    </div>
+                    @endif
                 </div>
-                @endforeach
-                @else
-                <div class="text-center">
-                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
-                </div>
-                @endif
-            </div> --}}
+            </div>
         </div>
     </div>
-</div>
 </div>
 @php
 $liked =1;
@@ -269,7 +271,7 @@ $liked = 0;
                     if (res.success == true) {
                         var btn_div = element;
                         btn_div.html('이미 찜리스트에 추가되었습니다');
-                        btn_div.css('font-size','12px');
+                        btn_div.css('font-size', '12px');
                         btn_div.addClass('dislike_course');
                         btn_div.removeClass('like_course');
                         // btn_div.attr('data-id', btn.attr('data-id'));
