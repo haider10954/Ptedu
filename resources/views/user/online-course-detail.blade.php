@@ -36,11 +36,11 @@ $cartBtn = 0;
                 <div class="col-lg-3">
                     <div class="d-flex align-items-center justify-content-between">
                         <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
-                        <p class="mb-0 text">{{ number_format($course_info->price) }}{{ __('translation.won') }}</p>
+                        <p class="mb-0 text text-bold">{{ number_format($course_info->price) }}{{ __('translation.won') }}</p>
                     </div>
                     <div class="d-flex align-items-center justify-content-between">
                         <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
-                        <p class="mb-0 text">{{ $course_info->duration_of_course }} 주</p>
+                        <p class="mb-0 text text-bold">{{ $course_info->duration_of_course }} 주</p>
                     </div>
                     @if (!empty($cart))
                     @foreach ($cart as $v)
@@ -84,13 +84,13 @@ $cartBtn = 0;
         <div class="w-80 m-auto py-4">
             <ul class="nav nav-pills mb-40 nav_tabs" id="pills-tab" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('translation.Course Introduction') }}</a>
+                    <a class="nav-link active text-bold" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">{{ __('translation.Course Introduction') }}</a>
                 </li>
                 {{-- <li class="nav-item">
                 <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">{{ __('translation.Instructor Introduction') }}</a>
                 </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture Review') }}</a>
+                    <a class="nav-link text-bold" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">{{ __('translation.Lecture Review') }}</a>
                 </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">

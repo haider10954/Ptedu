@@ -456,6 +456,8 @@ header .btn.transparent,
         opacity: 0;
         transform: translateY(15px);
     }
+
+
 }
 
 .banner_area {
@@ -1877,8 +1879,16 @@ header .btn.transparent,
         font-size: 1rem;
     }
 
+    .hamburger-menu-container a {
+        display: none;
+    }
+
 }
 
 .ckeditor_description img {
     width: 100% !important;
+}
+
+.text-bold {
+    font-weight: bold !important;
 }
