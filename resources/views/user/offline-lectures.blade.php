@@ -89,7 +89,7 @@
         if (hiddenCount == $('.searchable').length) {
             $('.no-records').html(`
                     <div id="no_record" class="text-center">
-                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;object-fit: cover;">
                     </div>
                 `);
         } else {
