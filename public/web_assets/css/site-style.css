@@ -530,6 +530,10 @@
     .padding-left {
         padding-left: 15px;
     }
+
+    .font-14px{
+        font-size: 9px;
+    }
 }
 
 .password-icon {
