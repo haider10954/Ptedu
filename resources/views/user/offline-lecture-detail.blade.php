@@ -45,6 +45,10 @@
                         <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
                         <p class="mb-0 text">{{ number_format($course_info->price) }}{{ __('translation.won') }}</p>
                     </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
+                        <p class="mb-0 text">{{ $course_info->duration_of_course }} 주</p>
+                    </div>
                     @if (auth()->check())
                     @if ($enrolled_user == 0)
                     @if ($offline_enrollment_count >= $course_info->no_of_enrollments)
@@ -73,10 +77,7 @@
                         <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black; color:white !important;" diabled>Limit Reached</button>
                         @endif
                         @endif
-                        <div class="d-flex align-items-center justify-content-between">
-                            <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
-                            <p class="mb-0 text">{{ $course_info->duration_of_course }} 주</p>
-                        </div>
+
                         @if (auth()->check())
                         @if ($liked_course)
                         <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black; font-size: 12px;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다.</button>
