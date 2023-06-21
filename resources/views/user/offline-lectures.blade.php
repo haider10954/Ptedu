@@ -12,28 +12,58 @@
                 <input type="text" class="form-control" placeholder="강좌명으로 검색" id="myInput">
             </div>
         </div>
-        <div class="row pt-4">
-            <div class="no-records d-flex align-items-center justify-content-center w-100"></div>
-            @foreach ($offline_courses as $item)
-            <div class="col-lg-3 searchable" data-name="{{ $item->course_title }}">
-                <a href="{{ route('offline_lecture_detail',$item->id) }}">
-                    <div class="course-box mb-3">
-                        <div class="course-img">
-                            <img src="{{ asset('storage/offline_course/thumbnail/'.$item->course_thumbnail) }}" class="img-fluid offline-course-img" alt="img">
-                        </div>
-                        <div class="course-info">
-                            <small class="d-block text-muted mb-1 font-weight-600">{{ $item->created_at->format('Y.m.d') }}</small>
-                            <p class="mb-0 text-theme-dark">{{ Str::limit($item->course_title, 40, '...') }}</p>
-                        </div>
+        <div class="lectures_view">
+            <div class="row pt-4">
+                <div class="no-records d-flex align-items-center justify-content-center w-100"></div>
+                @foreach ($offline_courses as $item)
+                    <div class="col-lg-3 searchable" data-name="{{ $item->course_title }}">
+                        <a href="{{ route('offline_lecture_detail',$item->id) }}">
+                            <div class="course-box mb-3">
+                                <div class="course-img">
+                                    <img src="{{ asset('storage/offline_course/thumbnail/'.$item->course_thumbnail) }}" class="img-fluid offline-course-img" alt="img">
+                                </div>
+                                <div class="course-info">
+                                    <small class="d-block text-muted mb-1 font-weight-600">{{ $item->created_at->format('Y.m.d') }}</small>
+                                    <p class="mb-0 text-theme-dark">{{ Str::limit($item->course_title, 40, '...') }}</p>
+                                </div>
+                            </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            @endforeach
-            <div class="col-lg-12">
-                {{ $offline_courses->links('vendor.pagination.custom-pagination') }}
-            </div>
+                @endforeach
+                <div class="col-lg-12">
+                    {{ $offline_courses->links('vendor.pagination.custom-pagination') }}
+                </div>
 
+            </div>
         </div>
+
+        {{--Mobile View--}}
+
+        <div class="lectures_view_mobile">
+            <div class="row pt-4">
+                <div class="no-records d-flex align-items-center justify-content-center w-100"></div>
+                @foreach ($offline_courses as $item)
+                    <div class="col-6 searchable" data-name="{{ $item->course_title }}">
+                        <a href="{{ route('offline_lecture_detail',$item->id) }}">
+                            <div class="course-box mb-3">
+                                <div class="course-img">
+                                    <img src="{{ asset('storage/offline_course/thumbnail/'.$item->course_thumbnail) }}" class="img-fluid offline-course-img" alt="img">
+                                </div>
+                                <div class="course-info">
+                                    <small class="d-block text-muted mb-1 font-weight-600">{{ $item->created_at->format('Y.m.d') }}</small>
+                                    <p class="mb-0 text-theme-dark">{{ Str::limit($item->course_title, 40, '...') }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                @endforeach
+                <div class="col-lg-12">
+                    {{ $offline_courses->links('vendor.pagination.custom-pagination') }}
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </div>
 @endsection

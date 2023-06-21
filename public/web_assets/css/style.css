@@ -1865,6 +1865,14 @@ header .btn.transparent,
     display: flex;
     align-items: center;
 }
+
+.lectures_view{
+    display: block !important;
+}
+
+.lectures_view_mobile{
+    display: none !important;
+}
 @media only screen and (max-width: 767px) {
     .about_us_image {
         display: none;
@@ -1906,6 +1914,15 @@ header .btn.transparent,
         margin-bottom: 20px;
         width: 100%;
         margin-left: 4rem;
+    }
+
+    .lectures_view{
+        display: none !important;
+    }
+
+    .lectures_view_mobile{
+        display: block !important;
+
     }
 
 }
