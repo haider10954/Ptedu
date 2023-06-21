@@ -104,99 +104,107 @@ $cartBtn = 0;
                             <tr>
                                 <td>
                                     <p class="mb-0 text font-weight-bold">{{ __('translation.Name') }}</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0 text">{{ $course_info->getTutorName->name }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Email') }}</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0 text">{{ $course_info->getTutorName->email }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Phone Number') }}</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0 text">{{ $course_info->getTutorName->mobile_number }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Designation') }}</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0 text">{{ $course_info->getTutorName->job }}</p>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <p class="mb-0 text font-weight-bold">{{ __('translation.Address') }}</p>
-                                </td>
-                                <td>
-                                    <p class="mb-0 text">{{ $course_info->getTutorName->address }}</p>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>--}}
-                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                    @if($reviews->count() > 0)
-                    @foreach($reviews as $r)
-                    <div class="review_box mb-3">
-                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                            <small class="text-muted">{{ $r->created_at->format('Y.m.d') }}</small>
-                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                @if($r->rating == 1)
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                @elseif($r->rating == 2)
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                @elseif($r->rating == 3)
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                <i class="far fa-star"></i>
-                                @elseif($r->rating == 4)
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="far fa-star"></i>
-                                @else
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                @endif
+                </td>
+                <td>
+                    <p class="mb-0 text">{{ $course_info->getTutorName->name }}</p>
+                </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="mb-0 text font-weight-bold">{{ __('translation.Email') }}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 text">{{ $course_info->getTutorName->email }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="mb-0 text font-weight-bold">{{ __('translation.Phone Number') }}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 text">{{ $course_info->getTutorName->mobile_number }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="mb-0 text font-weight-bold">{{ __('translation.Designation') }}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 text">{{ $course_info->getTutorName->job }}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <p class="mb-0 text font-weight-bold">{{ __('translation.Address') }}</p>
+                    </td>
+                    <td>
+                        <p class="mb-0 text">{{ $course_info->getTutorName->address }}</p>
+                    </td>
+                </tr>
+                </tbody>
+                </table>
+            </div>--}}
+            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                @if($reviews->count() > 0)
+                @foreach($reviews as $r)
+                <div class="review_box mb-3">
+                    <div class="d-flex mb-2 align-items-center justify-content-between">
+                        <div>
+                            <div>
+                                <small class="text-muted">{{ $r->getCourse->getCategoryName->name}} | {{ $r->created_at->format('Y.m.d') }}</small>
+                                <div class="d-flex">
+                                    <p class="font-weight-600 mb-0 mr-2">{{ $r->title }}</p>
+                                    <div class="d-flex align-items-center gap-1 rating-stars">
+                                        @if($r->rating == 1)
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        @elseif($r->rating == 2)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        @elseif($r->rating == 3)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        @elseif($r->rating == 4)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        @else
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        @endif
+                                    </div>
+                                </div>
+                                <h5 class="mb-2 mt-2">{{ $r->getCourse->course_title }}</h5>
+                                <p class="mb-0">{{ $r->content }}</p>
                             </div>
                         </div>
-                        <p class="font-weight-600 mb-2">{{ $r->title }}.</p>
-                        <p class="mb-0">{{ $r->content }}</p>
+                        <img src="{{ asset('storage/course/thumbnail/' .$r->getCourse->course_thumbnail)}}" style="height: 100px;"/>
                     </div>
-                    @endforeach
-                    @else
-                    <div class="text-center">
-                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
-                    </div>
-                    @endif
                 </div>
+                @endforeach
+                @else
+                <div class="text-center">
+                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                </div>
+                @endif
             </div>
         </div>
     </div>
+</div>
 </div>
 @php
 $liked =1;
