@@ -148,7 +148,7 @@ $cartBtn = 0;
                 @if($reviews->count() > 0)
                 @foreach($reviews as $r)
                 <div class="review_box mb-3">
-                    <div class="d-flex mb-2 align-items-center justify-content-between">
+                    <div class="d-flex mb-2 align-items-center justify-content-between review_box_mobile">
                         <div>
                             <div>
                                 <small class="text-muted">{{ $r->getCourse->getCategoryName->name}} | {{ $r->created_at->format('Y.m.d') }}</small>
@@ -192,7 +192,7 @@ $cartBtn = 0;
                                 <p class="mb-0">{{ $r->content }}</p>
                             </div>
                         </div>
-                        <img src="{{ asset('storage/course/thumbnail/' .$r->getCourse->course_thumbnail)}}" style="height: 100px;"/>
+                        <img src="{{ asset('storage/course/thumbnail/' .$r->getCourse->course_thumbnail)}}" class="review_course_image"/>
                     </div>
                 </div>
                 @endforeach

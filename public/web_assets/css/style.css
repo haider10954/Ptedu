@@ -1847,6 +1847,14 @@ header .btn.transparent,
     display: none;
 }
 
+.review_box_mobile {
+    flex-direction: inherit;
+}
+
+.review_course_image {
+    height: 100px;
+}
+
 @media only screen and (max-width: 767px) {
     .about_us_image {
         display: none;
@@ -1854,6 +1862,19 @@ header .btn.transparent,
 
     .about_us_image_mobile {
         display: block;
+    }
+
+    .review_box_mobile {
+        flex-direction: column-reverse;
+    }
+
+    .review_course_image {
+        height: 145px;
+        margin-bottom: 20px;
+    }
+
+    .review_box_mobile h5 {
+        font-size: 1rem;
     }
 
 }
