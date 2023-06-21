@@ -71,7 +71,9 @@
                         <a href="{{ route('web-notice') }}" class="text-decoration-none">{{ __('translation.Notice') }}</a>
                     </li>
                     @if(auth()->check())
-                    <a href="{{ route('student_logout') }}" class="text-danger">{{ __('translation.Logout') }}</a>
+                    <li class="nav-link" style="--i: 1.35s">
+                        <a href="{{ route('student_logout') }}" class="text-danger">{{ __('translation.Logout') }}</a>
+                    </li>
                     @endif
                 </ul>
             </div>
