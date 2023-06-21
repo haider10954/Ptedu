@@ -38,6 +38,10 @@ $cartBtn = 0;
                         <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
                         <p class="mb-0 text">{{ number_format($course_info->price) }}{{ __('translation.won') }}</p>
                     </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
+                        <p class="mb-0 text">{{ $course_info->duration_of_course }} 주</p>
+                    </div>
                     @if (!empty($cart))
                     @foreach ($cart as $v)
                     @if (($v['type'] == 'online') && ($v['course_id'] == $course_info->id))
@@ -61,10 +65,7 @@ $cartBtn = 0;
                     @else
                     <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black;" disabled>{{ __('translation.Add to cart') }}</button>
                     @endif
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
-                        <p class="mb-0 text">{{ $course_info->duration_of_course }} 주</p>
-                    </div>
+                    
                     @if (auth()->check())
 
                     <div class="btn_parent">
