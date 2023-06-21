@@ -1,16 +1,16 @@
 <div class="shopping-bag-info">
     <h5 class="shopping-bag-text">{{ __('translation.Shopping Bag Product Info') }} ({{ $cart->count() }})</h5>
 </div>
-<div class="w-100">
+<div class="table-responsive">
     <table class="table shopping-table">
         <thead>
             <tr>
-                <td></td>
-                <td class="text-center" style="width: 50%;">{{ __('translation.Course Name') }}</td>
-                <td>{{ __('translation.Quantity') }}</td>
-                <td>{{ __('translation.Discount') }}</td>
-                <td>{{ __('translation.Price') }}</td>
-                <td>{{ __('translation.Buy') }}/{{ __('translation.Delete') }}</td>
+                <td style="min-width: 30px"></td>
+                <td class="text-center" style="min-width: 200px;">{{ __('translation.Course Name') }}</td>
+                <td style="min-width: 60px">{{ __('translation.Quantity') }}</td>
+                <td style="min-width: 100px">{{ __('translation.Discount') }}</td>
+                <td style="min-width: 100px">{{ __('translation.Price') }}</td>
+                <td style="min-width: 150px">{{ __('translation.Buy') }}/{{ __('translation.Delete') }}</td>
             </tr>
         </thead>
         <tbody>
@@ -45,9 +45,9 @@
             @endforeach
             @else
             <tr>
-                <td colspan="5" class="text-center"> 
-                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 250px;"> 
-                </td> 
+                <td colspan="5" class="text-center">
+                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 250px;">
+                </td>
             </tr>
             @endif
         </tbody>
