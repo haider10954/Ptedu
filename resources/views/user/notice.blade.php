@@ -6,8 +6,8 @@
 <div class="section notice-table pt-150 min-height-90">
     <div class="container">
         <div class="w-75 m-auto">
-            <div class="table-header mb-3">
-                <div class="left-content notice_tabs d-flex align-items-center">
+            <div class="table-header mb-3 notice_mobile">
+                <div class="left-content notice_tabs ">
                     <h5 class="heading mb-0 mr-5"><a href="{{ route('web-notice') }}" class="active text-muted">{{ __('translation.Notice') }}</a>
                     </h5>
                     <h5 class="heading mb-0"><a href="{{ route('web-faq') }}" class="text-muted">{{ __('translation.FAQ') }}</a></h5>

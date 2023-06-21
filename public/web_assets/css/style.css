@@ -1857,6 +1857,14 @@ header .btn.transparent,
     height: 100px;
 }
 
+.notice_mobile{
+    flex-direction: inherit;
+}
+
+.notice_tabs{
+    display: flex;
+    align-items: center;
+}
 @media only screen and (max-width: 767px) {
     .about_us_image {
         display: none;
@@ -1881,6 +1889,23 @@ header .btn.transparent,
 
     .hamburger-menu-container a {
         display: none;
+    }
+
+    .w-75{
+        width: 100% !important;
+    }
+
+    .notice_mobile{
+        flex-direction: column;
+    }
+
+    .notice_tabs{
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        margin-bottom: 20px;
+        width: 100%;
+        margin-left: 4rem;
     }
 
 }
