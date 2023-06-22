@@ -36,7 +36,7 @@
     <!-- interactive section end -->
 
     <!-- interactive section  -->
-    <div class="interactive-section-2">
+    {{-- <div class="interactive-section-2">
         <div class="container">
             <div class="row align-items-top">
                 <div class="col-lg-9 interactive-section-content-box">
@@ -50,11 +50,11 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- interactive section end -->
 
     <!-- course detail section -->
-    <div class="courses-detail section">
+    {{-- <div class="courses-detail section">
         <div class="container">
             <div class="interactive-section-content text-center">
                 @if ($latest_courses->count() > 0)
@@ -89,7 +89,7 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- course detail section end -->
 
     <!-- course type section start -->
@@ -129,7 +129,7 @@
                     </div>
                 @endif
                 @if ($offline_courses->count() > 0)
-                    <div class="section-part mb-120">
+                    <div class="section-part mb-80">
                         <div class="section-title mb-5">
                             <h3 class="heading-h3 text-white mb-0">Offline Courses</h3>
                         </div>
@@ -160,7 +160,39 @@
                         </div>
                     </div>
                 @endif
-                @if ($latest_tutors->count() > 0)
+                @if ($courses->count() > 0)
+                    <div class="section-part mb-120">
+                        <div class="section-title mb-5">
+                            <h3 class="heading-h3 text-white mb-0">Special Courses</h3>
+                        </div>
+                        <div class="swiper expert-course-carousel">
+                            <div class="swiper-wrapper">
+                                @foreach ($courses as $item)
+                                    <div class="swiper-slide position-relative">
+                                        <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}"
+                                            class="img-fluid course-detail-img">
+                                        <div class="box-overlay">
+                                            <a href="{{ route('online_course_detail', $item->id) }}">
+                                                <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}
+                                                </h5>
+                                                <div class="box-overlay-description text-left">
+                                                    <p class="mb-0 text-white">{{ $item->short_description }}</p>
+                                                </div>
+                                                <p class="mb-0 text-right text-white font-weight-600">
+                                                    {{ __('translation.Instructor') }}
+                                                    {{ $item->getTutorName->name }}
+                                                </p>
+                                            </a>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="swiper-button-next expert-course-next"></div>
+                        <div class="swiper-button-prev expert-course-prev"></div>
+                    </div>
+                @endif
+                {{-- @if ($latest_tutors->count() > 0)
                     <div class="section-part tutor-section">
                         <div class="section-title mb-5">
                             <h3 class="heading-h3 text-white mb-0">Instructor</h3>
@@ -186,7 +218,7 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                @endif --}}
             </div>
         </div>
     </div>
