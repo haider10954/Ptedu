@@ -1945,9 +1945,8 @@ header .btn.transparent,
     font-weight: bold !important;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 400px) {
     .logo_img {
         height: 20px;
-        max-width: 100%;
     }
 }
