@@ -160,14 +160,14 @@
                         </div>
                     </div>
                 @endif
-                @if ($courses->count() > 0)
+                @if ($special_course->count() > 0)
                     <div class="section-part mb-120">
                         <div class="section-title mb-5">
                             <h3 class="heading-h3 text-white mb-0">Special Courses</h3>
                         </div>
                         <div class="swiper expert-course-carousel">
                             <div class="swiper-wrapper">
-                                @foreach ($courses as $item)
+                                @foreach ($special_course as $item)
                                     <div class="swiper-slide position-relative">
                                         <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}"
                                             class="img-fluid course-detail-img">

@@ -25,6 +25,9 @@ class IndexController extends Controller
     {
         $offline_courses = Offline_course::orderBy('id', 'desc')->with('getTutorName')->get();
         $courses = Course::orderBy('id', 'desc')->get();
+        $special_course = Course::whereHas('category', function ($query) {
+            $query->where('name', 'Special Lecture');
+        })->paginate(8);
         $latest_courses = Course::orderBy('id', 'desc')->with('getTutorName')->take(5)->get();
         $latest_tutors = Tutor::take(4)->get();
         $reviews = Review::orderBy('id', 'desc')->get();
@@ -33,7 +36,7 @@ class IndexController extends Controller
                 $review['video_thumbnail'] = VideoHandler::getVideoThumbnail($review->video_url);
             }
         }
-        return view('user.index', compact('offline_courses', 'courses', 'latest_courses', 'latest_tutors', 'reviews'));
+        return view('user.index', compact('offline_courses', 'courses','special_course', 'latest_courses', 'latest_tutors', 'reviews'));
     }
 
     public function notice()
