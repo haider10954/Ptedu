@@ -1948,5 +1948,6 @@ header .btn.transparent,
 @media only screen and (max-width: 400px) {
     .logo_img {
         height: 20px;
+        width: auto !important;
     }
 }
