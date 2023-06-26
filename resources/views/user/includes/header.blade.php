@@ -3,9 +3,8 @@
         <input type="checkbox" name="" id="check">
 
         <div class="logo-container">
-            <h3 class="logo">
-                <a class="text-decoration-none text-dark" href="{{ route('web-home') }}"><img src="{{ asset('web_assets/images/ptedu_logo.png') }}" style="  height: 30px;width: 100%;" /></a>
-            </h3>
+
+            <a class="text-decoration-none text-dark" href="{{ route('web-home') }}"><img src="{{ asset('web_assets/images/ptedu_logo.png') }}" style="  height: 30px;width: 100%;" /></a>
         </div>
 
         <div class="nav-btn">
