@@ -40,9 +40,4 @@ class Course extends Model
     {
         return $this->hasMany(Online_enrollment::class, 'course_id', 'id');
     }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
 }

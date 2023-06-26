@@ -46,18 +46,14 @@ class CourseController extends Controller
 
     public function getLiveCourse()
     {
-        $liveCourses = Course::whereHas('category', function ($query) {
-            $query->where('name', 'Live Course');
-        })->paginate(8);
+        $liveCourses = Course::where('course_type', 'live')->paginate(8);
 
         return view('user.live_courses', compact('liveCourses'));
     }
 
     public function getSpecialCourse()
     {
-        $specialCourse = Course::whereHas('category', function ($query) {
-            $query->where('name', 'Special Lecture');
-        })->paginate(8);
+        $specialCourse = Course::where('course_type', 'special')->paginate(8);
 
         return view('user.special_courses', compact('specialCourse'));
     }
