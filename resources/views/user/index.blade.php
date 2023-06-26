@@ -165,7 +165,7 @@
                         <div class="section-title mb-5">
                             <h3 class="heading-h3 text-white mb-0">Special Courses</h3>
                         </div>
-                        <div class="swiper expert-course-carousel">
+                        <div class="swiper special-course-carousel">
                             <div class="swiper-wrapper">
                                 @foreach ($special_course as $item)
                                     <div class="swiper-slide position-relative">
@@ -188,8 +188,8 @@
                                 @endforeach
                             </div>
                         </div>
-                        <div class="swiper-button-next expert-course-next"></div>
-                        <div class="swiper-button-prev expert-course-prev"></div>
+                        <div class="swiper-button-next special-course-next"></div>
+                        <div class="swiper-button-prev special-course-prev"></div>
                     </div>
                 @endif
                 {{-- @if ($latest_tutors->count() > 0)
@@ -256,6 +256,7 @@
                 clickable: true,
             },
         });
+
 
         var swiper = new Swiper(".expert-course-carousel", {
             slidesPerView: 3,
@@ -331,44 +332,8 @@
             }
         });
 
-        var swiper = new Swiper(".offline-lecture-carousel", {
-            slidesPerView: 3,
-            spaceBetween: 30,
-            slidesPerGroup: 1,
-            loop: true,
-            loopFillGroupWithBlank: true,
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            navigation: {
-                nextEl: ".offline-lecture-next",
-                prevEl: ".offline-lecture-prev",
-            },
-            breakpoints: {
-                // when window width is >= 320px
-                320: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                },
-                // when window width is >= 480px
-                480: {
-                    slidesPerView: 1,
-                    spaceBetween: 10
-                },
-                // when window width is >= 640px
-                767: {
-                    slidesPerView: 2,
-                    spaceBetween: 15
-                },
-                992: {
-                    slidesPerView: 3,
-                    spaceBetween: 20
-                }
-            }
-        });
 
-        var swiper = new Swiper(".course-review-carousel", {
+        var swiper = new Swiper(".special-course-carousel", {
             slidesPerView: 3,
             spaceBetween: 30,
             slidesPerGroup: 1,
@@ -379,8 +344,8 @@
                 disableOnInteraction: false,
             },
             navigation: {
-                nextEl: ".course-review-next",
-                prevEl: ".course-review-prev",
+                nextEl: ".special-course-next",
+                prevEl: ".special-course-prev",
             },
             breakpoints: {
                 // when window width is >= 320px
