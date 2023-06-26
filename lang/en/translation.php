@@ -349,6 +349,7 @@ return [
     'Student has been registered successfully' => 'Student has been registered successfully',
     'The value is not duplicated' => 'The value is not duplicated',
     "Offline Courses" => 'Offline Courses',
+    "Live Courses" => 'Live Courses',
     'Reached maximum limit of enrollments' => 'Reached maximum limit of enrollments',
     'please login to submit application' => 'please login to submit application',
     'Already Enrolled' => 'Already Enrolled',

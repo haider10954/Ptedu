@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
+use App\Models\Course;
 use App\Models\Like_course;
 use Illuminate\Http\Request;
 
@@ -41,5 +42,23 @@ class CourseController extends Controller
                 'message' => 'Course has been dis liked successfully',
             ]);
         }
+    }
+
+    public function getLiveCourse()
+    {
+        $liveCourses = Course::whereHas('category', function ($query) {
+            $query->where('name', 'Live Course');
+        })->paginate(8);
+
+        return view('user.live_courses', compact('liveCourses'));
+    }
+
+    public function getSpecialCourse()
+    {
+        $specialCourse = Course::whereHas('category', function ($query) {
+            $query->where('name', 'Special Lecture');
+        })->paginate(8);
+
+        return view('user.special_courses', compact('specialCourse'));
     }
 }

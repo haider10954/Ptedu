@@ -350,6 +350,7 @@ return [
     'Student has been registered successfully' => '수강생이 성공적으로 등록되었습니다',
     'The value is not duplicated' => '해당 아이디는 사용 가능합니다',
     'Offline Courses' => '오프라인 과정',
+    "Live Courses" => '실시간 강좌',
     'Reached maximum limit of enrollments' => '최대 등록 한도에 도달했습니다',
     'please login to submit application' => '신청서를 제출하려면 로그인하십시오',
     'Already Enrolled' => '이미 등록됨',

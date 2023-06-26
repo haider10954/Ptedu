@@ -37,6 +37,11 @@ use App\Models\Admin;
 |
 */
 
+
+// Live Courses
+Route::get('/live-courses', [UserCourseController::class, 'getLiveCourse'])->name('liveCourse');
+Route::get('/special-courses', [UserCourseController::class, 'getSpecialCourse'])->name('specialCourse');
+
 Route::get('set/language/{lang}', function ($lang) {
     session()->put('lang', $lang);
     return redirect()->back();
