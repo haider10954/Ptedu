@@ -566,8 +566,8 @@ header .btn.transparent,
 }
 
 .section {
-    padding-top: 80px;
-    padding-bottom: 80px;
+    padding-top: 0px;
+    padding-bottom: 0px;
 }
 
 .courses-detail {
@@ -1796,8 +1796,8 @@ header .btn.transparent,
     }
 
     .section {
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding-top: 9px;
+        padding-bottom: 0px;
     }
 
     .review-section-container {
