@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('courses', function (Blueprint $table) {
-            $table->enum('course_type', ['online', 'offline','specail','live'])->after('category_id');
+            $table->enum('course_type', ['online', 'offline','special','live'])->after('category_id');
         });
     }
 
