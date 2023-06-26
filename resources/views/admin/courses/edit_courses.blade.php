@@ -133,11 +133,11 @@
                                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Course Type')}}</label>
                                         <div class="col-sm-10">
                                             <select class="form-control" name="course_type">
-                                                <option value="">{{__('translation.Select Option')}}</option>
-                                                <option value="expert" {{ $course->course_type == 'expert' ? 'selected' : '' }}>{{ __('translation.Expert course') }}
-                                                </option>
-                                                <option value="public" {{ $course->course_type == 'public' ? 'selected' : '' }}>{{ __('translation.Public course') }}
-                                                </option>
+                                                <option value="">{{ __('translation.Select Option') }}</option>
+                                                <option value="online">Online Course</option>
+                                                <option value="offline">Offline Course</option>
+                                                <option value="live">실시간 강좌</option>
+                                                <option value="special">Special Course</option>
                                             </select>
                                             <div class="error-course-type"></div>
                                         </div>
