@@ -892,6 +892,7 @@ header .btn.transparent,
 .course-box {
     border: 1px solid #c3c3c3;
     box-shadow: 0px 0px 5px #bbbbbb;
+    height: 100%;
 }
 
 .course-box .course-info {
@@ -1516,7 +1517,7 @@ header .btn.transparent,
 }
 
 .offline-course-img {
-    height: 200px;
+    height: auto;
     width: 100%;
     object-fit: contain;
     background-color: #d9d9d9;
@@ -1933,6 +1934,11 @@ header .btn.transparent,
     .course-box .course-info p {
         font-size: 11px;
         font-weight: 500;
+    }
+
+    .course-box {
+        border: 1px solid #c3c3c3;
+        box-shadow: 0px 0px 5px #bbbbbb;
     }
 
 }
