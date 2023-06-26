@@ -22,73 +22,34 @@
 <div class="interactive-section-1">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-5 text-center interactive-section-logo">
-                <img src="{{ asset('web_assets/images/interactive-section-logo.png') }}" height="20" alt="img">
-            </div>
-            <div class="col-lg-7 interactive-section-content-box">
-                <h2>The beginning of <br> Customized education</h2>
+            <div class="col-lg-12">
+                <h2 class="text-white">The beginning of Customized education</h2>
                 <p class="text-danger mb-4">Global standard / Evidence based / Job based</p>
-                <small class="d-block">From beginner to expert as a professor</small>
+                <p class="text-white">From beginner to expert as a professor</p>
+            </div>
+            <div class="col-lg-12">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <p class="mb-0 text-white">사람들에게 선한 영향력을 전달하기 위해 정진하는
+                        모든 물리치료사 및 운동 전문가들을 환영합니다.
+                        피티에듀는 기초부터 심화 과정까지 올바른 지식을
+                        통해 전문가로 거듭남으로 형태의 변화에 대한 발판을
+                        제공하는 교육 전문 플랫폼입니다.</p>
+                </div>
+                <div class="col-lg-6">
+                    <p class="mb-0 text-white">여러 치료사들이 모여 논문과 임상 경험을 베이스로 한
+                        근거 기반 물리치료를 토대로 다양한 정보들을
+                        선별하여 질높은 강의를 제공합니다.
+                        분야별 맞춤식 강의를 통해 개인의 역량을 향상시키고
+                        더 나아가 건강한 대한민국을 만드는 데에 이바지합니다</p>
+                </div>
+            </div>
             </div>
         </div>
     </div>
 </div>
 <!-- interactive section end -->
 
-<!-- interactive section  -->
-{{-- <div class="interactive-section-2">
-        <div class="container">
-            <div class="row align-items-top">
-                <div class="col-lg-9 interactive-section-content-box">
-                    <h2>Increasing thinking ability</h2>
-                    <p class="text-danger mb-4">Critical Thinking / Creative Thinking</p>
-                    <small class="d-block mb-1">Contribution to the Society</small>
-                    <small class="d-block">{{ _('translation.In-depth to fill healthy values in modern people lives.') }}<br>{{ _('translation.Taking the leap to become an expert PTE is with you.') }}</small>
-</div>
-<div class="col-lg-3 text-center interactive-section-logo">
-    <img src="{{ asset('web_assets/images/interactive-section-logo.png') }}" height="20" alt="img">
-</div>
-</div>
-</div>
-</div> --}}
-<!-- interactive section end -->
-
-<!-- course detail section -->
-{{-- <div class="courses-detail section">
-        <div class="container">
-            <div class="interactive-section-content text-center">
-                @if ($latest_courses->count() > 0)
-                    <div class="swiper courses_detail_carousel">
-                        <div class="swiper-wrapper">
-                            @foreach ($latest_courses as $latest_course)
-                                <div class="swiper-slide">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-4 p-4">
-                                            <img src="{{ asset('storage/course/thumbnail/' . $latest_course->course_thumbnail) }}"
-class="img-fluid course-detail-img">
-</div>
-<div class="col-md-8 p-4">
-    <div class="d-flex align-items-center course-detail-author-content justify-content-between mb-50">
-        <h3 class="heading-h3 font-30 text-white" style="margin-bottom: 0 !important;">
-            {{ $latest_course->course_title }}
-        </h3>
-        <small class="text-white">{{ $latest_course->getTutorName->name }}</small>
-    </div>
-    <div class="text-left text-white">{{ strip_tags($latest_course->description) }}</div>
-</div>
-</div>
-</div>
-@endforeach
-</div>
-<div class="courses-detail-pagination"></div>
-</div>
-@else
-<h3 class="heading-h3 font-30">No Records Found</h3>
-@endif
-</div>
-</div>
-</div> --}}
-<!-- course detail section end -->
 
 <!-- course type section start -->
 <div class="courses-type section">
@@ -187,35 +148,9 @@ class="img-fluid course-detail-img">
                 <div class="swiper-button-prev special-course-prev"></div>
             </div>
             @endif
-            {{-- @if ($latest_tutors->count() > 0)
-                    <div class="section-part tutor-section">
-                        <div class="section-title mb-5">
-                            <h3 class="heading-h3 text-white mb-0">Instructor</h3>
-                        </div>
-                        <div class="w-100 m-auto">
-                            <div class="row align-items-center justify-content-center">
-                                @foreach ($latest_tutors as $latest_tutor)
-                                    <div class="col-lg-3 col-md-4 col-12 mb-4">
-                                        <div class="tutor-image-container">
-                                            <img src="{{ asset('storage/tutor/' . $latest_tutor->tutor_img) }}"
-            class="tutor_img img-fluid">
-            <div class="tutor-box-overlay">
-                <a href="{{ route('tutor_info', $latest_tutor->id) }}">
-                    <h5 class="heading-h5 mb-1 text-white text-left">
-                        {{ $latest_tutor->english_name }}
-                    </h5>
-                    <p class="text-theme-light-grey mb-0">PTEdu</p>
-                </a>
-            </div>
+
         </div>
     </div>
-    @endforeach
-</div>
-</div>
-</div>
-@endif --}}
-</div>
-</div>
 </div>
 <!-- course type section end -->
 
@@ -281,7 +216,7 @@ class="img-fluid course-detail-img">
         }
     });
 
-    
+
     var swiper2 = new Swiper(".offline-lecture-carousel", {
         slidesPerView: 3,
         spaceBetween: 30,
