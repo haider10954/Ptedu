@@ -1824,6 +1824,11 @@ header .btn.transparent,
     z-index: 999999;
 }
 
+.logo_img {
+    height: 30px;
+    width: 100%;
+}
+
 @media only screen and (max-width: 768px) {
     header {
         position: fixed;
@@ -1937,3 +1942,10 @@ header .btn.transparent,
 .text-bold {
     font-weight: bold !important;
 }
+
+@media only screen and (min-width: 375px) { 
+    .logo_img{
+        height: 20px;
+        width: 100%;
+    }
+ }

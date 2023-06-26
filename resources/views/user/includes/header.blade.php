@@ -4,7 +4,7 @@
 
         <div class="logo-container">
 
-            <a class="text-decoration-none text-dark" href="{{ route('web-home') }}"><img src="{{ asset('web_assets/images/ptedu_logo.png') }}" style="  height: 30px;width: 100%;" /></a>
+            <a class="text-decoration-none text-dark" href="{{ route('web-home') }}"><img src="{{ asset('web_assets/images/ptedu_logo.png') }}" class="logo_img" /></a>
         </div>
 
         <div class="nav-btn">
