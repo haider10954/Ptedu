@@ -135,7 +135,7 @@
                                                 <option value="">{{ __('translation.Select Option') }}</option>
                                                 <option value="online">Online Course</option>
                                                 <option value="offline">Offline Course</option>
-                                                <option value="live">Live Course</option>
+                                                <option value="live">실시간 강좌</option>
                                                 <option value="special">Special Course</option>
                                             </select>
                                             <div class="error-course-type"></div>
