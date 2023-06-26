@@ -43,7 +43,7 @@
             <div class="row pt-4">
                 <div class="no-records d-flex align-items-center justify-content-center w-100"></div>
                 @foreach ($offline_courses as $item)
-                    <div class="col-6 searchable" data-name="{{ $item->course_title }}">
+                    <div class="col-6 searchable my-2" data-name="{{ $item->course_title }}">
                         <a href="{{ route('offline_lecture_detail',$item->id) }}">
                             <div class="course-box mb-3">
                                 <div class="course-img">
