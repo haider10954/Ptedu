@@ -199,6 +199,24 @@
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <label class="col-sm-2 col-form-label lecture-form">강좌 일정</label>
+                                        <div class="col-sm-10">
+                                            <div class="inner-repeater mb-4">
+                                                <div class="course-schedule">
+                                                    <div class="mb-3 row course-schedule-item">
+                                                        <div class="col-md-12 col-12 mb-2">
+                                                            <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <button type="button" class="btn btn-success AddCourseSchedule">Add</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
                                     <div class="row mb-4">
                                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Price') }}</label>
                                         <div class="col-sm-10">
@@ -868,6 +886,24 @@
     function postUploadProgress(percentComplete) {
         $('.loading-bar').css('width', percentComplete + '%');
         $('.loading-bar').css('transition', 'all 0.8s');
+    }
+
+    $('.AddCourseSchedule').on('click', function() {
+        console.log('here');
+        $('.course-schedule').append(`<div class="mb-3 row course-schedule-item">
+        <div class="col-md-10 col-8 mb-2">
+                                                        <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" />
+                                                    </div>
+                                                    <div class="col-md-2 col-4">
+                                                        <div class="d-grid">
+                                                            <button type="button" class="btn btn-primary deleteCourseSchedule" onclick="deleteDiv(this)">Delete</button>
+                                                        </div>
+                                                    </div>
+                                                    </div>`);
+    });
+
+    function deleteDiv(element) {
+        $(element).closest('.course-schedule-item').remove();
     }
 </script>
 

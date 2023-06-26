@@ -99,10 +99,12 @@ class CourseController extends Controller
             'course_type' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',
             'banner_img' => 'required|mimes:jpeg,png,jpg',
+            'course_scheduling.*' => 'required',
         ]);
 
         $course_thumbnail = $this->upload_files($request['course_img']);
         $course_banner = $this->upload_files_banner($request['banner_img']);
+        $course_schedule = json_encode($request->course_scheduling);
         $course = Course::create([
             'tutor_id' => $request['tutor_name'],
             'category_id' => $request['category'],
@@ -117,6 +119,7 @@ class CourseController extends Controller
             'course_thumbnail' => $course_thumbnail,
             'course_banner' => $course_banner,
             'course_type' => $request['course_type'],
+            'course_schedule' => $course_schedule
         ]);
 
         if ($course) {
