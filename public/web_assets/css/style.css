@@ -566,6 +566,11 @@ header .btn.transparent,
 }
 
 .section {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+
+.about_us_section {
     padding-top: 0px;
     padding-bottom: 0px;
 }
@@ -1795,11 +1800,6 @@ header .btn.transparent,
         width: 100% !important;
     }
 
-    .section {
-        padding-top: 0px;
-        padding-bottom: 0px;
-    }
-
     .review-section-container {
         width: 100%;
     }
@@ -1862,22 +1862,23 @@ header .btn.transparent,
     height: 100px;
 }
 
-.notice_mobile{
+.notice_mobile {
     flex-direction: inherit;
 }
 
-.notice_tabs{
+.notice_tabs {
     display: flex;
     align-items: center;
 }
 
-.lectures_view{
+.lectures_view {
     display: block !important;
 }
 
-.lectures_view_mobile{
+.lectures_view_mobile {
     display: none !important;
 }
+
 @media only screen and (max-width: 767px) {
     .about_us_image {
         display: none;
@@ -1904,15 +1905,15 @@ header .btn.transparent,
         display: none;
     }
 
-    .w-75{
+    .w-75 {
         width: 100% !important;
     }
 
-    .notice_mobile{
+    .notice_mobile {
         flex-direction: column;
     }
 
-    .notice_tabs{
+    .notice_tabs {
         display: flex;
         align-items: center;
         justify-content: start;
@@ -1921,14 +1922,15 @@ header .btn.transparent,
         margin-left: 4rem;
     }
 
-    .lectures_view{
+    .lectures_view {
         display: none !important;
     }
 
-    .lectures_view_mobile{
+    .lectures_view_mobile {
         display: block !important;
     }
-    .course-box .course-info p{
+
+    .course-box .course-info p {
         font-size: 11px;
         font-weight: 500;
     }
@@ -1943,9 +1945,9 @@ header .btn.transparent,
     font-weight: bold !important;
 }
 
-@media only screen and (max-width: 375px) { 
-    .logo_img{
+@media only screen and (max-width: 375px) {
+    .logo_img {
         height: 20px;
         width: 100%;
     }
- }
+}
