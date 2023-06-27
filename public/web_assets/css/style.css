@@ -510,7 +510,6 @@ header .btn.transparent,
     align-items: center;
     justify-content: center;
     background-image: url("../images/interactive-section-1.png");
-    border-bottom: 1px solid #CDCECF;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -1954,7 +1953,7 @@ header .btn.transparent,
         justify-content: end;
         gap: 10px;
     }
-    
+
 
 }
 
