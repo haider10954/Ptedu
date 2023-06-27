@@ -87,6 +87,7 @@ class CartController extends Controller
         $encrypted_course = $request->course_id;
         $course = decrypt($encrypted_course);
         $course['type'] = $request->type;
+        $course['course_schedule'] = $request->course_schedule;
         if($request->type == 'online'){
             $check_enrolment = Online_enrollment::where('course_id',$course['id'])->where('user_id',auth()->id())->first();
             if(!empty($check_enrolment)){
@@ -99,6 +100,7 @@ class CartController extends Controller
             }
         }
         $cart = Cart::add_to_cart($course);
+        dd(session('shopping_cart'));
         if($cart == true){
             return json_encode(['Success' => true, 'Msg' => __('translation.Already Added') , 'cart_items_count' => count(session('shopping_cart'))]);
         }else{

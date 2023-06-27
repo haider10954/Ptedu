@@ -14,7 +14,8 @@ class Cart {
                 'quantity' => 1,
                 'type' => $course->type,
                 'discount' => $course->discounted_prize,
-                'course' => $course
+                'course_schedule' => $course->course_schedule,
+                'course' => $course,
             ]);
             session()->put('shopping_cart',$cart);
             session()->save();
@@ -32,7 +33,8 @@ class Cart {
                 'quantity' => 1,
                 'type' => $course->type,
                 'discount' => $course->discounted_prize,
-                'course' => $course
+                'course_schedule' => $course->course_schedule,
+                'course' => $course,
             ]);
             session()->put('shopping_cart',$cart);
             session()->save();

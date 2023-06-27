@@ -42,6 +42,18 @@ $cartBtn = 0;
                         <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
                         <p class="mb-0 text text-bold">{{ $course_info->duration_of_course }} 주</p>
                     </div>
+
+                    <div class="mb-2 mt-1">
+                        <select class="form-control" id="course_schedule" name="course_schedule" required>
+                            <option value="">{{__('translation.Select Option')}}</option>
+                            @foreach (json_decode($course_info->course_schedule) as $key=>$value)
+                            <option class="dropdown-item" value="{{ $value }}">{{ $value }}</option>
+                            @endforeach
+                        
+                        </select>
+                    </div>
+
+
                     @if (!empty($cart))
                     @foreach ($cart as $v)
                     @if (($v['type'] == 'online') && ($v['course_id'] == $course_info->id))
@@ -60,21 +72,23 @@ $cartBtn = 0;
                     @endphp
                     @endif
 
+
+
                     @if ($cartBtn == 1)
-                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn  shopping_cart_btn" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn  shopping_cart_btn" style=" background: black;" data-type="online" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                     @else
-                    <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black;" disabled>{{ __('translation.Add to cart') }}</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style=" background: black;" disabled>{{ __('translation.Add to cart') }}</button>
                     @endif
-                    
+
                     @if (auth()->check())
 
                     <div class="btn_parent">
                         @if ($liked_course)
 
-                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black; font-size: 12px;" data-type="online" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다</button>
+                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style=" background: black; font-size: 12px;" data-type="online" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다</button>
                         @else
 
-                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
+                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 like_course" style=" background: black;" data-type="online" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
                         @endif
                     </div>
                     @endif
@@ -193,7 +207,7 @@ $cartBtn = 0;
                                 <p class="mb-0">{{ $r->content }}</p>
                             </div>
                         </div>
-                        <img src="{{ asset('storage/course/thumbnail/' .$r->getCourse->course_thumbnail)}}" class="review_course_image"/>
+                        <img src="{{ asset('storage/course/thumbnail/' .$r->getCourse->course_thumbnail)}}" class="review_course_image" />
                     </div>
                 </div>
                 @endforeach
@@ -235,6 +249,7 @@ $liked = 0;
             data: {
                 'course_id': $(this).data('id'),
                 'type': $(this).data('type'),
+                'course_schedule' : $('#course_schedule').val(),
                 '_token': '{{ csrf_token() }}'
             },
             beforeSend: function() {
@@ -271,6 +286,7 @@ $liked = 0;
                 data: {
                     'course_id': element.data('id'),
                     'type': element.data('type'),
+                    
                     '_token': '{{ csrf_token() }}'
                 },
                 beforeSend: function() {

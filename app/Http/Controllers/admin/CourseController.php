@@ -362,6 +362,7 @@ class CourseController extends Controller
             'video_url' => 'required',
             'course_img' => 'mimes:jpeg,png,jpg',
             'banner_img' => 'mimes:jpeg,png,jpg',
+            'course_scheduling.*' => "required",
         ]);
 
         if ($request->hasFile('course_img')) {
@@ -383,6 +384,7 @@ class CourseController extends Controller
         $data['price'] = $request['price'];
         $data['discounted_prize'] = $request['discounted_Price'];
         $data['video_url'] = $request['video_url'];
+        $data['course_schedule'] = json_encode($request->course_scheduling);
 
         $course = Course::where('id', $request->id)->update($data);
 
@@ -614,5 +616,32 @@ class CourseController extends Controller
                 'message' => __('translation.Something went wrong Please try again')
             ]);
         }
+    }
+
+    public function deleteCourseSchedule(Request $request)
+    {
+        $data = Course::where('id', $request->course_id)->first();
+        $courseSchedule = json_decode($data->course_schedule);
+
+        $key = array_search($request['course_schedule'], $courseSchedule);
+        unset($courseSchedule[$key]);
+        $newArray = array_values($courseSchedule);
+
+        $updateCourse = Course::where('id', $request->course_id)->update([
+            'course_schedule' => json_encode($newArray)
+        ]);
+
+        if ($updateCourse) {
+            return json_encode([
+                'success' => true,
+                'message' => __('translation.Course has been updated successfully')
+            ]);
+        } else {
+            return json_encode([
+                'success' => false,
+                'message' =>  __('translation.Something went wrong Please try again')
+            ]);
+        }
+
     }
 }

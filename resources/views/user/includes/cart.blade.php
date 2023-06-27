@@ -20,7 +20,8 @@
                 <td> <input type="checkbox" class="checkbox select_delete" onclick="select_delete_action($(this))" value="{{ encrypt($v) }}" /> </td>
                 <td>
                     <span>[{{ ($v['type'] == 'online') ? Str::ucfirst($v['course']->course_type) : 'Offline' }} {{ __('translation.Course') }}] {{ $v['course_name'] }} </span> <br />
-                    <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span>
+                    <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span> <br />
+                    <span>{{ $v['course_schedule'] }}</span>
                 </td>
                 <td>{{ $v['quantity'] }}</td>
                 <td>{{ ($v['course']->discounted_prize > 0) ? number_format($v['course']->discounted_prize) .'원' : '0원' }}</td>

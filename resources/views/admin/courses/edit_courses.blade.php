@@ -210,14 +210,17 @@
                                                 <div class="course-schedule">
                                                     @foreach (json_decode($course->course_schedule) as $key=>$value)
                                                     <div class="mb-3 row course-schedule-item">
-                                                        <div class="col-md-12 col-12 mb-2">
-                                                            <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" value="{{ $value }}"/>
+                                                        <div class="col-md-10 col-10">
+                                                            <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" value="{{ $value }}" />
+                                                        </div>
+                                                        <div class="col-md-2">
+                                                            <button type="button" class="btn btn-danger" onclick="getCourseScheduleId('{{ $key }}')" data-bs-toggle="modal" data-bs-target="#deleteCourseScheduleModal"><i class="fa fa-trash"></i></button>
                                                         </div>
                                                     </div>
                                                     @endforeach
-                                                    
+
                                                 </div>
-                                                <button type="button" class="btn btn-success AddCourseSchedule">Add</button>
+                                                <button type="button" class="btn btn-success AddCourseSchedule">{{ __('translation.Add More') }}</button>
                                             </div>
                                         </div>
 
@@ -512,6 +515,31 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteCourseScheduleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">강좌 일정</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    {{ __('translation.Are you sure to delete ?')}}
+                </div>
+                <div class="modal-footer">
+                    <form id="deleteCourseSchedule">
+                        <input type="hidden" name="course_schedule" id="course_schedule" value="" />
+                        @csrf
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__('translation.Close')}}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('translation.Save changes')}}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     @endsection
 
     @section('custom-script')
@@ -999,8 +1027,8 @@
         }
 
         $('.AddCourseSchedule').on('click', function() {
-        console.log('here');
-        $('.course-schedule').append(`<div class="mb-3 row course-schedule-item">
+            console.log('here');
+            $('.course-schedule').append(`<div class="mb-3 row course-schedule-item">
         <div class="col-md-10 col-8 mb-2">
                                                         <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" />
                                                     </div>
@@ -1010,10 +1038,41 @@
                                                         </div>
                                                     </div>
                                                     </div>`);
-    });
+        });
 
-    function deleteDiv(element) {
-        $(element).closest('.course-schedule-item').remove();
-    }
+        function deleteDiv(element) {
+            $(element).closest('.course-schedule-item').remove();
+        }
+
+        function getCourseScheduleId(element) {
+            $('#course_schedule').val(element);
+        }
+
+        // Delete Course Schedule
+        $('#deleteCourseSchedule').on('submit', function(e) {
+            e.preventDefault();
+            var course_id = "{{ $course->id }}";
+            var course_schedule_id = $('#course_schedule').val();
+            $.ajax({
+                type: "POST",
+                url: "{{route('delete_course_schedule')}}",
+                dataType: 'json',
+                data: {
+                    course_id: course_id,
+                    course_schedule_id: course_schedule_id,
+                    _token: '{{csrf_token()}}'
+                },
+                beforeSend: function() {},
+                success: function(res) {
+                    if (res.success === true) {
+                        $('#deleteCourseScheduleModal').modal('hide');
+                        setTimeout(function() {
+                            window.location.reload();
+                        }, 3000)
+                    } else {}
+                },
+                error: function(e) {}
+            });
+        });
     </script>
     @endsection

@@ -333,7 +333,8 @@ Route::prefix('admin')->group(function () {
         Route::get('/settings', [AuthController::class, 'admin_profile'])->name('settings');
         Route::post('/update-admin-profile', [AuthController::class, 'update_admin_profile'])->name('update-admin-profile');
 
-        
+        // Course Schedule
+        Route::post('/delete-course-schedule',[CourseController::class, 'deleteCourseSchedule'])->name('delete_course_schedule');
     });
 });
 
