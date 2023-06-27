@@ -95,7 +95,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($offline_courses as $item)
                         <div class="swiper-slide position-relative">
-                            <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
+                            <img src="{{ asset('storage/offline_course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
                             <div class="box-overlay">
                                 <a href="{{ route('online_course_detail', $item->id) }}">
                                     <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}
