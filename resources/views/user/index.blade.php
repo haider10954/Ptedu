@@ -122,7 +122,7 @@
                 <div class="section-title mb-5">
                     <h3 class="heading-h3 text-center text-white mb-0">Special Courses</h3>
                 </div>
-                <div class="swiper special-course-carouse">
+                <div class="swiper special-course-carousel">
                     <div class="swiper-wrapper">
                         @foreach ($special_course as $item)
                         <div class="swiper-slide position-relative">
