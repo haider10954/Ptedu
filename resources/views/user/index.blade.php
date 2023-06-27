@@ -54,11 +54,11 @@
 <!-- course type section start -->
 <div class="courses-type section">
     <div class="container">
-        <div class="interactive-section-content text-center mb-5">
+        <div class="interactive-section-content  mb-5">
             @if ($courses->count() > 0)
             <div class="section-part mb-80">
                 <div class="section-title mb-5">
-                    <h3 class="heading-h3 text-white mb-0">Online Courses</h3>
+                    <h3 class="heading-h3 text-center text-white mb-0">Online Courses</h3>
                 </div>
                 <div class="swiper expert-course-carousel">
                     <div class="swiper-wrapper">
@@ -89,7 +89,7 @@
             @if ($offline_courses->count() > 0)
             <div class="section-part mb-80">
                 <div class="section-title mb-5">
-                    <h3 class="heading-h3 text-white mb-0">Offline Courses</h3>
+                    <h3 class="heading-h3 text-center text-white mb-0">Offline Courses</h3>
                 </div>
                 <div class="swiper offline-lecture-carousel">
                     <div class="swiper-wrapper">
@@ -120,7 +120,7 @@
             @if ($special_course->count() > 0)
             <div class="section-part mb-80">
                 <div class="section-title mb-5">
-                    <h3 class="heading-h3 text-white mb-0">Special Courses</h3>
+                    <h3 class="heading-h3 text-center text-white mb-0">Special Courses</h3>
                 </div>
                 <div class="swiper special-course-carouse">
                     <div class="swiper-wrapper">
