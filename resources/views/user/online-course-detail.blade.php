@@ -43,15 +43,18 @@ $cartBtn = 0;
                         <p class="mb-0 text text-bold">{{ $course_info->duration_of_course }} 주</p>
                     </div>
 
+                    @if (!empty($course_info->course_schedule))
                     <div class="mb-2 mt-1">
                         <select class="form-control" id="course_schedule" name="course_schedule" required>
                             <option value="">{{__('translation.Select Option')}}</option>
                             @foreach (json_decode($course_info->course_schedule) as $key=>$value)
                             <option class="dropdown-item" value="{{ $value }}">{{ $value }}</option>
                             @endforeach
-                        
+
                         </select>
                     </div>
+                    @endif
+
 
 
                     @if (!empty($cart))
@@ -249,7 +252,7 @@ $liked = 0;
             data: {
                 'course_id': $(this).data('id'),
                 'type': $(this).data('type'),
-                'course_schedule' : $('#course_schedule').val(),
+                'course_schedule': $('#course_schedule').val(),
                 '_token': '{{ csrf_token() }}'
             },
             beforeSend: function() {
@@ -286,7 +289,7 @@ $liked = 0;
                 data: {
                     'course_id': element.data('id'),
                     'type': element.data('type'),
-                    
+
                     '_token': '{{ csrf_token() }}'
                 },
                 beforeSend: function() {
