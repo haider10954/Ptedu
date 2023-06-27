@@ -49,40 +49,54 @@
                         <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
                         <p class="mb-0 text">{{ $course_info->duration_of_course }} 주</p>
                     </div>
+
+                    @if (!empty($course_info->course_schedule))
+                    <div class="mb-2 mt-1">
+                        <select class="form-control" id="course_schedule" name="course_schedule" required>
+                            <option value="">{{__('translation.Select Option')}}</option>
+                            @foreach (json_decode($course_info->course_schedule) as $key=>$value)
+                            <option class="dropdown-item" value="{{ $value }}">{{ $value }}</option>
+                            @endforeach
+
+                        </select>
+                    </div>
+                    @endif
+
+                    
                     @if (auth()->check())
                     @if ($enrolled_user == 0)
                     @if ($offline_enrollment_count >= $course_info->no_of_enrollments)
                     @if (!empty($reservation))
                     @if ($reservation->status == 'applied')
-                    <button class="btn btn-danger btn-sm w-100 mb-2 delBtn" style="border-radius: 2rem; background: black; color:white !important;" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#delReservationModal">{{ __('translation.Decline') }}</button>
-                    <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 disabled" style="border-radius: 2rem; background: black; color:white !important;">{{ __('translation.Waiting For Reservation') }}</button>
+                    <button class="btn btn-danger btn-sm w-100 mb-2 delBtn" style=" background: black; color:white !important;" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#delReservationModal">{{ __('translation.Decline') }}</button>
+                    <button disabled class="btn btn-light btn-sm w-100 border-1 mb-2 disabled" style=" background: black; color:white !important;">{{ __('translation.Waiting For Reservation') }}</button>
                     @elseif($reservation->status == 'reserved')
-                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style="border-radius: 2rem; background: black; color:white !important;" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style=" background: black; color:white !important;" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                     @elseif($reservation->status == 'decline')
-                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" style="border-radius: 2rem; background: black; color:white !important;" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply') }}</button>
+                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" style=" background: black; color:white !important;" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply') }}</button>
                     @endif
                     @else
-                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" style="border-radius: 2rem; background: black; color:white !important;" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply') }}</button>
+                    <button class="btn btn-light btn-sm w-100 border-1 mb-2 applyBtn" style=" background: black; color:white !important;" data-id="{{ $course_info->id }}" data-toggle="modal" data-target="#reservationModal">{{ __('translation.Apply') }}</button>
                     @endif
                     @else
-                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style="border-radius: 2rem; background: black; color:white !important;" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style=" background: black; color:white !important;" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                     @endif
                     @else
-                    <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black; color:white !important;" disabled>{{ __('translation.Already Enrolled') }}</button>
+                    <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style=" background: black; color:white !important;" disabled>{{ __('translation.Already Enrolled') }}</button>
                     @endif
                     @else
                     @if ($offline_enrollment_count < $course_info->no_of_enrollments)
-                        <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style="border-radius: 2rem; background: black; color:white !important;" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
+                        <button class="btn btn-dark btn-sm w-100 mb-2 add-to-cart-btn" style=" background: black; color:white !important;" data-type="offline" data-id="{{ encrypt($course_info) }}">{{ __('translation.Add to cart') }}</button>
                         @else
-                        <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style="border-radius: 2rem; background: black; color:white !important;" diabled>Limit Reached</button>
+                        <button class="btn btn-dark btn-sm w-100 mb-2 disabled" style=" background: black; color:white !important;" diabled>Limit Reached</button>
                         @endif
                         @endif
 
                         @if (auth()->check())
                         @if ($liked_course)
-                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style="border-radius: 2rem; background: black; font-size: 12px;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다.</button>
+                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 dislike_course" style=" background: black; font-size: 12px;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">이미 찜리스트에 추가되었습니다.</button>
                         @else
-                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 like_course" style="border-radius: 2rem; background: black;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
+                        <button onclick="LikeDislike($(this))" class="btn btn-dark btn-sm w-100 mb-2 like_course" style=" background: black;" data-type="offline" data-id="{{ encrypt($course_info->id) }}">찜하기</button>
                         @endif
                         @endif
                 </div>
@@ -386,6 +400,7 @@ $liked = 0;
             data: {
                 'course_id': $(this).data('id'),
                 'type': $(this).data('type'),
+                'course_schedule': $('#course_schedule').val(), 
                 '_token': '{{ csrf_token() }}'
             },
             beforeSend: function() {

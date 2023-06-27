@@ -245,6 +245,11 @@ Route::prefix('admin')->group(function () {
         Route::post('/delete-offline-course', [OfflineCourseController::class, 'delete_offline_course'])->name('delete-offline-course');
         Route::get('/edit-offline-course/{id}', [OfflineCourseController::class, 'edit_offline_course_view'])->name('edit_offline_course_view');
         Route::post('/edit-offline-course', [OfflineCourseController::class, 'edit_offline_course'])->name('edit-offline-course');
+
+        // Course Schedule
+        Route::post('/delete-offline-course-schedule',[OfflineCourseController::class, 'deleteCourseSchedule'])->name('delete_offline_course_schedule');
+    
+
         //End Offline Course
 
         //Course Reservations
