@@ -1898,6 +1898,10 @@ header .btn.transparent,
         display: none;
     }
 
+    .content_wrapper{
+        padding-right: 0px;
+    }
+
     .about_us_image_mobile {
         display: block;
     }
