@@ -29,17 +29,19 @@
             <div class="col-lg-12">
             <div class="row align-items-start">
                 <div class="col-lg-6" style="border-right: 1px solid #343638">
-                    <p class="mb-0 text-white font-25"  style="padding-right: 60px">사람들에게 선한 영향력을 전달하기 위해 정진하는
-                        모든 물리치료사 및 운동 전문가들을 환영합니다.
-                        피티에듀는 기초부터 심화 과정까지 올바른 지식을
-                        통해 전문가로 거듭남으로 형태의 변화에 대한 발판을
-                        제공하는 교육 전문 플랫폼입니다.</p>
+                    <p class="mb-0 text-white font-25"  style="padding-right: 60px">
+                        사람들에게 선한 영향력을 전달하기 위해 정진하는 <br />
+                        모든 물리치료사 및 운동 전문가들을 환영합니다. <br />
+                        피티에듀는 기초부터 심화 과정까지 올바른 지식을 <br />
+                        통해 전문가로 거듭남으로 형태의 변화에 대한 발판을 <br/>
+                        제공하는 교육 전문 플랫폼입니다</p>
                 </div>
                 <div class="col-lg-6">
-                    <p class="mb-0 text-white font-25" style="padding-left: 60px">여러 치료사들이 모여 논문과 임상 경험을 베이스로 한
-                        근거 기반 물리치료를 토대로 다양한 정보들을
-                        선별하여 질높은 강의를 제공합니다.
-                        분야별 맞춤식 강의를 통해 개인의 역량을 향상시키고
+                    <p class="mb-0 text-white font-25" style="padding-left: 60px">
+                        여러 치료사들이 모여 논문과 임상 경험을 베이스로 한 <br />
+                        근거 기반 물리치료를 토대로 다양한 정보들을 <br />
+                        선별하여 질높은 강의를 제공합니다. <br />
+                        분야별 맞춤식 강의를 통해 개인의 역량을 향상시키고 <br />
                         더 나아가 건강한 대한민국을 만드는 데에 이바지합니다</p>
                 </div>
             </div>

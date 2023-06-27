@@ -706,14 +706,16 @@ header .btn.transparent,
 }
 
 .font-25{
-    font-size: 25px;
+    font-size: 20px;
     opacity: 0.7;
+    line-height: 48.5px;
 }
 @media only screen and (max-width: 767px) {
 
     .font-25{
         font-size: 15px;
         opacity: 0.7;
+        line-height: 48.5px;
     }
     .interactive-section-content {
         width: 80%;
