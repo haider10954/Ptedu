@@ -710,12 +710,28 @@ header .btn.transparent,
     opacity: 0.7;
     line-height: 48.5px;
 }
+.padding-right-60{
+    padding-right: 60px;
+    padding-bottom: 0px;
+}
+
+.padding-left-60{
+    padding-left: 60px;
+    padding-bottom: 0px;
+}
 @media only screen and (max-width: 767px) {
 
+    .padding-right-60{
+        padding-right: 0px;
+        padding-bottom: 30px;
+    }
+    .padding-left-60{
+        padding-left: 0px;
+    }
     .font-25{
         font-size: 15px;
         opacity: 0.7;
-        line-height: 48.5px;
+        line-height: 24.5px;
     }
     .interactive-section-content {
         width: 80%;
