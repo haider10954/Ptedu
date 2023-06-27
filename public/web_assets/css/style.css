@@ -707,11 +707,13 @@ header .btn.transparent,
 
 .font-25{
     font-size: 25px;
+    opacity: 0.7;
 }
 @media only screen and (max-width: 767px) {
 
     .font-25{
         font-size: 15px;
+        opacity: 0.7;
     }
     .interactive-section-content {
         width: 80%;
@@ -1976,7 +1978,7 @@ header .btn.transparent,
     font-weight: bold !important;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 440px) {
     .logo_img {
         height: 20px;
         width: auto !important;
