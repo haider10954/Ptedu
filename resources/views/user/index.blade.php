@@ -24,7 +24,7 @@
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <h2 class="text-white">Increasing thinking ability</h2>
-                <p class="text-danger mb-4">Global standard / Evidence based / Job based</p>
+                <p class="text-danger" style="margin-bottom: 4rem; font-size: 15px">Global standard / Evidence based / Job based</p>
             </div>
             <div class="col-lg-12">
             <div class="row align-items-start">
