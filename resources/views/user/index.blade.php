@@ -93,36 +93,36 @@
                 </div>
                 <div class="swiper offline-lecture-carousel">
                     <div class="swiper-wrapper">
-                        @foreach ($offline_courses as $v)
-                        <div class="swiper-slide">
-                            <img src="{{ asset('storage/offline_course/thumbnail/' . $v->course_thumbnail) }}" class="img-fluid course-detail-img">
+                        @foreach ($offline_courses as $item)
+                        <div class="swiper-slide position-relative">
+                            <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
                             <div class="box-overlay">
-                                <a href="{{ route('offline_lecture_detail', $v->id) }}">
-                                    <h5 class="heading-h5 mb-3 text-white text-left">{{ $v->course_title }}
+                                <a href="{{ route('online_course_detail', $item->id) }}">
+                                    <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}
                                     </h5>
                                     <div class="box-overlay-description text-left">
-                                        <p class="mb-0 text-white">{{ $v->short_description }}</p>
+                                        <p class="mb-0 text-white">{{ $item->short_description }}</p>
                                     </div>
                                     <p class="mb-0 text-right text-white font-weight-600">
                                         {{ __('translation.Instructor') }}
-                                        {{ $v->getTutorName->name }}
+                                        {{ $item->getTutorName->name }}
                                     </p>
                                 </a>
                             </div>
                         </div>
                         @endforeach
                     </div>
-                    <div class="swiper-button-next offline-lecture-next"></div>
-                    <div class="swiper-button-prev offline-lecture-prev"></div>
                 </div>
+                <div class="swiper-button-next offline-lecture-next"></div>
+                <div class="swiper-button-prev offline-lecture-prev"></div>
             </div>
             @endif
             @if ($special_course->count() > 0)
-            <div class="section-part mb-120">
+            <div class="section-part mb-80">
                 <div class="section-title mb-5">
                     <h3 class="heading-h3 text-white mb-0">Special Courses</h3>
                 </div>
-                <div class="swiper special-course-carousel">
+                <div class="swiper special-course-carouse">
                     <div class="swiper-wrapper">
                         @foreach ($special_course as $item)
                         <div class="swiper-slide position-relative">
