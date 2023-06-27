@@ -135,7 +135,6 @@
                                             <select class="form-control" name="course_type">
                                                 <option value="">{{ __('translation.Select Option') }}</option>
                                                 <option value="online" {{ $course->course_type == "online" ? 'selected' : ''  }} >Online Course</option>
-                                                <option value="offline" {{ $course->course_type == "offline" ? 'selected' : ''  }}>Offline Course</option>
                                                 <option value="live" {{ $course->course_type == "live" ? 'selected' : ''  }}>실시간 강좌</option>
                                                 <option value="special" {{ $course->course_type == "special" ? 'selected' : ''  }}>Special Course</option>
                                             </select>
