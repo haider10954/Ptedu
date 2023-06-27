@@ -6,12 +6,12 @@
 <div class="banner_area">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-5 col-md-12 banner-left-content">
+            <div class="col-lg-4 col-md-12 banner-left-content">
                 <img src="{{ asset('web_assets/images/banner-logo.png') }}" height="60" alt="img-fluid" class="mb-3">
                 <p class="text-theme-light-grey">Education is not the learning of facts,<br>but the traning of the mind to think.</p>
             </div>
-            <div class="col-lg-7 col-md-12 text-center">
-                <img src="{{ asset('web_assets/images/banner-img.png') }}" alt="banner-img" class="img-fluid">
+            <div class="col-lg-8 col-md-12 text-center">
+                <img src="{{ asset('web_assets/banner.gif') }}" alt="banner-img" class="img-fluid">
             </div>
         </div>
     </div>

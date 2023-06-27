@@ -134,10 +134,10 @@
                                         <div class="col-sm-10">
                                             <select class="form-control" name="course_type">
                                                 <option value="">{{ __('translation.Select Option') }}</option>
-                                                <option value="online">Online Course</option>
-                                                <option value="offline">Offline Course</option>
-                                                <option value="live">실시간 강좌</option>
-                                                <option value="special">Special Course</option>
+                                                <option value="online" {{ $course->course_type == "online" ? 'selected' : ''  }} >Online Course</option>
+                                                <option value="offline" {{ $course->course_type == "offline" ? 'selected' : ''  }}>Offline Course</option>
+                                                <option value="live" {{ $course->course_type == "live" ? 'selected' : ''  }}>실시간 강좌</option>
+                                                <option value="special" {{ $course->course_type == "special" ? 'selected' : ''  }}>Special Course</option>
                                             </select>
                                             <div class="error-course-type"></div>
                                         </div>
@@ -267,7 +267,7 @@
                                     </div>
 
                                     <div class="row mb-4">
-                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload course Thumbnail image') }}</label>
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload course Thumbnail image') }} <br> <span class="text-danger">권장 사이즈 (840 * 580) </span> </label>
                                         <div class="col-sm-10">
                                             <input type="file" name="course_img" id="course_img" class="d-none">
                                             <div class="d-flex align-items-end">

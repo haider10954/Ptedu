@@ -201,7 +201,7 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Upload course Thumbnail image')}}</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Upload course Thumbnail image')}} <br> <span class="text-danger">권장 사이즈 (840 * 580) </span></label>
                         <div class="col-sm-10">
                             <input type="file" name="course_img" id="course_img" class="d-none" value="{{ $offline_course->getCourseThumbnail() }}">
                             <div class="d-flex align-items-end">

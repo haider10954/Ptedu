@@ -255,7 +255,7 @@
                                     </div>
 
                                     <div class="row mb-4">
-                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload course Thumbnail image') }}</label>
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload course Thumbnail image') }}<br> <span class="text-danger">권장 사이즈 (840 * 580) </span></label>
                                         <div class="col-sm-10">
                                             <input type="file" name="course_img" id="course_img" class="d-none">
                                             <div class="d-flex align-items-end">
@@ -370,13 +370,13 @@
                                                                             name="course_sections[0][lecture_title]"
                                                                             placeholder="Enter Lecture Title">
                                                                     </div>
-    
+
                                                                     <div class="col-lg-5">
                                                                         <input type="file" class="form-control"
                                                                             placeholder="Upload Lecture Video"
                                                                             name="course_sections[0][lecture_description]">
                                                                     </div>
-    
+
                                                                     <div class="col-lg-1">
                                                                         <div
                                                                             class="d-flex align-items-center justify-content-start">
@@ -389,7 +389,7 @@
                                                             </div>
                                                             <div class="d-flex gap-2">
                                                                 <div class="mt-1 mb-2">
-    
+
                                                                     <button type="button" data-repeater-create=""
                                                                         class="btn btn-success"><i class="bi bi-plus"></i> Add
                                                                         More</button>
