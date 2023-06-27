@@ -34,11 +34,11 @@ $cartBtn = 0;
                     </div>
                 </div>
                 <div class="col-lg-3">
-                    <div class="d-flex align-items-center justify-content-between">
+                    <div class="course_detail_box">
                         <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
                         <p class="mb-0 text text-bold">{{ number_format($course_info->price) }}{{ __('translation.won') }}</p>
                     </div>
-                    <div class="d-flex align-items-center justify-content-between">
+                    <div class="course_detail_box">
                         <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
                         <p class="mb-0 text text-bold">{{ $course_info->duration_of_course }} 주</p>
                     </div>

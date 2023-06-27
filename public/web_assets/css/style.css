@@ -1880,6 +1880,13 @@ header .btn.transparent,
     display: none !important;
 }
 
+.course_detail_box{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
 @media only screen and (max-width: 767px) {
     .about_us_image {
         display: none;
@@ -1941,6 +1948,14 @@ header .btn.transparent,
         box-shadow: 0px 0px 5px #bbbbbb;
     }
 
+    .course_detail_box{
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        gap: 10px;
+    }
+    
+
 }
 
 .ckeditor_description img {
@@ -1957,3 +1972,5 @@ header .btn.transparent,
         width: auto !important;
     }
 }
+
+
