@@ -79,7 +79,7 @@
             <div class="nav-links navigation-desktop">
                 <ul>
                     <li class="nav-link has-megamenu" style="--i: 1.1s">
-                        <a href="javascript:void(0)" class="text-decoration-none">온라인 강좌</a>
+                        <a href="javascript:void(0)" class="text-decoration-none online_course">온라인 강좌</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
@@ -119,8 +119,8 @@
                             </div>
                         </div>
                     </li>
-                    <li class="nav-link has-megamenu" style="--i: .85s">
-                        <a href="{{ route('offline_lectures') }}" class="text-decoration-none">오프라인 강좌</a>
+                    <li style="--i: .85s">
+                        <a href="{{ route('offline_lectures') }}" class="text-decoration-none" style="color: black;">오프라인 강좌</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
