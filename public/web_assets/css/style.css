@@ -430,11 +430,11 @@ header .btn.transparent,
     }
 
     .dropdown-link:hover>a {
-        background-color: #3a91bd;
+        background-color: #E5E5E5;
     }
 
     .dropdown-link:first-child:hover~.arrow {
-        background-color: #50a9d6;
+        background-color: #E5E5E5;
     }
 
     .nav-link>a>i {
