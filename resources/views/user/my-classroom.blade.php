@@ -212,7 +212,7 @@
                                 <div class="col-lg-3 col-md-4 col-12">
                                     <a href="{{ route('offline_lecture_detail',$liked_course->getOfflineLikedCourse->id) }}" style="color: black;">
                                         <div class="lecture-box" style="height: 300px;">
-                                            <img src="{{ asset('storage/course/thumbnail/' . $liked_course->getLikedCourse->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
+                                            <img src="{{ asset('storage/offline_course/thumbnail/' . $liked_course->getLikedCourse->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
                                             <div class="lecture_box_content">
                                                 <h6 class="lecture_title"> {{$liked_course->getOfflineLikedCourse->course_title}}</h6>
                                                 <small class="d-block text-muted mb-2 lecture_info">{{ $liked_course->getOfflineLikedCourse->getCategoryName->name }} l
@@ -524,7 +524,7 @@
         if (rating == 5) {
             $('#review_rating').append(
                 `<div class="d-flex align-items-center gap-1 rating-stars">
-                    <div>Rating :</div> 
+                    <div>Rating :</div>
                     <ul class="rate-area">
                         <input type="radio" id="5-star" name="rating" value="5" /><label for="5-star" title="Amazing" style="color: gold;">5 {{ __('translation.stars') }}</label>
                         <input type="radio" id="4-star" name="rating" value="4" /><label for="4-star" title="Good" style="color: gold;">4 {{ __('translation.stars') }}</label>
@@ -549,7 +549,7 @@
         } else if (rating == 3) {
             $('#review_rating').append(
                 `<div class="d-flex align-items-center gap-1 rating-stars">
-                    <div>Rating :</div>   
+                    <div>Rating :</div>
                     <ul class="rate-area">
                         <input type="radio" id="3-star" name="rating" value="3" /><label for="3-star" title="Average" style="color: gold;">3 {{ __('translation.stars') }}</label>
                         <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good" style="color: gold;">2 {{ __('translation.stars') }}</label>
@@ -560,7 +560,7 @@
         } else if (rating == 2) {
             $('#review_rating').append(
                 `<div class="d-flex align-items-center gap-1 rating-stars">
-                    <div>Rating :</div> 
+                    <div>Rating :</div>
                     <ul class="rate-area">
                         <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good" style="color: gold;">2 {{ __('translation.stars') }}</label>
                         <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad" style="color: gold;">1 {{ __('translation.star') }}</label>
@@ -570,7 +570,7 @@
         } else {
             $('#review_rating').append(
                 `<div class="d-flex align-items-center gap-1 rating-stars">
-                    <div>Rating :</div> 
+                    <div>Rating :</div>
                     <ul class="rate-area">
                         <input type="radio" id="2-star" name="rating" value="2" /><label for="2-star" title="Not Good" style="color: gold;">2 {{ __('translation.stars') }}</label>
                         <input type="radio" id="1-star" name="rating" value="1" /><label for="1-star" title="Bad" style="color: gold;">1 {{ __('translation.star') }}</label>
