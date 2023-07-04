@@ -733,9 +733,9 @@ header .btn.transparent,
 @media only screen and (max-width: 767px) {
 
     .about_us_section_1{
-        height: auto;
-        padding-top: 200px;
-        padding-bottom: 100px;
+        height: auto !important;
+        padding-top: 200px !important;
+        padding-bottom: 100px !important;
     }
 
     .padding-right-60{
