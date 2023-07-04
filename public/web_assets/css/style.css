@@ -732,6 +732,12 @@ header .btn.transparent,
 }
 @media only screen and (max-width: 767px) {
 
+    .about_us_section_1{
+        height: auto;
+        padding-top: 200px;
+        padding-bottom: 100px;
+    }
+
     .padding-right-60{
         padding-right: 0px;
         padding-bottom: 30px;
