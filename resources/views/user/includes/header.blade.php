@@ -119,46 +119,8 @@
                             </div>
                         </div>
                     </li>
-                    <li style="--i: .85s">
-                        <a href="{{ route('offline_lectures') }}" class="text-decoration-none" style="color: black;">오프라인 강좌</a>
-                        <div class="dropdown megamenu">
-                            <div class="row justify-content-center">
-                                <div class="col-md-4">
-                                    <h4 class="mb-3">{{ __('translation.Physical Teraphy') }}</h4>
-                                    <ul class="mb-0 px-0 megamenu-list">
-                                        @foreach ($online_public_courses as $public_courses)
-                                        <li>
-                                            <div class="row">
-                                                <div class="col-md-7">
-                                                    <a href="{{ route('online_course_detail' , $public_courses->id ) }}" class="megamenu-menu-link">{{ $public_courses->course_title }}</a>
-                                                </div>
-                                                <div class="col-md-5">
-                                                    <a href="javascript:void(0)" class="megamenu-menu-link text-muted">{{ $public_courses->getTutorName->name }}</a>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <h4 class="mb-3">Pilates</h4>
-                                    <ul class="mb-0 px-0 megamenu-list">
-                                        @foreach ($online_public_courses as $public_courses)
-                                        <li><a href="{{ route('online_course_detail' , $public_courses->id ) }}" class="megamenu-menu-link">{{ $public_courses->course_title }}</a>
-                                        </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="col-md-3">
-                                    <a class="text-decoration-none" href="{{ route('liveCourse') }}">
-                                        <h4 class="mb-3">실시간 강좌 <i class="fas fa-arrow-circle-right"></i></h4>
-                                    </a>
-                                    <a class="text-decoration-none" href="{{ route('specialCourse') }}">
-                                        <h4 class="mb-3">Special Lecture <i class="fas fa-arrow-circle-right"></i></h4>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <li class="nav-link" style="--i: 1.35s">
+                        <a href="{{ route('offline_lectures') }}" class="text-decoration-none">오프라인 강좌</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ route('about_us')}}" class="text-decoration-none">피티에듀</a>
