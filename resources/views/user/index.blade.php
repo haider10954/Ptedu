@@ -11,7 +11,7 @@
                 <p class="text-theme-light-grey">Education is not the learning of facts,<br>but the training of the mind to think.</p>
             </div>
             <div class="col-lg-8 col-md-12 text-center">
-                <img src="{{ asset('web_assets/banner.gif') }}" alt="banner-img" class="img-fluid">
+                <img src="{{ asset('web_assets/banner.gif') }}" alt="banner-img" class="img-fluid w-75">
             </div>
         </div>
     </div>
