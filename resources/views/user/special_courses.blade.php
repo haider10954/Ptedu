@@ -3,7 +3,7 @@
 @section('title', 'ptedu - Special Courses')
 
 @section('content')
-<div class="section pt-150 lectures_section bg-white">
+<div class="section pt-150 lectures_section bg-white" style="min-height: 70vh;">
     <div class="container">
         <div class="section-heading d-flex align-items-center justify-content-between">
             <h5 class="mb-0">Special Lecture</h5>

@@ -41,7 +41,12 @@
                                     </div>
                                 </li>
                                 <li class="dropdown-link">
-                                    <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Offline') }}</a>
+                                    <a class="text-decoration-none" href="{{ route('liveCourse') }}">
+                                        실시간 강좌
+                                    </a>
+                                    <a class="text-decoration-none" href="{{ route('specialCourse') }}">
+                                        Special Lecture
+                                    </a>
                                 </li>
                                 <div class="arrow"></div>
                             </ul>
@@ -83,7 +88,6 @@
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
-                                    <h4 class="mb-3">{{ __('translation.Physical Teraphy') }}</h4>
                                     <ul class="mb-0 px-0 megamenu-list">
                                         @foreach ($online_expert_courses as $expert_courses)
                                         <li>
@@ -100,7 +104,6 @@
                                     </ul>
                                 </div>
                                 <div class="col-md-3">
-                                    <h4 class="mb-3">{{ __('translation.Pilates') }}</h4>
                                     <ul class="mb-0 px-0 megamenu-list">
                                         @foreach ($online_expert_courses as $expert_courses)
                                         <li><a href="{{ route('online_course_detail' , $expert_courses->id ) }}" class="megamenu-menu-link">{{ $expert_courses->course_title }}</a>

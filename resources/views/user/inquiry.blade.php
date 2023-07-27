@@ -3,7 +3,8 @@
 @section('title', 'PTEdu - Inquiry')
 
 @section('content')
-<div class="section pt-125">
+
+<div class="section pt-125" style="min-height: 70vh;">
     <div class="container">
         <div class="row">
             <div class="col-lg-2 padding-left">

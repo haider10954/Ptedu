@@ -8,7 +8,7 @@
         <div class="row align-items-center">
             <div class="col-lg-4 col-md-12 banner-left-content">
                 <img src="{{ asset('web_assets/images/banner-logo.png') }}" height="60" alt="img-fluid" class="mb-3">
-                <p class="text-theme-light-grey">Education is not the learning of facts,<br>but the traning of the mind to think.</p>
+                <p class="text-theme-light-grey">Education is not the learning of facts,<br>but the training of the mind to think.</p>
             </div>
             <div class="col-lg-8 col-md-12 text-center">
                 <img src="{{ asset('web_assets/banner.gif') }}" alt="banner-img" class="img-fluid">
@@ -98,7 +98,7 @@
                         <div class="swiper-slide position-relative">
                             <img src="{{ asset('storage/offline_course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
                             <div class="box-overlay">
-                                <a href="{{ route('online_course_detail', $item->id) }}">
+                                <a href="{{ route('offline_lecture_detail', $item->id) }}">
                                     <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}
                                     </h5>
                                     <div class="box-overlay-description text-left">
