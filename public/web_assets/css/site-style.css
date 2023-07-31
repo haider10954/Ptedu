@@ -667,3 +667,8 @@
 .course-box .course-info{
     height: 80px !important;
 }
+.tab-pane p img
+{
+    width: 100% !important;
+    height: auto !important;
+}
