@@ -30,22 +30,28 @@ class LectureController extends Controller
     public function offline_lecture_detail($id)
     {
         $course_info = Offline_course::with('getTutorName')->where('id', $id)->first();
-        $video_handler = new VideoHandler();
-        $video_info =  $video_handler->getVideoInfo($course_info->video_url);
-        if ($video_info != false) {
-            $embedded_video_url = $video_info->html;
-        } else {
-            $embedded_video_url = false;
+        if (!empty($course_info)) {
+            $video_handler = new VideoHandler();
+            $video_info =  $video_handler->getVideoInfo($course_info->video_url);
+            if ($video_info != false) {
+                $embedded_video_url = $video_info->html;
+            } else {
+                $embedded_video_url = false;
+            }
+            $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
+            $offline_enrollment_count = Offline_enrollment::where('course_id', $id)->count();
+            $enrolled_user = Offline_enrollment::where('course_id', $id)->where('user_id', auth()->id())->count();
+
+            //Liked Courses
+
+            $liked_course = Like_course::where('course_id', $id)->where('type', 'offline')->first();
+
+            return view('user.offline-lecture-detail', compact('reservation', 'course_info', 'embedded_video_url', 'offline_enrollment_count', 'enrolled_user', 'liked_course'));
         }
-        $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
-        $offline_enrollment_count = Offline_enrollment::where('course_id', $id)->count();
-        $enrolled_user = Offline_enrollment::where('course_id', $id)->where('user_id', auth()->id())->count();
-
-        //Liked Courses
-
-        $liked_course = Like_course::where('course_id', $id)->where('type' , 'offline')->first();
-
-        return view('user.offline-lecture-detail', compact('reservation', 'course_info', 'embedded_video_url', 'offline_enrollment_count', 'enrolled_user','liked_course'));
+        else
+        {
+            abort(404);
+        }
     }
 
     public function my_classroom(Request $request)
@@ -76,22 +82,27 @@ class LectureController extends Controller
     public function online_course_detail($id)
     {
         $course_info = Course::with(['getTutorName', 'getCategoryName'])->where('id', $id)->first();
-        // dd($course_info);
-        $video_handler = new VideoHandler();
-        $video_info =  $video_handler->getVideoInfo($course_info->video_url);
-        if ($video_info != false) {
-            $embedded_video_url = $video_info->html;
+
+        if (!empty($course_info)) {
+            // dd($course_info);
+            $video_handler = new VideoHandler();
+            $video_info =  $video_handler->getVideoInfo($course_info->video_url);
+            if ($video_info != false) {
+                $embedded_video_url = $video_info->html;
+            } else {
+                $embedded_video_url = false;
+            }
+            $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
+            $reviews = Review::where('course_id', $id)->get();
+
+            //Liked Courses
+
+            $liked_course = Like_course::where('course_id', $id)->where('type', 'online')->first();
+
+            return view('user.online-course-detail', compact('reservation', 'course_info', 'embedded_video_url', 'reviews', 'liked_course'));
         } else {
-            $embedded_video_url = false;
+            abort(404);
         }
-        $reservation = Reservation::where('course_id', $id)->where('user_id', auth()->id())->first();
-        $reviews = Review::where('course_id', $id)->get();
-
-        //Liked Courses
-
-        $liked_course = Like_course::where('course_id', $id)->where('type' , 'online')->first();
-
-        return view('user.online-course-detail', compact('reservation', 'course_info', 'embedded_video_url', 'reviews', 'liked_course'));
     }
 
     public function lecture_video()
