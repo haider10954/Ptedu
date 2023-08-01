@@ -24,7 +24,7 @@ class IndexController extends Controller
     public function index()
     {
         $offline_courses = Offline_course::orderBy('id', 'desc')->with('getTutorName')->get();
-        $courses = Course::orderBy('id', 'desc')->get();
+        $courses = Course::where('course_type','online')->orderBy('id', 'desc')->get();
         $special_course = Course::where('course_type', 'special')->get();
         $latest_courses = Course::orderBy('id', 'desc')->with('getTutorName')->take(5)->get();
         $latest_tutors = Tutor::take(4)->get();
