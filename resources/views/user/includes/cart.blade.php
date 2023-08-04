@@ -17,7 +17,9 @@
             @if(count($cart) > 0)
             @foreach ($cart as $v)
             <tr>
-                <td> <input type="checkbox" class="checkbox select_delete" checked /> </td>
+                <td>
+                    <input type="checkbox" class="checkbox select_item" {{ $v['item_selected'] == true ? 'checked' : '' }} onchange="changeAmount(this)" data-id="{{ encrypt($v) }}" data-amount="{{$v['price'] - $v['discount']}}"/>
+                </td>
                 <td>
                     <span>[{{ ($v['type'] == 'online') ? Str::ucfirst($v['course']->course_type) : 'Offline' }} {{ __('translation.Course') }}] {{ $v['course_name'] }} </span> <br />
                     <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span> <br />
@@ -38,7 +40,6 @@
                 </td>
                 <td>
                     <div class="d-flex flex-column">
-                        {{-- <button class="btn rounded-0 btn-theme-white mb-2">Delete</button> --}}
                         <button class="btn rounded-0 btn-theme-black text-white" data-course="{{ encrypt($v['course_id']) }}" data-type="{{ encrypt($v['type']) }}" onclick="delCartItem($(this))">{{__('translation.delete')}}</button>
                     </div>
                 </td>
@@ -90,7 +91,7 @@
                     @php
                     $cart_total = ($cart->sum('price')) - $cart->sum('discount')
                     @endphp
-                    <p class="total-price mb-0">{{ number_format($cart_total) }}원</p>
+                    <p class="total-price mb-0" id="total_amount">{{ number_format($cart_total) }}원</p>
                 </div>
             </div>
         </div>

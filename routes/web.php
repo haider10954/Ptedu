@@ -80,11 +80,12 @@ Route::get('/online-course-detail/{id}', [LectureController::class, 'online_cour
 Route::post('/add-to-cart', [CartController::class, 'add_to_cart'])->name('add_to_cart');
 Route::post('/del-cart-item', [CartController::class, 'del_cart_item'])->name('del_cart_item');
 Route::post('/del-cart-items', [CartController::class, 'del_cart_items'])->name('del_cart_items');
+Route::post('/check-cart-items', [CartController::class, 'check_cart_items'])->name('check_cart_items');
 Route::get('/shopping-bag', [CartController::class, 'shopping_bag'])->name('shopping_bag');
 
 Route::get('lecture-video', [LectureController::class, 'lecture_video'])->name('lecture_video');
 
-//Reserve Courses 
+//Reserve Courses
 Route::post('/reserve-course', [ReservationController::class, 'Reverse_course'])->name('course_reservation');
 Route::post('/delete-reservation', [ReservationController::class, 'delete_Reverse_course'])->name('delete_reservation');
 
@@ -248,7 +249,7 @@ Route::prefix('admin')->group(function () {
 
         // Course Schedule
         Route::post('/delete-offline-course-schedule',[OfflineCourseController::class, 'deleteCourseSchedule'])->name('delete_offline_course_schedule');
-    
+
 
         //End Offline Course
 
@@ -344,7 +345,6 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/download_file/{enc}', [\App\Http\Controllers\admin\StudentController::class, 'downloadFile'])->name('download_file');
-
 
 Auth::routes();
 

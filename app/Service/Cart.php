@@ -16,6 +16,7 @@ class Cart {
                 'discount' => $course->discounted_prize,
                 'course_schedule' => $course->course_schedule,
                 'course' => $course,
+                'item_selected' => true
             ]);
             session()->put('shopping_cart',$cart);
             session()->save();
@@ -35,6 +36,7 @@ class Cart {
                 'discount' => $course->discounted_prize,
                 'course_schedule' => $course->course_schedule,
                 'course' => $course,
+                'item_selected' => true
             ]);
             session()->put('shopping_cart',$cart);
             session()->save();
@@ -59,7 +61,13 @@ class Cart {
     }
     public static function empty_cart(){
         try {
+            $cart_items = collect(session()->get('shopping_cart'));
+            $cart_items = $cart_items->filter(function ($item){
+                return $item['item_selected'] == false;
+            });
             session()->forget('shopping_cart');
+            session()->put('shopping_cart',$cart_items);
+            session()->save();
             return true;
         } catch (\Throwable $th) {
             return false;

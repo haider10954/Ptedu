@@ -4,54 +4,55 @@
 <div class="w-100">
     <table class="table shopping-table">
         <thead>
-            <tr>
-                {{-- <td></td> --}}
-                <td class="text-center" style="width: 57%;">{{ __('translation.Course Name') }}</td>
-                <td>{{ __('translation.Quantity') }}</td>
-                <td>{{ __('translation.Discount') }}</td>
-                <td>{{ __('translation.Price') }}</td>
+        <tr>
+            {{-- <td></td> --}}
+            <td class="text-center" style="width: 57%;">{{ __('translation.Course Name') }}</td>
+            <td>{{ __('translation.Quantity') }}</td>
+            <td>{{ __('translation.Discount') }}</td>
+            <td>{{ __('translation.Price') }}</td>
 
-            </tr>
+        </tr>
         </thead>
         <tbody>
-            @if(count($cart) > 0)
+        @if(count($cart) > 0)
             @foreach ($cart as $v)
-            <tr>
-                {{-- <td> <input type="checkbox" class="checkbox select_delete" onclick="select_delete_action($(this))" value="{{ encrypt($v) }}" /> </td> --}}
-                <td>
-                    <span>[{{ ($v['type'] == 'online') ? Str::ucfirst($v['course']->course_type) : 'Offline' }} {{ __('translation.Course') }}] {{ $v['course_name'] }} </span> <br />
-                    <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span>
-                </td>
-                <td>{{ $v['quantity'] }}</td>
-                <td>{{ ($v['course']->discounted_prize > 0) ? '' . number_format($v['course']->discounted_prize).'원' : '0원' }}</td>
-                <td>
-                    @if ($v['course']->discounted_prize > 0)
-                        <span class="discounted_Price">{{ number_format($v['price']) }}원</span> <br />
-                        @php
-                        $discouted_prize = ($v['price']) - ($v['course']->discounted_prize)
-                        @endphp
-                        <span>{{ number_format($discouted_prize) }}원</span>
-                    @else
-                        <span>{{ number_format($v['price']) }}원</span>
-                    @endif
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <span>[{{ ($v['type'] == 'online') ? Str::ucfirst($v['course']->course_type) : 'Offline' }} {{ __('translation.Course') }}] {{ $v['course_name'] }} </span>
+                        <br/>
+                        <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span>
+                    </td>
+                    <td>{{ $v['quantity'] }}</td>
+                    <td>{{ ($v['course']->discounted_prize > 0) ? '' . number_format($v['course']->discounted_prize).'원' : '0원' }}</td>
+                    <td>
+                        @if ($v['course']->discounted_prize > 0)
+                            <span class="discounted_Price">{{ number_format($v['price']) }}원</span> <br/>
+                            @php
+                                $discouted_prize = ($v['price']) - ($v['course']->discounted_prize)
+                            @endphp
+                            <span>{{ number_format($discouted_prize) }}원</span>
+                        @else
+                            <span>{{ number_format($v['price']) }}원</span>
+                        @endif
+                    </td>
+                </tr>
             @endforeach
-            @else
+        @else
             <tr>
-                <td colspan="5" class="text-center"> 
-                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 250px;"> 
-                </td> 
-            </tr>
-            @endif
-            <tr>
-                <td colspan="5">
-                    <div class="text-right total_payment">
-                        <p class="mb-0 text-muted">{{ __('translation.Total payment') }}</p>
-                        <span class="font-20 font-weight-700">{{ number_format($cart->sum('price')) }}원</span>
-                    </div>
+                <td colspan="5" class="text-center">
+                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid"
+                         style="height: 250px;">
                 </td>
             </tr>
+        @endif
+        <tr>
+            <td colspan="5">
+                <div class="text-right total_payment">
+                    <p class="mb-0 text-muted">{{ __('translation.Total payment') }}</p>
+                    <span class="font-20 font-weight-700">{{ number_format($cart->sum('price')) }}원</span>
+                </div>
+            </td>
+        </tr>
         </tbody>
     </table>
 </div>
@@ -65,7 +66,8 @@
                 <p>{{ __('translation.Payment Method') }}</p>
             </div>
             <div class="align-items-center radio_select mb-3">
-                <form name="order_info" method="post" action="{{ route('proceed_payment') }}" style="display: flex;align-items: center;flex-wrap: wrap;">
+                <form name="order_info" method="post" action="{{ route('proceed_payment') }}"
+                      style="display: flex;align-items: center;flex-wrap: wrap;">
                     @csrf
                     {{-- <div class="mr-3 payment_method_card mb-1 mb-md-0">
                         <input type="radio" name="payment_method" class="payment-method-radio" value="card" checked> <span>{{ __('translation.Card') }}</span>
@@ -80,7 +82,8 @@
                         <input type="radio" name="payment_method" class="payment-method-radio" value="mobile_phone_transfer"> {{ __('translation.Mobile phone transfer') }}
                     </div> --}}
                     <div class="mr-3 payment_method_card mb-1 mb-md-0">
-                        <input type="radio" name="pay_method" class="payment-method-radio" value="100000000000" checked> <span>신용카드</span>
+                        <input type="radio" name="pay_method" class="payment-method-radio" value="100000000000" checked>
+                        <span>신용카드</span>
                     </div>
                     <div class="mr-3 payment_method_card mb-1 mb-md-0">
                         <input type="radio" name="pay_method" class="payment-method-radio" value="010000000000"> <span>계좌이체</span>
@@ -101,28 +104,28 @@
                     @php
                         $total = ($cart->sum('price')) - ($cart->sum('discount'))
                     @endphp
-                    <input type="hidden" name="ordr_idxx" value="ptedu-{{ uniqid('ord') }}" maxlength="40" />
-                    <input type="hidden" name="good_name" value="물리 치료사 코스" />
-                    <input type="hidden" name="good_mny" value="{{ $total }}" maxlength="9" />
-                    <input type="hidden" name="buyr_name" value="{{ auth()->user()->name }}" />
-                    <input type="hidden" name="buyr_tel1" value="{{ auth()->user()->mobile_number }}" />
-                    <input type="hidden" name="buyr_tel2" value="{{ auth()->user()->mobile_number }}" />
-                    <input type="hidden" name="buyr_mail" value="{{ auth()->user()->email }}" />
+                    <input type="hidden" name="ordr_idxx" value="ptedu-{{ uniqid('ord') }}" maxlength="40"/>
+                    <input type="hidden" name="good_name" value="물리 치료사 코스"/>
+                    <input type="hidden" name="good_mny" value="{{ $total }}" maxlength="9"/>
+                    <input type="hidden" name="buyr_name" value="{{ auth()->user()->name }}"/>
+                    <input type="hidden" name="buyr_tel1" value="{{ auth()->user()->mobile_number }}"/>
+                    <input type="hidden" name="buyr_tel2" value="{{ auth()->user()->mobile_number }}"/>
+                    <input type="hidden" name="buyr_mail" value="{{ auth()->user()->email }}"/>
 
-                    <input type="hidden" name="site_cd"         value="AIYNH" />
-                    <input type="hidden" name="site_name"       value="PTEDU" />
-                    <input type="hidden" name="pay_method"       value="" />
-                    <input type="hidden" name="res_cd"          value=""/>
-                    <input type="hidden" name="res_msg"         value=""/>
-                    <input type="hidden" name="enc_info"        value=""/>
-                    <input type="hidden" name="enc_data"        value=""/>
-                    <input type="hidden" name="ret_pay_method"  value=""/>
-                    <input type="hidden" name="tran_cd"         value=""/>
-                    <input type="hidden" name="use_pay_method"  value=""/>
-                    <input type="hidden" name="ordr_chk"        value=""/>
-                    <input type="hidden" name="cash_yn"         value=""/>
-                    <input type="hidden" name="cash_tr_code"    value=""/>
-                    <input type="hidden" name="cash_id_info"    value=""/>
+                    <input type="hidden" name="site_cd" value="AIYNH"/>
+                    <input type="hidden" name="site_name" value="PTEDU"/>
+                    <input type="hidden" name="pay_method" value=""/>
+                    <input type="hidden" name="res_cd" value=""/>
+                    <input type="hidden" name="res_msg" value=""/>
+                    <input type="hidden" name="enc_info" value=""/>
+                    <input type="hidden" name="enc_data" value=""/>
+                    <input type="hidden" name="ret_pay_method" value=""/>
+                    <input type="hidden" name="tran_cd" value=""/>
+                    <input type="hidden" name="use_pay_method" value=""/>
+                    <input type="hidden" name="ordr_chk" value=""/>
+                    <input type="hidden" name="cash_yn" value=""/>
+                    <input type="hidden" name="cash_tr_code" value=""/>
+                    <input type="hidden" name="cash_id_info" value=""/>
                     {{-- hidden fields for payment --}}
                 </form>
             </div>
