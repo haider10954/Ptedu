@@ -140,20 +140,20 @@
         });
     });
 
-    let $checked_values = 0;
-
-    function select_delete_action($btn) {
-        let checkbox = $btn
-        if (checkbox.prop('checked') == true) {
-            $checked_values = $checked_values + 1;
-        } else {
-            $checked_values = $checked_values - 1;
-        }
-        if ($checked_values > 0) {
-            $('.select_delete_btn_box').fadeIn();
-        } else {
-            $('.select_delete_btn_box').fadeOut();
-        }
-    }
+    // let $checked_values = 0;
+    //
+    // function select_delete_action($btn) {
+    //     let checkbox = $btn
+    //     if (checkbox.prop('checked') == true) {
+    //         $checked_values = $checked_values + 1;
+    //     } else {
+    //         $checked_values = $checked_values - 1;
+    //     }
+    //     if ($checked_values > 0) {
+    //         $('.select_delete_btn_box').fadeIn();
+    //     } else {
+    //         $('.select_delete_btn_box').fadeOut();
+    //     }
+    // }
 </script>
 @endsection
