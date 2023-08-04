@@ -18,7 +18,7 @@
             @foreach ($cart as $v)
             <tr>
                 <td>
-                    <input type="checkbox" class="checkbox select_item" {{ $v['item_selected'] == true ? 'checked' : '' }} onchange="changeAmount(this)" data-id="{{ encrypt($v) }}" data-amount="{{$v['price'] - $v['discount']}}"/>
+                    <input type="checkbox" class="checkbox select_item" {{ $v['item_selected'] == true ? 'checked' : '' }} onchange="changeAmount(this)" data-id="{{ encrypt($v) }}" data-amount="{{$v['price']}}" data-disc="{{$v['discount']}}" />
                 </td>
                 <td>
                     <span>[{{ ($v['type'] == 'online') ? Str::ucfirst($v['course']->course_type) : 'Offline' }} {{ __('translation.Course') }}] {{ $v['course_name'] }} </span> <br />
@@ -61,7 +61,7 @@
             <div class="col-md-3  h-110 border_right">
                 <div class="cart-total-price  text-center position-relative">
                     <h5 class="font-weight-700">{{ __('translation.Total') }}</h5>
-                    <p class="price mb-0">{{ number_format($cart->sum('price')) }}원</p>
+                    <p class="price mb-0" id="item_price">{{ number_format($cart->where('item_selected',true)->sum('price')) }}원</p>
                     <div class="icons">
                         <i class="fa fa-minus"></i>
                     </div>
@@ -70,7 +70,7 @@
             <div class="col-md-3 h-110 border_right">
                 <div class="cart-total-price  text-center position-relative">
                     <h5 class="font-weight-700">{{ __('translation.Discount') }}</h5>
-                    <p class="price mb-0 text-danger">{{ number_format($cart->sum('discount')) }}원</p>
+                    <p class="price mb-0 text-danger" id="item_discount">{{ number_format($cart->where('item_selected',true)->sum('discount')) }}원</p>
                     <div class="icons">
                         <i class="fa fa-plus"></i>
                     </div>
@@ -89,7 +89,7 @@
                 <div class="cart-total-price  text-center">
                     <h5 class="font-weight-700">{{ __('translation.Total estimated payment amount') }}</h5>
                     @php
-                    $cart_total = ($cart->sum('price')) - $cart->sum('discount')
+                    $cart_total = ($cart->where('item_selected',true)->sum('price')) - $cart->where('item_selected',true)->sum('discount')
                     @endphp
                     <p class="total-price mb-0" id="total_amount">{{ number_format($cart_total) }}원</p>
                 </div>

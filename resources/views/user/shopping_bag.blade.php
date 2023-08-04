@@ -157,10 +157,13 @@
 
         function changeAmount(checkbox) {
             let totalAmount = 0;
+            let totalDiscount = 0;
 
             $('.select_item:checked').each(function () {
                 let amount = parseFloat($(this).attr('data-amount'));
+                let disc = parseFloat($(this).attr('data-disc'));
                 totalAmount += amount;
+                totalDiscount += disc;
             });
             let course = checkbox.getAttribute('data-id');
             $.ajax({
@@ -175,7 +178,9 @@
                 beforeSend: function () {},
                 success: function (res) {
                     if (res.success == true) {
-                        $('#total_amount').text(numberWithCommas(totalAmount) + '원')
+                        $('#total_amount').text(numberWithCommas(totalAmount - totalDiscount) + '원');
+                        $('#item_price').text(numberWithCommas(totalAmount) + '원')
+                        $('#item_discount').text(numberWithCommas(totalDiscount) + '원');
                     } else {}
                 },
                 error: function (e) {}
