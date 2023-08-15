@@ -18,7 +18,7 @@
                                 @if(isset($online_expert_courses[0]))
                                     <li class="dropdown-link">
                                         <a href="javascript:void(0)"
-                                           class="text-decoration-none">{{ __('translation.Physical Teraphy') }}<i
+                                           class="text-decoration-none">온라인 강좌<i
                                                 class="fas fa-angle-down"></i></a>
                                         <div class="dropdown second">
                                             <ul>
@@ -35,7 +35,7 @@
                                 @endif
                                 @if(isset($online_expert_courses[1]))
                                     <li class="dropdown-link">
-                                        <a href="javascript:void(0)">{{ __('translation.Philates') }}<i
+                                        <a href="javascript:void(0)">온라인 강좌<i
                                                 class="fas fa-angle-down"></i></a>
                                         <div class="dropdown second">
                                             <ul>
@@ -125,8 +125,8 @@
                                                 <li>
                                                     <div class="row">
                                                         <div class="col-md-7">
-                                                    <a href="{{ route('online_course_detail' , $expert_courses->id ) }}"
-                                                       class="megamenu-menu-link">{{ $expert_courses->course_title }}</a>
+                                                            <a href="{{ route('online_course_detail' , $expert_courses->id ) }}"
+                                                               class="megamenu-menu-link">{{ $expert_courses->course_title }}</a>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
