@@ -1,12 +1,12 @@
 # This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
-name: Ptedu FTP-Deploy
+name: E-Ptedu FTP-Deploy
 on:
   push:
     branches: [ "main" ]
 jobs:
   web-deploy:
-    name: 🎉 Deploy On BeckApps.Co
+    name: 🎉 Deploy On E-Ptedu
     runs-on: ubuntu-latest
     steps:
       - name: 🚚 Get latest code
@@ -14,7 +14,7 @@ jobs:
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
-          server: beckapps.co
-          username: ptedu@beckapps.co
+          server: e-ptedu.com
+          username: ftp-eptedu@e-ptedu.com
           password: ${{ secrets.FTP_NEW_SERVER_PASSWORD }}
           timeout: 9999999
