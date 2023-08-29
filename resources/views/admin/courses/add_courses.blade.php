@@ -665,7 +665,7 @@
                                                                     <label>Lecture Video</label>
                                                                     <input type="file" class="form-control"
                                                                         placeholder="강의 영상 선택"
-                                                                        name="lecture_video" />
+                                                                        name="lecture_video" accept=".mp4"/>
                                                                 </div>
 
                                                                 <div class="col-lg-6">
@@ -812,7 +812,7 @@
                                                         <label>Lecture Video</label>
                                                         <input type="file" class="form-control"
                                                             placeholder="강의 영상 선택"
-                                                            name="lecture_video" />
+                                                            name="lecture_video" accept=".mp4"/>
                                                     </div>
 
                                                     <div class="col-lg-6">

@@ -488,40 +488,22 @@ class CourseController extends Controller
         }
     }
 
-    function get_file_extension($filename){
-        $chunks = explode('.',$filename);
-        $chunks_count = count($chunks);
-        return $chunks[$chunks_count - 1];
-    }
-
     public function add_single_lecture(Request $request)
     {
         $validate = \Validator::make($request->all(), [
             'lecture_title' => 'required',
-            'lecture_video' => 'nullable|required_without:lecture_video_link',
+            'lecture_video' => 'nullable|required_without:lecture_video_link|mimes:mp4',
             'lecture_video_link' => 'nullable|required_without:lecture_video|url',
         ], [
             'lecture_video_link.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
             'lecture_video.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
             'lecture_video_link.url' => __('translation.Please enter a valid Url'),
+            'lecture_video.mimes' => __('translation.Only mp4 video format is supported'),
             'lecture_title.required' => __('translation.Please enter lecture title')
         ]);
 
-
-
-
-
         if ($validate->fails()) {
             return response()->json(['Success' => false, 'Msg' => $validate->errors()->first()]);
-        }
-
-        if($request->hasFile('lecture_video'))
-        {
-            $extenison = $this->get_file_extension($request->lecture_video);
-            if($extenison != "mp4")
-            {
-                return response()->json(['Success' => false, 'Msg' => __('translation.Only mp4 video format is supported')]);
-            }
         }
 
         $video_uploaded = null;
