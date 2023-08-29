@@ -456,7 +456,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="add_lecture_video">{{__('translation.Lecture Video')}}</label>
-                            <input type="file" class="form-control" id="add_lecture_video" name="lecture_video" placeholder="{{__('translation.Add Lecture Video')}}">
+                            <input type="file" class="form-control" id="add_lecture_video" accept=".mp4" name="lecture_video" placeholder="{{__('translation.Add Lecture Video')}}">
                         </div>
                         <div class="form-group mb-3">
                             <label for="add_lecture_video_link">{{ __('translation.Lecture Video Link') }}</label>
