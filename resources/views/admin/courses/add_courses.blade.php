@@ -665,7 +665,7 @@
                                                                     <label>Lecture Video</label>
                                                                     <input type="file" class="form-control"
                                                                         placeholder="강의 영상 선택"
-                                                                        name="lecture_video" accept=".mp4"/>
+                                                                        name="lecture_video" onchange="handleOnChange($(this))" accept=".mp4"/>
                                                                 </div>
 
                                                                 <div class="col-lg-6">
@@ -812,7 +812,7 @@
                                                         <label>Lecture Video</label>
                                                         <input type="file" class="form-control"
                                                             placeholder="강의 영상 선택"
-                                                            name="lecture_video" accept=".mp4"/>
+                                                            name="lecture_video" accept=".mp4" onchange="handleOnChange($(this))" />
                                                     </div>
 
                                                     <div class="col-lg-6">
@@ -903,6 +903,18 @@
 
     function deleteDiv(element) {
         $(element).closest('.course-schedule-item').remove();
+    }
+    function handleOnChange(input){
+        const selectedFile = input[0].files[0];
+        if (selectedFile) {
+            const fileName = selectedFile.name;
+            const fileExtension = fileName.split('.').pop().toLowerCase();
+
+            if (fileExtension !== 'mp4') {
+                alert('Please select a .mp4 file');
+                input.val(''); // Reset the file input
+            }
+        }
     }
 </script>
 

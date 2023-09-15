@@ -456,7 +456,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="add_lecture_video">{{__('translation.Lecture Video')}}</label>
-                            <input type="file" class="form-control" id="add_lecture_video" accept=".mp4" name="lecture_video" placeholder="{{__('translation.Add Lecture Video')}}">
+                            <input type="file" class="form-control" id="add_lecture_video" accept=".mp4" onchange="handleOnChange($(this))" name="lecture_video" placeholder="{{__('translation.Add Lecture Video')}}">
                         </div>
                         <div class="form-group mb-3">
                             <label for="add_lecture_video_link">{{ __('translation.Lecture Video Link') }}</label>
@@ -1073,5 +1073,17 @@
                 error: function(e) {}
             });
         });
+        function handleOnChange(input){
+            const selectedFile = input[0].files[0];
+            if (selectedFile) {
+                const fileName = selectedFile.name;
+                const fileExtension = fileName.split('.').pop().toLowerCase();
+
+                if (fileExtension !== 'mp4') {
+                    alert('Please select a .mp4 file');
+                    input.val(''); // Reset the file input
+                }
+            }
+        }
     </script>
     @endsection
