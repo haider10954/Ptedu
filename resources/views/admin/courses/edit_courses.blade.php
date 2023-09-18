@@ -858,6 +858,10 @@
         }
 
         $('#add_single_lecture_form').on('submit', function(e) {
+            if(($('#add_lecture_video').val() == '') && ($('#add_lecture_video_link').val() == '')){
+                alert("{{ __('translation.Please select video or enter video url') }}");
+                return false;
+            }
             e.preventDefault();
             var formData = new FormData($(this)[0]);
             $.ajax({

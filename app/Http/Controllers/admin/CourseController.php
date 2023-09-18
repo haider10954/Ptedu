@@ -175,15 +175,23 @@ class CourseController extends Controller
     {
         $validate = \Validator::make($request->all(), [
             'section_lectures.*.lecture_title' => 'required',
-            'section_lectures.*.lecture_video' => 'nullable|required_without:section_lectures.*.lecture_video_link|mimes:mp4',
-            'section_lectures.*.lecture_video_link' => 'nullable|required_without:section_lectures.*.lecture_video|url',
+            'section_lectures.*.lecture_video_link' => 'nullable|url',
         ], [
-            'section_lectures.*.lecture_video_link.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
-            'section_lectures.*.lecture_video.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
             'section_lectures.*.lecture_video_link.url' => __('translation.Please enter a valid Url'),
-            'section_lectures.*.lecture_video.mimes' => __('translation.Only mp4 video format is supported'),
             'section_lectures.*.lecture_title.required' => __('translation.Please enter lecture title'),
         ]);
+
+        // $validate = \Validator::make($request->all(), [
+        //     'section_lectures.*.lecture_title' => 'required',
+        //     'section_lectures.*.lecture_video' => 'nullable|required_without:section_lectures.*.lecture_video_link|mimes:mp4',
+        //     'section_lectures.*.lecture_video_link' => 'nullable|required_without:section_lectures.*.lecture_video|url',
+        // ], [
+        //     'section_lectures.*.lecture_video_link.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
+        //     'section_lectures.*.lecture_video.required_without' => __('translation.Please upload lecture video or attach lecture video link'),
+        //     'section_lectures.*.lecture_video_link.url' => __('translation.Please enter a valid Url'),
+        //     'section_lectures.*.lecture_video.mimes' => __('translation.Only mp4 video format is supported'),
+        //     'section_lectures.*.lecture_title.required' => __('translation.Please enter lecture title'),
+        // ]);
 
         if ($validate->fails()) {
             return response()->json(['error' => true, 'errors' => $validate->errors()->first()]);
@@ -492,7 +500,9 @@ class CourseController extends Controller
     {
         $validate = \Validator::make($request->all(), [
             'lecture_title' => 'required',
+            'lecture_video_link' => 'nullable|url',
         ], [
+            'lecture_video_link.url' => __('translation.Please enter a valid Url'),
             'lecture_title.required' => __('translation.Please enter lecture title')
         ]);
 

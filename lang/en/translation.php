@@ -457,5 +457,6 @@ return [
     'virtual-account' => 'Virtual Account',
     'Weeks' => 'Weeks',
     'At least 8 digits in combination of English and numbers' => 'At least 8 digits in combination of English and numbers',
-    'Combination of English letters and numbers' => 'Combination of English letters and numbers'
+    'Combination of English letters and numbers' => 'Combination of English letters and numbers',
+    'Please select video or enter video url' => 'Please select video or enter video url'
 ];

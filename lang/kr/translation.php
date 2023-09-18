@@ -459,5 +459,6 @@ return [
     'virtual-account' => '가상계좌',
     'Weeks' => '주',
     'At least 8 digits in combination of English and numbers' => '영문, 숫자 조합 8자리 이상',
-    'Combination of English letters and numbers' => '영문, 숫자 조합'
+    'Combination of English letters and numbers' => '영문, 숫자 조합',
+    'Please select video or enter video url' => '동영상을 선택하거나 동영상 URL을 입력하세요.'
 ];
