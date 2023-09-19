@@ -458,5 +458,6 @@ return [
     'Weeks' => 'Weeks',
     'At least 8 digits in combination of English and numbers' => 'At least 8 digits in combination of English and numbers',
     'Combination of English letters and numbers' => 'Combination of English letters and numbers',
-    'Please select video or enter video url' => 'Please select video or enter video url'
+    'Please select video or enter video url' => 'Please select video or enter video url',
+    'Make sure title and one of video or video link of a single lecture in not empty' => 'Make sure title and one of video or video link of a single lecture in not empty'
 ];

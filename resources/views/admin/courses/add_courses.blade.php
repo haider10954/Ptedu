@@ -740,6 +740,19 @@
         e.preventDefault();
         var currentForm = form;
         var formData = new FormData(form[0]);
+        let  i = 0;
+
+
+        const chunkSize = 3;
+        let array = $('input[name^="section_lectures"]');
+        for (let i = 0; i < array.length; i += chunkSize) {
+            const block = array.slice(i, i + chunkSize);
+
+            if((block[0].value == '') || ((block[1].value == '') && (block[2].value == ''))) {
+                alert("{{ __('translation.Make sure title and one of video or video link of a single lecture in not empty') }}");
+                return false;
+            }
+        }
         $.ajax({
             type: "POST",
             url: "{{ route('add-lectures-submit') }}",
