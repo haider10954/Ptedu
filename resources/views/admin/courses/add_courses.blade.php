@@ -929,6 +929,11 @@
             }
         }
     }
+
+    $(document).ready(function(){
+       $('.modal .close').removeAttr('data-dismiss');
+       $('.modal .close').attr('data-bs-dismiss','modal');
+    });
 </script>
 
 @endsection
