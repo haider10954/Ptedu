@@ -157,14 +157,14 @@
                                             @foreach ($course_categories as $category)
                                                 <li class="mb-2 main-category">
                                                     <a href="javascript:void(0)"
-                                                        class="megamenu-menu-link main-link">{{ $category->name }} <i
-                                                            class="fas fa-angle-right ml-1"></i></a>
+                                                        class="megamenu-menu-link main-link">{{ $category->name }} @if($category->getCourses->count() > 0) <i
+                                                            class="fas fa-angle-right ml-1"></i> @endif</a>
                                                             @if($category->getCourses->count() > 0)
                                                             <div class="sub-category shadow-sm">
                                                                 <ul>
                                                                     @foreach ($category->getCourses as $course)
                                                                     <li>
-                                                                        <a href="javascript:void(0)"
+                                                                        <a href="{{ route('online_course_detail',$course->id) }}"
                                                                             class="megamenu-menu-link child-link">{{ $course->course_title }}</a>
                                                                     </li>
                                                                     @endforeach
