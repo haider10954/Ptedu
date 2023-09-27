@@ -12,6 +12,57 @@
             <div class="nav-links navigation-mobile">
                 <ul>
                     <li class="nav-link" style="--i: 1.1s">
+                        <a href="javascript:void(0)" class="text-decoration-none">Online Course</a>
+                        <div class="dropdown">
+                            <ul>
+                                <li class="dropdown-link">
+                                    <a href="javascript:void(0)"
+                                       class="text-decoration-none">Yoga<i
+                                            class="fas fa-angle-down"></i></a>
+                                    <div class="dropdown second">
+                                        <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="javascript:void(0)"
+                                                       class="text-decoration-none">Happy Yoga</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="javascript:void(0)"
+                                                       class="text-decoration-none">Happy Yoga</a>
+                                                </li>
+                                            <li class="dropdown-link">
+                                                    <a href="javascript:void(0)"
+                                                       class="text-decoration-none">Happy Yoga</a>
+                                                </li>
+                                            <div class="arrow"></div>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="dropdown-link">
+                                    <a href="javascript:void(0)"
+                                       class="text-decoration-none">Yoga<i
+                                            class="fas fa-angle-down"></i></a>
+                                    <div class="dropdown second">
+                                        <ul>
+                                                <li class="dropdown-link">
+                                                    <a href="javascript:void(0)"
+                                                       class="text-decoration-none">Happy Yoga</a>
+                                                </li>
+                                                <li class="dropdown-link">
+                                                    <a href="javascript:void(0)"
+                                                       class="text-decoration-none">Happy Yoga</a>
+                                                </li>
+                                            <li class="dropdown-link">
+                                                    <a href="javascript:void(0)"
+                                                       class="text-decoration-none">Happy Yoga</a>
+                                                </li>
+                                            <div class="arrow"></div>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-link" style="--i: 1.1s">
                         <a href="javascript:void(0)" class="text-decoration-none">온라인 강좌</a>
                         <div class="dropdown">
                             <ul>
@@ -107,7 +158,8 @@
                                                     <div class="col-12">
                                                         <div class="main-category">
                                                             <a href="javascript:void(0)"
-                                                               class="megamenu-menu-link main-link">Yoga</a>
+                                                               class="megamenu-menu-link main-link">Yoga <i
+                                                                    class="fas fa-angle-right ml-1"></i></a>
                                                             <div class="sub-category shadow-sm">
                                                                 <ul>
                                                                     <li>
@@ -129,7 +181,9 @@
                                                     <div class="col-12">
                                                         <div class="main-category">
                                                             <a href="javascript:void(0)"
-                                                               class="megamenu-menu-link main-link">Yoga</a>
+                                                               class="megamenu-menu-link main-link">Yoga <i
+                                                                    class="fas fa-angle-right ml-1"></i></a>
+
                                                             <div class="sub-category shadow-sm">
                                                                 <ul>
                                                                     <li>
@@ -151,7 +205,8 @@
                                                     <div class="col-12">
                                                         <div class="main-category">
                                                             <a href="javascript:void(0)"
-                                                               class="megamenu-menu-link main-link">Yoga</a>
+                                                               class="megamenu-menu-link main-link">Yoga <i
+                                                                    class="fas fa-angle-right ml-1"></i></a>
                                                             <div class="sub-category shadow-sm">
                                                                 <ul>
                                                                     <li>
