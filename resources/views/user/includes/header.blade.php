@@ -15,50 +15,27 @@
                         <a href="javascript:void(0)" class="text-decoration-none">Online Course</a>
                         <div class="dropdown">
                             <ul>
-                                <li class="dropdown-link">
-                                    <a href="javascript:void(0)"
-                                       class="text-decoration-none">Yoga<i
-                                            class="fas fa-angle-down"></i></a>
-                                    <div class="dropdown second">
-                                        <ul>
+                                @if($course_categories->count() > 0)
+                                    @foreach ($course_categories as $category)
+                                    <li class="dropdown-link">
+                                        <a href="javascript:void(0)"
+                                        class="text-decoration-none">{{ $category->name }} @if($category->getCourses->count() > 0)<i
+                                                class="fas fa-angle-down"></i> @endif</a>
+                                        @if($category->getCourses->count() > 0)
+                                        <div class="dropdown second">
+                                            <ul>
+                                                @foreach ($category->getCourses as $course)
                                                 <li class="dropdown-link">
-                                                    <a href="javascript:void(0)"
-                                                       class="text-decoration-none">Happy Yoga</a>
+                                                    <a href="{{ route('online_course_detail',$course->id) }}"
+                                                    class="text-decoration-none">{{ $course->course_title }}</a>
                                                 </li>
-                                                <li class="dropdown-link">
-                                                    <a href="javascript:void(0)"
-                                                       class="text-decoration-none">Happy Yoga</a>
-                                                </li>
-                                            <li class="dropdown-link">
-                                                    <a href="javascript:void(0)"
-                                                       class="text-decoration-none">Happy Yoga</a>
-                                                </li>
-                                            <div class="arrow"></div>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="dropdown-link">
-                                    <a href="javascript:void(0)"
-                                       class="text-decoration-none">Yoga<i
-                                            class="fas fa-angle-down"></i></a>
-                                    <div class="dropdown second">
-                                        <ul>
-                                                <li class="dropdown-link">
-                                                    <a href="javascript:void(0)"
-                                                       class="text-decoration-none">Happy Yoga</a>
-                                                </li>
-                                                <li class="dropdown-link">
-                                                    <a href="javascript:void(0)"
-                                                       class="text-decoration-none">Happy Yoga</a>
-                                                </li>
-                                            <li class="dropdown-link">
-                                                    <a href="javascript:void(0)"
-                                                       class="text-decoration-none">Happy Yoga</a>
-                                                </li>
-                                            <div class="arrow"></div>
-                                        </ul>
-                                    </div>
-                                </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                        @endif
+                                    </li>
+                                    @endforeach
+                                @endif
                             </ul>
                         </div>
                     </li>
@@ -166,7 +143,7 @@
                                                                     <li>
                                                                         <a href="{{ route('online_course_detail',$course->id) }}"
                                                                             class="megamenu-menu-link child-link">{{ $course->course_title }}</a>
-                                                                    </li>
+                                                                    </li> 
                                                                     @endforeach
                                                                 </ul>
                                                             </div>
