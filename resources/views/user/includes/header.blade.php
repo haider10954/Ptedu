@@ -153,27 +153,21 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-4">
                                     <ul class="mb-0 px-0 megamenu-list ">
-                                            <li class="mb-2">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="main-category">
+                                            <li class="mb-2 main-category">
+                                                <a href="javascript:void(0)"
+                                                   class="megamenu-menu-link main-link">Yoga <i
+                                                        class="fas fa-angle-right ml-1"></i></a>
+                                                <div class="sub-category shadow-sm">
+                                                    <ul>
+                                                        <li>
                                                             <a href="javascript:void(0)"
-                                                               class="megamenu-menu-link main-link">Yoga <i
-                                                                    class="fas fa-angle-right ml-1"></i></a>
-                                                            <div class="sub-category shadow-sm">
-                                                                <ul>
-                                                                    <li>
-                                                                        <a href="javascript:void(0)"
-                                                                           class="megamenu-menu-link child-link">Happy Yoga</a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a href="javascript:void(0)"
-                                                                           class="megamenu-menu-link child-link">Happy Yoga</a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                               class="megamenu-menu-link child-link">Happy Yoga</a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="javascript:void(0)"
+                                                               class="megamenu-menu-link child-link">Happy Yoga</a>
+                                                        </li>
+                                                    </ul>
                                                 </div>
                                             </li>
                                             <li class="mb-2">

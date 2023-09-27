@@ -218,7 +218,7 @@ header .btn.transparent,
     font-weight: 500 !important;
     background-color: rgba(128, 128, 128, 0.17) !important;
 }
-.main-category a:hover + .sub-category
+.main-category:hover .sub-category
 {
     display: block;
 }
@@ -226,15 +226,21 @@ header .btn.transparent,
 {
     display: block;
 }
+.main-link
+{
+    font-size: 14px;
+}
 .child-link
 {
     padding: 4px 8px;
+    font-size: 14px;
 }
 .sub-category
 {
     display: none;
     position: absolute;
     top: 0;
+    z-index: 9999;
     width: max-content;
     left: 100%;
     background-color: white;
