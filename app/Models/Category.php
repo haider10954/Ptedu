@@ -18,6 +18,6 @@ class Category extends Model
 
     public function getReviews()
     {
-        return $this->hasMany(Review::class, 'category_id', 'id');
+        return $this->hasMany(Review::class, 'categroy_id', 'id');
     }
 }
