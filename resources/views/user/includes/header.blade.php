@@ -97,6 +97,111 @@
             <div class="nav-links navigation-desktop">
                 <ul>
                     <li class="nav-link has-megamenu" style="--i: 1.1s">
+                        <a href="javascript:void(0)" class="text-decoration-none online_course">Online Course</a>
+                        <div class="dropdown megamenu">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <ul class="mb-0 px-0 megamenu-list ">
+                                            <li class="mb-2">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="main-category">
+                                                            <a href="javascript:void(0)"
+                                                               class="megamenu-menu-link main-link">Yoga</a>
+                                                            <div class="sub-category shadow-sm">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)"
+                                                                           class="megamenu-menu-link child-link">Happy Yoga</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)"
+                                                                           class="megamenu-menu-link child-link">Happy Yoga</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mb-2">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="main-category">
+                                                            <a href="javascript:void(0)"
+                                                               class="megamenu-menu-link main-link">Yoga</a>
+                                                            <div class="sub-category shadow-sm">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)"
+                                                                           class="megamenu-menu-link child-link">Happy Yoga</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)"
+                                                                           class="megamenu-menu-link child-link">Happy Yoga</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="mb-2">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="main-category">
+                                                            <a href="javascript:void(0)"
+                                                               class="megamenu-menu-link main-link">Yoga</a>
+                                                            <div class="sub-category shadow-sm">
+                                                                <ul>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)"
+                                                                           class="megamenu-menu-link child-link">Happy Yoga</a>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="javascript:void(0)"
+                                                                           class="megamenu-menu-link child-link">Happy Yoga</a>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                    </ul>
+                                </div>
+                                @if(isset($online_expert_courses[1]))
+                                    <div class="col-md-3">
+                                        <ul class="mb-0 px-0 megamenu-list">
+                                            @foreach ($online_expert_courses[1] as $expert_courses)
+                                                <li>
+                                                    <div class="row">
+                                                        <div class="col-md-7">
+                                                            <a href="{{ route('online_course_detail' , $expert_courses->id ) }}"
+                                                               class="megamenu-menu-link">{{ $expert_courses->course_title }}</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-5">
+                                                        <a href="javascript:void(0)"
+                                                           class="megamenu-menu-link text-muted">{{ $expert_courses->getTutorName->name }}</a>
+                                                    </div>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                <div class="col-md-3">
+                                    <a class="text-decoration-none" href="{{ route('liveCourse') }}">
+                                        <h4 class="mb-3">실시간 강좌 <i class="fas fa-arrow-circle-right"></i></h4>
+                                    </a>
+                                    <a class="text-decoration-none" href="{{ route('specialCourse') }}">
+                                        <h4 class="mb-3">Special Lecture <i class="fas fa-arrow-circle-right"></i></h4>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-link has-megamenu" style="--i: 1.1s">
                         <a href="javascript:void(0)" class="text-decoration-none online_course">온라인 강좌</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
@@ -207,39 +312,3 @@
         </div>
     </div>
 </header>
-
-<script>
-    function myfunction2() {
-        document.getElementById("myDropdown2").classList.toggle("show");
-    }
-
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-
-    window.onclick = function (event) {
-        if (!event.target.matches('.solid')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-
-    window.onclick = function (event) {
-        if (!event.target.matches('.solid')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content-language");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }
-</script>

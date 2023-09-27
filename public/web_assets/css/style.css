@@ -199,7 +199,57 @@ header .btn.transparent,
 .dropdown-link i {
     transform: rotate(-90deg);
 }
+.main-category
+{
+    position: relative;
+    width: max-content;
+}
+.main-category a
+{
+    transition: all .2s;
 
+}
+.main-link
+{
+    padding: 4px 8px;
+}
+.main-category a:hover
+{
+    font-weight: 500 !important;
+    background-color: rgba(128, 128, 128, 0.17) !important;
+}
+.main-category a:hover + .sub-category
+{
+    display: block;
+}
+.sub-category:hover
+{
+    display: block;
+}
+.child-link
+{
+    padding: 4px 8px;
+}
+.sub-category
+{
+    display: none;
+    position: absolute;
+    top: 0;
+    width: max-content;
+    left: 100%;
+    background-color: white;
+    padding: 10px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+.sub-category ul li
+{
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 8px;
+}
+.main-category a:hover .sub-category:hover {
+    font-weight: 500;
+}
 .arrow {
     position: absolute;
     width: 11px;
@@ -872,8 +922,8 @@ header .btn.transparent,
     position: absolute;
     width: 100%;
     height: auto;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background: #ffffff;
     z-index: 999999;
 }

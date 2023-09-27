@@ -32,6 +32,56 @@
   <!-- js links -->
   @include('user.includes.script')
   @yield('custom-script')
+  <script>
+
+      $(document).ready(function (){
+          $(".child-link").hover(
+
+              function () {
+                    $(this).parent('li').parent('ul').parent('.sub-category').prev('a').css("background-color", "rgba(128, 128, 128, 0.17)")
+                    $(this).parent('li').parent('ul').parent('.sub-category').prev('a').css("font-weight", "500")
+              },
+              function () {
+
+                  $(this).parent('li').parent('ul').parent('.sub-category').prev('a').css("background-color", "transparent")
+                  $(this).parent('li').parent('ul').parent('.sub-category').prev('a').css("font-weight", "400")
+              }
+          );
+      })
+      function myfunction2() {
+          document.getElementById("myDropdown2").classList.toggle("show");
+      }
+
+      function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+      }
+
+      window.onclick = function (event) {
+          if (!event.target.matches('.solid')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                  }
+              }
+          }
+      }
+
+      window.onclick = function (event) {
+          if (!event.target.matches('.solid')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content-language");
+              var i;
+              for (i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                  }
+              }
+          }
+      }
+  </script>
 </body>
 
 </html>
