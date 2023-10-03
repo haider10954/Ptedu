@@ -84,7 +84,6 @@ class ReviewController extends Controller
 
     public function add_review(Request $request)
     {
-        dd($request->all());
         $request->validate([
             'rating' => 'required',
             'title' => 'required',
