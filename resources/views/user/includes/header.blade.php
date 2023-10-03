@@ -128,7 +128,7 @@
                         <a href="javascript:void(0)" class="text-decoration-none online_course">Online Course</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <ul class="mb-0 px-0 megamenu-list ">
                                         @if($course_categories->count() > 0)
                                             @foreach ($course_categories as $category)
@@ -159,19 +159,17 @@
                                     </ul>
                                 </div>
                                 @if(isset($online_expert_courses[1]))
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <ul class="mb-0 px-0 megamenu-list">
                                             @foreach ($online_expert_courses[1] as $expert_courses)
                                                 <li>
                                                     <div class="row">
-                                                        <div class="col-md-7">
+                                                        <div class="col-md-12">
                                                             <a href="{{ route('online_course_detail' , $expert_courses->id ) }}"
                                                                class="megamenu-menu-link">{{ $expert_courses->course_title }}</a>
+                                                            <a href="javascript:void(0)"
+                                                           class="megamenu-menu-link text-muted">({{ $expert_courses->getTutorName->name }})</a>
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-5">
-                                                        <a href="javascript:void(0)"
-                                                           class="megamenu-menu-link text-muted">{{ $expert_courses->getTutorName->name }}</a>
                                                     </div>
                                                 </li>
                                             @endforeach
@@ -217,15 +215,14 @@
                                             @foreach ($online_expert_courses[1] as $expert_courses)
                                                 <li>
                                                     <div class="row">
-                                                        <div class="col-md-7">
+                                                        <div class="col-md-12">
                                                             <a href="{{ route('online_course_detail' , $expert_courses->id ) }}"
                                                                class="megamenu-menu-link">{{ $expert_courses->course_title }}</a>
+                                                               <a href="javascript:void(0)"
+                                                           class="megamenu-menu-link text-muted">({{ $expert_courses->getTutorName->name }})</a>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-5">
-                                                        <a href="javascript:void(0)"
-                                                           class="megamenu-menu-link text-muted">{{ $expert_courses->getTutorName->name }}</a>
-                                                    </div>
+                                                    
                                                 </li>
                                             @endforeach
                                         </ul>
