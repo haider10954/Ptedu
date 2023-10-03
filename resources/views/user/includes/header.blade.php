@@ -255,12 +255,11 @@
                 </ul>
             </div>
             <div class="log-sign" style="--i: 1.8s">
+                <a href="{{ route('shopping_bag') }}" class="btn solid shopping_cart_btn"><span
+                    class="shopping_cart_count"
+                    data-items-count="{{ count(session('shopping_cart') ?? []) }}">{{ count(session('shopping_cart') ?? []) }}</span>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
                 @if(auth()->check())
-                    <a href="{{ route('shopping_bag') }}" class="btn solid shopping_cart_btn"><span
-                            class="shopping_cart_count"
-                            data-items-count="{{ count(session('shopping_cart') ?? []) }}">{{ count(session('shopping_cart') ?? []) }}</span>
-                        <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
-
                     <div class="dropdown_header">
                         <button onclick="myFunction()" class="btn solid"><i class="fa fa-user" aria-hidden="true"></i>
                         </button>

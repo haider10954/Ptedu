@@ -88,8 +88,7 @@ class ReviewController extends Controller
             'rating' => 'required',
             'title' => 'required',
             'contents' => 'required',
-            'video' => 'mimes:mp4',
-            'video_url' => 'required'
+            'video' => 'required|mimes:mp4'
         ]);
 
         if ($request->hasFile('video')) {
@@ -106,8 +105,7 @@ class ReviewController extends Controller
             'title' => $request['title'],
             'content' => $request['contents'],
             'rating' => $request['rating'],
-            'video' => $video,
-            'video_url' => $request['video_url'],
+            'video' => $video
         ]);
 
 

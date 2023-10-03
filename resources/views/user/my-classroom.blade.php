@@ -341,7 +341,7 @@
                             <div class="error-video"></div>
                         </div>
                     </div>
-                    <div class="row align-items-center mb-3">
+                    {{-- <div class="row align-items-center mb-3">
                         <div class="col-lg-2">
                             <label for="contents mb-0">{{ __('translation.Video URL') }}</label>
                         </div>
@@ -349,7 +349,7 @@
                             <input type="text" name="video_url" placeholder="{{ __('translation.Enter video URL ( Youtube or Vimeo )') }}" class="form-control">
                             <div class="error-video-url"></div>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="my-3 d-flex align-items-center justify-content-center">
                         <button type="submit" id="submitForm" class="btn btn-primary mr-2 rounded-0 btn-theme-black">등록</button>
                         <button type="button" class="btn btn-secondary rounded-0" data-dismiss="modal">{{ __('translation.Close') }}</button>
