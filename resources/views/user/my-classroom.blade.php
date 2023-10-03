@@ -337,7 +337,7 @@
                             <label for="contents mb-0">{{ __('translation.Video') }}</label>
                         </div>
                         <div class="col-lg-10">
-                            <input type="file" name="video" class="form-control">
+                            <input type="file" name="video" class="form-control" accept=".mp4">
                             <div class="error-video"></div>
                         </div>
                     </div>
