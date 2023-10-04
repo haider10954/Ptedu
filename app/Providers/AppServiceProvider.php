@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Models\Course;
 use App\Models\Category;
+use App\Models\Offline_course;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -32,8 +33,12 @@ class AppServiceProvider extends ServiceProvider
             view()->share('online_public_courses', $public_courses);
         }
         if (\Schema::hasTable('categories')){
-            $course_categories = Category::with('getCourses')->get();
+            $course_categories = Category::with(['getCourses','getOffineCourses'])->get();
             view()->share('course_categories', $course_categories);
+        }
+        if (\Schema::hasTable('offline_courses')) {
+            $offline_courses = Offline_course::with('getTutorName')->take(10)->get();
+            view()->share('offline_courses', $offline_courses);
         }
     }
 }

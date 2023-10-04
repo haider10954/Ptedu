@@ -462,6 +462,6 @@ return [
     'Combination of English letters and numbers' => '영문, 숫자 조합',
     'Please select video or enter video url' => '동영상을 선택하거나 동영상 URL을 입력하세요.',
     'Make sure title and one of video or video link of a single lecture in not empty' => '단일 강의의 제목과 동영상 또는 동영상 링크 중 하나가 비어 있지 않은지 확인하세요.',
-    'Course duration' => '코스 기간',
-    'is completed' => '완성 됐습니다'
+    'Course duration' => '수강기간',
+    'is completed' => '종료되었습니다'
 ];
