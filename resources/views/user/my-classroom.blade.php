@@ -84,7 +84,7 @@
                                                         @endif
                                                     </div>
                                                     @else
-                                                        <p class="mb-0 text-muted">Course duration is completed</p>
+                                                        <p class="mb-0 text-white badge bg-secondary">{{ __('translation.Course duration') }} ({{ $item->getCourses->duration_of_course }} {{ ($item->getCourses->duration_of_course > 1) ? __('translation.Weeks') : __('translation.Weeks') }}) {{ __('translation.is completed') }}</p>
                                                     @endif
                                                 </div>
                                             </div>
