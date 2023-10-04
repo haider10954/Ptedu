@@ -336,7 +336,7 @@
                         </div>
                     </div>
 
-                    <div class="row align-items-center mb-3">
+                    {{-- <div class="row align-items-center mb-3">
                         <div class="col-lg-2">
                             <label for="contents mb-0">{{ __('translation.Video') }}</label>
                         </div>
@@ -344,7 +344,7 @@
                             <input type="file" name="video" class="form-control" accept=".mp4">
                             <div class="error-video"></div>
                         </div>
-                    </div>
+                    </div> --}}
                     {{-- <div class="row align-items-center mb-3">
                         <div class="col-lg-2">
                             <label for="contents mb-0">{{ __('translation.Video URL') }}</label>

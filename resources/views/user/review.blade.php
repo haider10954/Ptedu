@@ -10,7 +10,8 @@
             </div>
             <div class="w-65 review_info m-auto py-4">
                 <h5 class="heading mb-3 text-center">PTEdu {{ __('translation.Student Reviews') }}</h5>
-                @if (!empty($latest_review))
+                <video src="{{ asset('storage/review/video/review_video.mp4') }}" controls="" height="315" style="width: 100%; object-fit: cover;"></video>
+                {{-- @if (!empty($latest_review))
                     @if(($embedded_video != false) && !empty($embedded_video))
                         {!! $embedded_video !!}
                     @else
@@ -26,7 +27,7 @@
                         <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid"
                             style="height: 300px;">
                     </div>
-                @endif
+                @endif --}}
             </div>
 
         </div>

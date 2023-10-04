@@ -87,15 +87,14 @@ class ReviewController extends Controller
         $request->validate([
             'rating' => 'required',
             'title' => 'required',
-            'contents' => 'required',
-            'video' => 'required|mimes:mp4'
+            'contents' => 'required'
         ]);
 
-        if ($request->hasFile('video')) {
-            $video = $this->upload_files($request['video']);
-        } else {
-            $video = null;
-        }
+        // if ($request->hasFile('video')) {
+        //     $video = $this->upload_files($request['video']);
+        // } else {
+        //     $video = null;
+        // }
 
 
         $review = Review::create([
@@ -104,8 +103,7 @@ class ReviewController extends Controller
             'user_id' => auth()->id(),
             'title' => $request['title'],
             'content' => $request['contents'],
-            'rating' => $request['rating'],
-            'video' => $video
+            'rating' => $request['rating']
         ]);
 
 
