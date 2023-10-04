@@ -30,7 +30,7 @@
                     </h2>
                     <div id="collapse{{ $loop->index+1 }}" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            {{ $item->content }}
+                            {!! $item->content !!}
                         </div>
                     </div>
                 </div>
