@@ -68,6 +68,7 @@
                                                     l {{ $item->getCourses->getTutorName->name }}</small>
                                                 <small class="lecture-duration d-block">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
+                                                    @if($item->created_at->addWeeks($item->getCourses->duration_of_course)->isPast() != true)
                                                     <div class="d-flex align-items-center">
                                                         @if ($item->getCourses->live_status == 1)
                                                         <a href="{{ $item->getCourses->live_link }}" target="_blank" class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mr-2 font-10">
@@ -82,6 +83,9 @@
                                                         <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled">{{ __('translation.No Lecture') }}</a>
                                                         @endif
                                                     </div>
+                                                    @else
+                                                        <p class="mb-0 text-muted">Course duration is completed</p>
+                                                    @endif
                                                 </div>
                                             </div>
                                         </div>
