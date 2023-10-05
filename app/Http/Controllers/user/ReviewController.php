@@ -110,7 +110,7 @@ class ReviewController extends Controller
         if ($review) {
             return json_encode([
                 'success' => true,
-                'message' => __('translation.Review has been deleted successfully'),
+                'message' => __('translation.Review upload completed'),
             ]);
         } else {
             return json_encode([
