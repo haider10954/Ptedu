@@ -48,7 +48,7 @@
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
                                         <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <small class="text-muted">{{ __('translation.by') }} 강**
+                                            <small class="text-muted">{{ __('translation.by') }} {{ $r->getUser->name }}
                                                 {{ \Carbon\Carbon::parse($r->created_at)->format('d M, Y') }}</small>
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                 alt="img">
