@@ -49,7 +49,7 @@
                                         <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <small class="text-muted">{{ __('translation.by') }} {{ mb_substr($r->getUser->name, 0, 1) }}** - 
-                                                {{ \Carbon\Carbon::parse($r->created_at)->format('d M, Y') }}</small>
+                                                {{ \Carbon\Carbon::parse($r->created_at)->format('Y-m-d') }}</small>
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                 alt="img">
                                         </div>
