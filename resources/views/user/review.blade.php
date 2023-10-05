@@ -41,7 +41,6 @@
                     <div class="swiper-wrapper">
                         @if ($review->count() > 0)
                             @foreach ($review as $r)
-                            {{ $r->getUser->name }}
                                 <div class="swiper-slide">
                                     <div class="course-review-box">
                                         <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
@@ -49,7 +48,7 @@
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
                                         <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <small class="text-muted">{{ __('translation.by') }} {{ substr($r->getUser->name, 0, 1) }}** - 
+                                            <small class="text-muted">{{ __('translation.by') }} {{ mb_substr($r->getUser->name, 0, 1) }}** - 
                                                 {{ \Carbon\Carbon::parse($r->created_at)->format('d M, Y') }}</small>
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                 alt="img">
