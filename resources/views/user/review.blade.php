@@ -41,6 +41,7 @@
                     <div class="swiper-wrapper">
                         @if ($review->count() > 0)
                             @foreach ($review as $r)
+                            {{ $r->getUser->name }}
                                 <div class="swiper-slide">
                                     <div class="course-review-box">
                                         <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
