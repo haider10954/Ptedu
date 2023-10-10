@@ -85,7 +85,6 @@
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     @foreach ($category as $r)
-                        @dd($r)
                         <div class="tab-pane fade {{ $loop->index == 0 ? 'active show' : '' }}"
                             id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
                             @if ($r->getReviews->count() > 0)
