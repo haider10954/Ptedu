@@ -119,7 +119,7 @@
                                         @if (($item->getOfflineEnrolments->count() > 0) || ($item->getOnlineEnrolments->count() > 0))
                                         @foreach($item->getOnlineEnrolments as $course)
                                         <li class="border-0 mb-2">
-                                            {{ $course->getCousreName->course_title }} ({{ __('translation.Online')}})
+                                            {{ $course->getCourses->course_title }} ({{ __('translation.Online')}})
                                         </li>
                                         @endforeach
                                         @foreach($item->getOfflineEnrolments as $offline_course)
