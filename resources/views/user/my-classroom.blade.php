@@ -166,7 +166,7 @@
                                                 @if ($Data)
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 13px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="checkReviewModal($(this))" data-rating="{{ $Data->rating }}" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>리뷰가 추가됨</button>
                                                 @else
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 13px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}">
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 13px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" data-category-id="{{ $v->getCourses->category_id }}">
                                                     <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
                                                 @endif
 
@@ -286,7 +286,7 @@
                 <div class="prompt"></div>
                 <form id="addReview">
                     @csrf
-                    <input type="hidden" name="categroy_id" value="1">
+                    <input type="hidden" name="categroy_id" id="review_category_id" value="">
                     <input type="hidden" name="course_id" id="course_id">
                     <div class="mb-3">
                         <div class="d-flex align-items-center gap-1 rating-stars">
@@ -514,6 +514,7 @@
 
     function reviewModal(id, btn) {
         $('#course_id').val(id);
+        $('#review_category_id').val(btn.attr('data-category-id'));
         $('#course_name').val(btn.attr('data-course-name'));
         showModal.show();
     }
