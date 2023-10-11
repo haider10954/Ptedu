@@ -23,7 +23,6 @@
                                     <img src="{{ asset('storage/course/thumbnail/'.$item->course_thumbnail) }}" class="img-fluid offline-course-img" alt="img">
                                 </div>
                                 <div class="course-info">
-                                    <small class="d-block text-muted mb-1 font-weight-600">{{ $item->created_at->format('Y.m.d') }}</small>
                                     <p class="mb-0 text-theme-dark">{{ Str::limit($item->course_title, 40, '...') }}</p>
                                 </div>
                             </div>
@@ -50,7 +49,6 @@
                                     <img src="{{ asset('storage/offline_course/thumbnail/'.$item->course_thumbnail) }}" class="img-fluid offline-course-img" alt="img">
                                 </div>
                                 <div class="course-info">
-                                    <small class="d-block text-muted mb-1 font-weight-600">{{ $item->created_at->format('Y.m.d') }}</small>
                                     <p class="mb-0 text-theme-dark">{{ Str::limit($item->course_title, 40, '...') }}</p>
                                 </div>
                             </div>
