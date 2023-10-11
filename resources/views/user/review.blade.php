@@ -17,7 +17,7 @@
                     @else
                     <div class="video_review_container">
                         <h5><i class="fa fa-exclamation-circle mx-1"></i>Video Not Found</h5>
-                    </div>  
+                    </div>
                     @endif
                     <p class="mb-1 font-weight-600">{{ $latest_review->getCourse->course_title }} |
                         {{ $latest_review->title }} </p>
@@ -31,7 +31,6 @@
             </div>
 
         </div>
-    </div>
     </div>
     <div class="section course_reviews background-light">
         <div class="container">
@@ -48,7 +47,7 @@
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
                                         <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <small class="text-muted">{{ __('translation.by') }} {{ mb_substr($r->getUser->name, 0, 1) }}** - 
+                                            <small class="text-muted">{{ __('translation.by') }} {{ mb_substr($r->getUser->name, 0, 1) }}** -
                                                 {{ \Carbon\Carbon::parse($r->created_at)->format('Y-m-d') }}</small>
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                 alt="img">
@@ -91,7 +90,7 @@
                                 @foreach ($r->getReviews as $v)
                                     <div class="review_box mb-3">
                                         <div class="d-flex mb-2 align-items-center justify-content-between">
-                                            <small class="text-muted">{{ $v->created_at->format('Y.m.d') }}</small>
+                                            <small class="text-muted">{{ !empty($v->created_at) ? $v->created_at->format('Y.m.d') : "" }}</small>
                                             <div class="d-flex align-items-center gap-1 rating-stars">
                                                 @if ($v->rating == 1)
                                                     <i class="fas fa-star"></i>
