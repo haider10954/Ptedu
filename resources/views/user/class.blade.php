@@ -50,16 +50,18 @@
                 <div class="content">
                     <ul class="lectures_list">
                         @foreach ($lectures as $record)
-                        @php
-                        $lecture_progress = null;
-                        if (!empty($record->duration) && !empty($record->viewed_time)) {
-                        $record->duration = str_replace(':', '.', $record->duration);
-                        $record->viewed_time = str_replace(':', '.', $record->viewed_time);
-                        $duration = number_format($record->duration, 2);
-                        $viewed_time = number_format($record->viewed_time, 2);
-                        $lecture_progress = ($record->viewed_time / $record->duration) * 100;
-                        }
-                        @endphp
+                            @php
+                                $lecture_progress = null;
+                                if (!empty($record->duration) && !empty($record->viewed_time)) {
+
+                                $record->duration = (float) str_replace(':', '.', $record->duration);
+                                $record->viewed_time = (float) str_replace(':', '.', $record->viewed_time);
+                                $duration = number_format($record->duration, 2);
+                                $viewed_time = number_format($record->viewed_time, 2);
+                                $lecture_progress = ($record->viewed_time / $record->duration) * 100;
+
+                                }
+                            @endphp
                         @if ($record->slug == $lecture->slug)
                         <li id="playingVideoLink">
                             <a title="{{ $record->lecture_title }}" href="javascript:void(0)" class="d-flex align-items-center justify-content-between"><span>{{ $loop->index + 1 }}강.{{ \Str::limit($record->lecture_title, 25) }}</span>
@@ -124,7 +126,7 @@
 
     function formatTime(time) {
         let minutes = Math.floor(time / 60)
-        let timeForSeconds = time - (minutes * 60) // seconds without counted minutes 
+        let timeForSeconds = time - (minutes * 60) // seconds without counted minutes
         let seconds = Math.floor(timeForSeconds)
         let secondsReadable = seconds > 9 ? seconds : `0${seconds}` // To change 2:2 into 2:02
         return `${minutes}:${secondsReadable}`
