@@ -349,3 +349,23 @@ Route::get('/download_file/{enc}', [\App\Http\Controllers\admin\StudentControlle
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/clear', function () {
+
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('config:cache');
+    Artisan::call('view:clear');
+    Artisan::call('optimize:clear');
+
+    return "Cleared!";
+
+});
+
+Route::get('/migrate', function () {
+
+    Artisan::call('migrate');
+
+    return "migrated!";
+
+});
