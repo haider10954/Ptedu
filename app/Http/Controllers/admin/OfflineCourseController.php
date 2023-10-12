@@ -31,8 +31,8 @@ class OfflineCourseController extends Controller
 
     public function add_offline_course_view()
     {
-        $tutor = Tutor::get();
-        $category = Category::get();
+        $tutor = Tutor::query()->get();
+        $category = Category::query()->where('type','offline')->get();
         return view('admin.offline_lectures.add_offline_course', compact('tutor', 'category'));
     }
 
@@ -155,7 +155,7 @@ class OfflineCourseController extends Controller
             'course_img' => 'mimes:jpeg,png,jpg',
             'banner_img' => 'mimes:jpeg,png,jpg',
             'no_of_enrollments' => 'required',
-            'course_scheduling.*' => 'required', 
+            'course_scheduling.*' => 'required',
         ]);
 
         if ($request->hasFile('course_img')) {

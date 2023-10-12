@@ -39,6 +39,20 @@
                         </div>
                     </div>
                     <div class="row mb-4">
+                        <label for="type" class="col-sm-2 col-form-label lecture-form">유형</label>
+                        <div class="col-sm-10">
+
+                            <select id="type"  class="form-control" name="type">
+                                <option value="">Select Option</option>
+                                <option value="online" {{ $cat->type == 'online' ? 'selected' : '' }}>Online</option>
+                                <option value="offline" {{ $cat->type == 'offline' ? 'selected' : '' }}>Offline</option>
+                            </select>
+                            @error('type')
+                            <p style="color:#d02525;">{{$message}}</p>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="row mb-4">
                         <div class="col-sm-2"></div>
                         <div class="col-sm-10">
                             <button type="submit" class="btn btn-primary">{{ __('translation.Submit') }}</button>

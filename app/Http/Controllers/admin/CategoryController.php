@@ -23,11 +23,13 @@ class CategoryController extends Controller
     public function add_category(Request $request)
     {
         $this->validate($request, [
-            'category_name' => 'required'
+            'category_name' => 'required',
+            'type' => 'required',
         ]);
 
         $cat = Category::create([
             'name' => $request['category_name'],
+            'type' => $request['type'],
         ]);
 
         if ($cat) {
@@ -50,11 +52,13 @@ class CategoryController extends Controller
     public function edit_category(Request $request)
     {
         $this->validate($request, [
-            'category_name' => 'required'
+            'category_name' => 'required',
+            'type' => 'required',
         ]);
 
         $category = Category::where('id', $request['id'])->update([
-            'name' => $request['category_name']
+            'name' => $request['category_name'],
+            'type' => $request['type'],
         ]);
         if ($category) {
             return redirect()->route('category');

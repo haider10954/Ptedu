@@ -36,15 +36,15 @@ class CourseController extends Controller
 
     public function add_course_view()
     {
-        $tutor = Tutor::get();
-        $category = Category::get();
+        $tutor = Tutor::query()->get();
+        $category = Category::query()->where('type','online')->get();
         return view('admin.courses.add_course', compact('tutor', 'category'));
     }
 
     public function add_courses_view()
     {
-        $tutor = Tutor::get();
-        $category = Category::get();
+        $tutor = Tutor::query()->get();
+        $category = Category::query()->where('type','online')->get();
         return view('admin.courses.add_courses', compact('tutor', 'category'));
     }
 

@@ -120,7 +120,8 @@
                     <thead>
                         <tr>
                             <td class="align-middle t_header">{{ __('translation.No') }}</td>
-                            <td class="align-middle t_header" style="width: 75%;">{{ __('translation.Category Name') }}</th>
+                            <td class="align-middle t_header" >{{ __('translation.Category Name') }}</th>
+                            <td class="align-middle t_header" style="width: 75%;">유형</th>
                             <td class="align-middle t_header">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
@@ -131,6 +132,9 @@
                             <td>{{ $loop-> index + 1 }}</td>
                             <td>
                                 <span class="course_name">{{ $cat->name }}</span> <br />
+                            </td>
+                            <td>
+                                <span class="course_name">{{ $cat->type }}</span> <br />
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
