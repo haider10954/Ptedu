@@ -270,8 +270,8 @@ class CourseController extends Controller
     {
         // dd($id);
         $course = Course::where('id', $id)->first();
-        $tutor = Tutor::get();
-        $category = Category::get();
+        $tutor = Tutor::query()->get();
+        $category = Category::query()->where('type','online')->get();
         $sections = Section::with('getLectures')->where('course_id', $course->id)->get();
         return view('admin.courses.edit_courses', compact('tutor', 'category', 'course', 'sections'));
     }

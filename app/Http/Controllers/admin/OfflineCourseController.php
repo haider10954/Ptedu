@@ -134,8 +134,8 @@ class OfflineCourseController extends Controller
     public function edit_offline_course_view($id)
     {
         $offline_course = Offline_course::where('id', $id)->first();
-        $tutor = Tutor::get();
-        $category = Category::get();
+        $tutor = Tutor::query()->get();
+        $category = Category::query()->where('type','offline')->get();
         return view('admin.offline_lectures.edit_offline_course', compact('offline_course', 'tutor', 'category'));
     }
 
