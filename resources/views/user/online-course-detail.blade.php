@@ -36,7 +36,7 @@ $cartBtn = 0;
                 <div class="col-lg-3">
                     <div class="course_detail_box">
                         <p class="mb-0 text">{{ __('translation.Course Amount') }}</p>
-                        <p class="mb-0 text text-bold">{{ number_format($course_info->price) }}{{ __('translation.won') }}</p>
+                        <p class="mb-0 text text-bold">{{ number_format(!empty($course_info->price) ? $course_info->price : 0) }}{{ __('translation.won') }}</p>
                     </div>
                     <div class="course_detail_box">
                         <p class="mb-0 text">{{ __('translation.Course Period') }}</p>
@@ -169,7 +169,7 @@ $cartBtn = 0;
                     <div class="d-flex mb-2 align-items-center justify-content-between review_box_mobile">
                         <div>
                             <div>
-                                <small class="text-muted">{{ $r->getCourse->getCategoryName->name}} | {{ $r->created_at->format('Y.m.d') }}</small>
+                                <small class="text-muted">{{ $r->getCourse->getCategoryName->name}} | {{ !empty($r->created_at) ? $r->created_at->format('Y.m.d') : '' }}</small>
                                 <div class="d-flex">
                                     <p class="font-weight-600 mb-0 mr-2">{{ $r->title }}</p>
                                     <div class="d-flex align-items-center gap-1 rating-stars">
