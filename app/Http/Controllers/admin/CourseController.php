@@ -16,6 +16,11 @@ use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
+    function delete_file($folder, $filename){
+        if (Storage::disk('public')->exists($folder.'/' . $filename)) {
+            Storage::disk('public')->delete($folder.'/' . $filename);
+        }
+    }
     public function course_listing()
     {
         $limit = 10;
@@ -572,6 +577,10 @@ class CourseController extends Controller
 
     public function del_single_lecture(Request $request)
     {
+        $getLecture = Lecture::where('id', $request->lecture_id)->first();
+        if(!empty($getLecture->lecture_video)){
+            $this->delete_file('lectures',$getLecture->lecture_video);
+        }
         $lectureDelete = Lecture::where('id', $request->lecture_id)->delete();
         if ($lectureDelete) {
             $sections = Section::with('getLectures')->withCount('getLectures')->where('course_id', $request->course_id)->get();
