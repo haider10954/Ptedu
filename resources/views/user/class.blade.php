@@ -47,7 +47,7 @@
                 <div class="content-header">
                     <h6 class="mb-0 text-dark">{{__('translation.Course Content')}}</h6>
                 </div>
-                <div class="content">
+                <div class="content" style="width: 84% !important;">
                     <ul class="lectures_list">
                         @foreach ($lectures as $record)
                             @php
@@ -82,7 +82,7 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="content-footer">
+                <div class="content-footer px-3" style="position: static !important;">
                     <a class="btn btn-danger" href="{{ route('my_classroom') }}">수강종료</a>
                 </div>
             </div>
