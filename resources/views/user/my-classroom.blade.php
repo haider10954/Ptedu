@@ -164,7 +164,7 @@
                                             <div class="d-flex align-items-center justify-content-between">
 
                                                 @if ($Data)
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 11px; padding: 5px 5px; border-radius: 0;" onclick="checkReviewModal($(this))" data-rating="{{ $Data->rating }}" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>리뷰가 추가됨</button>
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 11px; padding: 5px 5px; border-radius: 0;" onclick="checkReviewModal($(this))" data-rating="{{ $Data->rating }}" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>{{ __('translation.Review Added') }}</button>
                                                 @else
                                                 <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 11px; padding: 5px 5px; border-radius: 0;" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" data-category-id="{{ $v->getCourses->category_id }}">
                                                     <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
@@ -621,7 +621,7 @@
             },
             success: function(res) {
                 $("#submitForm").attr('class', 'btn btn-success');
-                $("#submitForm").html('<i class="fa fa-check me-1"></i>  리뷰가 추가됨</>');
+                $("#submitForm").html('<i class="fa fa-check me-1"></i>  {{ __("translation.Review Added") }}</>');
                 if (res.success) {
                     $('.prompt').html('<div class="alert alert-success mb-3">' + res.message +
                         '</div>');
