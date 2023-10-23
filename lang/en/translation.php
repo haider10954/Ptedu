@@ -462,5 +462,8 @@ return [
     'Make sure title and one of video or video link of a single lecture in not empty' => 'Make sure title and one of video or video link of a single lecture in not empty',
     'Course duration' => 'Course duration',
     'is completed' => 'is completed',
-    'Review upload completed' => 'Review upload completed'
+    'Review upload completed' => 'Review upload completed',
+    'Online Courses' => 'Online Courses',
+    'Offline Courses' => 'Offline Courses',
+    'PTEdu' => 'PTEdu'
 ];

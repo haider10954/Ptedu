@@ -464,5 +464,8 @@ return [
     'Make sure title and one of video or video link of a single lecture in not empty' => '단일 강의의 제목과 동영상 또는 동영상 링크 중 하나가 비어 있지 않은지 확인하세요.',
     'Course duration' => '수강기간',
     'is completed' => '종료되었습니다',
-    'Review upload completed' => '리뷰 업로드 완료'
+    'Review upload completed' => '리뷰 업로드 완료',
+    'Online Courses' => '온라인 강좌',
+    'Offline Courses' => '오프라인 강좌',
+    'PTEdu' => '피티에듀'
 ];
