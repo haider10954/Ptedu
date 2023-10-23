@@ -81,6 +81,7 @@ class CartController extends Controller
 
     public function add_to_cart(Request $request)
     {
+        dd($request->all());
         if (empty(session('shopping_cart'))) {
             $shoping_cart_count = 0;
         } else {
