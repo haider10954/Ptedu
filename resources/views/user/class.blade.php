@@ -47,7 +47,7 @@
                 <div class="content-header">
                     <h6 class="mb-0 text-dark">{{__('translation.Course Content')}}</h6>
                 </div>
-                <div class="content" style="width: 84% !important;">
+                <div class="content" style="height: 84% !important;">
                     <ul class="lectures_list">
                         @foreach ($lectures as $record)
                             @php
