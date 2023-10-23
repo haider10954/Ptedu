@@ -468,5 +468,6 @@ return [
     'PTEdu' => 'PTEdu',
     'Added' => 'Added',
     'Processing' => 'Processing',
-    'Please enter your ID' => 'Please enter your ID'
+    'Please enter your ID' => 'Please enter your ID',
+    'End Course' => 'End Course'
 ];

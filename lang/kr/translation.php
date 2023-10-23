@@ -470,5 +470,6 @@ return [
     'PTEdu' => '피티에듀',
     'Added' => '추가됨',
     'Processing' => '진행중',
-    'Please enter your ID' => '아이디를 입력해주세요'
+    'Please enter your ID' => '아이디를 입력해주세요',
+    'End Course' => '수강종료'
 ];

@@ -82,8 +82,8 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="content-footer px-3" style="position: static !important;">
-                    <a class="btn btn-danger" href="{{ route('my_classroom') }}">수강종료</a>
+                <div class="content-footer px-3 py-2" style="position: static !important;">
+                    <a class="btn btn-danger" href="{{ route('my_classroom') }}">{{ __('translation.End Course') }}</a>
                 </div>
             </div>
         </div>
