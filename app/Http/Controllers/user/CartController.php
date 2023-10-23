@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Service\Cart;
 use App\Models\Order;
 use App\Models\Course;
+use App\Models\Offline_course;
 use App\Models\Online_enrollment;
 use App\Models\Offline_enrollment;
 use App\Models\Course_tracking;
@@ -81,16 +82,23 @@ class CartController extends Controller
 
     public function add_to_cart(Request $request)
     {
-        dd($request->all());
         if (empty(session('shopping_cart'))) {
             $shoping_cart_count = 0;
         } else {
             $shoping_cart_count = count(session('shopping_cart'));
         }
-        $encrypted_course = $request->course_id;
-        $course = decrypt($encrypted_course);
+        $course_id = $request->course_id;
+        if($request->type == 'online'){
+            $course = Course::where('id', $course_id)->first();
+        }elseif($request->type == 'offline'){
+            $course = Offline_course::where('id', $course_id)->first();
+        }else{
+            return json_encode(['Success' => false, 'Msg' => __('translation.Something went wrong Please try again'), 'cart_items_count' => count(session('shopping_cart'))]);
+        }
+    
         $course['type'] = $request->type;
         $course['course_schedule'] = $request->course_schedule;
+        dd($course);
         if ($request->type == 'online') {
             $check_enrolment = Online_enrollment::where('course_id', $course['id'])->where('user_id', auth()->id())->first();
             if (!empty($check_enrolment)) {
