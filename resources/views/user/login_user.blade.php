@@ -12,7 +12,7 @@
                 <form type="POST" id="loginForm">
                     @csrf
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="아이디를 입력해주세요" name="email" />
+                        <input type="text" class="form-control" placeholder="{{ __('translation.Please enter your ID') }}" name="email" />
                         <div class="error-email"></div>
                     </div>
 
