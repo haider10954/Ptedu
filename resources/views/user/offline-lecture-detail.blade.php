@@ -405,7 +405,7 @@ $liked = 0;
             },
             beforeSend: function() {
                 btn.prop('disabled', true);
-                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> "{{ __("translation.Processing") }}"');
+                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> {{ __("translation.Processing") }}');
             },
             success: function(res) {
                 if (res.Success == true) {
