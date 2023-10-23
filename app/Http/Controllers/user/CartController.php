@@ -98,7 +98,6 @@ class CartController extends Controller
     
         $course['type'] = $request->type;
         $course['course_schedule'] = $request->course_schedule;
-        dd($course);
         if ($request->type == 'online') {
             $check_enrolment = Online_enrollment::where('course_id', $course['id'])->where('user_id', auth()->id())->first();
             if (!empty($check_enrolment)) {
