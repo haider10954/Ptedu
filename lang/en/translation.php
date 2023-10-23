@@ -470,5 +470,6 @@ return [
     'Processing' => 'Processing',
     'Please enter your ID' => 'Please enter your ID',
     'End Course' => 'End Course',
-    'Take Class' => 'Take Class'
+    'Take Class' => 'Take Class',
+    'Review Added' => 'Review Added'
 ];

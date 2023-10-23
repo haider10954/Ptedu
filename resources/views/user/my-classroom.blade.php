@@ -164,18 +164,18 @@
                                             <div class="d-flex align-items-center justify-content-between">
 
                                                 @if ($Data)
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 13px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="checkReviewModal($(this))" data-rating="{{ $Data->rating }}" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>리뷰가 추가됨</button>
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 11px; padding: 5px 5px; border-radius: 0;" onclick="checkReviewModal($(this))" data-rating="{{ $Data->rating }}" data-course-name="{{ $v->getCourses->course_title }}" data-title="{{ $Data->title }}" data-content="{{ $Data->content }}"> <i class="fas fa-edit"></i>리뷰가 추가됨</button>
                                                 @else
-                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 13px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" data-category-id="{{ $v->getCourses->category_id }}">
+                                                <button href="javascript:void(0)" class="btn btn-primary btn-theme-light w-50" style="font-size: 11px; padding: 5px 5px; border-radius: 0;" onclick="reviewModal('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" data-category-id="{{ $v->getCourses->category_id }}">
                                                     <i class="fas fa-edit"></i>{{ __('translation.Write a review') }}</button>
                                                 @endif
 
 
                                                 @if ($v->generate_certificate == 1)
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-theme-black w-48" style="font-size: 12px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="certificate('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" id="completed_courses"> <i class="fas fa-medal"></i>
-                                                    수료증 관리 </a>
+                                                <a href="javascript:void(0)" class="btn btn-primary btn-theme-black w-48" style="font-size: 11px; padding: 5px 5px !important; border-radius: 0;" onclick="certificate('{{ $v->getCourses->id }}',$(this))" data-course-name="{{ $v->getCourses->course_title }}" id="completed_courses"> <i class="fas fa-medal"></i>
+                                                    {{ __('translation.Review Added') }} </a>
                                                 @else
-                                                <a href="javascript:void(0)" class="btn btn-primary btn-theme-black w-48" style="font-size: 12px; padding: 8px 12px; border-radius: 0; height: 51px;" onclick="checkCertificate($(this))" data-course-name="{{ $v->getCourses->course_title }}">
+                                                <a href="javascript:void(0)" class="btn btn-primary btn-theme-black w-48" style="font-size: 11px; padding: 5px 5px !important; border-radius: 0;" onclick="checkCertificate($(this))" data-course-name="{{ $v->getCourses->course_title }}">
                                                     <i class="fas fa-medal"></i>
                                                     {{ __('translation.Certificate') }}</a>
                                                 @endif

@@ -472,5 +472,6 @@ return [
     'Processing' => '진행중',
     'Please enter your ID' => '아이디를 입력해주세요',
     'End Course' => '수강종료',
-    'Take Class' => '수강중'
+    'Take Class' => '수강중',
+    'Review Added' => '리뷰가 추가됨'
 ];
