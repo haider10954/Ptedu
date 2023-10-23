@@ -12,7 +12,7 @@
             <div class="nav-links navigation-mobile">
                 <ul>
                     <li class="nav-link" style="--i: 1.1s">
-                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('transalation.Online Courses') }}</a>
+                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Online Courses') }}</a>
                         <div class="dropdown">
                             <ul>
                                 @if($course_categories->count() > 0)
@@ -143,7 +143,7 @@
             <div class="nav-links navigation-desktop">
                 <ul>
                     <li class="nav-link has-megamenu" style="--i: 1.1s">
-                        <a href="javascript:void(0)" class="text-decoration-none online_course">{{ __('transalation.Online Courses') }}</a>
+                        <a href="javascript:void(0)" class="text-decoration-none online_course">{{ __('translation.Online Courses') }}</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-9">
