@@ -141,7 +141,7 @@
                 </ul>
             </div>
             <div class="nav-links navigation-desktop">
-                <ul>
+                <ul> 
                     <li class="nav-link has-megamenu" style="--i: 1.1s">
                         <a href="javascript:void(0)" class="text-decoration-none online_course">{{ __('translation.Online Courses') }}</a>
                         <div class="dropdown megamenu">
