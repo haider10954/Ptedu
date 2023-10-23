@@ -467,5 +467,6 @@ return [
     'Review upload completed' => '리뷰 업로드 완료',
     'Online Courses' => '온라인 강좌',
     'Offline Courses' => '오프라인 강좌',
-    'PTEdu' => '피티에듀'
+    'PTEdu' => '피티에듀',
+    'Added' => '추가됨'
 ];

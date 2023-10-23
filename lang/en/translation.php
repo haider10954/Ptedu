@@ -465,5 +465,6 @@ return [
     'Review upload completed' => 'Review upload completed',
     'Online Courses' => 'Online Courses',
     'Offline Courses' => 'Offline Courses',
-    'PTEdu' => 'PTEdu'
+    'PTEdu' => 'PTEdu',
+    'Added' => 'Added'
 ];

@@ -111,7 +111,7 @@ class CartController extends Controller
         }
         $cart = Cart::add_to_cart($course);
         if ($cart == true) {
-            return json_encode(['Success' => true, 'Msg' => __('translation.Already Added'), 'cart_items_count' => count(session('shopping_cart'))]);
+            return json_encode(['Success' => true, 'Msg' => __('translation.Added'), 'cart_items_count' => count(session('shopping_cart'))]);
         } else {
             return json_encode(['Success' => false, 'Msg' => __('translation.Already Added'), 'cart_items_count' => count(session('shopping_cart'))]);
         }
