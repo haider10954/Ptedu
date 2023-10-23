@@ -143,7 +143,7 @@
             <div class="nav-links navigation-desktop">
                 <ul>
                     <li class="nav-link has-megamenu" style="--i: 1.1s">
-                        <a href="javascript:void(0)" class="text-decoration-none online_course">온라인 강좌</a>
+                        <a href="javascript:void(0)" class="text-decoration-none online_course">{{ __('transalation.Online Courses') }}</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-9">
@@ -265,7 +265,7 @@
                         </div>
                     </li> --}}
                     <li class="nav-link has-megamenu" style="--i: 1.35s">
-                        <a href="{{ route('offline_lectures') }}" class="text-decoration-none online_course">오프라인 강좌</a>
+                        <a href="{{ route('offline_lectures') }}" class="text-decoration-none online_course">{{ __('translation.Offline Courses') }}</a>
                         <div class="dropdown megamenu">
                             <div class="row justify-content-center">
                                 <div class="col-md-9">
@@ -336,7 +336,7 @@
                         </div>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
-                        <a href="{{ route('about_us')}}" class="text-decoration-none">피티에듀</a>
+                        <a href="{{ route('about_us')}}" class="text-decoration-none">{{ __('translation.PTEdu') }}</a>
                     </li>
                     <li class="nav-link" style="--i: 1.35s">
                         <a href="{{ route('review')}}" class="text-decoration-none">{{ __('translation.Review') }}</a>
