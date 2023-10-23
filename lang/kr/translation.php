@@ -468,5 +468,6 @@ return [
     'Online Courses' => '온라인 강좌',
     'Offline Courses' => '오프라인 강좌',
     'PTEdu' => '피티에듀',
-    'Added' => '추가됨'
+    'Added' => '추가됨',
+    'Processing' => '진행중'
 ];

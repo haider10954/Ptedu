@@ -466,5 +466,6 @@ return [
     'Online Courses' => 'Online Courses',
     'Offline Courses' => 'Offline Courses',
     'PTEdu' => 'PTEdu',
-    'Added' => 'Added'
+    'Added' => 'Added',
+    'Processing' => 'Processing'
 ];

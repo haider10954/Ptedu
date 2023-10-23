@@ -405,11 +405,11 @@ $liked = 0;
             },
             beforeSend: function() {
                 btn.prop('disabled', true);
-                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> 진행중');
+                btn.html('<i class="fa fa-spinner fa-spin me-1"></i> "{{ __("translation.Processing") }}"');
             },
             success: function(res) {
                 if (res.Success == true) {
-                    btn.html('<i class="fa fa-check mx-1"></i> 추가됨</>');
+                    btn.html('<i class="fa fa-check mx-1"></i> {{ __("translation.Added") }}</>');
                     $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
                     $('.shopping_cart_count').html(res.cart_items_count);
                 } else {
