@@ -155,9 +155,9 @@
                             @php
                             $check_certificate = Illuminate\Support\Facades\DB::table('certificates')->where('course_id', $course->course_id)->where('user_id',$course->user_id)->first();
                             @endphp
-                            <td><a href="{{ route('certicate-view',$check_certificate->course_id) }}" disabled class="btn btn-status">수강완료</a></td>
+                            <td><a href="{{ route('certicate-view',$check_certificate->course_id) }}" disabled class="btn btn-status">{{ __('translation.Certificate Completed') }}</a></td>
                             @else
-                            <td><a href="{{ route('add_certificate', [$course->getCourses->id , $course->getUser->id] )}}" class="btn btn-status">수료중</a></td>
+                            <td><a href="{{ route('add_certificate', [$course->getCourses->id , $course->getUser->id] )}}" class="btn btn-status">{{ __('translation.Pending') }}</a></td>
                             @endif
                             <td>
                                 <div class="d-flex gap-1">

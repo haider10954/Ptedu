@@ -475,5 +475,9 @@ return [
     'Type' => 'Type',
     'Course Schedule' => 'Course Schedule',
     'Waiting List' => 'Waiting List',
-    'Recommended size' => 'Recommended Size'
+    'Recommended size' => 'Recommended Size',
+    'Waiting' => 'Waiting',
+    'Answered' => 'Answered',
+    'Pending' => 'Pending',
+    'Certificate Completed' => 'Completed'
 ];

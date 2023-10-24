@@ -477,5 +477,9 @@ return [
     'Type' => '유형',
     'Course Schedule' => '강좌 일정',
     'Waiting List' => '예약관리',
-    'Recommended size' => '권장 사이즈'
+    'Recommended size' => '권장 사이즈',
+    'Waiting' => '답변대기중',
+    'Answered' => '답변완료',
+    'Pending' => '수료중',
+    'Certificate Completed' => '수강완료'
 ];
