@@ -149,10 +149,10 @@
                         <thead>
                             <tr>
                                 <td class="align-middle">{{ __('translation.No') }}</td>
-                                <td class="align-middle">제목</td>
-                                <td class="align-middle">작성자</td>
+                                <td class="align-middle">{{ __('translation.Title') }}</td>
+                                <td class="align-middle">{{ __('translation.Writer') }}</td>
                                 <td class="align-middle">{{ __('translation.Date') }}</td>
-                                <td class="align-middle">상태</td>
+                                <td class="align-middle">{{ __('translation.Status') }}</td>
                             </tr>
                         </thead>
                         <tbody>

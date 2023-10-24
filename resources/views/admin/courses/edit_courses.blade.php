@@ -203,14 +203,14 @@
                                     </div>
 
                                     <div class="row">
-                                        <label class="col-sm-2 col-form-label lecture-form">강좌 일정</label>
+                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Schedule') }}</label>
                                         <div class="col-sm-10">
                                             <div class="inner-repeater mb-4">
                                                 <div class="course-schedule">
                                                     @foreach (json_decode($course->course_schedule) as $key=>$value)
                                                     <div class="mb-3 row course-schedule-item">
                                                         <div class="col-md-10 col-10">
-                                                            <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" value="{{ $value }}" />
+                                                            <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="{{ __('translation.Course Schedule') }}" value="{{ $value }}" />
                                                         </div>
                                                         <div class="col-md-2">
                                                             <button type="button" class="btn btn-danger" onclick="getCourseScheduleId('{{ $key }}')" data-bs-toggle="modal" data-bs-target="#deleteCourseScheduleModal"><i class="fa fa-trash"></i></button>
@@ -520,7 +520,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="exampleModalLabel">강좌 일정</h1>
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">{{ __('translation.Course Schedule') }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -1033,7 +1033,7 @@
             console.log('here');
             $('.course-schedule').append(`<div class="mb-3 row course-schedule-item">
         <div class="col-md-10 col-8 mb-2">
-                                                        <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" />
+                                                        <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="{{ __('translation.Course Schedule') }}" />
                                                     </div>
                                                     <div class="col-md-2 col-4">
                                                         <div class="d-grid">

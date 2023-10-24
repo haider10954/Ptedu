@@ -39,7 +39,7 @@
                         </div>
                     </div>
                     <div class="row mb-4">
-                        <label for="type" class="col-sm-2 col-form-label lecture-form">유형</label>
+                        <label for="type" class="col-sm-2 col-form-label lecture-form">{{ __('translation.Type') }}</label>
                         <div class="col-sm-10">
 
                             <select id="type"  class="form-control" name="type">

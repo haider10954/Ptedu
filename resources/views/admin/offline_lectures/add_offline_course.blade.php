@@ -124,13 +124,13 @@
                     </div>
 
                     <div class="row ">
-                        <label class="col-sm-2 col-form-label lecture-form">강좌 일정</label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Schedule') }}</label>
                         <div class="col-sm-10">
                             <div class="inner-repeater mb-4">
                                 <div class="course-schedule">
                                     <div class="mb-3 row course-schedule-item">
                                         <div class="col-md-12 col-12 mb-2">
-                                            <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" />
+                                            <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="{{ __('translation.Course Schedule') }}" />
                                         </div>
                                     </div>
                                 </div>
@@ -217,7 +217,7 @@
                     </div>
 
                     <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload course Thumbnail image') }} <br> <span class="text-danger">권장 사이즈 (840 * 580) </span></label>
+                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Upload course Thumbnail image') }} <br> <span class="text-danger">{{ __('translation.Recommended size') }} (840 * 580) </span></label>
                         <div class="col-sm-10">
                             <input type="file" name="course_img" id="course_img" class="d-none">
                             <div class="d-flex align-items-end">
@@ -382,7 +382,7 @@
         console.log('here');
         $('.course-schedule').append(`<div class="mb-3 row course-schedule-item">
         <div class="col-md-10 col-8 mb-2">
-                                                        <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="강좌 일정" />
+                                                        <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="{{ __('translation.Course Schedule') }}" />
                                                     </div>
                                                     <div class="col-md-2 col-4">
                                                         <div class="d-grid">

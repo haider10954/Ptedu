@@ -121,7 +121,7 @@
                         <tr>
                             <td class="align-middle t_header">{{ __('translation.No') }}</td>
                             <td class="align-middle t_header" >{{ __('translation.Category Name') }}</th>
-                            <td class="align-middle t_header" style="width: 75%;">유형</th>
+                            <td class="align-middle t_header" style="width: 75%;">{{ __('translation.Type') }}</th>
                             <td class="align-middle t_header">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>

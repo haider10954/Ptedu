@@ -471,5 +471,9 @@ return [
     'Please enter your ID' => 'Please enter your ID',
     'End Course' => 'End Course',
     'Take Class' => 'Take Class',
-    'Review Added' => 'Review Added'
+    'Review Added' => 'Review Added',
+    'Type' => 'Type',
+    'Course Schedule' => 'Course Schedule',
+    'Waiting List' => 'Waiting List',
+    'Recommended size' => 'Recommended Size'
 ];

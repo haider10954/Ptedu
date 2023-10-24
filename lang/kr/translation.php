@@ -473,5 +473,9 @@ return [
     'Please enter your ID' => '아이디를 입력해주세요',
     'End Course' => '수강종료',
     'Take Class' => '수강중',
-    'Review Added' => '리뷰가 추가됨'
+    'Review Added' => '리뷰가 추가됨',
+    'Type' => '유형',
+    'Course Schedule' => '강좌 일정',
+    'Waiting List' => '예약관리',
+    'Recommended size' => '권장 사이즈'
 ];
