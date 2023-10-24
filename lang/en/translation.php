@@ -479,5 +479,6 @@ return [
     'Waiting' => 'Waiting',
     'Answered' => 'Answered',
     'Pending' => 'Pending',
-    'Certificate Completed' => 'Completed'
+    'Certificate Completed' => 'Completed',
+    'Add FAQ' => 'Add FAQ'
 ];

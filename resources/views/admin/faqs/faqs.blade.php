@@ -127,7 +127,7 @@
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0  Card_title">FAQ</h4>
-                    <a class="btn btn-add-lecture" href="{{ route('add_faqs')}}">FAQ추가</a>
+                    <a class="btn btn-add-lecture" href="{{ route('add_faqs')}}">{{ __('translation.Add FAQ') }}</a>
                 </div>
                 <hr class="hr-color" />
             </div>

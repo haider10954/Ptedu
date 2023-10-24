@@ -481,5 +481,6 @@ return [
     'Waiting' => '답변대기중',
     'Answered' => '답변완료',
     'Pending' => '수료중',
-    'Certificate Completed' => '수강완료'
+    'Certificate Completed' => '수강완료',
+    'Add FAQ' => 'FAQ추가'
 ];
