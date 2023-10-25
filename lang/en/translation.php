@@ -463,22 +463,19 @@ return [
     'Course duration' => 'Course duration',
     'is completed' => 'is completed',
     'Review upload completed' => 'Review upload completed',
-    'Online Courses' => 'Online Courses',
-    'Offline Courses' => 'Offline Courses',
     'PTEdu' => 'PTEdu',
     'Added' => 'Added',
     'Processing' => 'Processing',
     'Please enter your ID' => 'Please enter your ID',
     'End Course' => 'End Course',
     'Take Class' => 'Take Class',
-    'Review Added' => 'Review Added',
     'Type' => 'Type',
     'Course Schedule' => 'Course Schedule',
-    'Waiting List' => 'Waiting List',
     'Recommended size' => 'Recommended Size',
-    'Waiting' => 'Waiting',
     'Answered' => 'Answered',
     'Pending' => 'Pending',
     'Certificate Completed' => 'Completed',
-    'Add FAQ' => 'Add FAQ'
+    'Add FAQ' => 'Add FAQ',
+    'Category is present in courses. You cannot delete it but you can edit it' => 'Category is present in courses. You cannot delete it but you can edit it'
+
 ];

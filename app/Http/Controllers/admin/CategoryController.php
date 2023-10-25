@@ -4,6 +4,8 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
+use App\Models\Course;
+use App\Models\Offline_course;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -41,7 +43,16 @@ class CategoryController extends Controller
 
     public function delete_category(Request $request)
     {
-        $category = Category::where('id', $request['id'])->delete();
+        $categoryId =$request['id'];
+
+        $isUsedInCourses = Course::query()->where('category_id', $categoryId)->exists();
+        $isUsedInOfflineCourses = Offline_course::query()->where('category_id', $categoryId)->exists();
+
+        if ($isUsedInCourses || $isUsedInOfflineCourses) {
+            return redirect()->back()->with('error', __('translation.Category is present in courses. You cannot delete it but you can edit it'));
+        }
+
+        $category = Category::query()->where('id', $categoryId)->delete();
         if ($category) {
             return redirect()->back()->with('msg', __('translation.Category has been deleted Successfully'));
         } else {

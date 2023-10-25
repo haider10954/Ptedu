@@ -482,5 +482,6 @@ return [
     'Answered' => '답변완료',
     'Pending' => '수료중',
     'Certificate Completed' => '수강완료',
-    'Add FAQ' => 'FAQ추가'
+    'Add FAQ' => 'FAQ추가',
+    'Category is present in courses. You cannot delete it but you can edit it' => '카테고리가 코스에 존재합니다. 삭제할 수는 없지만 편집할 수는 있습니다.'
 ];
