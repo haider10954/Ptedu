@@ -524,7 +524,7 @@ class CourseController extends Controller
             // dd($video_uploaded);
             // $track = new GetId3($request->lecture_video);
             // $duration = $track->getPlaytime();
-            $duration = '0:30';
+            $duration = $request->duration;
         } else if ((!isset($request->lecture_video)) && (isset($request->lecture_video_link))) {
             dd('working');
             $video_link = $request->lecture_video_link;
@@ -548,7 +548,7 @@ class CourseController extends Controller
             // dd($video_uploaded);
             // $track = new GetId3($request->lecture_video);
             // $duration = $track->getPlaytime();
-            $duration = '0:30';
+            $duration = $request->duration;
             $video_link = $request->lecture_video_link;
         }
 
