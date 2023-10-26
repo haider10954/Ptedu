@@ -15,7 +15,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.3.2
         with:
           server: e-ptedu.com
-          username: ftp-eptedu@e-ptedu.com
-          password: ${{ secrets.FTP_NEW_SERVER_PASSWORD }}
+          username: ftp_acc@e-ptedu.com
+          password: deploy_ftp_account_ptedu
           timeout: 9999999
 
