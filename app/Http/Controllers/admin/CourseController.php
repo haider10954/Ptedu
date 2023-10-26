@@ -520,10 +520,11 @@ class CourseController extends Controller
         $video_link = null;
 
         if ((isset($request->lecture_video)) && (!isset($request->lecture_video_link))) {
-            $video_uploaded = $this->upload_lecture_video($request->lecture_video);
+            // $video_uploaded = $this->upload_lecture_video($request->lecture_video);
             // dd($video_uploaded);
             $track = new GetId3($request->lecture_video);
             $duration = $track->getPlaytime();
+            dd($track,$duration);
         } else if ((!isset($request->lecture_video)) && (isset($request->lecture_video_link))) {
             $video_link = $request->lecture_video_link;
             if (preg_match('|^http(s)?://(.*?)vimeo.com|', $request->lecture_video_link)) {
@@ -542,10 +543,11 @@ class CourseController extends Controller
                 $duration = $video_duration;
             }
         } else {
-            $video_uploaded = $this->upload_lecture_video($request->lecture_video);
+            // $video_uploaded = $this->upload_lecture_video($request->lecture_video);
             // dd($video_uploaded);
             $track = new GetId3($request->lecture_video);
             $duration = $track->getPlaytime();
+            dd($track,$duration);
             $video_link = $request->lecture_video_link;
         }
 
