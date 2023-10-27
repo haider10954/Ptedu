@@ -581,10 +581,10 @@ class CourseController extends Controller
 
     public function del_single_lecture(Request $request)
     {
-        $getLecture = Lecture::where('id', $request->lecture_id)->first();
-        if(!empty($getLecture->lecture_video)){
-            $this->delete_file('lectures',$getLecture->lecture_video);
-        }
+        // $getLecture = Lecture::where('id', $request->lecture_id)->first();
+        // if(!empty($getLecture->lecture_video)){
+        //     $this->delete_file('lectures',$getLecture->lecture_video);
+        // }
         $lectureDelete = Lecture::where('id', $request->lecture_id)->delete();
         if ($lectureDelete) {
             $sections = Section::with('getLectures')->withCount('getLectures')->where('course_id', $request->course_id)->get();
