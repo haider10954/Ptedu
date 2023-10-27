@@ -526,7 +526,6 @@ class CourseController extends Controller
             // $duration = $track->getPlaytime();
             $duration = $request->duration;
         } else if ((!isset($request->lecture_video)) && (isset($request->lecture_video_link))) {
-            dd('working');
             $video_link = $request->lecture_video_link;
             if (preg_match('|^http(s)?://(.*?)vimeo.com|', $request->lecture_video_link)) {
                 $provider = 'vimeo';
