@@ -7,12 +7,15 @@ if (!function_exists('getFilenamesFromDirectory')) {
     {
         $disk = Storage::disk('public');
         $directory = $directory;
-
+        $files = [];
         if ($disk->exists($directory)) {
             $files = $disk->files($directory);
-            return array_map(function ($path) {
+            $files = array_map(function ($path) {
                 return basename($path);
             }, $files);
+            $files= array_filter($files,function($filename){
+                return !in_array($filename,['.ftpquota']);
+            });
         }
 
         return $files;
