@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Owenoj\LaravelGetId3\GetId3;
 use App\Service\VideoHandler;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class CourseController extends Controller
 {
@@ -515,16 +516,17 @@ class CourseController extends Controller
             return response()->json(['Success' => false, 'Msg' => $validate->errors()->first()]);
         }
 
-        $video_uploaded = null;
+        try {
+            DB::beginTransaction();
+            $video_uploaded = null;
         $slug = \Str::slug($request->lecture_title . '-' . \Str::random(5, true));
         $video_link = null;
 
         if ((isset($request->lecture_video)) && (!isset($request->lecture_video_link))) {
-            $video_uploaded = $this->upload_lecture_video($request->lecture_video);
-            // dd($video_uploaded);
-            // $track = new GetId3($request->lecture_video);
-            // $duration = $track->getPlaytime();
-            $duration = $request->duration;
+            if(empty($request->lecture_video_name)){
+                $video_uploaded = $this->upload_lecture_video($request->lecture_video);
+                $duration = $request->lecture_video_duration;
+            }
         } else if ((!isset($request->lecture_video)) && (isset($request->lecture_video_link))) {
             $video_link = $request->lecture_video_link;
             if (preg_match('|^http(s)?://(.*?)vimeo.com|', $request->lecture_video_link)) {
@@ -543,12 +545,16 @@ class CourseController extends Controller
                 $duration = $video_duration;
             }
         } else {
-            $video_uploaded = $this->upload_lecture_video($request->lecture_video);
-            // dd($video_uploaded);
-            // $track = new GetId3($request->lecture_video);
-            // $duration = $track->getPlaytime();
-            $duration = $request->duration;
+            if(empty($request->lecture_video_name)){
+                $video_uploaded = $this->upload_lecture_video($request->lecture_video);
+                $duration = $request->lecture_video_duration;
+            }
             $video_link = $request->lecture_video_link;
+        }
+
+        if(!empty($request->lecture_video_name)){
+            $video_uploaded = $request->lecture_video_name;
+            $duration = $request->lecture_video_name_duration;
         }
 
         $addLecture = Lecture::create([
@@ -566,12 +572,21 @@ class CourseController extends Controller
                 'no_of_lectures' => $sections->sum('get_lectures_count'),
             ]);
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();
+            DB::commit();
             return json_encode([
                 'Success' => true,
                 'Msg' => __('translation.Lecture has been Added successfully'),
                 'html' => $html
             ]);
         } else {
+            DB::rollback();
+            return json_encode([
+                'Success' => false,
+                'Msg' => __('translation.Something went wrong Please try again')
+            ]);
+        }
+        } catch (\Throwable $th) {
+            DB::rollback();
             return json_encode([
                 'Success' => false,
                 'Msg' => __('translation.Something went wrong Please try again')
@@ -616,9 +631,15 @@ class CourseController extends Controller
                 'message' => $validate->errors()->first()
             ]);
         }
-        $updateLecture = Lecture::where('id', $request->lecture_id)->update([
-            'lecture_title' => $request->lecture_title
-        ]);
+        $data = [];
+        $data['lecture_title'] = $request->lecture_title;
+        if(!empty($request->lecture_video_name)){
+            $data['lecture_video'] = $request->lecture_video_name;
+        }
+        if(!empty($request->lecture_video_name_duration)){
+            $data['duration'] = $request->lecture_video_name_duration;
+        }
+        $updateLecture = Lecture::where('id', $request->lecture_id)->update($data);
         if ($updateLecture) {
             $sections = Section::with('getLectures')->where('course_id', $request->course_id)->get();
             $html = view('admin.includes.section-boxes-view', compact('sections'))->render();

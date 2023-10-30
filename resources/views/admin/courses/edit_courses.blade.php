@@ -547,10 +547,22 @@
                                     placeholder="{{ __('translation.Enter lecture title') }}">
                             </div>
                             <div class="form-group mb-3">
+                                <label for="selectVideoName">{{ __('translation.Select Video') }}</label>
+                                <select name="lecture_video_name" id="selectVideoName" class="form-control"
+                                    onchange="handleOnLectureFileChange($(this))">
+                                    <option value="">{{ __('translation.Select Video') }}</option>
+                                    @foreach (getFilenamesFromDirectory('lectures') as $lecture)
+                                        <option value="{{ $lecture }}">{{ $lecture }}</option>
+                                    @endforeach
+                                </select>
+                                <input type="hidden" name="lecture_video_name_duration" id="selectVideoNameDuration">
+                            </div>
+                            <div class="form-group mb-3">
                                 <label for="add_lecture_video">{{ __('translation.Lecture Video') }}</label>
                                 <input type="file" class="form-control" id="add_lecture_video" accept=".mp4"
                                     onchange="handleOnChange($(this))" name="lecture_video"
                                     placeholder="{{ __('translation.Add Lecture Video') }}">
+                                <input type="hidden" name="lecture_video_duration" id="add_lecture_video_duration">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="add_lecture_video_link">{{ __('translation.Lecture Video Link') }}</label>
@@ -608,6 +620,17 @@
                             <label for="editLectureTitle">{{ __('translation.Lecture Title') }}</label>
                             <input type="text" class="form-control"
                                 placeholder="{{ __('translation.Enter lecture title') }}" id="editLectureTitle">
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="editSelectVideoName">{{ __('translation.Select Video') }}</label>
+                            <select id="editSelectVideoName" class="form-control"
+                                onchange="handleOnLectureFileChange($(this))">
+                                <option value="">{{ __('translation.Select Video') }}</option>
+                                @foreach (getFilenamesFromDirectory('lectures') as $lecture)
+                                    <option value="{{ $lecture }}">{{ $lecture }}</option>
+                                @endforeach
+                            </select>
+                            <input type="hidden" id="editSelectVideoNameDuration">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -889,11 +912,11 @@
                             $('#sections-table tbody tr[data-section-id="' + $('#editSectionId').val() +
                                 '"] .single_section_title').html(
                                 `${res.section.section_title.slice(0, 30) + (res.section.section_title.length > 30 ? "..." : "")}`
-                                );
+                            );
                             $('#sections-table tbody tr[data-section-id="' + $('#editSectionId').val() +
                                 '"] .single_section_description').html(
                                 `${res.section.section_description.slice(0, 50) + (res.section.section_description.length > 50 ? "..." : "")}`
-                                );
+                            );
 
                             $('#sections-table tbody tr[data-section-id="' + $('#editSectionId').val() +
                                 '"] .editSectionBtn').attr('data-section-title', res.section.section_title);
@@ -974,170 +997,83 @@
                 $('#addLectureModal').modal('show');
             }
 
-            $('#add_single_lecture_form').on('submit',function(e) {
+            $('#add_single_lecture_form').on('submit', function(e) {
                 e.preventDefault();
                 let form = $(this);
                 if (($('#add_lecture_video').val() == '') && ($('#add_lecture_video_link').val() == '')) {
                     alert("{{ __('translation.Please select video or enter video url') }}");
                     return false;
                 }
-            
-                if ($('#add_lecture_video').val() != '') {
-                    const videoFile = document.getElementById('add_lecture_video').files[0];
-                    const video = document.createElement('video');
-                    video.src = URL.createObjectURL(videoFile);
-                    video.onloadedmetadata = function() {
-                        const durationInSeconds = video.duration;
-                        const duration = formatDuration(durationInSeconds);
-                        var formData = new FormData(form[0]);
-                        formData.append('duration', duration);
-                        $.ajax({
-                            type: "POST",
-                            url: "{{ route('add_single_lecture') }}",
-                            dataType: 'json',
-                            cache: false,
-                            data: formData,
-                            contentType: false,
-                            processData: false,
-                            beforeSend: function() {
-                                $("#addLectureActionBtn").prop('disabled', true);
-                                $("#addLectureActionBtn").html(
-                                    '<i class="fa fa-spinner fa-spin me-1"></i> 처리');
-                            },
-                            success: function(res) {
-                                if (res.Success == true) {
-                                    setTimeout(function() {
-                                        $('.loading-bar').css('transition', 'none');
-                                        $('.loading-bar').css('width', 0);
-                                    }, 1000);
-                                    $('.add-lecture-prompt').html(
-                                        `<div class="alert alert-success">${res.Msg}</div>`);
-                                    setTimeout(() => {
-                                        $('.add-lecture-prompt').html('');
-                                        $('#addLectureModal').modal('hide');
-                                        $('#add_lecture_title').val('');
-                                        $('#add_lecture_video').val('');
-                                        $('#add_lecture_video_link').val('');
-                                        $("#addLectureActionBtn").prop('disabled', false);
-                                        $("#addLectureActionBtn").html('강의 추가   ');
-                                    }, 1000);
-                                    $('.section_boxes_view').html(res.html);
-                                } else {
+                var formData = new FormData(form[0]);
+                    $.ajax({
+                        type: "POST",
+                        url: "{{ route('add_single_lecture') }}",
+                        dataType: 'json',
+                        cache: false,
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function() {
+                            $("#addLectureActionBtn").prop('disabled', true);
+                            $("#addLectureActionBtn").html(
+                                '<i class="fa fa-spinner fa-spin me-1"></i> 처리');
+                        },
+                        success: function(res) {
+                            if (res.Success == true) {
+                                setTimeout(function() {
+                                    $('.loading-bar').css('transition', 'none');
+                                    $('.loading-bar').css('width', 0);
+                                }, 1000);
+                                $('.add-lecture-prompt').html(
+                                    `<div class="alert alert-success">${res.Msg}</div>`);
+                                setTimeout(() => {
+                                    $('.add-lecture-prompt').html('');
+                                    $('#addLectureModal').modal('hide');
+                                    $('#add_lecture_title').val('');
+                                    $('#add_lecture_video').val('');
+                                    $('#add_lecture_video_link').val('');
                                     $("#addLectureActionBtn").prop('disabled', false);
-                                    $("#addLectureActionBtn").html('강의 추가');
-                                    setTimeout(function() {
-                                        $('.loading-bar').css('transition', 'none');
-                                        $('.loading-bar').css('width', 0);
-                                    }, 1000);
-                                    $('.add-lecture-prompt').html(
-                                        '<div class="alert alert-warning mb-3">' + res.Msg +
-                                        '</div>');
-                                }
-                            },
-                            error: function(e) {
+                                    $("#addLectureActionBtn").html('강의 추가   ');
+                                }, 1000);
+                                $('.section_boxes_view').html(res.html);
+                            } else {
                                 $("#addLectureActionBtn").prop('disabled', false);
                                 $("#addLectureActionBtn").html('강의 추가');
-                            },
-                            xhr: function() {
-                                var xhr = new window.XMLHttpRequest();
-                                xhr.upload.addEventListener("progress", function(evt) {
-                                    if (evt.lengthComputable) {
-                                        var percentComplete = 100 * (evt.loaded / evt.total);
-                                        //Do something with upload progress here
-                                        postUploadProgress(percentComplete.toFixed(2))
-                                    }
-                                }, false);
-
-                                xhr.addEventListener("progress", function(evt) {
-                                    if (evt.lengthComputable) {
-                                        var percentComplete = 100 * (evt.loaded / evt.total);
-                                        //Do something with download progress
-                                        postUploadProgress(percentComplete.toFixed(2))
-
-                                    }
-                                }, false);
-
-                                return xhr;
+                                setTimeout(function() {
+                                    $('.loading-bar').css('transition', 'none');
+                                    $('.loading-bar').css('width', 0);
+                                }, 1000);
+                                $('.add-lecture-prompt').html(
+                                    '<div class="alert alert-warning mb-3">' + res.Msg +
+                                    '</div>');
                             }
-                        });
-                    };
-                }
-                else
-                {
-                    const duration = "00:00";
-                    var formData = new FormData(form[0]);
-                        formData.append('duration', duration);
-                        $.ajax({
-                            type: "POST",
-                            url: "{{ route('add_single_lecture') }}",
-                            dataType: 'json',
-                            cache: false,
-                            data: formData,
-                            contentType: false,
-                            processData: false,
-                            beforeSend: function() {
-                                $("#addLectureActionBtn").prop('disabled', true);
-                                $("#addLectureActionBtn").html(
-                                    '<i class="fa fa-spinner fa-spin me-1"></i> 처리');
-                            },
-                            success: function(res) {
-                                if (res.Success == true) {
-                                    setTimeout(function() {
-                                        $('.loading-bar').css('transition', 'none');
-                                        $('.loading-bar').css('width', 0);
-                                    }, 1000);
-                                    $('.add-lecture-prompt').html(
-                                        `<div class="alert alert-success">${res.Msg}</div>`);
-                                    setTimeout(() => {
-                                        $('.add-lecture-prompt').html('');
-                                        $('#addLectureModal').modal('hide');
-                                        $('#add_lecture_title').val('');
-                                        $('#add_lecture_video').val('');
-                                        $('#add_lecture_video_link').val('');
-                                        $("#addLectureActionBtn").prop('disabled', false);
-                                        $("#addLectureActionBtn").html('강의 추가   ');
-                                    }, 1000);
-                                    $('.section_boxes_view').html(res.html);
-                                } else {
-                                    $("#addLectureActionBtn").prop('disabled', false);
-                                    $("#addLectureActionBtn").html('강의 추가');
-                                    setTimeout(function() {
-                                        $('.loading-bar').css('transition', 'none');
-                                        $('.loading-bar').css('width', 0);
-                                    }, 1000);
-                                    $('.add-lecture-prompt').html(
-                                        '<div class="alert alert-warning mb-3">' + res.Msg +
-                                        '</div>');
+                        },
+                        error: function(e) {
+                            $("#addLectureActionBtn").prop('disabled', false);
+                            $("#addLectureActionBtn").html('강의 추가');
+                        },
+                        xhr: function() {
+                            var xhr = new window.XMLHttpRequest();
+                            xhr.upload.addEventListener("progress", function(evt) {
+                                if (evt.lengthComputable) {
+                                    var percentComplete = 100 * (evt.loaded / evt.total);
+                                    //Do something with upload progress here
+                                    postUploadProgress(percentComplete.toFixed(2))
                                 }
-                            },
-                            error: function(e) {
-                                $("#addLectureActionBtn").prop('disabled', false);
-                                $("#addLectureActionBtn").html('강의 추가');
-                            },
-                            xhr: function() {
-                                var xhr = new window.XMLHttpRequest();
-                                xhr.upload.addEventListener("progress", function(evt) {
-                                    if (evt.lengthComputable) {
-                                        var percentComplete = 100 * (evt.loaded / evt.total);
-                                        //Do something with upload progress here
-                                        postUploadProgress(percentComplete.toFixed(2))
-                                    }
-                                }, false);
+                            }, false);
 
-                                xhr.addEventListener("progress", function(evt) {
-                                    if (evt.lengthComputable) {
-                                        var percentComplete = 100 * (evt.loaded / evt.total);
-                                        //Do something with download progress
-                                        postUploadProgress(percentComplete.toFixed(2))
+                            xhr.addEventListener("progress", function(evt) {
+                                if (evt.lengthComputable) {
+                                    var percentComplete = 100 * (evt.loaded / evt.total);
+                                    //Do something with download progress
+                                    postUploadProgress(percentComplete.toFixed(2))
 
-                                    }
-                                }, false);
+                                }
+                            }, false);
 
-                                return xhr;
-                            }
-                        });
-                }
-                
+                            return xhr;
+                        }
+                    });
 
             });
 
@@ -1206,9 +1142,21 @@
             }
 
             function editLecture($btn) {
+                var lectureVideoName = $btn.attr('data-lecture-video');
+                var lectureVideoDuration = $btn.attr('data-lecture-duration');
                 $('#editLectureCourseId').val($btn.attr('data-course-id'));
                 $('#editLectureId').val($btn.attr('data-lecture-id'));
                 $('#editLectureTitle').val($btn.attr('data-lecture-title'));
+                if(lectureVideoName != ''){
+                    $('#editSelectVideoName option').each(function(){
+                        if($(this).val() == lectureVideoName){
+                            $(this).prop('selected', true);
+                        }
+                    });
+                }
+                if(lectureVideoDuration != ''){
+                    $('#editSelectVideoNameDuration').val(lectureVideoDuration);
+                }
                 $('#editLectureModal').modal('show');
             }
 
@@ -1222,6 +1170,8 @@
                         'course_id': $('#editLectureCourseId').val(),
                         'lecture_id': $('#editLectureId').val(),
                         'lecture_title': $('#editLectureTitle').val(),
+                        'lecture_video_name': $('#editSelectVideoName').val(),
+                        'lecture_video_name_duration': $('#editSelectVideoNameDuration').val(),
                         '_token': '{{ csrf_token() }}'
                     },
                     beforeSend: function() {
@@ -1301,7 +1251,7 @@
                 });
             });
 
-            function handleOnChange(input) {
+            handleOnChange = async(input) => {
                 const selectedFile = input[0].files[0];
                 if (selectedFile) {
                     const fileName = selectedFile.name;
@@ -1310,8 +1260,44 @@
                     if (fileExtension !== 'mp4') {
                         alert('Please select a .mp4 file');
                         input.val(''); // Reset the file input
+                    }else{
+                        let videoDuration = await getVideoDurationByFile(input);
+                        input.next().val(videoDuration);
                     }
                 }
+
+            }
+
+             getVideoDuration = async (video_name) => {
+                const video = document.createElement('video');
+                video.src = "{{ asset('storage/lectures/lecture_video') }}".replace('lecture_video', video_name);
+
+                await new Promise((resolve) => {
+                    video.onloadedmetadata = resolve;
+                });
+                
+                const durationInSeconds = video.duration;
+                return formatDuration(durationInSeconds);
+
+            };
+
+            getVideoDurationByFile = async (video_file) => {
+                const videoFile = video_file.prop('files')[0];
+                const video = document.createElement('video');
+                video.src = URL.createObjectURL(videoFile);
+
+                await new Promise((resolve) => {
+                    video.onloadedmetadata = resolve;
+                });
+                
+                const durationInSeconds = video.duration;
+                return formatDuration(durationInSeconds);
+
+            };
+
+            handleOnLectureFileChange = async (input) => {
+                let videoDuration = await getVideoDuration(input.val());
+                input.next().val(videoDuration);
             }
         </script>
     @endsection

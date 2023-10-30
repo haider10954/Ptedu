@@ -18,7 +18,7 @@
                         </div>
                         <div class="duration d-flex align-items-center gap-1 action">
                             {{-- <p class="mb-0">30:00</p> --}}
-                            <a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="editLecture($(this))" data-lecture-id="{{ $lecture->id }}" data-course-id="{{ $v->course_id }}" data-lecture-title="{{ $lecture->lecture_title }}"><i class="bi bi-pencil"></i></a>
+                            <a href="javascript:void(0)" class="btn btn-primary btn-sm" onclick="editLecture($(this))" data-lecture-id="{{ $lecture->id }}" data-course-id="{{ $v->course_id }}" data-lecture-title="{{ $lecture->lecture_title }}" data-lecture-video="{{ $lecture->lecture_video }}" data-lecture-duration="{{ $lecture->duration }}"><i class="bi bi-pencil"></i></a>
                             <a href="javascript:void(0)" class="btn btn-danger btn-sm" onclick="delLecture($(this))" data-lecture-id="{{ $lecture->id }}" data-course-id="{{ $v->course_id }}"><i class="bi bi-trash"></i></a>
                         </div>
                     </li>  

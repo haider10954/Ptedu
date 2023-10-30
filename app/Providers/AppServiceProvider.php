@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->loadHelpers();
     }
 
     /**
@@ -39,6 +39,15 @@ class AppServiceProvider extends ServiceProvider
         if (\Schema::hasTable('offline_courses')) {
             $offline_courses = Offline_course::with('getTutorName')->take(10)->get();
             view()->share('offline_courses', $offline_courses);
+        }
+    }
+
+
+    private function loadHelpers()
+    {
+        foreach(glob(__DIR__."/../Helpers/*.php") as $file)
+        {
+            require_once $file;
         }
     }
 }

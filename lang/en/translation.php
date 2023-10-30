@@ -476,6 +476,6 @@ return [
     'Pending' => 'Pending',
     'Certificate Completed' => 'Completed',
     'Add FAQ' => 'Add FAQ',
-    'Category is present in courses. You cannot delete it but you can edit it' => 'Category is present in courses. You cannot delete it but you can edit it'
-
+    'Category is present in courses. You cannot delete it but you can edit it' => 'Category is present in courses. You cannot delete it but you can edit it',
+    'Select Video' => 'Select Video'
 ];
