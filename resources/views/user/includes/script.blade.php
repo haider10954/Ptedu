@@ -8,7 +8,7 @@
 <script src="{{ asset('assets/js/pdf-viewer.js') }}"></script>
 
 <script>
-    $(document).ready(function(){
+    $(window).on('load',function(){
         const lazyLoadElements = document.querySelectorAll(".lazy");
         lazyLoadElements.forEach(function(element) {
         if (element.tagName === "IMG" && element.hasAttribute("data-src")) {
