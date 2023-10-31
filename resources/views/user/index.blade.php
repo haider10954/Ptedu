@@ -11,7 +11,7 @@
                 <p class="text-theme-light-grey">Education is not the learning of facts,<br>but the training of the mind to think.</p>
             </div>
             <div class="col-lg-8 col-md-12 text-center">
-                <img src="{{ asset('web_assets/banner.gif') }}" alt="banner-img" class="img-fluid w-75">
+                <img src="{{ asset('web_assets/images/placeholder.webp') }}" data-src="{{ asset('web_assets/banner.gif') }}" alt="banner-img" class="img-fluid w-75 lazy">
             </div>
         </div>
     </div>
@@ -59,7 +59,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($courses as $item)
                         <div class="swiper-slide position-relative">
-                            <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
+                            <img src="{{ asset('web_assets/images/placeholder.webp') }}" data-src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img lazy">
                             <div class="box-overlay">
                                 <a href="{{ route('online_course_detail', $item->id) }}">
                                     <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}
@@ -90,7 +90,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($offline_courses as $item)
                         <div class="swiper-slide position-relative">
-                            <img src="{{ asset('storage/offline_course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
+                            <img src="{{ asset('web_assets/images/placeholder.webp') }}" data-src="{{ asset('storage/offline_course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img lazy">
                             <div class="box-overlay">
                                 <a href="{{ route('offline_lecture_detail', $item->id) }}">
                                     <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}
@@ -121,7 +121,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($special_course as $item)
                         <div class="swiper-slide position-relative">
-                            <img src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img">
+                            <img src="{{ asset('web_assets/images/placeholder.webp') }}" data-src="{{ asset('storage/course/thumbnail/' . $item->course_thumbnail) }}" class="img-fluid course-detail-img lazy">
                             <div class="box-overlay">
                                 <a href="{{ route('online_course_detail', $item->id) }}">
                                     <h5 class="heading-h5 mb-3 text-white text-left">{{ $item->course_title }}
