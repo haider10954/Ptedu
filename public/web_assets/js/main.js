@@ -24,12 +24,3 @@ $(".has-megamenu").hover(
         $("header").css({ "background-color": "transparent" });
     }
 );
-
-document.addEventListener("DOMContentLoaded", function() {
-    const lazyLoadElements = document.querySelectorAll(".lazy");
-    lazyLoadElements.forEach(function(element) {
-      if (element.tagName === "IMG" && element.hasAttribute("data-src")) {
-        element.setAttribute("src", element.getAttribute("data-src"));
-      }
-    });
-  });
