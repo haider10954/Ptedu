@@ -8,12 +8,12 @@
 <script src="{{ asset('assets/js/pdf-viewer.js') }}"></script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const lazyLoadElements = document.querySelectorAll(".lazy");
-    lazyLoadElements.forEach(function(element) {
-      if (element.tagName === "IMG" && element.hasAttribute("data-src")) {
-        element.setAttribute("src", element.getAttribute("data-src"));
-      }
+    $(document).ready(function(){
+        const lazyLoadElements = document.querySelectorAll(".lazy");
+        lazyLoadElements.forEach(function(element) {
+        if (element.tagName === "IMG" && element.hasAttribute("data-src")) {
+            element.setAttribute("src", element.getAttribute("data-src"));
+        }
+        });
     });
-  });
 </script>
