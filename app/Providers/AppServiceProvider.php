@@ -33,8 +33,10 @@ class AppServiceProvider extends ServiceProvider
             view()->share('online_public_courses', $public_courses);
         }
         if (\Schema::hasTable('categories')){
-            $course_categories = Category::with(['getCourses','getOffineCourses'])->get();
+            $course_categories = Category::with(['getCourses','getOffineCourses'])->where('type','online')->get();
+            $course_offline_categories = Category::with(['getCourses','getOffineCourses'])->where('type','offline')->get();
             view()->share('course_categories', $course_categories);
+            view()->share('course_offline_categories', $course_offline_categories);
         }
         if (\Schema::hasTable('offline_courses')) {
             $offline_courses = Offline_course::with('getTutorName')->take(10)->get();
