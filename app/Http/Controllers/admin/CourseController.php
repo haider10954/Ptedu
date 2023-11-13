@@ -105,7 +105,7 @@ class CourseController extends Controller
             'course_type' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',
             'banner_img' => 'required|mimes:jpeg,png,jpg',
-            'course_scheduling.*' => 'required',
+            'course_scheduling' => 'required',
         ]);
 
         $course_thumbnail = $this->upload_files($request['course_img']);
