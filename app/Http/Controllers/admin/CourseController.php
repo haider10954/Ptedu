@@ -91,7 +91,6 @@ class CourseController extends Controller
     public function add_course(Request $request)
     {
         $request->validate([
-            'course_type' => 'required',
             'course_title' => 'required',
             'tutor_name' => 'required',
             'short_description' => 'required',
@@ -101,17 +100,19 @@ class CourseController extends Controller
             'price' => 'required|min:0',
             'category' => 'required',
             'video_url' => 'required',
-            'category' => 'required',
             'course_type' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',
             'banner_img' => 'required|mimes:jpeg,png,jpg',
-            'course_scheduling' => 'required',
+            'course_scheduling' => 'array',
+            'course_scheduling.*' => 'required',
+        ],[
+            'course_scheduling.*.required' => 'course_scheduling 이름을 입력해주세요.',
         ]);
 
         $course_thumbnail = $this->upload_files($request['course_img']);
         $course_banner = $this->upload_files_banner($request['banner_img']);
         $course_schedule = json_encode($request->course_scheduling);
-        $course = Course::create([
+        $course = Course::query()->create([
             'tutor_id' => $request['tutor_name'],
             'category_id' => $request['category'],
             'course_title' => $request['course_title'],

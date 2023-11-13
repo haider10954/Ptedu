@@ -206,6 +206,7 @@
                                                     <div class="mb-3 row course-schedule-item">
                                                         <div class="col-md-12 col-12 mb-2">
                                                             <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="{{ __('translation.Course Schedule') }}" />
+                                                            <div class="error-course-schedule"></div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -611,6 +612,10 @@
                     $('.error-course-banner').html('<small class=" error-message text-danger">' + e
                         .responseJSON.errors['banner_img'][0] + '</small>');
                 }
+                if (e.responseJSON.errors['course_scheduling.0']) {
+                    $('.error-course-schedule').html('<small class=" error-message text-danger">' + e
+                        .responseJSON.errors['course_scheduling.0'] + '</small>');
+                }
             }
         });
     });
@@ -905,6 +910,7 @@
         $('.course-schedule').append(`<div class="mb-3 row course-schedule-item">
         <div class="col-md-10 col-8 mb-2">
                                                         <input type="text" class="inner form-control" name="course_scheduling[]" placeholder="{{ __('translation.Course Schedule') }}" />
+                                                        <div class="error-course-schedule"></div>
                                                     </div>
                                                     <div class="col-md-2 col-4">
                                                         <div class="d-grid">
