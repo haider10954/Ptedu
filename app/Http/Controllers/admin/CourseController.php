@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Review;
 use App\Models\Section;
 use App\Models\Tutor;
 use App\Models\Lecture;
@@ -256,7 +257,7 @@ class CourseController extends Controller
 
     public function delete_course(Request $request)
     {
-        $course = Course::where('id', $request->id)->first();
+        $course = Course::query()->where('id', $request->id)->first();
         $filePath = storage_path('app/public/course/thumbnail/' . $course->course_thumbnail);
         if (file_exists($filePath)) {
             unlink($filePath);
@@ -265,7 +266,10 @@ class CourseController extends Controller
         if (file_exists($filePath2)) {
             unlink($filePath2);
         }
-        $course = Course::where('id', $request['id'])->delete();
+        // Get Course Reviews
+        Review::query()->where('course_id',$request['id'])->delete();
+
+        $course = Course::query()->where('id', $request['id'])->delete();
         if ($course) {
             return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
         } else {
