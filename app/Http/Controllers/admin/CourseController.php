@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Course;
+use App\Models\Online_enrollment;
 use App\Models\Review;
 use App\Models\Section;
 use App\Models\Tutor;
@@ -268,6 +269,9 @@ class CourseController extends Controller
         }
         // Get Course Reviews
         Review::query()->where('course_id',$request['id'])->delete();
+
+        // Get Enrollments
+        Online_enrollment::query()->where('course_id',$request['id'])->delete();
 
         $course = Course::query()->where('id', $request['id'])->delete();
         if ($course) {
