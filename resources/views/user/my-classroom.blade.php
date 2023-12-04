@@ -146,6 +146,7 @@
                             <div class="row">
                                 @if ($completed_courses->count() > 0)
                                 @foreach ($completed_courses as $v)
+                                @dd($v)
                                 <?php
                                 $Data = Illuminate\Support\Facades\DB::table('reviews')
                                     ->where('user_id', auth()->id())
