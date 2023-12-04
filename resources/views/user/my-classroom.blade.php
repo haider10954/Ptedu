@@ -146,7 +146,19 @@
                             <div class="row">
                                 @if ($completed_courses->count() > 0)
                                 @foreach ($completed_courses as $v)
-                                @dd($v)
+                                @php
+                                $first_lecture_slug = null;
+                                if ($v->getCourses->getCourseStatus->count() > 0) {
+                                $sections = $v->getCourses->getCourseStatus;
+                                for ($key = 0; $key < $sections->count(); $key++) {
+                                    if ($sections[$key]->getLectures->count() > 0) {
+                                    if (empty($first_lecture_slug)) {
+                                    $first_lecture_slug = $sections[$key]->getLectures[0]->slug;
+                                    }
+                                    }
+                                    }
+                                    }
+                                    @endphp
                                 <?php
                                 $Data = Illuminate\Support\Facades\DB::table('reviews')
                                     ->where('user_id', auth()->id())
@@ -181,6 +193,19 @@
                                                     {{ __('translation.Certificate') }}</a>
                                                 @endif
                                             </div>
+                                            @if(!empty($v->getCourses))
+                                                @if(!empty($v->getCourses->duration_of_course))
+                                                    @if(!(\Carbon\Carbon::parse($v->getCourses->created_at)->addWeeks($v->getCourses->duration_of_course)->isPast()))
+                                                    <div class="mt-2">
+                                                        @if (!empty($first_lecture_slug))
+                                                            <a href="{{ route('class', [$item->course_id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue">{{ __('translation.Take Class') }}</a>
+                                                        @else
+                                                            <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled">{{ __('translation.No Lecture') }}</a>
+                                                        @endif
+                                                    </div>
+                                                    @endif
+                                                @endif
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
