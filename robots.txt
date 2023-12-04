@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://e-ptedu.com/sitemap.xml
