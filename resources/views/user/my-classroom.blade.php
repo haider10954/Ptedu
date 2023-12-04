@@ -198,7 +198,7 @@
                                                     @if(!(\Carbon\Carbon::parse($v->getCourses->created_at)->addWeeks($v->getCourses->duration_of_course)->isPast()))
                                                     <div class="mt-2">
                                                         @if (!empty($first_lecture_slug))
-                                                            <a href="{{ route('class', [$item->course_id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue">{{ __('translation.Take Class') }}</a>
+                                                            <a href="{{ route('class', [$item->course_id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue w-100">{{ __('translation.Take Class') }}</a>
                                                         @else
                                                             <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled">{{ __('translation.No Lecture') }}</a>
                                                         @endif
