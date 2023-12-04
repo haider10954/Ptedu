@@ -168,7 +168,7 @@
                                 <div class="col-lg-3 col-md-4 col-12">
                                     <div class="lecture-box">
                                         <img src="{{ asset('storage/course/thumbnail/' . $v->getCourses->course_thumbnail) }}" class="lecture_img img-fluid" alt="lecture_img">
-                                        <div class="lecture_box_content completed-lectures-box">
+                                        <div class="lecture_box_content completed-lectures-box" style="height: auto !important;">
                                             <h6 class="lecture_title mb-1">{{ Str::limit($v->getCourses->course_title,25) }}</h6>
                                             <small class="d-block text-muted mb-1 lecture_info">{{ $v->getCourses->getCategoryName->name }}
                                                 l
@@ -198,9 +198,9 @@
                                                     @if(!(\Carbon\Carbon::parse($v->getCourses->created_at)->addWeeks($v->getCourses->duration_of_course)->isPast()))
                                                     <div class="mt-2">
                                                         @if (!empty($first_lecture_slug))
-                                                            <a href="{{ route('class', [$item->course_id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue w-100">{{ __('translation.Take Class') }}</a>
+                                                            <a href="{{ route('class', [$item->course_id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue w-100" style="padding-top: 5px; padding-bottom: 5px;">{{ __('translation.Take Class') }}</a>
                                                         @else
-                                                            <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled">{{ __('translation.No Lecture') }}</a>
+                                                            <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled" style="padding-top: 5px; padding-bottom: 5px;">{{ __('translation.No Lecture') }}</a>
                                                         @endif
                                                     </div>
                                                     @endif
