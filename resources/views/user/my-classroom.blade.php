@@ -697,14 +697,14 @@
         });
     });
 
-    $(document).ready(function() {
-        let courseBoxContentHeight = 0;
-        $('.completed-lectures-box').each(function() {
-            if (courseBoxContentHeight < $(this).height()) {
-                courseBoxContentHeight = $(this).height();
-            }
-        });
-        $('.completed-lectures-box').height(courseBoxContentHeight + 15);
-    });
+    // $(document).ready(function() {
+    //     let courseBoxContentHeight = 0;
+    //     $('.completed-lectures-box').each(function() {
+    //         if (courseBoxContentHeight < $(this).height()) {
+    //             courseBoxContentHeight = $(this).height();
+    //         }
+    //     });
+    //     $('.completed-lectures-box').height(courseBoxContentHeight + 15);
+    // });
 </script>
 @endsection
