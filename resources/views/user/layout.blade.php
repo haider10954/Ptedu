@@ -5,6 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="naver-site-verification" content="8cba5f36e4afff1e7b37802fbe946fd0f84b08a3" />
   <title>@yield('title')</title>
   <!-- App favicon -->
   <link rel="shortcut icon" href="{{ asset('assets/images/icons/favicon.png') }}">
