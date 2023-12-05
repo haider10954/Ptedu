@@ -9,6 +9,8 @@
   <meta property="og:type" content="website">   
   <meta property="og:title" content="물리치료 관련 교육 플랫폼 피티에듀 - 대한중추신경계물리치료학회">
   <meta property="og:description" content="최신 근거 기반, 임상 적용 물리치료 교육, PNF 써티 청구, 움직임 전문가, MAM, APPI, 필라테스, 보행">
+  <meta property="og:image" content="{{ asset('web_assets/images/ptedu_logo.png') }}">
+  <meta property="og:url" content="https://e-ptedu.com/">
   <title>물리치료 관련 교육 플랫폼 피티에듀 - 대한중추신경계물리치료학회</title>
   <!-- App favicon -->
   <link rel="shortcut icon" href="{{ asset('assets/images/icons/favicon.png') }}">
