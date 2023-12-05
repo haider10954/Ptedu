@@ -6,6 +6,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="naver-site-verification" content="8cba5f36e4afff1e7b37802fbe946fd0f84b08a3" />
+  <meta name="description" content="최신 근거 기반, 임상 적용 물리치료 교육, PNF 써티 청구, 움직임 전문가, MAM, APPI, 필라테스, 보행">
   <meta property="og:type" content="website">   
   <meta property="og:title" content="물리치료 관련 교육 플랫폼 피티에듀 - 대한중추신경계물리치료학회">
   <meta property="og:description" content="최신 근거 기반, 임상 적용 물리치료 교육, PNF 써티 청구, 움직임 전문가, MAM, APPI, 필라테스, 보행">
