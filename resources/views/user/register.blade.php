@@ -282,7 +282,7 @@
                         <div class="form-check mb-2 ml-2">
                             <input class="form-check-input selectCheckBox" type="checkbox" value="">
                             <label class="form-check-label ml-2" for="defaultCheck1">
-                                {{ __('translation.If you agree to receive marketing, you can receive various benefits and event news from Ipamaster') }}.
+                                {{ __('translation.If you agree to receive marketing, you can receive various benefits and event news from Ipamaster') }}
                             </label>
                         </div>
                     </div>

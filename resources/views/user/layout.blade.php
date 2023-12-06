@@ -21,9 +21,11 @@
 </head>
 
 <body>
+    @if(request()->route()->getName() == 'web-home')
     <div class="top-bottom-btn">
         <img src="{{ asset('web_assets/images/icon-down.png') }}" height="35" alt="icon-img">
     </div>
+    @endif
   <!-- header start -->
   @include('user.includes.header')
   <!-- header end -->
