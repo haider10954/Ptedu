@@ -48,6 +48,7 @@
                                 @foreach ($courses_enrolled as $item)
                                 @php
                                 $first_lecture_slug = null;
+                                $course_end_date = /Carbon/Carbon::parse($courses_enrolled->created_at)->addWeeks($courses_enrolled->getCourses->duration_of_course);
                                 if ($item->getCourses->getCourseStatus->count() > 0) {
                                 $sections = $item->getCourses->getCourseStatus;
                                 for ($key = 0; $key < $sections->count(); $key++) {
