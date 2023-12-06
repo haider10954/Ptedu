@@ -22,7 +22,7 @@
 
 <body>
     <div class="top-bottom-btn">
-        <img src="{{ asset('web_assets/images/icon-down.png') }}" height="40" alt="icon-img">
+        <img src="{{ asset('web_assets/images/icon-down.png') }}" height="35" alt="icon-img">
     </div>
   <!-- header start -->
   @include('user.includes.header')
