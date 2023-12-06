@@ -181,7 +181,7 @@
         loop: true,
         loopFillGroupWithBlank: true,
         autoplay: {
-            delay: 3500,
+            delay: 5000,
             disableOnInteraction: false,
         },
         navigation: {
@@ -219,7 +219,7 @@
         loop: true,
         loopFillGroupWithBlank: true,
         autoplay: {
-            delay: 3500,
+            delay: 5000,
             disableOnInteraction: false,
         },
         navigation: {
@@ -256,7 +256,7 @@
         loop: true,
         loopFillGroupWithBlank: true,
         autoplay: {
-            delay: 3500,
+            delay: 5000,
             disableOnInteraction: false,
         },
         navigation: {
