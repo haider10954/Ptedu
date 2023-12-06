@@ -484,5 +484,7 @@ return [
     'Certificate Completed' => '수강완료',
     'Add FAQ' => 'FAQ추가',
     'Category is present in courses. You cannot delete it but you can edit it' => '카테고리가 코스에 존재합니다. 삭제할 수는 없지만 편집할 수는 있습니다.',
-    'Select Video' => '비디오 선택'
+    'Select Video' => '비디오 선택',
+    'First Name' => '이름',
+    'Last Name' => '성'
 ];

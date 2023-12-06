@@ -59,9 +59,15 @@
                     </div>
                     <div class="col-lg-9 col-8 pl-0">
                         <div class="d-flex align-items-center bottom-border" style="padding-left:10px; height:70px;">
-                            <div>
-                                <input type="text" class="form-control" name="en_name" placeholder="{{ __('translation.English Name') }}" value="{{ old('en_name') }}">
-                                <div class="error-en-name"></div>
+                            <div class="d-flex align-items-center" style="gap: 0.5rem;">
+                                <div>
+                                    <input type="text" class="form-control" name="first_name" placeholder="{{ __('translation.First Name') }}" value="{{ old('first_name') }}">
+                                    <div class="error-first-name"></div>
+                                </div>
+                                <div>
+                                    <input type="text" class="form-control" name="last_name" placeholder="{{ __('translation.Last Name') }}" value="{{ old('last_name') }}">
+                                    <div class="error-last-name"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -414,8 +420,11 @@
                 if (e.responseJSON.errors['name']) {
                     $('.error-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['name'][0] + '</small>');
                 }
-                if (e.responseJSON.errors['en_name']) {
-                    $('.error-en-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['en_name'][0] + '</small>');
+                if (e.responseJSON.errors['first_name']) {
+                    $('.error-first-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['first_name'][0] + '</small>');
+                }
+                if (e.responseJSON.errors['last_name']) {
+                    $('.error-last-name').html('<small class=" error-message text-danger">' + e.responseJSON.errors['last_name'][0] + '</small>');
                 }
                 if (e.responseJSON.errors['user_id']) {
                     $('.error-user-id').html('<small class=" error-message text-danger">' + e.responseJSON.errors['user_id'][0] + '</small>');

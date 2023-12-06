@@ -28,9 +28,10 @@ class StudentController extends Controller
                 ]
             );
         }
+        $en_name = $request->first_name.$request->last_name;
         $student = User::create([
             'name' => $request['name'],
-            'english_name' => $request['en_name'],
+            'english_name' => $en_name,
             'user_id' => $request['user_id'],
             'password' => Hash::make($request->password),
             'job' => $request['job'],

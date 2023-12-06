@@ -25,9 +25,10 @@ class StudentRegisterRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'en_name' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
             'user_id' => 'required|unique:users',
-            'password' => 'required|min:8|same:confirm_password|regex:/^(?=.*\d)(?=.*[a-zA-Z])[a-zA-Z0-9]{8,}$/',
+            'password' => 'required|min:8|same:confirm_password|regex:/^(?=.*[A-Za-z])(?=.*\d)/',
             'job' => 'required',
             'mobile' => 'required|min:9',
             'email_name' => 'required',
@@ -40,7 +41,8 @@ class StudentRegisterRequest extends FormRequest
     {
         return [
             'name.required' => "이름을 입력해주세요.",
-            'en_name.required' => "영문이름을 입력해주세요.",
+            'first_name.required' => "이름을 입력하세요.",
+            'last_name.required' => "당신의 성을 입력하세요.",
             'password.required' => "비밀번호를 입력해주세요.",
             'job.required' => "직업을 선택해주세요.",
             'mobile.required' => "휴대폰번호를 입력해주세요.",
