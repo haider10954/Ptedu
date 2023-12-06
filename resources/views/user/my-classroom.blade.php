@@ -148,6 +148,7 @@
                                 @if ($completed_courses->count() > 0)
                                 @foreach ($completed_courses as $v)
                                 @php
+                                $completed_course_end_date = \Carbon\Carbon::parse($v->created_at)->addWeeks($v->getCourses->duration_of_course);
                                 $first_lecture_slug = null;
                                 if ($v->getCourses->getCourseStatus->count() > 0) {
                                 $sections = $v->getCourses->getCourseStatus;
@@ -174,7 +175,7 @@
                                             <small class="d-block text-muted mb-1 lecture_info">{{ $v->getCourses->getCategoryName->name }}
                                                 l
                                                 {{ $v->getCourses->getTutorName->name }}</small>
-                                            <small class="lecture-duration mb-4 d-block">{{ $v->getCourses->created_at->format('Y-m-d') }}</small>
+                                            <small class="lecture-duration mb-4 d-block">{{ $completed_course_end_date->format('Y-m-d') }}</small>
                                             <div class="d-flex align-items-center justify-content-between">
 
                                                 @if ($Data)
