@@ -410,6 +410,17 @@
     padding-right: 4rem;
 }
 
+.top-bottom-btn{
+    position: fixed;
+    bottom: 40px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999999999999999;
+    padding: 7px 12px;
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
 @media only screen and (max-width: 991px) {
     .form-wrapper {
         width: 70%;

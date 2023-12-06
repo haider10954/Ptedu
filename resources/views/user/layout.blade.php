@@ -21,6 +21,9 @@
 </head>
 
 <body>
+    <div class="top-bottom-btn">
+        <img src="{{ asset('web_assets/images/icon-down.png') }}" height="40" alt="icon-img">
+    </div>
   <!-- header start -->
   @include('user.includes.header')
   <!-- header end -->
@@ -88,6 +91,11 @@
               }
           }
       }
+
+      $('.top-bottom-btn').on('click', function(){
+            $('html, body').animate({scrollTop : $(document).height()}, 800);
+            return false;
+      });
   </script>
 </body>
 
