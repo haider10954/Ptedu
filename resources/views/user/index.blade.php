@@ -211,7 +211,6 @@
         }
     });
 
-
     var swiper2 = new Swiper(".offline-lecture-carousel", {
         slidesPerView: 3,
         spaceBetween: 30,
