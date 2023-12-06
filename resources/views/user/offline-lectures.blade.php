@@ -25,7 +25,7 @@
                                             class="img-fluid offline-course-img" alt="img">
                                     </div>
                                     <div class="course-info">
-                                        <p class="mb-0 text-theme-dark">{{ Str::limit($item->course_title, 40, '...') }}</p>
+                                        <p class="mb-0 text-theme-dark">{{ $item->course_title }}</p>
                                     </div>
                                 </div>
                             </a>
