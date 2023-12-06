@@ -48,7 +48,6 @@
                                 @foreach ($courses_enrolled as $item)
                                 @php
                                 $first_lecture_slug = null;
-                                $course_end_date = /Carbon/Carbon::parse($courses_enrolled->created_at)->addWeeks($courses_enrolled->getCourses->duration_of_course);
                                 if ($item->getCourses->getCourseStatus->count() > 0) {
                                 $sections = $item->getCourses->getCourseStatus;
                                 for ($key = 0; $key < $sections->count(); $key++) {
@@ -67,7 +66,7 @@
                                                 <h6 class="lecture_title mb-1"><a href="{{ route('online_course_detail' , $item->getCourses->id) }}" class="text-dark">{{ Str::limit($item->getCourses->course_title,35) }}</a></h6>
                                                 <small class="d-block text-muted mb-1 lecture_info">{{ $item->getCourses->getCategoryName->name }}
                                                     l {{ $item->getCourses->getTutorName->name }}</small>
-                                                <small class="lecture-duration d-block">{{ $item->getCourses->created_at->format('Y-m-d') }}</small>
+                                                <small class="lecture-duration d-block">{{ /Carbon/Carbon::parse($courses_enrolled->created_at)->addWeeks($courses_enrolled->getCourses->duration_of_course)->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
                                                     @if($item->created_at->addWeeks($item->getCourses->duration_of_course)->isPast() != true)
                                                     <div class="d-flex align-items-center">
