@@ -428,7 +428,7 @@ return [
     'Course Reservation Status Updated Successfully' => '예약 상태 업데이트 완료',
     'Review has been deleted successfully' => '리뷰 삭제 완료',
     'Welcome to Student Portal' => '수강생 로그인 성공',
-    'Email or Password is Incorrect' => '이메일주소 또는 비밀번호를 다시 확인해주세요',
+    'Email or Password is Incorrect' => '아이디 또는 비밀번호를 다시 확인해주세요',
     'Your Entered Credentails are Valid' => '인증되었습니다',
     'Credentails are Invalid' => '인증실패',
     'Your Password has been changed Successfully' => '비밀번호 변경 완료',
