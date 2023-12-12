@@ -94,12 +94,12 @@
                     <thead>
                         <tr>
                             <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
-                            <td class="align-middle t_header t-width-130">{{ __('translation.Course title') }}</td>
-                            <td class="align-middle t_header t-width-150">{{ __('translation.Total Lectures')}}</td>
+                            <td class="align-middle t_header t-width-250">{{ __('translation.Course title') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Total Lectures')}}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Viewed Lectures') }}</td>
-                            <td class="align-middle t_header t-width-250">{{ __('translation.Completed Status') }}</td>
-                            <td class="align-middle t_header t-width-250">{{ __('translation.Extended Duration') }}</td>
-                            <td class="align-middle t_header t-width-250">{{ __('translation.Access') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Completed Status') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Extended Duration') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Access') }}</td>
                             <td class="align-middle t_header t-width-90">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
