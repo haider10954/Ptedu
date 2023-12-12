@@ -95,9 +95,11 @@
                         <tr>
                             <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
                             <td class="align-middle t_header t-width-130">{{ __('translation.Course title') }}</td>
-                            <td class="align-middle t_header t-width-150">{{ __('translation.Total Lectures')}}</th>
+                            <td class="align-middle t_header t-width-150">{{ __('translation.Total Lectures')}}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Viewed Lectures') }}</td>
-                            <td class="align-middle t_header t-width-250">{{ __('translation.Completed Status') }}</th>
+                            <td class="align-middle t_header t-width-250">{{ __('translation.Completed Status') }}</td>
+                            <td class="align-middle t_header t-width-250">{{ __('translation.Extended Duration') }}</td>
+                            <td class="align-middle t_header t-width-250">{{ __('translation.Access') }}</td>
                             <td class="align-middle t_header t-width-90">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
@@ -113,11 +115,20 @@
                                 <span class="course_name">{{ $item->no_of_lectures }}</span>
                             </td>
                             <td><span class="course_name">{{ $item->viewed_lectures }}</span></td>
+                            <td><span class="course_name">{{ $item->viewed_lectures }}</span></td>
                             <td>
                                 @if($item->status == 1)
                                     <span class="badge bg-success">Completed</span>
                                 @else
                                     <span class="badge bg-warning text-white">In-Progress</span>
+                                @endif
+                            </td>
+                            <td><span class="course_name">{{ $item->extended_duration }}</span></td>
+                            <td>
+                                @if($item->access == 1)
+                                    <span class="badge bg-success">Allowed</span>
+                                @else
+                                    <span class="badge bg-danger text-white">Forbidden</span>
                                 @endif
                             </td>
                             <td>
