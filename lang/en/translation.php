@@ -479,5 +479,18 @@ return [
     'Category is present in courses. You cannot delete it but you can edit it' => 'Category is present in courses. You cannot delete it but you can edit it',
     'Select Video' => 'Select Video',
     'First Name' => 'First Name',
-    'Last Name' => 'Last Name'
+    'Last Name' => 'Last Name',
+    'Student Online Enrollments' => 'Student Online Enrollments',
+    'Course title' => 'Course title',
+    'Total Lectures' => 'Total Lectures',
+    'Viewed Lectures' => 'Viewed Lectures',
+    'Completed Status' => 'Completed Status',
+    'Extended Duration' => 'Extended Duration',
+    'Access' => 'Access',
+    'Extend Duration' => 'Extend Duration',
+    'Change Access' => 'Change Access',
+    'Are you sure you want to change access ?' => 'Are you sure you want to change access ?',
+    'Course access changed successfully' => 'Course access changed successfully',
+    'Error : Please try again' => 'Error : Please try again',
+    'Course duration extended successfully' => 'Course duration extended successfully'
 ];

@@ -486,5 +486,18 @@ return [
     'Category is present in courses. You cannot delete it but you can edit it' => '카테고리가 코스에 존재합니다. 삭제할 수는 없지만 편집할 수는 있습니다.',
     'Select Video' => '비디오 선택',
     'First Name' => '이름',
-    'Last Name' => '성'
+    'Last Name' => '성',
+    'Student Online Enrollments' => '학생 온라인 등록',
+    'Course title' => '강좌명',
+    'Total Lectures' => '총 강의수',
+    'Viewed Lectures' => '본 강의',
+    'Completed Status' => '완료 상태',
+    'Extended Duration' => '연장된 기간',
+    'Access' => '입장',
+    'Extend Duration' => '기간 연장',
+    'Change Access' => '액세스 변경',
+    'Are you sure you want to change access ?' => '액세스 권한을 변경하시겠습니까?',
+    'Course access changed successfully' => '강좌 액세스가 성공적으로 변경되었습니다.',
+    'Error : Please try again' => '오류: 다시 시도해 주세요.',
+    'Course duration extended successfully' => '과정 기간이 성공적으로 연장되었습니다'
 ];
