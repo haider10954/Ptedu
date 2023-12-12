@@ -133,7 +133,7 @@
                             <td>
                                 <div class="d-flex gap-1">
                                     <button type="button" class="btn btn-success btn-sm" onclick="extend_duration({{$item->id}}, {{ $item->extended_duration }})"><i class="bi bi-alarm"></i></button>
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="change_access({{$item->id}})"><i class="bi bi-shield-lock"></i></button>
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="change_access({{$item->id}}, {{ $item->access }})"><i class="bi bi-shield-lock"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -164,7 +164,7 @@
                 <form method="post" action="{{ route('student_extend_course_duration')}}">
                     @csrf
                     <div class="modal-body">
-                        <input type="hidden" name="record" id="recordId">
+                        <input type="hidden" name="record" id="recordId" required>
                         <div class="form-group">
                             <label for="courseDuration">{{ __('translation.Extend Duration') }}</label>
                             <input type="number" name="extended_duration" class="form-control" id="courseDuration" required>
@@ -194,6 +194,7 @@
                     <div class="modal-body">
                         <p>{{ __('translation.Are you sure you want to change access ?') }}</p>
                         <input type="hidden" name="course_tracking" class="form-control" id="courseTracking" required>
+                        <input type="hidden" id="accessType" name="currentAccess" required>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
@@ -218,7 +219,8 @@
 
     var changeAccessModal = new bootstrap.Modal(document.getElementById("changeAccessModal"), {});
 
-    function change_access(id) {
+    function change_access(id, access) {
+        $('#accessType').val(access);
         $('#courseTracking').val(id);
         changeAccessModal.show();
     }
