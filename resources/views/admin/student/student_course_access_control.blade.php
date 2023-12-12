@@ -224,5 +224,11 @@
         $('#courseTracking').val(id);
         changeAccessModal.show();
     }
+
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
 </script>
 @endsection

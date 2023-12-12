@@ -89,9 +89,9 @@ class StudentController extends Controller
         try {
             $data['extended_duration'] = $request->extended_duration;
             $extend_duration = Course_tracking::where('id', $request->record)->update($data);
-            return view('admin.student.student_course_access_control.blade');
+            return view('admin.student.student_course_access_control')->with('message', __('translation.Course duration extended successfully'));
         } catch (\Throwable $th) {
-            abort(404);
+            return view('admin.student.student_course_access_control')->with('error', __('translation.Error : Please try again'));
         }
     }
 
@@ -107,9 +107,9 @@ class StudentController extends Controller
                 $data['access'] = 1;
             }
             $changeAccess = Course_tracking::where('id', $request->course_tracking)->update($data);
-            return view('admin.student.student_course_access_control.blade');
+            return view('admin.student.student_course_access_control')->with('message', __('translation.Course access changed successfully'));
         } catch (\Throwable $th) {
-            abort(404);
+            return view('admin.student.student_course_access_control')->with('error', __('translation.Error : Please try again'));
         }
     }
 }
