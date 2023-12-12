@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Course_tracking;
+use Illuminate\Support\Facades\DB;
 
 class StudentController extends Controller
 {
@@ -87,10 +88,13 @@ class StudentController extends Controller
             'extended_duration' => 'required|numeric'
         ]);
         try {
+            DB::beginTransaction();
             $data['extended_duration'] = $request->extended_duration;
             $extend_duration = Course_tracking::where('id', $request->record)->update($data);
+            DB::commit();
             return view('admin.student.student_course_access_control')->with('message', __('translation.Course duration extended successfully'));
         } catch (\Throwable $th) {
+            DB::rollback();
             return view('admin.student.student_course_access_control')->with('error', __('translation.Error : Please try again'));
         }
     }
@@ -101,14 +105,17 @@ class StudentController extends Controller
             'currentAccess' => 'required|boolean'
         ]);
         try {
+            DB::beginTransaction();
             if($request->currentAccess == 1){
                 $data['access'] = 0;
             }else{
                 $data['access'] = 1;
             }
             $changeAccess = Course_tracking::where('id', $request->course_tracking)->update($data);
+            DB::commit();
             return view('admin.student.student_course_access_control')->with('message', __('translation.Course access changed successfully'));
         } catch (\Throwable $th) {
+            DB::rollback();
             return view('admin.student.student_course_access_control')->with('error', __('translation.Error : Please try again'));
         }
     }
