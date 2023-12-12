@@ -69,23 +69,27 @@
                                                     l {{ $item->getCourses->getTutorName->name }}</small>
                                                 <small class="lecture-duration d-block">{{ $course_end_date->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
-                                                    @if($item->created_at->addWeeks($item->getCourses->duration_of_course + $item->extended_duration)->isPast() != true)
-                                                    <div class="d-flex align-items-center">
-                                                        @if ($item->getCourses->live_status == 1)
-                                                        <a href="{{ $item->getCourses->live_link }}" target="_blank" class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mr-2 font-10">
-                                                            <span class="live-icon mr-1"></span>
-                                                            <span>{{ __('translation.Live') }}</span>
-                                                        </a>
-                                                        @endif
+                                                    @if($item->access == 1)
+                                                        @if($item->created_at->addWeeks($item->getCourses->duration_of_course + $item->extended_duration)->isPast() != true)
+                                                        <div class="d-flex align-items-center">
+                                                            @if ($item->getCourses->live_status == 1)
+                                                            <a href="{{ $item->getCourses->live_link }}" target="_blank" class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mr-2 font-10">
+                                                                <span class="live-icon mr-1"></span>
+                                                                <span>{{ __('translation.Live') }}</span>
+                                                            </a>
+                                                            @endif
 
-                                                        @if (!empty($first_lecture_slug))
-                                                        <a href="{{ route('class', [$item->course_id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue">{{ __('translation.Take Class') }}</a>
+                                                            @if (!empty($first_lecture_slug))
+                                                            <a href="{{ route('class', [$item->course_id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue">{{ __('translation.Take Class') }}</a>
+                                                            @else
+                                                            <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled">{{ __('translation.No Lecture') }}</a>
+                                                            @endif
+                                                        </div>
                                                         @else
-                                                        <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled">{{ __('translation.No Lecture') }}</a>
+                                                            <p class="mb-0 text-white badge bg-secondary">{{ __('translation.Course duration') }} ({{ $item->getCourses->duration_of_course + $item->extended_duration }} {{ ($item->getCourses->duration_of_course > 1) ? __('translation.Weeks') : __('translation.Weeks') }}) {{ __('translation.is completed') }}</p>
                                                         @endif
-                                                    </div>
                                                     @else
-                                                        <p class="mb-0 text-white badge bg-secondary">{{ __('translation.Course duration') }} ({{ $item->getCourses->duration_of_course + $item->extended_duration }} {{ ($item->getCourses->duration_of_course > 1) ? __('translation.Weeks') : __('translation.Weeks') }}) {{ __('translation.is completed') }}</p>
+                                                        <p class="mb-0 text-white badge bg-danger">{{ __('translation.Admin has blocked your access') }}</p>
                                                     @endif
                                                 </div>
                                             </div>
@@ -195,18 +199,22 @@
                                                     {{ __('translation.Certificate') }}</a>
                                                 @endif
                                             </div>
-                                            @if(!empty($v->getCourses))
-                                                @if(!empty($v->getCourses->duration_of_course))
-                                                    @if(!(\Carbon\Carbon::parse($v->created_at)->addWeeks($v->getCourses->duration_of_course + $v->extended_duration)->isPast()))
-                                                    <div class="mt-2">
-                                                        @if (!empty($first_lecture_slug))
-                                                            <a href="{{ route('class', [$v->getCourses->id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue w-100" style="padding-top: 5px; padding-bottom: 5px;">{{ __('translation.Take Class') }}</a>
-                                                        @else
-                                                            <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled" style="padding-top: 5px; padding-bottom: 5px;">{{ __('translation.No Lecture') }}</a>
+                                            @if($v->access == 1)
+                                                @if(!empty($v->getCourses))
+                                                    @if(!empty($v->getCourses->duration_of_course))
+                                                        @if(!(\Carbon\Carbon::parse($v->created_at)->addWeeks($v->getCourses->duration_of_course + $v->extended_duration)->isPast()))
+                                                        <div class="mt-2">
+                                                            @if (!empty($first_lecture_slug))
+                                                                <a href="{{ route('class', [$v->getCourses->id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue w-100" style="padding-top: 5px; padding-bottom: 5px;">{{ __('translation.Take Class') }}</a>
+                                                            @else
+                                                                <a href="javascript:void(0)" class="btn btn-primary btn-custom-sm btn-theme-blue disabled" style="padding-top: 5px; padding-bottom: 5px;">{{ __('translation.No Lecture') }}</a>
+                                                            @endif
+                                                        </div>
                                                         @endif
-                                                    </div>
                                                     @endif
                                                 @endif
+                                            @else
+                                            <p class="mb-0 text-white badge bg-danger">{{ __('translation.Admin has blocked your access') }}</p>      
                                             @endif
                                         </div>
                                     </div>

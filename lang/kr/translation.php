@@ -499,5 +499,6 @@ return [
     'Are you sure you want to change access ?' => '액세스 권한을 변경하시겠습니까?',
     'Course access changed successfully' => '강좌 액세스가 성공적으로 변경되었습니다.',
     'Error : Please try again' => '오류: 다시 시도해 주세요.',
-    'Course duration extended successfully' => '과정 기간이 성공적으로 연장되었습니다'
+    'Course duration extended successfully' => '과정 기간이 성공적으로 연장되었습니다',
+    'Admin has blocked your access' => '관리자가 귀하의 액세스를 차단했습니다'
 ];
