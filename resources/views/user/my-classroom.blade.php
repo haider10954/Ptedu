@@ -48,7 +48,7 @@
                                 @foreach ($courses_enrolled as $item)
                                 @php
                                 $first_lecture_slug = null;
-                                $course_end_date = \Carbon\Carbon::parse($item->created_at)->addWeeks($item->getCourses->duration_of_course);
+                                $course_end_date = \Carbon\Carbon::parse($item->created_at)->addWeeks($item->getCourses->duration_of_course + $item->extended_duration);
                                 if ($item->getCourses->getCourseStatus->count() > 0) {
                                 $sections = $item->getCourses->getCourseStatus;
                                 for ($key = 0; $key < $sections->count(); $key++) {
@@ -69,7 +69,7 @@
                                                     l {{ $item->getCourses->getTutorName->name }}</small>
                                                 <small class="lecture-duration d-block">{{ $course_end_date->format('Y-m-d') }}</small>
                                                 <div class="d-flex align-items-center justify-content-between lecture-box-footer">
-                                                    @if($item->created_at->addWeeks($item->getCourses->duration_of_course)->isPast() != true)
+                                                    @if($item->created_at->addWeeks($item->getCourses->duration_of_course + $item->extended_duration)->isPast() != true)
                                                     <div class="d-flex align-items-center">
                                                         @if ($item->getCourses->live_status == 1)
                                                         <a href="{{ $item->getCourses->live_link }}" target="_blank" class="btn btn-danger btn-custom-sm btn-theme-live d-flex align-items-center mr-2 font-10">
@@ -85,7 +85,7 @@
                                                         @endif
                                                     </div>
                                                     @else
-                                                        <p class="mb-0 text-white badge bg-secondary">{{ __('translation.Course duration') }} ({{ $item->getCourses->duration_of_course }} {{ ($item->getCourses->duration_of_course > 1) ? __('translation.Weeks') : __('translation.Weeks') }}) {{ __('translation.is completed') }}</p>
+                                                        <p class="mb-0 text-white badge bg-secondary">{{ __('translation.Course duration') }} ({{ $item->getCourses->duration_of_course + $item->extended_duration }} {{ ($item->getCourses->duration_of_course > 1) ? __('translation.Weeks') : __('translation.Weeks') }}) {{ __('translation.is completed') }}</p>
                                                     @endif
                                                 </div>
                                             </div>
@@ -197,7 +197,7 @@
                                             </div>
                                             @if(!empty($v->getCourses))
                                                 @if(!empty($v->getCourses->duration_of_course))
-                                                    @if(!(\Carbon\Carbon::parse($v->created_at)->addWeeks($v->getCourses->duration_of_course)->isPast()))
+                                                    @if(!(\Carbon\Carbon::parse($v->created_at)->addWeeks($v->getCourses->duration_of_course + $v->extended_duration)->isPast()))
                                                     <div class="mt-2">
                                                         @if (!empty($first_lecture_slug))
                                                             <a href="{{ route('class', [$v->getCourses->id, $first_lecture_slug]) }}" class="btn btn-primary btn-custom-sm btn-theme-blue w-100" style="padding-top: 5px; padding-bottom: 5px;">{{ __('translation.Take Class') }}</a>
