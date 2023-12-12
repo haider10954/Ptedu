@@ -341,6 +341,9 @@ Route::prefix('admin')->group(function () {
 
         // Course Schedule
         Route::post('/delete-course-schedule',[CourseController::class, 'deleteCourseSchedule'])->name('delete_course_schedule');
+
+        // Student course access control
+        Route::get('/student-course-access-control/{id}', [AdminStudentController::class, 'student_course_access_control'])->name('student_course_access_control');
     });
 });
 
