@@ -137,7 +137,7 @@
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a href="btn btn-warning" target="_blank"  href="{{ route('student_course_access_control',$item->id) }}"><i class="bi bi-alarm"></i></a>
+                                    <a class="btn btn-warning" target="_blank"  href="{{ route('student_course_access_control',$item->id) }}"><i class="bi bi-alarm"></i></a>
                                     <a class="btn btn-sm btn-primary" href="{{ route('student_info',$item->id)}}"><i class="bi bi-pencil"></i></a>
                                     <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $item->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>
