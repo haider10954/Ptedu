@@ -82,10 +82,34 @@ class StudentController extends Controller
     }
 
     public function student_extend_course_duration(Request $request){
-        dd($request->all());
+        $this->validate($request, [
+            'record' => 'required|exists:course_trackings,id',
+            'extended_duration' => 'required|numeric'
+        ]);
+        try {
+            $data['extended_duration'] = $request->extended_duration;
+            $extend_duration = Course_tracking::where('id', $request->record)->update($data);
+            return view('admin.student.student_course_access_control.blade');
+        } catch (\Throwable $th) {
+            abort(404);
+        }
     }
 
     public function student_course_change_access(Request $request){
-        dd($request->all());
+        $this->validate($request, [
+            'course_tracking' => 'required|exists:course_trackings,id',
+            'currentAccess' => 'required|boolean'
+        ]);
+        try {
+            if($request->currentAccess == 1){
+                $data['access'] = 0;
+            }else{
+                $data['access'] = 1;
+            }
+            $changeAccess = Course_tracking::where('id', $request->course_tracking)->update($data);
+            return view('admin.student.student_course_access_control.blade');
+        } catch (\Throwable $th) {
+            abort(404);
+        }
     }
 }
