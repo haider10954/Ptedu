@@ -46,6 +46,7 @@
                             <div class="row progress_lectures_list">
                                 @if ($courses_enrolled->count() > 0)
                                 @foreach ($courses_enrolled as $item)
+                                @dd($item)
                                 @php
                                 $first_lecture_slug = null;
                                 $course_end_date = \Carbon\Carbon::parse($item->created_at)->addWeeks($item->getCourses->duration_of_course);
