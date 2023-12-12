@@ -89,7 +89,7 @@
                                                             <p class="mb-0 text-white badge bg-secondary">{{ __('translation.Course duration') }} ({{ $item->getCourses->duration_of_course + $item->extended_duration }} {{ ($item->getCourses->duration_of_course > 1) ? __('translation.Weeks') : __('translation.Weeks') }}) {{ __('translation.is completed') }}</p>
                                                         @endif
                                                     @else
-                                                        <p class="mb-0 text-white badge bg-danger">{{ __('translation.Admin has blocked your access') }}</p>
+                                                        <p class="mb-0 text-white badge bg-danger" style="font-size: 10px;">{{ __('translation.Admin has blocked your access') }}</p>
                                                     @endif
                                                 </div>
                                             </div>
@@ -214,7 +214,7 @@
                                                     @endif
                                                 @endif
                                             @else
-                                            <p class="mb-0 text-white badge bg-danger">{{ __('translation.Admin has blocked your access') }}</p>      
+                                            <p class="mb-0 text-white badge bg-danger" style="font-size: 10px;">{{ __('translation.Admin has blocked your access') }}</p>      
                                             @endif
                                         </div>
                                     </div>
