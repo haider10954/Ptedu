@@ -80,4 +80,12 @@ class StudentController extends Controller
         $online_courses_enrolled = Course_tracking::where('user_id', $student_id)->with('getCourses')->get();
         return view('admin.student.student_course_access_control', compact('online_courses_enrolled'));
     }
+
+    public function student_extend_course_duration(Request $request){
+        dd($request->all());
+    }
+
+    public function student_course_change_access(Request $request){
+        dd($request->all());
+    }
 }

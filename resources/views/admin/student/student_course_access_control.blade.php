@@ -132,8 +132,8 @@
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-success btn-sm"  href="javascript:void(0)"><i class="bi bi-alarm"></i></a>
-                                    <a class="btn btn-sm btn-danger" href="javascript:void(0)"><i class="bi bi-shield-lock"></i></a>
+                                    <button type="button" class="btn btn-success btn-sm" onclick="extend_duration({{$item->id}}, {{ $item->extended_duration }})"><i class="bi bi-alarm"></i></button>
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="change_access({{$item->id}})"><i class="bi bi-shield-lock"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -152,21 +152,23 @@
     </div>
 </div>
 
-<!-- Delete Record -->
+<!-- Extend Course Duration -->
 <div class="modal-dialog modal-dialog-centered">
     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Confirm Delete') }}</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Extend Duration') }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" action="{{ route('delete-student')}}">
+                <form method="post" action="{{ route('student_extend_course_duration')}}">
                     @csrf
                     <div class="modal-body">
-                        <p>{{ __('translation.Are you sure to delete ?') }}</p>
-                        <input id="del_id" type="hidden" name="id">
-
+                        <input type="hidden" name="record" id="recordId">
+                        <div class="form-group">
+                            <label for="courseDuration">{{ __('translation.Extend Duration') }}</label>
+                            <input type="number" name="extended_duration" class="form-control" id="courseDuration" required>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
@@ -177,4 +179,48 @@
         </div>
     </div>
 </div>
+
+<!-- Course Change Access -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="changeAccessModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Change Access') }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="{{ route('student_course_change_access')}}">
+                    @csrf
+                    <div class="modal-body">
+                        <p>{{ __('translation.Are you sure you want to change access ?') }}</p>
+                        <input type="hidden" name="course_tracking" class="form-control" id="courseTracking" required>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
+                        <button type="submit" class="btn btn-danger">{{ __('translation.Save')}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+@section('custom-script')
+<script>
+    var extendDurationModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+
+    function extend_duration(id, duration) {
+        $('#recordId').val(id);
+        $('#courseDuration').val(duration);
+        extendDurationModal.show();
+    }
+
+    var changeAccessModal = new bootstrap.Modal(document.getElementById("changeAccessModal"), {});
+
+    function change_access(id) {
+        $('#courseTracking').val(id);
+        changeAccessModal.show();
+    }
+</script>
 @endsection

@@ -344,6 +344,8 @@ Route::prefix('admin')->group(function () {
 
         // Student course access control
         Route::get('/student-course-access-control/{id}', [AdminStudentController::class, 'student_course_access_control'])->name('student_course_access_control');
+        Route::post('/student-extend-course-duration', [AdminStudentController::class, 'student_extend_course_duration'])->name('student_extend_course_duration');
+        Route::post('/student-course-change-access', [AdminStudentController::class, 'student_course_change_access'])->name('student_course_change_access');
     });
 });
 
