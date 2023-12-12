@@ -115,7 +115,6 @@
                                 <span class="course_name">{{ $item->no_of_lectures }}</span>
                             </td>
                             <td><span class="course_name">{{ $item->viewed_lectures }}</span></td>
-                            <td><span class="course_name">{{ $item->viewed_lectures }}</span></td>
                             <td>
                                 @if($item->status == 1)
                                     <span class="badge bg-success">Completed</span>
