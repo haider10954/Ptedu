@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Student List')
+@section('title' , 'Student course access control')
 
 @section('custom-style')
 <style>
@@ -85,7 +85,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Student List') }} ({{ $student->count()  }})</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Student Online Enrollments') }} ({{ $online_courses_enrolled->count()  }})</h4>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -94,52 +94,36 @@
                     <thead>
                         <tr>
                             <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
-                            <td class="align-middle t_header t-width-130">{{ __('translation.Name') }}</td>
-                            <td class="align-middle t_header t-width-150">{{ __('translation.Email')}}</th>
-                            <td class="align-middle t_header t-width-120">{{ __('translation.Phone Number') }}</td>
-                            <td class="align-middle t_header t-width-250">{{ __('translation.List of Courses') }}</th>
+                            <td class="align-middle t_header t-width-130">{{ __('translation.Course title') }}</td>
+                            <td class="align-middle t_header t-width-150">{{ __('translation.Total Lectures')}}</th>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Viewed Lectures') }}</td>
+                            <td class="align-middle t_header t-width-250">{{ __('translation.Completed Status') }}</th>
                             <td class="align-middle t_header t-width-90">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
-                        @if($student->count() > 0)
-                        @foreach($student as $item)
+                        @if($online_courses_enrolled->count() > 0)
+                        @foreach($online_courses_enrolled as $item)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>
-                                <span class="course_name">{{ $item->name }}</span>
+                                <span class="course_name">{{ $item->getCourses->course_title }}</span>
                             </td>
                             <td>
-                                <span class="course_name">{{ $item->email }}</span>
+                                <span class="course_name">{{ $item->no_of_lectures }}</span>
                             </td>
-                            <td><span class="course_name">{{ $item->mobile_number }}</span></td>
+                            <td><span class="course_name">{{ $item->viewed_lectures }}</span></td>
                             <td>
-                                <span class="course_name">
-                                    <ul style="list-style: none; padding-left:0px !important;">
-                                        @if (($item->getOfflineEnrolments->count() > 0) || ($item->getOnlineEnrolments->count() > 0))
-                                        @foreach($item->getOnlineEnrolments as $course)
-                                        <li class="border-0 mb-2">
-                                            {{ $course->getCourses->course_title }} ({{ __('translation.Online')}})
-                                        </li>
-                                        @endforeach
-                                        @foreach($item->getOfflineEnrolments as $offline_course)
-                                        <li class="border-0 mb-2">
-                                            {{ $offline_course->getCousreName->course_title }} ({{ __('translation.Offline')}})
-                                        </li>
-                                        @endforeach
-                                        @else
-                                        <li class="border-0 mb-2">
-                                            {{ __('translation.No Enrollment Yet') }}
-                                        </li>
-                                        @endif
-                                    </ul>
-                                </span>
+                                @if($item->status == 1)
+                                    <span class="badge bg-success">Completed</span>
+                                @else
+                                    <span class="badge bg-warning text-white">In-Progress</span>
+                                @endif
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-warning btn-sm" target="_blank"  href="{{ route('student_course_access_control',$item->id) }}"><i class="bi bi-shield-shaded"></i></a>
-                                    <a class="btn btn-sm btn-primary" href="{{ route('student_info',$item->id)}}"><i class="bi bi-pencil"></i></a>
-                                    <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $item->id }}')"><i class="bi bi-trash"></i></a>
+                                    <a class="btn btn-success btn-sm"  href="javascript:void(0)"><i class="bi bi-alarm"></i></a>
+                                    <a class="btn btn-sm btn-danger" href="javascript:void(0)"><i class="bi bi-shield-lock"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -153,7 +137,6 @@
                         @endif
                     </tbody>
                 </table>
-                {{ $student->links('vendor.pagination.custom-pagination-admin') }}
             </div>
         </div>
     </div>
@@ -184,21 +167,4 @@
         </div>
     </div>
 </div>
-@endsection
-
-@section('custom-script')
-<script>
-    var delModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
-
-    function delete_record(id) {
-        $('#del_id').val(id);
-        delModal.show();
-    }
-
-    $(document).ready(function() {
-        setTimeout(function() {
-            $("#responseMessage").hide()
-        }, 2000);
-    });
-</script>
 @endsection
