@@ -164,6 +164,7 @@
                 <form method="post" action="{{ route('student_extend_course_duration')}}">
                     @csrf
                     <div class="modal-body">
+                        <input type="hidden" name="student_id" value="{{ request()->segment(3) }}" required>
                         <input type="hidden" name="record" id="recordId" required>
                         <div class="form-group">
                             <label for="courseDuration">{{ __('translation.Extend Duration') }}</label>
@@ -191,6 +192,7 @@
                 </div>
                 <form method="post" action="{{ route('student_course_change_access')}}">
                     @csrf
+                    <input type="hidden" name="student_id" value="{{ request()->segment(3) }}" required>
                     <div class="modal-body">
                         <p>{{ __('translation.Are you sure you want to change access ?') }}</p>
                         <input type="hidden" name="course_tracking" class="form-control" id="courseTracking" required>

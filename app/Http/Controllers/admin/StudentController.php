@@ -85,24 +85,26 @@ class StudentController extends Controller
     public function student_extend_course_duration(Request $request){
         $this->validate($request, [
             'record' => 'required|exists:course_trackings,id',
-            'extended_duration' => 'required|numeric'
+            'extended_duration' => 'required|numeric',
+            'student_id' => 'required'
         ]);
         try {
             DB::beginTransaction();
             $data['extended_duration'] = $request->extended_duration;
             $extend_duration = Course_tracking::where('id', $request->record)->update($data);
             DB::commit();
-            return view('admin.student.student_course_access_control')->with('message', __('translation.Course duration extended successfully'));
+            return redirect()->route('student_course_access_control',$request->student_id)->with('message', __('translation.Course duration extended successfully'));
         } catch (\Throwable $th) {
             DB::rollback();
-            return view('admin.student.student_course_access_control')->with('error', __('translation.Error : Please try again'));
+            return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
         }
     }
 
     public function student_course_change_access(Request $request){
         $this->validate($request, [
             'course_tracking' => 'required|exists:course_trackings,id',
-            'currentAccess' => 'required|boolean'
+            'currentAccess' => 'required|boolean',
+            'student_id' => 'required'
         ]);
         try {
             DB::beginTransaction();
@@ -113,10 +115,10 @@ class StudentController extends Controller
             }
             $changeAccess = Course_tracking::where('id', $request->course_tracking)->update($data);
             DB::commit();
-            return view('admin.student.student_course_access_control')->with('message', __('translation.Course access changed successfully'));
+            return redirect()->route('student_course_access_control',$request->student_id)->with('message', __('translation.Course access changed successfully'));
         } catch (\Throwable $th) {
             DB::rollback();
-            return view('admin.student.student_course_access_control')->with('error', __('translation.Error : Please try again'));
+            return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
         }
     }
 }
