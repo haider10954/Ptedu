@@ -127,6 +127,6 @@ class StudentController extends Controller
     public function student_online_course_price_control($course_id){
         $records = Student_online_price_control::where('course_id', $course_id)->get();
         $users = User::get();
-        return view('admin.courses.student_online_course_price_control', compact('records','courses','users'));
+        return view('admin.courses.student_online_course_price_control', compact('records','users'));
     }
 }
