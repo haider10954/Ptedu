@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Course_tracking;
 use Illuminate\Support\Facades\DB;
+use App\Models\Student_online_price_control;
 
 class StudentController extends Controller
 {
@@ -123,8 +124,7 @@ class StudentController extends Controller
     }
 
     public function student_online_course_price_control($course_id){
-        dd('working');
-        // $online_courses_enrolled = Course_tracking::where('user_id', $student_id)->with('getCourses')->get();
-        // return view('admin.student.student_course_access_control', compact('online_courses_enrolled'));
+        $records = Student_online_price_control::where('course_id', $course_id)->get();
+        return view('admin.student.student_online_course_price_control', compact('records'));
     }
 }
