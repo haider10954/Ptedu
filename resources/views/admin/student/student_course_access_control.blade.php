@@ -123,7 +123,7 @@
                                     <span class="badge bg-warning text-white">In-Progress</span>
                                 @endif
                             </td>
-                            <td><span class="course_name">{{ (!empty($item->getCourses)) ?  \Carbon\Carbon::parse($item->getCourses->created_at)->addWeeks($item->getCourses->duration_of_course) : 'N/A' }}</span></td>
+                            <td><span class="course_name">{{ (!empty($item->getCourses)) ?  \Carbon\Carbon::parse($item->created_at)->addWeeks($item->getCourses->duration_of_course)->format('Y-m-d') : 'N/A' }}</span></td>
                             <td><span class="course_name">{{ $item->extended_duration }}</span></td>
                             <td>
                                 @if($item->access == 1)
