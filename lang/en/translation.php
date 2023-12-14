@@ -493,5 +493,6 @@ return [
     'Course access changed successfully' => 'Course access changed successfully',
     'Error : Please try again' => 'Error : Please try again',
     'Course duration extended successfully' => 'Course duration extended successfully',
-    'Admin has blocked your access' => 'Admin has blocked your access'
+    'Admin has blocked your access' => 'Admin has blocked your access',
+    'End Date' => 'End Date'
 ];

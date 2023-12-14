@@ -98,7 +98,7 @@
                             <td class="align-middle t_header t-width-120">{{ __('translation.Total Lectures')}}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Viewed Lectures') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Completed Status') }}</td>
-                            <td class="align-middle t_header t-width-120">{{ __('translation.Course End Date') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.End Date') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Extended Duration') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Access') }}</td>
                             <td class="align-middle t_header t-width-90">{{ __('translation.Action') }}</td>
