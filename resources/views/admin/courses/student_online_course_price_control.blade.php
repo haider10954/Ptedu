@@ -86,7 +86,7 @@
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0  Card_title">{{ __('translation.Student online course price control') }} ({{ $records->count()  }})</h4>
-                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-plus"></i> Add</button>
+                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addRecord"><i class="bi bi-plus"></i> Add</button>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -201,6 +201,52 @@
         </div>
     </div>
 </div>
+
+<!-- Add Record Modal -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="addRecord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Add Discount Entry') }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post">
+                    @csrf
+                    <input type="hidden" name="course_id" value="{{ request()->segment(3) }}" required>
+                    <div class="modal-body">
+                        <div class="form-group mb-3">
+                            <label for="userId">{{ __('translation.Select Student') }}</label>
+                            <select name="user_id" class="form-control" id="userId" required>
+                                <option value="">{{ __('translation.Select Student') }}</option>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="discount">{{ __('translation.Discounted Price') }}</label>
+                            <input type="number" name="discount" class="form-control" id="discount" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="is_free">{{ __('translation.Free Status') }}</label>
+                            <select name="is_free" class="form-control" id="is_free" required>
+                                <option value="">{{ __('translation.Select Status') }}</option>
+                                <option value="true">{{ __('translation.Active') }}</option>
+                                <option value="false">{{ __('translation.In-Active') }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
+                        <button type="submit" class="btn btn-danger">{{ __('translation.Save')}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @section('custom-script')
