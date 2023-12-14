@@ -86,6 +86,7 @@
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0  Card_title">{{ __('translation.Student online course price control') }} ({{ $records->count()  }})</h4>
+                    <button type="button" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-plus"></i> Add</button>
                 </div>
                 <hr class="hr-color" />
             </div>
