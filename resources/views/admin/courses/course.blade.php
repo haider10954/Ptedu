@@ -160,6 +160,7 @@
                             </td>
                             <td>
                                 <div class="d-flex gap-1">
+                                    <a class="btn btn-sm btn-success" href="{{ route('student_online_course_price_control', $c->id) }}"><i class="bi bi-tags"></i></a>
                                     <a class="btn btn-sm btn-primary" href="{{ route('edit_course_view', $c->id) }}"><i class="bi bi-pencil"></i></a>
                                     <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $c->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>

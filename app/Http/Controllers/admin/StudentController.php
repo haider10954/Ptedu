@@ -121,4 +121,10 @@ class StudentController extends Controller
             return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
         }
     }
+
+    public function student_online_course_price_control($course_id){
+        dd('working');
+        // $online_courses_enrolled = Course_tracking::where('user_id', $student_id)->with('getCourses')->get();
+        // return view('admin.student.student_course_access_control', compact('online_courses_enrolled'));
+    }
 }
