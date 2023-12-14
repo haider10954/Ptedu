@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
 use App\Models\Course_tracking;
+use App\Models\Course;
 use Illuminate\Support\Facades\DB;
 use App\Models\Student_online_price_control;
 
