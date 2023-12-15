@@ -125,12 +125,14 @@ class StudentController extends Controller
     }
 
     public function student_online_course_price_control($course_id){
+        $course = Course::where('id', $course_id)->first();
         $records = Student_online_price_control::where('course_id', $course_id)->get();
         $users = User::get();
-        return view('admin.courses.student_online_course_price_control', compact('records','users'));
+        return view('admin.courses.student_online_course_price_control', compact('records','users','course'));
     }
 
     public function add_student_online_course_price_discount_entry(Request $request){
+        dd($request->all());
         $validate = \Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'discounted_price' => 'nullable|numeric',

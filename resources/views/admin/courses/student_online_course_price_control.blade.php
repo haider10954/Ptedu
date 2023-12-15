@@ -225,6 +225,17 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
+                            @php
+                            if(!empty($course->discounted_prize)){
+                                $original_price = $course->price - $course->discounted_prize;
+                            }else{
+                                $original_price = $course->price;
+                            }    
+                            @endphp
+                            <label for="original_price">{{ __('translation.Orignal Price') }}</label>
+                            <input type="text" class="form-control" id="original_price" name="original_price" value="${{ $original_price }}" readonly>
+                        </div>
+                        <div class="form-group mb-3">
                             <label for="discounted_price">{{ __('translation.Discounted Price') }}</label>
                             <input type="number" name="discounted_price" class="form-control" id="discounted_price" placeholder="{{ __('translation.Add discounted price') }}">
                         </div>
