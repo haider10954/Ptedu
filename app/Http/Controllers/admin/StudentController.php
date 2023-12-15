@@ -230,4 +230,25 @@ class StudentController extends Controller
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
         }
     }
+
+    public function del_student_online_course_price_discount_entry(Request $request){
+        $validate = \Validator::make($request->all(), [
+            'record_id' => 'required|exists:student_online_price_controls,id'
+        ],[
+            'record_id.required' => __('translation.Something went wrong, please try again'),
+            'record_id.exists' => __('translation.Something went wrong, please try again') 
+        ]);
+        if ($validate->fails()) {
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', $validate->errors()->first());
+        }
+        try {
+            DB::beginTransaction();
+            $delRecord = Student_online_price_control::where('id', $request->record_id)->dalete();
+            DB::commit();
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry deleted successfully'));
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
+        }
+    }
 }

@@ -128,7 +128,7 @@
                             <td>
                                 <div class="d-flex gap-1">
                                     <button type="button" class="btn btn-primary btn-sm" onclick="edit_record({{$item->id}}, {{ $item->user_id }}, {{ $item->discounted_price }}, {{ $item->is_free }})"><i class="bi bi-pencil"></i></button>
-                                    <button type="button" class="btn btn-sm btn-danger" onclick="change_access({{$item->id}}, {{ $item->access }})"><i class="bi bi-trash"></i></button>
+                                    <button type="button" class="btn btn-sm btn-danger" onclick="del_record({{$item->id}})"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -197,26 +197,22 @@
     </div>
 </div>
 
-<!-- Course Change Access -->
+<!-- Del Record Modal -->
 <div class="modal-dialog modal-dialog-centered">
-    <div class="modal fade" id="changeAccessModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="delRecord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Change Access') }}</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Delete') }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" action="{{ route('student_course_change_access')}}">
+                <form method="post" action="{{ route('del_student_online_course_price_discount_entry') }}">
+                    <input type="hidden" name="record_id" id="delRecordID">
                     @csrf
-                    <input type="hidden" name="student_id" value="{{ request()->segment(3) }}" required>
-                    <div class="modal-body">
-                        <p>{{ __('translation.Are you sure you want to change access ?') }}</p>
-                        <input type="hidden" name="course_tracking" class="form-control" id="courseTracking" required>
-                        <input type="hidden" id="accessType" name="currentAccess" required>
-                    </div>
+                    <p class="mb-0">{{ __("translation.Are you sure you wan't to delete ?") }}</p>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
-                        <button type="submit" class="btn btn-danger">{{ __('translation.Save')}}</button>
+                        <button type="submit" class="btn btn-danger">{{ __('translation.Delete')}}</button>
                     </div>
                 </form>
             </div>
@@ -311,10 +307,9 @@
 
     var changeAccessModal = new bootstrap.Modal(document.getElementById("changeAccessModal"), {});
 
-    function change_access(id, access) {
-        $('#accessType').val(access);
-        $('#courseTracking').val(id);
-        changeAccessModal.show();
+    function del_record(id) {
+        $('#delRecordID').val(id);
+        delRecord.show();
     }
 
     $(document).ready(function() {
