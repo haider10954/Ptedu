@@ -296,7 +296,6 @@
     var editRecordModal = new bootstrap.Modal(document.getElementById("editRecord"), {});
 
     function edit_record(id, user_id, discount_price = null, is_free) {
-        alert(is_free);
         $('#editrecordId').val(id);
         $('#editUserId option').each(function(){
             if($(this).val() == user_id){
@@ -307,15 +306,18 @@
             $('#edit_discounted_price').val(discount_price);
         }
         if(is_free == 1){
-            is_free = 'true';
+            $('#edit_is_free option').each(function(){
+                if($(this).val() == 'true'){
+                    $(this).prop('checked', true);
+                }
+            });
         }else{
-            is_free = 'false';
+            $('#edit_is_free option').each(function(){
+                if($(this).val() == 'false'){
+                    $(this).prop('checked', true);
+                }
+            });
         }
-        $('#edit_is_free option').each(function(){
-            if($(this).val() == is_free){
-                $(this).prop('checked', true);
-            }
-        });
         editRecordModal.show();
     }
 
