@@ -115,8 +115,8 @@
                             <td>
                                 <span class="course_name">{{ $item->getUser->name }}</span>
                             </td>
-                            <td><span class="course_name">{{ $item->discounted_price }}</span></td>
                             <td><span class="course_name">{{ $item->original_price }}</span></td>
+                            <td><span class="course_name">{{ $item->discounted_price }}</span></td>
                             <td>
                                 @if($item->is_free == 1)
                                     <span class="badge bg-success">Active</span>
@@ -124,6 +124,7 @@
                                     <span class="badge bg-danger text-white">In-Active</span>
                                 @endif
                             </td>
+                            <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
                             <td>
                                 <div class="d-flex gap-1">
                                     <button type="button" class="btn btn-primary btn-sm" onclick="extend_duration({{$item->id}}, {{ $item->extended_duration }})"><i class="bi bi-pencil"></i></button>

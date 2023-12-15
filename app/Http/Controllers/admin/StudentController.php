@@ -157,6 +157,7 @@ class StudentController extends Controller
             DB::beginTransaction();
             $data['course_id'] = $request->course_id;
             $data['user_id'] = $request->user_id;
+            $data['original_price'] = $request->original_price;
             if(!empty($request->is_free)){
                 $data['is_free'] = $request->is_free;
             }
