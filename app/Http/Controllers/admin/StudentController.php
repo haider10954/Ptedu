@@ -233,10 +233,13 @@ class StudentController extends Controller
 
     public function del_student_online_course_price_discount_entry(Request $request){
         $validate = \Validator::make($request->all(), [
-            'record_id' => 'required|exists:student_online_price_controls,id'
+            'record_id' => 'required|exists:student_online_price_controls,id',
+            'course_id' => 'required|exists:courses,id'
         ],[
             'record_id.required' => __('translation.Something went wrong, please try again'),
-            'record_id.exists' => __('translation.Something went wrong, please try again') 
+            'record_id.exists' => __('translation.Something went wrong, please try again'),
+            'course_id.required' => __('translation.Something went wrong, please try again'),
+            'course_id.exists' => __('translation.Something went wrong, please try again')
         ]);
         if ($validate->fails()) {
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', $validate->errors()->first());

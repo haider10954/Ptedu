@@ -208,8 +208,11 @@
                 </div>
                 <form method="post" action="{{ route('del_student_online_course_price_discount_entry') }}">
                     <input type="hidden" name="record_id" id="delRecordID">
+                    <input type="hidden" name="course_id" value="{{ request()->segment(3) }}" required>
                     @csrf
-                    <p class="mb-0">{{ __("translation.Are you sure you wan't to delete ?") }}</p>
+                    <div class="modal-body">
+                        <p class="mb-0">{{ __("translation.Are you sure you wan't to delete ?") }}</p>
+                    </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
                         <button type="submit" class="btn btn-danger">{{ __('translation.Delete')}}</button>
