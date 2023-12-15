@@ -494,5 +494,13 @@ return [
     'Error : Please try again' => 'Error : Please try again',
     'Course duration extended successfully' => 'Course duration extended successfully',
     'Admin has blocked your access' => 'Admin has blocked your access',
-    'End Date' => 'End Date'
+    'End Date' => 'End Date',
+    'Student Online Course Price Control' => 'Student Online Course Price Control',
+    'Student Name' => 'Student Name',
+    'Original Price' => 'Original Price',
+    'Is free' => 'Is free',
+    'Created' => 'Created',
+    'Add Discount Entry' => 'Add Discount Entry',
+    'Select Student' => 'Select Student',
+    'Free Status' => 'Free Status'
 ];
