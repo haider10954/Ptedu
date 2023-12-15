@@ -127,7 +127,7 @@
                             <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="extend_duration({{$item->id}}, {{ $item->extended_duration }})"><i class="bi bi-pencil"></i></button>
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="edit_record({{$item->id}}, {{ $item->user_id }}, {{ $item->discounted_price }}, {{ $item->is_free }})"><i class="bi bi-pencil"></i></button>
                                     <button type="button" class="btn btn-sm btn-danger" onclick="change_access({{$item->id}}, {{ $item->access }})"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
@@ -147,28 +147,57 @@
     </div>
 </div>
 
-<!-- Extend Course Duration -->
+<!-- Edit Record Modal -->
 <div class="modal-dialog modal-dialog-centered">
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal fade" id="editRecord" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Extend Duration') }}</h1>
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Edit Discount Entry') }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post" action="{{ route('student_extend_course_duration')}}">
+                <form method="post" action="{{ route('edit_student_online_course_price_discount_entry') }}">
                     @csrf
+                    <input type="hidden" name="course_id" value="{{ request()->segment(3) }}" required>
+                    <input type="hidden" name="record_id" id="editRecordId" required>
                     <div class="modal-body">
-                        <input type="hidden" name="student_id" value="{{ request()->segment(3) }}" required>
-                        <input type="hidden" name="record" id="recordId" required>
-                        <div class="form-group">
-                            <label for="courseDuration">{{ __('translation.Extend Duration') }}</label>
-                            <input type="number" name="extended_duration" class="form-control" id="courseDuration" required>
+                        <div class="form-group mb-3">
+                            <label for="editUserId">{{ __('translation.Select Student') }}</label>
+                            <select name="user_id" class="form-control" id="editUserId" required>
+                                <option value="">{{ __('translation.Select Student') }}</option>
+                                @foreach ($users as $user)
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            @php
+                            if(!empty($course->discounted_prize)){
+                                $original_price = $course->price - $course->discounted_prize;
+                            }else{
+                                $original_price = $course->price;
+                            }    
+                            @endphp
+                            <label for="original_price">{{ __('translation.Orignal Price') }}</label>
+                            <input type="number" class="form-control" id="edit_original_price" name="original_price" value="{{ $original_price }}" readonly>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="edit_discounted_price">{{ __('translation.Discounted Price') }}</label>
+                            <input type="number" name="discounted_price" class="form-control" id="edit_discounted_price" placeholder="{{ __('translation.Add discounted price') }}">
+                            <span class="small">({{ __('translation.Discounted price must be less than original price') }})</span>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="edit_is_free">{{ __('translation.Free Status') }}</label>
+                            <select name="is_free" class="form-control" id="edit_is_free">
+                                <option value="">{{ __('translation.Select Status') }}</option>
+                                <option value="true">{{ __('translation.Active') }}</option>
+                                <option value="false">{{ __('translation.In-Active') }}</option>
+                            </select>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
-                        <button type="submit" class="btn btn-danger">{{ __('translation.Save')}}</button>
+                        <button type="submit" class="btn btn-primary">{{ __('translation.Save')}}</button>
                     </div>
                 </form>
             </div>
@@ -264,12 +293,29 @@
 
 @section('custom-script')
 <script>
-    var extendDurationModal = new bootstrap.Modal(document.getElementById("staticBackdrop"), {});
+    var editRecordModal = new bootstrap.Modal(document.getElementById("editRecord"), {});
 
-    function extend_duration(id, duration) {
-        $('#recordId').val(id);
-        $('#courseDuration').val(duration);
-        extendDurationModal.show();
+    function edit_record(id, user_id, discount_price = null, is_free) {
+        $('#editrecordId').val(id);
+        $('#editUserId option').each(function(){
+            if($(this).val() == user_id){
+                $(this).prop('selected', true);
+            }
+        });
+        if(discount_price != null && discount_price != ''){
+            $('#edit_discounted_price').val(discount_price);
+        }
+        if(is_free == 1){
+            is_free = 'true';
+        }else{
+            is_free = 'false';
+        }
+        $('#edit_is_free option').each(function(){
+            if($(this).val() == is_free){
+                $(this).prop('checked', true);
+            }
+        });
+        editRecordModal.show();
     }
 
     var changeAccessModal = new bootstrap.Modal(document.getElementById("changeAccessModal"), {});

@@ -350,6 +350,7 @@ Route::prefix('admin')->group(function () {
         // Student course price control
         Route::get('/student-online-course-price-control/{id}', [AdminStudentController::class, 'student_online_course_price_control'])->name('student_online_course_price_control');
         Route::post('/add-student-online-course-price-discount-entry', [AdminStudentController::class, 'add_student_online_course_price_discount_entry'])->name('add_student_online_course_price_discount_entry');
+        Route::post('/edit-student-online-course-price-discount-entry', [AdminStudentController::class, 'edit_student_online_course_price_discount_entry'])->name('edit_student_online_course_price_discount_entry');
     });
 });
 

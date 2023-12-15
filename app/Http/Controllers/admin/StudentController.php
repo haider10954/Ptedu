@@ -181,4 +181,8 @@ class StudentController extends Controller
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
         }
     }
+
+    public function edit_student_online_course_price_discount_entry(Request $request){
+        dd($request->all());
+    }
 }
