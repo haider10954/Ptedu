@@ -131,7 +131,6 @@ class StudentController extends Controller
     }
 
     public function add_student_online_course_price_discount_entry(Request $request){
-        dd($request->all());
         $this->validate($request, [
             'user_id' => 'required|exists:users,id',
             'discounted_price' => 'nullable|numeric',
