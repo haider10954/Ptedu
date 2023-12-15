@@ -132,12 +132,12 @@ class StudentController extends Controller
     }
 
     public function add_student_online_course_price_discount_entry(Request $request){
-        dd($request->all());
         $validate = \Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'discounted_price' => 'nullable|numeric',
             'is_free' => 'nullable|boolean',
-            'course_id' => 'required|exists:courses,id'
+            'course_id' => 'required|exists:courses,id',
+            'original_price' => 'required|numeric'
         ],[
             'course_id.required' => __('translation.Something went wrong, please try again'),
             'course_id.exists' => __('translation.Something went wrong, please try again')
@@ -161,6 +161,9 @@ class StudentController extends Controller
                 $data['is_free'] = $request->is_free;
             }
             if(!empty($request->discounted_price)){
+                if($request->discounted_price > $request->original_price){
+                    return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Discounted price must be less than original price'));
+                }
                 $data['discounted_price'] = $request->discounted_price;
             }
             $addEntry = Student_online_price_control::create($data);

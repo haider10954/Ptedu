@@ -233,11 +233,12 @@
                             }    
                             @endphp
                             <label for="original_price">{{ __('translation.Orignal Price') }}</label>
-                            <input type="text" class="form-control" id="original_price" name="original_price" value="${{ $original_price }}" readonly>
+                            <input type="number" class="form-control" id="original_price" name="original_price" value="{{ $original_price }}" readonly>
                         </div>
                         <div class="form-group mb-3">
                             <label for="discounted_price">{{ __('translation.Discounted Price') }}</label>
                             <input type="number" name="discounted_price" class="form-control" id="discounted_price" placeholder="{{ __('translation.Add discounted price') }}">
+                            <span class="small">({{ __('translation.Discounted price must be less than original price') }})</span>
                         </div>
                         <div class="form-group mb-3">
                             <label for="is_free">{{ __('translation.Free Status') }}</label>
