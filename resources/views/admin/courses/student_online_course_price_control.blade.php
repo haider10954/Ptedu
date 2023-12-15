@@ -161,15 +161,7 @@
                     <input type="hidden" name="course_id" value="{{ request()->segment(3) }}" required>
                     <input type="hidden" name="record_id" id="editRecordId" required>
                     <div class="modal-body">
-                        <div class="form-group mb-3">
-                            <label for="editUserId">{{ __('translation.Select Student') }}</label>
-                            <select name="user_id" class="form-control" id="editUserId" required>
-                                <option value="">{{ __('translation.Select Student') }}</option>
-                                @foreach ($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
+                        <input type="hidden" name="user_id" id="editUserId">
                         <div class="form-group mb-3">
                             @php
                             if(!empty($course->discounted_prize)){
@@ -297,11 +289,7 @@
 
     function edit_record(id, user_id, discount_price = null, is_free) {
         $('#editrecordId').val(id);
-        $('#editUserId option').each(function(){
-            if($(this).val() == user_id){
-                $(this).prop('selected', true);
-            }
-        });
+        $('#editUserId').val(user_id);
         if(discount_price != null && discount_price != ''){
             $('#edit_discounted_price').val(discount_price);
         }
