@@ -245,8 +245,8 @@
                             <label for="is_free">{{ __('translation.Free Status') }}</label>
                             <select name="is_free" class="form-control" id="is_free">
                                 <option value="">{{ __('translation.Select Status') }}</option>
-                                <option value="1">{{ __('translation.Active') }}</option>
-                                <option value="2">{{ __('translation.In-Active') }}</option>
+                                <option value="true">{{ __('translation.Active') }}</option>
+                                <option value="false">{{ __('translation.In-Active') }}</option>
                             </select>
                         </div>
                     </div>
