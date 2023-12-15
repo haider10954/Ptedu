@@ -159,7 +159,7 @@
                 <form method="post" action="{{ route('edit_student_online_course_price_discount_entry') }}">
                     @csrf
                     <input type="hidden" name="course_id" value="{{ request()->segment(3) }}" required>
-                    <input type="hidden" name="record_id" id="editRecordId" required>
+                    <input type="hidden" id="editRecordId" name="record_id" required>
                     <div class="modal-body">
                         <input type="hidden" name="user_id" id="editUserId">
                         <div class="form-group mb-3">
@@ -288,7 +288,7 @@
     var editRecordModal = new bootstrap.Modal(document.getElementById("editRecord"), {});
 
     function edit_record(id, user_id, discount_price = null, is_free) {
-        $('#editrecordId').val(id);
+        $('#editRecordId').val(id);
         $('#editUserId').val(user_id);
         if(discount_price != null && discount_price != ''){
             $('#edit_discounted_price').val(discount_price);
