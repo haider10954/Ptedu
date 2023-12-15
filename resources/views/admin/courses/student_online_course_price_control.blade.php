@@ -1,6 +1,6 @@
 @extends('admin.layout.layout')
 
-@section('title' , 'Student online course price control')
+@section('title' , __('transaltion.Student online course price control'))
 
 @section('custom-style')
 <style>
