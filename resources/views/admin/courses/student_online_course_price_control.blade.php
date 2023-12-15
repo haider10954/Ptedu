@@ -116,7 +116,7 @@
                                 <span class="course_name">{{ $item->getUser->name }}</span>
                             </td>
                             <td><span class="course_name">{{ $item->original_price }}</span></td>
-                            <td><span class="course_name">{{ $item->discounted_price }}</span></td>
+                            <td><span class="course_name">{{ (!empty($item->discounted_price)) ? $item->discounted_price : 'N/A' }}</span></td>
                             <td>
                                 @if($item->is_free == 1)
                                     <span class="badge bg-success">Active</span>
