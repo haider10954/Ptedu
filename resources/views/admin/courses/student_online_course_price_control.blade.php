@@ -305,7 +305,7 @@
         editRecordModal.show();
     }
 
-    var changeAccessModal = new bootstrap.Modal(document.getElementById("changeAccessModal"), {});
+    var delRecord = new bootstrap.Modal(document.getElementById("delRecord"), {});
 
     function del_record(id) {
         $('#delRecordID').val(id);
