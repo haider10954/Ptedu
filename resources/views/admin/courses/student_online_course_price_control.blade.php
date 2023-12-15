@@ -308,13 +308,13 @@
         if(is_free == 1){
             $('#edit_is_free option').each(function(){
                 if($(this).val() == 'true'){
-                    $(this).prop('checked', true);
+                    $(this).prop('selected', true);
                 }
             });
         }else{
             $('#edit_is_free option').each(function(){
                 if($(this).val() == 'false'){
-                    $(this).prop('checked', true);
+                    $(this).prop('selected', false);
                 }
             });
         }
