@@ -145,7 +145,7 @@ class StudentController extends Controller
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', $validate->errors()->first());
         }
         try {
-            if(!empty($request->discounted_price) && !empty($request->is_free)){
+            if(empty($request->discounted_price) && empty($request->is_free)){
                 return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Free status or discount price should be given'));
             }
             $checkEntry = Student_online_price_control::where('course_id', $request->course_id)->where('user_id', $request->user_id)->count();
@@ -198,7 +198,7 @@ class StudentController extends Controller
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', $validate->errors()->first());
         }
         try {
-            if(!empty($request->discounted_price) && !empty($request->is_free)){
+            if(empty($request->discounted_price) && empty($request->is_free)){
                 return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Free status or discount price should be given'));
             }
             $data = [];
