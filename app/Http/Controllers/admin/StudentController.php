@@ -134,7 +134,7 @@ class StudentController extends Controller
     public function add_student_online_course_price_discount_entry(Request $request){
         $validate = \Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
-            'discounted_price' => 'nullable|numeric'
+            'discounted_price' => 'nullable|numeric',
             'course_id' => 'required|exists:courses,id',
             'original_price' => 'required|numeric'
         ],[
