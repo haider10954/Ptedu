@@ -211,7 +211,7 @@
                     <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Add Discount Entry') }}</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="post">
+                <form method="post" action="{{ route('add_student_online_course_price_discount_entry') }}">
                     @csrf
                     <input type="hidden" name="course_id" value="{{ request()->segment(3) }}" required>
                     <div class="modal-body">
@@ -225,8 +225,8 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="discount">{{ __('translation.Discounted Price') }}</label>
-                            <input type="number" name="discount" class="form-control" id="discount" required>
+                            <label for="discounted_price">{{ __('translation.Discounted Price') }}</label>
+                            <input type="number" name="discounted_price" class="form-control" id="discounted_price" placeholder="{{ __('translation.Add discounted price') }}" required>
                         </div>
                         <div class="form-group mb-3">
                             <label for="is_free">{{ __('translation.Free Status') }}</label>
@@ -239,7 +239,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
-                        <button type="submit" class="btn btn-danger">{{ __('translation.Save')}}</button>
+                        <button type="submit" class="btn btn-success">{{ __('translation.Save')}}</button>
                     </div>
                 </form>
             </div>

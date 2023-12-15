@@ -129,4 +129,41 @@ class StudentController extends Controller
         $users = User::get();
         return view('admin.courses.student_online_course_price_control', compact('records','users'));
     }
+
+    public function add_student_online_course_price_discount_entry(Request $request){
+        $this->validate($request, [
+            'user_id' => 'required|exists:users,id',
+            'discounted_price' => 'nullable|numeric',
+            'is_free' => 'nullable|boolean',
+            'course_id' => 'required|exists:courses,id'
+        ],[
+            'course_id.required' => __('translation.Something went wrong, please try again'),
+            'course_id.exists' => __('translation.Something went wrong, please try again')
+        ]);
+        try {
+            if(!empty($request->discount) && !empty($request->is_free)){
+                return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Free status or discount price should be given'));
+            }
+            $checkEntry = Student_online_price_control::where('course_id', $request->course_id)->where('user_id', $request->user_id)->count();
+            if($checkEntry > 0){
+                return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Entry for this user is already entered'));
+            }
+            $data = [];
+            DB::beginTransaction();
+            $data['course_id'] = $request->course_id;
+            $data['user_id'] = $request->user_id;
+            if(!empty($request->is_free)){
+                $data['is_free'] = $request->is_free;
+            }
+            if(!empty($request->discounted_price)){
+                $data['discounted_price'] = $request->discounted_price;
+            }
+            $addEntry = Student_online_price_control::create($data);
+            DB::commit();
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry added successfully'));
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
+        }
+    }
 }
