@@ -226,11 +226,11 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="discounted_price">{{ __('translation.Discounted Price') }}</label>
-                            <input type="number" name="discounted_price" class="form-control" id="discounted_price" placeholder="{{ __('translation.Add discounted price') }}" required>
+                            <input type="number" name="discounted_price" class="form-control" id="discounted_price" placeholder="{{ __('translation.Add discounted price') }}">
                         </div>
                         <div class="form-group mb-3">
                             <label for="is_free">{{ __('translation.Free Status') }}</label>
-                            <select name="is_free" class="form-control" id="is_free" required>
+                            <select name="is_free" class="form-control" id="is_free">
                                 <option value="">{{ __('translation.Select Status') }}</option>
                                 <option value="true">{{ __('translation.Active') }}</option>
                                 <option value="false">{{ __('translation.In-Active') }}</option>
