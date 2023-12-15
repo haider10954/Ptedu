@@ -131,7 +131,7 @@ class StudentController extends Controller
     }
 
     public function add_student_online_course_price_discount_entry(Request $request){
-        $this->validate($request, [
+        $validate = \Validator::make($request->all(), [
             'user_id' => 'required|exists:users,id',
             'discounted_price' => 'nullable|numeric',
             'is_free' => 'nullable|boolean',
@@ -140,6 +140,9 @@ class StudentController extends Controller
             'course_id.required' => __('translation.Something went wrong, please try again'),
             'course_id.exists' => __('translation.Something went wrong, please try again')
         ]);
+        if ($validate->fails()) {
+            dd($validate->errors()->first());
+        }
         try {
             if(!empty($request->discount) && !empty($request->is_free)){
                 dd('working');
