@@ -142,10 +142,12 @@ class StudentController extends Controller
         ]);
         try {
             if(!empty($request->discount) && !empty($request->is_free)){
+                dd('working');
                 return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Free status or discount price should be given'));
             }
             $checkEntry = Student_online_price_control::where('course_id', $request->course_id)->where('user_id', $request->user_id)->count();
             if($checkEntry > 0){
+                dd('working');
                 return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Entry for this user is already entered'));
             }
             $data = [];
