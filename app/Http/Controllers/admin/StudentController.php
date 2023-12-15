@@ -246,12 +246,11 @@ class StudentController extends Controller
         }
         try {
             DB::beginTransaction();
-            $delRecord = Student_online_price_control::where('id', $request->record_id)->dalete();
+            $delRecord = Student_online_price_control::where('id', $request->record_id)->delete();
             DB::commit();
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry deleted successfully'));
         } catch (\Throwable $th) {
             DB::rollback();
-            dd($th->getMessage());
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
         }
     }
