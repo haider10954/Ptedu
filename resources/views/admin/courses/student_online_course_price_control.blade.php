@@ -296,6 +296,7 @@
     var editRecordModal = new bootstrap.Modal(document.getElementById("editRecord"), {});
 
     function edit_record(id, user_id, discount_price = null, is_free) {
+        alert(is_free);
         $('#editrecordId').val(id);
         $('#editUserId option').each(function(){
             if($(this).val() == user_id){
