@@ -502,5 +502,9 @@ return [
     'Created' => 'Created',
     'Add Discount Entry' => 'Add Discount Entry',
     'Select Student' => 'Select Student',
-    'Free Status' => 'Free Status'
+    'Free Status' => 'Free Status',
+    'Student Online Course Price Control' => 'Student Online Course Price Control',
+    'Edit Discount Entry' => 'Edit Discount Entry',
+    'Discounted price must be less than original price' => 'Discounted price must be less than original price',
+    "Are you sure you wan't to delete" => "Are you sure you wan't to delete"
 ];

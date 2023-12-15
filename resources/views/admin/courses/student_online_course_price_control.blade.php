@@ -170,7 +170,7 @@
                                 $original_price = $course->price;
                             }    
                             @endphp
-                            <label for="original_price">{{ __('translation.Orignal Price') }}</label>
+                            <label for="original_price">{{ __('translation.Original Price') }}</label>
                             <input type="number" class="form-control" id="edit_original_price" name="original_price" value="{{ $original_price }}" readonly>
                         </div>
                         <div class="form-group mb-3">
@@ -253,7 +253,7 @@
                                 $original_price = $course->price;
                             }    
                             @endphp
-                            <label for="original_price">{{ __('translation.Orignal Price') }}</label>
+                            <label for="original_price">{{ __('translation.Original Price') }}</label>
                             <input type="number" class="form-control" id="original_price" name="original_price" value="{{ $original_price }}" readonly>
                         </div>
                         <div class="form-group mb-3">
@@ -286,7 +286,7 @@
 <script>
     var editRecordModal = new bootstrap.Modal(document.getElementById("editRecord"), {});
 
-    function edit_record(id, user_id, discount_price = null, is_free) {
+    function edit_record(id, user_id, discount_price, is_free) {
         $('#editRecordId').val(id);
         $('#editUserId').val(user_id);
         if(discount_price != null && discount_price != ''){

@@ -509,5 +509,9 @@ return [
     'Created' => '만들어진',
     'Add Discount Entry' => '할인기능 추가',
     'Select Student' => '할인기능 적용할 수강생 선택',
-    'Free Status' => '무료로 변경'
+    'Free Status' => '무료로 변경',
+    'Student Online Course Price Control' => '학생 온라인 강좌 가격 통제',
+    'Edit Discount Entry' => '할인 항목 편집',
+    'Discounted price must be less than original price' => '할인된 가격은 원래 가격보다 낮아야 합니다.',
+    "Are you sure you wan't to delete" => "삭제 하시겠습니까"
 ];
