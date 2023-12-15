@@ -314,7 +314,7 @@
         }else{
             $('#edit_is_free option').each(function(){
                 if($(this).val() == 'false'){
-                    $(this).prop('selected', false);
+                    $(this).prop('selected', true);
                 }
             });
         }
