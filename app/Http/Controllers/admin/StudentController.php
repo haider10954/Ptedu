@@ -159,9 +159,11 @@ class StudentController extends Controller
                 $data['discounted_price'] = $request->discounted_price;
             }
             $addEntry = Student_online_price_control::create($data);
+            dd($addEntry);
             DB::commit();
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry added successfully'));
         } catch (\Throwable $th) {
+            dd($th->getMessage());
             DB::rollback();
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
         }
