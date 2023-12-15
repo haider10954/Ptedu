@@ -145,7 +145,7 @@ class StudentController extends Controller
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', $validate->errors()->first());
         }
         try {
-            if(!empty($request->discount) && !empty($request->is_free)){
+            if(!empty($request->discounted_price) && !empty($request->is_free)){
                 return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Free status or discount price should be given'));
             }
             $checkEntry = Student_online_price_control::where('course_id', $request->course_id)->where('user_id', $request->user_id)->count();
@@ -183,6 +183,51 @@ class StudentController extends Controller
     }
 
     public function edit_student_online_course_price_discount_entry(Request $request){
-        dd($request->all());
+        $validate = \Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'discounted_price' => 'nullable|numeric',
+            'course_id' => 'required|exists:courses,id',
+            'original_price' => 'required|numeric'
+        ],[
+            'course_id.required' => __('translation.Something went wrong, please try again'),
+            'course_id.exists' => __('translation.Something went wrong, please try again'),
+            'user_id.required' => __('translation.Something went wrong, please try again'),
+            'user_id.exists' => __('translation.Something went wrong, please try again')
+        ]);
+        if ($validate->fails()) {
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', $validate->errors()->first());
+        }
+        try {
+            if(!empty($request->discounted_price) && !empty($request->is_free)){
+                return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Free status or discount price should be given'));
+            }
+            $data = [];
+            DB::beginTransaction();
+            $data['course_id'] = $request->course_id;
+            $data['user_id'] = $request->user_id;
+            $data['original_price'] = $request->original_price;
+            if(!empty($request->is_free)){
+                if(!in_array($request->is_free, ['true','false'])){
+                    return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
+                }
+                if($request->is_free == 'true'){
+                    $data['is_free'] = 1;
+                }else{
+                    $data['is_free'] = 0;
+                }                
+            }
+            if(!empty($request->discounted_price)){
+                if($request->discounted_price > $request->original_price){
+                    return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Discounted price must be less than original price'));
+                }
+                $data['discounted_price'] = $request->discounted_price;
+            }
+            $editEntry = Student_online_price_control::where('id', $request->record_id)->update($data);
+            DB::commit();
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry added successfully'));
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
+        }
     }
 }
