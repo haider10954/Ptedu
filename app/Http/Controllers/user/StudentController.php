@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Online_enrollment;
 use App\Models\Offline_enrollment;
 use App\Service\Cart;
+use App\Models\Student_online_price_control;
 
 class StudentController extends Controller
 {
@@ -71,6 +72,17 @@ class StudentController extends Controller
                             $check_online_enrolment = Online_enrollment::where('user_id', auth()->id())->where('course_id', $cart_item['course_id'])->first();
                             if (!empty($check_online_enrolment)) {
                                 $del_cart_item = Cart::del_cart_item($cart_item['course_id'], $cart_item['type']);
+                            }else{
+                                $check_discount = Student_online_price_control::where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
+                                if(!empty($check_discount)){
+                                    if($check_discount->is_free == 1){
+                                        $cart_item['price'] = 0;
+                                        $cart_item['discounted_prize'] = 0;
+                                    }
+                                    if(!empty($check_discount->discounted_price) && ($check_discount->is_free == 0)){
+                                        $cart_item['discounted_prize'] = $check_discount->discounted_price;
+                                    }
+                                }
                             }
                         }
                         if ($cart_item['type'] == 'offline') {
