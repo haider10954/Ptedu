@@ -4,6 +4,7 @@ namespace App\Service;
 
 class Cart {
     public static function add_to_cart($course){
+        return $course;
         $cart = session()->get('shopping_cart');
         if(empty($cart)){
             $cart = [];
