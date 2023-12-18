@@ -80,7 +80,7 @@ class Cart {
             session()->save();
             return true;
         } catch (\Throwable $th) {
-            return false;
+            return $th->getMessage();
         }
     }
 }
