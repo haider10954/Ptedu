@@ -120,8 +120,8 @@ class CartController extends Controller
                 return json_encode(['Success' => false, 'Msg' => __('translation.Already Enrolled'), 'cart_items_count' => $shoping_cart_count]);
             }
         }
-        dd($course);
         $cart = Cart::add_to_cart($course);
+        dd($cart);
         if ($cart == true) {
             return json_encode(['Success' => true, 'Msg' => __('translation.Added'), 'cart_items_count' => count(session('shopping_cart'))]);
         } else {
