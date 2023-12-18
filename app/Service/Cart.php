@@ -74,7 +74,7 @@ class Cart {
         }
     }
 
-    public function update_cart($cart){
+    public static function update_cart($cart){
         try {
             session()->put('shopping_cart',$cart);
             session()->save();
