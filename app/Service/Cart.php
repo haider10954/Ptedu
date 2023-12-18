@@ -73,4 +73,14 @@ class Cart {
             return false;
         }
     }
+
+    public function update_cart($cart){
+        try {
+            session()->put('shopping_cart',$cart);
+            session()->save();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

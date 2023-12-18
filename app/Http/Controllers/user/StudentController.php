@@ -92,7 +92,8 @@ class StudentController extends Controller
                             }
                         }
                     }
-                    session()->save();
+                    Cart::empty_cart();
+                    Cart::update_cart();
                 }
                 return json_encode([
                     'error' => false,
