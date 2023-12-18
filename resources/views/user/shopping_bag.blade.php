@@ -3,7 +3,6 @@
 @section('title', 'PTEdu - Shopping Bag')
 
 @section('content')
-@dd($cart)
     <div class="section pt-125">
         <div class="container">
             <div class="row">

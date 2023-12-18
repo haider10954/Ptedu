@@ -105,6 +105,7 @@ class CartController extends Controller
                 return json_encode(['Success' => false, 'Msg' => __('translation.Already Enrolled'), 'cart_items_count' => $shoping_cart_count]);
             }
             $check_discount = Student_online_price_control::where('course_id', $course['id'])->where('user_id', auth()->id())->first();
+            dd($check_discount);
             if(!empty($check_discount)){
                 if($check_discount->is_free == 1){
                     $course['price'] = 0;
