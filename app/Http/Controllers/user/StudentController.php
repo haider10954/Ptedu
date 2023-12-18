@@ -92,6 +92,7 @@ class StudentController extends Controller
                             }
                         }
                     }
+                    session()->save();
                 }
                 return json_encode([
                     'error' => false,
