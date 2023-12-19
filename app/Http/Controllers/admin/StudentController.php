@@ -254,4 +254,33 @@ class StudentController extends Controller
             return redirect()->route('student_online_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
         }
     }
+
+    public function student_course_refund(Request $request){
+        $validate = \Validator::make($request->all(), [
+            'student_id' => 'required|exists:users,id',
+            'course_tracking_id' => 'required|exists:course_trackings,id',
+            'course_id' => 'required|exists:courses,id',
+            'amount' => 'required|numeric'
+        ],[
+            'student_id.required' => __('translation.Something went wrong, please try again'),
+            'student_id.exists' => __('translation.Something went wrong, please try again'),
+            'course_tracking_id.required' => __('translation.Something went wrong, please try again'),
+            'course_tracking_id.exists' => __('translation.Something went wrong, please try again'),
+            'course_id.required' => __('translation.Something went wrong, please try again'),
+            'course_id.exists' => __('translation.Something went wrong, please try again'),
+        ]);
+        if ($validate->fails()) {
+            return redirect()->route('student_course_access_control',$request->student_id)->with('error', $validate->errors()->first());
+        }
+        try {
+            dd($request->all());
+            DB::beginTransaction();
+            $delRecord = Student_online_price_control::where('id', $request->record_id)->delete();
+            DB::commit();
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry deleted successfully'));
+        } catch (\Throwable $th) {
+            DB::rollback(); 
+            return redirect()->route('student_course_access_control',$request->student_id)->with('error', $validate->errors()->first());
+        }
+    }
 }

@@ -136,6 +136,7 @@
                                 <div class="d-flex gap-1">
                                     <button type="button" class="btn btn-success btn-sm" onclick="extend_duration({{$item->id}}, {{ $item->extended_duration }})"><i class="bi bi-alarm"></i></button>
                                     <button type="button" class="btn btn-sm btn-danger" onclick="change_access({{$item->id}}, {{ $item->access }})"><i class="bi bi-shield-lock"></i></button>
+                                    <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}})"><i class="bi bi-arrow-return-left"></i></button>
                                 </div>
                             </td>
                         </tr>
@@ -209,6 +210,37 @@
         </div>
     </div>
 </div>
+
+<!-- Refund -->
+<div class="modal-dialog modal-dialog-centered">
+    <div class="modal fade" id="refundModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">{{ __('translation.Refund') }}</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form method="post" action="{{ route('student_course_refund')}}">
+                    @csrf
+                    <input type="hidden" name="student_id" value="{{ request()->segment(3) }}" required>
+                    <input type="hidden" name="course_tracking_id" id="courseTrackingId">
+                    <input type="hidden" name="course_id" id="courseID">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="amount">{{ __('translation.Refund Amount') }}</label>
+                            <input type="number" name="amount" class="form-control" placeholder="{{  __('translation.Enter refund amount') }}" required>
+                        </div>
+                        <p>{{ __('translation.Are you sure you want to change access ?') }}</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>
+                        <button type="submit" class="btn btn-danger">{{ __('translation.Refund')}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 @section('custom-script')
@@ -227,6 +259,14 @@
         $('#accessType').val(access);
         $('#courseTracking').val(id);
         changeAccessModal.show();
+    }
+
+    var refundModal = new bootstrap.Modal(document.getElementById("refundModal"), {});
+
+    function refund(id, course_id) {
+        $('#courseTrackingId').val(id);
+        $('#courseID').val(course_id);
+        refundModal.show();
     }
 
     $(document).ready(function() {

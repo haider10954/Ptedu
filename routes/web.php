@@ -346,6 +346,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/student-course-access-control/{id}', [AdminStudentController::class, 'student_course_access_control'])->name('student_course_access_control');
         Route::post('/student-extend-course-duration', [AdminStudentController::class, 'student_extend_course_duration'])->name('student_extend_course_duration');
         Route::post('/student-course-change-access', [AdminStudentController::class, 'student_course_change_access'])->name('student_course_change_access');
+        Route::post('/student-course-refund', [AdminStudentController::class, 'student_course_refund'])->name('student_course_refund');
 
         // Student course price control
         Route::get('/student-online-course-price-control/{id}', [AdminStudentController::class, 'student_online_course_price_control'])->name('student_online_course_price_control');
