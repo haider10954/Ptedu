@@ -76,10 +76,10 @@ class StudentController extends Controller
                                 $check_discount = Student_online_price_control::where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
                                 if(!empty($check_discount)){
                                     if($check_discount->is_free == 1){
-                                        Cart::update_cart_item($cart_item['course_id'], $cart_item['type'], 0, 0);
+                                        dd(Cart::update_cart_item($cart_item['course_id'], $cart_item['type'], 0, 0));
                                     }
                                     if(!empty($check_discount->discounted_price) && ($check_discount->is_free == 0)){
-                                        Cart::update_cart_item($cart_item['course_id'], $cart_item['type'], $cart_item['price'], 0);
+                                        dd(Cart::update_cart_item($cart_item['course_id'], $cart_item['type'], $cart_item['price'], 0));
                                     }
                                 }
                             }
