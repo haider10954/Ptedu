@@ -77,14 +77,14 @@ class Cart {
     public static function update_cart_item($course_id, $type, $price, $discount)
     {
         try {
+            $updated_cart = [];
             $cart_items = collect(session()->get('shopping_cart'));
             foreach ($cart_items as $k => &$v) {
                 if (($v['course_id'] == $course_id) && ($v['type'] == $type)) {
                     $v['price'] = $price;
                     $v['discount'] = $discount;
-
-                    return $v;
                 }
+                array_push($updated_cart, $v);
             }
             return $cart_items;
             session()->put('shopping_cart', $cart_items->toArray());
