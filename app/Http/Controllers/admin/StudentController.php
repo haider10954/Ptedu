@@ -288,7 +288,7 @@ class StudentController extends Controller
             $delOnlineEnrolment = Online_enrollment::where('user_id', $request->student_id)->where('course_id', $request->course_id)->delete();
 
             DB::commit();
-            return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course refunded successfully'));
+            return redirect()->route('student_course_access_control',$request->course_id)->with('message', __('translation.Course refunded successfully'));
         } catch (\Throwable $th) {
             DB::rollback(); 
             return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));

@@ -509,5 +509,10 @@ return [
     "Are you sure you wan't to delete" => "Are you sure you wan't to delete",
     "Add discounted price" => "Add discounted price",
     "Course discount entry deleted successfully" => "Course discount entry deleted successfully",
-    "Course discount entry added successfully" => "Course discount entry added successfully"
+    "Course discount entry added successfully" => "Course discount entry added successfully",
+    "Refund" => "Refund",
+    "Refund Amount" => "Refund Amount",
+    "Enter refund amount" => "Enter refund amount",
+    "Note : After refunding this enrolment will be deleted" => "Note : After refunding this enrolment will be deleted",
+    "Course refunded successfully" => "Course refunded successfully"
 ];
