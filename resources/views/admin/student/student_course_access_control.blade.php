@@ -101,7 +101,7 @@
                             <td class="align-middle t_header t-width-120">{{ __('translation.End Date') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Extended Duration') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Access') }}</td>
-                            <td class="align-middle t_header t-width-90">{{ __('translation.Action') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     <tbody>
