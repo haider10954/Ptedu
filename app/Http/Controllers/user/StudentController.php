@@ -74,7 +74,6 @@ class StudentController extends Controller
                                 $del_cart_item = Cart::del_cart_item($cart_item['course_id'], $cart_item['type']);
                             }else{
                                 $check_discount = Student_online_price_control::where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
-                                dd($check_discount);
                                 if(!empty($check_discount)){
                                     if($check_discount->is_free == 1){
                                         $cart_item['price'] = 0;
@@ -86,6 +85,7 @@ class StudentController extends Controller
                                 }
                             }
                         }
+                        dd($cart_item);
                         if ($cart_item['type'] == 'offline') {
                             $check_offline_enrolment = Offline_enrollment::where('user_id', auth()->id())->where('course_id', $cart_item['course_id'])->first();
                             if (!empty($check_offline_enrolment)) {
