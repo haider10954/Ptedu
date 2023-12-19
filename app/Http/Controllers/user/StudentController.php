@@ -94,7 +94,7 @@ class StudentController extends Controller
                     }
                     Cart::empty_cart();
                     $update_cart = Cart::update_cart($cart);
-                    dd($update_cart, $cart);
+                    // dd($update_cart, $cart);
                 }
                 return json_encode([
                     'error' => false,
