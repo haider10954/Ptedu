@@ -514,5 +514,7 @@ return [
     'Edit Discount Entry' => '할인 항목 편집',
     'Discounted price must be less than original price' => '할인된 가격은 원래 가격보다 낮아야 합니다.',
     "Are you sure you wan't to delete" => "삭제 하시겠습니까",
-    "Add discounted price" => "할인된 가격 추가"
+    "Add discounted price" => "할인된 가격 추가",
+    "Course discount entry deleted successfully" => "강좌 할인 항목이 삭제되었습니다.",
+    "Course discount entry added successfully" => "강좌 할인 항목이 추가되었습니다."
 ];
