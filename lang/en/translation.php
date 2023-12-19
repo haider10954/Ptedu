@@ -506,5 +506,6 @@ return [
     'Student Online Course Price Control' => 'Student Online Course Price Control',
     'Edit Discount Entry' => 'Edit Discount Entry',
     'Discounted price must be less than original price' => 'Discounted price must be less than original price',
-    "Are you sure you wan't to delete" => "Are you sure you wan't to delete"
+    "Are you sure you wan't to delete" => "Are you sure you wan't to delete",
+    "Add discounted price" => "Add discounted price"
 ];
