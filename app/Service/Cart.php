@@ -82,6 +82,8 @@ class Cart {
                 if (($v['course_id'] == $course_id) && ($v['type'] == $type)) {
                     $v['price'] = $price;
                     $v['discount'] = $discount;
+
+                    return $v;
                 }
             }
             return $cart_items;
