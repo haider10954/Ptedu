@@ -84,6 +84,7 @@ class Cart {
                     $v['discount'] = $discount;
                 }
             }
+            return $cart_items;
             session()->put('shopping_cart', $cart_items->toArray());
             session()->save();
             return true;
