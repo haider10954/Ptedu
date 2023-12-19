@@ -230,7 +230,7 @@
                             <label for="amount">{{ __('translation.Refund Amount') }}</label>
                             <input type="number" name="amount" class="form-control" placeholder="{{  __('translation.Enter refund amount') }}" required>
                         </div>
-                        <p>{{ __('translation.Are you sure you want to change access ?') }}</p>
+                        <p>({{ __('translation.Note : After refunding this enrolment will be deleted') }})</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ __('translation.Close')}}</button>

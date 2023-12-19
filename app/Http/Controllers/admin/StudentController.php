@@ -12,6 +12,7 @@ use App\Models\Course_tracking;
 use App\Models\Course;
 use Illuminate\Support\Facades\DB;
 use App\Models\Student_online_price_control;
+use App\Models\Refund;
 
 class StudentController extends Controller
 {
@@ -273,14 +274,24 @@ class StudentController extends Controller
             return redirect()->route('student_course_access_control',$request->student_id)->with('error', $validate->errors()->first());
         }
         try {
-            dd($request->all());
             DB::beginTransaction();
-            $delRecord = Student_online_price_control::where('id', $request->record_id)->delete();
+            // Adding refund amount entry
+            $addRefund = Refund::create([
+                'user_id' => $request->student_id,
+                'course_id' => $request->course_id,
+                'refund_amount' => $request->amount
+            ]);
+            // Deleting course tracking entry
+            $delCourseTracking = Course_tracking::where('id', $request->course_tracking_id)->delete();
+
+            // Deleting course enrolment entry
+            $delOnlineEnrolment = Online_enrollment::where('user_id', $request->student_id)->where('course_id', $request->course_id)->delete();
+
             DB::commit();
-            return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry deleted successfully'));
+            return redirect()->route('student_online_course_price_control',$request->course_id)->with('message', __('translation.Course refunded successfully'));
         } catch (\Throwable $th) {
             DB::rollback(); 
-            return redirect()->route('student_course_access_control',$request->student_id)->with('error', $validate->errors()->first());
+            return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
         }
     }
 }
