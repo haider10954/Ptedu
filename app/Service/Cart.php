@@ -86,7 +86,6 @@ class Cart {
                 }
                 array_push($updated_cart, $v);
             }
-            return $updated_cart;
             session()->put('shopping_cart', $updated_cart->toArray());
             session()->save();
             return true;
