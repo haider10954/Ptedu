@@ -85,7 +85,6 @@ class StudentController extends Controller
                                 }
                             }
                         }
-                        dd($cart_item);
                         if ($cart_item['type'] == 'offline') {
                             $check_offline_enrolment = Offline_enrollment::where('user_id', auth()->id())->where('course_id', $cart_item['course_id'])->first();
                             if (!empty($check_offline_enrolment)) {
@@ -93,6 +92,7 @@ class StudentController extends Controller
                             }
                         }
                     }
+                    dd($cart);
                     Cart::empty_cart();
                     $update_cart = Cart::update_cart($cart);
                     // dd($update_cart, $cart);
