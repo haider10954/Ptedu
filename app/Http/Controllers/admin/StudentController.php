@@ -89,6 +89,8 @@ class StudentController extends Controller
 
             $value['course_schedule'] = $get_enrollment->course_schedule;
 
+            $value['payment_response'] = $get_enrollment->payment_response;
+
 //            $get_orders = Order::query()->where('user_id',$student_id)->get();
 //            for ($i= $get_orders->count() - 1 ; $i > 0 ; $i--) {
 //                $order_items = json_decode($get_orders[$i]['order_items']);
