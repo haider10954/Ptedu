@@ -517,9 +517,9 @@ return [
     "Add discounted price" => "할인된 가격 추가",
     "Course discount entry deleted successfully" => "강좌 할인 항목이 삭제되었습니다.",
     "Course discount entry added successfully" => "강좌 할인 항목이 추가되었습니다.",
-    "Refund" => "환불하다",
+    "Refund" => "환불",
     "Refund Amount" => "환불 금액",
     "Enter refund amount" => "환불 금액 입력",
-    "Note : After refunding this enrolment will be deleted" => "참고: 환불 후에는 이 등록이 삭제됩니다.",
-    "Course refunded successfully" => "강좌가 성공적으로 환불되었습니다."
+    "Note : After refunding this enrolment will be deleted" => "참고: 환불 후에는 이 강좌가 삭제됩니다.",
+    "Course refunded successfully" => "환불이 정상적으로 반영되었습니다"
 ];
