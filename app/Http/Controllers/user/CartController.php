@@ -40,9 +40,9 @@ class CartController extends Controller
                 ]);
                 foreach ($cart as $cart_item) {
                     if ($cart_item['type'] == 'online') {
-                        $check_enrollment = Online_enrollment::where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
+                        $check_enrollment = Online_enrollment::query()->where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
                         if (empty($check_enrollment)) {
-                            $course = Course::where('id', $cart_item['course_id'])->with('getCourseStatus')->first();
+                            $course = Course::query()->where('id', $cart_item['course_id'])->with('getCourseStatus')->first();
                             $lecture_count = 0;
                             if ($course->getCourseStatus->count() > 0) {
                                 foreach ($course->getCourseStatus as $value) {
@@ -51,7 +51,10 @@ class CartController extends Controller
                             }
                             $enrollment = Online_enrollment::create([
                                 'course_id' => $cart_item['course_id'],
-                                'user_id' => auth()->id()
+                                'user_id' => auth()->id(),
+                                'order_id' => $place_order->id,
+                                'course_schedule' => $cart_item['course_schedule'],
+                                'payment_response' => $payment_response,
                             ]);
                             if ($enrollment) {
                                 $course_tracking = Course_tracking::create([
@@ -96,7 +99,7 @@ class CartController extends Controller
         }else{
             return json_encode(['Success' => false, 'Msg' => __('translation.Something went wrong Please try again'), 'cart_items_count' => count(session('shopping_cart'))]);
         }
-    
+
         $course['type'] = $request->type;
         $course['course_schedule'] = $request->course_schedule;
         if ($request->type == 'online') {
