@@ -153,16 +153,8 @@
 
 @section('custom-script')
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    CKEDITOR.editorConfig = function(config) {
-        config.height = eval(this.element.$.rows * 40) + 'px';
-    };
+    $(document).ready(function() {
+        $('#editor').summernote();
+    });
 </script>
 @endsection

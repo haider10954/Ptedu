@@ -154,13 +154,8 @@
 
 @section('custom-script')
 <script>
-    ClassicEditor
-        .create(document.querySelector('#editor'))
-        .then(editor => {
-            console.log(editor);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+    $(document).ready(function() {
+        $('#editor').summernote();
+    });
 </script>
 @endsection
