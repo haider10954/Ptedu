@@ -514,5 +514,6 @@ return [
     "Refund Amount" => "Refund Amount",
     "Enter refund amount" => "Enter refund amount",
     "Note : After refunding this enrolment will be deleted" => "Note : After refunding this enrolment will be deleted",
-    "Course refunded successfully" => "Course refunded successfully"
+    "Course refunded successfully" => "Course refunded successfully",
+    "Course Part" => "Course Part",
 ];

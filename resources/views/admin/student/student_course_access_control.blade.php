@@ -100,6 +100,7 @@
                             <td class="align-middle t_header t-width-120">{{ __('translation.Completed Status') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.End Date') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Extended Duration') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Course Part') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Access') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Action') }}</td>
                         </tr>
@@ -125,6 +126,7 @@
                             </td>
                             <td><span class="course_name">{{ (!empty($item->getCourses)) ?  \Carbon\Carbon::parse($item->created_at)->addWeeks($item->getCourses->duration_of_course)->format('Y-m-d') : 'N/A' }}</span></td>
                             <td><span class="course_name">{{ $item->extended_duration }}</span></td>
+                            <td><span class="course_name">{{ $item->course_schedule ?? 'N/A' }}</span></td>
                             <td>
                                 @if($item->access == 1)
                                     <span class="badge bg-success">Allowed</span>
