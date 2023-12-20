@@ -82,31 +82,35 @@ class StudentController extends Controller
     }
 
     public function student_course_access_control($student_id){
-        $online_courses_enrolled = Course_tracking::where('user_id', $student_id)->with('getCourses')->get();
+        $online_courses_enrolled = Course_tracking::query()->where('user_id', $student_id)->with('getCourses')->get();
         foreach ($online_courses_enrolled as $value)
         {
             $get_enrollment = Online_enrollment::query()->where('user_id',$student_id)->where('course_id',$value->course_id)->first();
-            $get_orders = Order::query()->where('user_id',$student_id)->get();
-            for ($i= $get_orders->count() - 1 ; $i > 0 ; $i--) {
-                $order_items = json_decode($get_orders[$i]['order_items']);
-                foreach ($order_items as $item)
-                {
 
-                    if($item->course_id == $value->course_id && $item->type == 'online')
-                    {
-                        if(!empty($item->course_schedule))
-                        {
-                            $get_enrollment->update([
-                                'course_schedule' => $item->course_schedule,
-                                'order_id' => $get_orders[$i]['id']
-                            ]);
-                        }
-                    }
-                }
+            $value['course_schedule'] = $get_enrollment->course_schedule;
 
-            }
-
+//            $get_orders = Order::query()->where('user_id',$student_id)->get();
+//            for ($i= $get_orders->count() - 1 ; $i > 0 ; $i--) {
+//                $order_items = json_decode($get_orders[$i]['order_items']);
+//                foreach ($order_items as $item)
+//                {
+//
+//                    if($item->course_id == $value->course_id && $item->type == 'online')
+//                    {
+//                        if(!empty($item->course_schedule))
+//                        {
+//                            $get_enrollment->update([
+//                                'course_schedule' => $item->course_schedule,
+//                                'order_id' => $get_orders[$i]['id']
+//                            ]);
+//                        }
+//                    }
+//                }
+//
+//            }
         }
+
+        dd($online_courses_enrolled);
 
         return view('admin.student.student_course_access_control', compact('online_courses_enrolled'));
     }
