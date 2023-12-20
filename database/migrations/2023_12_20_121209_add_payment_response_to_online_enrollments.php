@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('online_enrollments', function (Blueprint $table) {
-            $table->text('payment_response')->nullable()->after('order_id')->default(null);
+            $table->longText('payment_response')->nullable()->after('order_id')->default(null);
         });
     }
 
