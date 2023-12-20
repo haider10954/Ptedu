@@ -108,7 +108,6 @@
                     <tbody>
                         @if($online_courses_enrolled->count() > 0)
                         @foreach($online_courses_enrolled as $item)
-                        @dd($item)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>
