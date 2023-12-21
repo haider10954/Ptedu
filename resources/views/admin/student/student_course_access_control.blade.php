@@ -146,9 +146,8 @@
                                                     $order = $value;
                                                 }
                                             }
-                                            dd($order);
                                         @endphp
-                                        <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}})"><i class="bi bi-arrow-return-left"></i></button>
+                                        <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}},{{ $order->price }},{{ $order->discount }},{{ $item->order->id }})"><i class="bi bi-arrow-return-left"></i></button>
                                     @endif
                                 </div>
                             </td>
@@ -238,10 +237,14 @@
                     <input type="hidden" name="student_id" value="{{ request()->segment(3) }}" required>
                     <input type="hidden" name="course_tracking_id" id="courseTrackingId">
                     <input type="hidden" name="course_id" id="courseID">
+                    <input type="hidden" name="order_id" id="orderID">
+                    <input type="hidden" name="price" id="price">
+                    <input type="hidden" name="discount" id="discount">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="amount">{{ __('translation.Refund Amount') }}</label>
                             <input type="number" name="amount" class="form-control" placeholder="{{  __('translation.Enter refund amount') }}" required>
+                            <span class="small">Paid Price : <b id="paidPrice"></b></span>
                         </div>
                         <p>({{ __('translation.Note : After refunding this enrolment will be deleted') }})</p>
                     </div>
@@ -276,9 +279,17 @@
 
     var refundModal = new bootstrap.Modal(document.getElementById("refundModal"), {});
 
-    function refund(id, course_id) {
+    function refund(id, course_id, price, discount, order_id) {
         $('#courseTrackingId').val(id);
         $('#courseID').val(course_id);
+        $('#orderID').val(order_id);
+        $('#price').val(price);
+        $('#discount').val(discount);
+        if(discount != '' && discount != null){
+            $('#paidPrice').val(price - discount);
+        }else{
+            $('#paidPrice').val(price + ' 원');
+        }
         refundModal.show();
     }
 
