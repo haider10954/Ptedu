@@ -524,5 +524,6 @@ return [
     "Course refunded successfully" => "환불이 정상적으로 반영되었습니다",
     "Course Part"=> "코스 부분",
     "Paid Price" => "유료 가격",
-    "The price you enter above should not be greater." => "위에 입력한 가격은 이보다 높아서는 안 됩니다."
+    "The price you enter above should not be greater." => "위에 입력한 가격은 이보다 높아서는 안 됩니다.",
+    "Amount cannot be greater than paid price." => "금액은 지불된 가격보다 클 수 없습니다."
 ];

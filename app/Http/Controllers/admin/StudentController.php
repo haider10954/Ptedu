@@ -306,12 +306,13 @@ class StudentController extends Controller
     }
 
     public function student_course_refund(Request $request){
-        dd($request->all());
         $validate = \Validator::make($request->all(), [
             'student_id' => 'required|exists:users,id',
             'course_tracking_id' => 'required|exists:course_trackings,id',
             'course_id' => 'required|exists:courses,id',
-            'amount' => 'required|numeric'
+            'amount' => 'required|numeric',
+            'paid_price' => 'rquired|numeric',
+            'order_id' => 'required|exists:orders,id'
         ],[
             'student_id.required' => __('translation.Something went wrong, please try again'),
             'student_id.exists' => __('translation.Something went wrong, please try again'),
@@ -319,11 +320,21 @@ class StudentController extends Controller
             'course_tracking_id.exists' => __('translation.Something went wrong, please try again'),
             'course_id.required' => __('translation.Something went wrong, please try again'),
             'course_id.exists' => __('translation.Something went wrong, please try again'),
+            'order_id.required' => __('translation.Something went wrong, please try again'),
+            'order_id.exists' => __('translation.Something went wrong, please try again')
         ]);
         if ($validate->fails()) {
             return redirect()->route('student_course_access_control',$request->student_id)->with('error', $validate->errors()->first());
         }
         try {
+            if($request->amount > $request->paid_price){
+                return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Amount cannot be greater than paid price.'));
+            }
+            $getTransaction = Transaction::where('order_id', $request->order_id)->first();
+            if(empty($getTransaction)){
+                return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
+            }
+            dd($getTransaction);
             DB::beginTransaction();
             // Adding refund amount entry
             $addRefund = Refund::create([
