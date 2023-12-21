@@ -288,11 +288,7 @@
         $('#orderID').val(order_id);
         $('#price').val(price);
         $('#discount').val(discount);
-        if(discount != '' && discount != null){
-            $('#paidPrice').val(price - discount);
-        }else{
-            $('#paidPrice').val(price + ' 원');
-        }
+        $('#paidPrice').html(price - discount + ' 원');
         refundModal.show();
     }
 
