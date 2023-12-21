@@ -146,7 +146,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('proceed-payment', [CartController::class, 'proceed_payment'])->name('proceed_payment');
 
-    Route::get('virtual-payment-callback',[CartController::class,'virtual_payment_callback'])->name('virtual_payment_callback');
+    Route::post('virtual-payment-callback',[CartController::class,'virtual_payment_callback'])->name('virtual_payment_callback');
 
     Route::post('check-payment', [CartController::class, 'check_payment'])->name('check_payment');
 
