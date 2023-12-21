@@ -85,11 +85,13 @@ class StudentController extends Controller
         $online_courses_enrolled = Course_tracking::query()->where('user_id', $student_id)->with('getCourses')->get();
         foreach ($online_courses_enrolled as $value)
         {
-            $get_enrollment = Online_enrollment::query()->where('user_id',$student_id)->where('course_id',$value->course_id)->first();
+            $get_enrollment = Online_enrollment::query()->where('user_id',$student_id)->where('course_id',$value->course_id)->with('getOrder')->first();
 
             $value['course_schedule'] = $get_enrollment->course_schedule;
 
             $value['payment_response'] = $get_enrollment->payment_response;
+
+            $value['order'] = $get_enrollment->getOrder;
 
 //            $get_orders = Order::query()->where('user_id',$student_id)->get();
 //            for ($i= $get_orders->count() - 1 ; $i > 0 ; $i--) {

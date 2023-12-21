@@ -13,4 +13,8 @@ class Online_enrollment extends Model
     public function getCourses(){
         return $this->hasOne(Course::class, 'id', 'course_id')->with(['getTutorName','getCategoryName','getCourseStatus']);
     }
+
+    public function getOrder(){
+        return $this->belongsTo(Order::class, 'order_id', 'id');
+    }
 }
