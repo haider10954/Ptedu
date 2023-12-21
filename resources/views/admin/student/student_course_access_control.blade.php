@@ -146,8 +146,11 @@
                                                     $order = $value;
                                                 }
                                             }
+                                            if(empty($order['discount'])){
+                                                $order['discount'] = 0;
+                                            }
                                         @endphp
-                                        <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}},{{ $order['price'] }},{{ !empty($order['discount']) ? $order['discount'] : 'null' }},{{ $item->order->id }})"><i class="bi bi-arrow-return-left"></i></button>
+                                        <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}},{{ $order['price'] }},{{ $order['discount'] }},{{ $item->order->id }})"><i class="bi bi-arrow-return-left"></i></button>
                                     @endif
                                 </div>
                             </td>
