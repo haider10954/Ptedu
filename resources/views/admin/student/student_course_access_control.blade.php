@@ -290,10 +290,10 @@
         refundModal.show();
     }
 
-    // $(document).ready(function() {
-    //     setTimeout(function() {
-    //         $("#responseMessage").hide()
-    //     }, 2000);
-    // });
+    $(document).ready(function() {
+        setTimeout(function() {
+            $("#responseMessage").hide()
+        }, 2000);
+    });
 </script>
 @endsection
