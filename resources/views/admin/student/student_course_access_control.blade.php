@@ -108,7 +108,6 @@
                     <tbody>
                         @if($online_courses_enrolled->count() > 0)
                         @foreach($online_courses_enrolled as $item)
-                        @dd($item)
                         <tr>
                             <td>{{ $loop->index + 1 }}</td>
                             <td>
@@ -139,7 +138,15 @@
                                 <div class="d-flex gap-1">
                                     <button type="button" class="btn btn-success btn-sm" onclick="extend_duration({{$item->id}}, {{ $item->extended_duration }})"><i class="bi bi-alarm"></i></button>
                                     <button type="button" class="btn btn-sm btn-danger" onclick="change_access({{$item->id}}, {{ $item->access }})"><i class="bi bi-shield-lock"></i></button>
-                                    <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}})"><i class="bi bi-arrow-return-left"></i></button>
+                                    @if(!empty($item->order))
+                                        @php
+                                            $order_items = json_decode($item->order->order_items, true);
+                                            foreach ($order_items as $value) {
+                                                dd($value);
+                                            }    
+                                        @endphp
+                                        <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}})"><i class="bi bi-arrow-return-left"></i></button>
+                                    @endif
                                 </div>
                             </td>
                         </tr>
