@@ -335,7 +335,8 @@ class StudentController extends Controller
             if(empty($getTransaction)){
                 return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
             }
-            dd($getTransaction);
+            $payment_response = json_decode($getTransaction->payment_response, true);
+            dd($payment_response);
             DB::beginTransaction();
             // Adding refund amount entry
             $addRefund = Refund::create([
