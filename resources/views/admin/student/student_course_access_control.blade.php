@@ -142,8 +142,11 @@
                                         @php
                                             $order_items = json_decode($item->order->order_items, true);
                                             foreach ($order_items as $value) {
-                                                dd($value);
-                                            }    
+                                                if($value['type'] == 'online' && $value['course_id'] == $item->course_id){
+                                                    $order = $value;
+                                                }
+                                            }   
+                                            dd($value); 
                                         @endphp
                                         <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}})"><i class="bi bi-arrow-return-left"></i></button>
                                     @endif
