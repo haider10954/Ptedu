@@ -311,7 +311,7 @@ class StudentController extends Controller
             'course_tracking_id' => 'required|exists:course_trackings,id',
             'course_id' => 'required|exists:courses,id',
             'amount' => 'required|numeric',
-            'paid_price' => 'rquired|numeric',
+            'paid_price' => 'required|numeric',
             'order_id' => 'required|exists:orders,id'
         ],[
             'student_id.required' => __('translation.Something went wrong, please try again'),
