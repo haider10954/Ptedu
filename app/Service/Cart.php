@@ -15,7 +15,6 @@ class Cart {
                 'type' => $course->type,
                 'discount' => $course->discounted_prize,
                 'course_schedule' => $course->course_schedule,
-                'course' => $course,
                 'item_selected' => true
             ]);
             session()->put('shopping_cart',$cart);
@@ -35,7 +34,6 @@ class Cart {
                 'type' => $course->type,
                 'discount' => $course->discounted_prize,
                 'course_schedule' => $course->course_schedule,
-                'course' => $course,
                 'item_selected' => true
             ]);
             session()->put('shopping_cart',$cart);
