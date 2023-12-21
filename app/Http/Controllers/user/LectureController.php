@@ -74,7 +74,7 @@ class LectureController extends Controller
 
         //Liked Courses 
 
-        $liked_courses = Like_course::query()->with('getLikedCourse')->latest()->get();
+        $liked_courses = Like_course::query()->where('user_id', auth()->id())->with('getLikedCourse')->latest()->get();
 
         return view('user.my-classroom', compact('courses_enrolled', 'completed_courses', 'related_courses', 'reviews', 'offline_enrolments', 'reservations', 'liked_courses'));
     }
