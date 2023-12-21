@@ -349,7 +349,6 @@ class StudentController extends Controller
             $mod_mny = $request->amount;
             // remaining amount
             $rem_mny = $payment_response['amount'] - $request->amount;
-            dd($mod_mny , $rem_mny);
             // Certificate information (serialized)
             $kcp_cert_info = "-----BEGIN CERTIFICATE-----MIIDjDCCAnSgAwIBAgIHBy/vlsKxuDANBgkqhkiG9w0BAQsFADBzMQswCQYDVQQGEwJLUjEOMAwGA1UECAwFU2VvdWwxEDAOBgNVBAcMB0d1cm8tZ3UxFTATBgNVBAoMDE5ITktDUCBDb3JwLjETMBEGA1UECwwKSVQgQ2VudGVyLjEWMBQGA1UEAwwNc3BsLmtjcC5jby5rcjAeFw0yMzAzMDkwMTIzNTdaFw0yODAzMDcwMTIzNTdaMHsxCzAJBgNVBAYTAktSMQ4wDAYDVQQIDAVTZW91bDEQMA4GA1UEBwwHR3Vyby1ndTEWMBQGA1UECgwNTkhOIEtDUCBDb3JwLjEXMBUGA1UECwwOUEdXRUJERVYgVGVhbS4xGTAXBgNVBAMMEDIwMjMwMzA5MTAwMDQ4ODYwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCg2269Ns2iWkFdthzarNBX/l3ChWhVds/0nje01/MtLG5DSfTXhgg8iH8JPbszOuvGYCMytKF7oGfV7c8XMjSRK+QPWYOQ5zx428oZUhx2Y62eFdzP4ScC65e+kagc9H05AGAlA+cgSWdKS63ckqN2ydZOcTlSTlQeMfd85jdC5iyIT/mLC3GCFldmZdVcVNCbfpLoX7PerO5n/pW280l+rotA1OQZF/mmMGsp+ZkrI5BeOFNcWoWrvKfXWz1MEBZ/ZvHGnOuiRRr2utcDCV0tQ3F6DEuXmi89MTWJPx8KWBsrRj5iyTUmUsEu0waQxjdI15vsRmtQ5RJIBSB7IbsfAgMBAAGjHTAbMA4GA1UdDwEB/wQEAwIHgDAJBgNVHRMEAjAAMA0GCSqGSIb3DQEBCwUAA4IBAQC7L7nBRts0YPRHTjMZxXmCVdLJ9JBn/8qy7XEB0WSAaPcMkKl7nCT0kxnxEPUcmsGQp/stJ2exJBk3OECzl6t6yX6bZLi7XBm57bjjJo9rvBD8wtNsPJJfeyBi+yIOKBGPxri3CgiIkHl5vtJBVfshzZYwK+P6AcnGiCAbtLRfXx+pcAF76GJ1Lc3CnEmpDaO++ZXqvGgkWrwUcYlWIyXmph581rYGDkbHx6H3NUM7Wl6tbTRgXWlcaqUpqIxAaTfhtLUiUUKuaxoFG0YrpW9YUsiz8/ed34PppgYtrsCpWww/Ep2cod6gQesDymTaIlRFURCOtXFiWA00AmaCOVp1-----END CERTIFICATE-----";
             /*
@@ -423,8 +422,8 @@ class StudentController extends Controller
                 "kcp_sign_data" => $kcp_sign_data,
                 "mod_type" => "STPC",
                 "tno" => $tno,
-                "mod_mny" => "5000",
-                "rem_mny" => "10000",
+                "mod_mny" => $mod_mny,
+                "rem_mny" => $rem_mny,
                 "mod_desc" => "강좌 환불"
             );
 
@@ -454,20 +453,26 @@ class StudentController extends Controller
 
             //refund payment gateway end
 
-            // Adding refund amount entry
-            $addRefund = Refund::create([
-                'user_id' => $request->student_id,
-                'course_id' => $request->course_id,
-                'refund_amount' => $request->amount
-            ]);
-            // Deleting course tracking entry
-            $delCourseTracking = Course_tracking::where('id', $request->course_tracking_id)->delete();
+            if($res_cd == '0000'){
+                // Adding refund amount entry
+                $addRefund = Refund::create([
+                    'user_id' => $request->student_id,
+                    'course_id' => $request->course_id,
+                    'refund_amount' => $request->amount
+                ]);
+                // Deleting course tracking entry
+                $delCourseTracking = Course_tracking::where('id', $request->course_tracking_id)->delete();
 
-            // Deleting course enrolment entry
-            $delOnlineEnrolment = Online_enrollment::where('user_id', $request->student_id)->where('course_id', $request->course_id)->delete();
+                // Deleting course enrolment entry
+                $delOnlineEnrolment = Online_enrollment::where('user_id', $request->student_id)->where('course_id', $request->course_id)->delete();
+            }else{
+                return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
+            }
 
             DB::commit();
+
             return redirect()->route('student_course_access_control',$request->course_id)->with('message', __('translation.Course refunded successfully'));
+            
         } catch (\Throwable $th) {
             DB::rollback();
             return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
