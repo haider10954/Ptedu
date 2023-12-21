@@ -306,6 +306,7 @@ class StudentController extends Controller
     }
 
     public function student_course_refund(Request $request){
+        dd($request->all());
         $validate = \Validator::make($request->all(), [
             'student_id' => 'required|exists:users,id',
             'course_tracking_id' => 'required|exists:course_trackings,id',

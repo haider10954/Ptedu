@@ -241,13 +241,12 @@
                     <input type="hidden" name="course_tracking_id" id="courseTrackingId">
                     <input type="hidden" name="course_id" id="courseID">
                     <input type="hidden" name="order_id" id="orderID">
-                    <input type="hidden" name="price" id="price">
-                    <input type="hidden" name="discount" id="discount">
+                    <input type="hidden" name="paid_price" id="price">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="amount">{{ __('translation.Refund Amount') }}</label>
                             <input type="number" name="amount" class="form-control" placeholder="{{  __('translation.Enter refund amount') }}" required>
-                            <span class="small">Paid Price : <b id="paidPrice"></b></span>
+                            <span class="small">{{ __('translation.Paid Price') }} : <b id="paidPrice"></b>.{{ __('translation.The price you enter above should not be greater.') }}</span>
                         </div>
                         <p>({{ __('translation.Note : After refunding this enrolment will be deleted') }})</p>
                     </div>
@@ -286,8 +285,7 @@
         $('#courseTrackingId').val(id);
         $('#courseID').val(course_id);
         $('#orderID').val(order_id);
-        $('#price').val(price);
-        $('#discount').val(discount);
+        $('#price').val(price - discount);
         $('#paidPrice').html(price - discount + ' 원');
         refundModal.show();
     }

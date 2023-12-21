@@ -516,4 +516,6 @@ return [
     "Note : After refunding this enrolment will be deleted" => "Note : After refunding this enrolment will be deleted",
     "Course refunded successfully" => "Course refunded successfully",
     "Course Part" => "Course Part",
+    "Paid Price" => "Paid Price",
+    "The price you enter above should not be greater." => "The price you enter above should not be greater."
 ];

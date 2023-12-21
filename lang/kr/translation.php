@@ -523,4 +523,6 @@ return [
     "Note : After refunding this enrolment will be deleted" => "참고: 환불 후에는 이 강좌가 삭제됩니다.",
     "Course refunded successfully" => "환불이 정상적으로 반영되었습니다",
     "Course Part"=> "코스 부분",
+    "Paid Price" => "유료 가격",
+    "The price you enter above should not be greater." => "위에 입력한 가격은 이보다 높아서는 안 됩니다."
 ];
