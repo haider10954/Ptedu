@@ -97,7 +97,7 @@ class LectureController extends Controller
 
             //Liked Courses
 
-            $liked_course = Like_course::where('course_id', $id)->where('type', 'online')->first();
+            $liked_course = Like_course::where('course_id', $id)->where('type', 'online')->where('user_id', auth()->id())->first();
 
             return view('user.online-course-detail', compact('reservation', 'course_info', 'embedded_video_url', 'reviews', 'liked_course'));
         } else {
