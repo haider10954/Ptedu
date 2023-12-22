@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Student_online_price_control;
 use App\Models\Refund;
 use App\Models\Transaction;
+use App\Models\Student_offline_price_control;
+use App\Models\Offline_course;
 
 class StudentController extends Controller
 {
@@ -476,6 +478,137 @@ class StudentController extends Controller
         } catch (\Throwable $th) {
             DB::rollback();
             return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
+        }
+    }
+
+    public function student_offline_course_price_control($course_id){
+        $course = Offline_course::where('id', $course_id)->first();
+        $records = Student_offline_price_control::where('course_id', $course_id)->get();
+        $users = User::get();
+        return view('admin.offline_lectures.student_offline_course_price_control', compact('records','users','course'));
+    }
+
+    public function add_student_offline_course_price_discount_entry(Request $request){
+        $validate = \Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'discounted_price' => 'nullable|numeric',
+            'course_id' => 'required|exists:offline_courses,id',
+            'original_price' => 'required|numeric'
+        ],[
+            'course_id.required' => __('translation.Something went wrong, please try again'),
+            'course_id.exists' => __('translation.Something went wrong, please try again')
+        ]);
+        if ($validate->fails()) {
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', $validate->errors()->first());
+        }
+        try {
+            if(empty($request->discounted_price) && empty($request->is_free)){
+                return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Free status or discount price should be given'));
+            }
+            $checkEntry = Student_offline_price_control::where('course_id', $request->course_id)->where('user_id', $request->user_id)->count();
+            if($checkEntry > 0){
+                return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Entry for this user is already entered'));
+            }
+            $data = [];
+            DB::beginTransaction();
+            $data['course_id'] = $request->course_id;
+            $data['user_id'] = $request->user_id;
+            $data['original_price'] = $request->original_price;
+            if(!empty($request->is_free)){
+                if(!in_array($request->is_free, ['true','false'])){
+                    return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
+                }
+                if($request->is_free == 'true'){
+                    $data['is_free'] = 1;
+                }else{
+                    $data['is_free'] = 0;
+                }
+            }
+            if(!empty($request->discounted_price)){
+                if($request->discounted_price > $request->original_price){
+                    return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Discounted price must be less than original price'));
+                }
+                $data['discounted_price'] = $request->discounted_price;
+            }
+            $addEntry = Student_offline_price_control::create($data);
+            DB::commit();
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry added successfully'));
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
+        }
+    }
+
+    public function edit_student_offline_course_price_discount_entry(Request $request){
+        $validate = \Validator::make($request->all(), [
+            'user_id' => 'required|exists:users,id',
+            'discounted_price' => 'nullable|numeric',
+            'course_id' => 'required|exists:offline_courses,id',
+            'original_price' => 'required|numeric'
+        ],[
+            'course_id.required' => __('translation.Something went wrong, please try again'),
+            'course_id.exists' => __('translation.Something went wrong, please try again'),
+            'user_id.required' => __('translation.Something went wrong, please try again'),
+            'user_id.exists' => __('translation.Something went wrong, please try again')
+        ]);
+        if ($validate->fails()) {
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', $validate->errors()->first());
+        }
+        try {
+            if(empty($request->discounted_price) && empty($request->is_free)){
+                return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Free status or discount price should be given'));
+            }
+            $data = [];
+            DB::beginTransaction();
+            $data['course_id'] = $request->course_id;
+            $data['user_id'] = $request->user_id;
+            $data['original_price'] = $request->original_price;
+            if(!empty($request->is_free)){
+                if(!in_array($request->is_free, ['true','false'])){
+                    return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
+                }
+                if($request->is_free == 'true'){
+                    $data['is_free'] = 1;
+                }else{
+                    $data['is_free'] = 0;
+                }
+            }
+            if(!empty($request->discounted_price)){
+                if($request->discounted_price > $request->original_price){
+                    return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Discounted price must be less than original price'));
+                }
+                $data['discounted_price'] = $request->discounted_price;
+            }
+            $editEntry = Student_offline_price_control::where('id', $request->record_id)->update($data);
+            DB::commit();
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry added successfully'));
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
+        }
+    }
+
+    public function del_student_offline_course_price_discount_entry(Request $request){
+        $validate = \Validator::make($request->all(), [
+            'record_id' => 'required|exists:student_offline_price_controls,id',
+            'course_id' => 'required|exists:offline_courses,id'
+        ],[
+            'record_id.required' => __('translation.Something went wrong, please try again'),
+            'record_id.exists' => __('translation.Something went wrong, please try again'),
+            'course_id.required' => __('translation.Something went wrong, please try again'),
+            'course_id.exists' => __('translation.Something went wrong, please try again')
+        ]);
+        if ($validate->fails()) {
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', $validate->errors()->first());
+        }
+        try {
+            DB::beginTransaction();
+            $delRecord = Student_offline_price_control::where('id', $request->record_id)->delete();
+            DB::commit();
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('message', __('translation.Course discount entry deleted successfully'));
+        } catch (\Throwable $th) {
+            DB::rollback();
+            return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
         }
     }
 }

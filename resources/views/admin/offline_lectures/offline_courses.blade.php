@@ -139,7 +139,7 @@
                             <td class="align-middle t_header t-width-100">{{ __('translation.Participants')}}</th>
                             <td class="align-middle t_header t-width-80">{{ __('translation.Waiting') }}</td>
                             <td class="align-middle t_header t-width-100">{{ __('translation.Management') }}</td>
-                            <td class="align-middle t_header t-width-90">{{ __('translation.Action') }}</td>
+                            <td class="align-middle t_header t-width-120">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
                     @if($offline_course->count() > 0)
@@ -157,6 +157,7 @@
                         <td><a class="btn btn-sm btn-reserve" href="{{ route('waiting_list' , $offline_c->id) }}">{{ __('translation.Waiting List') }}</a></td>
                         <td>
                             <div class="d-flex gap-1">
+                                <a class="btn btn-sm btn-success" href="{{ route('student_offline_course_price_control', $offline_c->id) }}"><i class="bi bi-tags"></i></a>
                                 <a class="btn btn-sm btn-primary" href="{{ route('edit_offline_course_view' , $offline_c->id )}}"><i class="bi bi-pencil"></i></a>
                                 <a class="btn btn-sm btn-danger" onclick="delete_record( '{{ $offline_c->id }}')"><i class="bi bi-trash"></i></a>
                             </div>

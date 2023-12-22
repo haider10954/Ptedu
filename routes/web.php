@@ -348,11 +348,17 @@ Route::prefix('admin')->group(function () {
         Route::post('/student-course-change-access', [AdminStudentController::class, 'student_course_change_access'])->name('student_course_change_access');
         Route::post('/student-course-refund', [AdminStudentController::class, 'student_course_refund'])->name('student_course_refund');
 
-        // Student course price control
+        // Student online course price control
         Route::get('/student-online-course-price-control/{id}', [AdminStudentController::class, 'student_online_course_price_control'])->name('student_online_course_price_control');
         Route::post('/add-student-online-course-price-discount-entry', [AdminStudentController::class, 'add_student_online_course_price_discount_entry'])->name('add_student_online_course_price_discount_entry');
         Route::post('/edit-student-online-course-price-discount-entry', [AdminStudentController::class, 'edit_student_online_course_price_discount_entry'])->name('edit_student_online_course_price_discount_entry');
         Route::post('/del-student-online-course-price-discount-entry', [AdminStudentController::class, 'del_student_online_course_price_discount_entry'])->name('del_student_online_course_price_discount_entry');
+
+        // Student offline course price control
+        Route::get('/student-offline-course-price-control/{id}', [AdminStudentController::class, 'student_offline_course_price_control'])->name('student_offline_course_price_control');
+        Route::post('/add-student-offline-course-price-discount-entry', [AdminStudentController::class, 'add_student_offline_course_price_discount_entry'])->name('add_student_offline_course_price_discount_entry');
+        Route::post('/edit-student-offline-course-price-discount-entry', [AdminStudentController::class, 'edit_student_offline_course_price_discount_entry'])->name('edit_student_offline_course_price_discount_entry');
+        Route::post('/del-student-offline-course-price-discount-entry', [AdminStudentController::class, 'del_student_offline_course_price_discount_entry'])->name('del_student_offline_course_price_discount_entry');
     });
 });
 
