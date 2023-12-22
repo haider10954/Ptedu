@@ -14,6 +14,7 @@ use App\Models\Online_enrollment;
 use App\Models\Offline_enrollment;
 use App\Service\Cart;
 use App\Models\Student_online_price_control;
+use App\Models\Student_offline_price_control;
 
 class StudentController extends Controller
 {
@@ -88,6 +89,16 @@ class StudentController extends Controller
                             $check_offline_enrolment = Offline_enrollment::where('user_id', auth()->id())->where('course_id', $cart_item['course_id'])->first();
                             if (!empty($check_offline_enrolment)) {
                                 $del_cart_item = Cart::del_cart_item($cart_item['course_id'], $cart_item['type']);
+                            }else{
+                                $check_discount = Student_offline_price_control::where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
+                                if(!empty($check_discount)){
+                                    if($check_discount->is_free == 1){
+                                        Cart::update_cart_item($cart_item['course_id'], $cart_item['type'], 0, 0);
+                                    }
+                                    if(!empty($check_discount->discounted_price) && ($check_discount->is_free == 0)){
+                                        Cart::update_cart_item($cart_item['course_id'], $cart_item['type'], $cart_item['price'], 0);
+                                    }
+                                }
                             }
                         }
                     }

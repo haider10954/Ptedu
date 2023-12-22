@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Log;
 use App\Models\Transaction;
 use App\Models\Virtual_payment;
 use App\Models\Student_online_price_control;
+use App\Models\Student_offline_price_control;
 
 class CartController extends Controller
 {
@@ -121,6 +122,16 @@ class CartController extends Controller
             $check_enrolment = Offline_enrollment::where('course_id', $course['id'])->where('user_id', auth()->id())->first();
             if (!empty($check_enrolment)) {
                 return json_encode(['Success' => false, 'Msg' => __('translation.Already Enrolled'), 'cart_items_count' => $shoping_cart_count]);
+            }
+            $check_discount = Student_offline_price_control::where('course_id', $course['id'])->where('user_id', auth()->id())->first();
+            if(!empty($check_discount)){
+                if($check_discount->is_free == 1){
+                    $course['price'] = 0;
+                    $course['discounted_prize'] = 0;
+                }
+                if(!empty($check_discount->discounted_price) && ($check_discount->is_free == 0)){
+                    $course['discounted_prize'] = $check_discount->discounted_price;
+                }
             }
         }
         $cart = Cart::add_to_cart($course);
