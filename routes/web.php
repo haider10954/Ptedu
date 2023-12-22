@@ -37,6 +37,8 @@ use App\Models\Admin;
 |
 */
 
+// Virtual payment callback
+Route::post('virtual-payment-callback',[CartController::class,'virtual_payment_callback'])->name('virtual_payment_callback');
 
 // Live Courses
 Route::get('/live-courses', [UserCourseController::class, 'getLiveCourse'])->name('liveCourse');
@@ -145,8 +147,6 @@ Route::middleware('auth')->group(function () {
     Route::post('certificate', [CertificateController::class, 'check_completed_courses'])->name('completed-courses-certificate');
 
     Route::post('proceed-payment', [CartController::class, 'proceed_payment'])->name('proceed_payment');
-
-    Route::post('virtual-payment-callback',[CartController::class,'virtual_payment_callback'])->name('virtual_payment_callback');
 
     Route::post('check-payment', [CartController::class, 'check_payment'])->name('check_payment');
 
