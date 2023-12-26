@@ -483,6 +483,7 @@ class CartController extends Controller
                 'message' => 'Callback execulted successfully'
             ]);
         } catch (\Throwable $th) {
+            \Log::alert($th->getMessage());
             return json_encode([
                 'success' => false,
                 'message' => 'Error : Callback execution failed'
