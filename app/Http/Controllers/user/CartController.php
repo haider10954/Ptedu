@@ -16,6 +16,7 @@ use App\Models\Transaction;
 use App\Models\Virtual_payment;
 use App\Models\Student_online_price_control;
 use App\Models\Student_offline_price_control;
+use App\Models\Virtual_account_deposit;
 
 class CartController extends Controller
 {
@@ -24,60 +25,81 @@ class CartController extends Controller
         try {
             $payment_response = json_encode($payment);
             $cart = session()->get('shopping_cart');
-            $place_order = Order::create([
-                'user_id' => auth()->id(),
-                'order_items' => json_encode(session()->get('shopping_cart')),
-                'status' => 1,
-                'payment_status' => 1,
-                'payment_method' => $payment['user_pay_method']
-            ]);
-            if ($place_order) {
-                $saveTransaction = Transaction::create([
+            if($payment['user_pay_method'] == 'virtual-account'){
+                $place_order = Order::create([
                     'user_id' => auth()->id(),
-                    'order_id' => $place_order->id,
-                    'ammount' => $payment['amount'],
-                    'payment_method' => $payment['user_pay_method'],
-                    'payment_response' => $payment_response
+                    'order_items' => json_encode(session()->get('shopping_cart')),
+                    'status' => 1,
+                    'payment_status' => 0,
+                    'payment_method' => $payment['user_pay_method']
                 ]);
-                foreach ($cart as $cart_item) {
-                    if ($cart_item['type'] == 'online') {
-                        $check_enrollment = Online_enrollment::query()->where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
-                        if (empty($check_enrollment)) {
-                            $course = Course::query()->where('id', $cart_item['course_id'])->with('getCourseStatus')->first();
-                            $lecture_count = 0;
-                            if ($course->getCourseStatus->count() > 0) {
-                                foreach ($course->getCourseStatus as $value) {
-                                    $lecture_count = $lecture_count + $value->getLectures->count();
+                if ($place_order) {
+                    $save_virtual_deposit_entry = Virtual_account_deposit::create([
+                        'user_id' => auth()->id(),
+                        'order_id' => $place_order->id,
+                        'ptedu_order_id' => $payment['order_no'],
+                        'payment_response' => $payment_response,
+                        'status' => false
+                    ]);
+                    Cart::empty_cart();
+                    return true;
+                }
+            }else{
+                $place_order = Order::create([
+                    'user_id' => auth()->id(),
+                    'order_items' => json_encode(session()->get('shopping_cart')),
+                    'status' => 1,
+                    'payment_status' => 1,
+                    'payment_method' => $payment['user_pay_method']
+                ]);
+                if ($place_order) {
+                    $saveTransaction = Transaction::create([
+                        'user_id' => auth()->id(),
+                        'order_id' => $place_order->id,
+                        'ammount' => $payment['amount'],
+                        'payment_method' => $payment['user_pay_method'],
+                        'payment_response' => $payment_response
+                    ]);
+                    foreach ($cart as $cart_item) {
+                        if ($cart_item['type'] == 'online') {
+                            $check_enrollment = Online_enrollment::query()->where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
+                            if (empty($check_enrollment)) {
+                                $course = Course::query()->where('id', $cart_item['course_id'])->with('getCourseStatus')->first();
+                                $lecture_count = 0;
+                                if ($course->getCourseStatus->count() > 0) {
+                                    foreach ($course->getCourseStatus as $value) {
+                                        $lecture_count = $lecture_count + $value->getLectures->count();
+                                    }
                                 }
-                            }
-                            $enrollment = Online_enrollment::create([
-                                'course_id' => $cart_item['course_id'],
-                                'user_id' => auth()->id(),
-                                'order_id' => $place_order->id,
-                                'course_schedule' => $cart_item['course_schedule'],
-                                'payment_response' => $payment_response,
-                            ]);
-                            if ($enrollment) {
-                                $course_tracking = Course_tracking::create([
+                                $enrollment = Online_enrollment::create([
                                     'course_id' => $cart_item['course_id'],
                                     'user_id' => auth()->id(),
-                                    'no_of_lectures' => $lecture_count,
-                                    'viewed_lectures' => 0
+                                    'order_id' => $place_order->id,
+                                    'course_schedule' => $cart_item['course_schedule'],
+                                    'payment_response' => $payment_response,
+                                ]);
+                                if ($enrollment) {
+                                    $course_tracking = Course_tracking::create([
+                                        'course_id' => $cart_item['course_id'],
+                                        'user_id' => auth()->id(),
+                                        'no_of_lectures' => $lecture_count,
+                                        'viewed_lectures' => 0
+                                    ]);
+                                }
+                            }
+                        } else {
+                            $check_enrollment = Offline_enrollment::where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
+                            if (empty($check_enrollment)) {
+                                $enrollment = Offline_enrollment::create([
+                                    'course_id' => $cart_item['course_id'],
+                                    'user_id' => auth()->id()
                                 ]);
                             }
                         }
-                    } else {
-                        $check_enrollment = Offline_enrollment::where('course_id', $cart_item['course_id'])->where('user_id', auth()->id())->first();
-                        if (empty($check_enrollment)) {
-                            $enrollment = Offline_enrollment::create([
-                                'course_id' => $cart_item['course_id'],
-                                'user_id' => auth()->id()
-                            ]);
-                        }
                     }
+                    Cart::empty_cart();
+                    return true;
                 }
-                Cart::empty_cart();
-                return true;
             }
             return false;
         } catch (\Throwable $th) {
