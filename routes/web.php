@@ -40,6 +40,9 @@ use App\Models\Admin;
 // Virtual payment callback
 Route::post('virtual-payment-callback',[CartController::class,'virtual_payment_callback'])->name('virtual_payment_callback');
 
+// Empty Cart Items
+Route::get('empty-cart-items',[CartController::class,'empty_cart_items'])->name('empty_cart_items');
+
 // Live Courses
 Route::get('/live-courses', [UserCourseController::class, 'getLiveCourse'])->name('liveCourse');
 Route::get('/special-courses', [UserCourseController::class, 'getSpecialCourse'])->name('specialCourse');

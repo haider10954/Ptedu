@@ -515,4 +515,9 @@ class CartController extends Controller
             'success' => true,
         ]);
     }
+
+    public function empty_cart_items(){
+        Cart::empty_cart();
+        return redirect()->route('web-home');
+    }
 }
