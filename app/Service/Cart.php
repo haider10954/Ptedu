@@ -4,7 +4,7 @@ namespace App\Service;
 
 class Cart {
     public static function add_to_cart($course){
-        $cart = session()->get('shopping_cart')->toArray();
+        $cart = session()->get('shopping_cart');
         if(empty($cart)){
             $cart = [];
             array_push($cart,[
@@ -66,7 +66,7 @@ class Cart {
                 return $item['item_selected'] == false;
             });
             session()->forget('shopping_cart');
-            session()->put('shopping_cart',$cart_items);
+            session()->put('shopping_cart',$cart_items->toArray());
             session()->save();
             return true;
         } catch (\Throwable $th) {
