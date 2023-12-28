@@ -496,6 +496,7 @@ class CartController extends Controller
     public function virtual_payment_callback(Request $request)
     {
         try {
+            Log::critical($request->all());
             $response_data = json_encode($request->all());
             $save_res = Virtual_payment::create([
                 'response_data' => $response_data
