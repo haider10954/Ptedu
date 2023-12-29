@@ -545,6 +545,8 @@ class CartController extends Controller
     }
 
     public function proceed_enrolment(){
-        dd($cart);
+        $cart = session()->get('shopping_cart');
+        $cart_total_sum = ($cart->where('item_selected',true)->sum('price')) - $cart->where('item_selected',true)->sum('discount');
+        dd($cart_total_sum);
     }
 }
