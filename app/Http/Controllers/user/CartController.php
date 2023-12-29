@@ -545,6 +545,6 @@ class CartController extends Controller
     }
 
     public function proceed_enrolment(){
-        dd('working');
+        dd($cart);
     }
 }
