@@ -209,6 +209,10 @@ class CartController extends Controller
     public function order()
     {
         $cart = collect(session()->get('shopping_cart'))->where('item_selected',true);
+        $cart_total_sum = ($cart->where('item_selected',true)->sum('price')) - $cart->where('item_selected',true)->sum('discount');
+        if($cart_total_sum == 0){
+            return redirect()->route('proceed_enrolment');
+        }
         return view('user.order', compact('cart'));
     }
 
