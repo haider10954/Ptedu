@@ -543,4 +543,8 @@ class CartController extends Controller
         Cart::empty_cart();
         return redirect()->route('web-home');
     }
+
+    public function proceed_enrolment(){
+        dd('working');
+    }
 }

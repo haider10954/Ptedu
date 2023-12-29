@@ -98,8 +98,8 @@ Route::post('/delete-reservation', [ReservationController::class, 'delete_Revers
 Route::get('/review', [ReviewController::class, 'review'])->name('review');
 
 //Notice
-Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');
-Route::get('/notice/{id}', [IndexController::class, 'notice_detail'])->name('notice_detail');
+Route::get('/notice', [IndexController::class, 'notce'])->name('web-notice');
+Route::get('/notice/{id}', [IndexController::cliass, 'notice_detail'])->name('notice_detail');
 
 //Faq
 Route::get('/faq', [IndexController::class, 'faq'])->name('web-faq');
@@ -114,6 +114,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/enrol_course/{id}', [LectureController::class, 'enrol_course'])->name('enrol_course');
 
     Route::get('/order', [CartController::class, 'order'])->name('order');
+    Route::get('/proceed-enrolment', [CartController::class, 'proceed_enrolment'])->name('proceed_enrolment');
     Route::post('/proceed_checkout', [CartController::class, 'proceed_checkout'])->name('proceed_checkout');
 
     Route::get('/user-information', function () {
