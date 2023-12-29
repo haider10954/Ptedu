@@ -566,7 +566,7 @@ class CartController extends Controller
                 'order_items' => json_encode(session()->get('shopping_cart')),
                 'status' => 1,
                 'payment_status' => 1,
-                'payment_method' => 'free'
+                'is_free' => 1
             ]);
             if ($place_order) {
                 foreach ($shopping_cart as $cart_item) {
@@ -614,7 +614,7 @@ class CartController extends Controller
             return redirect()->route('my_classroom');
         } catch (\Throwable $th) {
             DB::rollback();
-            dd($th->getMessage());
+            abort(500);
         }
     }
 }
