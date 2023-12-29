@@ -12,7 +12,8 @@
             <div class="nav-links navigation-mobile">
                 <ul>
                     <li class="nav-link" style="--i: 1.1s">
-                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Online Courses') }}</a>
+                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Online Courses') }}<i
+                            class="fas fa-angle-down"></i></a>
                         <div class="dropdown">
                             <ul>
                                 @if($course_categories->count() > 0)
@@ -93,7 +94,8 @@
                         </div>
                     </li> --}}
                     <li class="nav-link" style="--i: .85s">
-                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Offline Courses') }}</a>
+                        <a href="javascript:void(0)" class="text-decoration-none">{{ __('translation.Offline Courses') }}<i
+                            class="fas fa-angle-down"></i></a>
                         <div class="dropdown">
                             <ul>
                                 @if($course_offline_categories->count() > 0)
