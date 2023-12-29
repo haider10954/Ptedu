@@ -584,8 +584,7 @@ class CartController extends Controller
                                 'course_id' => $cart_item['course_id'],
                                 'user_id' => auth()->id(),
                                 'order_id' => $place_order->id,
-                                'course_schedule' => $cart_item['course_schedule'],
-                                'payment_response' => $payment_response,
+                                'course_schedule' => $cart_item['course_schedule']
                             ]);
                             if ($enrollment) {
                                 $course_tracking = Course_tracking::create([
