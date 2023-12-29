@@ -44,10 +44,16 @@
                                     @php
                                     $cart_total = ($cart->where('item_selected',true)->sum('price')) - $cart->where('item_selected',true)->sum('discount')
                                     @endphp
-                                    @dd($cart)
+
+                                    @if($cart_total > 0)
                                     <a href="{{ route('order') }}" class="btn btn-theme-black text-white mx-2"><span
                                             class="mr-2">{{ __('translation.Buy it Now') }}</span> <i
                                             class="fa fa-angle-right"></i> </a>
+                                    @else
+                                    <a href="{{ route('proceed_enrolment') }}" class="btn btn-theme-black text-white mx-2"><span
+                                        class="mr-2">{{ __('translation.Proceed Enrolment') }}</span> <i
+                                        class="fa fa-angle-right"></i> </a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
