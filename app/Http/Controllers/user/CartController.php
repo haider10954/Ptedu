@@ -546,7 +546,9 @@ class CartController extends Controller
 
     public function proceed_enrolment(){
         $cart = collect(session()->get('shopping_cart'));
-        dd($cart);
+        if($cart->count() == 0){
+            return redirect()->route('shopping_bag');
+        }
         $cart_total_sum = ($cart->where('item_selected',true)->sum('price')) - $cart->where('item_selected',true)->sum('discount');
         if($cart_total_sum > 0){
             return redirect()->route('order');

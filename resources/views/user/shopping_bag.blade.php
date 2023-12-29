@@ -41,18 +41,21 @@
                                     <a href="{{ route('web-home') }}" class="btn btn-theme-delete mx-2"><span
                                             class="mr-2">{{ __('translation.View other courses') }}</span> <i
                                             class="fa fa-angle-right"></i> </a>
-                                    @php
-                                    $cart_total = ($cart->where('item_selected',true)->sum('price')) - $cart->where('item_selected',true)->sum('discount')
-                                    @endphp
 
-                                    @if($cart_total > 0)
-                                    <a href="{{ route('order') }}" class="btn btn-theme-black text-white mx-2"><span
-                                            class="mr-2">{{ __('translation.Buy it Now') }}</span> <i
+                                    @if(count($cart) > 0)        
+                                        @php
+                                        $cart_total = ($cart->where('item_selected',true)->sum('price')) - $cart->where('item_selected',true)->sum('discount')
+                                        @endphp
+                                        
+                                        @if($cart_total > 0)
+                                        <a href="{{ route('order') }}" class="btn btn-theme-black text-white mx-2"><span
+                                                class="mr-2">{{ __('translation.Buy it Now') }}</span> <i
+                                                class="fa fa-angle-right"></i> </a>
+                                        @else
+                                        <a href="{{ route('proceed_enrolment') }}" class="btn btn-theme-black text-white mx-2"><span
+                                            class="mr-2">{{ __('translation.Proceed Enrolment') }}</span> <i
                                             class="fa fa-angle-right"></i> </a>
-                                    @else
-                                    <a href="{{ route('proceed_enrolment') }}" class="btn btn-theme-black text-white mx-2"><span
-                                        class="mr-2">{{ __('translation.Proceed Enrolment') }}</span> <i
-                                        class="fa fa-angle-right"></i> </a>
+                                        @endif
                                     @endif
                                 </div>
                             </div>
