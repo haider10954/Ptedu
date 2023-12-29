@@ -138,19 +138,21 @@
                                 <div class="d-flex gap-1">
                                     <button type="button" class="btn btn-success btn-sm" onclick="extend_duration({{$item->id}}, {{ $item->extended_duration }})"><i class="bi bi-alarm"></i></button>
                                     <button type="button" class="btn btn-sm btn-danger" onclick="change_access({{$item->id}}, {{ $item->access }})"><i class="bi bi-shield-lock"></i></button>
-                                    @if(!empty($item->order))
-                                        @php
-                                            $order_items = json_decode($item->order->order_items, true);
-                                            foreach ($order_items as $value) {
-                                                if($value['type'] == 'online' && $value['course_id'] == $item->course_id){
-                                                    $order = $value;
+                                    @if(!empty($item->payment_response))
+                                        @if(!empty($item->order))
+                                            @php
+                                                $order_items = json_decode($item->order->order_items, true);
+                                                foreach ($order_items as $value) {
+                                                    if($value['type'] == 'online' && $value['course_id'] == $item->course_id){
+                                                        $order = $value;
+                                                    }
                                                 }
-                                            }
-                                            if(empty($order['discount'])){
-                                                $order['discount'] = 0;
-                                            }
-                                        @endphp
-                                        <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}},{{ $order['price'] }},{{ $order['discount'] }},{{ $item->order->id }})"><i class="bi bi-arrow-return-left"></i></button>
+                                                if(empty($order['discount'])){
+                                                    $order['discount'] = 0;
+                                                }
+                                            @endphp
+                                            <button type="button" class="btn btn-sm btn-info" onclick="refund({{$item->id}},{{$item->course_id}},{{ $order['price'] }},{{ $order['discount'] }},{{ $item->order->id }})"><i class="bi bi-arrow-return-left"></i></button>
+                                        @endif
                                     @endif
                                 </div>
                             </td>
