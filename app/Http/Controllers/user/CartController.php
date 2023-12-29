@@ -614,7 +614,7 @@ class CartController extends Controller
             return redirect()->route('my_classroom');
         } catch (\Throwable $th) {
             DB::rollback();
-            abort(500);
+            dd($th->getMessage());
         }
     }
 }
