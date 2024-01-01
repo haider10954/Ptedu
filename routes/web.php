@@ -38,7 +38,7 @@ use App\Models\Admin;
 */
 
 // Virtual payment callback
-Route::get('virtual-payment-callback',[CartController::class,'virtual_payment_callback'])->name('virtual_payment_callback');
+Route::any('virtual-payment-callback',[CartController::class,'virtual_payment_callback'])->name('virtual_payment_callback');
 
 // Empty Cart Items
 Route::get('empty-cart-items',[CartController::class,'empty_cart_items'])->name('empty_cart_items');
