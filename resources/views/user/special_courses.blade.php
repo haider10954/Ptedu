@@ -43,7 +43,7 @@
                 <div class="no-records d-flex align-items-center justify-content-center w-100"></div>
                 @foreach ($specialCourse as $item)
                     <div class="col-6 searchable my-2" data-name="{{ $item->course_title }}">
-                        <a href="{{ route('offline_lecture_detail',$item->id) }}">
+                        <a href="{{ route('online_course_detail',$item->id) }}">
                             <div class="course-box mb-3">
                                 <div class="course-img">
                                     <img src="{{ asset('storage/course/thumbnail/'.$item->course_thumbnail) }}" class="img-fluid offline-course-img" alt="img">
