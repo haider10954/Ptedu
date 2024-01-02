@@ -47,7 +47,7 @@
                         <a href="{{ route('offline_lecture_detail',$item->id) }}">
                             <div class="course-box mb-3">
                                 <div class="course-img">
-                                    <img src="{{ asset('storage/offline_course/thumbnail/'.$item->course_thumbnail) }}" class="img-fluid offline-course-img" alt="img">
+                                    <img src="{{ asset('storage/course/thumbnail/'.$item->course_thumbnail) }}" class="img-fluid offline-course-img" alt="img">
                                 </div>
                                 <div class="course-info">
                                     <small class="d-block text-muted mb-1 font-weight-600">{{ $item->created_at->format('Y.m.d') }}</small>
