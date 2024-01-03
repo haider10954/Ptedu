@@ -8,6 +8,8 @@ use App\Models\Offline_course;
 use App\Models\Reservation;
 use App\Models\Tutor;
 use Illuminate\Http\Request;
+use App\Models\Like_course;
+use Illuminate\Support\Facades\DB;
 
 class OfflineCourseController extends Controller
 {
@@ -114,6 +116,8 @@ class OfflineCourseController extends Controller
 
     public function delete_offline_course(Request $request)
     {
+       try {
+        DB::beginTransaction();
         $offline_course = Offline_course::where('id', $request->id)->first();
         $filePath = storage_path('app/public/offline_course/thumbnail/' . $offline_course->course_thumbnail);
         if (file_exists($filePath)) {
@@ -123,12 +127,18 @@ class OfflineCourseController extends Controller
         if (file_exists($filePath2)) {
             unlink($filePath2);
         }
+        Like_course::query()->where('type','offline')->where('course_id', $request['id'])->delete();
         $offline_course = Offline_course::where('id', $request['id'])->delete();
-        if ($offline_course) {
-            return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
-        } else {
+
+        DB::commit();
+
+        return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
+
+       } catch (\Throwable $th) {
+            DB::rollback();
+            
             return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
-        }
+       }
     }
 
     public function edit_offline_course_view($id)

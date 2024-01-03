@@ -16,6 +16,7 @@ use Owenoj\LaravelGetId3\GetId3;
 use App\Service\VideoHandler;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
+use App\Models\Like_course;
 
 class CourseController extends Controller
 {
@@ -258,25 +259,33 @@ class CourseController extends Controller
 
     public function delete_course(Request $request)
     {
-        $course = Course::query()->where('id', $request->id)->first();
-        $filePath = storage_path('app/public/course/thumbnail/' . $course->course_thumbnail);
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-        $filePath2 = storage_path('app/public/course/banner/' . $course->course_banner);
-        if (file_exists($filePath2)) {
-            unlink($filePath2);
-        }
-        // Get Course Reviews
-        Review::query()->where('course_id',$request['id'])->delete();
+        try {
+            DB::beginTransaction();
+            $course = Course::query()->where('id', $request->id)->first();
+            $filePath = storage_path('app/public/course/thumbnail/' . $course->course_thumbnail);
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $filePath2 = storage_path('app/public/course/banner/' . $course->course_banner);
+            if (file_exists($filePath2)) {
+                unlink($filePath2);
+            }
+            // Get Course Reviews
+            Review::query()->where('course_id',$request['id'])->delete();
 
-        // Get Enrollments
-        Online_enrollment::query()->where('course_id',$request['id'])->delete();
+            // Get Enrollments
+            Online_enrollment::query()->where('course_id',$request['id'])->delete();
 
-        $course = Course::query()->where('id', $request['id'])->delete();
-        if ($course) {
+            Like_course::query()->where('type','online')->where('course_id', $request['id'])->delete();
+
+            $course = Course::query()->where('id', $request['id'])->delete();
+
+            DB::commit();
+
             return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
-        } else {
+
+        } catch (\Throwable $th) {
+            DB::rollback();
             return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }

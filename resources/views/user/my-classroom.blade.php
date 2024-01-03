@@ -234,7 +234,6 @@
                             <div class="row">
                                 @if ($liked_courses->count() > 0)
                                 @foreach ($liked_courses as $liked_course)
-                                @dd($liked_course)
                                 @if ($liked_course->type == 'online')
                                 <div class="col-lg-3 col-md-4 col-12">
                                     <a href="{{ route('online_course_detail',$liked_course->getLikedCourse->id) }}" style="color: black;;">
