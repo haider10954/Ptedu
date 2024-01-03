@@ -136,7 +136,13 @@
                                 <br />
                                 @endforeach
                             </td>
-                            <td><span class="course_name">{{ $item->getTransaction->ammount }} 원</span></td>
+                            <td>
+                                @if(!empty($item->getTransaction))
+                                    <span class="course_name">{{ $item->getTransaction->ammount }} 원</span>
+                                @else
+                                    <span class="course_name">N/A</span>
+                                @endif
+                            </td>
                             <td>
                                 <div class="d-flex gap-1">
                                     {{-- <a onclick="change_Status('{{ $item->id }}')" class="btn btn-sm btn-success"><i class="bi bi-pencil"></i></a> --}}
