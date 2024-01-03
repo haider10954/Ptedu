@@ -127,7 +127,7 @@
                             <td>{{ \Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <button type="button" class="btn btn-primary btn-sm" onclick="edit_record({{$item->id}}, {{ $item->user_id }}, {{ $item->discounted_price }}, {{ $item->is_free }})"><i class="bi bi-pencil"></i></button>
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="edit_record({{$item->id}}, {{ $item->user_id }}, {{ !empty($item->discounted_price) ? $item->discounted_price : 'null' }}, {{ $item->is_free }})"><i class="bi bi-pencil"></i></button>
                                     <button type="button" class="btn btn-sm btn-danger" onclick="del_record({{$item->id}})"><i class="bi bi-trash"></i></button>
                                 </div>
                             </td>
