@@ -123,7 +123,6 @@
                     <tbody>
                         @if ($order->count() > 0)
                         @foreach ($order as $item)
-                        @dd($item)
                         <tr>
                             <td>{{ $order->firstitem() + $loop->index }}</td>
                             <td>
