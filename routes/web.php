@@ -98,7 +98,7 @@ Route::post('/delete-reservation', [ReservationController::class, 'delete_Revers
 Route::get('/review', [ReviewController::class, 'review'])->name('review');
 
 //Notice
-Route::get('/notice', [IndexController::class, 'notce'])->name('web-notice');
+Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');
 Route::get('/notice/{id}', [IndexController::class, 'notice_detail'])->name('notice_detail');
 
 //Faq
