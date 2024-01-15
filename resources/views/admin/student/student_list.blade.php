@@ -124,7 +124,7 @@
                                         @endforeach
                                         @foreach($item->getOfflineEnrolments as $offline_course)
                                         <li class="border-0 mb-2">
-                                            {{ $offline_course->getCousreName->course_title }} ({{ __('translation.Offline')}})
+                                            {{ $offline_course->getCousreName->course_title ?? '' }} ({{ __('translation.Offline')}})
                                         </li>
                                         @endforeach
                                         @else
