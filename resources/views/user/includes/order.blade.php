@@ -88,9 +88,9 @@
                     <div class="mr-3 payment_method_card mb-1 mb-md-0">
                         <input type="radio" name="pay_method" class="payment-method-radio" value="010000000000"> <span>계좌이체</span>
                     </div>
-                    <div class="mr-3 payment_method_card mb-1 mb-md-0">
+                    {{-- <div class="mr-3 payment_method_card mb-1 mb-md-0">
                         <input type="radio" name="pay_method" class="payment-method-radio" value="001000000000"> <span>가상계좌</span>
-                    </div>
+                    </div> --}}
                     {{-- <div class="mr-3 payment_method_card mb-1 mb-md-0">
                         <input type="radio" name="pay_method" class="payment-method-radio" value="000100000000"> <span>포인트</span>
                     </div>

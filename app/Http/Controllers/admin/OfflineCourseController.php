@@ -10,6 +10,7 @@ use App\Models\Reservation;
 use App\Models\Tutor;
 use Illuminate\Http\Request;
 use App\Models\Like_course;
+use App\Models\Offline_enrolment;
 use Illuminate\Support\Facades\DB;
 
 class OfflineCourseController extends Controller
@@ -117,6 +118,7 @@ class OfflineCourseController extends Controller
 
     public function delete_offline_course(Request $request)
     {
+
         try {
             DB::beginTransaction();
             $offline_course = Offline_course::where('id', $request->id)->first();
@@ -129,13 +131,12 @@ class OfflineCourseController extends Controller
                 unlink($filePath2);
             }
             Like_course::query()->where('type', 'offline')->where('course_id', $request['id'])->delete();
-            Offline_enrollment::query()->where('course_id', $request['id'])->delete();
-            $offline_course = Offline_course::query()->where('id', $request['id'])->delete();
+            Offline_enrolment::where('course_id', $request['id'])->delete();
+            $offline_course = Offline_course::where('id', $request['id'])->delete();
 
             DB::commit();
 
             return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
-
         } catch (\Throwable $th) {
             DB::rollback();
 
@@ -229,9 +230,5 @@ class OfflineCourseController extends Controller
                 'message' => __('translation.Something went wrong Please try again')
             ]);
         }
-
     }
 }
-
-
-
