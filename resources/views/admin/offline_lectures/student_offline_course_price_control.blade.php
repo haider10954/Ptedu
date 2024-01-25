@@ -75,7 +75,7 @@
 <div class="card">
     <div class="card-body">
         <div>
-            @if (Session::get('message'))
+            @if (Session::has('message'))
             <p class="alert alert-info" id="responseMessage">{{ Session::get('message') }}</p>
             @endif
             @if (Session::has('error'))
