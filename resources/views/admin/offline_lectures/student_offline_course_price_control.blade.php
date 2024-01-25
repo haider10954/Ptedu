@@ -135,7 +135,7 @@
                         @endforeach
                         @else
                         <tr>
-                            <td class="text-center" colspan="8">
+                            <td class="text-center" colspan="11">
                                 <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                         </tr>
@@ -168,7 +168,7 @@
                                 $original_price = $course->price - $course->discounted_prize;
                             }else{
                                 $original_price = $course->price;
-                            }    
+                            }
                             @endphp
                             <label for="original_price">{{ __('translation.Original Price') }}</label>
                             <input type="number" class="form-control" id="edit_original_price" name="original_price" value="{{ $original_price }}" readonly>
@@ -251,7 +251,7 @@
                                 $original_price = $course->price - $course->discounted_prize;
                             }else{
                                 $original_price = $course->price;
-                            }    
+                            }
                             @endphp
                             <label for="original_price">{{ __('translation.Original Price') }}</label>
                             <input type="number" class="form-control" id="original_price" name="original_price" value="{{ $original_price }}" readonly>
