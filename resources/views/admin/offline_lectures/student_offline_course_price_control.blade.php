@@ -75,7 +75,7 @@
 <div class="card">
     <div class="card-body">
         <div>
-            @if (Session::has('message'))
+            @if (Session::get('message'))
             <p class="alert alert-info" id="responseMessage">{{ Session::get('message') }}</p>
             @endif
             @if (Session::has('error'))
@@ -135,7 +135,7 @@
                         @endforeach
                         @else
                         <tr>
-                            <td class="text-center" colspan="11">
+                            <td class="text-center" colspan="10">
                                 <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                         </tr>
