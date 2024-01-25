@@ -90,11 +90,14 @@ class StudentController extends Controller
         {
             $get_enrollment = Online_enrollment::query()->where('user_id',$student_id)->where('course_id',$value->course_id)->with('getOrder')->first();
 
-            $value['course_schedule'] = $get_enrollment->course_schedule;
+           if(!empty($get_enrollment) || $get_enrollment != null)
+           {
+               $value['course_schedule'] = $get_enrollment->course_schedule;
 
-            $value['payment_response'] = $get_enrollment->payment_response;
+               $value['payment_response'] = $get_enrollment->payment_response;
 
-            $value['order'] = $get_enrollment->getOrder;
+               $value['order'] = $get_enrollment->getOrder;
+           }
 
 //            $get_orders = Order::query()->where('user_id',$student_id)->get();
 //            for ($i= $get_orders->count() - 1 ; $i > 0 ; $i--) {
@@ -339,9 +342,9 @@ class StudentController extends Controller
             }
             $payment_response = json_decode($getTransaction->payment_response, true);
             DB::beginTransaction();
-            
+
             //refund payment gateway
-            
+
             $res_data = "";
             $req_data = "";
             $kcp_sign_data = "";
@@ -474,7 +477,7 @@ class StudentController extends Controller
             DB::commit();
 
             return redirect()->route('student_course_access_control',$request->course_id)->with('message', __('translation.Course refunded successfully'));
-            
+
         } catch (\Throwable $th) {
             DB::rollback();
             return redirect()->route('student_course_access_control',$request->student_id)->with('error', __('translation.Error : Please try again'));
