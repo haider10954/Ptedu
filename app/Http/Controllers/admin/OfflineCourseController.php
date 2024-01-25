@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Offline_course;
+use App\Models\Offline_enrollment;
 use App\Models\Reservation;
 use App\Models\Tutor;
 use Illuminate\Http\Request;
@@ -28,13 +29,13 @@ class OfflineCourseController extends Controller
             $counter = $totalRecords;
         }
         $offline_course = Offline_course::withCount(['getReservationWaiting', 'getReservationReserved'])->paginate(10);
-        return view('admin.offline_lectures.offline_courses', compact('offline_course','counter'));
+        return view('admin.offline_lectures.offline_courses', compact('offline_course', 'counter'));
     }
 
     public function add_offline_course_view()
     {
         $tutor = Tutor::query()->get();
-        $category = Category::query()->where('type','offline')->get();
+        $category = Category::query()->where('type', 'offline')->get();
         return view('admin.offline_lectures.add_offline_course', compact('tutor', 'category'));
     }
 
@@ -44,7 +45,7 @@ class OfflineCourseController extends Controller
         if (!file_exists(storage_path('app/public/offline_course/thumbnail'))) {
             mkdir(storage_path('app/public/offline_course/thumbnail'), 0755, true);
         }
-        $fileName =  time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
+        $fileName = time() . mt_rand(300, 9000) . '.' . $file->getClientOriginalExtension();
         $file->storeAs('public/offline_course/thumbnail', $fileName);
         $loadPath = storage_path('app/public/') . '/' . $fileName;
         return $fileName;
@@ -116,42 +117,43 @@ class OfflineCourseController extends Controller
 
     public function delete_offline_course(Request $request)
     {
-       try {
-        DB::beginTransaction();
-        $offline_course = Offline_course::where('id', $request->id)->first();
-        $filePath = storage_path('app/public/offline_course/thumbnail/' . $offline_course->course_thumbnail);
-        if (file_exists($filePath)) {
-            unlink($filePath);
-        }
-        $filePath2 = storage_path('app/public/offline_course/banner/' . $offline_course->course_banner);
-        if (file_exists($filePath2)) {
-            unlink($filePath2);
-        }
-        Like_course::query()->where('type','offline')->where('course_id', $request['id'])->delete();
-        $offline_course = Offline_course::where('id', $request['id'])->delete();
+        try {
+            DB::beginTransaction();
+            $offline_course = Offline_course::where('id', $request->id)->first();
+            $filePath = storage_path('app/public/offline_course/thumbnail/' . $offline_course->course_thumbnail);
+            if (file_exists($filePath)) {
+                unlink($filePath);
+            }
+            $filePath2 = storage_path('app/public/offline_course/banner/' . $offline_course->course_banner);
+            if (file_exists($filePath2)) {
+                unlink($filePath2);
+            }
+            Like_course::query()->where('type', 'offline')->where('course_id', $request['id'])->delete();
+            Offline_enrollment::query()->where('course_id', $request['id'])->delete();
+            $offline_course = Offline_course::query()->where('id', $request['id'])->delete();
 
-        DB::commit();
+            DB::commit();
 
-        return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
+            return redirect()->back()->with('msg', __('translation.Offline Course has been deleted Successfully'));
 
-       } catch (\Throwable $th) {
+        } catch (\Throwable $th) {
             DB::rollback();
-            
+
             return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
-       }
+        }
     }
 
     public function edit_offline_course_view($id)
     {
         $offline_course = Offline_course::where('id', $id)->first();
         $tutor = Tutor::query()->get();
-        $category = Category::query()->where('type','offline')->get();
+        $category = Category::query()->where('type', 'offline')->get();
         return view('admin.offline_lectures.edit_offline_course', compact('offline_course', 'tutor', 'category'));
     }
 
     public function edit_offline_course(Request $request)
     {
-            $request->validate([
+        $request->validate([
             'course_title' => 'required',
             'tutor_name' => 'required',
             'short_description' => 'required',
@@ -224,7 +226,7 @@ class OfflineCourseController extends Controller
         } else {
             return json_encode([
                 'success' => false,
-                'message' =>  __('translation.Something went wrong Please try again')
+                'message' => __('translation.Something went wrong Please try again')
             ]);
         }
 
