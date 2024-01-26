@@ -62,7 +62,7 @@ class ReviewController extends Controller
 //            $embedded_video = "";
 //        }
 
-        $embedded_video = '<video src="' . asset('storage/review/video') . '/' . $review[$i]->video . '" controls></video>';
+        $embedded_video = '<video src="' . asset('storage/review/video').'" controls></video>';
 
         if ($review->count() > 0) {
             $latest_review = $review[$review->count() - 1];
