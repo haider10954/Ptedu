@@ -30,37 +30,39 @@ class ReviewController extends Controller
     public function review()
     {
         $review = Review::with(['getCourse.getCategoryName'])->get();
-        if ($review->count() > 0) {
-            for ($i = 0; $i <  $review->count(); $i++) {
-                if (!empty($review[$i]->video_url) || !empty($review[$i]->video)) {
-                    if (empty($review[$i]->video_url)) {
-                        $embedded_video = '<video src="' . asset('storage/review/video') . '/' . $review[$i]->video . '" controls></video>';
-                    }
+//        if ($review->count() > 0) {
+//            for ($i = 0; $i <  $review->count(); $i++) {
+//                if (!empty($review[$i]->video_url) || !empty($review[$i]->video)) {
+//                    if (empty($review[$i]->video_url)) {
+//                        $embedded_video = '<video src="' . asset('storage/review/video') . '/' . $review[$i]->video . '" controls></video>';
+//                    }
+//
+//                    if (empty($review[$i]->video)) {
+//                        $video_handler = new VideoHandler();
+//                        $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
+//                        if ($video_url != false) {
+//                            $embedded_video = $video_url->html;
+//                        } else {
+//                            $embedded_video = false;
+//                        }
+//                    }
+//
+//                    if (!empty($review[$i]->video_url) && !empty($review[$i]->video)) {
+//                        $video_handler = new VideoHandler();
+//                        $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
+//                        if ($video_url != false) {
+//                            $embedded_video = $video_url->html;
+//                        } else {
+//                            $embedded_video = false;
+//                        }
+//                    }
+//                }
+//            }
+//        } else {
+//            $embedded_video = "";
+//        }
 
-                    if (empty($review[$i]->video)) {
-                        $video_handler = new VideoHandler();
-                        $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
-                        if ($video_url != false) {
-                            $embedded_video = $video_url->html;
-                        } else {
-                            $embedded_video = false;
-                        }
-                    }
-
-                    if (!empty($review[$i]->video_url) && !empty($review[$i]->video)) {
-                        $video_handler = new VideoHandler();
-                        $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
-                        if ($video_url != false) {
-                            $embedded_video = $video_url->html;
-                        } else {
-                            $embedded_video = false;
-                        }
-                    }
-                }
-            }
-        } else {
-            $embedded_video = "";
-        }
+        $embedded_video = '<video src="' . asset('storage/review/video') . '/' . $review[$i]->video . '" controls></video>';
 
         if ($review->count() > 0) {
             $latest_review = $review[$review->count() - 1];
