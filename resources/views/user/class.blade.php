@@ -50,6 +50,7 @@
                 <div class="content" style="height: 84% !important;">
                     <ul class="lectures_list">
                         @foreach ($lectures as $record)
+                            @dd($record)
                             @php
                                 $lecture_progress = null;
                                 if (!empty($record->duration) && !empty($record->viewed_time)) {
