@@ -14,7 +14,6 @@ class ClassController extends Controller
     public function class($course_id, $slug){
         $lectures = [];
         $course = Course::where('id', $course_id)->with('getCourseStatus')->first();
-        dd($course);
         $lecture = Lecture::where('slug',$slug)->with('getSection')->first();
         $student_logs = Student_log::where('user_id',auth()->id())->get();
         $current_lecture_track = Student_log::where('user_id',auth()->id())->where('lecture_id',$lecture->id)->first();
