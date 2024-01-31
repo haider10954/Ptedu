@@ -2,6 +2,8 @@
 
 @section('title' , 'Offline Lecture list')
 
+@dd('working');
+
 @section('custom-style')
 <style>
     .Card_title {
