@@ -144,7 +144,6 @@
                     </thead>
                     @if($offline_course->count() > 0)
                     @foreach ($offline_course as $offline_c)
-                    @dd($offline_c)
                     <tr>
                         <td>{{ $counter }}</td>
                         <td>
