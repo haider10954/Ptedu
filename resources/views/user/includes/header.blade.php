@@ -201,10 +201,10 @@
                                         </div>
 
                                         <div class="col-md-6">
-                                            <a class="text-decoration-none" href="{{ route('liveCourse') }}">
+                                            <a class="text-decoration-none" href="{{ route('offline_liveCourse') }}">
                                                 <h4 class="mb-3">실시간 강좌 <i class="fas fa-arrow-circle-right"></i></h4>
                                             </a>
-                                            <a class="text-decoration-none" href="{{ route('specialCourse') }}">
+                                            <a class="text-decoration-none" href="{{ route('offline_special_course') }}">
                                                 <h4 class="mb-3">Special Lecture <i
                                                         class="fas fa-arrow-circle-right"></i></h4>
                                             </a>

@@ -47,6 +47,10 @@ Route::get('empty-cart-items',[CartController::class,'empty_cart_items'])->name(
 Route::get('/live-courses', [UserCourseController::class, 'getLiveCourse'])->name('liveCourse');
 Route::get('/special-courses', [UserCourseController::class, 'getSpecialCourse'])->name('specialCourse');
 
+// Offline Live Course
+Route::get('/offline-live-courses', [UserCourseController::class, 'getOfflineLiveCourse'])->name('offline_liveCourse');
+Route::get('/offline-special-courses', [UserCourseController::class, 'getOfflineSpecialCourse'])->name('offline_special_course');
+
 Route::get('set/language/{lang}', function ($lang) {
     session()->put('lang', $lang);
     return redirect()->back();

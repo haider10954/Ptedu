@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Like_course;
+use App\Models\Offline_course;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
@@ -46,15 +47,29 @@ class CourseController extends Controller
 
     public function getLiveCourse()
     {
-        $liveCourses = Course::where('course_type', 'live')->paginate(8);
+        $liveCourses = Course::query()->where('course_type', 'live')->paginate(8);
 
         return view('user.live_courses', compact('liveCourses'));
     }
 
     public function getSpecialCourse()
     {
-        $specialCourse = Course::where('course_type', 'special')->paginate(8);
+        $specialCourse = Course::query()->where('course_type', 'special')->paginate(8);
 
         return view('user.special_courses', compact('specialCourse'));
+    }
+
+    public function getOfflineLiveCourse()
+    {
+        $liveCourses = Offline_course::query()->where('course_category', 'live')->paginate(8);
+
+        return view('user.offline_live_courses', compact('liveCourses'));
+    }
+
+    public function getOfflineSpecialCourse()
+    {
+        $specialCourse = Offline_course::query()->where('course_category', 'special')->paginate(8);
+
+        return view('user.offline_special_courses', compact('specialCourse'));
     }
 }
