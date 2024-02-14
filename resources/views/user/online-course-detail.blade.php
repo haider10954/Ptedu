@@ -43,7 +43,7 @@ $cartBtn = 0;
                         <p class="mb-0 text text-bold">{{ $course_info->duration_of_course }} 주</p>
                     </div>
 
-                    @if (!empty($course_info->course_schedule))
+                    @if (!empty($course_info->course_schedule) || $course_info->course_schedule != null)
                     <div class="mb-2 mt-1">
                         <select class="form-control" id="course_schedule" name="course_schedule" required>
                             <option value="">{{__('translation.Select Option')}}</option>
