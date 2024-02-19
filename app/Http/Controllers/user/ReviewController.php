@@ -107,7 +107,6 @@ class ReviewController extends Controller
                 'title' => $request['title'],
                 'content' => $request['contents'],
                 'rating' => $request['rating'],
-                'type' => $request->course_type
             ]);
         } else {
             $review = Review::query()->create([
