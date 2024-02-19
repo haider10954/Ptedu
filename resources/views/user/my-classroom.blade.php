@@ -536,9 +536,9 @@
                             <button type="button" class="btn btn-secondary rounded-0"
                                     data-dismiss="modal">{{ __('translation.Close') }}</button>
                         </div>
+                    </form>
                 </div>
             </div>
-            </form>
         </div>
     </div>
 
