@@ -169,6 +169,65 @@
                 </table>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="page-title-box d-flex align-items-center justify-content-between">
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Offline Lecture') }} ({{ $offline_course_enrolled->count()  }})</h4>
+                </div>
+                <hr class="hr-color" />
+            </div>
+            <div class="col-lg-12 table-responsive">
+                <table class="table align-middle mb-0 table-lectures border-white table-layout-fixed" id="myTable">
+                    <thead>
+                    <tr>
+                        <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
+                        <td class="align-middle t_header t-width-250">{{ __('translation.Course title') }}</td>
+                        <td class="align-middle t_header t-width-120">{{ __('translation.Completed Status') }}</td>
+                        <td class="align-middle t_header t-width-120">{{ __('translation.End Date') }}</td>
+                        <td class="align-middle t_header t-width-120">{{ __('translation.Extended Duration') }}</td>
+                        <td class="align-middle t_header t-width-120">{{ __('translation.Course Part') }}</td>
+                        <td class="align-middle t_header t-width-120">{{ __('translation.Access') }}</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @if($offline_course_enrolled->count() > 0)
+                        @foreach($offline_course_enrolled as $item)
+                            <tr>
+                                <td>{{ $loop->index + 1 }}</td>
+                                <td>
+                                    <span class="course_name">{{ $item->getCousreName->course_title }}</span>
+                                </td>
+                                <td>
+                                    @if($item->status == 1)
+                                        <span class="badge bg-success">Completed</span>
+                                    @else
+                                        <span class="badge bg-warning text-white">In-Progress</span>
+                                    @endif
+                                </td>
+                                <td><span class="course_name">{{ (!empty($item->getCousreName)) ?  \Carbon\Carbon::parse($item->created_at)->addWeeks($item->getCousreName->duration_of_course)->format('Y-m-d') : 'N/A' }}</span></td>
+                                <td><span class="course_name">{{ $item->extended_duration }}</span></td>
+                                <td><span class="course_name">{{ $item->course_schedule ?? 'N/A' }}</span></td>
+                                <td>
+                                    @if($item->access == 1)
+                                        <span class="badge bg-success">Allowed</span>
+                                    @else
+                                        <span class="badge bg-danger text-white">Forbidden</span>
+                                    @endif
+                                </td>
+                            </tr>
+                        @endforeach
+                    @else
+                        <tr>
+                            <td class="text-center" colspan="6">
+                                <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
+                            </td>
+                        </tr>
+                    @endif
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 

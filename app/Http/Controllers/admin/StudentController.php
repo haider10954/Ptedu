@@ -86,6 +86,7 @@ class StudentController extends Controller
 
     public function student_course_access_control($student_id){
         $online_courses_enrolled = Course_tracking::query()->where('user_id', $student_id)->with('getCourses')->get();
+        $offline_course_enrolled = Offline_enrollment::query()->where('user_id',$student_id)->with('getCousreName')->get();
         foreach ($online_courses_enrolled as $value)
         {
             $get_enrollment = Online_enrollment::query()->where('user_id',$student_id)->where('course_id',$value->course_id)->with('getOrder')->first();
@@ -137,7 +138,7 @@ class StudentController extends Controller
 //
 //            }
         }
-        return view('admin.student.student_course_access_control', compact('online_courses_enrolled'));
+        return view('admin.student.student_course_access_control', compact('online_courses_enrolled','offline_course_enrolled'));
     }
 
     public function student_extend_course_duration(Request $request){
