@@ -170,7 +170,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-3">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0  Card_title">{{ __('translation.Offline Lecture') }} ({{ $offline_course_enrolled->count()  }})</h4>
