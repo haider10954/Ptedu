@@ -103,7 +103,6 @@ class ReviewController extends Controller
         if ($request->course_type == 'offline') {
             $review = Offline_review::query()->create([
                 'course_id' => $request->course_id,
-                'categroy_id' => $request->categroy_id,
                 'user_id' => auth()->id(),
                 'title' => $request['title'],
                 'content' => $request['contents'],
