@@ -160,7 +160,7 @@
                         @endforeach
                         @else
                         <tr>
-                            <td class="text-center" colspan="6">
+                            <td class="text-center" colspan="10">
                                 <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                         </tr>
@@ -217,7 +217,7 @@
                         @endforeach
                     @else
                         <tr>
-                            <td class="text-center" colspan="6">
+                            <td class="text-center" colspan="10">
                                 <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid" style="height: 300px;">
                             </td>
                         </tr>
