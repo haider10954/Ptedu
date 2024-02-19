@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Models\Offline_review;
 use App\Service\VideoHandler;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
@@ -27,6 +28,7 @@ class ReviewController extends Controller
             return redirect()->back()->with('error', __('translation.Something went wrong Please try again'));
         }
     }
+
     public function review()
     {
         $review = Review::with(['getCourse.getCategoryName'])->get();
@@ -62,14 +64,14 @@ class ReviewController extends Controller
 //            $embedded_video = "";
 //        }
 
-        $embedded_video = '<video src="' . asset('storage/review/video').'" controls></video>';
+        $embedded_video = '<video src="' . asset('storage/review/video') . '" controls></video>';
 
         if ($review->count() > 0) {
             $latest_review = $review[$review->count() - 1];
         } else {
             $latest_review = [];
         }
-        $category  = Category::with('getReviews')->get();
+        $category = Category::with('getReviews')->get();
         return view('user.review', compact('review', 'latest_review', 'embedded_video', 'category'));
     }
 
@@ -98,15 +100,26 @@ class ReviewController extends Controller
         //     $video = null;
         // }
 
-
-        $review = Review::create([
-            'course_id' => $request->course_id,
-            'categroy_id' => $request->categroy_id,
-            'user_id' => auth()->id(),
-            'title' => $request['title'],
-            'content' => $request['contents'],
-            'rating' => $request['rating']
-        ]);
+        if ($request->course_type == 'offline') {
+            $review = Offline_review::query()->create([
+                'course_id' => $request->course_id,
+                'categroy_id' => $request->categroy_id,
+                'user_id' => auth()->id(),
+                'title' => $request['title'],
+                'content' => $request['contents'],
+                'rating' => $request['rating'],
+                'type' => $request->course_type
+            ]);
+        } else {
+            $review = Review::query()->create([
+                'course_id' => $request->course_id,
+                'categroy_id' => $request->categroy_id,
+                'user_id' => auth()->id(),
+                'title' => $request['title'],
+                'content' => $request['contents'],
+                'rating' => $request['rating'],
+            ]);
+        }
 
 
         if ($review) {
