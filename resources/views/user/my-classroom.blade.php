@@ -147,7 +147,7 @@
                                                             class="d-flex align-items-center justify-content-between lecture-box-footer">
                                                             <div class="d-flex align-items-center">
                                                                     <?php
-                                                                    $check_offline_review = Illuminate\Support\Facades\DB::table('reviews')
+                                                                    $check_offline_review = Illuminate\Support\Facades\DB::table('offline_reviews')
                                                                         ->where('user_id', auth()->id())
                                                                         ->where('course_id', $item->getCousreName->id)
                                                                         ->first();
