@@ -233,23 +233,25 @@
                                             <div class="col-sm-10">
                                                 <div class="inner-repeater mb-4">
                                                     <div class="course-schedule">
-                                                        @foreach (json_decode($course->course_schedule) as $key => $value)
-                                                            <div class="mb-3 row course-schedule-item">
-                                                                <div class="col-md-10 col-10">
-                                                                    <input type="text" class="inner form-control"
-                                                                        name="course_scheduling[]"
-                                                                        placeholder="{{ __('translation.Course Schedule') }}"
-                                                                        value="{{ $value }}" />
+                                                        @if(!empty($course->course_schedule))
+                                                            @foreach (json_decode($course->course_schedule) as $key => $value)
+                                                                <div class="mb-3 row course-schedule-item">
+                                                                    <div class="col-md-10 col-10">
+                                                                        <input type="text" class="inner form-control"
+                                                                               name="course_scheduling[]"
+                                                                               placeholder="{{ __('translation.Course Schedule') }}"
+                                                                               value="{{ $value }}" />
+                                                                    </div>
+                                                                    <div class="col-md-2">
+                                                                        <button type="button" class="btn btn-danger"
+                                                                                onclick="getCourseScheduleId('{{ $key }}')"
+                                                                                data-bs-toggle="modal"
+                                                                                data-bs-target="#deleteCourseScheduleModal"><i
+                                                                                class="fa fa-trash"></i></button>
+                                                                    </div>
                                                                 </div>
-                                                                <div class="col-md-2">
-                                                                    <button type="button" class="btn btn-danger"
-                                                                        onclick="getCourseScheduleId('{{ $key }}')"
-                                                                        data-bs-toggle="modal"
-                                                                        data-bs-target="#deleteCourseScheduleModal"><i
-                                                                            class="fa fa-trash"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        @endforeach
+                                                            @endforeach
+                                                        @endif
 
                                                     </div>
                                                     <button type="button"
@@ -1277,7 +1279,7 @@
                 await new Promise((resolve) => {
                     video.onloadedmetadata = resolve;
                 });
-                
+
                 const durationInSeconds = video.duration;
                 return formatDuration(durationInSeconds);
 
@@ -1291,7 +1293,7 @@
                 await new Promise((resolve) => {
                     video.onloadedmetadata = resolve;
                 });
-                
+
                 const durationInSeconds = video.duration;
                 return formatDuration(durationInSeconds);
 
