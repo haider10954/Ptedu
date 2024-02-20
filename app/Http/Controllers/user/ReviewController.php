@@ -72,7 +72,8 @@ class ReviewController extends Controller
             $latest_review = [];
         }
         $category = Category::with('getReviews')->get();
-        return view('user.review', compact('review', 'latest_review', 'embedded_video', 'category'));
+        $offline_reviews = Offline_review::with('getCousreName')->get();
+        return view('user.review', compact('review', 'latest_review', 'embedded_video', 'category','offline_reviews'));
     }
 
     function upload_files($file)

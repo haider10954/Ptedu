@@ -142,6 +142,57 @@
         </div>
     </div>
 
+    <div class="section">
+        <div class="container">
+            <p class="text-beige font-weight-700 text-center mb-2">[{{ $review->count() }}] 오프라인 리뷰</p>
+            <h5 class="heading mb-0 text-center">PTEdu 오프라인 리뷰</h5>
+            <div class="w-50 review_tabs m-auto py-5">
+                @foreach ($offline_reviews as $i)
+                    <div class="review_box mb-3">
+                        <div class="d-flex mb-2 align-items-center justify-content-between">
+                            <small class="text-muted">{{ !empty($i->created_at) ? $i->created_at->format('Y.m.d') : "" }}</small>
+                            <div class="d-flex align-items-center gap-1 rating-stars">
+                                @if ($i->rating == 1)
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                @elseif($i->rating == 2)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                @elseif($i->rating == 3)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                @elseif($i->rating == 4)
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                @else
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                @endif
+                            </div>
+                        </div>
+                        <p class="font-weight-600 mb-2">{{ $i->title }}.</p>
+                        <p class="mb-0">{{ $i->content }}</p>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
 @endsection
 
 @section('custom-script')
