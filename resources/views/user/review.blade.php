@@ -144,7 +144,7 @@
 
     <div class="section">
         <div class="container">
-            <p class="text-beige font-weight-700 text-center mb-2">[{{ $review->count() }}] 오프라인 리뷰</p>
+            <p class="text-beige font-weight-700 text-center mb-2">[{{ $offline_reviews->count() }}] 오프라인 리뷰</p>
             <h5 class="heading mb-0 text-center">PTEdu 오프라인 리뷰</h5>
             <div class="w-50 review_tabs m-auto py-5">
                 @foreach ($offline_reviews as $i)
