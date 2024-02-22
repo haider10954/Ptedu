@@ -152,7 +152,7 @@
                         </td>
                         <td><span class="course_name">{{ $offline_c->getCategoryName->name}}</span></td>
                         <td><span class="course_name">오프라인</span></td>
-                        <td><span class="course_name">{{ $offline_c->get_reservation_reserved_count }}</span></td>
+                        <td><span class="course_name">{{ $offline_c->get_offline_enrollments_count }}</span></td>
                         <td><span class="course_name">{{ $offline_c->get_reservation_waiting_count }}</span></td>
                         <td><a class="btn btn-sm btn-reserve" href="{{ route('waiting_list' , $offline_c->id) }}">{{ __('translation.Waiting List') }}</a></td>
                         <td>

@@ -41,4 +41,9 @@ class Offline_course extends Model
     {
         return $this->hasMany(Reservation::class, 'course_id', 'id')->where('status', 'reserved');
     }
+
+    public function getOfflineEnrollments()
+    {
+        return $this->hasMany(Offline_enrollment::class , 'course_id','id');
+    }
 }
