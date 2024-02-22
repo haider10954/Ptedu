@@ -289,7 +289,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="d-flex align-items-center justify-content-center mt-5">
-                                <button id="submitForm" disabled type="submit" class="btn rounded-0 btn-register" style="padding: 5px 30px 5px 30px">등록</button>
+                                <button id="submitForm"  type="submit" class="btn rounded-0 btn-register" style="padding: 5px 30px 5px 30px">등록</button>
                             </div>
                         </div>
                     </div>
@@ -301,15 +301,15 @@
 @endsection
 @section('custom-script')
 <script>
-    $('.selectAll').on('click', function() {
-        if ($('.selectAll').is(':checked')) {
-            $('#submitForm').removeAttr('disabled');
-            $('.selectCheckBox').prop('checked', true);
-        } else {
-            $("#submitForm").attr("disabled", true);
-            $('.selectCheckBox').prop('checked', false);
-        }
-    });
+    // $('.selectAll').on('click', function() {
+    //     if ($('.selectAll').is(':checked')) {
+    //         $('#submitForm').removeAttr('disabled');
+    //         $('.selectCheckBox').prop('checked', true);
+    //     } else {
+    //         $("#submitForm").attr("disabled", true);
+    //         $('.selectCheckBox').prop('checked', false);
+    //     }
+    // });
 
     $('.checkUserID').on('click', function() {
 
