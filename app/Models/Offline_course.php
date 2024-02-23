@@ -46,4 +46,9 @@ class Offline_course extends Model
     {
         return $this->hasMany(Offline_enrollment::class , 'course_id','id');
     }
+
+    public function getNoOfFreeParticipants()
+    {
+        return $this->hasMany(Student_offline_price_control::class , 'course_id','id')->where('is_free',1);
+    }
 }

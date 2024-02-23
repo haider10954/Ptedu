@@ -520,5 +520,6 @@ return [
     "The price you enter above should not be greater." => "The price you enter above should not be greater.",
     "Amount cannot be greater than paid price." => "Amount cannot be greater than paid price.",
     "Student offline course price control" => "Student offline course price control",
-    "Proceed Enrolment" => "Proceed Enrolment"
+    "Proceed Enrolment" => "Proceed Enrolment",
+    'No of Free Participants' => 'No of Free Participants',
 ];

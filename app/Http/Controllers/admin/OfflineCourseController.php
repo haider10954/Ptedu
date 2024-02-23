@@ -28,7 +28,7 @@ class OfflineCourseController extends Controller
         } else {
             $counter = $totalRecords;
         }
-        $offline_course = Offline_course::withCount(['getReservationWaiting', 'getReservationReserved','getOfflineEnrollments'])->paginate(10);
+        $offline_course = Offline_course::query()->withCount(['getReservationWaiting', 'getReservationReserved','getOfflineEnrollments','getNoOfFreeParticipants'])->paginate(10);
         return view('admin.offline_lectures.offline_courses', compact('offline_course', 'counter'));
     }
 

@@ -134,9 +134,10 @@
                         <tr>
                             <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
                             <td class="align-middle t_header t-width-290">{{ __('translation.Course Title') }}</td>
-                            <td class="align-middle t_header t-width-150">{{ __('translation.Category') }}</th>
+                            <td class="align-middle t_header t-width-150">{{ __('translation.Category') }}</td>
                             <td class="align-middle t_header t-width-80">{{ __('translation.Offline')}}</td>
-                            <td class="align-middle t_header t-width-100">{{ __('translation.Participants')}}</th>
+                            <td class="align-middle t_header t-width-100">{{ __('translation.Participants')}}</td>
+                            <td class="align-middle t_header t-width-100">{{ __('translation.No of Free Participants')}}</td>
                             <td class="align-middle t_header t-width-80">{{ __('translation.Waiting') }}</td>
                             <td class="align-middle t_header t-width-100">{{ __('translation.Management') }}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Action') }}</td>
@@ -153,6 +154,7 @@
                         <td><span class="course_name">{{ $offline_c->getCategoryName->name}}</span></td>
                         <td><span class="course_name">오프라인</span></td>
                         <td><span class="course_name">{{ $offline_c->get_offline_enrollments_count }}</span></td>
+                        <td><span class="course_name">{{ $offline_c->get_no_of_free_participants_count }}</span></td>
                         <td><span class="course_name">{{ $offline_c->get_reservation_waiting_count }}</span></td>
                         <td><a class="btn btn-sm btn-reserve" href="{{ route('waiting_list' , $offline_c->id) }}">{{ __('translation.Waiting List') }}</a></td>
                         <td>
@@ -169,7 +171,7 @@
                     @endforeach
                     @else
                     <tr>
-                        <td colspan="8" class="text-center">No Record Found</td>
+                        <td colspan="10" class="text-center">No Record Found</td>
                     </tr>
                     @endif
 
