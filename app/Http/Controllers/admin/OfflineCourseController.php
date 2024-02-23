@@ -81,7 +81,6 @@ class OfflineCourseController extends Controller
             'banner_img' => 'required|mimes:jpeg,png,jpg',
             'no_of_enrollments' => 'required',
             'course_scheduling.*' => 'required',
-            'course_type' => 'required',
         ]);
         $course_thumbnail = $this->upload_files($request['course_img']);
         $course_banner = $this->upload_files_banner($request['banner_img']);
@@ -101,7 +100,6 @@ class OfflineCourseController extends Controller
             'course_banner' => $course_banner,
             'no_of_enrollments' => $request['no_of_enrollments'],
             'course_schedule' => $course_schedule,
-            'course_category' => $request->course_type
         ]);
 
         if ($offline_course) {
@@ -171,7 +169,6 @@ class OfflineCourseController extends Controller
             'no_of_enrollments' => 'required',
             'course_scheduling.*' => 'required',
             'course_scheduling' => 'required',
-            'course_type' => 'required',
         ]);
 
         if ($request->hasFile('course_img')) {
@@ -194,7 +191,6 @@ class OfflineCourseController extends Controller
         $data['video_url'] = $request['video_url'];
         $data['no_of_enrollments'] = $request['no_of_enrollments'];
         $data['course_schedule'] = json_encode($request->course_scheduling);
-        $data['course_category'] = $request->course_type;
         $offline_course = Offline_course::query()->where('id', $request->id)->update($data);
 
         if ($offline_course) {

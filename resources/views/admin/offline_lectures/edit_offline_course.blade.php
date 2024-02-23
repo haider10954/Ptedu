@@ -105,24 +105,24 @@
                 <form id="editOfflineCourseForm">
                     @csrf
                     <input type="hidden" name="id" value="{{ $offline_course->id }}" />
-                    <div class="row mb-4">
-                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Type') }}</label>
-                        <div class="col-sm-10">
-                            <select class="form-control" name="course_type">
-                                <option value="">{{ __('translation.Select Option') }}</option>
-                                <option value="online"
-                                    {{ $offline_course->course_category == 'online' ? 'selected' : '' }}>Online
-                                    Course</option>
-                                <option value="live"
-                                    {{ $offline_course->course_category == 'live' ? 'selected' : '' }}>실시간 강좌
-                                </option>
-                                <option value="special"
-                                    {{ $offline_course->course_category == 'special' ? 'selected' : '' }}>Special
-                                    Course</option>
-                            </select>
-                            <div class="error-course-type"></div>
-                        </div>
-                    </div>
+{{--                    <div class="row mb-4">--}}
+{{--                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Type') }}</label>--}}
+{{--                        <div class="col-sm-10">--}}
+{{--                            <select class="form-control" name="course_type">--}}
+{{--                                <option value="">{{ __('translation.Select Option') }}</option>--}}
+{{--                                <option value="online"--}}
+{{--                                    {{ $offline_course->course_category == 'online' ? 'selected' : '' }}>Online--}}
+{{--                                    Course</option>--}}
+{{--                                <option value="live"--}}
+{{--                                    {{ $offline_course->course_category == 'live' ? 'selected' : '' }}>실시간 강좌--}}
+{{--                                </option>--}}
+{{--                                <option value="special"--}}
+{{--                                    {{ $offline_course->course_category == 'special' ? 'selected' : '' }}>Special--}}
+{{--                                    Course</option>--}}
+{{--                            </select>--}}
+{{--                            <div class="error-course-type"></div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                     <div class="row mb-4">
                         <label class="col-sm-2 col-form-label lecture-form">{{__('translation.Course List')}}</label>
                         <div class="col-sm-10">
@@ -357,9 +357,9 @@
             },
             error: function(e) {
                 $("#submitForm").html('저장');
-                if (e.responseJSON.errors['course_type']) {
-                    $('.error-course-type').html('<span class=" error-message text-danger">' + e.responseJSON.errors['course_type'][0] + '</span>');
-                }
+                // if (e.responseJSON.errors['course_type']) {
+                //     $('.error-course-type').html('<span class=" error-message text-danger">' + e.responseJSON.errors['course_type'][0] + '</span>');
+                // }
                 if (e.responseJSON.errors['course_title']) {
                     $('.error-course-title').html('<span class=" error-message text-danger">' + e.responseJSON.errors['course_title'][0] + '</span>');
                 }
