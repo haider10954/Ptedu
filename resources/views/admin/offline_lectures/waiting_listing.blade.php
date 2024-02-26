@@ -113,10 +113,10 @@
                         <tr>
                             <td class="align-middle t_header">{{ __('translation.No') }}</td>
                             <td class="align-middle t_header">{{ __('translation.Name') }}</td>
-                            <td class="align-middle t_header">{{ __('translation.Email')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Email')}}</td>
                             <td class="align-middle t_header">{{ __('translation.Phone Number')}}</td>
-                            <td class="align-middle t_header">{{ __('translation.Course List')}}</th>
-                            <td class="align-middle t_header">{{ __('translation.Status')}}</th>
+                            <td class="align-middle t_header">{{ __('translation.Course List')}}</td>
+                            <td class="align-middle t_header">{{ __('translation.Status')}}</td>
                             <td class="align-middle t_header">{{ __('translation.Confirm/Delete') }}</td>
                         </tr>
                     </thead>
@@ -134,7 +134,7 @@
                             <td><span class="course_name text-white badge bg-{{ $r->getStatus() }} p-2">{{ $r->status }}</span></td>
                             <td>
                                 <div class="d-flex gap-1">
-                                    <a class="btn btn-sm btn-success statusBtn" onclick="changeStatus('reserved','{{ $r->id }}')"><i class="bi bi-check2" style="font-size: 1 rem;"></i></a>
+                                    <a class="btn btn-sm btn-success statusBtn" onclick="changeStatus('reserved','{{ $r->id }}')"><i class="bi bi-check2" style="font-size: 1rem;"></i></a>
                                     <a class="btn btn-sm btn-danger" onclick="changeStatus('decline','{{ $r->id }}')"><i class="bi bi-trash"></i></a>
                                 </div>
                             </td>
@@ -147,7 +147,6 @@
                             </td>
                         </tr>
                         @endif
-                    </tbody>
                     </tbody>
                 </table>
                 {{ $reservation->links('vendor.pagination.custom-pagination-admin') }}
