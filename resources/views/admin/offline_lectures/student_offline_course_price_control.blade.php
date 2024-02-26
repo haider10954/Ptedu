@@ -202,7 +202,7 @@
                                         @php
                                             $records = \Illuminate\Support\Facades\DB::table('student_offline_price_controls')->where('course_id', $item->course_id)->where('user_id',$item->user_id)->first();
                                         @endphp
-                                        @if($records->is_free == 1)
+                                        @if(!empty($records) && $records->is_free == 1)
                                             <span class="badge bg-success">Yes</span>
                                         @else
                                             <span class="badge bg-danger text-white">No</span>
