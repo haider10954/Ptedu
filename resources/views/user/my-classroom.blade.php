@@ -134,7 +134,7 @@
                                                         class="lecture_img img-fluid" alt="lecture_img">
                                                     <div class="lecture_box_content h-130">
                                                         <h6 class="lecture_title mb-1"><a
-                                                                href="{{ route('online_course_detail' , $item->getCousreName->id) }}"
+                                                                href="{{ route('offline_lecture_detail' , $item->getCousreName->id) }}"
                                                                 class="text-dark">{{ Str::limit($item->getCousreName->course_title,25) }}</a>
                                                         </h6>
                                                         <small
