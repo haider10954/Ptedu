@@ -97,6 +97,9 @@
                             <div class=" d-flex align-items-center mb-3">
                                 <h4 class="mb-sm-0  course_info">{{ __('translation.Duration of the Course') }}</h4>
                             </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_info">{{ __('translation.Course Schedule') }}</h4>
+                            </div>
                         </div>
                         <div class="col-3">
                             <div class="d-flex align-items-center mb-3">
@@ -107,6 +110,9 @@
                             </div>
                             <div class=" d-flex align-items-center mb-3">
                                 <h4 class="mb-sm-0  course_details">{{ (int)$item->course->duration_of_course }} {{ __('translation.Weeks') }}</h4>
+                            </div>
+                            <div class=" d-flex align-items-center mb-3">
+                                <h4 class="mb-sm-0  course_details">{{ $item->course->course_schedule }}</h4>
                             </div>
                         </div>
                         <div class="col-3 col-bg">
