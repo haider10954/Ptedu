@@ -39,14 +39,14 @@
                                         </li>
                                     @endforeach
                                 @endif
-                                <li class="dropdown-link">
-                                    <a href="{{ route('liveCourse') }}"
-                                       class="text-decoration-none">실시간 강좌</a>
-                                </li>
-                                <li class="dropdown-link">
-                                    <a href="{{ route('specialCourse') }}"
-                                       class="text-decoration-none">Special Lecture</a>
-                                </li>
+{{--                                <li class="dropdown-link">--}}
+{{--                                    <a href="{{ route('liveCourse') }}"--}}
+{{--                                       class="text-decoration-none">실시간 강좌</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="dropdown-link">--}}
+{{--                                    <a href="{{ route('specialCourse') }}"--}}
+{{--                                       class="text-decoration-none">Special Lecture</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                     </li>
@@ -147,15 +147,15 @@
                                                 @endif
                                             </ul>
                                         </div>
-                                        <div class="col-md-6">
-                                            <a class="text-decoration-none" href="{{ route('liveCourse') }}">
-                                                <h4 class="mb-3">실시간 강좌 <i class="fas fa-arrow-circle-right"></i></h4>
-                                            </a>
-                                            <a class="text-decoration-none" href="{{ route('specialCourse') }}">
-                                                <h4 class="mb-3">Special Lecture <i
-                                                        class="fas fa-arrow-circle-right"></i></h4>
-                                            </a>
-                                        </div>
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <a class="text-decoration-none" href="{{ route('liveCourse') }}">--}}
+{{--                                                <h4 class="mb-3">실시간 강좌 <i class="fas fa-arrow-circle-right"></i></h4>--}}
+{{--                                            </a>--}}
+{{--                                            <a class="text-decoration-none" href="{{ route('specialCourse') }}">--}}
+{{--                                                <h4 class="mb-3">Special Lecture <i--}}
+{{--                                                        class="fas fa-arrow-circle-right"></i></h4>--}}
+{{--                                            </a>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>

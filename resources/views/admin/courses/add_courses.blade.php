@@ -129,18 +129,6 @@
                                 <form id="courseForm" type="POST">
                                     @csrf
                                     <div class="row mb-4">
-                                        <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Type') }}</label>
-                                        <div class="col-sm-10">
-                                            <select class="form-control" name="course_type">
-                                                <option value="">{{ __('translation.Select Option') }}</option>
-                                                <option value="online">Online Course</option>
-                                                <option value="live">실시간 강좌</option>
-                                                <option value="special">Special Course</option>
-                                            </select>
-                                            <div class="error-course-type"></div>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-4">
                                         <label class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Title') }}</label>
                                         <div class="col-sm-10">
                                             <input type="text" class="form-control" id="horizontal-firstname-input" placeholder="{{ __('translation.Enter Course Title') }}" name="course_title">
@@ -556,10 +544,6 @@
             error: function(e) {
                 $("#submitForm").prop('disabled', false);
                 $("#submitForm").html('등록하다');
-                if (e.responseJSON.errors['course_type']) {
-                    $('.error-course-type').html('<small class=" error-message text-danger">' + e
-                        .responseJSON.errors['course_type'][0] + '</small>');
-                }
                 if (e.responseJSON.errors['course_title']) {
                     $('.error-course-title').html('<small class=" error-message text-danger">' + e
                         .responseJSON.errors['course_title'][0] + '</small>');

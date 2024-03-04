@@ -103,7 +103,6 @@ class CourseController extends Controller
             'price' => 'required|min:0',
             'category' => 'required',
             'video_url' => 'required',
-            'course_type' => 'required',
             'course_img' => 'required|mimes:jpeg,png,jpg',
             'banner_img' => 'required|mimes:jpeg,png,jpg',
             'course_scheduling' => 'array',
@@ -128,7 +127,6 @@ class CourseController extends Controller
             'video_url' => $request['video_url'],
             'course_thumbnail' => $course_thumbnail,
             'course_banner' => $course_banner,
-            'course_type' => $request['course_type'],
             'course_schedule' => $course_schedule
         ]);
 
@@ -381,7 +379,6 @@ class CourseController extends Controller
     public function edit_course_action(Request $request)
     {
         $request->validate([
-            'course_type' => 'required',
             'course_title' => 'required',
             'tutor_name' => 'required',
             'short_description' => 'required',
@@ -405,7 +402,6 @@ class CourseController extends Controller
             $data['course_banner'] = $this->upload_files_banner($request['banner_img']);
         }
 
-        $data['course_type'] = $request['course_type'];
         $data['tutor_id'] = $request['tutor_name'];
         $data['category_id'] = $request['category'];
         $data['course_title'] = $request['course_title'];
@@ -418,7 +414,7 @@ class CourseController extends Controller
         $data['video_url'] = $request['video_url'];
         $data['course_schedule'] = json_encode($request->course_scheduling);
 
-        $course = Course::where('id', $request->id)->update($data);
+        $course = Course::query()->where('id', $request->id)->update($data);
 
         if ($course) {
             return json_encode([
