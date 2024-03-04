@@ -78,14 +78,14 @@
                                         </li>
                                     @endforeach
                                 @endif
-                                <li class="dropdown-link">
-                                    <a href="{{ route('liveCourse') }}"
-                                       class="text-decoration-none">실시간 강좌</a>
-                                </li>
-                                <li class="dropdown-link">
-                                    <a href="{{ route('specialCourse') }}"
-                                       class="text-decoration-none">Special Lecture</a>
-                                </li>
+{{--                                <li class="dropdown-link">--}}
+{{--                                    <a href="{{ route('liveCourse') }}"--}}
+{{--                                       class="text-decoration-none">실시간 강좌</a>--}}
+{{--                                </li>--}}
+{{--                                <li class="dropdown-link">--}}
+{{--                                    <a href="{{ route('specialCourse') }}"--}}
+{{--                                       class="text-decoration-none">Special Lecture</a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                     </li>
