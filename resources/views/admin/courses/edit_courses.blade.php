@@ -130,7 +130,7 @@
                                     <form id="courseForm" type="POST">
                                         <input type="hidden" name="id" value="{{ $course->id }}">
                                         @csrf
-                                        
+
                                         <div class="row mb-4">
                                             <label
                                                 class="col-sm-2 col-form-label lecture-form">{{ __('translation.Course Title') }}</label>
@@ -215,7 +215,7 @@
                                             <div class="col-sm-10">
                                                 <div class="inner-repeater mb-4">
                                                     <div class="course-schedule">
-                                                        @if(!empty($course->course_schedule))
+                                                        @if(!empty($course->course_schedule) && $course->course_schedule !== null && $course->course_schedule !== "null")
                                                             @foreach (json_decode($course->course_schedule) as $key => $value)
                                                                 <div class="mb-3 row course-schedule-item">
                                                                     <div class="col-md-10 col-10">
