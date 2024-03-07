@@ -5,7 +5,7 @@
     <table class="table shopping-table">
         <thead>
             <tr>
-                <td style="min-width: 30px"></td>
+{{--                <td style="min-width: 30px"></td>--}}
                 <td class="text-center" style="min-width: 200px;">{{ __('translation.Course Name') }}</td>
                 <td style="min-width: 60px">{{ __('translation.Quantity') }}</td>
                 <td style="min-width: 100px">{{ __('translation.Discount') }}</td>
@@ -17,9 +17,9 @@
             @if(count($cart) > 0)
             @foreach ($cart as $v)
             <tr>
-                <td>
-                    <input type="checkbox" class="checkbox select_item" {{ $v['item_selected'] == true ? 'checked' : '' }} onchange="changeAmount(this)" data-id="{{ encrypt($v) }}" data-amount="{{$v['price']}}" data-disc="{{$v['discount']}}" />
-                </td>
+{{--                <td>--}}
+{{--                    <input type="checkbox" class="checkbox select_item" {{ $v['item_selected'] == true ? 'checked' : '' }} onchange="changeAmount(this)" data-id="{{ encrypt($v) }}" data-amount="{{$v['price']}}" data-disc="{{$v['discount']}}" />--}}
+{{--                </td>--}}
                 <td>
                     <span>[{{ ($v['type'] == 'online') ? Str::ucfirst($v['course']->course_type) : 'Offline' }} {{ __('translation.Course') }}] {{ $v['course_name'] }} </span> <br />
                     <span>{{ $v['course']->getCategoryName->name }} | {{ $v['course']->getTutorName->name }}</span> <br />
