@@ -6,6 +6,7 @@
     <div class="section pt-125">
         <div class="container">
             <div class="row">
+
                 <div class="col-lg-2 padding-left">
                     <div class="page-sidemenu-heading mb-3">
                         <h5 class="mb-0 font-weight-600">{{ __('translation.Shopping Bag') }}</h5>
@@ -42,11 +43,11 @@
                                             class="mr-2">{{ __('translation.View other courses') }}</span> <i
                                             class="fa fa-angle-right"></i> </a>
 
-                                    @if(count($cart) > 0)        
+                                    @if(count($cart) > 0)
                                         @php
                                         $cart_total = ($cart->where('item_selected',true)->sum('price')) - $cart->where('item_selected',true)->sum('discount')
                                         @endphp
-                                        
+
                                         @if($cart_total > 0)
                                         <a href="{{ route('order') }}" class="btn btn-theme-black text-white mx-2"><span
                                                 class="mr-2">{{ __('translation.Buy it Now') }}</span> <i
@@ -177,6 +178,7 @@
                 totalAmount += amount;
                 totalDiscount += disc;
             });
+            $('#cart-loader').show();
             let course = checkbox.getAttribute('data-id');
             $.ajax({
                 type: "POST",
@@ -187,15 +189,21 @@
                     'state':checkbox.checked,
                     '_token': '{{ csrf_token() }}'
                 },
-                beforeSend: function () {},
+                beforeSend: function () {
+                    // LOADER
+                    $('#cart-loader').show();
+                },
                 success: function (res) {
-                    if (res.success == true) {
+                    if (res.success === true) {
                         $('#total_amount').text(numberWithCommas(totalAmount - totalDiscount) + '원');
                         $('#item_price').text(numberWithCommas(totalAmount) + '원')
                         $('#item_discount').text(numberWithCommas(totalDiscount) + '원');
                     } else {}
                 },
-                error: function (e) {}
+                error: function (e) {},
+                complete: function () {
+                    $('#cart-loader').hide();
+                }
             });
         }
 
