@@ -133,7 +133,7 @@
                                     <td>
                                         <div class="d-flex gap-1">
                                             <button type="button" class="btn btn-primary btn-sm"
-                                                    onclick="edit_record({{$item->id}}, {{ $item->user_id }}, {{ $item->discounted_price }}, {{ $item->is_free }})">
+                                                    onclick="edit_record('{{$item->id}}','{{ $item->user_id }}','{{ $item->discounted_price }}','{{ $item->is_free }}')">
                                                 <i class="bi bi-pencil"></i></button>
                                             <button type="button" class="btn btn-sm btn-danger"
                                                     onclick="del_record({{$item->id}})"><i class="bi bi-trash"></i>
@@ -301,7 +301,7 @@
                         <input type="hidden" name="course_id" value="{{ request()->segment(3) }}" required>
                         @csrf
                         <div class="modal-body">
-                            <p class="mb-0">{{ __("translation.Are you sure you wan't to delete ?") }}</p>
+                            <p class="mb-0">{{ __('translation.Are you sure you want to delete')}}?</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary"
