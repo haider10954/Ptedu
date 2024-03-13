@@ -86,6 +86,12 @@
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
                     <h4 class="mb-sm-0  Card_title">{{ __('translation.Student List') }} ({{ $student->count()  }})</h4>
+                    <form method="GET" action="{{ route('apply-student-filter') }}">
+                        <div class="d-flex align-items-center gap-2">
+                            <input class="form-control" type="text" name="search" placeholder="Search Here">
+                            <button type="submit" class="btn btn-outline-dark">Search</button>
+                        </div>
+                    </form>
                 </div>
                 <hr class="hr-color" />
             </div>
@@ -95,9 +101,9 @@
                         <tr>
                             <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
                             <td class="align-middle t_header t-width-130">{{ __('translation.Name') }}</td>
-                            <td class="align-middle t_header t-width-150">{{ __('translation.Email')}}</th>
+                            <td class="align-middle t_header t-width-150">{{ __('translation.Email')}}</td>
                             <td class="align-middle t_header t-width-120">{{ __('translation.Phone Number') }}</td>
-                            <td class="align-middle t_header t-width-250">{{ __('translation.List of Courses') }}</th>
+                            <td class="align-middle t_header t-width-250">{{ __('translation.List of Courses') }}</td>
                             <td class="align-middle t_header t-width-90">{{ __('translation.Action') }}</td>
                         </tr>
                     </thead>
@@ -153,7 +159,7 @@
                         @endif
                     </tbody>
                 </table>
-                {{ $student->links('vendor.pagination.custom-pagination-admin') }}
+                {{ $student->appends(request()->except('page'))->links('vendor.pagination.custom-pagination-admin') }}
             </div>
         </div>
     </div>

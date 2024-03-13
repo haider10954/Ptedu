@@ -126,7 +126,7 @@
                         <tr>
                             <td class="align-middle t_header t-width-50">{{ __('translation.No') }}</td>
                             <td class="align-middle t_header t-width-290">{{ __('translation.Course Name') }}</td>
-                            <td class="align-middle t_header t-width-150">{{ __('translation.Category')}}</th>
+                            <td class="align-middle t_header t-width-150">{{ __('translation.Category')}}</td>
                             <td class="align-middle t_header t-width-80">{{ __('translation.Number of Student')}}</td>
                             <td class="align-middle t_header t-width-80">{{ __('translation.Price')}}</td>
                             <td class="align-middle t_header t-width-80">{{ __('translation.Live')}}</td>

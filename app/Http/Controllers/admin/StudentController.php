@@ -616,4 +616,25 @@ class StudentController extends Controller
             return redirect()->route('student_offline_course_price_control',$request->course_id)->with('error', __('translation.Error : Please try again'));
         }
     }
+
+    public function apply_student_filter(Request $request)
+    {
+        $search = $request->search;
+        $student = User::query()
+            ->with(['getOfflineEnrolments.getCousreName', 'getOnlineEnrolments.getCourses'])
+            ->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('mobile_number', 'like', '%' . $search . '%')
+                    ->orWhereHas('getOfflineEnrolments.getCousreName', function ($query) use ($search) {
+                        $query->where('course_title', 'like', '%' . $search . '%');
+                    })
+                    ->orWhereHas('getOnlineEnrolments.getCourses', function ($query) use ($search) {
+                        $query->where('course_title', 'like', '%' . $search . '%');
+                    });
+            })
+            ->paginate(10);
+        return view('admin.student.student_list', compact('student'));
+    }
+
 }

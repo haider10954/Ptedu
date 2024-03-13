@@ -47,4 +47,23 @@ class OrderController extends Controller
         $order = Order::with(['getTransaction','getUser'])->where('id',$id)->first();
         return view('admin.payment.view_payment',compact('order'));
     }
+
+    public function apply_filter(Request $request)
+    {
+        $search = $request->search;
+        $order = Order::query()
+            ->with(['getTransaction','getUser'])
+            ->where(function ($query) use ($search) {
+                $query->whereHas('getUser', function ($query) use ($search) {
+                    $query->where('english_name', 'like', '%' . $search . '%');
+                })
+                    ->orWhere('created_at', 'like', '%' . $search . '%')
+                    ->orWhereJsonContains('order_items',[['course_name'=>$search]])
+                    ->orWhereHas('getTransaction', function ($query) use ($search) {
+                        $query->where('ammount', 'like', '%' . $search . '%');
+                    });
+            })
+            ->paginate(10);
+        return view('admin.payment.payment', compact('order'));
+    }
 }

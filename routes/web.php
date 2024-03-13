@@ -271,6 +271,7 @@ Route::prefix('admin')->group(function () {
 
         //Students
         Route::get('/student-list', [AdminStudentController::class, 'student_admin_listing'])->name('student');
+        Route::get('/apply-student-filter', [AdminStudentController::class, 'apply_student_filter'])->name('apply-student-filter');
         Route::post('/delete-student', [AdminStudentController::class, 'delete_student'])->name('delete-student');
         Route::get('/student-info/{id}', [AdminStudentController::class, 'edit_student'])->name('student_info');
         Route::post('/update-student-info', [AdminStudentController::class, 'edit_student_info'])->name('edit_student_info');
@@ -308,6 +309,7 @@ Route::prefix('admin')->group(function () {
         Route::get('/payment', [OrderController::class, 'order_listing'])->name('payment');
         Route::post('/delete-order', [OrderController::class, 'delete_order'])->name('delete-order');
         Route::post('/update-order-status', [OrderController::class, 'update_order_status'])->name('update-order-status');
+        Route::get('/apply-transaction-filter', [OrderController::class, 'apply_filter'])->name('apply-order-filter');
         Route::get('/payment/view_payment/{id}', [OrderController::class, 'view_payment'])->name('view_payment');
 
         //Inquiry
