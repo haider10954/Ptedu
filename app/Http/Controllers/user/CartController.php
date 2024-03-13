@@ -18,6 +18,7 @@ use App\Models\Student_online_price_control;
 use App\Models\Student_offline_price_control;
 use App\Models\Virtual_account_deposit;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class CartController extends Controller
 {
@@ -110,6 +111,20 @@ class CartController extends Controller
 
     public function add_to_cart(Request $request)
     {
+        $validator = Validator::make($request->all(), [
+            'course_schedule' => 'required',
+        ],[
+            'course_schedule.required' => __('translation.Course Schedule is required')
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'Success' => false,
+                'Msg' => $validator->errors()->first(),
+            ]);
+        }
+
+
         if (empty(session('shopping_cart'))) {
             $shoping_cart_count = 0;
         } else {
@@ -117,9 +132,9 @@ class CartController extends Controller
         }
         $course_id = $request->course_id;
         if($request->type == 'online'){
-            $course = Course::where('id', $course_id)->first();
+            $course = Course::query()->where('id', $course_id)->first();
         }elseif($request->type == 'offline'){
-            $course = Offline_course::where('id', $course_id)->first();
+            $course = Offline_course::query()->where('id', $course_id)->first();
         }else{
             return json_encode(['Success' => false, 'Msg' => __('translation.Something went wrong Please try again'), 'cart_items_count' => count(session('shopping_cart'))]);
         }

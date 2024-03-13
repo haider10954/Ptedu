@@ -18,6 +18,9 @@
     <div class="container">
         <div class="w-80 m-auto pb-40 border-bottom-1">
             <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="prompt mt-2"></div>
+                </div>
                 <div class="col-lg-9">
                     @if (auth()->check())
                     @if (!empty($reservation))
@@ -62,7 +65,7 @@
                     </div>
                     @endif
 
-                    
+
                     @if (auth()->check())
                     @if ($enrolled_user == 0)
                     @if ($offline_enrollment_count >= $course_info->no_of_enrollments)
@@ -262,7 +265,8 @@ $liked = 0;
 @section('custom-script')
 <script>
 
-    var like = '{{$liked}}';
+    let like = '{{$liked}}';
+    const alert = $('.prompt');
 
     $('.applyBtn').on('click', function() {
         $('#confirmReserveId').val($(this).attr('data-id'));
@@ -400,7 +404,7 @@ $liked = 0;
             data: {
                 'course_id': $(this).data('id'),
                 'type': $(this).data('type'),
-                'course_schedule': $('#course_schedule').val(), 
+                'course_schedule': $('#course_schedule').val(),
                 '_token': '{{ csrf_token() }}'
             },
             beforeSend: function() {
@@ -413,7 +417,13 @@ $liked = 0;
                     $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
                     $('.shopping_cart_count').html(res.cart_items_count);
                 } else {
-                    btn.html(`<i class="fa fa-times mx-1"></i> ${res.Msg}`);
+                    btn.prop('disabled', false);
+                    alert.show();
+                    alert.html('<div class="alert alert-danger"><strong>' + res.Msg + '</strong></div>')
+                    btn.html("{{ __('translation.Add to cart') }}");
+                    setTimeout(function () {
+                        alert.hide();
+                    }, 2000);
                 }
             },
             error: function(e) {}

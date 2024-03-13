@@ -22,6 +22,9 @@ $cartBtn = 0;
     <div class="container">
         <div class="w-80 m-auto pb-40 border-bottom-1">
             <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="prompt mt-2"></div>
+                </div>
                 <div class="col-lg-9">
                     @if ($reservation)
                     @if ($reservation->status == 'decline')
@@ -236,8 +239,7 @@ $liked = 0;
 @section('custom-script')
 <script>
     var like = '{{$liked}}';
-
-
+    const alert = $('.prompt');
     $('.banner_text iframe').css('width', '100%');
     $('.banner_text iframe').css('height', '100%');
     $('.banner_text iframe').attr('width', '');
@@ -265,7 +267,13 @@ $liked = 0;
                     $('.shopping_cart_count').attr('data-items-count', res.cart_items_count);
                     $('.shopping_cart_count').html(res.cart_items_count);
                 } else {
-                    btn.html(`<i class="fa fa-times mx-1"></i> ${res.Msg}`);
+                    btn.prop('disabled', false);
+                    alert.show();
+                    alert.html('<div class="alert alert-danger"><strong>' + res.Msg + '</strong></div>')
+                    btn.html("{{ __('translation.Add to cart') }}");
+                    setTimeout(function () {
+                        alert.hide();
+                    }, 2000);
                 }
             },
             error: function(e) {}

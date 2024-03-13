@@ -528,5 +528,6 @@ return [
     "Amount cannot be greater than paid price." => "금액은 지불된 가격보다 클 수 없습니다.",
     "Student offline course price control" => "학생 오프라인 강좌 가격 통제",
     "Proceed Enrolment" => "등록 진행",
-    'No of Free Participants' => '무료 참가자 수'
+    'No of Free Participants' => '무료 참가자 수',
+    'Course Schedule is required' => '과정 일정이 필요합니다'
 ];

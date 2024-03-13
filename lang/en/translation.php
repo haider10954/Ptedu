@@ -522,4 +522,5 @@ return [
     "Student offline course price control" => "Student offline course price control",
     "Proceed Enrolment" => "Proceed Enrolment",
     'No of Free Participants' => 'No of Free Participants',
+    'Course Schedule is required' => 'Course Schedule is required',
 ];
