@@ -88,8 +88,8 @@
                     <h4 class="mb-sm-0  Card_title">{{ __('translation.Student List') }} ({{ $student->count()  }})</h4>
                     <form method="GET" action="{{ route('apply-student-filter') }}">
                         <div class="d-flex align-items-center gap-2">
-                            <input class="form-control" type="text" name="search" placeholder="Search Here">
-                            <button type="submit" class="btn btn-outline-dark">Search</button>
+                            <input class="form-control" type="text" name="search" placeholder="검색어 입력">
+                            <button type="submit" class="btn btn-outline-dark">검색</button>
                         </div>
                     </form>
                 </div>
