@@ -135,7 +135,7 @@
                                         <span
                                             class="course_name">{{\Carbon\Carbon::parse($item->created_at)->format('Y-m-d')}}</span>
                                     </td>
-                                    <td><span class="course_name">{{ $item->getUser->english_name }}</span></td>
+                                    <td><span class="course_name">{{ !empty($item->getUser->english_name) ? $item->getUser->english_name : 'N/A' }}</span></td>
                                     <td>
                                         @foreach (json_decode($item->order_items) as $order_item)
                                             <span class="course_name">{{ $order_item->course_name }}</span>
