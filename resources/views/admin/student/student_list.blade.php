@@ -85,7 +85,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Student List') }} ({{ $student->count()  }})</h4>
+                    <h4 class="mb-sm-0  Card_title">{{ __('translation.Student List') }}</h4>
                     <form method="GET" action="{{ route('apply-student-filter') }}">
                         <div class="d-flex align-items-center gap-2">
                             <input class="form-control" type="text" name="search" placeholder="검색어 입력">
