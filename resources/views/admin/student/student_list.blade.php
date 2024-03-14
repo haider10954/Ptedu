@@ -89,7 +89,7 @@
                     <form method="GET" action="{{ route('apply-student-filter') }}">
                         <div class="d-flex align-items-center gap-2">
                             <input class="form-control" type="text" name="search" placeholder="검색어 입력">
-                            <button type="submit" class="btn btn-outline-dark" style="width: 60px;">검색</button>
+                            <button type="submit" class="btn btn-outline-dark" style="width: 65px;">검색</button>
                         </div>
                     </form>
                 </div>
