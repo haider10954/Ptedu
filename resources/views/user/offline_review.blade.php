@@ -10,7 +10,8 @@
             </div>
             <div class="w-65 review_info m-auto py-4">
                 <h5 class="heading mb-3 text-center">PTEdu {{ __('translation.Student Reviews') }}</h5>
-                <video src="{{ asset('storage/review/video/review_video.mp4') }}" controls="" height="315" style="width: 100%; object-fit: cover;"></video>
+                <video src="{{ asset('storage/review/video/review_video.mp4') }}" controls="" height="315"
+                       style="width: 100%; object-fit: cover;"></video>
             </div>
 
         </div>
@@ -30,7 +31,9 @@
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
                                         <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <small class="text-muted">{{ __('translation.by') }} {{ mb_substr($r->getUser->name, 0, 1) }}** -
+                                            <small
+                                                class="text-muted">{{ __('translation.by') }} {{ mb_substr($r->getUser->name, 0, 1) }}
+                                                ** -
                                                 {{ \Carbon\Carbon::parse($r->created_at)->format('Y-m-d') }}</small>
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                  alt="img">
@@ -51,79 +54,68 @@
             </div>
         </div>
     </div>
+
     <div class="section">
         <div class="container">
             <p class="text-beige font-weight-700 text-center mb-2">[{{ $review->count() }}] 건의 수강후기가 있어요!</p>
             <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
+
             <div class="w-50 review_tabs m-auto py-5">
-                <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">
-                    @foreach ($category as $c)
-                        <li class="nav-item">
-                            <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="pills-{{ $c->id }}"
-                               data-toggle="pill" href="#pill-{{ $c->id }}" role="tab"
-                               aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }}</a>
-                        </li>
-                    @endforeach
-                </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    @foreach ($category as $r)
-                        <div class="tab-pane fade {{ $loop->index == 0 ? 'active show' : '' }}"
-                             id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
-                            @if ($r->getReviews->count() > 0)
-                                @foreach ($r->getReviews as $v)
-                                    <div class="review_box mb-3">
-                                        <div class="d-flex mb-2 align-items-center justify-content-between">
-                                            <small class="text-muted">{{ !empty($v->created_at) ? $v->created_at->format('Y.m.d') : "" }}</small>
-                                            <div class="d-flex align-items-center gap-1 rating-stars">
-                                                @if ($v->rating == 1)
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                @elseif($v->rating == 2)
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                @elseif($v->rating == 3)
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                @elseif($v->rating == 4)
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                @else
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <p class="font-weight-600 mb-2">{{ $v->title }}.</p>
-                                        <p class="mb-0">{{ $v->content }}</p>
-                                    </div>
-                                @endforeach
-                            @else
-                                <div class="text-center">
-                                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img"
-                                         class="img-fluid" style="height: 300px;">
+               @if($review->count() > 0)
+                    @foreach($review as $v)
+                        <div class="review_box mb-3">
+                            <div class="d-flex mb-2 align-items-center justify-content-between">
+                                <small
+                                    class="text-muted">{{ !empty($v->created_at) ? $v->created_at->format('Y.m.d') : "" }}</small>
+                                <div class="d-flex align-items-center gap-1 rating-stars">
+                                    @if ($v->rating == 1)
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    @elseif($v->rating == 2)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    @elseif($v->rating == 3)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    @elseif($v->rating == 4)
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    @else
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    @endif
                                 </div>
-                            @endif
+                            </div>
+                            <p class="font-weight-600 mb-2">{{ $v->title }}.</p>
+                            <p class="mb-0">{{ $v->content }}</p>
                         </div>
                     @endforeach
-                </div>
+                @else
+                    <div class="text-center">
+                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img"
+                             class="img-fluid" style="height: 300px;">
+                    </div>
+               @endif
             </div>
         </div>
     </div>
+
+
 
 @endsection
 
@@ -168,6 +160,6 @@
                 }
             }
         });
-        
+
     </script>
 @endsection
