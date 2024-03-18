@@ -14,4 +14,9 @@ class Offline_review extends Model
     {
         return $this->HasOne(Offline_course::class, 'id', 'course_id');
     }
+
+    public function getUser()
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }
