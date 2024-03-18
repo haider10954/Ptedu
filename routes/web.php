@@ -100,6 +100,7 @@ Route::post('/delete-reservation', [ReservationController::class, 'delete_Revers
 
 //Review
 Route::get('/review', [ReviewController::class, 'review'])->name('review');
+Route::get('/offline-review', [ReviewController::class, 'offline_review'])->name('offline_review');
 
 //Notice
 Route::get('/notice', [IndexController::class, 'notice'])->name('web-notice');

@@ -32,38 +32,6 @@ class ReviewController extends Controller
     public function review()
     {
         $review = Review::with(['getCourse.getCategoryName'])->get();
-//        if ($review->count() > 0) {
-//            for ($i = 0; $i <  $review->count(); $i++) {
-//                if (!empty($review[$i]->video_url) || !empty($review[$i]->video)) {
-//                    if (empty($review[$i]->video_url)) {
-//                        $embedded_video = '<video src="' . asset('storage/review/video') . '/' . $review[$i]->video . '" controls></video>';
-//                    }
-//
-//                    if (empty($review[$i]->video)) {
-//                        $video_handler = new VideoHandler();
-//                        $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
-//                        if ($video_url != false) {
-//                            $embedded_video = $video_url->html;
-//                        } else {
-//                            $embedded_video = false;
-//                        }
-//                    }
-//
-//                    if (!empty($review[$i]->video_url) && !empty($review[$i]->video)) {
-//                        $video_handler = new VideoHandler();
-//                        $video_url = $video_handler->getVideoInfo($review[$i]->video_url);
-//                        if ($video_url != false) {
-//                            $embedded_video = $video_url->html;
-//                        } else {
-//                            $embedded_video = false;
-//                        }
-//                    }
-//                }
-//            }
-//        } else {
-//            $embedded_video = "";
-//        }
-
         $embedded_video = '<video src="' . asset('storage/review/video') . '" controls></video>';
 
         if ($review->count() > 0) {
@@ -71,9 +39,21 @@ class ReviewController extends Controller
         } else {
             $latest_review = [];
         }
-        $category = Category::with('getReviews')->get();
-        $offline_reviews = Offline_review::with('getCousreName')->get();
-        return view('user.review', compact('review', 'latest_review', 'embedded_video', 'category','offline_reviews'));
+        $category = Category::with('getReviews')->where('type','offline')->get();
+        return view('user.review', compact('review', 'latest_review', 'embedded_video', 'category'));
+    }
+
+    public function offline_review()
+    {
+        $review = Offline_review::with('getCousreName')->get();
+
+        if ($review->count() > 0) {
+            $latest_review = $review[$review->count() - 1];
+        } else {
+            $latest_review = [];
+        }
+        $category = Category::with('getReviews')->where('type','offline')->get();
+        return view('user.offline_review',compact('review','latest_review','category'));
     }
 
     function upload_files($file)
