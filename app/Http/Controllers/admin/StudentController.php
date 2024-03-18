@@ -487,10 +487,17 @@ class StudentController extends Controller
 
     public function student_offline_course_price_control($course_id){
         $course = Offline_course::query()->where('id', $course_id)->first();
-        $offline_enrollments = Offline_enrollment::query()->where('course_id',$course_id)->paginate(10);
-        $records = Student_offline_price_control::where('course_id', $course_id)->paginate(10);
+        $records = Student_offline_price_control::query()->where('course_id', $course_id)->paginate(10);
         $users = User::query()->get();
-        return view('admin.offline_lectures.student_offline_course_price_control', compact('offline_enrollments','records','users','course'));
+        return view('admin.offline_lectures.student_offline_course_price_control', compact('records','users','course'));
+    }
+
+    public function offline_enrollments_admin($id)
+    {
+
+        $offline_enrollments = Offline_enrollment::query()->where('course_id',$id)->paginate(10);
+        return view('admin.offline_lectures.offline_enrollments', compact('offline_enrollments'));
+
     }
 
     public function add_student_offline_course_price_discount_entry(Request $request){

@@ -366,6 +366,7 @@ Route::prefix('admin')->group(function () {
 
         // Student offline course price control
         Route::get('/student-offline-course-price-control/{id}', [AdminStudentController::class, 'student_offline_course_price_control'])->name('student_offline_course_price_control');
+        Route::get('/offline-enrollments-admin/{id}', [AdminStudentController::class, 'offline_enrollments_admin'])->name('offline-enrollments-admin');
         Route::post('/add-student-offline-course-price-discount-entry', [AdminStudentController::class, 'add_student_offline_course_price_discount_entry'])->name('add_student_offline_course_price_discount_entry');
         Route::post('/edit-student-offline-course-price-discount-entry', [AdminStudentController::class, 'edit_student_offline_course_price_discount_entry'])->name('edit_student_offline_course_price_discount_entry');
         Route::post('/del-student-offline-course-price-discount-entry', [AdminStudentController::class, 'del_student_offline_course_price_discount_entry'])->name('del_student_offline_course_price_discount_entry');
