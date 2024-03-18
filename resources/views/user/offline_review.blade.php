@@ -168,5 +168,6 @@
                 }
             }
         });
+        
     </script>
 @endsection
