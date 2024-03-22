@@ -58,7 +58,7 @@ class OrderController extends Controller
                     $query->where('english_name', 'like', '%' . $search . '%');
                 })
                     ->orWhere('created_at', 'like', '%' . $search . '%')
-                    ->orWhere('order_items','%"course_name":"'.$search.'%')
+                    ->orWhereJsonContains('order_items',[['course_name'=>$search]])
                     ->orWhereHas('getTransaction', function ($query) use ($search) {
                         $query->where('ammount', 'like', '%' . $search . '%');
                     });
