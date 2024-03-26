@@ -31,7 +31,7 @@ class ReviewController extends Controller
 
     public function review()
     {
-        $review = Review::with(['getCourse.getCategoryName'])->get();
+        $review = Review::query()->with(['getCourse.getCategoryName','getUser'])->get();
         $embedded_video = '<video src="' . asset('storage/review/video') . '" controls></video>';
 
         if ($review->count() > 0) {

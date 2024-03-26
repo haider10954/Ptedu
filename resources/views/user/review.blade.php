@@ -47,7 +47,7 @@
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
                                         <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <small class="text-muted">{{ __('translation.by') }} {{ mb_substr($r->getUser->name, 0, 1) }}** -
+                                            <small class="text-muted">{{ __('translation.by') }} {{ !empty($r->getUser) ? mb_substr($r->getUser->name, 0, 1) : 'N/A' }}** -
                                                 {{ \Carbon\Carbon::parse($r->created_at)->format('Y-m-d') }}</small>
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                 alt="img">
@@ -142,7 +142,7 @@
         </div>
     </div>
 
-   
+
 
 @endsection
 
