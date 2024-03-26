@@ -12,10 +12,10 @@
                     </h5>
                     <h5 class="heading mb-0"><a href="{{ route('web-faq') }}" class="text-muted">{{ __('translation.FAQ') }}</a></h5>
                 </div>
-                <div class="right-content d-flex align-items-center">
-                    <input type="text" placeholder="{{ __('translation.Enter Search Items') }}" id="myInput" onkeyup="myFunction()" class="form-control search_box">
-                    <button class="btn btn-theme-black text-white font-size-12">{{ __('translation.Search') }}</button>
-                </div>
+{{--                <div class="right-content d-flex align-items-center">--}}
+{{--                    <input type="text" placeholder="{{ __('translation.Enter Search Items') }}" id="myInput" onkeyup="myFunction()" class="form-control search_box">--}}
+{{--                    <button class="btn btn-theme-black text-white font-size-12">{{ __('translation.Search') }}</button>--}}
+{{--                </div>--}}
             </div>
             <table class="table w-100" id="table-notice">
                 <thead class="notice-table-header">
@@ -69,25 +69,25 @@
 </div>
 @endsection
 
-@section('custom-script')
-<script>
-    function myFunction() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("table-notice");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[1];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
-@endsection
+{{--@section('custom-script')--}}
+{{--<script>--}}
+{{--    function myFunction() {--}}
+{{--        var input, filter, table, tr, td, i, txtValue;--}}
+{{--        input = document.getElementById("myInput");--}}
+{{--        filter = input.value.toUpperCase();--}}
+{{--        table = document.getElementById("table-notice");--}}
+{{--        tr = table.getElementsByTagName("tr");--}}
+{{--        for (i = 0; i < tr.length; i++) {--}}
+{{--            td = tr[i].getElementsByTagName("td")[1];--}}
+{{--            if (td) {--}}
+{{--                txtValue = td.textContent || td.innerText;--}}
+{{--                if (txtValue.toUpperCase().indexOf(filter) > -1) {--}}
+{{--                    tr[i].style.display = "";--}}
+{{--                } else {--}}
+{{--                    tr[i].style.display = "none";--}}
+{{--                }--}}
+{{--            }--}}
+{{--        }--}}
+{{--    }--}}
+{{--</script>--}}
+{{--@endsection--}}

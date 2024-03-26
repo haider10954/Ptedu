@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Offline_review;
 use App\Models\Online_enrollment;
 use App\Models\Offline_enrollment;
 use App\Models\Order;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -28,7 +30,9 @@ class StudentController extends Controller
 
     public function delete_student(Request $request)
     {
-        $student = User::where('id', $request->id)->delete();
+        $student = User::query()->where('id', $request->id)->delete();
+        Review::query()->where('user_id',$request->id)->delete();
+        Offline_review::query()->where('user_id',$request->id)->delete();
         if ($student) {
             return redirect()->back()->with('message', __('translation.Student has been deleted Successfully'));
         } else {
