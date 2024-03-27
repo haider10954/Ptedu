@@ -89,8 +89,8 @@ class StudentController extends Controller
     }
 
     public function student_course_access_control($student_id){
-        $online_courses_enrolled = Course_tracking::query()->where('user_id', $student_id)->whereHas('getCousreName')->with('getCourses')->get();
-        $offline_course_enrolled = Offline_enrollment::query()->where('user_id',$student_id)->whereHas('getCousreName')->with('getCousreName')->get();
+        $online_courses_enrolled = Course_tracking::query()->where('user_id', $student_id)->whereHas('getCourses')->with('getCourses')->get();
+        $offline_course_enrolled = Offline_enrollment::query()->with('getCousreName')->where('user_id',$student_id)->whereHas('getCousreName')->get();
         foreach ($online_courses_enrolled as $value)
         {
             $get_enrollment = Online_enrollment::query()->where('user_id',$student_id)->where('course_id',$value->course_id)->with('getOrder')->first();
