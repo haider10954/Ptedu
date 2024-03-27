@@ -499,7 +499,7 @@ class StudentController extends Controller
     public function offline_enrollments_admin($id)
     {
 
-        $offline_enrollments = Offline_enrollment::query()->where('course_id',$id)->paginate(10);
+        $offline_enrollments = Offline_enrollment::query()->whereHas('getUser')->where('course_id',$id)->paginate(10);
         return view('admin.offline_lectures.offline_enrollments', compact('offline_enrollments'));
 
     }
