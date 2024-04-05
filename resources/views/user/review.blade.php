@@ -62,6 +62,7 @@
                             id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
                             @if ($r->getReviews->count() > 0 || $r->getOfflineReviews->count() > 0)
                                 @if(!empty($r->getReviews))
+                                    @dd('ok');
                                     @foreach ($r->getReviews as $v)
                                         <div class="review_box mb-3">
                                             <div class="d-flex mb-2 align-items-center justify-content-between">
