@@ -52,7 +52,7 @@
                         <li class="nav-item">
                             <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="pills-{{ $c->id }}"
                                 data-toggle="pill" href="#pill-{{ $c->id }}" role="tab"
-                                aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }}</a>
+                                aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }} ({{ $c->type }})</a>
                         </li>
                     @endforeach
                 </ul>
