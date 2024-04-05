@@ -60,7 +60,7 @@
                     @foreach ($category as $r)
                         <div class="tab-pane fade {{ $loop->index == 0 ? 'active show' : '' }}"
                             id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
-                            @if ($r->getReviews->count() > 0 || $r->getOfflineReviews->count() > 0)
+                            @if ($r->getReviews->count() > 0 && $r->getOfflineReviews->count() > 0)
                                 @if(!empty($r->getReviews))
                                     @foreach ($r->getReviews as $v)
                                         <div class="review_box mb-3">
