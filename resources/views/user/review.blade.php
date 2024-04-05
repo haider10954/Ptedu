@@ -52,7 +52,7 @@
     </div>
     <div class="section">
         <div class="container">
-            <p class="text-beige font-weight-700 text-center mb-2">[{{ $review->count() }}] 건의 수강후기가 있어요!</p>
+            <p class="text-beige font-weight-700 text-center mb-2">[{{ $reviews->count() }}] 건의 수강후기가 있어요!</p>
             <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
             <div class="w-50 review_tabs m-auto py-5">
                 <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">
