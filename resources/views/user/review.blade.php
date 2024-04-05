@@ -16,10 +16,10 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                  class="mb-4" alt="quotes">
-                                            <h6 class="heading mb-4">{{ $r->type == 'Online' ? Str::limit($r->getCourse->course_title,50) : Str::limit($r->getCousreName->course_title,50) }}.</h6>
+                                            <h6 class="heading mb-4">({{ $r->type }}) {{ $r->type == 'Online' ? Str::limit($r->getCourse->course_title,50) : Str::limit($r->getCousreName->course_title,50) }}.</h6>
                                         </div>
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
-                                        <p class="mb-4">{{ $r->content }} ({{ $r->type }})</p>
+                                        <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <small class="text-muted">{{ __('translation.by') }} {{ !empty($r->getUser) ? mb_substr($r->getUser->name, 0, 1) : 'N/A' }}** -
                                                 {{ \Carbon\Carbon::parse($r->created_at)->format('Y-m-d') }}</small>
@@ -202,11 +202,12 @@
         $('.review_info video').css('width', '100%');
         $('.review_info video').css('object-fit', 'cover');
         $('.review_info video').attr('height', '315');
-        var swiper = new Swiper(".course-reviews-carousel", {
+        let swiper = new Swiper(".course-reviews-carousel", {
             slidesPerView: 4,
             spaceBetween: 30,
             slidesPerGroup: 3,
             loop: true,
+            autoplay : true,
             loopFillGroupWithBlank: true,
             navigation: {
                 nextEl: ".course-reviews-next",
