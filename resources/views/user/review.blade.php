@@ -16,8 +16,9 @@
             <div class="w-100 m-auto courses_reviews_carousel position-relative">
                 <div class="swiper course-reviews-carousel">
                     <div class="swiper-wrapper">
-                        @if ($review->count() > 0)
-                            @foreach ($review as $r)
+                        @if ($reviews->count() > 0)
+                            @foreach ($reviews as $r)
+                                @dd($r)
                                 <div class="swiper-slide">
                                     <div class="course-review-box">
                                         <div class="d-flex justify-content-between align-items-center">
