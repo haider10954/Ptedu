@@ -125,7 +125,7 @@
                         <li class="nav-item">
                             <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="pills-offline-{{ $c->id }}"
                                data-toggle="pill" href="#pills-offline-{{ $c->id }}" role="tab"
-                               aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }}</a>
+                               aria-controls="pills-offline-{{ $c->id }}" aria-selected="true">{{ $c->name }}</a>
                         </li>
                     @endforeach
                 </ul>
