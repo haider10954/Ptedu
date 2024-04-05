@@ -23,7 +23,7 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                  class="mb-4" alt="quotes">
-                                            <h6 class="heading mb-4">{{ Str::limit($r->getCourse->course_title,10) }}.</h6>
+                                            <h6 class="heading mb-4">{{ Str::limit($r->getCourse->course_title,50) }}.</h6>
                                         </div>
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
                                         <p class="mb-4">{{ $r->content }}</p>
