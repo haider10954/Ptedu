@@ -8,28 +8,6 @@
             <div class="section-heading">
                 <h5 class="mb-0">{{ __('translation.Review') }}</h5>
             </div>
-            <div class="w-65 review_info m-auto py-4">
-                <h5 class="heading mb-3 text-center">PTEdu {{ __('translation.Student Reviews') }}</h5>
-                <video src="{{ asset('storage/review/video/review_video.mp4') }}" controls="" height="315" style="width: 100%; object-fit: cover;"></video>
-                {{-- @if (!empty($latest_review))
-                    @if(($embedded_video != false) && !empty($embedded_video))
-                        {!! $embedded_video !!}
-                    @else
-                    <div class="video_review_container">
-                        <h5><i class="fa fa-exclamation-circle mx-1"></i>Video Not Found</h5>
-                    </div>
-                    @endif
-                    <p class="mb-1 font-weight-600">{{ $latest_review->getCourse->course_title }} |
-                        {{ $latest_review->title }} </p>
-                    <p class="mb-0">{{ $latest_review->content }} 할 수 있었어요!</p>
-                @else
-                    <div class="text-center">
-                        <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img" class="img-fluid"
-                            style="height: 300px;">
-                    </div>
-                @endif --}}
-            </div>
-
         </div>
     </div>
     <div class="section course_reviews background-light">

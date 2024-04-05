@@ -14,7 +14,7 @@ class ReviewController extends Controller
 {
     public function admin_side_listing()
     {
-        $review = Review::paginate(10);
+        $review = Review::query()->paginate(10);
         return view('admin.review_management.review_management', compact('review'));
     }
 
