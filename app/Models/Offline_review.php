@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Offline_review extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
+    protected $appends = ['type'];
 
     public function getCousreName()
     {
@@ -18,5 +20,10 @@ class Offline_review extends Model
     public function getUser()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function getTypeAttribute()
+    {
+        return 'Offline';
     }
 }

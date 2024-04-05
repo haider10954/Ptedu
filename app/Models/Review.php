@@ -10,6 +10,7 @@ class Review extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $appends = ['type'];
 
     public function getCourse()
     {
@@ -19,5 +20,10 @@ class Review extends Model
     public function getUser()
     {
         return $this->hasOne(User::class, 'id', 'user_id');
+    }
+
+    public function getTypeAttribute()
+    {
+        return 'Online';
     }
 }

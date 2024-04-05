@@ -32,16 +32,20 @@ class ReviewController extends Controller
 
     public function review()
     {
-        $review = Review::query()->with(['getCourse.getCategoryName','getUser'])->get();
-        $embedded_video = '<video src="' . asset('storage/review/video') . '" controls></video>';
+        $online_reviews = Review::query()->with(['getCourse.getCategoryName','getUser'])->get();
+        $offline_reviews = Offline_review::query()->with(['getCousreName.getCategoryName','getUser'])->get();
 
-        if ($review->count() > 0) {
-            $latest_review = $review[$review->count() - 1];
+        $reviews = $online_reviews->merge($offline_reviews);
+
+        dd($reviews);
+
+        if ($reviews->count() > 0) {
+            $latest_review = $reviews[$reviews->count() - 1];
         } else {
             $latest_review = [];
         }
         $category = Category::with('getReviews')->where('type','offline')->get();
-        return view('user.review', compact('review', 'latest_review', 'embedded_video', 'category'));
+        return view('user.review', compact('reviews', 'latest_review','category'));
     }
 
     public function offline_review()
