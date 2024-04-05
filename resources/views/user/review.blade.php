@@ -18,7 +18,6 @@
                     <div class="swiper-wrapper">
                         @if ($reviews->count() > 0)
                             @foreach ($reviews as $r)
-                                @dd($r)
                                 <div class="swiper-slide">
                                     <div class="course-review-box">
                                         <div class="d-flex justify-content-between align-items-center">
@@ -27,7 +26,7 @@
                                             <h6 class="heading mb-4">{{ Str::limit($r->getCourse->course_title,50) }}.</h6>
                                         </div>
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
-                                        <p class="mb-4">{{ $r->content }}</p>
+                                        <p class="mb-4">{{ $r->content }} ({{ $r->type }})</p>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <small class="text-muted">{{ __('translation.by') }} {{ !empty($r->getUser) ? mb_substr($r->getUser->name, 0, 1) : 'N/A' }}** -
                                                 {{ \Carbon\Carbon::parse($r->created_at)->format('Y-m-d') }}</small>
