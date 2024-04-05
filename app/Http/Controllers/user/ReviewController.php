@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\user;
 
+use App\Models\Offline_course;
 use App\Models\Offline_review;
 use App\Service\VideoHandler;
 use App\Http\Controllers\Controller;
@@ -82,8 +83,10 @@ class ReviewController extends Controller
         // }
 
         if ($request->course_type == 'offline') {
+            $offline_course = Offline_course::query()->where('id',$request->course_id)->first();
             $review = Offline_review::query()->create([
                 'course_id' => $request->course_id,
+                'category_id' => $offline_course->category_id,
                 'user_id' => auth()->id(),
                 'title' => $request['title'],
                 'content' => $request['contents'],
