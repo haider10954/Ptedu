@@ -46,26 +46,27 @@
             </div>
         </div>
     </div>
+
     <div class="section">
         <div class="container">
             <p class="text-beige font-weight-700 text-center mb-2">[{{ $online_reviews->count() }}] 건의 수강후기가 있어요!</p>
             <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
             <div class="w-50 review_tabs m-auto py-5">
-                <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">
-                    @foreach ($category as $c)
+                <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="online-pills-tab" role="tablist">
+                    @foreach ($online_category as $c)
                         <li class="nav-item">
-                            <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="pills-{{ $c->id }}"
-                               data-toggle="pill" href="#pill-{{ $c->id }}" role="tab"
-                               aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }} ({{ $c->type }}
+                            <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="online-pill-{{ $c->id }}"
+                               data-toggle="pill" href="#online-pill-{{ $c->id }}" role="tab"
+                               aria-controls="online-pills-{{ $c->id }}" aria-selected="true">{{ $c->name }} ({{ $c->type }}
                                 )</a>
                         </li>
                     @endforeach
                 </ul>
-                <div class="tab-content" id="pills-tabContent">
-                    @foreach ($category as $r)
+                <div class="tab-content" id="online-pills-tabContent">
+                    @foreach ($online_category as $r)
                         <div class="tab-pane fade {{ $loop->index == 0 ? 'active show' : '' }}"
-                             id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
-                            @if ($r->getReviews->count() > 0 || $r->getOfflineReviews->count() >0)
+                             id="online-pill-{{ $r->id }}" role="tabpanel" aria-labelledby="online-pills-{{ $r->id }}">
+                            @if ($r->getReviews->count() > 0)
                                 @foreach ($r->getReviews as $v)
                                     <div class="review_box mb-3">
                                         <div class="d-flex mb-2 align-items-center justify-content-between">
@@ -109,6 +110,42 @@
                                         <p class="mb-0">{{ $v->content }}</p>
                                     </div>
                                 @endforeach
+                            @else
+                                <div class="text-center">
+                                    <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img"
+                                         class="img-fluid" style="height: 300px;">
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="section">
+        <div class="container">
+            <p class="text-beige font-weight-700 text-center mb-2">[{{ $offline_reviews->count() }}] 건의 수강후기가 있어요!</p>
+            <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
+            <div class="w-50 review_tabs m-auto py-5">
+                <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="offline-pills-tab" role="tablist">
+                    @foreach ($off_category as $c)
+                        <li class="nav-item">
+                            <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="offline-pills-{{ $c->id }}"
+                               data-toggle="pill" href="#offline-pill-{{ $c->id }}" role="tab"
+                               aria-controls="offline-pills-{{ $c->id }}" aria-selected="true">{{ $c->name }} ({{ $c->type }}
+                                )</a>
+                        </li>
+                    @endforeach
+                </ul>
+                <div class="tab-content" id="offline-pills-tabContent">
+                    @foreach ($off_category as $r)
+                        <div class="tab-pane fade {{ $loop->index == 0 ? 'active show' : '' }}"
+                             id="offline-pill-{{ $r->id }}" role="tabpanel" aria-labelledby="offline-pills-{{ $r->id }}">
+                            @if ($r->getOfflineReviews->count() >0)
                                 @foreach ($r->getOfflineReviews as $i)
                                     <div class="review_box mb-3">
                                         <div class="d-flex mb-2 align-items-center justify-content-between">
