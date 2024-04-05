@@ -16,15 +16,19 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                  class="mb-4" alt="quotes">
-                                            <h6 class="heading mb-4">({{ $r->type }}) {{ $r->type == 'Online' ? Str::limit($r->getCourse->course_title,50) : Str::limit($r->getCousreName->course_title,50) }}.</h6>
+                                            <h6 class="heading mb-4">({{ $r->type }}
+                                                ) {{ $r->type == 'Online' ? Str::limit($r->getCourse->course_title,50) : Str::limit($r->getCousreName->course_title,50) }}
+                                                .</h6>
                                         </div>
                                         <h6 class="heading mb-4">{{ $r->title }}.</h6>
                                         <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
-                                            <small class="text-muted">{{ __('translation.by') }} {{ !empty($r->getUser) ? mb_substr($r->getUser->name, 0, 1) : 'N/A' }}** -
+                                            <small
+                                                class="text-muted">{{ __('translation.by') }} {{ !empty($r->getUser) ? mb_substr($r->getUser->name, 0, 1) : 'N/A' }}
+                                                ** -
                                                 {{ \Carbon\Carbon::parse($r->created_at)->format('Y-m-d') }}</small>
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
-                                                alt="img">
+                                                 alt="img">
                                         </div>
                                     </div>
                                 </div>
@@ -32,7 +36,7 @@
                         @else
                             <div class="text-center">
                                 <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img"
-                                    class="img-fluid" style="height: 300px;">
+                                     class="img-fluid" style="height: 300px;">
                             </div>
                         @endif
                     </div>
@@ -51,107 +55,107 @@
                     @foreach ($category as $c)
                         <li class="nav-item">
                             <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="pills-{{ $c->id }}"
-                                data-toggle="pill" href="#pill-{{ $c->id }}" role="tab"
-                                aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }} ({{ $c->type }})</a>
+                               data-toggle="pill" href="#pill-{{ $c->id }}" role="tab"
+                               aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }} ({{ $c->type }}
+                                )</a>
                         </li>
                     @endforeach
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     @foreach ($category as $r)
                         <div class="tab-pane fade {{ $loop->index == 0 ? 'active show' : '' }}"
-                            id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
-                            @if ($r->getReviews->isNotEmpty() || $r->getOfflineReviews->isNotEmpty())
-                                @if(!empty($r->getReviews))
-                                    @foreach ($r->getReviews as $v)
-                                        <div class="review_box mb-3">
-                                            <div class="d-flex mb-2 align-items-center justify-content-between">
-                                                <small class="text-muted">{{ !empty($v->created_at) ? $v->created_at->format('Y.m.d') : "" }}</small>
-                                                <div class="d-flex align-items-center gap-1 rating-stars">
-                                                    @if ($v->rating == 1)
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    @elseif($v->rating == 2)
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    @elseif($v->rating == 3)
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    @elseif($v->rating == 4)
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    @else
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    @endif
-                                                </div>
+                             id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
+                            @if ($r->getReviews->count() > 0 || $r->getOfflineReviews->count() >0)
+                                @foreach ($r->getReviews as $v)
+                                    <div class="review_box mb-3">
+                                        <div class="d-flex mb-2 align-items-center justify-content-between">
+                                            <small
+                                                class="text-muted">{{ !empty($v->created_at) ? $v->created_at->format('Y.m.d') : "" }}</small>
+                                            <div class="d-flex align-items-center gap-1 rating-stars">
+                                                @if ($v->rating == 1)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                @elseif($v->rating == 2)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                @elseif($v->rating == 3)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                @elseif($v->rating == 4)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                @else
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                @endif
                                             </div>
-                                            <p class="font-weight-600 mb-2">{{ $v->title }}.</p>
-                                            <p class="mb-0">{{ $v->content }}</p>
                                         </div>
-                                    @endforeach
-                                @else
-                                    @foreach ($r->getOfflineReviews as $i)
-                                        <div class="review_box mb-3">
-                                            <div class="d-flex mb-2 align-items-center justify-content-between">
-                                                <small class="text-muted">{{ !empty($i->created_at) ? $i->created_at->format('Y.m.d') : "" }}</small>
-                                                <div class="d-flex align-items-center gap-1 rating-stars">
-                                                    @if ($i->rating == 1)
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    @elseif($i->rating == 2)
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    @elseif($i->rating == 3)
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    @elseif($i->rating == 4)
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="far fa-star"></i>
-                                                    @else
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                        <i class="fas fa-star"></i>
-                                                    @endif
-                                                </div>
+                                        <p class="font-weight-600 mb-2">{{ $v->title }}.</p>
+                                        <p class="mb-0">{{ $v->content }}</p>
+                                    </div>
+                                @endforeach
+                                @foreach ($r->getOfflineReviews as $i)
+                                    <div class="review_box mb-3">
+                                        <div class="d-flex mb-2 align-items-center justify-content-between">
+                                            <small
+                                                class="text-muted">{{ !empty($i->created_at) ? $i->created_at->format('Y.m.d') : "" }}</small>
+                                            <div class="d-flex align-items-center gap-1 rating-stars">
+                                                @if ($i->rating == 1)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                @elseif($i->rating == 2)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                @elseif($i->rating == 3)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                @elseif($i->rating == 4)
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="far fa-star"></i>
+                                                @else
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                @endif
                                             </div>
-                                            <p class="font-weight-600 mb-2">{{ $i->title }}.</p>
-                                            <p class="mb-0">{{ $i->content }}</p>
                                         </div>
-                                    @endforeach
-                                @endif
+                                        <p class="font-weight-600 mb-2">{{ $i->title }}.</p>
+                                        <p class="mb-0">{{ $i->content }}</p>
+                                    </div>
+                                @endforeach
                             @else
                                 <div class="text-center">
                                     <img src="{{ asset('web_assets/images/no-data-found.png') }}" alt="img"
-                                        class="img-fluid" style="height: 300px;">
+                                         class="img-fluid" style="height: 300px;">
                                 </div>
                             @endif
                         </div>
@@ -160,8 +164,6 @@
             </div>
         </div>
     </div>
-
-
 
 @endsection
 
