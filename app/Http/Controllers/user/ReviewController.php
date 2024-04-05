@@ -34,18 +34,9 @@ class ReviewController extends Controller
     {
         $online_reviews = Review::query()->with(['getCourse.getCategoryName','getUser'])->get();
         $offline_reviews = Offline_review::query()->with(['getCousreName.getCategoryName','getUser'])->get();
-
         $reviews = $online_reviews->merge($offline_reviews);
-
-        dd($reviews);
-
-        if ($reviews->count() > 0) {
-            $latest_review = $reviews[$reviews->count() - 1];
-        } else {
-            $latest_review = [];
-        }
         $category = Category::with('getReviews')->where('type','offline')->get();
-        return view('user.review', compact('reviews', 'latest_review','category'));
+        return view('user.review', compact('reviews','category'));
     }
 
     public function offline_review()
