@@ -36,7 +36,7 @@ class ReviewController extends Controller
         $offline_reviews = Offline_review::query()->with(['getCousreName.getCategoryName','getUser'])->get();
         $reviews = $online_reviews->merge($offline_reviews);
         $online_category = Category::with('getReviews')->where('type','online')->get();
-        $off_category = Category::with('getOfflineReviews')->where('type','off')->get();
+        $off_category = Category::with('getOfflineReviews')->where('type','offline')->get();
         return view('user.review', compact('reviews','online_reviews','offline_reviews','online_category','off_category'));
     }
 
