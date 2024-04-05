@@ -25,4 +25,9 @@ class Category extends Model
     {
         return $this->hasMany(Review::class, 'categroy_id', 'id');
     }
+
+    public function getOfflineReviews()
+    {
+        return $this->hasMany(Offline_review::class, 'category_id', 'id');
+    }
 }
