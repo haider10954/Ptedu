@@ -105,30 +105,31 @@
                                         </div>
                                     @endforeach
                                 @else
-                                    @foreach ($r->getOfflineReviews as $v)
+                                    @foreach ($r->getOfflineReviews as $i)
+                                        @dd($i)
                                         <div class="review_box mb-3">
                                             <div class="d-flex mb-2 align-items-center justify-content-between">
-                                                <small class="text-muted">{{ !empty($v->created_at) ? $v->created_at->format('Y.m.d') : "" }}</small>
+                                                <small class="text-muted">{{ !empty($i->created_at) ? $i->created_at->format('Y.m.d') : "" }}</small>
                                                 <div class="d-flex align-items-center gap-1 rating-stars">
-                                                    @if ($v->rating == 1)
+                                                    @if ($i->rating == 1)
                                                         <i class="fas fa-star"></i>
                                                         <i class="far fa-star"></i>
                                                         <i class="far fa-star"></i>
                                                         <i class="far fa-star"></i>
                                                         <i class="far fa-star"></i>
-                                                    @elseif($v->rating == 2)
+                                                    @elseif($i->rating == 2)
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                         <i class="far fa-star"></i>
                                                         <i class="far fa-star"></i>
                                                         <i class="far fa-star"></i>
-                                                    @elseif($v->rating == 3)
+                                                    @elseif($i->rating == 3)
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                         <i class="far fa-star"></i>
                                                         <i class="far fa-star"></i>
-                                                    @elseif($v->rating == 4)
+                                                    @elseif($i->rating == 4)
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
                                                         <i class="fas fa-star"></i>
@@ -143,8 +144,8 @@
                                                     @endif
                                                 </div>
                                             </div>
-                                            <p class="font-weight-600 mb-2">{{ $v->title }}.</p>
-                                            <p class="mb-0">{{ $v->content }}</p>
+                                            <p class="font-weight-600 mb-2">{{ $i->title }}.</p>
+                                            <p class="mb-0">{{ $i->content }}</p>
                                         </div>
                                     @endforeach
                                 @endif
