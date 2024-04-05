@@ -120,19 +120,19 @@
             <p class="text-beige font-weight-700 text-center mb-2">[{{ $offline_reviews->count() }}] 오프라인 리뷰!</p>
             <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
             <div class="w-50 review_tabs m-auto py-5">
-                <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab" role="tablist">
+                <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="pills-tab2" role="tablist">
                     @foreach ($category as $c)
                         <li class="nav-item">
-                            <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="pills-{{ $c->id }}"
-                               data-toggle="pill" href="#pill-{{ $c->id }}" role="tab"
+                            <a class="nav-link {{ $loop->index == 0 ? 'active' : '' }}" id="pills-offline-{{ $c->id }}"
+                               data-toggle="pill" href="#pills-offline-{{ $c->id }}" role="tab"
                                aria-controls="pills-{{ $c->id }}" aria-selected="true">{{ $c->name }}</a>
                         </li>
                     @endforeach
                 </ul>
-                <div class="tab-content" id="pills-tabContent">
+                <div class="tab-content" id="pills-tabContent2">
                     @foreach ($category as $r)
                         <div class="tab-pane fade {{ $loop->index == 0 ? 'active show' : '' }}"
-                             id="pill-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-{{ $r->id }}">
+                             id="pills-offline-{{ $r->id }}" role="tabpanel" aria-labelledby="pills-offline-{{ $r->id }}">
                             @if ($r->getOfflineReviews->count() > 0)
                                 @foreach ($r->getOfflineReviews as $v)
                                     <div class="review_box mb-3">
@@ -207,7 +207,9 @@
             spaceBetween: 30,
             slidesPerGroup: 3,
             loop: true,
-            autoplay : true,
+            autoplay: {
+                delay: 1000,
+            },
             loopFillGroupWithBlank: true,
             navigation: {
                 nextEl: ".course-reviews-next",
