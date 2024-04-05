@@ -128,7 +128,7 @@
 
     <div class="section">
         <div class="container">
-            <p class="text-beige font-weight-700 text-center mb-2">[{{ $offline_reviews->count() }}] 건의 수강후기가 있어요!</p>
+            <p class="text-beige font-weight-700 text-center mb-2">[{{ $offline_reviews->count() }}] 오프라인 리뷰!</p>
             <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
             <div class="w-50 review_tabs m-auto py-5">
                 <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="offline-pills-tab" role="tablist">
