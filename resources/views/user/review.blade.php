@@ -16,11 +16,9 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <img src="{{ asset('web_assets/images/quote-img.png') }}" height="25"
                                                  class="mb-4" alt="quotes">
-                                            <h6 class="heading mb-4">({{ $r->type }}
-                                                ) {{ $r->type == 'Online' ? Str::limit($r->getCourse->course_title,50) : Str::limit($r->getCousreName->course_title,50) }}
-                                                .</h6>
+                                            <h6 class="heading mb-4">({{ $r->type }}) {{ $r->type == 'Online' ? Str::limit($r->getCourse->course_title,50) : Str::limit($r->getCousreName->course_title,50) }}</h6>
                                         </div>
-                                        <h6 class="heading mb-4">{{ $r->title }}.</h6>
+                                        <h6 class="heading mb-4">{{ $r->title }}</h6>
                                         <p class="mb-4">{{ $r->content }}</p>
                                         <div class="d-flex align-items-center justify-content-between">
                                             <small
