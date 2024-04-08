@@ -11,7 +11,7 @@
                 <div class="footer-right-content text-right">
                     <ul class="social-icons mb-4">
                         <li><a href="https://www.facebook.com/PTEdu2016"><i class="fab fa-facebook"></i></a></li>
-                        <li><a href="https://www.instagram.com/ptedu.official/?igshid=MDM4ZDc5MmU%3D"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/ptedu_official?igsh=cG93NmN2ZHRnbmJv"><i class="fab fa-instagram"></i></a></li>
                     </ul>
                     <a href="http://pf.kakao.com/_xjKnpd"><img style="height: 35px;" src="{{ asset('web_assets/images/question_large_mono_mobile.png') }}" /></a>
 
