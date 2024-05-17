@@ -48,7 +48,7 @@
     <div class="section">
         <div class="container">
             <p class="text-beige font-weight-700 text-center mb-2">[{{ $online_reviews->count() }}] 건의 수강후기가 있어요!</p>
-            <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
+            <h5 class="heading mb-0 text-center">PTEdu Online 강좌후기</h5>
             <div class="w-50 review_tabs m-auto py-5">
                 <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="online-pills-tab" role="tablist">
                     @foreach ($online_category as $c)
@@ -126,8 +126,8 @@
 
     <div class="section">
         <div class="container">
-            <p class="text-beige font-weight-700 text-center mb-2">[{{ $offline_reviews->count() }}] 오프라인 리뷰!</p>
-            <h5 class="heading mb-0 text-center">PTEdu {{ __('translation.Course Review') }}</h5>
+            <p class="text-beige font-weight-700 text-center mb-2">[{{ $offline_reviews->count() }}] 건의 수강후기가 있어요!</p>
+            <h5 class="heading mb-0 text-center">PTEdu Offline 강좌후기</h5>
             <div class="w-50 review_tabs m-auto py-5">
                 <ul class="nav nav-pills mb-5 nav_tabs justify-content-center" id="offline-pills-tab" role="tablist">
                     @foreach ($off_category as $x)
