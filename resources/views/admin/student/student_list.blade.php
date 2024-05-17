@@ -122,13 +122,13 @@
                                     <td>
                                 <span class="course_name">
                                     <ul style="list-style: none; padding-left:0px !important;">
-                                        @if (($item->getOfflineEnrolments->count() > 0) || ($item->getOnlineEnrolments->count() > 0))
+                                        @if (($item->getOfflineEnrolments->count() > 0))
                                             @foreach($item->getOnlineEnrolments as $course)
                                                 <li class="border-0 mb-2">
                                             {{ $course->getCourses->course_title }} ({{ __('translation.Online')}})
                                         </li>
                                             @endforeach
-                                        @elseif(($item->getOfflineEnrolments->count() > 0) || ($item->getOfflineEnrolments->count() > 0))
+                                        @elseif(($item->getOfflineEnrolments->count() > 0))
                                             @foreach($item->getOfflineEnrolments as $offline_course)
                                                 <li class="border-0 mb-2">
                                             {{ $offline_course->getCousreName->course_title ?? '' }} ({{ __('translation.Offline')}})

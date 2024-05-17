@@ -85,7 +85,7 @@ class OfflineCourseController extends Controller
         $course_thumbnail = $this->upload_files($request['course_img']);
         $course_banner = $this->upload_files_banner($request['banner_img']);
         $course_schedule = json_encode($request->course_scheduling);
-        $offline_course = Offline_course::create([
+        $offline_course = Offline_course::query()->create([
             'tutor_id' => $request['tutor_name'],
             'category_id' => $request['category'],
             'course_title' => $request['course_title'],
@@ -100,6 +100,7 @@ class OfflineCourseController extends Controller
             'course_banner' => $course_banner,
             'no_of_enrollments' => $request['no_of_enrollments'],
             'course_schedule' => $course_schedule,
+            'course_category' => 'offline',
         ]);
 
         if ($offline_course) {
