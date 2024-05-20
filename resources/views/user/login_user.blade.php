@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-login">{{ __('translation.Login') }}</a>
+                        <button type="submit" class="btn btn-login">{{ __('translation.Login') }}</button>
                     </div>
 
                     <div class="d-flex align-items-center justify-content-between p-3 mt-0 mb-2" style="border-bottom: 1px solid #191B1D;">
