@@ -382,11 +382,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/clear', function () {
 
-    Artisan::call('cache:clear');
-    Artisan::call('config:clear');
-    Artisan::call('config:cache');
-    Artisan::call('view:clear');
-    Artisan::call('optimize:clear');
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:cache');
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    \Illuminate\Support\Facades\Artisan::call('optimize:clear');
 
     return "Cleared!";
 
@@ -394,7 +394,7 @@ Route::get('/clear', function () {
 
 Route::get('/migrate', function () {
 
-    Artisan::call('migrate');
+    \Illuminate\Support\Facades\Artisan::call('migrate');
 
     return "migrated!";
 

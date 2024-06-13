@@ -32,7 +32,7 @@
                     <tr>
                         <td> {{ $loop->index+1 }} </td>
                         <td><a class="text-dark" href="{{ route('notice_detail',$item->id) }}" style="cursor: pointer;">{{ Str::limit($item->title, 70) }} </a> </td>
-                        <td>1</td>
+                        <td>{{ $item->views }}</td>
                     </tr>
                     @endforeach
                     @else
