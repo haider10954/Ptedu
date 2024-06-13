@@ -22,7 +22,7 @@
                     <tr>
                         <th>{{ __('translation.Number') }}</th>
                         <th>{{ __('translation.Title') }}</th>
-                        <th>{{ __('translation.Date') }}</th>
+                        <th>조회수</th>
                     </tr>
                 </thead>
                 <tbody class="font-14px">
@@ -32,7 +32,7 @@
                     <tr>
                         <td> {{ $loop->index+1 }} </td>
                         <td><a class="text-dark" href="{{ route('notice_detail',$item->id) }}" style="cursor: pointer;">{{ Str::limit($item->title, 70) }} </a> </td>
-                        <td>{{ Carbon\Carbon::parse($item->created_at)->format('Y-m-d') }}</td>
+                        <td>1</td>
                     </tr>
                     @endforeach
                     @else
