@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('notice_views', function (Blueprint $table) {
             $table->id();
-            $table->foreign('notice_id')->references('id')->on('notices')->onDelete('cascade');
+            $table->foreignId('notice_id')->constrained('notices')->cascadeOnDelete();
             $table->string('ip_address');
             $table->timestamps();
         });
