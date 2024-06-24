@@ -50,21 +50,28 @@ class IndexController extends Controller
 
         // Update view count only if it's a unique visit
         $ipAddress = request()->ip();
-        $view = DB::table('notice_views')
-            ->where('notice_id', $id)
-            ->where('ip_address', $ipAddress)
-            ->first();
+        // $view = DB::table('notice_views')
+        //     ->where('notice_id', $id)
+        //     ->where('ip_address', $ipAddress)
+        //     ->first();
 
-        if (!$view) {
-            // If IP address hasn't viewed the notice yet, increment the view count
-            DB::table('notices')->where('id', $id)->increment('views');
+        DB::table('notices')->where('id', $id)->increment('views');
 
-            // Record the view
-            DB::table('notice_views')->insert([
-                'notice_id' => $id,
-                'ip_address' => $ipAddress,
-            ]);
-        }
+        DB::table('notice_views')->insert([
+            'notice_id' => $id,
+            'ip_address' => $ipAddress,
+        ]);
+
+        // if (!$view) {
+        //     // If IP address hasn't viewed the notice yet, increment the view count
+        //     DB::table('notices')->where('id', $id)->increment('views');
+
+        //     // Record the view
+        //     DB::table('notice_views')->insert([
+        //         'notice_id' => $id,
+        //         'ip_address' => $ipAddress,
+        //     ]);
+        // }
 
         return view('user.notice_detail', compact('notices'));
     }
